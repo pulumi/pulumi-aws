@@ -508,7 +508,7 @@ class RecordGeoproximityRoutingPolicyArgsDict(TypedDict):
     """
     Route more traffic or less traffic to the resource by specifying a value ranges between -90 to 90. See https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html for bias details.
     """
-    coordinates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgs']]]]]
+    coordinates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecordGeoproximityRoutingPolicyCoordinateArgsDict']]]]]
     """
     Specify `latitude` and `longitude` for routing traffic to non-AWS resources.
     """
@@ -680,24 +680,24 @@ class RecordsExclusiveResourceRecordSetArgsDict(TypedDict):
     """
     Name of the record.
     """
-    alias_target: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetAliasTargetArgs']]]
+    alias_target: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetAliasTargetArgsDict']]]
     """
     Alias target block.
     See `alias_target` below.
     """
-    cidr_routing_config: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetCidrRoutingConfigArgs']]]
+    cidr_routing_config: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetCidrRoutingConfigArgsDict']]]
     failover: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of failover resource record.
     Valid values are `PRIMARY` and `SECONDARY`.
     See the [AWS documentation on DNS failover](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html) for additional details.
     """
-    geolocation: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeolocationArgs']]]
+    geolocation: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeolocationArgsDict']]]
     """
     Geolocation block to control how Amazon Route 53 responds to DNS queries based on the geographic origin of the query.
     See `geolocation` below.
     """
-    geoproximity_location: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeoproximityLocationArgs']]]
+    geoproximity_location: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeoproximityLocationArgsDict']]]
     """
     Geoproximity location block.
     See `geoproximity_location` below.
@@ -716,7 +716,7 @@ class RecordsExclusiveResourceRecordSetArgsDict(TypedDict):
     Must be a valid AWS region name.
     See the [AWS documentation](http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html#routing-policy-latency) on latency based routing for additional details.
     """
-    resource_records: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgs']]]]]
+    resource_records: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecordsExclusiveResourceRecordSetResourceRecordArgsDict']]]]]
     """
     Information about the resource records to act upon.
     See `resource_records` below.
@@ -1239,7 +1239,7 @@ class RecordsExclusiveResourceRecordSetGeoproximityLocationArgsDict(TypedDict):
     To shrink the size of the geographic region from which Route 53 routes traffic to a resource, specify a negative bias of `-1` to `-99`.
     See the [AWS documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-geoproximity.html) for additional details.
     """
-    coordinates: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgs']]]
+    coordinates: NotRequired[pulumi.Input[Optional['RecordsExclusiveResourceRecordSetGeoproximityLocationCoordinatesArgsDict']]]
     """
     Coordinates for a geoproximity resource record.
     See `coordinates` below.

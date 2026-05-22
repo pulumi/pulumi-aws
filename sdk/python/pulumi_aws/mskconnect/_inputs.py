@@ -58,11 +58,11 @@ __all__ = [
 ]
 
 class ConnectorCapacityArgsDict(TypedDict):
-    autoscaling: NotRequired[pulumi.Input[Optional['ConnectorCapacityAutoscalingArgs']]]
+    autoscaling: NotRequired[pulumi.Input[Optional['ConnectorCapacityAutoscalingArgsDict']]]
     """
     Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
     """
-    provisioned_capacity: NotRequired[pulumi.Input[Optional['ConnectorCapacityProvisionedCapacityArgs']]]
+    provisioned_capacity: NotRequired[pulumi.Input[Optional['ConnectorCapacityProvisionedCapacityArgsDict']]]
     """
     Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
     """
@@ -119,11 +119,11 @@ class ConnectorCapacityAutoscalingArgsDict(TypedDict):
     """
     The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
     """
-    scale_in_policy: NotRequired[pulumi.Input[Optional['ConnectorCapacityAutoscalingScaleInPolicyArgs']]]
+    scale_in_policy: NotRequired[pulumi.Input[Optional['ConnectorCapacityAutoscalingScaleInPolicyArgsDict']]]
     """
     The scale-in policy for the connector. See `scale_in_policy` Block for details.
     """
-    scale_out_policy: NotRequired[pulumi.Input[Optional['ConnectorCapacityAutoscalingScaleOutPolicyArgs']]]
+    scale_out_policy: NotRequired[pulumi.Input[Optional['ConnectorCapacityAutoscalingScaleOutPolicyArgsDict']]]
     """
     The scale-out policy for the connector. See `scale_out_policy` Block for details.
     """
@@ -528,15 +528,15 @@ class ConnectorLogDeliveryArgs:
 
 
 class ConnectorLogDeliveryWorkerLogDeliveryArgsDict(TypedDict):
-    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs']]]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgsDict']]]
     """
     Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
     """
-    firehose: NotRequired[pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs']]]
+    firehose: NotRequired[pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgsDict']]]
     """
     Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
     """
-    s3: NotRequired[pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryS3Args']]]
+    s3: NotRequired[pulumi.Input[Optional['ConnectorLogDeliveryWorkerLogDeliveryS3ArgsDict']]]
     """
     Details about delivering logs to Amazon S3. See `s3` Block for deetails.
     """

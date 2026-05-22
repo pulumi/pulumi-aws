@@ -429,11 +429,11 @@ class ServiceInstanceConfigurationArgs:
 
 
 class ServiceNetworkConfigurationArgsDict(TypedDict):
-    egress_configuration: NotRequired[pulumi.Input[Optional['ServiceNetworkConfigurationEgressConfigurationArgs']]]
+    egress_configuration: NotRequired[pulumi.Input[Optional['ServiceNetworkConfigurationEgressConfigurationArgsDict']]]
     """
     Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
     """
-    ingress_configuration: NotRequired[pulumi.Input[Optional['ServiceNetworkConfigurationIngressConfigurationArgs']]]
+    ingress_configuration: NotRequired[pulumi.Input[Optional['ServiceNetworkConfigurationIngressConfigurationArgsDict']]]
     """
     Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
     """
@@ -624,7 +624,7 @@ class ServiceObservabilityConfigurationArgs:
 
 
 class ServiceSourceConfigurationArgsDict(TypedDict):
-    authentication_configuration: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationAuthenticationConfigurationArgs']]]
+    authentication_configuration: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationAuthenticationConfigurationArgsDict']]]
     """
     Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
     """
@@ -632,11 +632,11 @@ class ServiceSourceConfigurationArgsDict(TypedDict):
     """
     Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
     """
-    code_repository: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryArgs']]]
+    code_repository: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryArgsDict']]]
     """
     Description of a source code repository. See Code Repository below for more details.
     """
-    image_repository: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationImageRepositoryArgs']]]
+    image_repository: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationImageRepositoryArgsDict']]]
     """
     Description of a source image repository. See Image Repository below for more details.
     """
@@ -770,7 +770,7 @@ class ServiceSourceConfigurationCodeRepositoryArgsDict(TypedDict):
     """
     Version that should be used within the source code repository. See Source Code Version below for more details.
     """
-    code_configuration: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs']]]
+    code_configuration: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgsDict']]]
     """
     Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
     """
@@ -857,7 +857,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgsDict(TypedDic
     * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
     parameter and ignores the apprunner.yaml file in the source code repository.
     """
-    code_configuration_values: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs']]]
+    code_configuration_values: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgsDict']]]
     """
     Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
     """
@@ -1093,7 +1093,7 @@ class ServiceSourceConfigurationImageRepositoryArgsDict(TypedDict):
     """
     Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
     """
-    image_configuration: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs']]]
+    image_configuration: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationImageRepositoryImageConfigurationArgsDict']]]
     """
     Configuration for running the identified image. See Image Configuration below for more details.
     """

@@ -26,21 +26,21 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getCallerIdentity({});
  * const logging = new aws.s3.Bucket("logging", {bucket: "access-logging-bucket"});
- * const loggingBucketPolicy = pulumi.all([logging.arn, current]).apply(([arn, current]) => aws.iam.getPolicyDocumentOutput({
+ * const loggingBucketPolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         principals: [{
  *             identifiers: ["logging.s3.amazonaws.com"],
  *             type: "Service",
  *         }],
  *         actions: ["s3:PutObject"],
- *         resources: [`${arn}/*`],
+ *         resources: [pulumi.interpolate`${logging.arn}/*`],
  *         conditions: [{
  *             test: "StringEquals",
  *             variable: "aws:SourceAccount",
- *             values: [current.accountId],
+ *             values: [current.then(current => current.accountId)],
  *         }],
  *     }],
- * }));
+ * });
  * const loggingBucketPolicy2 = new aws.s3.BucketPolicy("logging", {
  *     bucket: logging.bucket,
  *     policy: loggingBucketPolicy.apply(loggingBucketPolicy => loggingBucketPolicy.json),

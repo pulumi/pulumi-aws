@@ -100,12 +100,12 @@ namespace Pulumi.Aws.LightSail
     ///     {
     ///         Statements = new[]
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
     ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
     ///                         Type = "AWS",
     ///                         Identifiers = new[]

@@ -176,11 +176,11 @@ class ScheduledQueryErrorReportConfigurationS3ConfigurationArgs:
 
 
 class ScheduledQueryLastRunSummaryArgsDict(TypedDict):
-    error_report_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationArgs']]]]]
+    error_report_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationArgsDict']]]]]
     """
     S3 location for error report.
     """
-    execution_stats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryExecutionStatArgs']]]]]
+    execution_stats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryExecutionStatArgsDict']]]]]
     """
     Statistics for a single scheduled query run.
     """
@@ -192,7 +192,7 @@ class ScheduledQueryLastRunSummaryArgsDict(TypedDict):
     """
     InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
     """
-    query_insights_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseArgs']]]]]
+    query_insights_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseArgsDict']]]]]
     """
     Various insights and metrics related to the run summary of the scheduled query.
     """
@@ -325,7 +325,7 @@ class ScheduledQueryLastRunSummaryArgs:
 
 
 class ScheduledQueryLastRunSummaryErrorReportLocationArgsDict(TypedDict):
-    s3_report_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgs']]]]]
+    s3_report_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryErrorReportLocationS3ReportLocationArgsDict']]]]]
     """
     S3 location where error reports are written.
     """
@@ -540,7 +540,7 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseArgsDict(TypedDict):
     """
     Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
     """
-    query_spatial_coverages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgs']]]]]
+    query_spatial_coverages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgsDict']]]]]
     """
     Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
     """
@@ -548,7 +548,7 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseArgsDict(TypedDict):
     """
     Number of tables in the query.
     """
-    query_temporal_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgs']]]]]
+    query_temporal_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgsDict']]]]]
     """
     Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
     """
@@ -641,7 +641,7 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseArgs:
 
 
 class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageArgsDict(TypedDict):
-    maxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]]]
+    maxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxisArgsDict']]]]]
     """
     Insights into the most sub-optimal performing table on the temporal axis:
     """
@@ -739,7 +739,7 @@ class ScheduledQueryLastRunSummaryQueryInsightsResponseQuerySpatialCoverageMaxis
 
 
 class ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeArgsDict(TypedDict):
-    maxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]]]
+    maxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryLastRunSummaryQueryInsightsResponseQueryTemporalRangeMaxisArgsDict']]]]]
     """
     Insights into the most sub-optimal performing table on the temporal axis:
     """
@@ -873,11 +873,11 @@ class ScheduledQueryNotificationConfigurationSnsConfigurationArgs:
 
 
 class ScheduledQueryRecentlyFailedRunArgsDict(TypedDict):
-    error_report_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationArgs']]]]]
+    error_report_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationArgsDict']]]]]
     """
     S3 location for error report.
     """
-    execution_stats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunExecutionStatArgs']]]]]
+    execution_stats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunExecutionStatArgsDict']]]]]
     """
     Statistics for a single scheduled query run.
     """
@@ -889,7 +889,7 @@ class ScheduledQueryRecentlyFailedRunArgsDict(TypedDict):
     """
     InvocationTime for this run. This is the time at which the query is scheduled to run. Parameter `@scheduled_runtime` can be used in the query to get the value.
     """
-    query_insights_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs']]]]]
+    query_insights_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgsDict']]]]]
     """
     Various insights and metrics related to the run summary of the scheduled query.
     """
@@ -1022,7 +1022,7 @@ class ScheduledQueryRecentlyFailedRunArgs:
 
 
 class ScheduledQueryRecentlyFailedRunErrorReportLocationArgsDict(TypedDict):
-    s3_report_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgs']]]]]
+    s3_report_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunErrorReportLocationS3ReportLocationArgsDict']]]]]
     """
     S3 location where error reports are written.
     """
@@ -1237,7 +1237,7 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgsDict(TypedDict):
     """
     Total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.
     """
-    query_spatial_coverages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgs']]]]]
+    query_spatial_coverages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgsDict']]]]]
     """
     Insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.
     """
@@ -1245,7 +1245,7 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgsDict(TypedDict):
     """
     Number of tables in the query.
     """
-    query_temporal_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgs']]]]]
+    query_temporal_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgsDict']]]]]
     """
     Insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning: add missing time-predicates, remove functions around the time predicates, add time predicates to all the sub-queries.
     """
@@ -1338,7 +1338,7 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseArgs:
 
 
 class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageArgsDict(TypedDict):
-    maxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgs']]]]]
+    maxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMaxisArgsDict']]]]]
     """
     Insights into the most sub-optimal performing table on the temporal axis:
     """
@@ -1436,7 +1436,7 @@ class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQuerySpatialCoverageMa
 
 
 class ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeArgsDict(TypedDict):
-    maxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgs']]]]]
+    maxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRecentlyFailedRunQueryInsightsResponseQueryTemporalRangeMaxisArgsDict']]]]]
     """
     Insights into the most sub-optimal performing table on the temporal axis:
     """
@@ -1590,11 +1590,11 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationArgsDict(TypedDict
     """
     Name of the measure column.
     """
-    mixed_measure_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgs']]]]]
+    mixed_measure_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingArgsDict']]]]]
     """
     Configuration block for how to map measures to multi-measure records. See below.
     """
-    multi_measure_mappings: NotRequired[pulumi.Input[Optional['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs']]]
+    multi_measure_mappings: NotRequired[pulumi.Input[Optional['ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgsDict']]]
     """
     Configuration block for multi-measure mappings. Only one of `mixed_measure_mappings` or `multi_measure_mappings` can be provided. `multi_measure_mappings` can be used to ingest data as multi measures in the derived table. See below.
     """
@@ -1770,7 +1770,7 @@ class ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappin
     """
     Refers to the value of measure_name in a result row. This field is required if `measure_name_column` is provided.
     """
-    multi_measure_attribute_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgs']]]]]
+    multi_measure_attribute_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryTargetConfigurationTimestreamConfigurationMixedMeasureMappingMultiMeasureAttributeMappingArgsDict']]]]]
     """
     Configuration block for attribute mappings for `MULTI` value measures. Required when `measure_value_type` is `MULTI`. See below.
     """

@@ -40,7 +40,7 @@ class EnvironmentLastUpdatedArgsDict(TypedDict):
     """
     The Created At date of the MWAA Environment
     """
-    errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentLastUpdatedErrorArgs']]]]]
+    errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EnvironmentLastUpdatedErrorArgsDict']]]]]
     status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The status of the Amazon MWAA Environment
@@ -131,23 +131,23 @@ class EnvironmentLastUpdatedErrorArgs:
 
 
 class EnvironmentLoggingConfigurationArgsDict(TypedDict):
-    dag_processing_logs: NotRequired[pulumi.Input[Optional['EnvironmentLoggingConfigurationDagProcessingLogsArgs']]]
+    dag_processing_logs: NotRequired[pulumi.Input[Optional['EnvironmentLoggingConfigurationDagProcessingLogsArgsDict']]]
     """
     (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
     """
-    scheduler_logs: NotRequired[pulumi.Input[Optional['EnvironmentLoggingConfigurationSchedulerLogsArgs']]]
+    scheduler_logs: NotRequired[pulumi.Input[Optional['EnvironmentLoggingConfigurationSchedulerLogsArgsDict']]]
     """
     Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
     """
-    task_logs: NotRequired[pulumi.Input[Optional['EnvironmentLoggingConfigurationTaskLogsArgs']]]
+    task_logs: NotRequired[pulumi.Input[Optional['EnvironmentLoggingConfigurationTaskLogsArgsDict']]]
     """
     Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
     """
-    webserver_logs: NotRequired[pulumi.Input[Optional['EnvironmentLoggingConfigurationWebserverLogsArgs']]]
+    webserver_logs: NotRequired[pulumi.Input[Optional['EnvironmentLoggingConfigurationWebserverLogsArgsDict']]]
     """
     Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
     """
-    worker_logs: NotRequired[pulumi.Input[Optional['EnvironmentLoggingConfigurationWorkerLogsArgs']]]
+    worker_logs: NotRequired[pulumi.Input[Optional['EnvironmentLoggingConfigurationWorkerLogsArgsDict']]]
     """
     Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
     """

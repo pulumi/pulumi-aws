@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 class ServiceQuotaUsageMetricArgsDict(TypedDict):
-    metric_dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]]]
+    metric_dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgsDict']]]]]
     """
     The metric dimensions.
     """

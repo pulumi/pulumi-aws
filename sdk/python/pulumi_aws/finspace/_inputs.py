@@ -377,7 +377,7 @@ class KxClusterDatabaseArgsDict(TypedDict):
     """
     Name of the KX database.
     """
-    cache_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]]]]
+    cache_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgsDict']]]]]
     """
     Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
     """
@@ -909,7 +909,7 @@ class KxEnvironmentTransitGatewayConfigurationArgsDict(TypedDict):
     """
     Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
     """
-    attachment_network_acl_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs']]]]]
+    attachment_network_acl_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgsDict']]]]]
     """
     Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
     """
@@ -984,11 +984,11 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationA
     """
     Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
     """
-    icmp_type_code: NotRequired[pulumi.Input[Optional['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs']]]
+    icmp_type_code: NotRequired[pulumi.Input[Optional['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgsDict']]]
     """
     Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
     """
-    port_range: NotRequired[pulumi.Input[Optional['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs']]]
+    port_range: NotRequired[pulumi.Input[Optional['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgsDict']]]
     """
     Range of ports the rule applies to. Defined below.
     """

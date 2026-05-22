@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const q = new aws.sqs.Queue("q", {name: "examplequeue"});
- * const test = q.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const test = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: "First",
  *         effect: "Allow",
@@ -30,14 +30,14 @@ import * as utilities from "../utilities";
  *             identifiers: ["*"],
  *         }],
  *         actions: ["sqs:SendMessage"],
- *         resources: [arn],
+ *         resources: [q.arn],
  *         conditions: [{
  *             test: "ArnEquals",
  *             variable: "aws:SourceArn",
  *             values: [example.arn],
  *         }],
  *     }],
- * }));
+ * });
  * const testQueuePolicy = new aws.sqs.QueuePolicy("test", {
  *     queueUrl: q.id,
  *     policy: test.apply(test => test.json),

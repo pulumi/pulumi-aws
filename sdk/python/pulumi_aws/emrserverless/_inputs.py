@@ -164,7 +164,7 @@ class ApplicationInitialCapacityArgsDict(TypedDict):
     """
     The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
     """
-    initial_capacity_config: NotRequired[pulumi.Input[Optional['ApplicationInitialCapacityInitialCapacityConfigArgs']]]
+    initial_capacity_config: NotRequired[pulumi.Input[Optional['ApplicationInitialCapacityInitialCapacityConfigArgsDict']]]
     """
     The initial capacity configuration per worker.
     """
@@ -212,7 +212,7 @@ class ApplicationInitialCapacityInitialCapacityConfigArgsDict(TypedDict):
     """
     The number of workers in the initial capacity configuration.
     """
-    worker_configuration: NotRequired[pulumi.Input[Optional['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']]]
+    worker_configuration: NotRequired[pulumi.Input[Optional['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgsDict']]]
     """
     The resource configuration of the initial capacity configuration.
     """
@@ -459,19 +459,19 @@ class ApplicationMaximumCapacityArgs:
 
 
 class ApplicationMonitoringConfigurationArgsDict(TypedDict):
-    cloudwatch_logging_configuration: NotRequired[pulumi.Input[Optional['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs']]]
+    cloudwatch_logging_configuration: NotRequired[pulumi.Input[Optional['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgsDict']]]
     """
     The Amazon CloudWatch configuration for monitoring logs.
     """
-    managed_persistence_monitoring_configuration: NotRequired[pulumi.Input[Optional['ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs']]]
+    managed_persistence_monitoring_configuration: NotRequired[pulumi.Input[Optional['ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgsDict']]]
     """
     The managed log persistence configuration for monitoring logs.
     """
-    prometheus_monitoring_configuration: NotRequired[pulumi.Input[Optional['ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs']]]
+    prometheus_monitoring_configuration: NotRequired[pulumi.Input[Optional['ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgsDict']]]
     """
     The Prometheus configuration for monitoring metrics.
     """
-    s3_monitoring_configuration: NotRequired[pulumi.Input[Optional['ApplicationMonitoringConfigurationS3MonitoringConfigurationArgs']]]
+    s3_monitoring_configuration: NotRequired[pulumi.Input[Optional['ApplicationMonitoringConfigurationS3MonitoringConfigurationArgsDict']]]
     """
     The Amazon S3 configuration for monitoring log publishing.
     """
@@ -564,7 +564,7 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgsDict(T
     """
     Prefix for the CloudWatch log stream name.
     """
-    log_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs']]]]]
+    log_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgsDict']]]]]
     """
     The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See log_types for more details.
     """

@@ -249,8 +249,8 @@ class EnvironmentHighAvailabilityConfigArgs:
 
 
 class EnvironmentStorageConfigurationArgsDict(TypedDict):
-    efs: NotRequired[pulumi.Input[Optional['EnvironmentStorageConfigurationEfsArgs']]]
-    fsx: NotRequired[pulumi.Input[Optional['EnvironmentStorageConfigurationFsxArgs']]]
+    efs: NotRequired[pulumi.Input[Optional['EnvironmentStorageConfigurationEfsArgsDict']]]
+    fsx: NotRequired[pulumi.Input[Optional['EnvironmentStorageConfigurationFsxArgsDict']]]
 
 @pulumi.input_type
 class EnvironmentStorageConfigurationArgs:

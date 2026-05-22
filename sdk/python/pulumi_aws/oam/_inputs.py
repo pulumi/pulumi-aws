@@ -24,11 +24,11 @@ __all__ = [
 ]
 
 class LinkLinkConfigurationArgsDict(TypedDict):
-    log_group_configuration: NotRequired[pulumi.Input[Optional['LinkLinkConfigurationLogGroupConfigurationArgs']]]
+    log_group_configuration: NotRequired[pulumi.Input[Optional['LinkLinkConfigurationLogGroupConfigurationArgsDict']]]
     """
     Configuration for filtering which log groups are to send log events from the source account to the monitoring account. See `log_group_configuration` Block for details.
     """
-    metric_configuration: NotRequired[pulumi.Input[Optional['LinkLinkConfigurationMetricConfigurationArgs']]]
+    metric_configuration: NotRequired[pulumi.Input[Optional['LinkLinkConfigurationMetricConfigurationArgsDict']]]
     """
     Configuration for filtering which metric namespaces are to be shared from the source account to the monitoring account. See `metric_configuration` Block for details.
     """

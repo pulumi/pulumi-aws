@@ -105,7 +105,7 @@ class CentralizationRuleForOrganizationRuleDestinationArgsDict(TypedDict):
     """
     AWS region where logs will be centralized.
     """
-    destination_logs_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']]]
+    destination_logs_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict']]]
     """
     Configuration block for destination logs settings. See `destination_logs_configuration` below.
     """
@@ -164,15 +164,15 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
 
 
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict(TypedDict):
-    backup_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']]]
+    backup_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict']]]
     """
     Configuration block for backup settings. See `backup_configuration` below.
     """
-    log_group_name_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs']]]
+    log_group_name_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgsDict']]]
     """
     Configuration block for a naming pattern for destination log groups created during centralization. See `log_group_name_configuration` below.
     """
-    logs_encryption_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs']]]
+    logs_encryption_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict']]]
     """
     Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
     """
@@ -386,7 +386,7 @@ class CentralizationRuleForOrganizationRuleSourceArgsDict(TypedDict):
     """
     Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
     """
-    source_logs_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']]]
+    source_logs_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict']]]
     """
     Configuration block for source logs settings. See `source_logs_configuration` below.
     """

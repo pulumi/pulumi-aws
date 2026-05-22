@@ -242,7 +242,7 @@ class EmailTemplateEmailTemplateArgsDict(TypedDict):
     JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
     """
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgsDict']]]]]
     html_part: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.

@@ -2350,7 +2350,7 @@ class BotAliasConversationLogsArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
     """
-    log_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArgs']]]]]
+    log_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArgsDict']]]]]
     """
     The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
     """
@@ -3257,7 +3257,7 @@ class IntentFulfillmentActivityArgsDict(TypedDict):
     How the intent should be fulfilled, either by running a Lambda function or by
     returning the slot data to the client application. Type can be either `ReturnIntent` or `CodeHook`, as documented [here](https://docs.aws.amazon.com/lex/latest/dg/API_FulfillmentActivity.html).
     """
-    code_hook: NotRequired[pulumi.Input[Optional['IntentFulfillmentActivityCodeHookArgs']]]
+    code_hook: NotRequired[pulumi.Input[Optional['IntentFulfillmentActivityCodeHookArgsDict']]]
     """
     A description of the Lambda function that is run to fulfill the intent.
     Required if type is CodeHook. Attributes are documented under code_hook.
@@ -3501,7 +3501,7 @@ class IntentSlotArgsDict(TypedDict):
     """
     The version of the slot type. Must be less than or equal to 64 characters in length.
     """
-    value_elicitation_prompt: NotRequired[pulumi.Input[Optional['IntentSlotValueElicitationPromptArgs']]]
+    value_elicitation_prompt: NotRequired[pulumi.Input[Optional['IntentSlotValueElicitationPromptArgsDict']]]
     """
     The prompt that Amazon Lex uses to elicit the slot value
     from the user. Attributes are documented under prompt.
@@ -4235,15 +4235,15 @@ class V2modelsIntentClosingSettingArgsDict(TypedDict):
     """
     Whether an intent's closing response is used. When this field is false, the closing response isn't sent to the user. If the active field isn't specified, the default is true.
     """
-    closing_response: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseArgs']]]
+    closing_response: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseArgsDict']]]
     """
     Configuration block for response that Amazon Lex sends to the user when the intent is complete. See `closing_response`.
     """
-    conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalArgs']]]
+    conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalArgsDict']]]
     """
     Configuration block for list of conditional branches associated with the intent's closing response. These branches are executed when the `next_step` attribute is set to `EvalutateConditional`. See `conditional`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingNextStepArgsDict']]]
     """
     Next step that the bot executes after playing the intent's closing response. See `next_step`.
     """
@@ -4324,7 +4324,7 @@ class V2modelsIntentClosingSettingClosingResponseArgsDict(TypedDict):
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -4369,11 +4369,11 @@ class V2modelsIntentClosingSettingClosingResponseArgs:
 
 
 class V2modelsIntentClosingSettingClosingResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -4418,19 +4418,19 @@ class V2modelsIntentClosingSettingClosingResponseMessageGroupArgs:
 
 
 class V2modelsIntentClosingSettingClosingResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -4539,7 +4539,7 @@ class V2modelsIntentClosingSettingClosingResponseMessageGroupMessageImageRespons
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -4726,19 +4726,19 @@ class V2modelsIntentClosingSettingClosingResponseMessageGroupMessageSsmlMessageA
 
 
 class V2modelsIntentClosingSettingClosingResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -4847,7 +4847,7 @@ class V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageRespo
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -5038,11 +5038,11 @@ class V2modelsIntentClosingSettingConditionalArgsDict(TypedDict):
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -5106,15 +5106,15 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchArgsDict(TypedDict
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -5218,11 +5218,11 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchConditionArgs:
 
 
 class V2modelsIntentClosingSettingConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -5359,7 +5359,7 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentArgs
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -5412,7 +5412,7 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlot
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -5505,7 +5505,7 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseArgsDict(T
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -5550,11 +5550,11 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseArgs:
 
 
 class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -5599,19 +5599,19 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGro
 
 
 class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -5720,7 +5720,7 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGro
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -5907,19 +5907,19 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGro
 
 
 class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -6028,7 +6028,7 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGro
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -6215,11 +6215,11 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGro
 
 
 class V2modelsIntentClosingSettingConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -6264,11 +6264,11 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchArgs:
 
 
 class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -6405,7 +6405,7 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentArgsDict
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -6458,7 +6458,7 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotArgs
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -6551,7 +6551,7 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseArgsDict(Typed
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -6596,11 +6596,11 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseArgs:
 
 
 class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -6645,19 +6645,19 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupAr
 
 
 class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -6766,7 +6766,7 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMe
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -6953,19 +6953,19 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMe
 
 
 class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -7074,7 +7074,7 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVa
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -7261,11 +7261,11 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVa
 
 
 class V2modelsIntentClosingSettingNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -7402,7 +7402,7 @@ class V2modelsIntentClosingSettingNextStepIntentArgsDict(TypedDict):
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentClosingSettingNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -7455,7 +7455,7 @@ class V2modelsIntentClosingSettingNextStepIntentSlotArgsDict(TypedDict):
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentClosingSettingNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -7548,51 +7548,51 @@ class V2modelsIntentConfirmationSettingArgsDict(TypedDict):
     """
     Whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
     """
-    code_hook: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookArgs']]]
+    code_hook: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookArgsDict']]]
     """
     Configuration block for the intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invoke_dialog_code_hook`.  See `code_hook`.
     """
-    confirmation_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalArgs']]]
+    confirmation_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalArgsDict']]]
     """
     Configuration block for conditional branches to evaluate after the intent is closed. See `confirmation_conditional`.
     """
-    confirmation_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationNextStepArgs']]]
+    confirmation_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationNextStepArgsDict']]]
     """
     Configuration block for the next step that the bot executes when the customer confirms the intent. See `confirmation_next_step`.
     """
-    confirmation_response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseArgs']]]
+    confirmation_response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseArgsDict']]]
     """
     Configuration block for message groups that Amazon Lex uses to respond the user input. See `confirmation_response`.
     """
-    declination_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalArgs']]]
+    declination_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalArgsDict']]]
     """
     Configuration block for conditional branches to evaluate after the intent is declined. See `declination_conditional`.
     """
-    declination_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationNextStepArgs']]]
+    declination_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationNextStepArgsDict']]]
     """
     Configuration block for the next step that the bot executes when the customer declines the intent. See `declination_next_step`.
     """
-    declination_response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseArgs']]]
+    declination_response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseArgsDict']]]
     """
     Configuration block for when the user answers "no" to the question defined in `prompt_specification`, Amazon Lex responds with this response to acknowledge that the intent was canceled. See `declination_response`.
     """
-    elicitation_code_hook: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingElicitationCodeHookArgs']]]
+    elicitation_code_hook: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingElicitationCodeHookArgsDict']]]
     """
     Configuration block for when the code hook is invoked during confirmation prompt retries. See `elicitation_code_hook`.
     """
-    failure_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalArgs']]]
+    failure_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalArgsDict']]]
     """
     Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failure_conditional`.
     """
-    failure_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureNextStepArgs']]]
+    failure_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureNextStepArgsDict']]]
     """
     Configuration block for the next step to take in the conversation if the confirmation step fails. See `failure_next_step`.
     """
-    failure_response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseArgs']]]
+    failure_response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseArgsDict']]]
     """
     Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
     """
-    prompt_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationArgs']]]
+    prompt_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationArgsDict']]]
     """
     Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `prompt_specification`.
     """
@@ -7825,7 +7825,7 @@ class V2modelsIntentConfirmationSettingCodeHookArgsDict(TypedDict):
     """
     Label that indicates the dialog step from which the dialog code hook is happening.
     """
-    post_code_hook_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs']]]
+    post_code_hook_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgsDict']]]
     """
     Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
     """
@@ -7900,39 +7900,39 @@ class V2modelsIntentConfirmationSettingCodeHookArgs:
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgsDict(TypedDict):
-    failure_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalArgs']]]
+    failure_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalArgsDict']]]
     """
     Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
     """
-    failure_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepArgs']]]
+    failure_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepArgsDict']]]
     """
     Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `failure_next_step`.
     """
-    failure_response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseArgs']]]
+    failure_response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseArgsDict']]]
     """
     Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
     """
-    success_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalArgs']]]
+    success_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalArgsDict']]]
     """
     Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
     """
-    success_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgs']]]
+    success_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgsDict']]]
     """
     Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
     """
-    success_response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseArgs']]]
+    success_response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseArgsDict']]]
     """
     Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
     """
-    timeout_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs']]]
+    timeout_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgsDict']]]
     """
     Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
     """
-    timeout_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgs']]]
+    timeout_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgsDict']]]
     """
     Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
     """
-    timeout_response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseArgs']]]
+    timeout_response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
     """
@@ -8093,11 +8093,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -8161,15 +8161,15 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -8273,11 +8273,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -8414,7 +8414,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -8467,7 +8467,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -8560,7 +8560,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -8605,11 +8605,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -8654,19 +8654,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -8775,7 +8775,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -8962,19 +8962,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -9083,7 +9083,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -9270,11 +9270,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -9319,11 +9319,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -9460,7 +9460,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -9513,7 +9513,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -9606,7 +9606,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -9651,11 +9651,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -9700,19 +9700,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -9821,7 +9821,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -10008,19 +10008,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -10129,7 +10129,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -10316,11 +10316,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -10457,7 +10457,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureN
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -10510,7 +10510,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureN
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -10603,7 +10603,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -10648,11 +10648,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -10697,19 +10697,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -10818,7 +10818,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -11005,19 +11005,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -11126,7 +11126,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -11317,11 +11317,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -11385,15 +11385,15 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -11497,11 +11497,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -11638,7 +11638,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -11691,7 +11691,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -11784,7 +11784,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -11829,11 +11829,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -11878,19 +11878,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -11999,7 +11999,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -12186,19 +12186,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -12307,7 +12307,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -12494,11 +12494,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -12543,11 +12543,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -12684,7 +12684,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -12737,7 +12737,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -12830,7 +12830,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -12875,11 +12875,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -12924,19 +12924,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -13045,7 +13045,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -13232,19 +13232,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -13353,7 +13353,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -13540,11 +13540,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -13681,7 +13681,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessN
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -13734,7 +13734,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessN
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -13827,7 +13827,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -13872,11 +13872,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -13921,19 +13921,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -14042,7 +14042,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -14229,19 +14229,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -14350,7 +14350,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -14541,11 +14541,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -14609,15 +14609,15 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -14721,11 +14721,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -14862,7 +14862,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -14915,7 +14915,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -15008,7 +15008,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -15053,11 +15053,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -15102,19 +15102,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -15223,7 +15223,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -15410,19 +15410,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -15531,7 +15531,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -15718,11 +15718,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -15767,11 +15767,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -15908,7 +15908,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -15961,7 +15961,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -16054,7 +16054,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -16099,11 +16099,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -16148,19 +16148,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -16269,7 +16269,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -16456,19 +16456,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -16577,7 +16577,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -16764,11 +16764,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -16905,7 +16905,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutN
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -16958,7 +16958,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutN
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -17051,7 +17051,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -17096,11 +17096,11 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -17145,19 +17145,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -17266,7 +17266,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -17453,19 +17453,19 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
 
 
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -17574,7 +17574,7 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -17765,11 +17765,11 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalArgsDict(TypedDict
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -17833,15 +17833,15 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchA
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -17945,11 +17945,11 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchC
 
 
 class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -18086,7 +18086,7 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchN
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -18139,7 +18139,7 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchN
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -18232,7 +18232,7 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -18277,11 +18277,11 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
 
 
 class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -18326,19 +18326,19 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
 
 
 class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -18447,7 +18447,7 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -18634,19 +18634,19 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
 
 
 class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -18755,7 +18755,7 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -18942,11 +18942,11 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
 
 
 class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -18991,11 +18991,11 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchArgs:
 
 
 class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -19132,7 +19132,7 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextS
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -19185,7 +19185,7 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextS
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -19278,7 +19278,7 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -19323,11 +19323,11 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
 
 
 class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -19372,19 +19372,19 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
 
 
 class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -19493,7 +19493,7 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -19680,19 +19680,19 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
 
 
 class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -19801,7 +19801,7 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -19988,11 +19988,11 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
 
 
 class V2modelsIntentConfirmationSettingConfirmationNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -20129,7 +20129,7 @@ class V2modelsIntentConfirmationSettingConfirmationNextStepIntentArgsDict(TypedD
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -20182,7 +20182,7 @@ class V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotArgsDict(Ty
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -20275,7 +20275,7 @@ class V2modelsIntentConfirmationSettingConfirmationResponseArgsDict(TypedDict):
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -20320,11 +20320,11 @@ class V2modelsIntentConfirmationSettingConfirmationResponseArgs:
 
 
 class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -20369,19 +20369,19 @@ class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupArgs:
 
 
 class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -20490,7 +20490,7 @@ class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageIm
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -20677,19 +20677,19 @@ class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageSs
 
 
 class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -20798,7 +20798,7 @@ class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -20989,11 +20989,11 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalArgsDict(TypedDict)
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -21057,15 +21057,15 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchAr
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -21169,11 +21169,11 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchCo
 
 
 class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -21310,7 +21310,7 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNe
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -21363,7 +21363,7 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNe
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -21456,7 +21456,7 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -21501,11 +21501,11 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
 
 
 class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -21550,19 +21550,19 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
 
 
 class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -21671,7 +21671,7 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -21858,19 +21858,19 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
 
 
 class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -21979,7 +21979,7 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -22166,11 +22166,11 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
 
 
 class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -22215,11 +22215,11 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchArgs:
 
 
 class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -22356,7 +22356,7 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextSt
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -22409,7 +22409,7 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextSt
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -22502,7 +22502,7 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -22547,11 +22547,11 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
 
 
 class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -22596,19 +22596,19 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
 
 
 class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -22717,7 +22717,7 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -22904,19 +22904,19 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
 
 
 class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -23025,7 +23025,7 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -23212,11 +23212,11 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
 
 
 class V2modelsIntentConfirmationSettingDeclinationNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -23353,7 +23353,7 @@ class V2modelsIntentConfirmationSettingDeclinationNextStepIntentArgsDict(TypedDi
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -23406,7 +23406,7 @@ class V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotArgsDict(Typ
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -23499,7 +23499,7 @@ class V2modelsIntentConfirmationSettingDeclinationResponseArgsDict(TypedDict):
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -23544,11 +23544,11 @@ class V2modelsIntentConfirmationSettingDeclinationResponseArgs:
 
 
 class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -23593,19 +23593,19 @@ class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupArgs:
 
 
 class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -23714,7 +23714,7 @@ class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageIma
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -23901,19 +23901,19 @@ class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageSsm
 
 
 class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -24022,7 +24022,7 @@ class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationI
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -24262,11 +24262,11 @@ class V2modelsIntentConfirmationSettingFailureConditionalArgsDict(TypedDict):
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -24330,15 +24330,15 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchArgsDi
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -24442,11 +24442,11 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchCondit
 
 
 class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -24583,7 +24583,7 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextSt
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -24636,7 +24636,7 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextSt
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -24729,7 +24729,7 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -24774,11 +24774,11 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
 
 
 class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -24823,19 +24823,19 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
 
 
 class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -24944,7 +24944,7 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -25131,19 +25131,19 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
 
 
 class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -25252,7 +25252,7 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -25439,11 +25439,11 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
 
 
 class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -25488,11 +25488,11 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs:
 
 
 class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -25629,7 +25629,7 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIn
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -25682,7 +25682,7 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIn
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -25775,7 +25775,7 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseAr
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -25820,11 +25820,11 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseAr
 
 
 class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -25869,19 +25869,19 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMe
 
 
 class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -25990,7 +25990,7 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMe
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -26177,19 +26177,19 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMe
 
 
 class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -26298,7 +26298,7 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMe
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -26485,11 +26485,11 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMe
 
 
 class V2modelsIntentConfirmationSettingFailureNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -26626,7 +26626,7 @@ class V2modelsIntentConfirmationSettingFailureNextStepIntentArgsDict(TypedDict):
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -26679,7 +26679,7 @@ class V2modelsIntentConfirmationSettingFailureNextStepIntentSlotArgsDict(TypedDi
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -26772,7 +26772,7 @@ class V2modelsIntentConfirmationSettingFailureResponseArgsDict(TypedDict):
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -26817,11 +26817,11 @@ class V2modelsIntentConfirmationSettingFailureResponseArgs:
 
 
 class V2modelsIntentConfirmationSettingFailureResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -26866,19 +26866,19 @@ class V2modelsIntentConfirmationSettingFailureResponseMessageGroupArgs:
 
 
 class V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -26987,7 +26987,7 @@ class V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageImageRe
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -27174,19 +27174,19 @@ class V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageSsmlMes
 
 
 class V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -27295,7 +27295,7 @@ class V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImage
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -27490,7 +27490,7 @@ class V2modelsIntentConfirmationSettingPromptSpecificationArgsDict(TypedDict):
     """
     Whether the user can interrupt a speech prompt from the bot.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgsDict']]]]]
     """
     Configuration block for messages that Amazon Lex can send to the user. Amazon Lex chooses the actual message to send at runtime. See `message_group`.
     """
@@ -27498,7 +27498,7 @@ class V2modelsIntentConfirmationSettingPromptSpecificationArgsDict(TypedDict):
     """
     How a message is selected from a message group among retries. Valid values are `Random` and `Ordered`.
     """
-    prompt_attempts_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs']]]]]
+    prompt_attempts_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict']]]]]
     """
     Configuration block for advanced settings on each attempt of the prompt. See `prompt_attempts_specification`.
     """
@@ -27590,11 +27590,11 @@ class V2modelsIntentConfirmationSettingPromptSpecificationArgs:
 
 
 class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -27639,19 +27639,19 @@ class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupArgs:
 
 
 class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -27760,7 +27760,7 @@ class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageIma
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -27947,19 +27947,19 @@ class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageSsm
 
 
 class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -28068,7 +28068,7 @@ class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationI
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -28263,15 +28263,15 @@ class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecific
     """
     Whether the user can interrupt a speech prompt attempt from the bot.
     """
-    allowed_input_types: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs']]]
+    allowed_input_types: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgsDict']]]
     """
     Configuration block for the allowed input types of the prompt attempt. See `allowed_input_types`.
     """
-    audio_and_dtmf_input_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs']]]
+    audio_and_dtmf_input_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict']]]
     """
     Configuration block for settings on audio and DTMF input. See `audio_and_dtmf_input_specification`.
     """
-    text_input_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs']]]
+    text_input_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgsDict']]]
     """
     Configuration block for the settings on text input. See `text_input_specification`.
     """
@@ -28414,11 +28414,11 @@ class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecific
     """
     Time for which a bot waits before assuming that the customer isn't going to speak or press a key. This timeout is shared between Audio and DTMF inputs.
     """
-    audio_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs']]]
+    audio_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgsDict']]]
     """
     Configuration block for the settings on audio input. See `audio_specification`.
     """
-    dtmf_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs']]]
+    dtmf_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgsDict']]]
     """
     Configuration block for the settings on DTMF input. See `dtmf_specification`.
     """
@@ -28674,11 +28674,11 @@ class V2modelsIntentFulfillmentCodeHookArgsDict(TypedDict):
     """
     Whether the fulfillment code hook is used. When active is false, the code hook doesn't run.
     """
-    fulfillment_updates_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgs']]]
+    fulfillment_updates_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgsDict']]]
     """
     Configuration block for settings for update messages sent to the user for long-running Lambda fulfillment functions. Fulfillment updates can be used only with streaming conversations. See `fulfillment_updates_specification`.
     """
-    post_fulfillment_status_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgs']]]
+    post_fulfillment_status_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgsDict']]]
     """
     Configuration block for settings for messages sent to the user for after the Lambda fulfillment function completes. Post-fulfillment messages can be sent for both streaming and non-streaming conversations. See `post_fulfillment_status_specification`.
     """
@@ -28758,7 +28758,7 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgsDict(T
     """
     Whether fulfillment updates are sent to the user. When this field is true, updates are sent. If the active field is set to true, the `start_response`, `update_response`, and `timeout_in_seconds` fields are required.
     """
-    start_response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgs']]]
+    start_response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseArgsDict']]]
     """
     Configuration block for the message sent to users when the fulfillment Lambda functions starts running.
     """
@@ -28766,7 +28766,7 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationArgsDict(T
     """
     Length of time that the fulfillment Lambda function should run before it times out.
     """
-    update_response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgs']]]
+    update_response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseArgsDict']]]
     """
     Configuration block for messages sent periodically to the user while the fulfillment Lambda function is running.
     """
@@ -28850,7 +28850,7 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
     """
     Delay between when the Lambda fulfillment function starts running and the start message is played. If the Lambda function returns before the delay is over, the start message isn't played.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupArgsDict']]]]]
     """
     Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
     """
@@ -28911,11 +28911,11 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
 
 
 class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -28960,19 +28960,19 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
 
 
 class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -29081,7 +29081,7 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -29268,19 +29268,19 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
 
 
 class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -29389,7 +29389,7 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -29584,7 +29584,7 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
     """
     Whether the user can interrupt the start message while it is playing.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupArgsDict']]]]]
     """
     Between 1-5 configuration block message groups that contain start messages. Amazon Lex chooses one of the messages to play to the user. See `message_group`.
     """
@@ -29644,11 +29644,11 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
 
 
 class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -29693,19 +29693,19 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
 
 
 class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -29814,7 +29814,7 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -30001,19 +30001,19 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
 
 
 class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -30122,7 +30122,7 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -30309,39 +30309,39 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationArgsDict(TypedDict):
-    failure_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalArgs']]]
+    failure_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalArgsDict']]]
     """
     Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_conditional`.
     """
-    failure_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepArgs']]]
+    failure_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepArgsDict']]]
     """
     Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed. See `failure_next_step`.
     """
-    failure_response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseArgs']]]
+    failure_response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseArgsDict']]]
     """
     Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
     """
-    success_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalArgs']]]
+    success_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalArgsDict']]]
     """
     Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
     """
-    success_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepArgs']]]
+    success_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepArgsDict']]]
     """
     Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
     """
-    success_response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseArgs']]]
+    success_response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseArgsDict']]]
     """
     Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
     """
-    timeout_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalArgs']]]
+    timeout_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalArgsDict']]]
     """
     Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
     """
-    timeout_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepArgs']]]
+    timeout_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepArgsDict']]]
     """
     Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
     """
-    timeout_response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseArgs']]]
+    timeout_response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
     """
@@ -30502,11 +30502,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -30570,15 +30570,15 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -30682,11 +30682,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -30823,7 +30823,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -30876,7 +30876,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -30969,7 +30969,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -31014,11 +31014,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -31063,19 +31063,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -31184,7 +31184,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -31371,19 +31371,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -31492,7 +31492,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -31679,11 +31679,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -31728,11 +31728,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -31869,7 +31869,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -31922,7 +31922,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -32015,7 +32015,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -32060,11 +32060,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -32109,19 +32109,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -32230,7 +32230,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -32417,19 +32417,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -32538,7 +32538,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -32725,11 +32725,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -32866,7 +32866,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -32919,7 +32919,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -33012,7 +33012,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -33057,11 +33057,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -33106,19 +33106,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -33227,7 +33227,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -33414,19 +33414,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -33535,7 +33535,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -33726,11 +33726,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -33794,15 +33794,15 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -33906,11 +33906,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -34047,7 +34047,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -34100,7 +34100,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -34193,7 +34193,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -34238,11 +34238,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -34287,19 +34287,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -34408,7 +34408,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -34595,19 +34595,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -34716,7 +34716,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -34903,11 +34903,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -34952,11 +34952,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -35093,7 +35093,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -35146,7 +35146,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -35239,7 +35239,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -35284,11 +35284,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -35333,19 +35333,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -35454,7 +35454,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -35641,19 +35641,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -35762,7 +35762,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -35949,11 +35949,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -36090,7 +36090,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -36143,7 +36143,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -36236,7 +36236,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -36281,11 +36281,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -36330,19 +36330,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -36451,7 +36451,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -36638,19 +36638,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -36759,7 +36759,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -36950,11 +36950,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -37018,15 +37018,15 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -37130,11 +37130,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -37271,7 +37271,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -37324,7 +37324,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -37417,7 +37417,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -37462,11 +37462,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -37511,19 +37511,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -37632,7 +37632,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -37819,19 +37819,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -37940,7 +37940,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -38127,11 +38127,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -38176,11 +38176,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -38317,7 +38317,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -38370,7 +38370,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -38463,7 +38463,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -38508,11 +38508,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -38557,19 +38557,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -38678,7 +38678,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -38865,19 +38865,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -38986,7 +38986,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -39173,11 +39173,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -39314,7 +39314,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -39367,7 +39367,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -39460,7 +39460,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -39505,11 +39505,11 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -39554,19 +39554,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -39675,7 +39675,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -39862,19 +39862,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -39983,7 +39983,7 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -40170,19 +40170,19 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
 
 class V2modelsIntentInitialResponseSettingArgsDict(TypedDict):
-    code_hook: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookArgs']]]
+    code_hook: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookArgsDict']]]
     """
     Configuration block for the dialog code hook that is called by Amazon Lex at a step of the conversation. See `code_hook`.
     """
-    conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalArgs']]]
+    conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalArgsDict']]]
     """
     Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `conditional`.
     """
-    initial_response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseArgs']]]
+    initial_response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseArgsDict']]]
     """
     Configuration block for message groups that Amazon Lex uses to respond the user input. See `initial_response`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
@@ -40271,7 +40271,7 @@ class V2modelsIntentInitialResponseSettingCodeHookArgsDict(TypedDict):
     """
     Label that indicates the dialog step from which the dialog code hook is happening.
     """
-    post_code_hook_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs']]]
+    post_code_hook_specification: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgsDict']]]
     """
     Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
     """
@@ -40346,39 +40346,39 @@ class V2modelsIntentInitialResponseSettingCodeHookArgs:
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgsDict(TypedDict):
-    failure_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalArgs']]]
+    failure_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalArgsDict']]]
     """
     Configuration block for conditional branches to evaluate after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed.
     """
-    failure_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepArgs']]]
+    failure_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepArgsDict']]]
     """
     Configuration block for the next step the bot runs after the dialog code hook throws an exception or returns with the State field of the Intent object set to Failed . See `failure_next_step`.
     """
-    failure_response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseArgs']]]
+    failure_response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseArgsDict']]]
     """
     Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
     """
-    success_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalArgs']]]
+    success_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalArgsDict']]]
     """
     Configuration block for conditional branches to evaluate after the dialog code hook finishes successfully. See `success_conditional`.
     """
-    success_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgs']]]
+    success_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgsDict']]]
     """
     Configuration block for the next step the bot runs after the dialog code hook finishes successfully. See `success_next_step`.
     """
-    success_response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseArgs']]]
+    success_response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseArgsDict']]]
     """
     Configuration block for message groups that Amazon Lex uses to respond the user input. See `success_response`.
     """
-    timeout_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgs']]]
+    timeout_conditional: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalArgsDict']]]
     """
     Configuration block for conditional branches to evaluate if the code hook times out. See `timeout_conditional`.
     """
-    timeout_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgs']]]
+    timeout_next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgsDict']]]
     """
     Configuration block for the next step that the bot runs when the code hook times out. See `timeout_next_step`.
     """
-    timeout_response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseArgs']]]
+    timeout_response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond the user input. See `timeout_response`.
     """
@@ -40539,11 +40539,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -40607,15 +40607,15 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -40719,11 +40719,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -40860,7 +40860,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -40913,7 +40913,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -41006,7 +41006,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -41051,11 +41051,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -41100,19 +41100,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -41221,7 +41221,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -41408,19 +41408,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -41529,7 +41529,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -41716,11 +41716,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -41765,11 +41765,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -41906,7 +41906,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -41959,7 +41959,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -42052,7 +42052,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -42097,11 +42097,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -42146,19 +42146,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -42267,7 +42267,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -42454,19 +42454,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -42575,7 +42575,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -42762,11 +42762,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -42903,7 +42903,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -42956,7 +42956,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -43049,7 +43049,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -43094,11 +43094,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -43143,19 +43143,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -43264,7 +43264,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -43451,19 +43451,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -43572,7 +43572,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -43763,11 +43763,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -43831,15 +43831,15 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -43943,11 +43943,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -44084,7 +44084,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -44137,7 +44137,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -44230,7 +44230,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -44275,11 +44275,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -44324,19 +44324,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -44445,7 +44445,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -44632,19 +44632,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -44753,7 +44753,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -44940,11 +44940,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -44989,11 +44989,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -45130,7 +45130,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -45183,7 +45183,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -45276,7 +45276,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -45321,11 +45321,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -45370,19 +45370,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -45491,7 +45491,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -45678,19 +45678,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -45799,7 +45799,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -45986,11 +45986,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -46127,7 +46127,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -46180,7 +46180,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -46273,7 +46273,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -46318,11 +46318,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -46367,19 +46367,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -46488,7 +46488,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -46675,19 +46675,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -46796,7 +46796,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -46987,11 +46987,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -47055,15 +47055,15 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -47167,11 +47167,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -47308,7 +47308,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -47361,7 +47361,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -47454,7 +47454,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -47499,11 +47499,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -47548,19 +47548,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -47669,7 +47669,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -47856,19 +47856,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -47977,7 +47977,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -48164,11 +48164,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -48213,11 +48213,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -48354,7 +48354,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -48407,7 +48407,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -48500,7 +48500,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -48545,11 +48545,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -48594,19 +48594,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -48715,7 +48715,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -48902,19 +48902,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -49023,7 +49023,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -49210,11 +49210,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -49351,7 +49351,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -49404,7 +49404,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -49497,7 +49497,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -49542,11 +49542,11 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -49591,19 +49591,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -49712,7 +49712,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -49899,19 +49899,19 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
 
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -50020,7 +50020,7 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -50211,11 +50211,11 @@ class V2modelsIntentInitialResponseSettingConditionalArgsDict(TypedDict):
     """
     Whether a conditional branch is active. When active is false, the conditions are not evaluated.
     """
-    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs']]]]]
+    conditional_branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgsDict']]]]]
     """
     Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
     """
-    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs']]]
+    default_branch: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgsDict']]]
     """
     Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
     """
@@ -50279,15 +50279,15 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgsDict(T
     """
     Name of the branch.
     """
-    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchConditionArgsDict']]]
     """
     Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
     """
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -50391,11 +50391,11 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchConditionA
 
 
 class V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -50532,7 +50532,7 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIn
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -50585,7 +50585,7 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIn
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -50678,7 +50678,7 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseAr
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -50723,11 +50723,11 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseAr
 
 
 class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -50772,19 +50772,19 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMe
 
 
 class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -50893,7 +50893,7 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMe
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -51080,19 +51080,19 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMe
 
 
 class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -51201,7 +51201,7 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMe
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -51388,11 +51388,11 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMe
 
 
 class V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgsDict(TypedDict):
-    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepArgs']]]
+    next_step: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepArgsDict']]]
     """
     Configuration block for the next step in the conversation. See `next_step`.
     """
-    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseArgs']]]
+    response: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseArgsDict']]]
     """
     Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
     """
@@ -51437,11 +51437,11 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs:
 
 
 class V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -51578,7 +51578,7 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntent
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -51631,7 +51631,7 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntent
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -51724,7 +51724,7 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseArgsDi
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -51769,11 +51769,11 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseArgs:
 
 
 class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -51818,19 +51818,19 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessag
 
 
 class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -51939,7 +51939,7 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessag
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -52126,19 +52126,19 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessag
 
 
 class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -52247,7 +52247,7 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessag
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -52438,7 +52438,7 @@ class V2modelsIntentInitialResponseSettingInitialResponseArgsDict(TypedDict):
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user. Amazon Lex chooses the actual response to send at runtime. See `message_group`.
     """
@@ -52483,11 +52483,11 @@ class V2modelsIntentInitialResponseSettingInitialResponseArgs:
 
 
 class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
     """
@@ -52532,19 +52532,19 @@ class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupArgs:
 
 
 class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessagePlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessagePlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -52653,7 +52653,7 @@ class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImag
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -52840,19 +52840,19 @@ class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageSsml
 
 
 class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayloadArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationCustomPayloadArgsDict']]]
     """
     Configuration block for a message in a custom format defined by the client application. See `custom_payload`.
     """
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardArgs']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardArgsDict']]]
     """
     Configuration block for a message that defines a response card that the client application can show to the user. See `image_response_card`.
     """
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessageArgs']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationPlainTextMessageArgsDict']]]
     """
     Configuration block for a message in plain text format. See `plain_text_message`.
     """
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessageArgs']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSsmlMessageArgsDict']]]
     """
     Configuration block for a message in Speech Synthesis Markup Language (SSML). See `ssml_message`.
     """
@@ -52961,7 +52961,7 @@ class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationIm
     """
     Title to display on the response card. The format of the title is determined by the platform displaying the response card.
     """
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     """
     Configuration blocks for buttons that should be displayed on the response card. The arrangement of the buttons is determined by the platform that displays the button. See `button`.
     """
@@ -53148,11 +53148,11 @@ class V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationSs
 
 
 class V2modelsIntentInitialResponseSettingNextStepArgsDict(TypedDict):
-    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingNextStepDialogActionArgs']]]
+    dialog_action: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingNextStepDialogActionArgsDict']]]
     """
     Configuration block for action that the bot executes at runtime when the conversation reaches this step. See `dialog_action`.
     """
-    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingNextStepIntentArgs']]]
+    intent: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingNextStepIntentArgsDict']]]
     """
     Configuration block for override settings to configure the intent state. See `intent`.
     """
@@ -53289,7 +53289,7 @@ class V2modelsIntentInitialResponseSettingNextStepIntentArgsDict(TypedDict):
     """
     Name of the intent.
     """
-    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingNextStepIntentSlotArgs']]]]]
+    slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsIntentInitialResponseSettingNextStepIntentSlotArgsDict']]]]]
     """
     Configuration block for all of the slot value overrides for the intent. The name of the slot maps to the value of the slot. Slots that are not included in the map aren't overridden. See `slot`.
     """
@@ -53342,7 +53342,7 @@ class V2modelsIntentInitialResponseSettingNextStepIntentSlotArgsDict(TypedDict):
     """
     When the shape value is `List`, `values` contains a list of slot values. When the value is `Scalar`, `value` contains a single value.
     """
-    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingNextStepIntentSlotValueArgs']]]
+    value: NotRequired[pulumi.Input[Optional['V2modelsIntentInitialResponseSettingNextStepIntentSlotValueArgsDict']]]
     """
     Configuration block for the current value of the slot. See `value`.
     """
@@ -53593,11 +53593,11 @@ class V2modelsIntentOutputContextArgs:
 
 
 class V2modelsIntentQnaIntentConfigurationArgsDict(TypedDict):
-    bedrock_model_configuration: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationBedrockModelConfigurationArgs']]]
+    bedrock_model_configuration: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationBedrockModelConfigurationArgsDict']]]
     """
     Configuration block for the Amazon Bedrock model to use for generating responses. See `bedrock_model_configuration`.
     """
-    data_source_configuration: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationDataSourceConfigurationArgs']]]
+    data_source_configuration: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationDataSourceConfigurationArgsDict']]]
     """
     Configuration block for the data sources to use for the QnA intent. Only one data source (Bedrock Knowledge Base, Kendra, or OpenSearch) can be specified. See `data_source_configuration`.
     """
@@ -53650,7 +53650,7 @@ class V2modelsIntentQnaIntentConfigurationBedrockModelConfigurationArgsDict(Type
     """
     Custom prompt to use for the Bedrock model.
     """
-    guardrail: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationBedrockModelConfigurationGuardrailArgs']]]
+    guardrail: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationBedrockModelConfigurationGuardrailArgsDict']]]
     """
     Configuration block for the guardrail to use with the Bedrock model. See `guardrail`.
     """
@@ -53777,15 +53777,15 @@ class V2modelsIntentQnaIntentConfigurationBedrockModelConfigurationGuardrailArgs
 
 
 class V2modelsIntentQnaIntentConfigurationDataSourceConfigurationArgsDict(TypedDict):
-    bedrock_knowledge_store_configuration: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationArgs']]]
+    bedrock_knowledge_store_configuration: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationArgsDict']]]
     """
     Configuration block for Amazon Bedrock Knowledge Base as a data source. See `bedrock_knowledge_store_configuration`.
     """
-    kendra_configuration: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfigurationArgs']]]
+    kendra_configuration: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfigurationArgsDict']]]
     """
     Configuration block for Amazon Kendra as a data source. See `kendra_configuration`.
     """
-    opensearch_configuration: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationArgs']]]
+    opensearch_configuration: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationArgsDict']]]
     """
     Configuration block for OpenSearch as a data source. See `opensearch_configuration`.
     """
@@ -53854,7 +53854,7 @@ class V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledg
     """
     Whether to return exact responses from the knowledge base. Defaults to `false`.
     """
-    exact_response_fields: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationExactResponseFieldsArgs']]]
+    exact_response_fields: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationDataSourceConfigurationBedrockKnowledgeStoreConfigurationExactResponseFieldsArgsDict']]]
     """
     Configuration block for exact response fields. See `exact_response_fields`.
     """
@@ -54043,7 +54043,7 @@ class V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfi
     """
     Whether to return exact responses from OpenSearch. Defaults to `false`.
     """
-    exact_response_fields: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationExactResponseFieldsArgs']]]
+    exact_response_fields: NotRequired[pulumi.Input[Optional['V2modelsIntentQnaIntentConfigurationDataSourceConfigurationOpensearchConfigurationExactResponseFieldsArgsDict']]]
     """
     Configuration block for exact response fields. See `exact_response_fields`.
     """
@@ -54390,7 +54390,7 @@ class V2modelsSlotSubSlotSettingArgsDict(TypedDict):
     """
     Expression text for defining the constituent sub slots in the composite slot using logical `AND` and `OR` operators.
     """
-    slot_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgs']]]]]
+    slot_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationArgsDict']]]]]
     """
     Specifications for the constituent sub slots of a composite slot.
     See the `slot_specification` argument reference below.
@@ -54443,7 +54443,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationArgsDict(TypedDict):
     """
     Unique identifier assigned to the slot type.
     """
-    value_elicitation_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs']]]]]
+    value_elicitation_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict']]]]]
     """
     Elicitation setting details for constituent sub slots of a composite slot.
     See the `value_elicitation_setting` argument reference below.
@@ -54501,18 +54501,18 @@ class V2modelsSlotSubSlotSettingSlotSpecificationArgs:
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgsDict(TypedDict):
-    default_value_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs']]]]]
+    default_value_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgsDict']]]]]
     """
     List of default values for a slot.
     See the `default_value_specification` argument reference below.
     """
-    prompt_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs']]]
+    prompt_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgsDict']]]
     """
     Prompt that Amazon Lex uses to elicit the slot value from the user.
     See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
     """
-    sample_utterances: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgs']]]]]
-    wait_and_continue_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs']]]]]
+    sample_utterances: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtteranceArgsDict']]]]]
+    wait_and_continue_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgsDict']]]]]
     """
     Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
     See the `wait_and_continue_specification` argument reference below.
@@ -54656,9 +54656,9 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultV
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgsDict(TypedDict):
     max_retries: pulumi.Input[_builtins.int]
     allow_interrupt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgsDict']]]]]
     message_selection_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    prompt_attempts_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs']]]]]
+    prompt_attempts_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict']]]]]
 
 @pulumi.input_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs:
@@ -54725,12 +54725,12 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user.
     See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user.
     When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
@@ -54783,10 +54783,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs:
@@ -54862,7 +54862,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -54988,10 +54988,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationArgs:
@@ -55067,7 +55067,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -55195,9 +55195,9 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict(TypedDict):
     map_block_key: pulumi.Input[_builtins.str]
     allow_interrupt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    allowed_input_types: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs']]]
-    audio_and_dtmf_input_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs']]]
-    text_input_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs']]]
+    allowed_input_types: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgsDict']]]
+    audio_and_dtmf_input_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict']]]
+    text_input_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs:
@@ -55296,8 +55296,8 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict(TypedDict):
     start_timeout_ms: pulumi.Input[_builtins.int]
-    audio_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs']]]
-    dtmf_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs']]]
+    audio_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgsDict']]]
+    dtmf_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs:
@@ -55479,17 +55479,17 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     When this field is `false`, wait and continue responses for a slot aren't used.
     If the active field isn't specified, the default is `true`.
     """
-    continue_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]]]]
+    continue_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict']]]]]
     """
     Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
     See the `continue_response` argument reference below.
     """
-    still_waiting_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]]]]
+    still_waiting_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict']]]]]
     """
     Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
     See the `still_waiting_response` argument reference below.
     """
-    waiting_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]]]]
+    waiting_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict']]]]]
     """
     Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
     See the `waiting_response` argument reference below.
@@ -55581,7 +55581,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user.
     Amazon Lex chooses the actual response to send at runtime.
@@ -55632,12 +55632,12 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user.
     See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user.
     When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
@@ -55690,10 +55690,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs:
@@ -55769,7 +55769,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -55895,10 +55895,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs:
@@ -55974,7 +55974,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -56112,7 +56112,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict']]]]]
 
 @pulumi.input_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs:
@@ -56180,12 +56180,12 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user.
     See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user.
     When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
@@ -56238,10 +56238,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs:
@@ -56317,7 +56317,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -56443,10 +56443,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs:
@@ -56522,7 +56522,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -56652,7 +56652,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user.
     Amazon Lex chooses the actual response to send at runtime.
@@ -56703,12 +56703,12 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user.
     See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user.
     When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
@@ -56761,10 +56761,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs:
@@ -56840,7 +56840,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -56966,10 +56966,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs:
@@ -57045,7 +57045,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -57240,7 +57240,7 @@ class V2modelsSlotTimeoutsArgs:
 
 
 class V2modelsSlotTypeCompositeSlotTypeSettingArgsDict(TypedDict):
-    sub_slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs']]]]]
+    sub_slots: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgsDict']]]]]
     """
     Sub slots in the composite slot.
     See `sub_slots` argument reference below.
@@ -57322,7 +57322,7 @@ class V2modelsSlotTypeCompositeSlotTypeSettingSubSlotArgs:
 
 
 class V2modelsSlotTypeExternalSourceSettingArgsDict(TypedDict):
-    grammar_slot_type_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgs']]]]]
+    grammar_slot_type_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgsDict']]]]]
     """
     Settings required for a slot type based on a grammar that you provide.
     See `grammar_slot_type_setting` argument reference below.
@@ -57354,7 +57354,7 @@ class V2modelsSlotTypeExternalSourceSettingArgs:
 
 
 class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingArgsDict(TypedDict):
-    sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs']]]]]
+    sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgsDict']]]]]
     """
     Source of the grammar used to create the slot type.
     See `source` argument reference below.
@@ -57452,12 +57452,12 @@ class V2modelsSlotTypeExternalSourceSettingGrammarSlotTypeSettingSourceArgs:
 
 
 class V2modelsSlotTypeSlotTypeValueArgsDict(TypedDict):
-    sample_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueSampleValueArgs']]]]]
+    sample_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueSampleValueArgsDict']]]]]
     """
     Value of the slot type entry.
     See `sample_value` argument reference below.
     """
-    synonyms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueSynonymArgs']]]]]
+    synonyms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeSlotTypeValueSynonymArgsDict']]]]]
     """
     A list of additional values related to the slot type entry.
     See `synonyms` argument reference below.
@@ -57637,13 +57637,13 @@ class V2modelsSlotTypeValueSelectionSettingArgsDict(TypedDict):
     Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
     Valid values are `OriginalValue`, `TopResolution`, and `Concatenation`.
     """
-    advanced_recognition_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs']]]]]
+    advanced_recognition_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgsDict']]]]]
     """
     Provides settings that enable advanced recognition settings for slot values.
     You can use this to enable using slot values as a custom vocabulary for recognizing user utterances.
     See `advanced_recognition_setting` argument reference below.
     """
-    regex_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingRegexFilterArgs']]]]]
+    regex_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotTypeValueSelectionSettingRegexFilterArgsDict']]]]]
     """
     Used to validate the value of the slot.
     See `regex_filter` argument reference below.
@@ -57776,23 +57776,23 @@ class V2modelsSlotValueElicitationSettingArgsDict(TypedDict):
     """
     Whether the slot is required or optional. Valid values are `Required` or `Optional`.
     """
-    default_value_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs']]]]]
+    default_value_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgsDict']]]]]
     """
     List of default values for a slot.
     See the `default_value_specification` argument reference below.
     """
-    prompt_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationArgs']]]
+    prompt_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationArgsDict']]]
     """
     Prompt that Amazon Lex uses to elicit the slot value from the user.
     See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
     """
-    sample_utterances: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingSampleUtteranceArgs']]]]]
-    slot_resolution_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs']]]]]
+    sample_utterances: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingSampleUtteranceArgsDict']]]]]
+    slot_resolution_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingSlotResolutionSettingArgsDict']]]]]
     """
     Information about whether assisted slot resolution is turned on for the slot or not.
     See the `slot_resolution_setting` argument reference below.
     """
-    wait_and_continue_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs']]]]]
+    wait_and_continue_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgsDict']]]]]
     """
     Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
     See the `wait_and_continue_specification` argument reference below.
@@ -57969,9 +57969,9 @@ class V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueLi
 class V2modelsSlotValueElicitationSettingPromptSpecificationArgsDict(TypedDict):
     max_retries: pulumi.Input[_builtins.int]
     allow_interrupt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgsDict']]]]]
     message_selection_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    prompt_attempts_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs']]]]]
+    prompt_attempts_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict']]]]]
 
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingPromptSpecificationArgs:
@@ -58038,12 +58038,12 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationArgs:
 
 
 class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user.
     See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user.
     When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
@@ -58096,10 +58096,10 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs:
 
 
 class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs:
@@ -58175,7 +58175,7 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageC
 
 class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -58301,10 +58301,10 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageS
 
 
 class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs:
@@ -58380,7 +58380,7 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariatio
 
 class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -58508,9 +58508,9 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariatio
 class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgsDict(TypedDict):
     map_block_key: pulumi.Input[_builtins.str]
     allow_interrupt: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    allowed_input_types: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs']]]
-    audio_and_dtmf_input_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs']]]
-    text_input_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs']]]
+    allowed_input_types: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgsDict']]]
+    audio_and_dtmf_input_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict']]]
+    text_input_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs:
@@ -58609,8 +58609,8 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecif
 
 class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgsDict(TypedDict):
     start_timeout_ms: pulumi.Input[_builtins.int]
-    audio_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs']]]
-    dtmf_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs']]]
+    audio_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgsDict']]]
+    dtmf_specification: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs:
@@ -58829,17 +58829,17 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgsDict(Ty
     When this field is `false`, wait and continue responses for a slot aren't used.
     If the active field isn't specified, the default is `true`.
     """
-    continue_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs']]]]]
+    continue_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgsDict']]]]]
     """
     Response that Amazon Lex sends to indicate that the bot is ready to continue the conversation.
     See the `continue_response` argument reference below.
     """
-    still_waiting_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs']]]]]
+    still_waiting_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgsDict']]]]]
     """
     Response that Amazon Lex sends periodically to the user to indicate that the bot is still waiting for input from the user.
     See the `still_waiting_response` argument reference below.
     """
-    waiting_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs']]]]]
+    waiting_responses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgsDict']]]]]
     """
     Response that Amazon Lex sends to indicate that the bot is waiting for the conversation to continue.
     See the `waiting_response` argument reference below.
@@ -58931,7 +58931,7 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user.
     Amazon Lex chooses the actual response to send at runtime.
@@ -58982,12 +58982,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
 
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user.
     See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user.
     When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
@@ -59040,10 +59040,10 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
 
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs:
@@ -59119,7 +59119,7 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -59245,10 +59245,10 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
 
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs:
@@ -59324,7 +59324,7 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -59462,7 +59462,7 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict']]]]]
 
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs:
@@ -59530,12 +59530,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
 
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user.
     See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user.
     When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
@@ -59588,10 +59588,10 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
 
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs:
@@ -59667,7 +59667,7 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -59793,10 +59793,10 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
 
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs:
@@ -59872,7 +59872,7 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -60002,7 +60002,7 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
     """
     Whether the user can interrupt a speech response from Amazon Lex.
     """
-    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs']]]]]
+    message_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict']]]]]
     """
     Configuration blocks for responses that Amazon Lex can send to the user.
     Amazon Lex chooses the actual response to send at runtime.
@@ -60053,12 +60053,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
 
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgsDict(TypedDict):
-    message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs']]]
+    message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict']]]
     """
     Configuration block for the primary message that Amazon Lex should send to the user.
     See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
     """
-    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs']]]]]
+    variations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict']]]]]
     """
     Configuration blocks for message variations to send to the user.
     When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
@@ -60111,10 +60111,10 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
 
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs:
@@ -60190,7 +60190,7 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -60316,10 +60316,10 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
 
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgsDict(TypedDict):
-    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs']]]
-    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs']]]
-    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs']]]
-    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs']]]
+    custom_payload: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgsDict']]]
+    image_response_card: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgsDict']]]
+    plain_text_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgsDict']]]
+    ssml_message: NotRequired[pulumi.Input[Optional['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgsDict']]]
 
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs:
@@ -60395,7 +60395,7 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
 
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgsDict(TypedDict):
     title: pulumi.Input[_builtins.str]
-    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs']]]]]
+    buttons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgsDict']]]]]
     image_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subtitle: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 

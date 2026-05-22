@@ -144,7 +144,7 @@ class EndpointCidrOptionsPortRangeArgs:
 class EndpointLoadBalancerOptionsArgsDict(TypedDict):
     load_balancer_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgs']]]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgsDict']]]]]
     protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
@@ -247,7 +247,7 @@ class EndpointLoadBalancerOptionsPortRangeArgs:
 class EndpointNetworkInterfaceOptionsArgsDict(TypedDict):
     network_interface_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgs']]]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgsDict']]]]]
     protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
@@ -515,7 +515,7 @@ class GroupSseConfigurationArgs:
 
 
 class InstanceLoggingConfigurationAccessLogsArgsDict(TypedDict):
-    cloudwatch_logs: NotRequired[pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']]]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgsDict']]]
     """
     A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
     """
@@ -523,7 +523,7 @@ class InstanceLoggingConfigurationAccessLogsArgsDict(TypedDict):
     """
     Include trust data sent by trust providers into the logs.
     """
-    kinesis_data_firehose: NotRequired[pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']]]
+    kinesis_data_firehose: NotRequired[pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgsDict']]]
     """
     A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
     """
@@ -531,7 +531,7 @@ class InstanceLoggingConfigurationAccessLogsArgsDict(TypedDict):
     """
     The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
     """
-    s3: NotRequired[pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsS3Args']]]
+    s3: NotRequired[pulumi.Input[Optional['InstanceLoggingConfigurationAccessLogsS3ArgsDict']]]
     """
     A block that specifies configures sending Verified Access logs to S3. Detailed below.
     """

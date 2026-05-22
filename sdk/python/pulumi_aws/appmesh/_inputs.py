@@ -426,15 +426,15 @@ __all__ = [
 ]
 
 class GatewayRouteSpecArgsDict(TypedDict):
-    grpc_route: NotRequired[pulumi.Input[Optional['GatewayRouteSpecGrpcRouteArgs']]]
+    grpc_route: NotRequired[pulumi.Input[Optional['GatewayRouteSpecGrpcRouteArgsDict']]]
     """
     Specification of a gRPC gateway route.
     """
-    http2_route: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteArgs']]]
+    http2_route: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteArgsDict']]]
     """
     Specification of an HTTP/2 gateway route.
     """
-    http_route: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteArgs']]]
+    http_route: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteArgsDict']]]
     """
     Specification of an HTTP gateway route.
     """
@@ -765,7 +765,7 @@ class GatewayRouteSpecHttp2RouteActionArgsDict(TypedDict):
     """
     Target that traffic is routed to when a request matches the gateway route.
     """
-    rewrite: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteActionRewriteArgs']]]
+    rewrite: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteActionRewriteArgsDict']]]
     """
     Gateway route action to rewrite.
     """
@@ -809,15 +809,15 @@ class GatewayRouteSpecHttp2RouteActionArgs:
 
 
 class GatewayRouteSpecHttp2RouteActionRewriteArgsDict(TypedDict):
-    hostname: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs']]]
+    hostname: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteActionRewriteHostnameArgsDict']]]
     """
     Host name to rewrite.
     """
-    path: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteActionRewritePathArgs']]]
+    path: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteActionRewritePathArgsDict']]]
     """
     Exact path to rewrite.
     """
-    prefix: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteActionRewritePrefixArgs']]]
+    prefix: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteActionRewritePrefixArgsDict']]]
     """
     Specified beginning characters to rewrite.
     """
@@ -1059,15 +1059,15 @@ class GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs:
 
 
 class GatewayRouteSpecHttp2RouteMatchArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderArgsDict']]]]]
     """
     Client request headers to match on.
     """
-    hostname: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteMatchHostnameArgs']]]
+    hostname: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteMatchHostnameArgsDict']]]
     """
     Host name to match on.
     """
-    path: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteMatchPathArgs']]]
+    path: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteMatchPathArgsDict']]]
     """
     Client request path to match on.
     """
@@ -1079,7 +1079,7 @@ class GatewayRouteSpecHttp2RouteMatchArgsDict(TypedDict):
     """
     Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
     """
-    query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GatewayRouteSpecHttp2RouteMatchQueryParameterArgs']]]]]
+    query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GatewayRouteSpecHttp2RouteMatchQueryParameterArgsDict']]]]]
     """
     Client request query parameters to match on.
     """
@@ -1196,7 +1196,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderArgsDict(TypedDict):
     """
     If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
     """
-    match: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs']]]
+    match: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteMatchHeaderMatchArgsDict']]]
     """
     Method and value to match the header value sent with a request. Specify one match method.
     """
@@ -1264,7 +1264,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchArgsDict(TypedDict):
     """
     Header value sent by the client must begin with the specified characters.
     """
-    range: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs']]]
+    range: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgsDict']]]
     """
     Object that specifies the range of numbers that the header value sent by the client must be included in.
     """
@@ -1514,7 +1514,7 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameterArgsDict(TypedDict):
     """
     Name for the query parameter that will be matched on.
     """
-    match: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs']]]
+    match: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgsDict']]]
     """
     The query parameter to match on.
     """
@@ -1638,7 +1638,7 @@ class GatewayRouteSpecHttpRouteActionArgsDict(TypedDict):
     """
     Target that traffic is routed to when a request matches the gateway route.
     """
-    rewrite: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteActionRewriteArgs']]]
+    rewrite: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteActionRewriteArgsDict']]]
     """
     Gateway route action to rewrite.
     """
@@ -1682,15 +1682,15 @@ class GatewayRouteSpecHttpRouteActionArgs:
 
 
 class GatewayRouteSpecHttpRouteActionRewriteArgsDict(TypedDict):
-    hostname: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteActionRewriteHostnameArgs']]]
+    hostname: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteActionRewriteHostnameArgsDict']]]
     """
     Host name to rewrite.
     """
-    path: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteActionRewritePathArgs']]]
+    path: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteActionRewritePathArgsDict']]]
     """
     Exact path to rewrite.
     """
-    prefix: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteActionRewritePrefixArgs']]]
+    prefix: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteActionRewritePrefixArgsDict']]]
     """
     Specified beginning characters to rewrite.
     """
@@ -1932,15 +1932,15 @@ class GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs:
 
 
 class GatewayRouteSpecHttpRouteMatchArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderArgsDict']]]]]
     """
     Client request headers to match on.
     """
-    hostname: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteMatchHostnameArgs']]]
+    hostname: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteMatchHostnameArgsDict']]]
     """
     Host name to match on.
     """
-    path: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteMatchPathArgs']]]
+    path: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteMatchPathArgsDict']]]
     """
     Client request path to match on.
     """
@@ -1952,7 +1952,7 @@ class GatewayRouteSpecHttpRouteMatchArgsDict(TypedDict):
     """
     Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
     """
-    query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GatewayRouteSpecHttpRouteMatchQueryParameterArgs']]]]]
+    query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GatewayRouteSpecHttpRouteMatchQueryParameterArgsDict']]]]]
     """
     Client request query parameters to match on.
     """
@@ -2069,7 +2069,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderArgsDict(TypedDict):
     """
     If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
     """
-    match: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteMatchHeaderMatchArgs']]]
+    match: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteMatchHeaderMatchArgsDict']]]
     """
     Method and value to match the header value sent with a request. Specify one match method.
     """
@@ -2137,7 +2137,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchArgsDict(TypedDict):
     """
     Header value sent by the client must begin with the specified characters.
     """
-    range: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs']]]
+    range: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgsDict']]]
     """
     Object that specifies the range of numbers that the header value sent by the client must be included in.
     """
@@ -2387,7 +2387,7 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterArgsDict(TypedDict):
     """
     Name for the query parameter that will be matched on.
     """
-    match: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs']]]
+    match: NotRequired[pulumi.Input[Optional['GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgsDict']]]
     """
     The query parameter to match on.
     """
@@ -2460,11 +2460,11 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs:
 
 
 class MeshSpecArgsDict(TypedDict):
-    egress_filter: NotRequired[pulumi.Input[Optional['MeshSpecEgressFilterArgs']]]
+    egress_filter: NotRequired[pulumi.Input[Optional['MeshSpecEgressFilterArgsDict']]]
     """
     Egress filter rules for the service mesh.
     """
-    service_discovery: NotRequired[pulumi.Input[Optional['MeshSpecServiceDiscoveryArgs']]]
+    service_discovery: NotRequired[pulumi.Input[Optional['MeshSpecServiceDiscoveryArgsDict']]]
     """
     The service discovery information for the service mesh.
     """
@@ -2567,15 +2567,15 @@ class MeshSpecServiceDiscoveryArgs:
 
 
 class RouteSpecArgsDict(TypedDict):
-    grpc_route: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteArgs']]]
+    grpc_route: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteArgsDict']]]
     """
     GRPC routing information for the route.
     """
-    http2_route: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteArgs']]]
+    http2_route: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteArgsDict']]]
     """
     HTTP/2 routing information for the route.
     """
-    http_route: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteArgs']]]
+    http_route: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteArgsDict']]]
     """
     HTTP routing information for the route.
     """
@@ -2584,7 +2584,7 @@ class RouteSpecArgsDict(TypedDict):
     Priority for the route, between `0` and `1000`.
     Routes are matched based on the specified value, where `0` is the highest priority.
     """
-    tcp_route: NotRequired[pulumi.Input[Optional['RouteSpecTcpRouteArgs']]]
+    tcp_route: NotRequired[pulumi.Input[Optional['RouteSpecTcpRouteArgsDict']]]
     """
     TCP routing information for the route.
     """
@@ -2683,15 +2683,15 @@ class RouteSpecGrpcRouteArgsDict(TypedDict):
     """
     Action to take if a match is determined.
     """
-    match: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteMatchArgs']]]
+    match: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteMatchArgsDict']]]
     """
     Criteria for determining an gRPC request match.
     """
-    retry_policy: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteRetryPolicyArgs']]]
+    retry_policy: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteRetryPolicyArgsDict']]]
     """
     Retry policy.
     """
-    timeout: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteTimeoutArgs']]]
+    timeout: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteTimeoutArgsDict']]]
     """
     Types of timeouts.
     """
@@ -2865,7 +2865,7 @@ class RouteSpecGrpcRouteActionWeightedTargetArgs:
 
 
 class RouteSpecGrpcRouteMatchArgsDict(TypedDict):
-    metadatas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteSpecGrpcRouteMatchMetadataArgs']]]]]
+    metadatas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteSpecGrpcRouteMatchMetadataArgsDict']]]]]
     """
     Data to match from the gRPC request.
     """
@@ -2975,7 +2975,7 @@ class RouteSpecGrpcRouteMatchMetadataArgsDict(TypedDict):
     """
     If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
     """
-    match: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteMatchMetadataMatchArgs']]]
+    match: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteMatchMetadataMatchArgsDict']]]
     """
     Data to match from the request.
     """
@@ -3043,7 +3043,7 @@ class RouteSpecGrpcRouteMatchMetadataMatchArgsDict(TypedDict):
     """
     Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
     """
-    range: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteMatchMetadataMatchRangeArgs']]]
+    range: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteMatchMetadataMatchRangeArgsDict']]]
     """
     Object that specifies the range of numbers that the value sent by the client must be included in.
     """
@@ -3351,11 +3351,11 @@ class RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs:
 
 
 class RouteSpecGrpcRouteTimeoutArgsDict(TypedDict):
-    idle: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteTimeoutIdleArgs']]]
+    idle: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteTimeoutIdleArgsDict']]]
     """
     Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
     """
-    per_request: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteTimeoutPerRequestArgs']]]
+    per_request: NotRequired[pulumi.Input[Optional['RouteSpecGrpcRouteTimeoutPerRequestArgsDict']]]
     """
     Per request timeout.
     """
@@ -3502,11 +3502,11 @@ class RouteSpecHttp2RouteArgsDict(TypedDict):
     """
     Criteria for determining an HTTP request match.
     """
-    retry_policy: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteRetryPolicyArgs']]]
+    retry_policy: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteRetryPolicyArgsDict']]]
     """
     Retry policy.
     """
-    timeout: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteTimeoutArgs']]]
+    timeout: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteTimeoutArgsDict']]]
     """
     Types of timeouts.
     """
@@ -3679,7 +3679,7 @@ class RouteSpecHttp2RouteActionWeightedTargetArgs:
 
 
 class RouteSpecHttp2RouteMatchArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteSpecHttp2RouteMatchHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteSpecHttp2RouteMatchHeaderArgsDict']]]]]
     """
     Client request headers to match on.
     """
@@ -3687,7 +3687,7 @@ class RouteSpecHttp2RouteMatchArgsDict(TypedDict):
     """
     Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
     """
-    path: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteMatchPathArgs']]]
+    path: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteMatchPathArgsDict']]]
     """
     Client request path to match on.
     """
@@ -3700,7 +3700,7 @@ class RouteSpecHttp2RouteMatchArgsDict(TypedDict):
     Path with which to match requests.
     This parameter must always start with /, which by itself matches all requests to the virtual router service name.
     """
-    query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteSpecHttp2RouteMatchQueryParameterArgs']]]]]
+    query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteSpecHttp2RouteMatchQueryParameterArgsDict']]]]]
     """
     Client request query parameters to match on.
     """
@@ -3839,7 +3839,7 @@ class RouteSpecHttp2RouteMatchHeaderArgsDict(TypedDict):
     """
     If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
     """
-    match: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteMatchHeaderMatchArgs']]]
+    match: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteMatchHeaderMatchArgsDict']]]
     """
     Method and value to match the header value sent with a request. Specify one match method.
     """
@@ -3907,7 +3907,7 @@ class RouteSpecHttp2RouteMatchHeaderMatchArgsDict(TypedDict):
     """
     Header value sent by the client must begin with the specified characters.
     """
-    range: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteMatchHeaderMatchRangeArgs']]]
+    range: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteMatchHeaderMatchRangeArgsDict']]]
     """
     Object that specifies the range of numbers that the header value sent by the client must be included in.
     """
@@ -4108,7 +4108,7 @@ class RouteSpecHttp2RouteMatchQueryParameterArgsDict(TypedDict):
     """
     Name for the query parameter that will be matched on.
     """
-    match: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteMatchQueryParameterMatchArgs']]]
+    match: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteMatchQueryParameterMatchArgsDict']]]
     """
     The query parameter to match on.
     """
@@ -4324,11 +4324,11 @@ class RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs:
 
 
 class RouteSpecHttp2RouteTimeoutArgsDict(TypedDict):
-    idle: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteTimeoutIdleArgs']]]
+    idle: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteTimeoutIdleArgsDict']]]
     """
     Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
     """
-    per_request: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteTimeoutPerRequestArgs']]]
+    per_request: NotRequired[pulumi.Input[Optional['RouteSpecHttp2RouteTimeoutPerRequestArgsDict']]]
     """
     Per request timeout.
     """
@@ -4475,11 +4475,11 @@ class RouteSpecHttpRouteArgsDict(TypedDict):
     """
     Criteria for determining an HTTP request match.
     """
-    retry_policy: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteRetryPolicyArgs']]]
+    retry_policy: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteRetryPolicyArgsDict']]]
     """
     Retry policy.
     """
-    timeout: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteTimeoutArgs']]]
+    timeout: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteTimeoutArgsDict']]]
     """
     Types of timeouts.
     """
@@ -4652,7 +4652,7 @@ class RouteSpecHttpRouteActionWeightedTargetArgs:
 
 
 class RouteSpecHttpRouteMatchArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteSpecHttpRouteMatchHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteSpecHttpRouteMatchHeaderArgsDict']]]]]
     """
     Client request headers to match on.
     """
@@ -4660,7 +4660,7 @@ class RouteSpecHttpRouteMatchArgsDict(TypedDict):
     """
     Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
     """
-    path: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteMatchPathArgs']]]
+    path: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteMatchPathArgsDict']]]
     """
     Client request path to match on.
     """
@@ -4673,7 +4673,7 @@ class RouteSpecHttpRouteMatchArgsDict(TypedDict):
     Path with which to match requests.
     This parameter must always start with /, which by itself matches all requests to the virtual router service name.
     """
-    query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteSpecHttpRouteMatchQueryParameterArgs']]]]]
+    query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteSpecHttpRouteMatchQueryParameterArgsDict']]]]]
     """
     Client request query parameters to match on.
     """
@@ -4812,7 +4812,7 @@ class RouteSpecHttpRouteMatchHeaderArgsDict(TypedDict):
     """
     If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
     """
-    match: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteMatchHeaderMatchArgs']]]
+    match: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteMatchHeaderMatchArgsDict']]]
     """
     Method and value to match the header value sent with a request. Specify one match method.
     """
@@ -4880,7 +4880,7 @@ class RouteSpecHttpRouteMatchHeaderMatchArgsDict(TypedDict):
     """
     Header value sent by the client must begin with the specified characters.
     """
-    range: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteMatchHeaderMatchRangeArgs']]]
+    range: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteMatchHeaderMatchRangeArgsDict']]]
     """
     Object that specifies the range of numbers that the header value sent by the client must be included in.
     """
@@ -5081,7 +5081,7 @@ class RouteSpecHttpRouteMatchQueryParameterArgsDict(TypedDict):
     """
     Name for the query parameter that will be matched on.
     """
-    match: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteMatchQueryParameterMatchArgs']]]
+    match: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteMatchQueryParameterMatchArgsDict']]]
     """
     The query parameter to match on.
     """
@@ -5297,11 +5297,11 @@ class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs:
 
 
 class RouteSpecHttpRouteTimeoutArgsDict(TypedDict):
-    idle: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteTimeoutIdleArgs']]]
+    idle: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteTimeoutIdleArgsDict']]]
     """
     Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
     """
-    per_request: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteTimeoutPerRequestArgs']]]
+    per_request: NotRequired[pulumi.Input[Optional['RouteSpecHttpRouteTimeoutPerRequestArgsDict']]]
     """
     Per request timeout.
     """
@@ -5444,8 +5444,8 @@ class RouteSpecTcpRouteArgsDict(TypedDict):
     """
     Action to take if a match is determined.
     """
-    match: NotRequired[pulumi.Input[Optional['RouteSpecTcpRouteMatchArgs']]]
-    timeout: NotRequired[pulumi.Input[Optional['RouteSpecTcpRouteTimeoutArgs']]]
+    match: NotRequired[pulumi.Input[Optional['RouteSpecTcpRouteMatchArgsDict']]]
+    timeout: NotRequired[pulumi.Input[Optional['RouteSpecTcpRouteTimeoutArgsDict']]]
     """
     Types of timeouts.
     """
@@ -5619,7 +5619,7 @@ class RouteSpecTcpRouteMatchArgs:
 
 
 class RouteSpecTcpRouteTimeoutArgsDict(TypedDict):
-    idle: NotRequired[pulumi.Input[Optional['RouteSpecTcpRouteTimeoutIdleArgs']]]
+    idle: NotRequired[pulumi.Input[Optional['RouteSpecTcpRouteTimeoutIdleArgsDict']]]
     """
     Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
     """
@@ -5699,11 +5699,11 @@ class VirtualGatewaySpecArgsDict(TypedDict):
     """
     Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
     """
-    backend_defaults: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsArgs']]]
+    backend_defaults: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsArgsDict']]]
     """
     Defaults for backends.
     """
-    logging: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecLoggingArgs']]]
+    logging: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecLoggingArgsDict']]]
     """
     Inbound and outbound access logging information for the virtual gateway.
     """
@@ -5763,7 +5763,7 @@ class VirtualGatewaySpecArgs:
 
 
 class VirtualGatewaySpecBackendDefaultsArgsDict(TypedDict):
-    client_policy: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyArgs']]]
+    client_policy: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyArgsDict']]]
     """
     Default client policy for virtual gateway backends.
     """
@@ -5792,7 +5792,7 @@ class VirtualGatewaySpecBackendDefaultsArgs:
 
 
 class VirtualGatewaySpecBackendDefaultsClientPolicyArgsDict(TypedDict):
-    tls: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs']]]
+    tls: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgsDict']]]
     """
     Transport Layer Security (TLS) client policy.
     """
@@ -5825,7 +5825,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgsDict(TypedDict):
     """
     Listener's Transport Layer Security (TLS) validation context.
     """
-    certificate: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs']]]
+    certificate: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgsDict']]]
     """
     Listener's TLS certificate.
     """
@@ -5909,11 +5909,11 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs:
 
 
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgsDict(TypedDict):
-    file: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs']]]
+    file: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgsDict']]]
     """
     Local file certificate.
     """
-    sds: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs']]]
+    sds: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict']]]
     """
     A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
     """
@@ -6037,7 +6037,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgsDict(TypedDi
     """
     TLS validation context trust.
     """
-    subject_alternative_names: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs']]]
+    subject_alternative_names: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict']]]
     """
     SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
     """
@@ -6137,15 +6137,15 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternati
 
 
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgsDict(TypedDict):
-    acm: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs']]]
+    acm: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgsDict']]]
     """
     TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
     """
-    file: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs']]]
+    file: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgsDict']]]
     """
     TLS validation context trust for a local file certificate.
     """
-    sds: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs']]]
+    sds: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict']]]
     """
     TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
     """
@@ -6294,15 +6294,15 @@ class VirtualGatewaySpecListenerArgsDict(TypedDict):
     """
     Port mapping information for the listener.
     """
-    connection_pool: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerConnectionPoolArgs']]]
+    connection_pool: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerConnectionPoolArgsDict']]]
     """
     Connection pool information for the listener.
     """
-    health_check: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerHealthCheckArgs']]]
+    health_check: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerHealthCheckArgsDict']]]
     """
     Health check information for the listener.
     """
-    tls: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsArgs']]]
+    tls: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsArgsDict']]]
     """
     Transport Layer Security (TLS) properties for the listener
     """
@@ -6378,15 +6378,15 @@ class VirtualGatewaySpecListenerArgs:
 
 
 class VirtualGatewaySpecListenerConnectionPoolArgsDict(TypedDict):
-    grpc: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerConnectionPoolGrpcArgs']]]
+    grpc: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerConnectionPoolGrpcArgsDict']]]
     """
     Connection pool information for gRPC listeners.
     """
-    http: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerConnectionPoolHttpArgs']]]
+    http: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerConnectionPoolHttpArgsDict']]]
     """
     Connection pool information for HTTP listeners.
     """
-    http2: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerConnectionPoolHttp2Args']]]
+    http2: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerConnectionPoolHttp2ArgsDict']]]
     """
     Connection pool information for HTTP2 listeners.
     """
@@ -6750,7 +6750,7 @@ class VirtualGatewaySpecListenerTlsArgsDict(TypedDict):
     """
     Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
     """
-    validation: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationArgs']]]
+    validation: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationArgsDict']]]
     """
     Listener's Transport Layer Security (TLS) validation context.
     """
@@ -6809,15 +6809,15 @@ class VirtualGatewaySpecListenerTlsArgs:
 
 
 class VirtualGatewaySpecListenerTlsCertificateArgsDict(TypedDict):
-    acm: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsCertificateAcmArgs']]]
+    acm: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsCertificateAcmArgsDict']]]
     """
     An AWS Certificate Manager (ACM) certificate.
     """
-    file: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsCertificateFileArgs']]]
+    file: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsCertificateFileArgsDict']]]
     """
     Local file certificate.
     """
-    sds: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsCertificateSdsArgs']]]
+    sds: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsCertificateSdsArgsDict']]]
     """
     A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
     """
@@ -6985,7 +6985,7 @@ class VirtualGatewaySpecListenerTlsValidationArgsDict(TypedDict):
     """
     TLS validation context trust.
     """
-    subject_alternative_names: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs']]]
+    subject_alternative_names: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgsDict']]]
     """
     SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
     """
@@ -7085,11 +7085,11 @@ class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs:
 
 
 class VirtualGatewaySpecListenerTlsValidationTrustArgsDict(TypedDict):
-    file: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationTrustFileArgs']]]
+    file: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationTrustFileArgsDict']]]
     """
     TLS validation context trust for a local file certificate.
     """
-    sds: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationTrustSdsArgs']]]
+    sds: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationTrustSdsArgsDict']]]
     """
     TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
     """
@@ -7190,7 +7190,7 @@ class VirtualGatewaySpecListenerTlsValidationTrustSdsArgs:
 
 
 class VirtualGatewaySpecLoggingArgsDict(TypedDict):
-    access_log: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecLoggingAccessLogArgs']]]
+    access_log: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecLoggingAccessLogArgsDict']]]
     """
     Access log configuration for a virtual gateway.
     """
@@ -7219,7 +7219,7 @@ class VirtualGatewaySpecLoggingArgs:
 
 
 class VirtualGatewaySpecLoggingAccessLogArgsDict(TypedDict):
-    file: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecLoggingAccessLogFileArgs']]]
+    file: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecLoggingAccessLogFileArgsDict']]]
     """
     File object to send virtual gateway access logs to.
     """
@@ -7252,7 +7252,7 @@ class VirtualGatewaySpecLoggingAccessLogFileArgsDict(TypedDict):
     """
     File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
     """
-    format: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecLoggingAccessLogFileFormatArgs']]]
+    format: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecLoggingAccessLogFileFormatArgsDict']]]
     """
     The specified format for the logs.
     """
@@ -7296,7 +7296,7 @@ class VirtualGatewaySpecLoggingAccessLogFileArgs:
 
 
 class VirtualGatewaySpecLoggingAccessLogFileFormatArgsDict(TypedDict):
-    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs']]]]]
+    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgsDict']]]]]
     """
     The logging format for JSON.
     """
@@ -7392,23 +7392,23 @@ class VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs:
 
 
 class VirtualNodeSpecArgsDict(TypedDict):
-    backend_defaults: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsArgs']]]
+    backend_defaults: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsArgsDict']]]
     """
     Defaults for backends.
     """
-    backends: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNodeSpecBackendArgs']]]]]
+    backends: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNodeSpecBackendArgsDict']]]]]
     """
     Backends to which the virtual node is expected to send outbound traffic.
     """
-    listeners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNodeSpecListenerArgs']]]]]
+    listeners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNodeSpecListenerArgsDict']]]]]
     """
     Listeners from which the virtual node is expected to receive inbound traffic.
     """
-    logging: NotRequired[pulumi.Input[Optional['VirtualNodeSpecLoggingArgs']]]
+    logging: NotRequired[pulumi.Input[Optional['VirtualNodeSpecLoggingArgsDict']]]
     """
     Inbound and outbound access logging information for the virtual node.
     """
-    service_discovery: NotRequired[pulumi.Input[Optional['VirtualNodeSpecServiceDiscoveryArgs']]]
+    service_discovery: NotRequired[pulumi.Input[Optional['VirtualNodeSpecServiceDiscoveryArgsDict']]]
     """
     Service discovery information for the virtual node.
     """
@@ -7529,7 +7529,7 @@ class VirtualNodeSpecBackendArgs:
 
 
 class VirtualNodeSpecBackendDefaultsArgsDict(TypedDict):
-    client_policy: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyArgs']]]
+    client_policy: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyArgsDict']]]
     """
     Default client policy for virtual service backends. See above for details.
     """
@@ -7558,7 +7558,7 @@ class VirtualNodeSpecBackendDefaultsArgs:
 
 
 class VirtualNodeSpecBackendDefaultsClientPolicyArgsDict(TypedDict):
-    tls: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs']]]
+    tls: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsArgsDict']]]
     """
     Transport Layer Security (TLS) client policy.
     """
@@ -7591,7 +7591,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgsDict(TypedDict):
     """
     Listener's Transport Layer Security (TLS) validation context.
     """
-    certificate: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs']]]
+    certificate: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgsDict']]]
     """
     Listener's TLS certificate.
     """
@@ -7675,11 +7675,11 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs:
 
 
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgsDict(TypedDict):
-    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs']]]
+    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgsDict']]]
     """
     Local file certificate.
     """
-    sds: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs']]]
+    sds: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict']]]
     """
     A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
     """
@@ -7803,7 +7803,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgsDict(TypedDict)
     """
     TLS validation context trust.
     """
-    subject_alternative_names: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs']]]
+    subject_alternative_names: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict']]]
     """
     SANs for a TLS validation context.
     """
@@ -7903,15 +7903,15 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeN
 
 
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgsDict(TypedDict):
-    acm: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs']]]
+    acm: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgsDict']]]
     """
     TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
     """
-    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs']]]
+    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgsDict']]]
     """
     TLS validation context trust for a local file certificate.
     """
-    sds: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs']]]
+    sds: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict']]]
     """
     TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
     """
@@ -8060,7 +8060,7 @@ class VirtualNodeSpecBackendVirtualServiceArgsDict(TypedDict):
     """
     Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
     """
-    client_policy: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyArgs']]]
+    client_policy: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyArgsDict']]]
     """
     Client policy for the backend.
     """
@@ -8104,7 +8104,7 @@ class VirtualNodeSpecBackendVirtualServiceArgs:
 
 
 class VirtualNodeSpecBackendVirtualServiceClientPolicyArgsDict(TypedDict):
-    tls: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs']]]
+    tls: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgsDict']]]
     """
     Transport Layer Security (TLS) client policy.
     """
@@ -8137,7 +8137,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgsDict(TypedDict):
     """
     Listener's Transport Layer Security (TLS) validation context.
     """
-    certificate: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs']]]
+    certificate: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgsDict']]]
     """
     Listener's TLS certificate.
     """
@@ -8221,11 +8221,11 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs:
 
 
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgsDict(TypedDict):
-    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs']]]
+    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgsDict']]]
     """
     Local file certificate.
     """
-    sds: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs']]]
+    sds: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgsDict']]]
     """
     A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
     """
@@ -8349,7 +8349,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgsDict(Type
     """
     TLS validation context trust.
     """
-    subject_alternative_names: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs']]]
+    subject_alternative_names: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgsDict']]]
     """
     SANs for a TLS validation context.
     """
@@ -8449,15 +8449,15 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAltern
 
 
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgsDict(TypedDict):
-    acm: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs']]]
+    acm: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgsDict']]]
     """
     TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
     """
-    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs']]]
+    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgsDict']]]
     """
     TLS validation context trust for a local file certificate.
     """
-    sds: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs']]]
+    sds: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgsDict']]]
     """
     TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
     """
@@ -8606,23 +8606,23 @@ class VirtualNodeSpecListenerArgsDict(TypedDict):
     """
     Port mapping information for the listener.
     """
-    connection_pool: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerConnectionPoolArgs']]]
+    connection_pool: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerConnectionPoolArgsDict']]]
     """
     Connection pool information for the listener.
     """
-    health_check: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerHealthCheckArgs']]]
+    health_check: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerHealthCheckArgsDict']]]
     """
     Health check information for the listener.
     """
-    outlier_detection: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerOutlierDetectionArgs']]]
+    outlier_detection: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerOutlierDetectionArgsDict']]]
     """
     Outlier detection information for the listener.
     """
-    timeout: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutArgs']]]
+    timeout: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutArgsDict']]]
     """
     Timeouts for different protocols.
     """
-    tls: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsArgs']]]
+    tls: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsArgsDict']]]
     """
     Transport Layer Security (TLS) properties for the listener
     """
@@ -8730,19 +8730,19 @@ class VirtualNodeSpecListenerArgs:
 
 
 class VirtualNodeSpecListenerConnectionPoolArgsDict(TypedDict):
-    grpc: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerConnectionPoolGrpcArgs']]]
+    grpc: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerConnectionPoolGrpcArgsDict']]]
     """
     Connection pool information for gRPC listeners.
     """
-    http2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2Args']]]]]
+    http2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2ArgsDict']]]]]
     """
     Connection pool information for HTTP2 listeners.
     """
-    https: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgs']]]]]
+    https: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgsDict']]]]]
     """
     Connection pool information for HTTP listeners.
     """
-    tcps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgs']]]]]
+    tcps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgsDict']]]]]
     """
     Connection pool information for TCP listeners.
     """
@@ -9324,19 +9324,19 @@ class VirtualNodeSpecListenerPortMappingArgs:
 
 
 class VirtualNodeSpecListenerTimeoutArgsDict(TypedDict):
-    grpc: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutGrpcArgs']]]
+    grpc: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutGrpcArgsDict']]]
     """
     Timeouts for gRPC listeners.
     """
-    http: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutHttpArgs']]]
+    http: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutHttpArgsDict']]]
     """
     Timeouts for HTTP listeners.
     """
-    http2: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutHttp2Args']]]
+    http2: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutHttp2ArgsDict']]]
     """
     Timeouts for HTTP2 listeners.
     """
-    tcp: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutTcpArgs']]]
+    tcp: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutTcpArgsDict']]]
     """
     Timeouts for TCP listeners.
     """
@@ -9413,11 +9413,11 @@ class VirtualNodeSpecListenerTimeoutArgs:
 
 
 class VirtualNodeSpecListenerTimeoutGrpcArgsDict(TypedDict):
-    idle: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutGrpcIdleArgs']]]
+    idle: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutGrpcIdleArgsDict']]]
     """
     Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
     """
-    per_request: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs']]]
+    per_request: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutGrpcPerRequestArgsDict']]]
     """
     Per request timeout.
     """
@@ -9556,11 +9556,11 @@ class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs:
 
 
 class VirtualNodeSpecListenerTimeoutHttp2ArgsDict(TypedDict):
-    idle: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutHttp2IdleArgs']]]
+    idle: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutHttp2IdleArgsDict']]]
     """
     Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
     """
-    per_request: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs']]]
+    per_request: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutHttp2PerRequestArgsDict']]]
     """
     Per request timeout.
     """
@@ -9699,11 +9699,11 @@ class VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs:
 
 
 class VirtualNodeSpecListenerTimeoutHttpArgsDict(TypedDict):
-    idle: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutHttpIdleArgs']]]
+    idle: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutHttpIdleArgsDict']]]
     """
     Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
     """
-    per_request: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutHttpPerRequestArgs']]]
+    per_request: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutHttpPerRequestArgsDict']]]
     """
     Per request timeout.
     """
@@ -9842,7 +9842,7 @@ class VirtualNodeSpecListenerTimeoutHttpPerRequestArgs:
 
 
 class VirtualNodeSpecListenerTimeoutTcpArgsDict(TypedDict):
-    idle: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutTcpIdleArgs']]]
+    idle: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTimeoutTcpIdleArgsDict']]]
     """
     Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
     """
@@ -9926,7 +9926,7 @@ class VirtualNodeSpecListenerTlsArgsDict(TypedDict):
     """
     Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
     """
-    validation: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsValidationArgs']]]
+    validation: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsValidationArgsDict']]]
     """
     Listener's Transport Layer Security (TLS) validation context.
     """
@@ -9985,15 +9985,15 @@ class VirtualNodeSpecListenerTlsArgs:
 
 
 class VirtualNodeSpecListenerTlsCertificateArgsDict(TypedDict):
-    acm: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsCertificateAcmArgs']]]
+    acm: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsCertificateAcmArgsDict']]]
     """
     An AWS Certificate Manager (ACM) certificate.
     """
-    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsCertificateFileArgs']]]
+    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsCertificateFileArgsDict']]]
     """
     Local file certificate.
     """
-    sds: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsCertificateSdsArgs']]]
+    sds: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsCertificateSdsArgsDict']]]
     """
     A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
     """
@@ -10161,7 +10161,7 @@ class VirtualNodeSpecListenerTlsValidationArgsDict(TypedDict):
     """
     TLS validation context trust.
     """
-    subject_alternative_names: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs']]]
+    subject_alternative_names: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgsDict']]]
     """
     SANs for a TLS validation context.
     """
@@ -10261,11 +10261,11 @@ class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs:
 
 
 class VirtualNodeSpecListenerTlsValidationTrustArgsDict(TypedDict):
-    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsValidationTrustFileArgs']]]
+    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsValidationTrustFileArgsDict']]]
     """
     TLS validation context trust for a local file certificate.
     """
-    sds: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsValidationTrustSdsArgs']]]
+    sds: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsValidationTrustSdsArgsDict']]]
     """
     TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
     """
@@ -10366,7 +10366,7 @@ class VirtualNodeSpecListenerTlsValidationTrustSdsArgs:
 
 
 class VirtualNodeSpecLoggingArgsDict(TypedDict):
-    access_log: NotRequired[pulumi.Input[Optional['VirtualNodeSpecLoggingAccessLogArgs']]]
+    access_log: NotRequired[pulumi.Input[Optional['VirtualNodeSpecLoggingAccessLogArgsDict']]]
     """
     Access log configuration for a virtual node.
     """
@@ -10395,7 +10395,7 @@ class VirtualNodeSpecLoggingArgs:
 
 
 class VirtualNodeSpecLoggingAccessLogArgsDict(TypedDict):
-    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecLoggingAccessLogFileArgs']]]
+    file: NotRequired[pulumi.Input[Optional['VirtualNodeSpecLoggingAccessLogFileArgsDict']]]
     """
     File object to send virtual node access logs to.
     """
@@ -10428,7 +10428,7 @@ class VirtualNodeSpecLoggingAccessLogFileArgsDict(TypedDict):
     """
     File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
     """
-    format: NotRequired[pulumi.Input[Optional['VirtualNodeSpecLoggingAccessLogFileFormatArgs']]]
+    format: NotRequired[pulumi.Input[Optional['VirtualNodeSpecLoggingAccessLogFileFormatArgsDict']]]
     """
     The specified format for the logs.
     """
@@ -10472,7 +10472,7 @@ class VirtualNodeSpecLoggingAccessLogFileArgs:
 
 
 class VirtualNodeSpecLoggingAccessLogFileFormatArgsDict(TypedDict):
-    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs']]]]]
+    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatJsonArgsDict']]]]]
     """
     The logging format for JSON.
     """
@@ -10568,11 +10568,11 @@ class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs:
 
 
 class VirtualNodeSpecServiceDiscoveryArgsDict(TypedDict):
-    aws_cloud_map: NotRequired[pulumi.Input[Optional['VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs']]]
+    aws_cloud_map: NotRequired[pulumi.Input[Optional['VirtualNodeSpecServiceDiscoveryAwsCloudMapArgsDict']]]
     """
     Any AWS Cloud Map information for the virtual node.
     """
-    dns: NotRequired[pulumi.Input[Optional['VirtualNodeSpecServiceDiscoveryDnsArgs']]]
+    dns: NotRequired[pulumi.Input[Optional['VirtualNodeSpecServiceDiscoveryDnsArgsDict']]]
     """
     DNS service name for the virtual node.
     """
@@ -10755,7 +10755,7 @@ class VirtualNodeSpecServiceDiscoveryDnsArgs:
 
 
 class VirtualRouterSpecArgsDict(TypedDict):
-    listeners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualRouterSpecListenerArgs']]]]]
+    listeners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualRouterSpecListenerArgsDict']]]]]
     """
     Listeners that the virtual router is expected to receive inbound traffic from.
     Currently only one listener is supported per virtual router.
@@ -10862,7 +10862,7 @@ class VirtualRouterSpecListenerPortMappingArgs:
 
 
 class VirtualServiceSpecArgsDict(TypedDict):
-    provider: NotRequired[pulumi.Input[Optional['VirtualServiceSpecProviderArgs']]]
+    provider: NotRequired[pulumi.Input[Optional['VirtualServiceSpecProviderArgsDict']]]
     """
     App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
     """
@@ -10891,11 +10891,11 @@ class VirtualServiceSpecArgs:
 
 
 class VirtualServiceSpecProviderArgsDict(TypedDict):
-    virtual_node: NotRequired[pulumi.Input[Optional['VirtualServiceSpecProviderVirtualNodeArgs']]]
+    virtual_node: NotRequired[pulumi.Input[Optional['VirtualServiceSpecProviderVirtualNodeArgsDict']]]
     """
     Virtual node associated with a virtual service.
     """
-    virtual_router: NotRequired[pulumi.Input[Optional['VirtualServiceSpecProviderVirtualRouterArgs']]]
+    virtual_router: NotRequired[pulumi.Input[Optional['VirtualServiceSpecProviderVirtualRouterArgsDict']]]
     """
     Virtual router associated with a virtual service.
     """

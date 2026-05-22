@@ -60,7 +60,7 @@ class PlanStageArgsDict(TypedDict):
     """
     The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
     """
-    targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanStageTargetArgs']]]]]
+    targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanStageTargetArgsDict']]]]]
     """
     One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
     """
@@ -104,11 +104,11 @@ class PlanStageArgs:
 
 
 class PlanStageTargetArgsDict(TypedDict):
-    channel_target_info: NotRequired[pulumi.Input[Optional['PlanStageTargetChannelTargetInfoArgs']]]
+    channel_target_info: NotRequired[pulumi.Input[Optional['PlanStageTargetChannelTargetInfoArgsDict']]]
     """
     A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
     """
-    contact_target_info: NotRequired[pulumi.Input[Optional['PlanStageTargetContactTargetInfoArgs']]]
+    contact_target_info: NotRequired[pulumi.Input[Optional['PlanStageTargetContactTargetInfoArgsDict']]]
     """
     A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
     """

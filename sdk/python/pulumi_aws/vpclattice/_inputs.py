@@ -76,8 +76,8 @@ __all__ = [
 ]
 
 class ListenerDefaultActionArgsDict(TypedDict):
-    fixed_response: NotRequired[pulumi.Input[Optional['ListenerDefaultActionFixedResponseArgs']]]
-    forwards: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerDefaultActionForwardArgs']]]]]
+    fixed_response: NotRequired[pulumi.Input[Optional['ListenerDefaultActionFixedResponseArgsDict']]]
+    forwards: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerDefaultActionForwardArgsDict']]]]]
     """
     Route requests to one or more target groups. See Forward blocks below.
 
@@ -152,7 +152,7 @@ class ListenerDefaultActionFixedResponseArgs:
 
 
 class ListenerDefaultActionForwardArgsDict(TypedDict):
-    target_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]]]
+    target_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgsDict']]]]]
     """
     One or more target group blocks.
     """
@@ -233,12 +233,12 @@ class ListenerDefaultActionForwardTargetGroupArgs:
 
 
 class ListenerRuleActionArgsDict(TypedDict):
-    fixed_response: NotRequired[pulumi.Input[Optional['ListenerRuleActionFixedResponseArgs']]]
+    fixed_response: NotRequired[pulumi.Input[Optional['ListenerRuleActionFixedResponseArgsDict']]]
     """
     Describes the rule action that returns a custom HTTP response.
     See `fixed_response` Block for details.
     """
-    forward: NotRequired[pulumi.Input[Optional['ListenerRuleActionForwardArgs']]]
+    forward: NotRequired[pulumi.Input[Optional['ListenerRuleActionForwardArgsDict']]]
     """
     The forward action. Traffic that matches the rule is forwarded to the specified target groups.
     See `forward` Block for details.
@@ -413,7 +413,7 @@ class ListenerRuleMatchArgs:
 
 
 class ListenerRuleMatchHttpMatchArgsDict(TypedDict):
-    header_matches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArgs']]]]]
+    header_matches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArgsDict']]]]]
     """
     The header matches.
     Matches incoming requests with rule based on request header value before applying rule action.
@@ -423,7 +423,7 @@ class ListenerRuleMatchHttpMatchArgsDict(TypedDict):
     """
     The HTTP method type.
     """
-    path_match: NotRequired[pulumi.Input[Optional['ListenerRuleMatchHttpMatchPathMatchArgs']]]
+    path_match: NotRequired[pulumi.Input[Optional['ListenerRuleMatchHttpMatchPathMatchArgsDict']]]
     """
     The path match.
     See `path_match` Block for details.
@@ -742,15 +742,15 @@ class ListenerRuleMatchHttpMatchPathMatchMatchArgs:
 
 
 class ResourceConfigurationResourceConfigurationDefinitionArgsDict(TypedDict):
-    arn_resource: NotRequired[pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs']]]
+    arn_resource: NotRequired[pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionArnResourceArgsDict']]]
     """
     Resource DNS Configuration. See `arn_resource` Block for details.
     """
-    dns_resource: NotRequired[pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs']]]
+    dns_resource: NotRequired[pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgsDict']]]
     """
     Resource DNS Configuration. See `dns_resource` Block for details.
     """
-    ip_resource: NotRequired[pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs']]]
+    ip_resource: NotRequired[pulumi.Input[Optional['ResourceConfigurationResourceConfigurationDefinitionIpResourceArgsDict']]]
     """
     Resource DNS Configuration. See `ip_resource` Block for details.
     """
@@ -1327,7 +1327,7 @@ class TargetGroupAttachmentTargetArgs:
 
 
 class TargetGroupConfigArgsDict(TypedDict):
-    health_check: NotRequired[pulumi.Input[Optional['TargetGroupConfigHealthCheckArgs']]]
+    health_check: NotRequired[pulumi.Input[Optional['TargetGroupConfigHealthCheckArgsDict']]]
     """
     The health check configuration.
     """
@@ -1490,7 +1490,7 @@ class TargetGroupConfigHealthCheckArgsDict(TypedDict):
     * `healthy_threshold_count ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
     """
     healthy_threshold_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    matcher: NotRequired[pulumi.Input[Optional['TargetGroupConfigHealthCheckMatcherArgs']]]
+    matcher: NotRequired[pulumi.Input[Optional['TargetGroupConfigHealthCheckMatcherArgsDict']]]
     """
     The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
     """

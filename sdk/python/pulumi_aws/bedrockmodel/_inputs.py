@@ -26,7 +26,7 @@ __all__ = [
 ]
 
 class InvocationLoggingConfigurationLoggingConfigArgsDict(TypedDict):
-    cloudwatch_config: NotRequired[pulumi.Input[Optional['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs']]]
+    cloudwatch_config: NotRequired[pulumi.Input[Optional['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict']]]
     """
     CloudWatch logging configuration. See `cloudwatch_config` Block for details.
     """
@@ -38,7 +38,7 @@ class InvocationLoggingConfigurationLoggingConfigArgsDict(TypedDict):
     """
     Set to include image data in the log delivery. Defaults to `true`.
     """
-    s3_config: NotRequired[pulumi.Input[Optional['InvocationLoggingConfigurationLoggingConfigS3ConfigArgs']]]
+    s3_config: NotRequired[pulumi.Input[Optional['InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict']]]
     """
     S3 configuration for storing log data. See `s3_config` Block for details.
     """
@@ -163,7 +163,7 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict(TypedD
     """
     The role ARN.
     """
-    large_data_delivery_s3_config: NotRequired[pulumi.Input[Optional['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs']]]
+    large_data_delivery_s3_config: NotRequired[pulumi.Input[Optional['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict']]]
     """
     S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
     """

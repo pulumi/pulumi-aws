@@ -50,37 +50,37 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			loggingBucketPolicy := logging.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//					Statements: []iam.GetPolicyDocumentStatement{
-//						{
-//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//								{
-//									Identifiers: []string{
-//										"logging.s3.amazonaws.com",
-//									},
-//									Type: "Service",
+//			loggingBucketPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("logging.s3.amazonaws.com"),
 //								},
+//								Type: pulumi.String("Service"),
 //							},
-//							Actions: []string{
-//								"s3:PutObject",
-//							},
-//							Resources: []string{
-//								fmt.Sprintf("%v/*", arn),
-//							},
-//							Conditions: []iam.GetPolicyDocumentStatementCondition{
-//								{
-//									Test:     "StringEquals",
-//									Variable: "aws:SourceAccount",
-//									Values: pulumi.StringArray{
-//										current.AccountId,
-//									},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:PutObject"),
+//						},
+//						Resources: pulumi.StringArray{
+//							logging.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("aws:SourceAccount"),
+//								Values: pulumi.StringArray{
+//									pulumi.String(current.AccountId),
 //								},
 //							},
 //						},
 //					},
-//				}, nil))), nil
-//			}).(iam.GetPolicyDocumentResultOutput)
+//				},
+//			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "logging", &s3.BucketPolicyArgs{
 //				Bucket: logging.Bucket,
 //				Policy: pulumi.String(loggingBucketPolicy.ApplyT(func(loggingBucketPolicy iam.GetPolicyDocumentResult) (*string, error) {

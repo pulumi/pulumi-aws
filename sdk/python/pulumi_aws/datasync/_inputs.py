@@ -224,11 +224,11 @@ class LocationAzureBlobSasConfigurationArgs:
 
 
 class LocationFsxOntapFileSystemProtocolArgsDict(TypedDict):
-    nfs: NotRequired[pulumi.Input[Optional['LocationFsxOntapFileSystemProtocolNfsArgs']]]
+    nfs: NotRequired[pulumi.Input[Optional['LocationFsxOntapFileSystemProtocolNfsArgsDict']]]
     """
     Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
     """
-    smb: NotRequired[pulumi.Input[Optional['LocationFsxOntapFileSystemProtocolSmbArgs']]]
+    smb: NotRequired[pulumi.Input[Optional['LocationFsxOntapFileSystemProtocolSmbArgsDict']]]
     """
     Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
     """
@@ -1104,7 +1104,7 @@ class TaskTaskReportConfigArgsDict(TypedDict):
     """
     Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
     """
-    report_overrides: NotRequired[pulumi.Input[Optional['TaskTaskReportConfigReportOverridesArgs']]]
+    report_overrides: NotRequired[pulumi.Input[Optional['TaskTaskReportConfigReportOverridesArgsDict']]]
     """
     Configuration block containing the configuration of the reporting level for aspects of your task report. See `report_overrides` below.
     """

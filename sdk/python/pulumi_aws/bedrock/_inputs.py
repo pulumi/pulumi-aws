@@ -731,7 +731,7 @@ class AgentAgentActionGroupApiSchemaArgsDict(TypedDict):
     JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
     Only one of `payload` or `s3` can be specified.
     """
-    s3: NotRequired[pulumi.Input[Optional['AgentAgentActionGroupApiSchemaS3Args']]]
+    s3: NotRequired[pulumi.Input[Optional['AgentAgentActionGroupApiSchemaS3ArgsDict']]]
     """
     Details about the S3 object containing the OpenAPI schema for the action group. See `s3` Block for details.
     Only one of `s3` or `payload` can be specified.
@@ -830,7 +830,7 @@ class AgentAgentActionGroupApiSchemaS3Args:
 
 
 class AgentAgentActionGroupFunctionSchemaArgsDict(TypedDict):
-    member_functions: NotRequired[pulumi.Input[Optional['AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs']]]
+    member_functions: NotRequired[pulumi.Input[Optional['AgentAgentActionGroupFunctionSchemaMemberFunctionsArgsDict']]]
     """
     Contains a list of functions.
     Each function describes and action in the action group.
@@ -865,7 +865,7 @@ class AgentAgentActionGroupFunctionSchemaArgs:
 
 
 class AgentAgentActionGroupFunctionSchemaMemberFunctionsArgsDict(TypedDict):
-    functions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs']]]]]
+    functions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgsDict']]]]]
     """
     Functions that each define an action in the action group. See `functions` Block for details.
     """
@@ -902,7 +902,7 @@ class AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgsDict(TypedDi
     """
     Description of the function and its purpose.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgsDict']]]]]
     """
     Parameters that the agent elicits from the user to fulfill the function. See `parameters` Block for details.
     """
@@ -1854,23 +1854,23 @@ class AgentDataSourceDataSourceConfigurationArgsDict(TypedDict):
     """
     Type of storage for the data source. Valid values: `S3`, `WEB`, `CONFLUENCE`, `SALESFORCE`, `SHAREPOINT`, `CUSTOM`, `REDSHIFT_METADATA`.
     """
-    confluence_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs']]]
+    confluence_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgsDict']]]
     """
     Details about the configuration of the Confluence data source. See `confluence_data_source_configuration` block for details.
     """
-    s3_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationS3ConfigurationArgs']]]
+    s3_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationS3ConfigurationArgsDict']]]
     """
     Details about the configuration of the S3 object containing the data source. See `s3_data_source_configuration` block for details.
     """
-    salesforce_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs']]]
+    salesforce_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgsDict']]]
     """
     Details about the configuration of the Salesforce data source. See `salesforce_data_source_configuration` block for details.
     """
-    share_point_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs']]]
+    share_point_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSharePointConfigurationArgsDict']]]
     """
     Details about the configuration of the SharePoint data source. See `share_point_data_source_configuration` block for details.
     """
-    web_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationWebConfigurationArgs']]]
+    web_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationWebConfigurationArgsDict']]]
     """
     Details about the configuration of the web data source. See `web_data_source_configuration` block for details.
     """
@@ -1978,8 +1978,8 @@ class AgentDataSourceDataSourceConfigurationArgs:
 
 
 class AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgsDict(TypedDict):
-    crawler_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgs']]]
-    source_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgs']]]
+    crawler_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgsDict']]]
+    source_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationConfluenceConfigurationSourceConfigurationArgsDict']]]
 
 @pulumi.input_type
 class AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs:
@@ -2011,7 +2011,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationArgs:
 
 
 class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationArgsDict(TypedDict):
-    filter_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgs']]]
+    filter_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationArgsDict']]]
     """
     The Salesforce standard object configuration. See `filter_configuration` block for details.
     """
@@ -2044,7 +2044,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
     """
     The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
     """
-    pattern_object_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs']]]]]
+    pattern_object_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgsDict']]]]]
     """
     The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
     """
@@ -2088,7 +2088,7 @@ class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfig
 
 
 class AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgsDict(TypedDict):
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationConfluenceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgsDict']]]]]
     """
     The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
 
@@ -2330,8 +2330,8 @@ class AgentDataSourceDataSourceConfigurationS3ConfigurationArgs:
 
 
 class AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgsDict(TypedDict):
-    crawler_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgs']]]
-    source_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgs']]]
+    crawler_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgsDict']]]
+    source_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigurationArgsDict']]]
 
 @pulumi.input_type
 class AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs:
@@ -2363,7 +2363,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationArgs:
 
 
 class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationArgsDict(TypedDict):
-    filter_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgs']]]
+    filter_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationArgsDict']]]
     """
     The Salesforce standard object configuration. See `filter_configuration` block for details.
     """
@@ -2396,7 +2396,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
     """
     The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
     """
-    pattern_object_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs']]]]]
+    pattern_object_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgsDict']]]]]
     """
     The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
     """
@@ -2440,7 +2440,7 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfig
 
 
 class AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgsDict(TypedDict):
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationSalesforceConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgsDict']]]]]
     """
     The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
 
@@ -2595,8 +2595,8 @@ class AgentDataSourceDataSourceConfigurationSalesforceConfigurationSourceConfigu
 
 
 class AgentDataSourceDataSourceConfigurationSharePointConfigurationArgsDict(TypedDict):
-    crawler_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgs']]]
-    source_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgs']]]
+    crawler_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgsDict']]]
+    source_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigurationArgsDict']]]
 
 @pulumi.input_type
 class AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs:
@@ -2628,7 +2628,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationArgs:
 
 
 class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationArgsDict(TypedDict):
-    filter_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgs']]]
+    filter_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationArgsDict']]]
     """
     The Salesforce standard object configuration. See `filter_configuration` block for details.
     """
@@ -2661,7 +2661,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
     """
     The type of filtering that you want to apply to certain objects or content of the data source. For example, the PATTERN type is regular expression patterns you can apply to filter your content.
     """
-    pattern_object_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgs']]]]]
+    pattern_object_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgsDict']]]]]
     """
     The configuration of filtering certain objects or content types of the data source. See `pattern_object_filter` block for details.
     """
@@ -2705,7 +2705,7 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfig
 
 
 class AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterArgsDict(TypedDict):
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationSharePointConfigurationCrawlerConfigurationFilterConfigurationPatternObjectFilterFilterArgsDict']]]]]
     """
     The configuration of specific filters applied to your data source content. Minimum of 1 filter and maximum of 25 filters.
 
@@ -2918,8 +2918,8 @@ class AgentDataSourceDataSourceConfigurationSharePointConfigurationSourceConfigu
 
 
 class AgentDataSourceDataSourceConfigurationWebConfigurationArgsDict(TypedDict):
-    crawler_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgs']]]
-    source_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs']]]
+    crawler_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgsDict']]]
+    source_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgsDict']]]
 
 @pulumi.input_type
 class AgentDataSourceDataSourceConfigurationWebConfigurationArgs:
@@ -2951,7 +2951,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationArgs:
 
 
 class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationArgsDict(TypedDict):
-    crawler_limits: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgs']]]
+    crawler_limits: NotRequired[pulumi.Input[Optional['AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurationCrawlerLimitsArgsDict']]]
     """
     Configuration of crawl limits for the web URLs. See `crawler_limits` block for details.
     """
@@ -3137,7 +3137,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationA
 
 
 class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgsDict(TypedDict):
-    seed_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgs']]]]]
+    seed_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationSeedUrlArgsDict']]]]]
     """
     List of one or more seed URLs to crawl. See `seed_urls` block for details.
     """
@@ -3273,15 +3273,15 @@ class AgentDataSourceTimeoutsArgs:
 
 
 class AgentDataSourceVectorIngestionConfigurationArgsDict(TypedDict):
-    chunking_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs']]]
+    chunking_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgsDict']]]
     """
     Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried. See `chunking_configuration` block for details.
     """
-    custom_transformation_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgs']]]
+    custom_transformation_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgsDict']]]
     """
     Configuration for custom transformation of data source documents.
     """
-    parsing_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs']]]
+    parsing_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgsDict']]]
     """
     Configuration for custom parsing of data source documents. See `parsing_configuration` block for details.
     """
@@ -3346,15 +3346,15 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgsDict(T
     """
     Option for chunking your source data, either in fixed-sized chunks or as one chunk. Valid values: `FIXED_SIZE`, `HIERARCHICAL`, `SEMANTIC`, `NONE`.
     """
-    fixed_size_chunking_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs']]]
+    fixed_size_chunking_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgsDict']]]
     """
     Configurations for when you choose fixed-size chunking. Requires chunking_strategy as `FIXED_SIZE`. See `fixed_size_chunking_configuration` for details.
     """
-    hierarchical_chunking_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs']]]
+    hierarchical_chunking_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgsDict']]]
     """
     Configurations for when you choose hierarchical chunking. Requires chunking_strategy as `HIERARCHICAL`. See `hierarchical_chunking_configuration` for details.
     """
-    semantic_chunking_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgs']]]
+    semantic_chunking_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticChunkingConfigurationArgsDict']]]
     """
     Configurations for when you choose semantic chunking. Requires chunking_strategy as `SEMANTIC`. See `semantic_chunking_configuration` for details.
     """
@@ -3481,7 +3481,7 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
     """
     The number of tokens to repeat across chunks in the same layer.
     """
-    level_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]]]]
+    level_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgsDict']]]]]
     """
     Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
     """
@@ -3619,11 +3619,11 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationSemanticCh
 
 
 class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationArgsDict(TypedDict):
-    intermediate_storage: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgs']]]
+    intermediate_storage: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgsDict']]]
     """
     The intermediate storage for custom transformation.
     """
-    transformation: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgs']]]
+    transformation: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationArgsDict']]]
     """
     A custom processing step for documents moving through the data source ingestion pipeline.
     """
@@ -3668,7 +3668,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
 
 
 class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageArgsDict(TypedDict):
-    s3_location: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgs']]]
+    s3_location: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationIntermediateStorageS3LocationArgsDict']]]
     """
     Configuration block for intermedia S3 storage.
     """
@@ -3729,7 +3729,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
     """
     When the service applies the transformation. Currently only `POST_CHUNKING` is supported.
     """
-    transformation_function: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgs']]]
+    transformation_function: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgsDict']]]
     """
     The lambda function that processes documents.
     """
@@ -3773,7 +3773,7 @@ class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurati
 
 
 class AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionArgsDict(TypedDict):
-    transformation_lambda_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs']]]
+    transformation_lambda_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgsDict']]]
     """
     The configuration of the lambda function.
     """
@@ -3834,11 +3834,11 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgsDict(Ty
     """
     The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
     """
-    bedrock_data_automation_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs']]]
+    bedrock_data_automation_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgsDict']]]
     """
     Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrock_data_automation_configuration` block for details.
     """
-    bedrock_foundation_model_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs']]]
+    bedrock_foundation_model_configuration: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgsDict']]]
     """
     Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
     """
@@ -3935,7 +3935,7 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoun
     """
     Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
     """
-    parsing_prompt: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs']]]
+    parsing_prompt: NotRequired[pulumi.Input[Optional['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgsDict']]]
     """
     Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
     """
@@ -4023,11 +4023,11 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoun
 
 
 class AgentFlowDefinitionArgsDict(TypedDict):
-    connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionConnectionArgs']]]]]
+    connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionConnectionArgsDict']]]]]
     """
     A list of connection definitions in the flow. See Connection for more information.
     """
-    nodes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeArgs']]]]]
+    nodes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeArgsDict']]]]]
     """
     A list of node definitions in the flow. See Node for more information.
     """
@@ -4088,7 +4088,7 @@ class AgentFlowDefinitionConnectionArgsDict(TypedDict):
     """
     Whether the source node that the connection begins from is a condition node `Conditional` or not `Data`.
     """
-    configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionConnectionConfigurationArgs']]]
+    configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionConnectionConfigurationArgsDict']]]
     """
     Configuration of the connection. See Connection Configuration for more information.
     """
@@ -4177,11 +4177,11 @@ class AgentFlowDefinitionConnectionArgs:
 
 
 class AgentFlowDefinitionConnectionConfigurationArgsDict(TypedDict):
-    conditional: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionConnectionConfigurationConditionalArgs']]]
+    conditional: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionConnectionConfigurationConditionalArgsDict']]]
     """
     The configuration of a connection originating from a Condition node. See Conditional Connection Configuration for more information.
     """
-    data: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionConnectionConfigurationDataArgs']]]
+    data: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionConnectionConfigurationDataArgsDict']]]
     """
     The configuration of a connection originating from a node that isn’t a Condition node. See Data Connection Configuration for more information.
     """
@@ -4309,15 +4309,15 @@ class AgentFlowDefinitionNodeArgsDict(TypedDict):
     """
     Type of node. This value must match the name of the key you provide in `configuration`. Valid values: `Agent`, `Collector`, `Condition`, `InlineCode`, `Input`, `Iterator`, `KnowledgeBase`, `LambdaFunction`, `Lex`, `Output`, `Prompt`, `Retrieval`, `Storage`
     """
-    configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationArgs']]]
+    configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationArgsDict']]]
     """
     Contains configurations for the node. See Node Configuration for more information.
     """
-    inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeInputArgs']]]]]
+    inputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeInputArgsDict']]]]]
     """
     A list of objects containing information about an input into the node. See Node Input for more information.
     """
-    outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeOutputArgs']]]]]
+    outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeOutputArgsDict']]]]]
     """
     A list of objects containing information about an output from the node. See Node Output for more information.
     """
@@ -4408,55 +4408,55 @@ class AgentFlowDefinitionNodeArgs:
 
 
 class AgentFlowDefinitionNodeConfigurationArgsDict(TypedDict):
-    agent: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationAgentArgs']]]
+    agent: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationAgentArgsDict']]]
     """
     Contains configurations for an agent node in your flow. Invokes an alias of an agent and returns the response. See Agent Node Configuration for more information.
     """
-    collector: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationCollectorArgs']]]
+    collector: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationCollectorArgsDict']]]
     """
     Contains configurations for a collector node in your flow. Collects an iteration of inputs and consolidates them into an array of outputs. This object has no fields.
     """
-    condition: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationConditionArgsDict']]]
     """
     Contains configurations for a Condition node in your flow. Defines conditions that lead to different branches of the flow. See Condition Node Configuration for more information.
     """
-    inline_code: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationInlineCodeArgs']]]
+    inline_code: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationInlineCodeArgsDict']]]
     """
     Contains configurations for an inline code node in your flow. See Inline Code Node Configuration for more information.
     """
-    input: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationInputArgs']]]
+    input: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationInputArgsDict']]]
     """
     Contains configurations for an input flow node in your flow. The node `inputs` can’t be specified for this node. This block has no fields.
     """
-    iterator: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationIteratorArgs']]]
+    iterator: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationIteratorArgsDict']]]
     """
     Contains configurations for an iterator node in your flow. Takes an input that is an array and iteratively sends each item of the array as an output to the following node. The size of the array is also returned in the output. The output flow node at the end of the flow iteration will return a response for each member of the array. To return only one response, you can include a collector node downstream from the iterator node. This block has no fields.
     """
-    knowledge_base: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgs']]]
+    knowledge_base: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgsDict']]]
     """
     Contains configurations for a knowledge base node in your flow. Queries a knowledge base and returns the retrieved results or generated response. See Knowledge Base Node Configuration for more information.
     """
-    lambda_function: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationLambdaFunctionArgs']]]
+    lambda_function: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationLambdaFunctionArgsDict']]]
     """
     Contains configurations for a Lambda function node in your flow. Invokes a Lambda function. See Lambda Function Node Configuration for more information.
     """
-    lex: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationLexArgs']]]
+    lex: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationLexArgsDict']]]
     """
     Contains configurations for a Lex node in your flow. Invokes an Amazon Lex bot to identify the intent of the input and return the intent as the output. See Lex Node Configuration for more information.
     """
-    output: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationOutputArgs']]]
+    output: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationOutputArgsDict']]]
     """
     Contains configurations for an output flow node in your flow. The node `outputs` can’t be specified for this node. This block has no fields.
     """
-    prompt: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptArgs']]]
+    prompt: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptArgsDict']]]
     """
     Contains configurations for a prompt node in your flow. Runs a prompt and generates the model response as the output. You can use a prompt from Prompt management or you can configure one in this node. See Prompt Node Configuration for more information.
     """
-    retrieval: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationRetrievalArgs']]]
+    retrieval: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationRetrievalArgsDict']]]
     """
     Contains configurations for a Retrieval node in your flow. Retrieves data from an Amazon S3 location and returns it as the output. See Retrieval Node Configuration for more information.
     """
-    storage: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationStorageArgs']]]
+    storage: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationStorageArgsDict']]]
     """
     Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Node Configuration for more information.
     """
@@ -4714,7 +4714,7 @@ class AgentFlowDefinitionNodeConfigurationCollectorArgs:
 
 
 class AgentFlowDefinitionNodeConfigurationConditionArgsDict(TypedDict):
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgsDict']]]]]
     """
     A list of conditions. See Condition Config for more information.
     """
@@ -4857,11 +4857,11 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseArgsDict(TypedDict):
     """
     The unique identifier of the model or inference profile to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.
     """
-    guardrail_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgs']]]
+    guardrail_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArgsDict']]]
     """
     Configures a guardrail for knowledge base query and response generation. See Guardrail Configuration for more information.
     """
-    inference_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgs']]]
+    inference_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgsDict']]]
     """
     Configures model inference for knowledge base query and response generation. See Inference Configuration for more information.
     """
@@ -4996,7 +4996,7 @@ class AgentFlowDefinitionNodeConfigurationKnowledgeBaseGuardrailConfigurationArg
 
 
 class AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationArgsDict(TypedDict):
-    text: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgs']]]
+    text: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationKnowledgeBaseInferenceConfigurationTextArgsDict']]]
     """
     Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
     """
@@ -5198,11 +5198,11 @@ class AgentFlowDefinitionNodeConfigurationOutputArgs:
 
 
 class AgentFlowDefinitionNodeConfigurationPromptArgsDict(TypedDict):
-    guardrail_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs']]]
+    guardrail_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgsDict']]]
     """
     Configures a guardrail for prompt generation. See Guardrail Configuration for more information.
     """
-    source_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgs']]]
+    source_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgsDict']]]
     """
     Configures the prompt source, either inline or from Prompt management. See Source Configuration for more information.
     """
@@ -5294,11 +5294,11 @@ class AgentFlowDefinitionNodeConfigurationPromptGuardrailConfigurationArgs:
 
 
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationArgsDict(TypedDict):
-    inline: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs']]]
+    inline: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgsDict']]]
     """
     Contains configurations for a prompt that is defined inline. See Prompt Inline Configuration for more information.
     """
-    resource: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs']]]
+    resource: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgsDict']]]
     """
     Contains configurations for a prompt from Prompt management. See Prompt Resource Configuration for more information.
     """
@@ -5355,11 +5355,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgsDic
     """
     Additional fields to be included in the model request for the Prompt node.
     """
-    inference_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgs']]]
+    inference_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgsDict']]]
     """
     Contains inference configurations for the prompt. See Inference Configuration for more information.
     """
-    template_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgs']]]
+    template_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgsDict']]]
     """
     Contains a prompt and variables in the prompt that can be replaced with values at runtime. See Prompt Template Configuration for more information.
     """
@@ -5450,7 +5450,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineArgs:
 
 
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationArgsDict(TypedDict):
-    text: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgs']]]
+    text: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferenceConfigurationTextArgsDict']]]
     """
     Contains inference configurations for a text prompt. See Text Inference Configuration for more information.
     """
@@ -5568,11 +5568,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineInferen
 
 
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationArgsDict(TypedDict):
-    chat: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs']]]
+    chat: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgsDict']]]
     """
     Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
     """
-    text: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgs']]]
+    text: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextArgsDict']]]
     """
     Contains configurations for the text in a message for a prompt. See Text Template Configuration for more information.
     """
@@ -5621,12 +5621,12 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     """
     A list of messages in the chat for the prompt. See Message for more information.
     """
-    input_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs']]]]]
-    systems: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs']]]]]
+    input_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgsDict']]]]]
+    systems: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgsDict']]]]]
     """
     A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
     """
-    tool_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs']]]
+    tool_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgsDict']]]
     """
     Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
     """
@@ -5730,7 +5730,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     """
     The role that the message belongs to.
     """
-    content: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgs']]]
+    content: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgsDict']]]
     """
     Contains the content for the message you pass to, or receive from a model. See Message Content for more information.
     """
@@ -5774,7 +5774,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 
 
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentArgsDict(TypedDict):
-    cache_point: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgs']]]
+    cache_point: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageContentCachePointArgsDict']]]
     """
     Creates a cache checkpoint within a message. See Cache Point for more information.
     """
@@ -5851,7 +5851,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 
 
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgsDict(TypedDict):
-    cache_point: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgs']]]
+    cache_point: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemCachePointArgsDict']]]
     """
     Creates a cache checkpoint within a tool designation. See Cache Point for more information.
     """
@@ -5928,11 +5928,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 
 
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgsDict(TypedDict):
-    tool_choice: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgs']]]
+    tool_choice: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgsDict']]]
     """
     Defines which tools the model should request when invoked. See Tool Choice for more information.
     """
-    tools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgs']]]]]
+    tools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgsDict']]]]]
     """
     A list of tools to pass to a model. See Tool for more information.
     """
@@ -5977,11 +5977,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 
 
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolArgsDict(TypedDict):
-    cache_point: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgs']]]
+    cache_point: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolCachePointArgsDict']]]
     """
     Creates a cache checkpoint within a tool designation. See Cache Point for more information.
     """
-    tool_spec: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgs']]]
+    tool_spec: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecArgsDict']]]
     """
     The specification for the tool. See Tool Specification for more information.
     """
@@ -6054,15 +6054,15 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 
 
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceArgsDict(TypedDict):
-    any: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs']]]
+    any: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAnyArgsDict']]]
     """
     Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This block has no fields.
     """
-    auto: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs']]]
+    auto: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceAutoArgsDict']]]
     """
     Defines tools. The model automatically decides whether to call a tool or to generate text instead. This block has no fields.
     """
-    tool: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgs']]]
+    tool: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolChoiceToolArgsDict']]]
     """
     Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
     """
@@ -6177,7 +6177,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     """
     The description of the tool.
     """
-    input_schema: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs']]]
+    input_schema: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgsDict']]]
     """
     The input schema of the tool. See Tool Input Schema for more information.
     """
@@ -6270,11 +6270,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     """
     The message for the prompt.
     """
-    cache_point: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgs']]]
+    cache_point: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextCachePointArgsDict']]]
     """
     A cache checkpoint within a template configuration. See Cache Point for more information.
     """
-    input_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgs']]]]]
+    input_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationTextInputVariableArgsDict']]]]]
     """
     A list of variables in the prompt template. See Input Variable for more information.
     """
@@ -6418,7 +6418,7 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResourceArgs:
 
 
 class AgentFlowDefinitionNodeConfigurationRetrievalArgsDict(TypedDict):
-    service_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgs']]]
+    service_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgsDict']]]
     """
     Contains configurations for the service to use for retrieving data to return as the output from the node. See Retrieval Service Configuration for more information.
     """
@@ -6447,7 +6447,7 @@ class AgentFlowDefinitionNodeConfigurationRetrievalArgs:
 
 
 class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationArgsDict(TypedDict):
-    s3: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args']]]
+    s3: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3ArgsDict']]]
     """
     Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
     """
@@ -6504,7 +6504,7 @@ class AgentFlowDefinitionNodeConfigurationRetrievalServiceConfigurationS3Args:
 
 
 class AgentFlowDefinitionNodeConfigurationStorageArgsDict(TypedDict):
-    service_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgs']]]
+    service_configuration: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgsDict']]]
     """
     Contains configurations for a Storage node in your flow. Stores an input in an Amazon S3 location. See Storage Service Configuration for more information.
     """
@@ -6533,7 +6533,7 @@ class AgentFlowDefinitionNodeConfigurationStorageArgs:
 
 
 class AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationArgsDict(TypedDict):
-    s3: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3Args']]]
+    s3: NotRequired[pulumi.Input[Optional['AgentFlowDefinitionNodeConfigurationStorageServiceConfigurationS3ArgsDict']]]
     """
     Contains configurations for the service to use for storing the input into the node. See Storage S3 Service Configuration for more information.
     """
@@ -6796,15 +6796,15 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationArgsDict(TypedDict):
     """
     Type of data that the data source is converted into for the knowledge base. Valid Values: `VECTOR`, `KENDRA`, `SQL`.
     """
-    kendra_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs']]]
+    kendra_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgsDict']]]
     """
     Settings for an Amazon Kendra knowledge base. See `kendra_knowledge_base_configuration` block for details.
     """
-    sql_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs']]]
+    sql_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgsDict']]]
     """
     Configurations for a knowledge base connected to an SQL database. See `sql_knowledge_base_configuration` block for details.
     """
-    vector_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs']]]
+    vector_knowledge_base_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgsDict']]]
     """
     Details about the model that's used to convert the data source into vector embeddings. See `vector_knowledge_base_configuration` block for details.
     """
@@ -6912,7 +6912,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationA
     """
     Type of SQL database to connect to the knowledge base. Valid values: `REDSHIFT`.
     """
-    redshift_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs']]]
+    redshift_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgsDict']]]
     """
     Configurations for a knowledge base connected to an Amazon Redshift database. See `redshift_configuration` block for details.
     """
@@ -6964,7 +6964,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     """
     Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
     """
-    query_generation_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs']]]
+    query_generation_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgsDict']]]
     """
     Configurations for generating queries. See `query_generation_configuration` block for details.
     """
@@ -7027,11 +7027,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     """
     Type of query engine. Valid values: `SERVERLESS`, `PROVISIONED`.
     """
-    provisioned_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs']]]
+    provisioned_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgsDict']]]
     """
     Configurations for a provisioned Amazon Redshift query engine. See `provisioned_configuration` block for details.
     """
-    serverless_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs']]]
+    serverless_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgsDict']]]
     """
     Configurations for a serverless Amazon Redshift query engine. See `serverless_configuration` block for details.
     """
@@ -7305,7 +7305,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     """
     Time after which query generation will time out.
     """
-    generation_context: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgs']]]
+    generation_context: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgsDict']]]
     """
     Configurations for context to use during query generation. See `generation_context` block for details.
     """
@@ -7350,11 +7350,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
 
 
 class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextArgsDict(TypedDict):
-    curated_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgs']]]]]
+    curated_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextCuratedQueryArgsDict']]]]]
     """
     Information about example queries to help the query engine generate appropriate SQL queries. See `curated_query` block for details.
     """
-    tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgs']]]]]
+    tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableArgsDict']]]]]
     """
     Information about a table in the database. See `table` block for details.
     """
@@ -7450,7 +7450,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     """
     Name of the table for which the other fields in this object apply.
     """
-    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgs']]]]]
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationGenerationContextTableColumnArgsDict']]]]]
     """
     Information about a column in the table. See `column` block for details.
     """
@@ -7607,11 +7607,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     """
     Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
     """
-    aws_data_catalog_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgs']]]
+    aws_data_catalog_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationAwsDataCatalogConfigurationArgsDict']]]
     """
     Configurations for storage in AWS Glue Data Catalog. See `aws_data_catalog_configuration` block for details.
     """
-    redshift_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs']]]
+    redshift_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgsDict']]]
     """
     Configurations for storage in Amazon Redshift. See `redshift_configuration` block for details.
     """
@@ -7731,11 +7731,11 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     """
     ARN of the model used to create vector embeddings for the knowledge base.
     """
-    embedding_model_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs']]]
+    embedding_model_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgsDict']]]
     """
     The embeddings model configuration details for the vector model used in Knowledge Base.  See `embedding_model_configuration` block for details.
     """
-    supplemental_data_storage_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs']]]
+    supplemental_data_storage_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgsDict']]]
     """
     supplemental_data_storage_configuration.  See `supplemental_data_storage_configuration` block for details.
     """
@@ -7795,7 +7795,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
 
 
 class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgsDict(TypedDict):
-    bedrock_embedding_model_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs']]]
+    bedrock_embedding_model_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgsDict']]]
     """
     The vector configuration details on the Bedrock embeddings model.  See `bedrock_embedding_model_configuration` block for details.
     """
@@ -7905,7 +7905,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
     """
     Storage service used for this location. `S3` is the only valid value.
     """
-    s3_location: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgs']]]
+    s3_location: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationS3LocationArgsDict']]]
     """
     Contains information about the Amazon S3 location for the extracted images.  See `s3_location` block for details.
     """
@@ -7981,35 +7981,35 @@ class AgentKnowledgeBaseStorageConfigurationArgsDict(TypedDict):
     """
     Vector store service in which the knowledge base is stored. Valid Values: `MONGO_DB_ATLAS`, `OPENSEARCH_SERVERLESS`, `OPENSEARCH_MANAGED_CLUSTER`, `PINECONE`, `REDIS_ENTERPRISE_CLOUD`, `RDS`, `S3_VECTORS`, `NEPTUNE_ANALYTICS`.
     """
-    mongo_db_atlas_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs']]]
+    mongo_db_atlas_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgsDict']]]
     """
     The storage configuration of the knowledge base in MongoDB Atlas. See `mongo_db_atlas_configuration` block for details.
     """
-    neptune_analytics_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs']]]
+    neptune_analytics_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgsDict']]]
     """
     The storage configuration of the knowledge base in Amazon Neptune Analytics. See `neptune_analytics_configuration` block for details.
     """
-    opensearch_managed_cluster_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs']]]
+    opensearch_managed_cluster_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgsDict']]]
     """
     The storage configuration of the knowledge base in Amazon OpenSearch Service Managed Cluster. See `opensearch_managed_cluster_configuration` block for details.
     """
-    opensearch_serverless_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs']]]
+    opensearch_serverless_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgsDict']]]
     """
     The storage configuration of the knowledge base in Amazon OpenSearch Service Serverless. See `opensearch_serverless_configuration` block for details.
     """
-    pinecone_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs']]]
+    pinecone_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgsDict']]]
     """
     The storage configuration of the knowledge base in Pinecone. See `pinecone_configuration` block for details.
     """
-    rds_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs']]]
+    rds_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgsDict']]]
     """
     Details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup.html). See `rds_configuration` block for details.
     """
-    redis_enterprise_cloud_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs']]]
+    redis_enterprise_cloud_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgsDict']]]
     """
     The storage configuration of the knowledge base in Redis Enterprise Cloud. See `redis_enterprise_cloud_configuration` block for details.
     """
-    s3_vectors_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs']]]
+    s3_vectors_configuration: NotRequired[pulumi.Input[Optional['AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgsDict']]]
     """
     The storage configuration of the knowledge base in Amazon S3 Vectors. See `s3_vectors_configuration` block for details.
     """
@@ -9417,15 +9417,15 @@ class AgentPromptVariantArgsDict(TypedDict):
     """
     Contains model-specific inference configurations that aren’t in the inferenceConfiguration field. To see model-specific inference parameters, see [Inference request parameters and response fields for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html).
     """
-    gen_ai_resource: NotRequired[pulumi.Input[Optional['AgentPromptVariantGenAiResourceArgs']]]
+    gen_ai_resource: NotRequired[pulumi.Input[Optional['AgentPromptVariantGenAiResourceArgsDict']]]
     """
     Specifies a generative AI resource with which to use the prompt. If this is not supplied, then a `gen_ai_resource` must be defined. See Generative AI Resource for more information.
     """
-    inference_configuration: NotRequired[pulumi.Input[Optional['AgentPromptVariantInferenceConfigurationArgs']]]
+    inference_configuration: NotRequired[pulumi.Input[Optional['AgentPromptVariantInferenceConfigurationArgsDict']]]
     """
     Contains inference configurations for the prompt variant. See Inference Configuration for more information.
     """
-    metadatas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantMetadataArgs']]]]]
+    metadatas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantMetadataArgsDict']]]]]
     """
     A list of objects, each containing a key-value pair that defines a metadata tag and value to attach to a prompt variant. See Metadata for more information.
     """
@@ -9433,7 +9433,7 @@ class AgentPromptVariantArgsDict(TypedDict):
     """
     Unique identifier of the model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html) with which to run inference on the prompt. If this is not supplied, then a `gen_ai_resource` must be defined.
     """
-    template_configuration: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationArgs']]]
+    template_configuration: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationArgsDict']]]
     """
     Contains configurations for the prompt template. See Template Configuration for more information.
     """
@@ -9572,7 +9572,7 @@ class AgentPromptVariantArgs:
 
 
 class AgentPromptVariantGenAiResourceArgsDict(TypedDict):
-    agent: NotRequired[pulumi.Input[Optional['AgentPromptVariantGenAiResourceAgentArgs']]]
+    agent: NotRequired[pulumi.Input[Optional['AgentPromptVariantGenAiResourceAgentArgsDict']]]
     """
     Specifies an Amazon Bedrock agent with which to use the prompt. See Agent Configuration for more information.
     """
@@ -9629,7 +9629,7 @@ class AgentPromptVariantGenAiResourceAgentArgs:
 
 
 class AgentPromptVariantInferenceConfigurationArgsDict(TypedDict):
-    text: NotRequired[pulumi.Input[Optional['AgentPromptVariantInferenceConfigurationTextArgs']]]
+    text: NotRequired[pulumi.Input[Optional['AgentPromptVariantInferenceConfigurationTextArgsDict']]]
     """
     Contains inference configurations for the prompt variant. See Text Inference Configuration for more information.
     """
@@ -9794,11 +9794,11 @@ class AgentPromptVariantMetadataArgs:
 
 
 class AgentPromptVariantTemplateConfigurationArgsDict(TypedDict):
-    chat: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatArgs']]]
+    chat: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatArgsDict']]]
     """
     Contains configurations to use the prompt in a conversational format. See Chat Template Configuration for more information.
     """
-    text: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationTextArgs']]]
+    text: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationTextArgsDict']]]
     """
     Contains configurations for the text in a message for a prompt. See Text Template Configuration
     """
@@ -9847,12 +9847,12 @@ class AgentPromptVariantTemplateConfigurationChatArgsDict(TypedDict):
     """
     A list of messages in the chat for the prompt. See Message for more information.
     """
-    input_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatInputVariableArgs']]]]]
-    systems: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatSystemArgs']]]]]
+    input_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatInputVariableArgsDict']]]]]
+    systems: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatSystemArgsDict']]]]]
     """
     A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
     """
-    tool_configuration: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs']]]
+    tool_configuration: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationArgsDict']]]
     """
     Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
     """
@@ -9956,7 +9956,7 @@ class AgentPromptVariantTemplateConfigurationChatMessageArgsDict(TypedDict):
     """
     The role that the message belongs to.
     """
-    content: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatMessageContentArgs']]]
+    content: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatMessageContentArgsDict']]]
     """
     Contains the content for the message you pass to, or receive from a model. See [Message Content] for more information.
     """
@@ -10000,7 +10000,7 @@ class AgentPromptVariantTemplateConfigurationChatMessageArgs:
 
 
 class AgentPromptVariantTemplateConfigurationChatMessageContentArgsDict(TypedDict):
-    cache_point: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs']]]
+    cache_point: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgsDict']]]
     text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
@@ -10061,7 +10061,7 @@ class AgentPromptVariantTemplateConfigurationChatMessageContentCachePointArgs:
 
 
 class AgentPromptVariantTemplateConfigurationChatSystemArgsDict(TypedDict):
-    cache_point: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs']]]
+    cache_point: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatSystemCachePointArgsDict']]]
     """
     Creates a cache checkpoint within a tool designation. See Cache Point for more information.
     """
@@ -10138,11 +10138,11 @@ class AgentPromptVariantTemplateConfigurationChatSystemCachePointArgs:
 
 
 class AgentPromptVariantTemplateConfigurationChatToolConfigurationArgsDict(TypedDict):
-    tool_choice: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgs']]]
+    tool_choice: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgsDict']]]
     """
     Defines which tools the model should request when invoked. See Tool Choice for more information.
     """
-    tools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgs']]]]]
+    tools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgsDict']]]]]
     """
     A list of tools to pass to a model. See Tool for more information.
     """
@@ -10187,11 +10187,11 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs:
 
 
 class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolArgsDict(TypedDict):
-    cache_point: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgs']]]
+    cache_point: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePointArgsDict']]]
     """
     Creates a cache checkpoint within a tool designation. See Cache Point for more information.
     """
-    tool_spec: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgs']]]
+    tool_spec: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecArgsDict']]]
     """
     The specification for the tool. See Tool Specification for more information.
     """
@@ -10264,15 +10264,15 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolCachePoint
 
 
 class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceArgsDict(TypedDict):
-    any: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgs']]]
+    any: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAnyArgsDict']]]
     """
     Defines tools, at least one of which must be requested by the model. No text is generated but the results of tool use are sent back to the model to help generate a response. This object has no fields.
     """
-    auto: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgs']]]
+    auto: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceAutoArgsDict']]]
     """
     Defines tools. The model automatically decides whether to call a tool or to generate text instead. This object has no fields.
     """
-    tool: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgs']]]
+    tool: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolChoiceToolArgsDict']]]
     """
     Defines a specific tool that the model must request. No text is generated but the results of tool use are sent back to the model to help generate a response. See Named Tool for more information.
     """
@@ -10395,7 +10395,7 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecAr
     """
     Description of the prompt.
     """
-    input_schema: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgs']]]
+    input_schema: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecInputSchemaArgsDict']]]
     """
     The input schema of the tool. See Tool Input Schema for more information.
     """
@@ -10489,8 +10489,8 @@ class AgentPromptVariantTemplateConfigurationChatToolConfigurationToolToolSpecIn
 
 class AgentPromptVariantTemplateConfigurationTextArgsDict(TypedDict):
     text: pulumi.Input[_builtins.str]
-    cache_point: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationTextCachePointArgs']]]
-    input_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationTextInputVariableArgs']]]]]
+    cache_point: NotRequired[pulumi.Input[Optional['AgentPromptVariantTemplateConfigurationTextCachePointArgsDict']]]
+    input_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationTextInputVariableArgsDict']]]]]
 
 @pulumi.input_type
 class AgentPromptVariantTemplateConfigurationTextArgs:
@@ -10589,11 +10589,11 @@ class AgentPromptVariantTemplateConfigurationTextInputVariableArgs:
 
 
 class AgentcoreAgentRuntimeAgentRuntimeArtifactArgsDict(TypedDict):
-    code_configuration: NotRequired[pulumi.Input[Optional['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs']]]
+    code_configuration: NotRequired[pulumi.Input[Optional['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgsDict']]]
     """
     Code configuration block for the agent runtime artifact, including the source code location and execution settings. Exactly one of `code_configuration` or `container_configuration` must be specified. See `code_configuration` below.
     """
-    container_configuration: NotRequired[pulumi.Input[Optional['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs']]]
+    container_configuration: NotRequired[pulumi.Input[Optional['AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgsDict']]]
     """
     Container configuration block for the agent artifact. Exactly one of `code_configuration` or `container_configuration` must be specified. See `container_configuration` below.
     """
@@ -10646,7 +10646,7 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgsDict(TypedDi
     """
     Runtime environment used to execute the code. Valid values: `PYTHON_3_10`, `PYTHON_3_11`, `PYTHON_3_12`, `PYTHON_3_13`.
     """
-    code: NotRequired[pulumi.Input[Optional['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs']]]
+    code: NotRequired[pulumi.Input[Optional['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgsDict']]]
     """
     Configuration block for the source code location and configuration details. See `code` below.
     """
@@ -10705,7 +10705,7 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs:
 
 
 class AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgsDict(TypedDict):
-    s3: NotRequired[pulumi.Input[Optional['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args']]]
+    s3: NotRequired[pulumi.Input[Optional['AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3ArgsDict']]]
     """
     Configuration block for the Amazon S3 object that contains the source code for the agent runtime. See `s3` below.
     """
@@ -10829,7 +10829,7 @@ class AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs:
 
 
 class AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict(TypedDict):
-    custom_jwt_authorizer: NotRequired[pulumi.Input[Optional['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs']]]
+    custom_jwt_authorizer: NotRequired[pulumi.Input[Optional['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgsDict']]]
     """
     JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
     """
@@ -10874,7 +10874,7 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgsDict(Ty
     """
     Set of scopes that are allowed to access the token.
     """
-    custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]]]
+    custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict']]]]]
     """
     Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
     """
@@ -11248,7 +11248,7 @@ class AgentcoreAgentRuntimeNetworkConfigurationArgsDict(TypedDict):
     """
     Network mode for the agent runtime. Valid values: `PUBLIC`, `VPC`.
     """
-    network_mode_config: NotRequired[pulumi.Input[Optional['AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs']]]
+    network_mode_config: NotRequired[pulumi.Input[Optional['AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgsDict']]]
     """
     Network mode configuration. See `network_mode_config` below.
     """
@@ -11526,7 +11526,7 @@ class AgentcoreBrowserNetworkConfigurationArgsDict(TypedDict):
     """
     Network mode for the browser. Valid values: `PUBLIC`, `VPC`.
     """
-    vpc_config: NotRequired[pulumi.Input[Optional['AgentcoreBrowserNetworkConfigurationVpcConfigArgs']]]
+    vpc_config: NotRequired[pulumi.Input[Optional['AgentcoreBrowserNetworkConfigurationVpcConfigArgsDict']]]
     """
     VPC configuration when `network_mode` is `VPC`. See `vpc_config` below.
     """
@@ -11621,7 +11621,7 @@ class AgentcoreBrowserRecordingArgsDict(TypedDict):
     """
     Whether to enable recording for browser sessions. Defaults to `false`.
     """
-    s3_location: NotRequired[pulumi.Input[Optional['AgentcoreBrowserRecordingS3LocationArgs']]]
+    s3_location: NotRequired[pulumi.Input[Optional['AgentcoreBrowserRecordingS3LocationArgsDict']]]
     """
     S3 location where browser session recordings are stored. See `s3_location` below.
     """
@@ -11766,7 +11766,7 @@ class AgentcoreCodeInterpreterNetworkConfigurationArgsDict(TypedDict):
     """
     Network mode for the code interpreter. Valid values: `PUBLIC`, `SANDBOX`, `VPC`.
     """
-    vpc_config: NotRequired[pulumi.Input[Optional['AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs']]]
+    vpc_config: NotRequired[pulumi.Input[Optional['AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgsDict']]]
     """
     VPC configuration. See `vpc_config` below.
     """
@@ -11906,7 +11906,7 @@ class AgentcoreCodeInterpreterTimeoutsArgs:
 
 
 class AgentcoreGatewayAuthorizerConfigurationArgsDict(TypedDict):
-    custom_jwt_authorizer: NotRequired[pulumi.Input[Optional['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs']]]
+    custom_jwt_authorizer: NotRequired[pulumi.Input[Optional['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgsDict']]]
     """
     JWT-based authorization configuration block. See `custom_jwt_authorizer` below.
     """
@@ -11951,7 +11951,7 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgsDict(TypedDi
     """
     Set of scopes that are allowed to access the token.
     """
-    custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]]]
+    custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict']]]]]
     """
     Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
     """
@@ -12209,11 +12209,11 @@ class AgentcoreGatewayInterceptorConfigurationArgsDict(TypedDict):
     """
     Set of interception points. Valid values: `REQUEST`, `RESPONSE`.
     """
-    input_configuration: NotRequired[pulumi.Input[Optional['AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs']]]
+    input_configuration: NotRequired[pulumi.Input[Optional['AgentcoreGatewayInterceptorConfigurationInputConfigurationArgsDict']]]
     """
     Input configuration for the interceptor. See `input_configuration` below.
     """
-    interceptor: NotRequired[pulumi.Input[Optional['AgentcoreGatewayInterceptorConfigurationInterceptorArgs']]]
+    interceptor: NotRequired[pulumi.Input[Optional['AgentcoreGatewayInterceptorConfigurationInterceptorArgsDict']]]
     """
     Interceptor infrastructure configuration. See `interceptor` below.
     """
@@ -12301,7 +12301,7 @@ class AgentcoreGatewayInterceptorConfigurationInputConfigurationArgs:
 
 
 class AgentcoreGatewayInterceptorConfigurationInterceptorArgsDict(TypedDict):
-    lambda_: NotRequired[pulumi.Input[Optional['AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs']]]
+    lambda_: NotRequired[pulumi.Input[Optional['AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgsDict']]]
     """
     Lambda function configuration for the interceptor. See `lambda` below.
     """
@@ -12358,7 +12358,7 @@ class AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs:
 
 
 class AgentcoreGatewayProtocolConfigurationArgsDict(TypedDict):
-    mcp: NotRequired[pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationMcpArgs']]]
+    mcp: NotRequired[pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationMcpArgsDict']]]
     """
     Model Context Protocol (MCP) configuration block. See `mcp` below.
     """
@@ -12456,15 +12456,15 @@ class AgentcoreGatewayProtocolConfigurationMcpArgs:
 
 
 class AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
-    api_key: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs']]]
+    api_key: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgsDict']]]
     """
     API key-based authentication configuration. See `api_key` below.
     """
-    gateway_iam_role: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs']]]
+    gateway_iam_role: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgsDict']]]
     """
     Use the gateway's IAM role for authentication. This is an empty configuration block.
     """
-    oauth: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs']]]
+    oauth: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgsDict']]]
     """
     OAuth-based authentication configuration. See `oauth` below.
     """
@@ -12804,7 +12804,7 @@ class AgentcoreGatewayTargetMetadataConfigurationArgs:
 
 
 class AgentcoreGatewayTargetTargetConfigurationArgsDict(TypedDict):
-    mcp: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpArgs']]]
+    mcp: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpArgsDict']]]
     """
     Model Context Protocol (MCP) configuration. See `mcp` below.
     """
@@ -12833,23 +12833,23 @@ class AgentcoreGatewayTargetTargetConfigurationArgs:
 
 
 class AgentcoreGatewayTargetTargetConfigurationMcpArgsDict(TypedDict):
-    api_gateway: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs']]]
+    api_gateway: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgsDict']]]
     """
     API Gateway target configuration. See `api_gateway` below.
     """
-    lambda_: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs']]]
+    lambda_: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgsDict']]]
     """
     Lambda function target configuration. See `lambda` below.
     """
-    mcp_server: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs']]]
+    mcp_server: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgsDict']]]
     """
     MCP server target configuration. See `mcp_server` below.
     """
-    open_api_schema: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs']]]
+    open_api_schema: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgsDict']]]
     """
     OpenAPI schema-based target configuration. See `api_schema_configuration` below.
     """
-    smithy_model: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs']]]
+    smithy_model: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgsDict']]]
     """
     Smithy model-based target configuration. See `api_schema_configuration` below.
     """
@@ -12950,7 +12950,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgsDict(TypedDict):
     """
     Stage name of the REST API to add as a target.
     """
-    api_gateway_tool_configuration: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs']]]
+    api_gateway_tool_configuration: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgsDict']]]
     """
     Configuration for API Gateway tools. See `api_gateway_tool_configuration` below.
     """
@@ -13009,11 +13009,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs:
 
 
 class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgsDict(TypedDict):
-    tool_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs']]]]]
+    tool_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgsDict']]]]]
     """
     Repeatable block of path and method patterns to expose as tools. See `tool_filter` below.
     """
-    tool_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs']]]]]
+    tool_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgsDict']]]]]
     """
     Repeatable block of explicit tool definitions with optional custom names and descriptions. See `tool_override` below.
     """
@@ -13238,11 +13238,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs:
 
 
 class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgsDict(TypedDict):
-    inline_payloads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs']]]]]
+    inline_payloads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgsDict']]]]]
     """
     Inline tool definition. See `inline_payload` below.
     """
-    s3: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3Args']]]
+    s3: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3ArgsDict']]]
     """
     S3-based tool definition. See `s3` below.
     """
@@ -13299,7 +13299,7 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadA
     """
     Name of the tool.
     """
-    output_schema: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs']]]
+    output_schema: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgsDict']]]
     """
     Schema for the tool's output. See `schema_definition` below.
     """
@@ -13378,8 +13378,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     """
     Description of the gateway target.
     """
-    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs']]]
-    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs']]]]]
+    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgsDict']]]
+    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgsDict']]]]]
 
 @pulumi.input_type
 class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs:
@@ -13448,11 +13448,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     """
     Description of the array items.
     """
-    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs']]]
+    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgsDict']]]
     """
     Nested items definition for arrays of arrays.
     """
-    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs']]]]]
+    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgsDict']]]]]
     """
     Set of property definitions for arrays of objects. See `property` below.
     """
@@ -13755,11 +13755,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     """
     Description of the property.
     """
-    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs']]]
+    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgsDict']]]
     """
     Items definition for array properties. See `items` above.
     """
-    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs']]]]]
+    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgsDict']]]]]
     """
     Set of nested property definitions for object properties.
     """
@@ -13878,11 +13878,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadI
     """
     Description of the array items.
     """
-    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgs']]]
+    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItemsArgsDict']]]
     """
     Nested items definition for arrays of arrays.
     """
-    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgs']]]]]
+    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsPropertyArgsDict']]]]]
     """
     Set of property definitions for arrays of objects. See `property` below.
     """
@@ -14305,8 +14305,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     """
     Description of the gateway target.
     """
-    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgs']]]
-    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs']]]]]
+    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsArgsDict']]]
+    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgsDict']]]]]
 
 @pulumi.input_type
 class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs:
@@ -14375,11 +14375,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     """
     Description of the array items.
     """
-    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgs']]]
+    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItemsArgsDict']]]
     """
     Nested items definition for arrays of arrays.
     """
-    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs']]]]]
+    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgsDict']]]]]
     """
     Set of property definitions for arrays of objects. See `property` below.
     """
@@ -14682,11 +14682,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     """
     Description of the property.
     """
-    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgs']]]
+    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsArgsDict']]]
     """
     Items definition for array properties. See `items` above.
     """
-    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgs']]]]]
+    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyPropertyArgsDict']]]]]
     """
     Set of nested property definitions for object properties.
     """
@@ -14805,11 +14805,11 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadO
     """
     Description of the array items.
     """
-    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgs']]]
+    items: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItemsArgsDict']]]
     """
     Nested items definition for arrays of arrays.
     """
-    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgs']]]]]
+    properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsPropertyArgsDict']]]]]
     """
     Set of property definitions for arrays of objects. See `property` below.
     """
@@ -15304,8 +15304,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs:
 
 
 class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgsDict(TypedDict):
-    inline_payload: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgs']]]
-    s3: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args']]]
+    inline_payload: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayloadArgsDict']]]
+    s3: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3ArgsDict']]]
 
 @pulumi.input_type
 class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs:
@@ -15414,8 +15414,8 @@ class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaS3Args:
 
 
 class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgsDict(TypedDict):
-    inline_payload: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgs']]]
-    s3: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3Args']]]
+    inline_payload: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayloadArgsDict']]]
+    s3: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelS3ArgsDict']]]
 
 @pulumi.input_type
 class AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs:
@@ -15694,11 +15694,11 @@ class AgentcoreMemoryStrategyConfigurationArgsDict(TypedDict):
     """
     Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
     """
-    consolidation: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationConsolidationArgs']]]
+    consolidation: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationConsolidationArgsDict']]]
     """
     Consolidation configuration for processing and organizing memory content. See `consolidation` below. Once added, this block cannot be removed without recreating the resource.
     """
-    extraction: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationExtractionArgs']]]
+    extraction: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStrategyConfigurationExtractionArgsDict']]]
     """
     Extraction configuration for identifying and extracting relevant information. See `extraction` below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
     """
@@ -15998,27 +15998,27 @@ class AgentcoreOauth2CredentialProviderClientSecretArnArgs:
 
 
 class AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgsDict(TypedDict):
-    custom_oauth2_provider_config: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs']]]
+    custom_oauth2_provider_config: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgsDict']]]
     """
     Custom OAuth2 provider configuration. See `custom` below.
     """
-    github_oauth2_provider_config: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs']]]
+    github_oauth2_provider_config: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgsDict']]]
     """
     GitHub OAuth provider configuration. See `github` below.
     """
-    google_oauth2_provider_config: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs']]]
+    google_oauth2_provider_config: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgsDict']]]
     """
     Google OAuth provider configuration. See `google` below.
     """
-    microsoft_oauth2_provider_config: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgs']]]
+    microsoft_oauth2_provider_config: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigArgsDict']]]
     """
     Microsoft OAuth provider configuration. See `microsoft` below.
     """
-    salesforce_oauth2_provider_config: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgs']]]
+    salesforce_oauth2_provider_config: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigArgsDict']]]
     """
     Salesforce OAuth provider configuration. See `salesforce` below.
     """
-    slack_oauth2_provider_config: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgs']]]
+    slack_oauth2_provider_config: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigArgsDict']]]
     """
     Slack OAuth provider configuration. See `slack` below.
     """
@@ -16153,7 +16153,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
     **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
     Write-only OAuth2 client secret. Cannot be used with `client_secret`. Must be used together with `client_id_wo` and `client_credentials_wo_version`.
     """
-    oauth_discovery: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs']]]
+    oauth_discovery: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgsDict']]]
     """
     OAuth discovery configuration. See `oauth_discovery` below.
     """
@@ -16274,7 +16274,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderC
 
 
 class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgsDict(TypedDict):
-    authorization_server_metadata: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs']]]
+    authorization_server_metadata: NotRequired[pulumi.Input[Optional['AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgsDict']]]
     """
     Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discovery_url`. See `authorization_server_metadata` below.
     """
@@ -16420,7 +16420,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderC
     """
     **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
     """
-    oauth_discoveries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgs']]]]]
+    oauth_discoveries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscoveryArgsDict']]]]]
     """
     OAuth discovery configuration. See `oauth_discovery` below.
     """
@@ -16660,7 +16660,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderC
     """
     **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
     """
-    oauth_discoveries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs']]]]]
+    oauth_discoveries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgsDict']]]]]
     """
     OAuth discovery configuration. See `oauth_discovery` below.
     """
@@ -16900,7 +16900,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2Provid
     """
     **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
     """
-    oauth_discoveries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgs']]]]]
+    oauth_discoveries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscoveryArgsDict']]]]]
     """
     OAuth discovery configuration. See `oauth_discovery` below.
     """
@@ -17140,7 +17140,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2Provi
     """
     **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
     """
-    oauth_discoveries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgs']]]]]
+    oauth_discoveries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscoveryArgsDict']]]]]
     """
     OAuth discovery configuration. See `oauth_discovery` below.
     """
@@ -17380,7 +17380,7 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     """
     **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
     """
-    oauth_discoveries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgs']]]]]
+    oauth_discoveries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgsDict']]]]]
     """
     OAuth discovery configuration. See `oauth_discovery` below.
     """
@@ -17921,12 +17921,12 @@ class CustomModelVpcConfigArgs:
 
 
 class GuardrailContentPolicyConfigArgsDict(TypedDict):
-    filters_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailContentPolicyConfigFiltersConfigArgs']]]]]
+    filters_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailContentPolicyConfigFiltersConfigArgsDict']]]]]
     """
     Set of content filter configs in content policy.
     See Filters Config for more information.
     """
-    tier_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailContentPolicyConfigTierConfigArgs']]]]]
+    tier_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailContentPolicyConfigTierConfigArgsDict']]]]]
     """
     Configuration block for the content policy tier. See Tier Config for more information.
     """
@@ -18187,7 +18187,7 @@ class GuardrailContentPolicyConfigTierConfigArgs:
 
 
 class GuardrailContextualGroundingPolicyConfigArgsDict(TypedDict):
-    filters_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailContextualGroundingPolicyConfigFiltersConfigArgs']]]]]
+    filters_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailContextualGroundingPolicyConfigFiltersConfigArgsDict']]]]]
     """
     One or more blocks defining contextual grounding filter configs. See Contextual Grounding Filters Config for more information.
     """
@@ -18291,11 +18291,11 @@ class GuardrailCrossRegionConfigArgs:
 
 
 class GuardrailSensitiveInformationPolicyConfigArgsDict(TypedDict):
-    pii_entities_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgs']]]]]
+    pii_entities_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailSensitiveInformationPolicyConfigPiiEntitiesConfigArgsDict']]]]]
     """
     List of entities. See PII Entities Config for more information.
     """
-    regexes_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailSensitiveInformationPolicyConfigRegexesConfigArgs']]]]]
+    regexes_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailSensitiveInformationPolicyConfigRegexesConfigArgsDict']]]]]
     """
     List of regex. See Regexes Config for more information.
     """
@@ -18702,11 +18702,11 @@ class GuardrailTimeoutsArgs:
 
 
 class GuardrailTopicPolicyConfigArgsDict(TypedDict):
-    tier_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTierConfigArgs']]]]]
+    tier_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTierConfigArgsDict']]]]]
     """
     Configuration block for the topic policy tier. See Tier Config for more information.
     """
-    topics_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTopicsConfigArgs']]]]]
+    topics_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailTopicPolicyConfigTopicsConfigArgsDict']]]]]
     """
     List of topic configs in topic policy. See Topics Config for more information.
     """
@@ -18914,11 +18914,11 @@ class GuardrailVersionTimeoutsArgs:
 
 
 class GuardrailWordPolicyConfigArgsDict(TypedDict):
-    managed_word_lists_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailWordPolicyConfigManagedWordListsConfigArgs']]]]]
+    managed_word_lists_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailWordPolicyConfigManagedWordListsConfigArgsDict']]]]]
     """
     A config for the list of managed words. See Managed Word Lists Config for more information.
     """
-    words_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailWordPolicyConfigWordsConfigArgs']]]]]
+    words_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GuardrailWordPolicyConfigWordsConfigArgsDict']]]]]
     """
     List of custom word configs. See Words Config for more information.
     """

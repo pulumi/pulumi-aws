@@ -318,11 +318,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleTag = new aws.dynamodb.Tag("example", {
- *     resourceArn: pulumi.all([example.arn, current, alternate]).apply(([arn, current, alternate]) => std.replaceOutput({
- *         text: arn,
- *         search: current.region,
- *         replace: alternate.region,
- *     })).apply(invoke => invoke.result),
+ *     resourceArn: std.replaceOutput({
+ *         text: example.arn,
+ *         search: current.then(current => current.region),
+ *         replace: alternate.then(alternate => alternate.region),
+ *     }).apply(invoke => invoke.result),
  *     key: "Architect",
  *     value: "Gigi",
  * });

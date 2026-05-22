@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 class ChannelHlsIngestArgsDict(TypedDict):
-    ingest_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]]
+    ingest_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgsDict']]]]]
     """
     A list of the ingest endpoints
     """

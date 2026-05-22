@@ -787,7 +787,7 @@ class BucketAclAccessControlPolicyArgsDict(TypedDict):
     """
     Configuration block for the bucket owner's display name and ID. See below.
     """
-    grants: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketAclAccessControlPolicyGrantArgs']]]]]
+    grants: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketAclAccessControlPolicyGrantArgsDict']]]]]
     """
     Set of `grant` configuration blocks. See below.
     """
@@ -835,7 +835,7 @@ class BucketAclAccessControlPolicyGrantArgsDict(TypedDict):
     """
     Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
     """
-    grantee: NotRequired[pulumi.Input[Optional['BucketAclAccessControlPolicyGrantGranteeArgs']]]
+    grantee: NotRequired[pulumi.Input[Optional['BucketAclAccessControlPolicyGrantGranteeArgsDict']]]
     """
     Configuration block for the person being granted permissions. See below.
     """
@@ -1047,7 +1047,7 @@ class BucketAclV2AccessControlPolicyArgsDict(TypedDict):
     """
     Configuration block for the bucket owner's display name and ID. See below.
     """
-    grants: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketAclV2AccessControlPolicyGrantArgs']]]]]
+    grants: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketAclV2AccessControlPolicyGrantArgsDict']]]]]
     """
     Set of `grant` configuration blocks. See below.
     """
@@ -1095,7 +1095,7 @@ class BucketAclV2AccessControlPolicyGrantArgsDict(TypedDict):
     """
     Logging permissions assigned to the grantee for the bucket. Valid values: `FULL_CONTROL`, `WRITE`, `WRITE_ACP`, `READ`, `READ_ACP`. See [What permissions can I grant?](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#permissions) for more details about what each permission means in the context of buckets.
     """
-    grantee: NotRequired[pulumi.Input[Optional['BucketAclV2AccessControlPolicyGrantGranteeArgs']]]
+    grantee: NotRequired[pulumi.Input[Optional['BucketAclV2AccessControlPolicyGrantGranteeArgsDict']]]
     """
     Configuration block for the person being granted permissions. See below.
     """
@@ -1855,24 +1855,24 @@ class BucketLifecycleConfigurationRuleArgsDict(TypedDict):
     """
     Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
     """
-    abort_incomplete_multipart_upload: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs']]]
+    abort_incomplete_multipart_upload: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgsDict']]]
     """
     Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
     """
-    expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleExpirationArgs']]]
+    expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleExpirationArgsDict']]]
     """
     Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
     """
-    filter: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleFilterArgs']]]
+    filter: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleFilterArgsDict']]]
     """
     Configuration block used to identify objects that a Lifecycle Rule applies to.
     See below.
     """
-    noncurrent_version_expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgs']]]
+    noncurrent_version_expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleNoncurrentVersionExpirationArgsDict']]]
     """
     Configuration block that specifies when noncurrent object versions expire. See below.
     """
-    noncurrent_version_transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArgs']]]]]
+    noncurrent_version_transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleNoncurrentVersionTransitionArgsDict']]]]]
     """
     Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
     """
@@ -1882,7 +1882,7 @@ class BucketLifecycleConfigurationRuleArgsDict(TypedDict):
     This has been deprecated by Amazon S3.
     Prefix identifying one or more objects to which the rule applies.
     """
-    transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleTransitionArgs']]]]]
+    transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleTransitionArgsDict']]]]]
     """
     Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
     """
@@ -2145,7 +2145,7 @@ class BucketLifecycleConfigurationRuleExpirationArgs:
 
 
 class BucketLifecycleConfigurationRuleFilterArgsDict(TypedDict):
-    and_: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleFilterAndArgs']]]
+    and_: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleFilterAndArgsDict']]]
     """
     Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
     """
@@ -2161,7 +2161,7 @@ class BucketLifecycleConfigurationRuleFilterArgsDict(TypedDict):
     """
     Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
     """
-    tag: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleFilterTagArgs']]]
+    tag: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleFilterTagArgsDict']]]
     """
     Configuration block for specifying a tag key and value. See below.
     """
@@ -2636,24 +2636,24 @@ class BucketLifecycleConfigurationV2RuleArgsDict(TypedDict):
     """
     Whether the rule is currently being applied. Valid values: `Enabled` or `Disabled`.
     """
-    abort_incomplete_multipart_upload: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgs']]]
+    abort_incomplete_multipart_upload: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationV2RuleAbortIncompleteMultipartUploadArgsDict']]]
     """
     Configuration block that specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. See below.
     """
-    expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationV2RuleExpirationArgs']]]
+    expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationV2RuleExpirationArgsDict']]]
     """
     Configuration block that specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker. See below.
     """
-    filter: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationV2RuleFilterArgs']]]
+    filter: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationV2RuleFilterArgsDict']]]
     """
     Configuration block used to identify objects that a Lifecycle Rule applies to.
     See below.
     """
-    noncurrent_version_expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgs']]]
+    noncurrent_version_expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationV2RuleNoncurrentVersionExpirationArgsDict']]]
     """
     Configuration block that specifies when noncurrent object versions expire. See below.
     """
-    noncurrent_version_transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgs']]]]]
+    noncurrent_version_transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleNoncurrentVersionTransitionArgsDict']]]]]
     """
     Set of configuration blocks that specify the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. See below.
     """
@@ -2663,7 +2663,7 @@ class BucketLifecycleConfigurationV2RuleArgsDict(TypedDict):
     This has been deprecated by Amazon S3.
     Prefix identifying one or more objects to which the rule applies.
     """
-    transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleTransitionArgs']]]]]
+    transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleConfigurationV2RuleTransitionArgsDict']]]]]
     """
     Set of configuration blocks that specify when an Amazon S3 object transitions to a specified storage class. See below.
     """
@@ -2926,7 +2926,7 @@ class BucketLifecycleConfigurationV2RuleExpirationArgs:
 
 
 class BucketLifecycleConfigurationV2RuleFilterArgsDict(TypedDict):
-    and_: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationV2RuleFilterAndArgs']]]
+    and_: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationV2RuleFilterAndArgsDict']]]
     """
     Configuration block used to apply a logical `AND` to two or more predicates. See below. The Lifecycle Rule will apply to any object matching all the predicates configured inside the `and` block.
     """
@@ -2942,7 +2942,7 @@ class BucketLifecycleConfigurationV2RuleFilterArgsDict(TypedDict):
     """
     Prefix identifying one or more objects to which the rule applies. Defaults to an empty string (`""`) if not specified.
     """
-    tag: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationV2RuleFilterTagArgs']]]
+    tag: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationV2RuleFilterTagArgsDict']]]
     """
     Configuration block for specifying a tag key and value. See below.
     """
@@ -3417,7 +3417,7 @@ class BucketLifecycleRuleArgsDict(TypedDict):
     """
     Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
     """
-    expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleRuleExpirationArgs']]]
+    expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleRuleExpirationArgsDict']]]
     """
     Specifies a period in the object's expire. See Expiration below for details.
     """
@@ -3425,11 +3425,11 @@ class BucketLifecycleRuleArgsDict(TypedDict):
     """
     Unique identifier for the rule. Must be less than or equal to 255 characters in length.
     """
-    noncurrent_version_expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleRuleNoncurrentVersionExpirationArgs']]]
+    noncurrent_version_expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleRuleNoncurrentVersionExpirationArgsDict']]]
     """
     Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
     """
-    noncurrent_version_transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleRuleNoncurrentVersionTransitionArgs']]]]]
+    noncurrent_version_transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleRuleNoncurrentVersionTransitionArgsDict']]]]]
     """
     Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
     """
@@ -3441,7 +3441,7 @@ class BucketLifecycleRuleArgsDict(TypedDict):
     """
     Specifies object tags key and value.
     """
-    transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleRuleTransitionArgs']]]]]
+    transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketLifecycleRuleTransitionArgsDict']]]]]
     """
     Specifies a period in the object's transitions. See Transition below for details.
     """
@@ -4011,11 +4011,11 @@ class BucketLoggingTargetGrantGranteeArgs:
 
 
 class BucketLoggingTargetObjectKeyFormatArgsDict(TypedDict):
-    partitioned_prefix: NotRequired[pulumi.Input[Optional['BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs']]]
+    partitioned_prefix: NotRequired[pulumi.Input[Optional['BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgsDict']]]
     """
     Partitioned S3 key for log objects, in the form `[target_prefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simple_prefix`. See below.
     """
-    simple_prefix: NotRequired[pulumi.Input[Optional['BucketLoggingTargetObjectKeyFormatSimplePrefixArgs']]]
+    simple_prefix: NotRequired[pulumi.Input[Optional['BucketLoggingTargetObjectKeyFormatSimplePrefixArgsDict']]]
     """
     Use the simple format for S3 keys for log objects, in the form `[target_prefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simple_prefix {}`. Conflicts with `partitioned_prefix`.
     """
@@ -4249,11 +4249,11 @@ class BucketLoggingV2TargetGrantGranteeArgs:
 
 
 class BucketLoggingV2TargetObjectKeyFormatArgsDict(TypedDict):
-    partitioned_prefix: NotRequired[pulumi.Input[Optional['BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgs']]]
+    partitioned_prefix: NotRequired[pulumi.Input[Optional['BucketLoggingV2TargetObjectKeyFormatPartitionedPrefixArgsDict']]]
     """
     Partitioned S3 key for log objects, in the form `[target_prefix][SourceAccountId]/[SourceRegion]/[SourceBucket]/[YYYY]/[MM]/[DD]/[YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. Conflicts with `simple_prefix`. See below.
     """
-    simple_prefix: NotRequired[pulumi.Input[Optional['BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgs']]]
+    simple_prefix: NotRequired[pulumi.Input[Optional['BucketLoggingV2TargetObjectKeyFormatSimplePrefixArgsDict']]]
     """
     Use the simple format for S3 keys for log objects, in the form `[target_prefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]`. To use, set `simple_prefix {}`. Conflicts with `partitioned_prefix`.
     """
@@ -4343,7 +4343,7 @@ class BucketMetadataConfigurationMetadataConfigurationArgsDict(TypedDict):
     """
     Journal table configuration. See `journal_table_configuration` Block for details.
     """
-    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationDestinationArgs']]]]]
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketMetadataConfigurationMetadataConfigurationDestinationArgsDict']]]]]
     """
     Destination information for the S3 Metadata configuration.
     """
@@ -4472,7 +4472,7 @@ class BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguratio
     """
     Configuration state of the inventory table, indicating whether the inventory table is enabled or disabled. Valid values: `ENABLED`, `DISABLED`.
     """
-    encryption_configuration: NotRequired[pulumi.Input[Optional['BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgs']]]
+    encryption_configuration: NotRequired[pulumi.Input[Optional['BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationEncryptionConfigurationArgsDict']]]
     """
     Encryption configuration for the inventory table. See `encryption_configuration` Block for details.
     """
@@ -4608,7 +4608,7 @@ class BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationA
     """
     Journal table record expiration settings. See `record_expiration` Block for details.
     """
-    encryption_configuration: NotRequired[pulumi.Input[Optional['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs']]]
+    encryption_configuration: NotRequired[pulumi.Input[Optional['BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgsDict']]]
     """
     Encryption configuration for the journal table. See `encryption_configuration` Block for details.
     """
@@ -5212,7 +5212,7 @@ class BucketObjectLockConfigurationArgsDict(TypedDict):
     """
     Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
     """
-    rule: NotRequired[pulumi.Input[Optional['BucketObjectLockConfigurationRuleArgs']]]
+    rule: NotRequired[pulumi.Input[Optional['BucketObjectLockConfigurationRuleArgsDict']]]
     """
     Object Lock rule in place for this bucket (documented below).
     """
@@ -5459,7 +5459,7 @@ class BucketObjectLockConfigurationV2RuleDefaultRetentionArgs:
 
 
 class BucketObjectv2OverrideProviderArgsDict(TypedDict):
-    default_tags: NotRequired[pulumi.Input[Optional['BucketObjectv2OverrideProviderDefaultTagsArgs']]]
+    default_tags: NotRequired[pulumi.Input[Optional['BucketObjectv2OverrideProviderDefaultTagsArgsDict']]]
     """
     Override the provider `default_tags` configuration block.
     """
@@ -5562,15 +5562,15 @@ class BucketReplicationConfigRuleArgsDict(TypedDict):
     """
     Status of the rule. Either `"Enabled"` or `"Disabled"`. The rule is ignored if status is not "Enabled".
     """
-    delete_marker_replication: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleDeleteMarkerReplicationArgs']]]
+    delete_marker_replication: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleDeleteMarkerReplicationArgsDict']]]
     """
     Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
     """
-    existing_object_replication: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleExistingObjectReplicationArgs']]]
+    existing_object_replication: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleExistingObjectReplicationArgsDict']]]
     """
     Replicate existing objects in the source bucket according to the rule configurations. See below.
     """
-    filter: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleFilterArgs']]]
+    filter: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleFilterArgsDict']]]
     """
     Filter that identifies subset of objects to which the replication rule applies. See below. If not specified, the `rule` will default to using `prefix`.
     """
@@ -5586,7 +5586,7 @@ class BucketReplicationConfigRuleArgsDict(TypedDict):
     """
     Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
     """
-    source_selection_criteria: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleSourceSelectionCriteriaArgs']]]
+    source_selection_criteria: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleSourceSelectionCriteriaArgsDict']]]
     """
     Specifies special object selection criteria. See below.
     """
@@ -5777,7 +5777,7 @@ class BucketReplicationConfigRuleDestinationArgsDict(TypedDict):
     """
     ARN of the bucket where you want Amazon S3 to store the results.
     """
-    access_control_translation: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleDestinationAccessControlTranslationArgs']]]
+    access_control_translation: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleDestinationAccessControlTranslationArgsDict']]]
     """
     Configuration block that specifies the overrides to use for object owners on replication. See below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
     """
@@ -5785,15 +5785,15 @@ class BucketReplicationConfigRuleDestinationArgsDict(TypedDict):
     """
     Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
     """
-    encryption_configuration: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs']]]
+    encryption_configuration: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleDestinationEncryptionConfigurationArgsDict']]]
     """
     Configuration block that provides information about encryption. See below. If `source_selection_criteria` is specified, you must specify this element.
     """
-    metrics: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleDestinationMetricsArgs']]]
+    metrics: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleDestinationMetricsArgsDict']]]
     """
     Configuration block that specifies replication metrics-related settings enabling replication metrics and events. See below.
     """
-    replication_time: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleDestinationReplicationTimeArgs']]]
+    replication_time: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleDestinationReplicationTimeArgsDict']]]
     """
     Configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. See below. Replication Time Control must be used in conjunction with `metrics`.
     """
@@ -5981,7 +5981,7 @@ class BucketReplicationConfigRuleDestinationMetricsArgsDict(TypedDict):
     """
     Status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
     """
-    event_threshold: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs']]]
+    event_threshold: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleDestinationMetricsEventThresholdArgsDict']]]
     """
     Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See below.
     """
@@ -6156,7 +6156,7 @@ class BucketReplicationConfigRuleExistingObjectReplicationArgs:
 
 
 class BucketReplicationConfigRuleFilterArgsDict(TypedDict):
-    and_: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleFilterAndArgs']]]
+    and_: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleFilterAndArgsDict']]]
     """
     Configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
     """
@@ -6164,7 +6164,7 @@ class BucketReplicationConfigRuleFilterArgsDict(TypedDict):
     """
     Object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
     """
-    tag: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleFilterTagArgs']]]
+    tag: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleFilterTagArgsDict']]]
     """
     Configuration block for specifying a tag key and value. See below.
     """
@@ -6321,11 +6321,11 @@ class BucketReplicationConfigRuleFilterTagArgs:
 
 
 class BucketReplicationConfigRuleSourceSelectionCriteriaArgsDict(TypedDict):
-    replica_modifications: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs']]]
+    replica_modifications: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgsDict']]]
     """
     Configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn't replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
     """
-    sse_kms_encrypted_objects: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs']]]
+    sse_kms_encrypted_objects: NotRequired[pulumi.Input[Optional['BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgsDict']]]
     """
     Configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
     """
@@ -6485,7 +6485,7 @@ class BucketReplicationConfigurationRuleArgsDict(TypedDict):
     """
     Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
     """
-    filter: NotRequired[pulumi.Input[Optional['BucketReplicationConfigurationRuleFilterArgs']]]
+    filter: NotRequired[pulumi.Input[Optional['BucketReplicationConfigurationRuleFilterArgsDict']]]
     """
     Filter that identifies subset of objects to which the replication rule applies (documented below).
     """
@@ -6501,7 +6501,7 @@ class BucketReplicationConfigurationRuleArgsDict(TypedDict):
     """
     Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
     """
-    source_selection_criteria: NotRequired[pulumi.Input[Optional['BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs']]]
+    source_selection_criteria: NotRequired[pulumi.Input[Optional['BucketReplicationConfigurationRuleSourceSelectionCriteriaArgsDict']]]
     """
     Specifies special object selection criteria (documented below).
     """
@@ -6644,7 +6644,7 @@ class BucketReplicationConfigurationRuleDestinationArgsDict(TypedDict):
     """
     ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
     """
-    access_control_translation: NotRequired[pulumi.Input[Optional['BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs']]]
+    access_control_translation: NotRequired[pulumi.Input[Optional['BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgsDict']]]
     """
     Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
     """
@@ -6652,7 +6652,7 @@ class BucketReplicationConfigurationRuleDestinationArgsDict(TypedDict):
     """
     Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
     """
-    metrics: NotRequired[pulumi.Input[Optional['BucketReplicationConfigurationRuleDestinationMetricsArgs']]]
+    metrics: NotRequired[pulumi.Input[Optional['BucketReplicationConfigurationRuleDestinationMetricsArgsDict']]]
     """
     Enables replication metrics (required for S3 RTC) (documented below).
     """
@@ -6661,7 +6661,7 @@ class BucketReplicationConfigurationRuleDestinationArgsDict(TypedDict):
     Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
     `sse_kms_encrypted_objects` source selection criteria.
     """
-    replication_time: NotRequired[pulumi.Input[Optional['BucketReplicationConfigurationRuleDestinationReplicationTimeArgs']]]
+    replication_time: NotRequired[pulumi.Input[Optional['BucketReplicationConfigurationRuleDestinationReplicationTimeArgsDict']]]
     """
     Enables S3 Replication Time Control (S3 RTC) (documented below).
     """
@@ -6969,7 +6969,7 @@ class BucketReplicationConfigurationRuleFilterArgs:
 
 
 class BucketReplicationConfigurationRuleSourceSelectionCriteriaArgsDict(TypedDict):
-    sse_kms_encrypted_objects: NotRequired[pulumi.Input[Optional['BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs']]]
+    sse_kms_encrypted_objects: NotRequired[pulumi.Input[Optional['BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgsDict']]]
     """
     Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
     in `destination` must be specified as well.
@@ -7057,7 +7057,7 @@ class BucketServerSideEncryptionConfigurationArgs:
 
 
 class BucketServerSideEncryptionConfigurationRuleArgsDict(TypedDict):
-    apply_server_side_encryption_by_default: NotRequired[pulumi.Input[Optional['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs']]]
+    apply_server_side_encryption_by_default: NotRequired[pulumi.Input[Optional['BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgsDict']]]
     """
     Single object for setting server-side encryption by default. See below.
     """
@@ -7174,7 +7174,7 @@ class BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefa
 
 
 class BucketServerSideEncryptionConfigurationV2RuleArgsDict(TypedDict):
-    apply_server_side_encryption_by_default: NotRequired[pulumi.Input[Optional['BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgs']]]
+    apply_server_side_encryption_by_default: NotRequired[pulumi.Input[Optional['BucketServerSideEncryptionConfigurationV2RuleApplyServerSideEncryptionByDefaultArgsDict']]]
     """
     Single object for setting server-side encryption by default. See below.
     """
@@ -7493,7 +7493,7 @@ class BucketV2LifecycleRuleArgsDict(TypedDict):
     """
     Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
     """
-    expirations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2LifecycleRuleExpirationArgs']]]]]
+    expirations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2LifecycleRuleExpirationArgsDict']]]]]
     """
     Specifies a period in the object's expire. See Expiration below for details.
     """
@@ -7501,11 +7501,11 @@ class BucketV2LifecycleRuleArgsDict(TypedDict):
     """
     Unique identifier for the rule. Must be less than or equal to 255 characters in length.
     """
-    noncurrent_version_expirations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2LifecycleRuleNoncurrentVersionExpirationArgs']]]]]
+    noncurrent_version_expirations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2LifecycleRuleNoncurrentVersionExpirationArgsDict']]]]]
     """
     Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
     """
-    noncurrent_version_transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2LifecycleRuleNoncurrentVersionTransitionArgs']]]]]
+    noncurrent_version_transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2LifecycleRuleNoncurrentVersionTransitionArgsDict']]]]]
     """
     Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
     """
@@ -7517,7 +7517,7 @@ class BucketV2LifecycleRuleArgsDict(TypedDict):
     """
     Specifies object tags key and value.
     """
-    transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2LifecycleRuleTransitionArgs']]]]]
+    transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2LifecycleRuleTransitionArgsDict']]]]]
     """
     Specifies a period in the object's transitions. See Transition below for details.
     """
@@ -7939,7 +7939,7 @@ class BucketV2ObjectLockConfigurationArgsDict(TypedDict):
     """
     Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ObjectLockConfigurationRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ObjectLockConfigurationRuleArgsDict']]]]]
     """
     Object Lock rule in place for this bucket (documented below).
     """
@@ -8147,7 +8147,7 @@ class BucketV2ReplicationConfigurationRuleArgsDict(TypedDict):
     """
     Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
     """
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleFilterArgsDict']]]]]
     """
     Filter that identifies subset of objects to which the replication rule applies (documented below).
     """
@@ -8163,7 +8163,7 @@ class BucketV2ReplicationConfigurationRuleArgsDict(TypedDict):
     """
     Priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
     """
-    source_selection_criterias: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgs']]]]]
+    source_selection_criterias: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgsDict']]]]]
     """
     Specifies special object selection criteria (documented below).
     """
@@ -8306,7 +8306,7 @@ class BucketV2ReplicationConfigurationRuleDestinationArgsDict(TypedDict):
     """
     ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
     """
-    access_control_translations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgs']]]]]
+    access_control_translations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslationArgsDict']]]]]
     """
     Specifies the overrides to use for object owners on replication (documented below). Must be used in conjunction with `account_id` owner override configuration.
     """
@@ -8314,7 +8314,7 @@ class BucketV2ReplicationConfigurationRuleDestinationArgsDict(TypedDict):
     """
     Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
     """
-    metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleDestinationMetricArgs']]]]]
+    metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleDestinationMetricArgsDict']]]]]
     """
     Enables replication metrics (required for S3 RTC) (documented below).
     """
@@ -8323,7 +8323,7 @@ class BucketV2ReplicationConfigurationRuleDestinationArgsDict(TypedDict):
     Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
     `sse_kms_encrypted_objects` source selection criteria.
     """
-    replication_times: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgs']]]]]
+    replication_times: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleDestinationReplicationTimeArgsDict']]]]]
     """
     Enables S3 Replication Time Control (S3 RTC) (documented below).
     """
@@ -8631,7 +8631,7 @@ class BucketV2ReplicationConfigurationRuleFilterArgs:
 
 
 class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaArgsDict(TypedDict):
-    sse_kms_encrypted_objects: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs']]]]]
+    sse_kms_encrypted_objects: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgsDict']]]]]
     """
     Match SSE-KMS encrypted objects (documented below). If specified, `replica_kms_key_id`
     in `destination` must be specified as well.
@@ -9307,7 +9307,7 @@ class BucketWebsiteConfigurationRoutingRuleArgsDict(TypedDict):
     """
     Configuration block for redirect information. See below.
     """
-    condition: NotRequired[pulumi.Input[Optional['BucketWebsiteConfigurationRoutingRuleConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['BucketWebsiteConfigurationRoutingRuleConditionArgsDict']]]
     """
     Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
     """
@@ -9623,7 +9623,7 @@ class BucketWebsiteConfigurationV2RoutingRuleArgsDict(TypedDict):
     """
     Configuration block for redirect information. See below.
     """
-    condition: NotRequired[pulumi.Input[Optional['BucketWebsiteConfigurationV2RoutingRuleConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['BucketWebsiteConfigurationV2RoutingRuleConditionArgsDict']]]
     """
     Configuration block for describing a condition that must be met for the specified redirect to apply. See below.
     """
@@ -9940,7 +9940,7 @@ class FilesAccessPointPosixUserArgs:
 
 
 class FilesAccessPointRootDirectoryArgsDict(TypedDict):
-    creation_permissions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointRootDirectoryCreationPermissionArgs']]]]]
+    creation_permissions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilesAccessPointRootDirectoryCreationPermissionArgsDict']]]]]
     """
     Permissions to set when creating the root directory. See `creation_permissions` below. Changing this value forces replacement.
     """
@@ -10356,7 +10356,7 @@ class InventoryDestinationBucketArgsDict(TypedDict):
     """
     ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
     """
-    encryption: NotRequired[pulumi.Input[Optional['InventoryDestinationBucketEncryptionArgs']]]
+    encryption: NotRequired[pulumi.Input[Optional['InventoryDestinationBucketEncryptionArgsDict']]]
     """
     Contains the type of server-side encryption to use to encrypt the inventory (documented below).
     """
@@ -10451,11 +10451,11 @@ class InventoryDestinationBucketArgs:
 
 
 class InventoryDestinationBucketEncryptionArgsDict(TypedDict):
-    sse_kms: NotRequired[pulumi.Input[Optional['InventoryDestinationBucketEncryptionSseKmsArgs']]]
+    sse_kms: NotRequired[pulumi.Input[Optional['InventoryDestinationBucketEncryptionSseKmsArgsDict']]]
     """
     Specifies to use server-side encryption with AWS KMS-managed keys to encrypt the inventory file (documented below).
     """
-    sse_s3: NotRequired[pulumi.Input[Optional['InventoryDestinationBucketEncryptionSseS3Args']]]
+    sse_s3: NotRequired[pulumi.Input[Optional['InventoryDestinationBucketEncryptionSseS3ArgsDict']]]
     """
     Specifies to use server-side encryption with Amazon S3-managed keys (SSE-S3) to encrypt the inventory file.
     """
@@ -10707,7 +10707,7 @@ class ObjectCopyGrantArgs:
 
 
 class ObjectCopyOverrideProviderArgsDict(TypedDict):
-    default_tags: NotRequired[pulumi.Input[Optional['ObjectCopyOverrideProviderDefaultTagsArgs']]]
+    default_tags: NotRequired[pulumi.Input[Optional['ObjectCopyOverrideProviderDefaultTagsArgsDict']]]
     """
     Override the provider `default_tags` configuration block.
     """

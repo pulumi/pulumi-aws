@@ -48,49 +48,47 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			allowBillingLogging := pulumi.All(billingLogs.Arn, billingLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-//				billingLogsArn := _args[0].(string)
-//				billingLogsArn1 := _args[1].(string)
-//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//					Statements: []iam.GetPolicyDocumentStatement(pulumi.Array{
-//						iam.GetPolicyDocumentStatement{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//								{
-//									Type: "AWS",
-//									Identifiers: pulumi.StringArray{
-//										main.Arn,
-//									},
+//			allowBillingLogging := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String(main.Arn),
 //								},
 //							},
-//							Actions: []string{
-//								"s3:GetBucketAcl",
-//								"s3:GetBucketPolicy",
-//							},
-//							Resources: []string{
-//								billingLogsArn,
-//							},
 //						},
-//						iam.GetPolicyDocumentStatement{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//								{
-//									Type: "AWS",
-//									Identifiers: pulumi.StringArray{
-//										main.Arn,
-//									},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:GetBucketAcl"),
+//							pulumi.String("s3:GetBucketPolicy"),
+//						},
+//						Resources: pulumi.StringArray{
+//							billingLogs.Arn,
+//						},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String(main.Arn),
 //								},
 //							},
-//							Actions: []string{
-//								"s3:PutObject",
-//							},
-//							Resources: []string{
-//								fmt.Sprintf("%v/*", billingLogsArn1),
-//							},
 //						},
-//					}),
-//				}, nil))), nil
-//			}).(iam.GetPolicyDocumentResultOutput)
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:PutObject"),
+//						},
+//						Resources: pulumi.StringArray{
+//							billingLogs.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "allow_billing_logging", &s3.BucketPolicyArgs{
 //				Bucket: billingLogs.ID(),
 //				Policy: pulumi.String(allowBillingLogging.ApplyT(func(allowBillingLogging iam.GetPolicyDocumentResult) (*string, error) {

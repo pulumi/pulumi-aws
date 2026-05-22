@@ -522,7 +522,7 @@ class ReplicationConfigurationReplicationConfigurationRuleArgsDict(TypedDict):
     """
     the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
     """
-    repository_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs']]]]]
+    repository_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgsDict']]]]]
     """
     filters for a replication rule. See Repository Filter.
     """

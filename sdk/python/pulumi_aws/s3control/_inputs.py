@@ -204,15 +204,15 @@ class BucketLifecycleConfigurationRuleArgsDict(TypedDict):
     """
     Unique identifier for the rule.
     """
-    abort_incomplete_multipart_upload: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs']]]
+    abort_incomplete_multipart_upload: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgsDict']]]
     """
     Configuration block containing settings for abort incomplete multipart upload.
     """
-    expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleExpirationArgs']]]
+    expiration: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleExpirationArgsDict']]]
     """
     Configuration block containing settings for expiration of objects.
     """
-    filter: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleFilterArgs']]]
+    filter: NotRequired[pulumi.Input[Optional['BucketLifecycleConfigurationRuleFilterArgsDict']]]
     """
     Configuration block containing settings for filtering.
     """
@@ -514,7 +514,7 @@ class MultiRegionAccessPointDetailsArgsDict(TypedDict):
     """
     Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
-    public_access_block: NotRequired[pulumi.Input[Optional['MultiRegionAccessPointDetailsPublicAccessBlockArgs']]]
+    public_access_block: NotRequired[pulumi.Input[Optional['MultiRegionAccessPointDetailsPublicAccessBlockArgsDict']]]
 
 @pulumi.input_type
 class MultiRegionAccessPointDetailsArgs:
@@ -946,23 +946,23 @@ class StorageLensConfigurationStorageLensConfigurationArgsDict(TypedDict):
     """
     Whether the S3 Storage Lens configuration is enabled.
     """
-    aws_org: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAwsOrgArgs']]]
+    aws_org: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAwsOrgArgsDict']]]
     """
     The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
     """
-    data_export: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportArgs']]]
+    data_export: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportArgsDict']]]
     """
     Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
     """
-    exclude: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExcludeArgs']]]
+    exclude: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExcludeArgsDict']]]
     """
     What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
     """
-    expanded_prefixes_data_export: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgs']]]
+    expanded_prefixes_data_export: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgsDict']]]
     """
     Configuration for the S3 Storage Lens expanded prefix metrics report. Unlike the default Storage Lens metrics report, the enhanced prefix metrics report includes all S3 Storage Lens storage and activity data related to the full list of prefixes in your Storage Lens configuration. See Expanded Prefixes Data Export below for more details.
     """
-    include: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationIncludeArgs']]]
+    include: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationIncludeArgsDict']]]
     """
     What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
     """
@@ -1109,23 +1109,23 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelArgsDict(Typed
     """
     S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
     """
-    activity_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs']]]
+    activity_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgsDict']]]
     """
     S3 Storage Lens activity metrics. See Activity Metrics below for more details.
     """
-    advanced_cost_optimization_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs']]]
+    advanced_cost_optimization_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgsDict']]]
     """
     Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
     """
-    advanced_data_protection_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs']]]
+    advanced_data_protection_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgsDict']]]
     """
     Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
     """
-    advanced_performance_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgs']]]
+    advanced_performance_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerformanceMetricsArgsDict']]]
     """
     Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics below for more details.
     """
-    detailed_status_code_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs']]]
+    detailed_status_code_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgsDict']]]
     """
     Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
     """
@@ -1349,27 +1349,27 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedPerfor
 
 
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgsDict(TypedDict):
-    activity_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs']]]
+    activity_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgsDict']]]
     """
     S3 Storage Lens activity metrics. See Activity Metrics above for more details.
     """
-    advanced_cost_optimization_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs']]]
+    advanced_cost_optimization_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgsDict']]]
     """
     Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
     """
-    advanced_data_protection_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs']]]
+    advanced_data_protection_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgsDict']]]
     """
     Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
     """
-    advanced_performance_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetricsArgs']]]
+    advanced_performance_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedPerformanceMetricsArgsDict']]]
     """
     Advanced performance metrics for S3 Storage Lens. See Advanced Performance Metrics above for more details.
     """
-    detailed_status_code_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs']]]
+    detailed_status_code_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgsDict']]]
     """
     Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
     """
-    prefix_level: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs']]]
+    prefix_level: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgsDict']]]
     """
     Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
     """
@@ -1655,7 +1655,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     """
     Whether prefix-level storage metrics are enabled.
     """
-    selection_criteria: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs']]]
+    selection_criteria: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgsDict']]]
     """
     Selection criteria. See Selection Criteria below for more details.
     """
@@ -1826,15 +1826,15 @@ class StorageLensConfigurationStorageLensConfigurationAwsOrgArgs:
 
 
 class StorageLensConfigurationStorageLensConfigurationDataExportArgsDict(TypedDict):
-    cloud_watch_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs']]]
+    cloud_watch_metrics: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgsDict']]]
     """
     Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
     """
-    s3_bucket_destination: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs']]]
+    s3_bucket_destination: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgsDict']]]
     """
     The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
     """
-    storage_lens_table_destination: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgs']]]
+    storage_lens_table_destination: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationArgsDict']]]
     """
     S3 table bucket where the S3 Storage Lens metrics export will be located. See Storage Lens Table Destination below for more details.
     """
@@ -1939,7 +1939,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
     """
     The schema version of the export file. Valid values: `V_1`.
     """
-    encryption: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs']]]
+    encryption: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgsDict']]]
     """
     Encryption of the metrics exports in this bucket. See Encryption below for more details.
     """
@@ -2048,11 +2048,11 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
 
 
 class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgsDict(TypedDict):
-    sse_kms: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs']]]
+    sse_kms: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgsDict']]]
     """
     SSE-KMS encryption. See SSE KMS below for more details.
     """
-    sse_s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args']]]]]
+    sse_s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArgsDict']]]]]
     """
     SSE-S3 encryption. An empty configuration block `{}` should be used.
     """
@@ -2138,7 +2138,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTable
     """
     Whether S3 Storage Lens export to S3 tables is enabled.
     """
-    encryption: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionArgs']]]
+    encryption: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionArgsDict']]]
     """
     Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
     """
@@ -2182,11 +2182,11 @@ class StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTable
 
 
 class StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionArgsDict(TypedDict):
-    sse_kms: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseKmsArgs']]]
+    sse_kms: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseKmsArgsDict']]]
     """
     SSE-KMS encryption. See SSE KMS below for more details.
     """
-    sse_s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseS3Args']]]]]
+    sse_s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportStorageLensTableDestinationEncryptionSseS3ArgsDict']]]]]
     """
     SSE-S3 encryption. An empty configuration block `{}` should be used.
     """
@@ -2317,11 +2317,11 @@ class StorageLensConfigurationStorageLensConfigurationExcludeArgs:
 
 
 class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportArgsDict(TypedDict):
-    s3_bucket_destination: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs']]]
+    s3_bucket_destination: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgsDict']]]
     """
     The bucket where the S3 Storage Lens expanded prefix metrics export will be located. See S3 Bucket Destination below for more details.
     """
-    storage_lens_table_destination: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgs']]]
+    storage_lens_table_destination: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationArgsDict']]]
     """
     S3 table bucket where the S3 Storage Lens expanded prefix metrics export will be located. See Storage Lens Table Destination below for more details.
     """
@@ -2382,7 +2382,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     """
     The schema version of the export file. Valid values: `V_1`.
     """
-    encryption: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgs']]]
+    encryption: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgsDict']]]
     """
     Encryption of the metrics exports in this bucket. See Encryption below for more details.
     """
@@ -2491,11 +2491,11 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
 
 
 class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionArgsDict(TypedDict):
-    sse_kms: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgs']]]
+    sse_kms: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseKmsArgsDict']]]
     """
     SSE-KMS encryption. See SSE KMS below for more details.
     """
-    sse_s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3Args']]]]]
+    sse_s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionSseS3ArgsDict']]]]]
     """
     SSE-S3 encryption. An empty configuration block `{}` should be used.
     """
@@ -2581,7 +2581,7 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
     """
     Whether S3 Storage Lens export to S3 tables is enabled.
     """
-    encryption: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgs']]]
+    encryption: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgsDict']]]
     """
     Encryption of the metrics exports in this S3 tables bucket. See Encryption below for more details.
     """
@@ -2625,11 +2625,11 @@ class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExport
 
 
 class StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionArgsDict(TypedDict):
-    sse_kms: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgs']]]
+    sse_kms: NotRequired[pulumi.Input[Optional['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseKmsArgsDict']]]
     """
     SSE-KMS encryption. See SSE KMS below for more details.
     """
-    sse_s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3Args']]]]]
+    sse_s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportStorageLensTableDestinationEncryptionSseS3ArgsDict']]]]]
     """
     SSE-S3 encryption. An empty configuration block `{}` should be used.
     """

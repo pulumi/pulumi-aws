@@ -241,11 +241,11 @@ class StreamProcessorNotificationChannelArgs:
 
 
 class StreamProcessorOutputArgsDict(TypedDict):
-    kinesis_data_stream: NotRequired[pulumi.Input[Optional['StreamProcessorOutputKinesisDataStreamArgs']]]
+    kinesis_data_stream: NotRequired[pulumi.Input[Optional['StreamProcessorOutputKinesisDataStreamArgsDict']]]
     """
     The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
     """
-    s3_destination: NotRequired[pulumi.Input[Optional['StreamProcessorOutputS3DestinationArgs']]]
+    s3_destination: NotRequired[pulumi.Input[Optional['StreamProcessorOutputS3DestinationArgsDict']]]
     """
     The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
     """
@@ -368,11 +368,11 @@ class StreamProcessorOutputS3DestinationArgs:
 
 
 class StreamProcessorRegionsOfInterestArgsDict(TypedDict):
-    bounding_box: NotRequired[pulumi.Input[Optional['StreamProcessorRegionsOfInterestBoundingBoxArgs']]]
+    bounding_box: NotRequired[pulumi.Input[Optional['StreamProcessorRegionsOfInterestBoundingBoxArgsDict']]]
     """
     Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
     """
-    polygons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgs']]]]]
+    polygons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgsDict']]]]]
     """
     Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
     """
@@ -555,11 +555,11 @@ class StreamProcessorRegionsOfInterestPolygonArgs:
 
 
 class StreamProcessorSettingsArgsDict(TypedDict):
-    connected_home: NotRequired[pulumi.Input[Optional['StreamProcessorSettingsConnectedHomeArgs']]]
+    connected_home: NotRequired[pulumi.Input[Optional['StreamProcessorSettingsConnectedHomeArgsDict']]]
     """
     Label detection settings to use on a streaming video. See `connected_home`.
     """
-    face_search: NotRequired[pulumi.Input[Optional['StreamProcessorSettingsFaceSearchArgs']]]
+    face_search: NotRequired[pulumi.Input[Optional['StreamProcessorSettingsFaceSearchArgsDict']]]
     """
     Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
     """

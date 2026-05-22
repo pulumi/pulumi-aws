@@ -70,7 +70,7 @@ class CloudAutonomousVmClusterMaintenanceWindowArgsDict(TypedDict):
     """
     The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
     """
-    days_of_weeks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs']]]]]
+    days_of_weeks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgsDict']]]]]
     """
     The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
     """
@@ -82,7 +82,7 @@ class CloudAutonomousVmClusterMaintenanceWindowArgsDict(TypedDict):
     """
     The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
     """
-    months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgs']]]]]
+    months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowMonthArgsDict']]]]]
     """
     The months when maintenance can be performed. Changing this will force terraform to create new resource.
     """
@@ -336,7 +336,7 @@ class CloudExadataInfrastructureMaintenanceWindowArgsDict(TypedDict):
     """
     The preference for the maintenance window scheduling.
     """
-    days_of_weeks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgs']]]]]
+    days_of_weeks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowDaysOfWeekArgsDict']]]]]
     """
     The days of the week when maintenance can be performed.
     """
@@ -348,7 +348,7 @@ class CloudExadataInfrastructureMaintenanceWindowArgsDict(TypedDict):
     """
     The lead time in weeks before the maintenance window.
     """
-    months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgs']]]]]
+    months: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CloudExadataInfrastructureMaintenanceWindowMonthArgsDict']]]]]
     """
     The months when maintenance can be performed.
     """

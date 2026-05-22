@@ -78,16 +78,11 @@ namespace Pulumi.Aws
         ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
         ///     {
         ///         VpcId = exampleVpc.Id,
-        ///         CidrBlock = Output.Tuple(exampleVpc.CidrBlock, example).Apply(values =&gt;
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
         ///         {
-        ///             var cidrBlock = values.Item1;
-        ///             var example = values.Item2;
-        ///             return Std.Cidrsubnet.Invoke(new()
-        ///             {
-        ///                 Input = cidrBlock,
-        ///                 Newbits = 4,
-        ///                 Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
-        ///             });
+        ///             Input = exampleVpc.CidrBlock,
+        ///             Newbits = 4,
+        ///             Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
         ///         }).Apply(invoke =&gt; invoke.Result),
         ///     });
         /// 
@@ -164,16 +159,11 @@ namespace Pulumi.Aws
         ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
         ///     {
         ///         VpcId = exampleVpc.Id,
-        ///         CidrBlock = Output.Tuple(exampleVpc.CidrBlock, example).Apply(values =&gt;
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
         ///         {
-        ///             var cidrBlock = values.Item1;
-        ///             var example = values.Item2;
-        ///             return Std.Cidrsubnet.Invoke(new()
-        ///             {
-        ///                 Input = cidrBlock,
-        ///                 Newbits = 4,
-        ///                 Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
-        ///             });
+        ///             Input = exampleVpc.CidrBlock,
+        ///             Newbits = 4,
+        ///             Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
         ///         }).Apply(invoke =&gt; invoke.Result),
         ///     });
         /// 
@@ -250,16 +240,11 @@ namespace Pulumi.Aws
         ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
         ///     {
         ///         VpcId = exampleVpc.Id,
-        ///         CidrBlock = Output.Tuple(exampleVpc.CidrBlock, example).Apply(values =&gt;
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
         ///         {
-        ///             var cidrBlock = values.Item1;
-        ///             var example = values.Item2;
-        ///             return Std.Cidrsubnet.Invoke(new()
-        ///             {
-        ///                 Input = cidrBlock,
-        ///                 Newbits = 4,
-        ///                 Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
-        ///             });
+        ///             Input = exampleVpc.CidrBlock,
+        ///             Newbits = 4,
+        ///             Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
         ///         }).Apply(invoke =&gt; invoke.Result),
         ///     });
         /// 

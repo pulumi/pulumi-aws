@@ -104,7 +104,7 @@ class ComputeEnvironmentComputeResourcesArgsDict(TypedDict):
     """
     The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
     """
-    ec2_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ComputeEnvironmentComputeResourcesEc2ConfigurationArgs']]]]]
+    ec2_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ComputeEnvironmentComputeResourcesEc2ConfigurationArgsDict']]]]]
     """
     Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
     """
@@ -124,7 +124,7 @@ class ComputeEnvironmentComputeResourcesArgsDict(TypedDict):
     """
     A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
     """
-    launch_template: NotRequired[pulumi.Input[Optional['ComputeEnvironmentComputeResourcesLaunchTemplateArgs']]]
+    launch_template: NotRequired[pulumi.Input[Optional['ComputeEnvironmentComputeResourcesLaunchTemplateArgsDict']]]
     """
     The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
     """
@@ -700,15 +700,15 @@ class JobDefinitionEksPropertiesPodPropertiesArgsDict(TypedDict):
     """
     Whether the pod uses the hosts' network IP address. The default value is `true`. Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
     """
-    image_pull_secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgs']]]]]
+    image_pull_secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesImagePullSecretArgsDict']]]]]
     """
     List of Kubernetes secret resources. See `image_pull_secret` below.
     """
-    init_containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerArgs']]]]]
+    init_containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerArgsDict']]]]]
     """
     Containers which run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. See containers below.
     """
-    metadata: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesMetadataArgs']]]
+    metadata: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesMetadataArgsDict']]]
     """
     Metadata about the Kubernetes pod.
     """
@@ -720,7 +720,7 @@ class JobDefinitionEksPropertiesPodPropertiesArgsDict(TypedDict):
     """
     Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
     """
-    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgs']]]]]
+    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesVolumeArgsDict']]]]]
     """
     Volumes for a job definition that uses Amazon EKS resources. AWS Batch supports emptyDir, hostPath, and secret volume types.
     """
@@ -888,7 +888,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainerArgsDict(TypedDict):
     """
     Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
     """
-    envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerEnvArgs']]]]]
+    envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerEnvArgsDict']]]]]
     """
     Environment variables to pass to a container. See EKS Environment below.
     """
@@ -900,15 +900,15 @@ class JobDefinitionEksPropertiesPodPropertiesContainerArgsDict(TypedDict):
     """
     Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
     """
-    resources: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs']]]
+    resources: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgsDict']]]
     """
     Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
     """
-    security_context: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs']]]
+    security_context: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgsDict']]]
     """
     Security context for a job. See `security_context` below.
     """
-    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs']]]]]
+    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgsDict']]]]]
     """
     Volume mounts for the container.
     """
@@ -1359,7 +1359,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerArgsDict(TypedDict):
     """
     Entrypoint for the container. This isn't run within a shell. If this isn't specified, the ENTRYPOINT of the container image is used. Environment variable references are expanded using the container's environment.
     """
-    envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgs']]]]]
+    envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerEnvArgsDict']]]]]
     """
     Environment variables to pass to a container. See EKS Environment below.
     """
@@ -1371,15 +1371,15 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerArgsDict(TypedDict):
     """
     Name of the job definition.
     """
-    resources: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs']]]
+    resources: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgsDict']]]
     """
     Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
     """
-    security_context: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs']]]
+    security_context: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgsDict']]]
     """
     Security context for a job. See `security_context` below.
     """
-    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs']]]]]
+    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgsDict']]]]]
     """
     Volume mounts for the container.
     """
@@ -1819,13 +1819,13 @@ class JobDefinitionEksPropertiesPodPropertiesMetadataArgs:
 
 
 class JobDefinitionEksPropertiesPodPropertiesVolumeArgsDict(TypedDict):
-    empty_dir: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgs']]]
-    host_path: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgs']]]
+    empty_dir: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeEmptyDirArgsDict']]]
+    host_path: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeHostPathArgsDict']]]
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the job definition.
     """
-    secret: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgs']]]
+    secret: NotRequired[pulumi.Input[Optional['JobDefinitionEksPropertiesPodPropertiesVolumeSecretArgsDict']]]
 
 @pulumi.input_type
 class JobDefinitionEksPropertiesPodPropertiesVolumeArgs:
@@ -2015,7 +2015,7 @@ class JobDefinitionRetryStrategyArgsDict(TypedDict):
     """
     Number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
     """
-    evaluate_on_exits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionRetryStrategyEvaluateOnExitArgs']]]]]
+    evaluate_on_exits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobDefinitionRetryStrategyEvaluateOnExitArgsDict']]]]]
     """
     Evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
     """
@@ -2383,7 +2383,7 @@ class SchedulingPolicyFairSharePolicyArgsDict(TypedDict):
     A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
     """
     share_decay_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    share_distributions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgs']]]]]
+    share_distributions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchedulingPolicyFairSharePolicyShareDistributionArgsDict']]]]]
     """
     One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
     """

@@ -153,7 +153,7 @@ class SigningJobRevocationRecordArgs:
 
 
 class SigningJobSignedObjectArgsDict(TypedDict):
-    s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SigningJobSignedObjectS3Args']]]]]
+    s3s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SigningJobSignedObjectS3ArgsDict']]]]]
 
 @pulumi.input_type
 class SigningJobSignedObjectArgs:

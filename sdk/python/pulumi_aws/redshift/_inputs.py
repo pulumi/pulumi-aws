@@ -121,7 +121,7 @@ class ClusterClusterNodeArgs:
 
 
 class EndpointAccessVpcEndpointArgsDict(TypedDict):
-    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]]]
+    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgsDict']]]]]
     """
     One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
     """
@@ -328,15 +328,15 @@ class IdcApplicationAuthorizedTokenIssuerArgs:
 
 
 class IdcApplicationServiceIntegrationArgsDict(TypedDict):
-    lake_formation: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationLakeFormationArgs']]]
+    lake_formation: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationLakeFormationArgsDict']]]
     """
     List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
     """
-    redshift: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationRedshiftArgs']]]
+    redshift: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationRedshiftArgsDict']]]
     """
     List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
     """
-    s3_access_grants: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationS3AccessGrantsArgs']]]
+    s3_access_grants: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationS3AccessGrantsArgsDict']]]
     """
     List of scopes set up for S3 Access Grants integration. Refer to the s3_access_grants documentation for more details.
     """
@@ -397,7 +397,7 @@ class IdcApplicationServiceIntegrationArgs:
 
 
 class IdcApplicationServiceIntegrationLakeFormationArgsDict(TypedDict):
-    lake_formation_query: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs']]]
+    lake_formation_query: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgsDict']]]
     """
     Lake formation scope.
     """
@@ -454,7 +454,7 @@ class IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs:
 
 
 class IdcApplicationServiceIntegrationRedshiftArgsDict(TypedDict):
-    connect: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationRedshiftConnectArgs']]]
+    connect: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationRedshiftConnectArgsDict']]]
     """
     Amazon Redshift connect service integration scope.
     """
@@ -511,7 +511,7 @@ class IdcApplicationServiceIntegrationRedshiftConnectArgs:
 
 
 class IdcApplicationServiceIntegrationS3AccessGrantsArgsDict(TypedDict):
-    read_write_access: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs']]]
+    read_write_access: NotRequired[pulumi.Input[Optional['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgsDict']]]
     """
     S3 Access grants integration scope.
     """
@@ -684,15 +684,15 @@ class ParameterGroupParameterArgs:
 
 
 class ScheduledActionTargetActionArgsDict(TypedDict):
-    pause_cluster: NotRequired[pulumi.Input[Optional['ScheduledActionTargetActionPauseClusterArgs']]]
+    pause_cluster: NotRequired[pulumi.Input[Optional['ScheduledActionTargetActionPauseClusterArgsDict']]]
     """
     An action that runs a `PauseCluster` API operation. Documented below.
     """
-    resize_cluster: NotRequired[pulumi.Input[Optional['ScheduledActionTargetActionResizeClusterArgs']]]
+    resize_cluster: NotRequired[pulumi.Input[Optional['ScheduledActionTargetActionResizeClusterArgsDict']]]
     """
     An action that runs a `ResizeCluster` API operation. Documented below.
     """
-    resume_cluster: NotRequired[pulumi.Input[Optional['ScheduledActionTargetActionResumeClusterArgs']]]
+    resume_cluster: NotRequired[pulumi.Input[Optional['ScheduledActionTargetActionResumeClusterArgsDict']]]
     """
     An action that runs a `ResumeCluster` API operation. Documented below.
     """

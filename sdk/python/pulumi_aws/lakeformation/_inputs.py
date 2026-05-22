@@ -136,7 +136,7 @@ class DataCellsFilterTableDataArgsDict(TypedDict):
     """
     A list of column names and/or nested column attributes.
     """
-    column_wildcard: NotRequired[pulumi.Input[Optional['DataCellsFilterTableDataColumnWildcardArgs']]]
+    column_wildcard: NotRequired[pulumi.Input[Optional['DataCellsFilterTableDataColumnWildcardArgsDict']]]
     """
     A wildcard with exclusions. See Column Wildcard below for details.
     """
@@ -305,7 +305,7 @@ class DataCellsFilterTableDataColumnWildcardArgs:
 
 
 class DataCellsFilterTableDataRowFilterArgsDict(TypedDict):
-    all_rows_wildcard: NotRequired[pulumi.Input[Optional['DataCellsFilterTableDataRowFilterAllRowsWildcardArgs']]]
+    all_rows_wildcard: NotRequired[pulumi.Input[Optional['DataCellsFilterTableDataRowFilterAllRowsWildcardArgsDict']]]
     """
     (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `all_rows_wildcard {}`.
     """
@@ -585,39 +585,39 @@ class OptInPrincipalArgs:
 
 
 class OptInResourceDataArgsDict(TypedDict):
-    catalogs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataCatalogArgs']]]]]
+    catalogs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataCatalogArgsDict']]]]]
     """
     Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
     """
-    data_cells_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataDataCellsFilterArgs']]]]]
+    data_cells_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataDataCellsFilterArgsDict']]]]]
     """
     Data cell filter. See Data Cells Filter for more details.
     """
-    data_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataDataLocationArgs']]]]]
+    data_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataDataLocationArgsDict']]]]]
     """
     Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
     """
-    database: NotRequired[pulumi.Input[Optional['OptInResourceDataDatabaseArgs']]]
+    database: NotRequired[pulumi.Input[Optional['OptInResourceDataDatabaseArgsDict']]]
     """
     Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
     """
-    lf_tag: NotRequired[pulumi.Input[Optional['OptInResourceDataLfTagArgs']]]
+    lf_tag: NotRequired[pulumi.Input[Optional['OptInResourceDataLfTagArgsDict']]]
     """
     LF-tag key and values attached to a resource.
     """
-    lf_tag_expressions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataLfTagExpressionArgs']]]]]
+    lf_tag_expressions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataLfTagExpressionArgsDict']]]]]
     """
     Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
     """
-    lf_tag_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataLfTagPolicyArgs']]]]]
+    lf_tag_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataLfTagPolicyArgsDict']]]]]
     """
     List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
     """
-    table: NotRequired[pulumi.Input[Optional['OptInResourceDataTableArgs']]]
+    table: NotRequired[pulumi.Input[Optional['OptInResourceDataTableArgsDict']]]
     """
     Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
     """
-    table_with_columns: NotRequired[pulumi.Input[Optional['OptInResourceDataTableWithColumnsArgs']]]
+    table_with_columns: NotRequired[pulumi.Input[Optional['OptInResourceDataTableWithColumnsArgsDict']]]
     """
     Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
     """
@@ -1295,7 +1295,7 @@ class OptInResourceDataTableWithColumnsArgsDict(TypedDict):
     """
     List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
     """
-    column_wildcard: NotRequired[pulumi.Input[Optional['OptInResourceDataTableWithColumnsColumnWildcardArgs']]]
+    column_wildcard: NotRequired[pulumi.Input[Optional['OptInResourceDataTableWithColumnsColumnWildcardArgsDict']]]
     """
     Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
     """
@@ -2258,7 +2258,7 @@ class ResourceLfTagTableWithColumnsArgsDict(TypedDict):
     """
     Set of column names for the table.
     """
-    column_wildcard: NotRequired[pulumi.Input[Optional['ResourceLfTagTableWithColumnsColumnWildcardArgs']]]
+    column_wildcard: NotRequired[pulumi.Input[Optional['ResourceLfTagTableWithColumnsColumnWildcardArgsDict']]]
     """
     Option to add column wildcard. See Column Wildcard for more details.
     """

@@ -130,7 +130,7 @@ class ApiEventConfigArgsDict(TypedDict):
     """
     List of default authentication modes for subscribing. See Auth Modes below.
     """
-    log_config: NotRequired[pulumi.Input[Optional['ApiEventConfigLogConfigArgs']]]
+    log_config: NotRequired[pulumi.Input[Optional['ApiEventConfigLogConfigArgsDict']]]
     """
     Logging configuration. See Log Config below.
     """
@@ -223,15 +223,15 @@ class ApiEventConfigAuthProviderArgsDict(TypedDict):
     """
     Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
     """
-    cognito_config: NotRequired[pulumi.Input[Optional['ApiEventConfigAuthProviderCognitoConfigArgs']]]
+    cognito_config: NotRequired[pulumi.Input[Optional['ApiEventConfigAuthProviderCognitoConfigArgsDict']]]
     """
     Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
     """
-    lambda_authorizer_config: NotRequired[pulumi.Input[Optional['ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs']]]
+    lambda_authorizer_config: NotRequired[pulumi.Input[Optional['ApiEventConfigAuthProviderLambdaAuthorizerConfigArgsDict']]]
     """
     Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
     """
-    openid_connect_config: NotRequired[pulumi.Input[Optional['ApiEventConfigAuthProviderOpenidConnectConfigArgs']]]
+    openid_connect_config: NotRequired[pulumi.Input[Optional['ApiEventConfigAuthProviderOpenidConnectConfigArgsDict']]]
     """
     Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
     """
@@ -661,11 +661,11 @@ class ApiEventConfigLogConfigArgs:
 
 
 class ChannelNamespaceHandlerConfigsArgsDict(TypedDict):
-    on_publish: NotRequired[pulumi.Input[Optional['ChannelNamespaceHandlerConfigsOnPublishArgs']]]
+    on_publish: NotRequired[pulumi.Input[Optional['ChannelNamespaceHandlerConfigsOnPublishArgsDict']]]
     """
     Handler configuration. See Handler Config below.
     """
-    on_subscribe: NotRequired[pulumi.Input[Optional['ChannelNamespaceHandlerConfigsOnSubscribeArgs']]]
+    on_subscribe: NotRequired[pulumi.Input[Optional['ChannelNamespaceHandlerConfigsOnSubscribeArgsDict']]]
     """
     Handler configuration. See Handler Config below.
     """
@@ -761,7 +761,7 @@ class ChannelNamespaceHandlerConfigsOnPublishIntegrationArgsDict(TypedDict):
     """
     Unique name of the data source that has been configured on the API.
     """
-    lambda_config: NotRequired[pulumi.Input[Optional['ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs']]]
+    lambda_config: NotRequired[pulumi.Input[Optional['ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgsDict']]]
     """
     Configuration for a Lambda data source. See Lambda Config below.
     """
@@ -885,7 +885,7 @@ class ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgsDict(TypedDict):
     """
     Unique name of the data source that has been configured on the API.
     """
-    lambda_config: NotRequired[pulumi.Input[Optional['ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs']]]
+    lambda_config: NotRequired[pulumi.Input[Optional['ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgsDict']]]
     """
     Configuration for a Lambda data source. See Lambda Config below.
     """
@@ -1018,7 +1018,7 @@ class DataSourceDynamodbConfigArgsDict(TypedDict):
     """
     Name of the DynamoDB table.
     """
-    delta_sync_config: NotRequired[pulumi.Input[Optional['DataSourceDynamodbConfigDeltaSyncConfigArgs']]]
+    delta_sync_config: NotRequired[pulumi.Input[Optional['DataSourceDynamodbConfigDeltaSyncConfigArgsDict']]]
     """
     The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
     """
@@ -1270,7 +1270,7 @@ class DataSourceHttpConfigArgsDict(TypedDict):
     """
     HTTP URL.
     """
-    authorization_config: NotRequired[pulumi.Input[Optional['DataSourceHttpConfigAuthorizationConfigArgs']]]
+    authorization_config: NotRequired[pulumi.Input[Optional['DataSourceHttpConfigAuthorizationConfigArgsDict']]]
     """
     Authorization configuration in case the HTTP endpoint requires authorization. See `authorization_config` Block for details.
     """
@@ -1318,7 +1318,7 @@ class DataSourceHttpConfigAuthorizationConfigArgsDict(TypedDict):
     """
     Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
     """
-    aws_iam_config: NotRequired[pulumi.Input[Optional['DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs']]]
+    aws_iam_config: NotRequired[pulumi.Input[Optional['DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgsDict']]]
     """
     Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
     """
@@ -1488,7 +1488,7 @@ class DataSourceOpensearchserviceConfigArgs:
 
 
 class DataSourceRelationalDatabaseConfigArgsDict(TypedDict):
-    http_endpoint_config: NotRequired[pulumi.Input[Optional['DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs']]]
+    http_endpoint_config: NotRequired[pulumi.Input[Optional['DataSourceRelationalDatabaseConfigHttpEndpointConfigArgsDict']]]
     """
     Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
     """
@@ -1699,7 +1699,7 @@ class FunctionSyncConfigArgsDict(TypedDict):
     """
     Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
     """
-    lambda_conflict_handler_config: NotRequired[pulumi.Input[Optional['FunctionSyncConfigLambdaConflictHandlerConfigArgs']]]
+    lambda_conflict_handler_config: NotRequired[pulumi.Input[Optional['FunctionSyncConfigLambdaConflictHandlerConfigArgsDict']]]
     """
     Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
     """
@@ -1793,15 +1793,15 @@ class GraphQLApiAdditionalAuthenticationProviderArgsDict(TypedDict):
     """
     Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
     """
-    lambda_authorizer_config: NotRequired[pulumi.Input[Optional['GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs']]]
+    lambda_authorizer_config: NotRequired[pulumi.Input[Optional['GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgsDict']]]
     """
     Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
     """
-    openid_connect_config: NotRequired[pulumi.Input[Optional['GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs']]]
+    openid_connect_config: NotRequired[pulumi.Input[Optional['GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgsDict']]]
     """
     Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
     """
-    user_pool_config: NotRequired[pulumi.Input[Optional['GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs']]]
+    user_pool_config: NotRequired[pulumi.Input[Optional['GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgsDict']]]
     """
     Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
     """
@@ -2610,7 +2610,7 @@ class ResolverSyncConfigArgsDict(TypedDict):
     """
     Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
     """
-    lambda_conflict_handler_config: NotRequired[pulumi.Input[Optional['ResolverSyncConfigLambdaConflictHandlerConfigArgs']]]
+    lambda_conflict_handler_config: NotRequired[pulumi.Input[Optional['ResolverSyncConfigLambdaConflictHandlerConfigArgsDict']]]
     """
     Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
     """

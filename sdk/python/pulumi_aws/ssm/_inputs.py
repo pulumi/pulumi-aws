@@ -220,16 +220,16 @@ class ContactsRotationRecurrenceArgsDict(TypedDict):
     """
     (Required) The number of days, weeks, or months a single rotation lasts.
     """
-    daily_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContactsRotationRecurrenceDailySettingArgs']]]]]
-    monthly_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContactsRotationRecurrenceMonthlySettingArgs']]]]]
+    daily_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContactsRotationRecurrenceDailySettingArgsDict']]]]]
+    monthly_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContactsRotationRecurrenceMonthlySettingArgsDict']]]]]
     """
     (Optional) Information about on-call rotations that recur monthly. See Monthly Settings for more details.
     """
-    shift_coverages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageArgs']]]]]
+    shift_coverages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContactsRotationRecurrenceShiftCoverageArgsDict']]]]]
     """
     (Optional) Information about the days of the week that the on-call rotation coverage includes. See Shift Coverages for more details.
     """
-    weekly_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContactsRotationRecurrenceWeeklySettingArgs']]]]]
+    weekly_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContactsRotationRecurrenceWeeklySettingArgsDict']]]]]
     """
     (Optional) Information about on-call rotations that recur weekly. See Weekly Settings for more details.
     """
@@ -383,7 +383,7 @@ class ContactsRotationRecurrenceMonthlySettingArgsDict(TypedDict):
     """
     (Required) The day of the month when monthly recurring on-call rotations begin.
     """
-    hand_off_time: NotRequired[pulumi.Input[Optional['ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs']]]
+    hand_off_time: NotRequired[pulumi.Input[Optional['ContactsRotationRecurrenceMonthlySettingHandOffTimeArgsDict']]]
     """
     (Required) The hand off time. See Hand Off Time for more details.
     """
@@ -514,11 +514,11 @@ class ContactsRotationRecurrenceShiftCoverageArgs:
 
 
 class ContactsRotationRecurrenceShiftCoverageCoverageTimeArgsDict(TypedDict):
-    end: NotRequired[pulumi.Input[Optional['ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs']]]
+    end: NotRequired[pulumi.Input[Optional['ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgsDict']]]
     """
     (Required) The end time of the on-call shift. See Hand Off Time for more details.
     """
-    start: NotRequired[pulumi.Input[Optional['ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs']]]
+    start: NotRequired[pulumi.Input[Optional['ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgsDict']]]
     """
     (Required) The start time of the on-call shift. See Hand Off Time for more details.
     """
@@ -661,7 +661,7 @@ class ContactsRotationRecurrenceWeeklySettingArgsDict(TypedDict):
     """
     (Required) The day of the week when the shift coverage occurs.
     """
-    hand_off_time: NotRequired[pulumi.Input[Optional['ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs']]]
+    hand_off_time: NotRequired[pulumi.Input[Optional['ContactsRotationRecurrenceWeeklySettingHandOffTimeArgsDict']]]
     """
     (Required) The hand off time. See Hand Off Time for more details.
     """
@@ -979,19 +979,19 @@ class MaintenanceWindowTaskTargetArgs:
 
 
 class MaintenanceWindowTaskTaskInvocationParametersArgsDict(TypedDict):
-    automation_parameters: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs']]]
+    automation_parameters: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgsDict']]]
     """
     The parameters for an AUTOMATION task type. Documented below.
     """
-    lambda_parameters: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs']]]
+    lambda_parameters: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgsDict']]]
     """
     The parameters for a LAMBDA task type. Documented below.
     """
-    run_command_parameters: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs']]]
+    run_command_parameters: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgsDict']]]
     """
     The parameters for a RUN_COMMAND task type. Documented below.
     """
-    step_functions_parameters: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs']]]
+    step_functions_parameters: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgsDict']]]
     """
     The parameters for a STEP_FUNCTIONS task type. Documented below.
     """
@@ -1072,7 +1072,7 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgsDict(
     """
     The version of an Automation document to use during task execution.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgsDict']]]]]
     """
     The parameters for the RUN_COMMAND task execution. Documented below.
     """
@@ -1233,7 +1233,7 @@ class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs:
 
 
 class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgsDict(TypedDict):
-    cloudwatch_config: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs']]]
+    cloudwatch_config: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgsDict']]]
     """
     Configuration options for sending command output to CloudWatch Logs. Documented below.
     """
@@ -1253,7 +1253,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgsDict(
     """
     The version of an Automation document to use during task execution.
     """
-    notification_config: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs']]]
+    notification_config: NotRequired[pulumi.Input[Optional['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgsDict']]]
     """
     Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
     """
@@ -1265,7 +1265,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgsDict(
     """
     The Amazon S3 bucket subfolder.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgsDict']]]]]
     """
     The parameters for the RUN_COMMAND task execution. Documented below.
     """

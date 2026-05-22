@@ -487,11 +487,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTag = new Tag("exampleTag", TagArgs.builder()
- *             .resourceArn(example.arn().applyValue(_arn -> StdFunctions.replace(ReplaceArgs.builder()
- *                 .text(_arn)
+ *             .resourceArn(StdFunctions.replace(ReplaceArgs.builder()
+ *                 .text(example.arn())
  *                 .search(current.region())
  *                 .replace(alternate.region())
- *                 .build())).applyValue(_invoke -> _invoke.result()))
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .key("Architect")
  *             .value("Gigi")
  *             .build());

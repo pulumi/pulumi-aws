@@ -38,7 +38,7 @@ class ScalingPlanApplicationSourceArgsDict(TypedDict):
     """
     ARN of a AWS CloudFormation stack.
     """
-    tag_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanApplicationSourceTagFilterArgs']]]]]
+    tag_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScalingPlanApplicationSourceTagFilterArgsDict']]]]]
     """
     Set of tags.
     """
@@ -156,7 +156,7 @@ class ScalingPlanScalingInstructionArgsDict(TypedDict):
     Structure that defines new target tracking configurations. Each of these structures includes a specific scaling metric and a target value for the metric, along with various parameters to use with dynamic scaling.
     More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_TargetTrackingConfiguration.html).
     """
-    customized_load_metric_specification: NotRequired[pulumi.Input[Optional['ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs']]]
+    customized_load_metric_specification: NotRequired[pulumi.Input[Optional['ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgsDict']]]
     """
     Customized load metric to use for predictive scaling. You must specify either `customized_load_metric_specification` or `predefined_load_metric_specification` when configuring predictive scaling.
     More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedLoadMetricSpecification.html).
@@ -165,7 +165,7 @@ class ScalingPlanScalingInstructionArgsDict(TypedDict):
     """
     Boolean controlling whether dynamic scaling by AWS Auto Scaling is disabled. Defaults to `false`.
     """
-    predefined_load_metric_specification: NotRequired[pulumi.Input[Optional['ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs']]]
+    predefined_load_metric_specification: NotRequired[pulumi.Input[Optional['ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgsDict']]]
     """
     Predefined load metric to use for predictive scaling. You must specify either `predefined_load_metric_specification` or `customized_load_metric_specification` when configuring predictive scaling.
     More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedLoadMetricSpecification.html).
@@ -584,7 +584,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationArgsDict(TypedDict
     """
     Target value for the metric.
     """
-    customized_scaling_metric_specification: NotRequired[pulumi.Input[Optional['ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs']]]
+    customized_scaling_metric_specification: NotRequired[pulumi.Input[Optional['ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgsDict']]]
     """
     Customized metric. You can specify either `customized_scaling_metric_specification` or `predefined_scaling_metric_specification`.
     More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_CustomizedScalingMetricSpecification.html).
@@ -598,7 +598,7 @@ class ScalingPlanScalingInstructionTargetTrackingConfigurationArgsDict(TypedDict
     Estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.
     This value is used only if the resource is an Auto Scaling group.
     """
-    predefined_scaling_metric_specification: NotRequired[pulumi.Input[Optional['ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs']]]
+    predefined_scaling_metric_specification: NotRequired[pulumi.Input[Optional['ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgsDict']]]
     """
     Predefined metric. You can specify either `predefined_scaling_metric_specification` or `customized_scaling_metric_specification`.
     More details can be found in the [AWS Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html).

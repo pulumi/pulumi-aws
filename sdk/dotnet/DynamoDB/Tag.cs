@@ -44,17 +44,11 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     ///     var test = new Aws.DynamoDB.Tag("test", new()
     ///     {
-    ///         ResourceArn = Output.Tuple(example.Arn, current, replica).Apply(values =&gt;
+    ///         ResourceArn = Std.Replace.Invoke(new()
     ///         {
-    ///             var arn = values.Item1;
-    ///             var current = values.Item2;
-    ///             var replica = values.Item3;
-    ///             return Std.Replace.Invoke(new()
-    ///             {
-    ///                 Text = arn,
-    ///                 Search = current.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///                 Replace = replica.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///             });
+    ///             Text = example.Arn,
+    ///             Search = current.Apply(getRegionResult =&gt; getRegionResult.Region),
+    ///             Replace = replica.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Key = "testkey",
     ///         Value = "testvalue",

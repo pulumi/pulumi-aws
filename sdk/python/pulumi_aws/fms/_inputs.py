@@ -168,7 +168,7 @@ class PolicySecurityServicePolicyDataArgsDict(TypedDict):
     """
     Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
     """
-    policy_option: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionArgs']]]
+    policy_option: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionArgsDict']]]
     """
     Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
     """
@@ -228,15 +228,15 @@ class PolicySecurityServicePolicyDataArgs:
 
 
 class PolicySecurityServicePolicyDataPolicyOptionArgsDict(TypedDict):
-    network_acl_common_policy: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs']]]
+    network_acl_common_policy: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgsDict']]]
     """
     Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
     """
-    network_firewall_policy: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']]]
+    network_firewall_policy: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict']]]
     """
     Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
     """
-    third_party_firewall_policy: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']]]
+    third_party_firewall_policy: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDict']]]
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionArgs:
@@ -290,7 +290,7 @@ class PolicySecurityServicePolicyDataPolicyOptionArgs:
 
 
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgsDict(TypedDict):
-    network_acl_entry_set: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs']]]
+    network_acl_entry_set: NotRequired[pulumi.Input[Optional['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgsDict']]]
     """
     Defines NACL entries for Network ACL policy. See the `network_acl_entry_set` block.
     """
@@ -327,11 +327,11 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
     """
     A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
     """
-    first_entries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs']]]]]
+    first_entries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgsDict']]]]]
     """
     The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
     """
-    last_entries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs']]]]]
+    last_entries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgsDict']]]]]
     """
     The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
     """
@@ -422,7 +422,7 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
     """
     A string value containing the IPv4 network range to allow or deny, in CIDR notation.
     """
-    icmp_type_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs']]]]]
+    icmp_type_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgsDict']]]]]
     """
     A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
     """
@@ -430,7 +430,7 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
     """
     A string value containing the IPv6 network range to allow or deny, in CIDR notation.
     """
-    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs']]]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgsDict']]]]]
     """
     A configuration block for PortRange. See the `port_range` block.
     """
@@ -666,7 +666,7 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
     """
     A string value containing the IPv4 network range to allow or deny, in CIDR notation.
     """
-    icmp_type_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs']]]]]
+    icmp_type_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgsDict']]]]]
     """
     A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
     """
@@ -674,7 +674,7 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
     """
     A string value containing the IPv6 network range to allow or deny, in CIDR notation.
     """
-    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs']]]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgsDict']]]]]
     """
     A configuration block for PortRange. See the `port_range` block.
     """

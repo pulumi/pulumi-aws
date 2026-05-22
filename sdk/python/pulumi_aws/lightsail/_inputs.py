@@ -447,7 +447,7 @@ class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs:
 
 
 class ContainerServicePrivateRegistryAccessArgsDict(TypedDict):
-    ecr_image_puller_role: NotRequired[pulumi.Input[Optional['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs']]]
+    ecr_image_puller_role: NotRequired[pulumi.Input[Optional['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgsDict']]]
     """
     Configuration to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
     """
@@ -659,15 +659,15 @@ class DistributionCacheBehaviorSettingsArgsDict(TypedDict):
     """
     Default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
     """
-    forwarded_cookies: NotRequired[pulumi.Input[Optional['DistributionCacheBehaviorSettingsForwardedCookiesArgs']]]
+    forwarded_cookies: NotRequired[pulumi.Input[Optional['DistributionCacheBehaviorSettingsForwardedCookiesArgsDict']]]
     """
     Cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. See below.
     """
-    forwarded_headers: NotRequired[pulumi.Input[Optional['DistributionCacheBehaviorSettingsForwardedHeadersArgs']]]
+    forwarded_headers: NotRequired[pulumi.Input[Optional['DistributionCacheBehaviorSettingsForwardedHeadersArgsDict']]]
     """
     Headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. See below.
     """
-    forwarded_query_strings: NotRequired[pulumi.Input[Optional['DistributionCacheBehaviorSettingsForwardedQueryStringsArgs']]]
+    forwarded_query_strings: NotRequired[pulumi.Input[Optional['DistributionCacheBehaviorSettingsForwardedQueryStringsArgsDict']]]
     """
     Query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. See below.
     """

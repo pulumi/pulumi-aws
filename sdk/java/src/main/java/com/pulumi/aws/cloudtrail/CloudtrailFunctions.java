@@ -59,37 +59,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLogging = Output.tuple(bucket.arn(), bucket.arn()).applyValue(values -> {
-     *             var bucketArn = values.t1;
-     *             var bucketArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Put bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", bucketArn))
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Get bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:GetBucketAcl")
-     *                         .resources(bucketArn1)
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Put bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions("s3:PutObject")
+     *                     .resources(bucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Get bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:GetBucketAcl")
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.json())
+     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
      *             .build());
      * 
      *     }
@@ -145,37 +141,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLogging = Output.tuple(bucket.arn(), bucket.arn()).applyValue(values -> {
-     *             var bucketArn = values.t1;
-     *             var bucketArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Put bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", bucketArn))
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Get bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:GetBucketAcl")
-     *                         .resources(bucketArn1)
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Put bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions("s3:PutObject")
+     *                     .resources(bucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Get bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:GetBucketAcl")
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.json())
+     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
      *             .build());
      * 
      *     }
@@ -231,37 +223,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLogging = Output.tuple(bucket.arn(), bucket.arn()).applyValue(values -> {
-     *             var bucketArn = values.t1;
-     *             var bucketArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Put bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", bucketArn))
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Get bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:GetBucketAcl")
-     *                         .resources(bucketArn1)
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Put bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions("s3:PutObject")
+     *                     .resources(bucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Get bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:GetBucketAcl")
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.json())
+     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
      *             .build());
      * 
      *     }
@@ -317,37 +305,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLogging = Output.tuple(bucket.arn(), bucket.arn()).applyValue(values -> {
-     *             var bucketArn = values.t1;
-     *             var bucketArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Put bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", bucketArn))
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Get bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:GetBucketAcl")
-     *                         .resources(bucketArn1)
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Put bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions("s3:PutObject")
+     *                     .resources(bucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Get bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:GetBucketAcl")
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.json())
+     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
      *             .build());
      * 
      *     }
@@ -403,37 +387,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLogging = Output.tuple(bucket.arn(), bucket.arn()).applyValue(values -> {
-     *             var bucketArn = values.t1;
-     *             var bucketArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Put bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", bucketArn))
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Get bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:GetBucketAcl")
-     *                         .resources(bucketArn1)
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Put bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions("s3:PutObject")
+     *                     .resources(bucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Get bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:GetBucketAcl")
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.json())
+     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
      *             .build());
      * 
      *     }
@@ -489,37 +469,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLogging = Output.tuple(bucket.arn(), bucket.arn()).applyValue(values -> {
-     *             var bucketArn = values.t1;
-     *             var bucketArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Put bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", bucketArn))
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Get bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:GetBucketAcl")
-     *                         .resources(bucketArn1)
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Put bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions("s3:PutObject")
+     *                     .resources(bucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Get bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:GetBucketAcl")
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.json())
+     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
      *             .build());
      * 
      *     }
@@ -575,37 +551,33 @@ public final class CloudtrailFunctions {
      *             .forceDestroy(true)
      *             .build());
      * 
-     *         final var allowCloudtrailLogging = Output.tuple(bucket.arn(), bucket.arn()).applyValue(values -> {
-     *             var bucketArn = values.t1;
-     *             var bucketArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Put bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", bucketArn))
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .sid("Get bucket policy needed for trails")
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:GetBucketAcl")
-     *                         .resources(bucketArn1)
+     *         final var allowCloudtrailLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Put bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions("s3:PutObject")
+     *                     .resources(bucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .sid("Get bucket policy needed for trails")
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:GetBucketAcl")
+     *                     .resources(bucket.arn())
+     *                     .build())
+     *             .build());
      * 
      *         var allowCloudtrailLoggingBucketPolicy = new BucketPolicy("allowCloudtrailLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(bucket.id())
-     *             .policy(allowCloudtrailLogging.json())
+     *             .policy(allowCloudtrailLogging.applyValue(_allowCloudtrailLogging -> _allowCloudtrailLogging.json()))
      *             .build());
      * 
      *     }

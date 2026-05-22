@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new Tag("test", TagArgs.builder()
- *             .resourceArn(example.arn().applyValue(_arn -> StdFunctions.replace(ReplaceArgs.builder()
- *                 .text(_arn)
+ *             .resourceArn(StdFunctions.replace(ReplaceArgs.builder()
+ *                 .text(example.arn())
  *                 .search(current.region())
  *                 .replace(replica.region())
- *                 .build())).applyValue(_invoke -> _invoke.result()))
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .key("testkey")
  *             .value("testvalue")
  *             .build());

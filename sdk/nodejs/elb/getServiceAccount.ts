@@ -22,17 +22,17 @@ import * as utilities from "../utilities";
  *     bucket: elbLogs.id,
  *     acl: "private",
  * });
- * const allowElbLogging = pulumi.all([main, elbLogs.arn]).apply(([main, arn]) => aws.iam.getPolicyDocumentOutput({
+ * const allowElbLogging = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
- *             identifiers: [main.arn],
+ *             identifiers: [main.then(main => main.arn)],
  *         }],
  *         actions: ["s3:PutObject"],
- *         resources: [`${arn}/AWSLogs/*`],
+ *         resources: [pulumi.interpolate`${elbLogs.arn}/AWSLogs/*`],
  *     }],
- * }));
+ * });
  * const allowElbLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_elb_logging", {
  *     bucket: elbLogs.id,
  *     policy: allowElbLogging.apply(allowElbLogging => allowElbLogging.json),
@@ -103,17 +103,17 @@ export interface GetServiceAccountResult {
  *     bucket: elbLogs.id,
  *     acl: "private",
  * });
- * const allowElbLogging = pulumi.all([main, elbLogs.arn]).apply(([main, arn]) => aws.iam.getPolicyDocumentOutput({
+ * const allowElbLogging = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
- *             identifiers: [main.arn],
+ *             identifiers: [main.then(main => main.arn)],
  *         }],
  *         actions: ["s3:PutObject"],
- *         resources: [`${arn}/AWSLogs/*`],
+ *         resources: [pulumi.interpolate`${elbLogs.arn}/AWSLogs/*`],
  *     }],
- * }));
+ * });
  * const allowElbLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_elb_logging", {
  *     bucket: elbLogs.id,
  *     policy: allowElbLogging.apply(allowElbLogging => allowElbLogging.json),

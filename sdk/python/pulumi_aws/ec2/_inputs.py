@@ -715,11 +715,11 @@ __all__ = [
 ]
 
 class AllowedImagesSettingsImageCriterionArgsDict(TypedDict):
-    creation_date_condition: NotRequired[pulumi.Input[Optional['AllowedImagesSettingsImageCriterionCreationDateConditionArgs']]]
+    creation_date_condition: NotRequired[pulumi.Input[Optional['AllowedImagesSettingsImageCriterionCreationDateConditionArgsDict']]]
     """
     Condition based on AMI creation date. See `creation_date_condition` below.
     """
-    deprecation_time_condition: NotRequired[pulumi.Input[Optional['AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgs']]]
+    deprecation_time_condition: NotRequired[pulumi.Input[Optional['AllowedImagesSettingsImageCriterionDeprecationTimeConditionArgsDict']]]
     """
     Condition based on AMI deprecation time. See `deprecation_time_condition` below.
     """
@@ -3541,11 +3541,11 @@ class FleetFleetInstanceSetArgs:
 
 
 class FleetLaunchTemplateConfigArgsDict(TypedDict):
-    launch_template_specification: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs']]]
+    launch_template_specification: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgsDict']]]
     """
     Nested argument containing EC2 Launch Template to use. Defined below.
     """
-    overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArgs']]]]]
+    overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArgsDict']]]]]
     """
     Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
     """
@@ -3662,7 +3662,7 @@ class FleetLaunchTemplateConfigOverrideArgsDict(TypedDict):
     """
     Availability Zone in which to launch the instances.
     """
-    instance_requirements: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs']]]
+    instance_requirements: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsArgsDict']]]
     """
     Override the instance type in the Launch Template with instance types that satisfy the requirements.
     """
@@ -3815,7 +3815,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(TypedDict):
     """
     Block describing the minimum and maximum number of vCPUs. Default is no maximum.
     """
-    accelerator_count: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs']]]
+    accelerator_count: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgsDict']]]
     """
     Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
     """
@@ -3827,7 +3827,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(TypedDict):
     """
     List of accelerator names. Default is any acclerator.
     """
-    accelerator_total_memory_mib: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']]]
+    accelerator_total_memory_mib: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgsDict']]]
     """
     Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
     """
@@ -3845,7 +3845,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(TypedDict):
     """
     Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
     """
-    baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]]
+    baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict']]]
     """
     Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
     """
@@ -3880,15 +3880,15 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(TypedDict):
     """
     The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
     """
-    memory_gib_per_vcpu: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']]]
+    memory_gib_per_vcpu: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgsDict']]]
     """
     Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
     """
-    network_bandwidth_gbps: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']]]
+    network_bandwidth_gbps: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgsDict']]]
     """
     The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
     """
-    network_interface_count: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']]]
+    network_interface_count: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgsDict']]]
     """
     Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
     """
@@ -3908,7 +3908,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(TypedDict):
 
     If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
     """
-    total_local_storage_gb: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs']]]
+    total_local_storage_gb: NotRequired[pulumi.Input[Optional['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgsDict']]]
     """
     Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
     """
@@ -4764,7 +4764,7 @@ class FleetOnDemandOptionsArgsDict(TypedDict):
     """
     The order of the launch template overrides to use in fulfilling On-Demand capacity. Valid values: `lowestPrice`, `prioritized`. Default: `lowestPrice`.
     """
-    capacity_reservation_options: NotRequired[pulumi.Input[Optional['FleetOnDemandOptionsCapacityReservationOptionsArgs']]]
+    capacity_reservation_options: NotRequired[pulumi.Input[Optional['FleetOnDemandOptionsCapacityReservationOptionsArgsDict']]]
     """
     The strategy for using unused Capacity Reservations for fulfilling On-Demand capacity. Supported only for fleets of type `instant`.
     """
@@ -4933,7 +4933,7 @@ class FleetSpotOptionsArgsDict(TypedDict):
     """
     Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
     """
-    maintenance_strategies: NotRequired[pulumi.Input[Optional['FleetSpotOptionsMaintenanceStrategiesArgs']]]
+    maintenance_strategies: NotRequired[pulumi.Input[Optional['FleetSpotOptionsMaintenanceStrategiesArgsDict']]]
     """
     Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
     """
@@ -5090,7 +5090,7 @@ class FleetSpotOptionsArgs:
 
 
 class FleetSpotOptionsMaintenanceStrategiesArgsDict(TypedDict):
-    capacity_rebalance: NotRequired[pulumi.Input[Optional['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs']]]
+    capacity_rebalance: NotRequired[pulumi.Input[Optional['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgsDict']]]
     """
     Nested argument containing the capacity rebalance for your fleet request. Defined below.
     """
@@ -5344,7 +5344,7 @@ class InstanceCapacityReservationSpecificationArgsDict(TypedDict):
     """
     Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
     """
-    capacity_reservation_target: NotRequired[pulumi.Input[Optional['InstanceCapacityReservationSpecificationCapacityReservationTargetArgs']]]
+    capacity_reservation_target: NotRequired[pulumi.Input[Optional['InstanceCapacityReservationSpecificationCapacityReservationTargetArgsDict']]]
     """
     Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
 
@@ -5935,7 +5935,7 @@ class InstanceInstanceMarketOptionsArgsDict(TypedDict):
     """
     Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
     """
-    spot_options: NotRequired[pulumi.Input[Optional['InstanceInstanceMarketOptionsSpotOptionsArgs']]]
+    spot_options: NotRequired[pulumi.Input[Optional['InstanceInstanceMarketOptionsSpotOptionsArgsDict']]]
     """
     Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
     """
@@ -7266,7 +7266,7 @@ class LaunchTemplateBlockDeviceMappingArgsDict(TypedDict):
     """
     The name of the device to mount.
     """
-    ebs: NotRequired[pulumi.Input[Optional['LaunchTemplateBlockDeviceMappingEbsArgs']]]
+    ebs: NotRequired[pulumi.Input[Optional['LaunchTemplateBlockDeviceMappingEbsArgsDict']]]
     """
     Configure EBS volume properties.
     """
@@ -7565,7 +7565,7 @@ class LaunchTemplateCapacityReservationSpecificationArgsDict(TypedDict):
     """
     Indicates the instance's Capacity Reservation preferences. Can be `capacity-reservations-only`, `open` or `none`. If `capacity_reservation_id` or `capacity_reservation_resource_group_arn` is specified in `capacity_reservation_target` block, either omit `capacity_reservation_preference` or set it to `capacity-reservations-only`.
     """
-    capacity_reservation_target: NotRequired[pulumi.Input[Optional['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs']]]
+    capacity_reservation_target: NotRequired[pulumi.Input[Optional['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgsDict']]]
     """
     Used to target a specific Capacity Reservation:
     """
@@ -7914,7 +7914,7 @@ class LaunchTemplateInstanceMarketOptionsArgsDict(TypedDict):
     """
     The market type. Can be `spot`.
     """
-    spot_options: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceMarketOptionsSpotOptionsArgs']]]
+    spot_options: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceMarketOptionsSpotOptionsArgsDict']]]
     """
     The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
     """
@@ -8079,7 +8079,7 @@ class LaunchTemplateInstanceRequirementsArgsDict(TypedDict):
     """
     Block describing the minimum and maximum number of vCPUs. Default is no maximum.
     """
-    accelerator_count: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsAcceleratorCountArgs']]]
+    accelerator_count: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsAcceleratorCountArgsDict']]]
     """
     Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
     """
@@ -8110,7 +8110,7 @@ class LaunchTemplateInstanceRequirementsArgsDict(TypedDict):
     * vu9p            - Xilinx VU9P FPGAs
     ```
     """
-    accelerator_total_memory_mib: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs']]]
+    accelerator_total_memory_mib: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgsDict']]]
     """
     Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
     """
@@ -8135,7 +8135,7 @@ class LaunchTemplateInstanceRequirementsArgsDict(TypedDict):
     """
     Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
     """
-    baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]]
+    baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict']]]
     """
     Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
     """
@@ -8190,15 +8190,15 @@ class LaunchTemplateInstanceRequirementsArgsDict(TypedDict):
     """
     The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
     """
-    memory_gib_per_vcpu: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs']]]
+    memory_gib_per_vcpu: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgsDict']]]
     """
     Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
     """
-    network_bandwidth_gbps: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs']]]
+    network_bandwidth_gbps: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgsDict']]]
     """
     Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
     """
-    network_interface_count: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs']]]
+    network_interface_count: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgsDict']]]
     """
     Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
     """
@@ -8218,7 +8218,7 @@ class LaunchTemplateInstanceRequirementsArgsDict(TypedDict):
 
     If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
     """
-    total_local_storage_gb: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs']]]
+    total_local_storage_gb: NotRequired[pulumi.Input[Optional['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgsDict']]]
     """
     Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
     """
@@ -9371,7 +9371,7 @@ class LaunchTemplateNetworkInterfaceArgsDict(TypedDict):
     """
     Associate a public ip address with the network interface. Boolean value, can be left unset.
     """
-    connection_tracking_specification: NotRequired[pulumi.Input[Optional['LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs']]]
+    connection_tracking_specification: NotRequired[pulumi.Input[Optional['LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgsDict']]]
     """
     The Connection Tracking Configuration for the network interface. See [Amazon EC2 security group connection tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts)
     """
@@ -9387,7 +9387,7 @@ class LaunchTemplateNetworkInterfaceArgsDict(TypedDict):
     """
     The integer index of the network interface attachment.
     """
-    ena_srd_specification: NotRequired[pulumi.Input[Optional['LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs']]]
+    ena_srd_specification: NotRequired[pulumi.Input[Optional['LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgsDict']]]
     """
     Configuration for Elastic Network Adapter (ENA) Express settings. Applies to network interfaces that use the [ena Express](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html) feature. See details below.
     """
@@ -9885,7 +9885,7 @@ class LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgsDict(TypedDict):
     """
     Whether to enable ENA Express. ENA Express uses AWS Scalable Reliable Datagram (SRD) technology to improve the performance of TCP traffic.
     """
-    ena_srd_udp_specification: NotRequired[pulumi.Input[Optional['LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs']]]
+    ena_srd_udp_specification: NotRequired[pulumi.Input[Optional['LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgsDict']]]
     """
     Configuration for ENA Express UDP optimization. See details below.
     """
@@ -11157,17 +11157,17 @@ class NetworkAclIngressArgs:
 
 
 class NetworkInsightsAccessScopeExcludePathArgsDict(TypedDict):
-    destination: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathDestinationArgs']]]
+    destination: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathDestinationArgsDict']]]
     """
     Path statement for the destination.
     See `source` and `destination` below for details.
     """
-    source: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathSourceArgs']]]
+    source: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathSourceArgsDict']]]
     """
     Path statement for the source.
     See `source` and `destination` below for details.
     """
-    through_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathThroughResourceArgs']]]]]
+    through_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAccessScopeExcludePathThroughResourceArgsDict']]]]]
     """
     Path statement for through resources.
     See `through_resources` below for details.
@@ -11235,12 +11235,12 @@ class NetworkInsightsAccessScopeExcludePathArgs:
 
 
 class NetworkInsightsAccessScopeExcludePathDestinationArgsDict(TypedDict):
-    packet_header_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatementArgs']]]
+    packet_header_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathDestinationPacketHeaderStatementArgsDict']]]
     """
     Packet header statement.
     See `packet_header_statement` below for details.
     """
-    resource_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathDestinationResourceStatementArgs']]]
+    resource_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathDestinationResourceStatementArgsDict']]]
 
 @pulumi.input_type
 class NetworkInsightsAccessScopeExcludePathDestinationArgs:
@@ -11487,12 +11487,12 @@ class NetworkInsightsAccessScopeExcludePathDestinationResourceStatementArgs:
 
 
 class NetworkInsightsAccessScopeExcludePathSourceArgsDict(TypedDict):
-    packet_header_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatementArgs']]]
+    packet_header_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathSourcePacketHeaderStatementArgsDict']]]
     """
     Packet header statement.
     See `packet_header_statement` below for details.
     """
-    resource_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgs']]]
+    resource_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgsDict']]]
     """
     Resource statement.
     Exactly one of `resources` or `resource_types` must be specified.
@@ -11752,7 +11752,7 @@ class NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgs:
 
 
 class NetworkInsightsAccessScopeExcludePathThroughResourceArgsDict(TypedDict):
-    resource_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgs']]]
+    resource_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgsDict']]]
     """
     Resource statement.
     Exactly one of `resources` or `resource_types` must be specified.
@@ -11842,12 +11842,12 @@ class NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgs:
 
 
 class NetworkInsightsAccessScopeMatchPathArgsDict(TypedDict):
-    destination: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeMatchPathDestinationArgs']]]
+    destination: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeMatchPathDestinationArgsDict']]]
     """
     Path statement for the destination.
     See `source` and `destination` below for details.
     """
-    source: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeMatchPathSourceArgs']]]
+    source: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeMatchPathSourceArgsDict']]]
     """
     Path statement for the source.
     See `source` and `destination` below for details.
@@ -11897,12 +11897,12 @@ class NetworkInsightsAccessScopeMatchPathArgs:
 
 
 class NetworkInsightsAccessScopeMatchPathDestinationArgsDict(TypedDict):
-    packet_header_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatementArgs']]]
+    packet_header_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeMatchPathDestinationPacketHeaderStatementArgsDict']]]
     """
     Packet header statement.
     See `packet_header_statement` below for details.
     """
-    resource_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeMatchPathDestinationResourceStatementArgs']]]
+    resource_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeMatchPathDestinationResourceStatementArgsDict']]]
 
 @pulumi.input_type
 class NetworkInsightsAccessScopeMatchPathDestinationArgs:
@@ -12149,12 +12149,12 @@ class NetworkInsightsAccessScopeMatchPathDestinationResourceStatementArgs:
 
 
 class NetworkInsightsAccessScopeMatchPathSourceArgsDict(TypedDict):
-    packet_header_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatementArgs']]]
+    packet_header_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeMatchPathSourcePacketHeaderStatementArgsDict']]]
     """
     Packet header statement.
     See `packet_header_statement` below for details.
     """
-    resource_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs']]]
+    resource_statement: NotRequired[pulumi.Input[Optional['NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgsDict']]]
     """
     Resource statement.
     Exactly one of `resources` or `resource_types` must be specified.
@@ -12463,54 +12463,54 @@ class NetworkInsightsAnalysisAlternatePathHintArgs:
 
 
 class NetworkInsightsAnalysisExplanationArgsDict(TypedDict):
-    acl_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRuleArgs']]]]]
-    acls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclArgs']]]]]
+    acl_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRuleArgsDict']]]]]
+    acls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclArgsDict']]]]]
     address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    attached_tos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAttachedToArgs']]]]]
+    attached_tos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAttachedToArgsDict']]]]]
     availability_zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     cidrs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    classic_load_balancer_listeners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs']]]]]
-    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationComponentArgs']]]]]
-    customer_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationCustomerGatewayArgs']]]]]
-    destination_vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationVpcArgs']]]]]
-    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationArgs']]]]]
+    classic_load_balancer_listeners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgsDict']]]]]
+    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationComponentArgsDict']]]]]
+    customer_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationCustomerGatewayArgsDict']]]]]
+    destination_vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationVpcArgsDict']]]]]
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationArgsDict']]]]]
     direction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    elastic_load_balancer_listeners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs']]]]]
+    elastic_load_balancer_listeners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgsDict']]]]]
     explanation_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    ingress_route_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationIngressRouteTableArgs']]]]]
-    internet_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArgs']]]]]
+    ingress_route_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationIngressRouteTableArgsDict']]]]]
+    internet_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArgsDict']]]]]
     load_balancer_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     load_balancer_listener_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    load_balancer_target_group: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]]]
-    load_balancer_target_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]]]
+    load_balancer_target_group: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgsDict']]]]]
+    load_balancer_target_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgsDict']]]]]
     load_balancer_target_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     missing_component: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    nat_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNatGatewayArgs']]]]]
-    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNetworkInterfaceArgs']]]]]
+    nat_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNatGatewayArgsDict']]]]]
+    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNetworkInterfaceArgsDict']]]]]
     packet_field: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPortRangeArgs']]]]]
-    prefix_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPrefixListArgs']]]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPortRangeArgsDict']]]]]
+    prefix_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPrefixListArgsDict']]]]]
     protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    route_table_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArgs']]]]]
-    route_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArgs']]]]]
-    security_group: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]]]
-    security_group_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs']]]]]
-    security_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]]]
-    source_vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArgs']]]]]
+    route_table_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArgsDict']]]]]
+    route_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArgsDict']]]]]
+    security_group: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgsDict']]]]]
+    security_group_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArgsDict']]]]]
+    security_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgsDict']]]]]
+    source_vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArgsDict']]]]]
     state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    subnet_route_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetRouteTableArgs']]]]]
-    subnets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetArgs']]]]]
-    transit_gateway_attachments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs']]]]]
-    transit_gateway_route_table_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs']]]]]
-    transit_gateway_route_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs']]]]]
-    transit_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayArgs']]]]]
-    vpc_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcEndpointArgs']]]]]
-    vpc_peering_connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs']]]]]
-    vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcArgs']]]]]
-    vpn_connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnConnectionArgs']]]]]
-    vpn_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnGatewayArgs']]]]]
+    subnet_route_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetRouteTableArgsDict']]]]]
+    subnets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetArgsDict']]]]]
+    transit_gateway_attachments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgsDict']]]]]
+    transit_gateway_route_table_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgsDict']]]]]
+    transit_gateway_route_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgsDict']]]]]
+    transit_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayArgsDict']]]]]
+    vpc_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcEndpointArgsDict']]]]]
+    vpc_peering_connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgsDict']]]]]
+    vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcArgsDict']]]]]
+    vpn_connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnConnectionArgsDict']]]]]
+    vpn_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnGatewayArgsDict']]]]]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisExplanationArgs:
@@ -13158,7 +13158,7 @@ class NetworkInsightsAnalysisExplanationAclArgs:
 class NetworkInsightsAnalysisExplanationAclRuleArgsDict(TypedDict):
     cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     egress: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRulePortRangeArgs']]]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRulePortRangeArgsDict']]]]]
     protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     rule_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     rule_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
@@ -14347,7 +14347,7 @@ class NetworkInsightsAnalysisExplanationSecurityGroupArgs:
 class NetworkInsightsAnalysisExplanationSecurityGroupRuleArgsDict(TypedDict):
     cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     direction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs']]]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgsDict']]]]]
     prefix_list_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     security_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -15243,21 +15243,21 @@ class NetworkInsightsAnalysisExplanationVpnGatewayArgs:
 
 
 class NetworkInsightsAnalysisForwardPathComponentArgsDict(TypedDict):
-    acl_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRuleArgs']]]]]
-    additional_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs']]]]]
-    attached_tos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAttachedToArgs']]]]]
-    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentComponentArgs']]]]]
-    destination_vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs']]]]]
-    inbound_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs']]]]]
-    outbound_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs']]]]]
-    route_table_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs']]]]]
-    security_group_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs']]]]]
+    acl_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRuleArgsDict']]]]]
+    additional_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgsDict']]]]]
+    attached_tos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAttachedToArgsDict']]]]]
+    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentComponentArgsDict']]]]]
+    destination_vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgsDict']]]]]
+    inbound_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgsDict']]]]]
+    outbound_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgsDict']]]]]
+    route_table_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgsDict']]]]]
+    security_group_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgsDict']]]]]
     sequence_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    source_vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs']]]]]
-    subnets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSubnetArgs']]]]]
-    transit_gateway_route_table_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs']]]]]
-    transit_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs']]]]]
-    vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentVpcArgs']]]]]
+    source_vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSourceVpcArgsDict']]]]]
+    subnets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSubnetArgsDict']]]]]
+    transit_gateway_route_table_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgsDict']]]]]
+    transit_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgsDict']]]]]
+    vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentVpcArgsDict']]]]]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentArgs:
@@ -15447,7 +15447,7 @@ class NetworkInsightsAnalysisForwardPathComponentArgs:
 class NetworkInsightsAnalysisForwardPathComponentAclRuleArgsDict(TypedDict):
     cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     egress: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs']]]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgsDict']]]]]
     protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     rule_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     rule_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
@@ -15564,7 +15564,7 @@ class NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs:
 
 class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgsDict(TypedDict):
     additional_detail_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs']]]]]
+    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgsDict']]]]]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs:
@@ -15845,10 +15845,10 @@ class NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs:
 
 class NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgsDict(TypedDict):
     destination_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    destination_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs']]]]]
+    destination_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgsDict']]]]]
     protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    source_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs']]]]]
+    source_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgsDict']]]]]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs:
@@ -15983,10 +15983,10 @@ class NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArg
 
 class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgsDict(TypedDict):
     destination_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    destination_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs']]]]]
+    destination_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgsDict']]]]]
     protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    source_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs']]]]]
+    source_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgsDict']]]]]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs:
@@ -16259,7 +16259,7 @@ class NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs:
 class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgsDict(TypedDict):
     cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     direction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs']]]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgsDict']]]]]
     prefix_list_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     security_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -16721,21 +16721,21 @@ class NetworkInsightsAnalysisForwardPathComponentVpcArgs:
 
 
 class NetworkInsightsAnalysisReturnPathComponentArgsDict(TypedDict):
-    acl_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRuleArgs']]]]]
-    additional_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs']]]]]
-    attached_tos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAttachedToArgs']]]]]
-    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentComponentArgs']]]]]
-    destination_vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs']]]]]
-    inbound_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs']]]]]
-    outbound_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs']]]]]
-    route_table_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs']]]]]
-    security_group_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs']]]]]
+    acl_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRuleArgsDict']]]]]
+    additional_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgsDict']]]]]
+    attached_tos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAttachedToArgsDict']]]]]
+    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentComponentArgsDict']]]]]
+    destination_vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgsDict']]]]]
+    inbound_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgsDict']]]]]
+    outbound_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgsDict']]]]]
+    route_table_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgsDict']]]]]
+    security_group_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgsDict']]]]]
     sequence_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    source_vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs']]]]]
-    subnets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSubnetArgs']]]]]
-    transit_gateway_route_table_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs']]]]]
-    transit_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs']]]]]
-    vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentVpcArgs']]]]]
+    source_vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSourceVpcArgsDict']]]]]
+    subnets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSubnetArgsDict']]]]]
+    transit_gateway_route_table_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgsDict']]]]]
+    transit_gateways: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgsDict']]]]]
+    vpcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentVpcArgsDict']]]]]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentArgs:
@@ -16925,7 +16925,7 @@ class NetworkInsightsAnalysisReturnPathComponentArgs:
 class NetworkInsightsAnalysisReturnPathComponentAclRuleArgsDict(TypedDict):
     cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     egress: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs']]]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgsDict']]]]]
     protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     rule_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     rule_number: NotRequired[pulumi.Input[Optional[_builtins.int]]]
@@ -17042,7 +17042,7 @@ class NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs:
 
 class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgsDict(TypedDict):
     additional_detail_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs']]]]]
+    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgsDict']]]]]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs:
@@ -17323,10 +17323,10 @@ class NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs:
 
 class NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgsDict(TypedDict):
     destination_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    destination_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs']]]]]
+    destination_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgsDict']]]]]
     protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    source_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs']]]]]
+    source_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgsDict']]]]]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs:
@@ -17461,10 +17461,10 @@ class NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs
 
 class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgsDict(TypedDict):
     destination_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    destination_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs']]]]]
+    destination_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgsDict']]]]]
     protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    source_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs']]]]]
+    source_port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgsDict']]]]]
 
 @pulumi.input_type
 class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs:
@@ -17737,7 +17737,7 @@ class NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs:
 class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgsDict(TypedDict):
     cidr: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     direction: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs']]]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgsDict']]]]]
     prefix_list_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     security_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -18203,7 +18203,7 @@ class NetworkInsightsPathFilterAtDestinationArgsDict(TypedDict):
     """
     The destination IPv4 address.
     """
-    destination_port_range: NotRequired[pulumi.Input[Optional['NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgs']]]
+    destination_port_range: NotRequired[pulumi.Input[Optional['NetworkInsightsPathFilterAtDestinationDestinationPortRangeArgsDict']]]
     """
     The destination port range. See below for details.
     """
@@ -18211,7 +18211,7 @@ class NetworkInsightsPathFilterAtDestinationArgsDict(TypedDict):
     """
     IP address of the source resource.
     """
-    source_port_range: NotRequired[pulumi.Input[Optional['NetworkInsightsPathFilterAtDestinationSourcePortRangeArgs']]]
+    source_port_range: NotRequired[pulumi.Input[Optional['NetworkInsightsPathFilterAtDestinationSourcePortRangeArgsDict']]]
     """
     The source port range. See below for details.
     """
@@ -18390,7 +18390,7 @@ class NetworkInsightsPathFilterAtSourceArgsDict(TypedDict):
     """
     The destination IPv4 address.
     """
-    destination_port_range: NotRequired[pulumi.Input[Optional['NetworkInsightsPathFilterAtSourceDestinationPortRangeArgs']]]
+    destination_port_range: NotRequired[pulumi.Input[Optional['NetworkInsightsPathFilterAtSourceDestinationPortRangeArgsDict']]]
     """
     The destination port range. See below for details.
     """
@@ -18398,7 +18398,7 @@ class NetworkInsightsPathFilterAtSourceArgsDict(TypedDict):
     """
     IP address of the source resource.
     """
-    source_port_range: NotRequired[pulumi.Input[Optional['NetworkInsightsPathFilterAtSourceSourcePortRangeArgs']]]
+    source_port_range: NotRequired[pulumi.Input[Optional['NetworkInsightsPathFilterAtSourceSourcePortRangeArgsDict']]]
     """
     The source port range. See below for details.
     """
@@ -18657,7 +18657,7 @@ class NetworkInterfaceEnaSrdSpecificationArgsDict(TypedDict):
     """
     Indicates whether ENA Express is enabled for the network interface.
     """
-    ena_srd_udp_specification: NotRequired[pulumi.Input[Optional['NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs']]]
+    ena_srd_udp_specification: NotRequired[pulumi.Input[Optional['NetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgsDict']]]
     """
     Configures ENA Express for UDP network traffic. See ENA SRD UDP Specification below for more details.
     """
@@ -19795,16 +19795,16 @@ class SpotFleetRequestLaunchSpecificationArgsDict(TypedDict):
     """
     The availability zone in which to place the request.
     """
-    ebs_block_devices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs']]]]]
+    ebs_block_devices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgsDict']]]]]
     ebs_optimized: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    ephemeral_block_devices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs']]]]]
+    ephemeral_block_devices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgsDict']]]]]
     iam_instance_profile: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     iam_instance_profile_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     monitoring: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     placement_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     placement_tenancy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    root_block_devices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs']]]]]
+    root_block_devices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationRootBlockDeviceArgsDict']]]]]
     spot_price: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The maximum bid price per unit hour.
@@ -20350,7 +20350,7 @@ class SpotFleetRequestLaunchTemplateConfigArgsDict(TypedDict):
     """
     Launch template specification. See Launch Template Specification below for more details.
     """
-    overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideArgs']]]]]
+    overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideArgsDict']]]]]
     """
     One or more override configurations. See Overrides below for more details.
     """
@@ -20479,7 +20479,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideArgsDict(TypedDict):
     """
     The availability zone in which to place the request.
     """
-    instance_requirements: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs']]]
+    instance_requirements: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgsDict']]]
     """
     The instance requirements. See below.
     """
@@ -20624,7 +20624,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
 
 
 class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(TypedDict):
-    accelerator_count: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs']]]
+    accelerator_count: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgsDict']]]
     """
     Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
     """
@@ -20655,7 +20655,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(T
     * vu9p            - Xilinx VU9P FPGAs
     ```
     """
-    accelerator_total_memory_mib: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']]]
+    accelerator_total_memory_mib: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgsDict']]]
     """
     Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
     """
@@ -20680,7 +20680,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(T
     """
     Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
     """
-    baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]]
+    baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict']]]
     """
     Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
     """
@@ -20731,19 +20731,19 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(T
     * ssd - solid state drive
     ```
     """
-    memory_gib_per_vcpu: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']]]
+    memory_gib_per_vcpu: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgsDict']]]
     """
     Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
     """
-    memory_mib: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs']]]
+    memory_mib: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgsDict']]]
     """
     Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
     """
-    network_bandwidth_gbps: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']]]
+    network_bandwidth_gbps: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgsDict']]]
     """
     Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
     """
-    network_interface_count: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']]]
+    network_interface_count: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgsDict']]]
     """
     Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
     """
@@ -20763,11 +20763,11 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgsDict(T
 
     If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
     """
-    total_local_storage_gb: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs']]]
+    total_local_storage_gb: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgsDict']]]
     """
     Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
     """
-    vcpu_count: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs']]]
+    vcpu_count: NotRequired[pulumi.Input[Optional['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgsDict']]]
     """
     Block describing the minimum and maximum number of vCPUs. Default is no maximum.
     """
@@ -21699,7 +21699,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountA
 
 
 class SpotFleetRequestSpotMaintenanceStrategiesArgsDict(TypedDict):
-    capacity_rebalance: NotRequired[pulumi.Input[Optional['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs']]]
+    capacity_rebalance: NotRequired[pulumi.Input[Optional['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgsDict']]]
     """
     Nested argument containing the capacity rebalance for your fleet request. Defined below.
     """
@@ -21761,7 +21761,7 @@ class SpotInstanceRequestCapacityReservationSpecificationArgsDict(TypedDict):
     """
     Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
     """
-    capacity_reservation_target: NotRequired[pulumi.Input[Optional['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs']]]
+    capacity_reservation_target: NotRequired[pulumi.Input[Optional['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgsDict']]]
     """
     Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
 
@@ -24752,7 +24752,7 @@ class VpnConnectionRouteArgs:
 
 
 class VpnConnectionTunnel1LogOptionsArgsDict(TypedDict):
-    cloudwatch_log_options: NotRequired[pulumi.Input[Optional['VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs']]]
+    cloudwatch_log_options: NotRequired[pulumi.Input[Optional['VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgsDict']]]
     """
     Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
     """
@@ -24910,7 +24910,7 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs:
 
 
 class VpnConnectionTunnel2LogOptionsArgsDict(TypedDict):
-    cloudwatch_log_options: NotRequired[pulumi.Input[Optional['VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs']]]
+    cloudwatch_log_options: NotRequired[pulumi.Input[Optional['VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgsDict']]]
     """
     Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
     """

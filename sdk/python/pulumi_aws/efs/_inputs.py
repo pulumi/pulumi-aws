@@ -101,7 +101,7 @@ class AccessPointPosixUserArgs:
 
 
 class AccessPointRootDirectoryArgsDict(TypedDict):
-    creation_info: NotRequired[pulumi.Input[Optional['AccessPointRootDirectoryCreationInfoArgs']]]
+    creation_info: NotRequired[pulumi.Input[Optional['AccessPointRootDirectoryCreationInfoArgsDict']]]
     """
     POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
     """

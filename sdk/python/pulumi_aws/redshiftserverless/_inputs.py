@@ -32,7 +32,7 @@ __all__ = [
 ]
 
 class EndpointAccessVpcEndpointArgsDict(TypedDict):
-    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]]]
+    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgsDict']]]]]
     """
     The network interfaces of the endpoint.. See `Network Interface` below.
     """
@@ -245,7 +245,7 @@ class WorkgroupEndpointArgsDict(TypedDict):
     """
     The port number on which the cluster accepts incoming connections.
     """
-    vpc_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkgroupEndpointVpcEndpointArgs']]]]]
+    vpc_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkgroupEndpointVpcEndpointArgsDict']]]]]
     """
     The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
     """
@@ -306,7 +306,7 @@ class WorkgroupEndpointArgs:
 
 
 class WorkgroupEndpointVpcEndpointArgsDict(TypedDict):
-    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkgroupEndpointVpcEndpointNetworkInterfaceArgs']]]]]
+    network_interfaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkgroupEndpointVpcEndpointNetworkInterfaceArgsDict']]]]]
     """
     The network interfaces of the endpoint.. See `Network Interface` below.
     """

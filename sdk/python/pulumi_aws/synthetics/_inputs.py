@@ -32,7 +32,7 @@ __all__ = [
 ]
 
 class CanaryArtifactConfigArgsDict(TypedDict):
-    s3_encryption: NotRequired[pulumi.Input[Optional['CanaryArtifactConfigS3EncryptionArgs']]]
+    s3_encryption: NotRequired[pulumi.Input[Optional['CanaryArtifactConfigS3EncryptionArgsDict']]]
     """
     Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
     """
@@ -227,7 +227,7 @@ class CanaryScheduleArgsDict(TypedDict):
     """
     Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
     """
-    retry_config: NotRequired[pulumi.Input[Optional['CanaryScheduleRetryConfigArgs']]]
+    retry_config: NotRequired[pulumi.Input[Optional['CanaryScheduleRetryConfigArgsDict']]]
     """
     Configuration block for canary retries. Detailed below.
     """

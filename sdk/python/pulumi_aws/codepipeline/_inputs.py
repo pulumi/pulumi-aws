@@ -438,7 +438,7 @@ class PipelineArtifactStoreArgsDict(TypedDict):
     """
     The type of the artifact store, such as Amazon S3
     """
-    encryption_key: NotRequired[pulumi.Input[Optional['PipelineArtifactStoreEncryptionKeyArgs']]]
+    encryption_key: NotRequired[pulumi.Input[Optional['PipelineArtifactStoreEncryptionKeyArgsDict']]]
     """
     The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
     """
@@ -572,15 +572,15 @@ class PipelineStageArgsDict(TypedDict):
     """
     The name of the stage.
     """
-    before_entry: NotRequired[pulumi.Input[Optional['PipelineStageBeforeEntryArgs']]]
+    before_entry: NotRequired[pulumi.Input[Optional['PipelineStageBeforeEntryArgsDict']]]
     """
     The method to use when a stage allows entry. For example, configuring this field for conditions will allow entry to the stage when the conditions are met.
     """
-    on_failure: NotRequired[pulumi.Input[Optional['PipelineStageOnFailureArgs']]]
+    on_failure: NotRequired[pulumi.Input[Optional['PipelineStageOnFailureArgsDict']]]
     """
     The method to use when a stage has not completed successfully. For example, configuring this field for rollback will roll back a failed stage automatically to the last successful pipeline execution in the stage.
     """
-    on_success: NotRequired[pulumi.Input[Optional['PipelineStageOnSuccessArgs']]]
+    on_success: NotRequired[pulumi.Input[Optional['PipelineStageOnSuccessArgsDict']]]
     """
     The method to use when a stage has succeeded. For example, configuring this field for conditions will allow the stage to succeed when the conditions are met.
     """
@@ -1265,7 +1265,7 @@ class PipelineStageBeforeEntryConditionRuleRuleTypeIdArgs:
 
 
 class PipelineStageOnFailureArgsDict(TypedDict):
-    condition: NotRequired[pulumi.Input[Optional['PipelineStageOnFailureConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['PipelineStageOnFailureConditionArgsDict']]]
     """
     The conditions that are failure conditions. Defined as a `condition` block below.
     """
@@ -1273,7 +1273,7 @@ class PipelineStageOnFailureArgsDict(TypedDict):
     """
     The conditions that are configured as failure conditions. Possible values are `ROLLBACK`,  `FAIL`, `RETRY` and `SKIP`.
     """
-    retry_configuration: NotRequired[pulumi.Input[Optional['PipelineStageOnFailureRetryConfigurationArgs']]]
+    retry_configuration: NotRequired[pulumi.Input[Optional['PipelineStageOnFailureRetryConfigurationArgsDict']]]
     """
     The retry configuration specifies automatic retry for a failed stage, along with the configured retry mode. Defined as a `retry_configuration` block below.
     """
@@ -2042,7 +2042,7 @@ class PipelineTriggerArgs:
 
 
 class PipelineTriggerAllArgsDict(TypedDict):
-    git_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationArgs']]]]]
+    git_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationArgsDict']]]]]
     """
     Provides the filter criteria and the source stage for the repository event that starts the pipeline. For more information, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/pipelines-filter.html). A `git_configuration` block is documented below.
     """
@@ -2091,11 +2091,11 @@ class PipelineTriggerAllArgs:
 
 
 class PipelineTriggerAllGitConfigurationArgsDict(TypedDict):
-    pull_requests: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPullRequestArgs']]]]]
+    pull_requests: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPullRequestArgsDict']]]]]
     """
     The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
     """
-    pushes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPushArgs']]]]]
+    pushes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPushArgsDict']]]]]
     """
     The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
     """
@@ -2160,7 +2160,7 @@ class PipelineTriggerAllGitConfigurationArgs:
 
 
 class PipelineTriggerAllGitConfigurationPullRequestArgsDict(TypedDict):
-    branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPullRequestBranchArgs']]]]]
+    branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPullRequestBranchArgsDict']]]]]
     """
     The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
     """
@@ -2168,7 +2168,7 @@ class PipelineTriggerAllGitConfigurationPullRequestArgsDict(TypedDict):
     """
     A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
     """
-    file_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPullRequestFilePathArgs']]]]]
+    file_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPullRequestFilePathArgsDict']]]]]
     """
     The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
     """
@@ -2327,15 +2327,15 @@ class PipelineTriggerAllGitConfigurationPullRequestFilePathArgs:
 
 
 class PipelineTriggerAllGitConfigurationPushArgsDict(TypedDict):
-    branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPushBranchArgs']]]]]
+    branches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPushBranchArgsDict']]]]]
     """
     The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
     """
-    file_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPushFilePathArgs']]]]]
+    file_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPushFilePathArgsDict']]]]]
     """
     The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
     """
-    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPushTagArgs']]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPushTagArgsDict']]]]]
     """
     The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
     """
@@ -2547,11 +2547,11 @@ class PipelineTriggerGitConfigurationArgsDict(TypedDict):
     """
     The name of the pipeline source action where the trigger configuration, such as Git tags, is specified. The trigger configuration will start the pipeline upon the specified change only.
     """
-    pull_requests: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerGitConfigurationPullRequestArgs']]]]]
+    pull_requests: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerGitConfigurationPullRequestArgsDict']]]]]
     """
     The field where the repository event that will start the pipeline is specified as pull requests. A `pull_request` block is documented below.
     """
-    pushes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerGitConfigurationPushArgs']]]]]
+    pushes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerGitConfigurationPushArgsDict']]]]]
     """
     The field where the repository event that will start the pipeline, such as pushing Git tags, is specified with details. A `push` block is documented below.
     """
@@ -2611,7 +2611,7 @@ class PipelineTriggerGitConfigurationArgs:
 
 
 class PipelineTriggerGitConfigurationPullRequestArgsDict(TypedDict):
-    branches: NotRequired[pulumi.Input[Optional['PipelineTriggerGitConfigurationPullRequestBranchesArgs']]]
+    branches: NotRequired[pulumi.Input[Optional['PipelineTriggerGitConfigurationPullRequestBranchesArgsDict']]]
     """
     The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
     """
@@ -2619,7 +2619,7 @@ class PipelineTriggerGitConfigurationPullRequestArgsDict(TypedDict):
     """
     A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
     """
-    file_paths: NotRequired[pulumi.Input[Optional['PipelineTriggerGitConfigurationPullRequestFilePathsArgs']]]
+    file_paths: NotRequired[pulumi.Input[Optional['PipelineTriggerGitConfigurationPullRequestFilePathsArgsDict']]]
     """
     The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
     """
@@ -2778,15 +2778,15 @@ class PipelineTriggerGitConfigurationPullRequestFilePathsArgs:
 
 
 class PipelineTriggerGitConfigurationPushArgsDict(TypedDict):
-    branches: NotRequired[pulumi.Input[Optional['PipelineTriggerGitConfigurationPushBranchesArgs']]]
+    branches: NotRequired[pulumi.Input[Optional['PipelineTriggerGitConfigurationPushBranchesArgsDict']]]
     """
     The field that specifies to filter on branches for the push trigger configuration. A `branches` block is documented below.
     """
-    file_paths: NotRequired[pulumi.Input[Optional['PipelineTriggerGitConfigurationPushFilePathsArgs']]]
+    file_paths: NotRequired[pulumi.Input[Optional['PipelineTriggerGitConfigurationPushFilePathsArgsDict']]]
     """
     The field that specifies to filter on file paths for the push trigger configuration. A `file_paths` block is documented below.
     """
-    tags: NotRequired[pulumi.Input[Optional['PipelineTriggerGitConfigurationPushTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['PipelineTriggerGitConfigurationPushTagsArgsDict']]]
     """
     The field that contains the details for the Git tags trigger configuration. A `tags` block is documented below.
     """

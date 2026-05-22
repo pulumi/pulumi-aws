@@ -386,7 +386,7 @@ class OrganizationRootArgsDict(TypedDict):
     """
     Name of the policy type.
     """
-    policy_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]]]]
+    policy_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgsDict']]]]]
     """
     List of policy types enabled for this root. All elements have these attributes:
     """

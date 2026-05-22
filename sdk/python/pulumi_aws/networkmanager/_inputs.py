@@ -140,7 +140,7 @@ class ConnectPeerBgpOptionsArgs:
 
 
 class ConnectPeerConfigurationArgsDict(TypedDict):
-    bgp_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgs']]]]]
+    bgp_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgsDict']]]]]
     core_network_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Connect peer core network address.
