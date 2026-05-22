@@ -322,10 +322,10 @@ index 613b7a3d179..db1d2d688a6 100644
  			},
  			"delegation_set_id": {
 diff --git a/internal/service/route53/zone_association.go b/internal/service/route53/zone_association.go
-index 7893ad0d6e5..e5bb8f8a5f4 100644
+index 9090daa5462..46877eaaf26 100644
 --- a/internal/service/route53/zone_association.go
 +++ b/internal/service/route53/zone_association.go
-@@ -82,7 +82,7 @@ func resourceZoneAssociationCreate(ctx context.Context, d *schema.ResourceData,
+@@ -84,7 +84,7 @@ func resourceZoneAssociationCreate(ctx context.Context, d *schema.ResourceData,
  	zoneID := d.Get("zone_id").(string)
  	id := zoneAssociationCreateResourceID(zoneID, vpcID, vpcRegion)
  	input := &route53.AssociateVPCWithHostedZoneInput{
@@ -334,7 +334,7 @@ index 7893ad0d6e5..e5bb8f8a5f4 100644
  		HostedZoneId: aws.String(zoneID),
  		VPC: &awstypes.VPC{
  			VPCId:     aws.String(vpcID),
-@@ -166,7 +166,7 @@ func resourceZoneAssociationDelete(ctx context.Context, d *schema.ResourceData,
+@@ -172,7 +172,7 @@ func resourceZoneAssociationDelete(ctx context.Context, d *schema.ResourceData,
  
  	log.Printf("[INFO] Deleting Route53 Zone Association: %s", d.Id())
  	output, err := conn.DisassociateVPCFromHostedZone(ctx, &route53.DisassociateVPCFromHostedZoneInput{
