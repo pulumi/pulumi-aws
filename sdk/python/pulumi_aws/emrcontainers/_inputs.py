@@ -56,7 +56,7 @@ class JobTemplateJobTemplateDataArgsDict(TypedDict):
     """
     The release version of Amazon EMR.
     """
-    configuration_overrides: NotRequired[pulumi.Input[Optional['JobTemplateJobTemplateDataConfigurationOverridesArgs']]]
+    configuration_overrides: NotRequired[pulumi.Input[Optional['JobTemplateJobTemplateDataConfigurationOverridesArgsDict']]]
     """
     The configuration settings that are used to override defaults configuration.
     """
@@ -150,11 +150,11 @@ class JobTemplateJobTemplateDataArgs:
 
 
 class JobTemplateJobTemplateDataConfigurationOverridesArgsDict(TypedDict):
-    application_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs']]]]]
+    application_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgsDict']]]]]
     """
     The configurations for the application running by the job run.
     """
-    monitoring_configuration: NotRequired[pulumi.Input[Optional['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs']]]
+    monitoring_configuration: NotRequired[pulumi.Input[Optional['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgsDict']]]
     """
     The configurations for monitoring.
     """
@@ -203,7 +203,7 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationAr
     """
     The classification within a configuration.
     """
-    configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs']]]]]
+    configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgsDict']]]]]
     """
     A list of additional configurations to apply within a configuration object.
     """
@@ -316,7 +316,7 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
 
 
 class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgsDict(TypedDict):
-    cloud_watch_monitoring_configuration: NotRequired[pulumi.Input[Optional['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs']]]
+    cloud_watch_monitoring_configuration: NotRequired[pulumi.Input[Optional['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgsDict']]]
     """
     Monitoring configurations for CloudWatch.
     """
@@ -324,7 +324,7 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArg
     """
     Monitoring configurations for the persistent application UI.
     """
-    s3_monitoring_configuration: NotRequired[pulumi.Input[Optional['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs']]]
+    s3_monitoring_configuration: NotRequired[pulumi.Input[Optional['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgsDict']]]
     """
     Amazon S3 configuration for monitoring log publishing.
     """
@@ -461,11 +461,11 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3M
 
 
 class JobTemplateJobTemplateDataJobDriverArgsDict(TypedDict):
-    spark_sql_job_driver: NotRequired[pulumi.Input[Optional['JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs']]]
+    spark_sql_job_driver: NotRequired[pulumi.Input[Optional['JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgsDict']]]
     """
     The job driver for job type.
     """
-    spark_submit_job_driver: NotRequired[pulumi.Input[Optional['JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs']]]
+    spark_submit_job_driver: NotRequired[pulumi.Input[Optional['JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgsDict']]]
     """
     The job driver parameters specified for spark submit.
     """

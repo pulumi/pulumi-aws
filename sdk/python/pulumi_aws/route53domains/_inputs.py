@@ -191,7 +191,7 @@ class DomainAdminContactArgsDict(TypedDict):
     """
     Email address of the contact.
     """
-    extra_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainAdminContactExtraParamArgs']]]]]
+    extra_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainAdminContactExtraParamArgsDict']]]]]
     """
     A list of name-value pairs for parameters required by certain top-level domains.
     """
@@ -896,7 +896,7 @@ class DomainRegistrantContactArgsDict(TypedDict):
     """
     Email address of the contact.
     """
-    extra_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainRegistrantContactExtraParamArgs']]]]]
+    extra_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainRegistrantContactExtraParamArgsDict']]]]]
     """
     A list of name-value pairs for parameters required by certain top-level domains.
     """
@@ -1232,7 +1232,7 @@ class DomainTechContactArgsDict(TypedDict):
     """
     Email address of the contact.
     """
-    extra_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainTechContactExtraParamArgs']]]]]
+    extra_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainTechContactExtraParamArgsDict']]]]]
     """
     A list of name-value pairs for parameters required by certain top-level domains.
     """

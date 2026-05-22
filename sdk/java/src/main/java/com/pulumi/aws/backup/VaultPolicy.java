@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .build());
  * 
- *         final var example = exampleVault.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -69,13 +69,13 @@ import javax.annotation.Nullable;
  *                     "backup:StartBackupJob",
  *                     "backup:GetBackupVaultNotifications",
  *                     "backup:PutBackupVaultNotifications")
- *                 .resources(_arn)
+ *                 .resources(exampleVault.arn())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var exampleVaultPolicy = new VaultPolicy("exampleVaultPolicy", VaultPolicyArgs.builder()
  *             .backupVaultName(exampleVault.name())
- *             .policy(example.json())
+ *             .policy(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *     }

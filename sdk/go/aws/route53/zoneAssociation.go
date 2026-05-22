@@ -75,6 +75,19 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `zoneId` (String) The ID of the private hosted zone that you want to associate a VPC with.
+// * `vpcId` (String) The VPC to associate with the private hosted zone.
+//
+// #### Optional
+//
+// * `vpcRegion` (String) The VPC's region. Defaults to the region of the AWS provider.
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // The VPC is _not_ in the same region where you have configured the AWS Provider:
 //
 // **Using `pulumi import` to import** Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:

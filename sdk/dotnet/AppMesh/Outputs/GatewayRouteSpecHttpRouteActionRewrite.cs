@@ -14,15 +14,15 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecHttpRouteActionRewrite
     {
         /// <summary>
-        /// Host name to rewrite.
+        /// Host name to rewrite. See `Hostname` Block for details.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteActionRewriteHostname? Hostname;
         /// <summary>
-        /// Exact path to rewrite.
+        /// Exact path to rewrite. See `Path` Block for details.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteActionRewritePath? Path;
         /// <summary>
-        /// Specified beginning characters to rewrite.
+        /// Specified beginning characters to rewrite. See `Prefix` Block for details.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteActionRewritePrefix? Prefix;
 

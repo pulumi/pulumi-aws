@@ -64,6 +64,9 @@ class GetKeyResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
+        """
+        ARN of the API Key.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property

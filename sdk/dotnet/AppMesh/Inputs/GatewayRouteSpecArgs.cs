@@ -13,19 +13,19 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class GatewayRouteSpecArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specification of a gRPC gateway route.
+        /// Specification of a gRPC gateway route. See `GrpcRoute` Block for details.
         /// </summary>
         [Input("grpcRoute")]
         public Input<Inputs.GatewayRouteSpecGrpcRouteArgs>? GrpcRoute { get; set; }
 
         /// <summary>
-        /// Specification of an HTTP/2 gateway route.
+        /// Specification of an HTTP/2 gateway route. See `Http2Route` Block for details.
         /// </summary>
         [Input("http2Route")]
         public Input<Inputs.GatewayRouteSpecHttp2RouteArgs>? Http2Route { get; set; }
 
         /// <summary>
-        /// Specification of an HTTP gateway route.
+        /// Specification of an HTTP gateway route. See `HttpRoute` Block for details.
         /// </summary>
         [Input("httpRoute")]
         public Input<Inputs.GatewayRouteSpecHttpRouteArgs>? HttpRoute { get; set; }

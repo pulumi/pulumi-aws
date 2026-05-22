@@ -28,7 +28,7 @@ class GroupConfigurationArgsDict(TypedDict):
     """
     Specifies the type of group configuration item.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupConfigurationParameterArgsDict']]]]]
     """
     A collection of parameters for this group configuration item. See below for details.
     """

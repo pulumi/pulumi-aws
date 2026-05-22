@@ -87,7 +87,7 @@ class ClusterShardArgsDict(TypedDict):
     """
     Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
     """
-    nodes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterShardNodeArgs']]]]]
+    nodes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterShardNodeArgsDict']]]]]
     """
     Set of nodes in this shard.
     """
@@ -180,7 +180,7 @@ class ClusterShardNodeArgsDict(TypedDict):
     """
     The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
     """
-    endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterShardNodeEndpointArgs']]]]]
+    endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterShardNodeEndpointArgsDict']]]]]
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.

@@ -643,11 +643,11 @@ class RoutingRuleActionInvokeApiArgs:
 
 
 class RoutingRuleConditionArgsDict(TypedDict):
-    match_base_paths: NotRequired[pulumi.Input[Optional['RoutingRuleConditionMatchBasePathsArgs']]]
+    match_base_paths: NotRequired[pulumi.Input[Optional['RoutingRuleConditionMatchBasePathsArgsDict']]]
     """
     The base path to be matched. See below.
     """
-    match_headers: NotRequired[pulumi.Input[Optional['RoutingRuleConditionMatchHeadersArgs']]]
+    match_headers: NotRequired[pulumi.Input[Optional['RoutingRuleConditionMatchHeadersArgsDict']]]
     """
     The headers to be matched. See below.
     """

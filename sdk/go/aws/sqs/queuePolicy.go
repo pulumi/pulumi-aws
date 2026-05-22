@@ -39,39 +39,37 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			test := q.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-//						{
-//							Sid:    pulumi.StringRef(pulumi.String(pulumi.StringRef("First"))),
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//								{
-//									Type: "*",
-//									Identifiers: []string{
-//										"*",
-//									},
-//								},
-//							},
-//							Actions: []string{
-//								"sqs:SendMessage",
-//							},
-//							Resources: []string{
-//								arn,
-//							},
-//							Conditions: []iam.GetPolicyDocumentStatementCondition{
-//								{
-//									Test:     "ArnEquals",
-//									Variable: "aws:SourceArn",
-//									Values: pulumi.StringArray{
-//										example.Arn,
-//									},
+//			test := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid:    pulumi.String("First"),
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("*"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
 //								},
 //							},
 //						},
-//					}),
-//				}, nil))), nil
-//			}).(iam.GetPolicyDocumentResultOutput)
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sqs:SendMessage"),
+//						},
+//						Resources: pulumi.StringArray{
+//							q.Arn,
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("ArnEquals"),
+//								Variable: pulumi.String("aws:SourceArn"),
+//								Values: pulumi.StringArray{
+//									example.Arn,
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
 //				QueueUrl: q.ID(),
 //				Policy: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {

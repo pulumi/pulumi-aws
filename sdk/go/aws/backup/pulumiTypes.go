@@ -4310,15 +4310,15 @@ func (o GetReportPlanReportDeliveryChannelArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetReportPlanReportSetting struct {
-	// (Optional) Specifies the list of accounts a report covers.
+	// List of accounts a report covers.
 	Accounts []string `pulumi:"accounts"`
 	// ARNs of the frameworks a report covers.
 	FrameworkArns []string `pulumi:"frameworkArns"`
-	// Specifies the number of frameworks a report covers.
+	// Number of frameworks a report covers.
 	NumberOfFrameworks int `pulumi:"numberOfFrameworks"`
-	// (Optional) Specifies the list of Organizational Units a report covers.
+	// List of Organizational Units a report covers.
 	OrganizationUnits []string `pulumi:"organizationUnits"`
-	// (Optional) Specifies the list of regions a report covers.
+	// List of regions a report covers.
 	Regions []string `pulumi:"regions"`
 	// Identifies the report template for the report. Reports are built using a report template.
 	ReportTemplate string `pulumi:"reportTemplate"`
@@ -4336,15 +4336,15 @@ type GetReportPlanReportSettingInput interface {
 }
 
 type GetReportPlanReportSettingArgs struct {
-	// (Optional) Specifies the list of accounts a report covers.
+	// List of accounts a report covers.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
 	// ARNs of the frameworks a report covers.
 	FrameworkArns pulumi.StringArrayInput `pulumi:"frameworkArns"`
-	// Specifies the number of frameworks a report covers.
+	// Number of frameworks a report covers.
 	NumberOfFrameworks pulumi.IntInput `pulumi:"numberOfFrameworks"`
-	// (Optional) Specifies the list of Organizational Units a report covers.
+	// List of Organizational Units a report covers.
 	OrganizationUnits pulumi.StringArrayInput `pulumi:"organizationUnits"`
-	// (Optional) Specifies the list of regions a report covers.
+	// List of regions a report covers.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// Identifies the report template for the report. Reports are built using a report template.
 	ReportTemplate pulumi.StringInput `pulumi:"reportTemplate"`
@@ -4401,7 +4401,7 @@ func (o GetReportPlanReportSettingOutput) ToGetReportPlanReportSettingOutputWith
 	return o
 }
 
-// (Optional) Specifies the list of accounts a report covers.
+// List of accounts a report covers.
 func (o GetReportPlanReportSettingOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
@@ -4411,17 +4411,17 @@ func (o GetReportPlanReportSettingOutput) FrameworkArns() pulumi.StringArrayOutp
 	return o.ApplyT(func(v GetReportPlanReportSetting) []string { return v.FrameworkArns }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the number of frameworks a report covers.
+// Number of frameworks a report covers.
 func (o GetReportPlanReportSettingOutput) NumberOfFrameworks() pulumi.IntOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) int { return v.NumberOfFrameworks }).(pulumi.IntOutput)
 }
 
-// (Optional) Specifies the list of Organizational Units a report covers.
+// List of Organizational Units a report covers.
 func (o GetReportPlanReportSettingOutput) OrganizationUnits() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) []string { return v.OrganizationUnits }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) Specifies the list of regions a report covers.
+// List of regions a report covers.
 func (o GetReportPlanReportSettingOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetReportPlanReportSetting) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }

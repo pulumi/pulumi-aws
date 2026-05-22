@@ -12,16 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class RouteSpecHttpRouteAction {
     /**
-     * @return Targets that traffic is routed to when a request matches the route.
-     * You can specify one or more targets and their relative weights with which to distribute traffic.
+     * @return Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic.
      * 
      */
     private List<RouteSpecHttpRouteActionWeightedTarget> weightedTargets;
 
     private RouteSpecHttpRouteAction() {}
     /**
-     * @return Targets that traffic is routed to when a request matches the route.
-     * You can specify one or more targets and their relative weights with which to distribute traffic.
+     * @return Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic.
      * 
      */
     public List<RouteSpecHttpRouteActionWeightedTarget> weightedTargets() {

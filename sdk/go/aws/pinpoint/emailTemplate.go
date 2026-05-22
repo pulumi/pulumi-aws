@@ -12,7 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Pinpoint Email Template resource
+// > **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `ses.Template` or `sesv2.EmailIdentity` and related SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+//
+// # Provides a Pinpoint Email Template resource
 //
 // ## Example Usage
 //
@@ -65,12 +67,16 @@ type EmailTemplate struct {
 	// Amazon Resource Name (ARN) of the message template.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+	//
+	// Deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	EmailTemplates EmailTemplateEmailTemplateArrayOutput `pulumi:"emailTemplates"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region  pulumi.StringOutput    `pulumi:"region"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+	//
+	// Deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	TemplateName pulumi.StringOutput `pulumi:"templateName"`
 }
 
@@ -110,12 +116,16 @@ type emailTemplateState struct {
 	// Amazon Resource Name (ARN) of the message template.
 	Arn *string `pulumi:"arn"`
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+	//
+	// Deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	EmailTemplates []EmailTemplateEmailTemplate `pulumi:"emailTemplates"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region  *string           `pulumi:"region"`
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+	//
+	// Deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	TemplateName *string `pulumi:"templateName"`
 }
 
@@ -123,12 +133,16 @@ type EmailTemplateState struct {
 	// Amazon Resource Name (ARN) of the message template.
 	Arn pulumi.StringPtrInput
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+	//
+	// Deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	EmailTemplates EmailTemplateEmailTemplateArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region  pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+	//
+	// Deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	TemplateName pulumi.StringPtrInput
 }
 
@@ -138,22 +152,30 @@ func (EmailTemplateState) ElementType() reflect.Type {
 
 type emailTemplateArgs struct {
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+	//
+	// Deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	EmailTemplates []EmailTemplateEmailTemplate `pulumi:"emailTemplates"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string           `pulumi:"region"`
 	Tags   map[string]string `pulumi:"tags"`
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+	//
+	// Deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	TemplateName string `pulumi:"templateName"`
 }
 
 // The set of arguments for constructing a EmailTemplate resource.
 type EmailTemplateArgs struct {
 	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+	//
+	// Deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	EmailTemplates EmailTemplateEmailTemplateArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	Tags   pulumi.StringMapInput
 	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+	//
+	// Deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	TemplateName pulumi.StringInput
 }
 
@@ -250,6 +272,8 @@ func (o EmailTemplateOutput) Arn() pulumi.StringOutput {
 }
 
 // Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+//
+// Deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 func (o EmailTemplateOutput) EmailTemplates() EmailTemplateEmailTemplateArrayOutput {
 	return o.ApplyT(func(v *EmailTemplate) EmailTemplateEmailTemplateArrayOutput { return v.EmailTemplates }).(EmailTemplateEmailTemplateArrayOutput)
 }
@@ -268,6 +292,8 @@ func (o EmailTemplateOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+//
+// Deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 func (o EmailTemplateOutput) TemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.TemplateName }).(pulumi.StringOutput)
 }

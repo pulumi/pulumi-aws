@@ -45,14 +45,14 @@ public final class ExpressGatewayServicePrimaryContainerArgs extends com.pulumi.
     }
 
     /**
-     * Port on which the container listens for connections.
+     * Port on which the container listens for connections. Defaults to `80`.
      * 
      */
     @Import(name="containerPort")
     private @Nullable Output<Integer> containerPort;
 
     /**
-     * @return Port on which the container listens for connections.
+     * @return Port on which the container listens for connections. Defaults to `80`.
      * 
      */
     public Optional<Output<Integer>> containerPort() {
@@ -170,7 +170,7 @@ public final class ExpressGatewayServicePrimaryContainerArgs extends com.pulumi.
         }
 
         /**
-         * @param containerPort Port on which the container listens for connections.
+         * @param containerPort Port on which the container listens for connections. Defaults to `80`.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class ExpressGatewayServicePrimaryContainerArgs extends com.pulumi.
         }
 
         /**
-         * @param containerPort Port on which the container listens for connections.
+         * @param containerPort Port on which the container listens for connections. Defaults to `80`.
          * 
          * @return builder
          * 

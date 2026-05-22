@@ -41,6 +41,9 @@ export interface GetVirtualRouterArgs {
      * Name of the mesh in which the virtual router exists
      */
     meshName: string;
+    /**
+     * AWS account ID of the service mesh's owner.
+     */
     meshOwner?: string;
     /**
      * Name of the virtual router.
@@ -127,6 +130,9 @@ export interface GetVirtualRouterOutputArgs {
      * Name of the mesh in which the virtual router exists
      */
     meshName: pulumi.Input<string>;
+    /**
+     * AWS account ID of the service mesh's owner.
+     */
     meshOwner?: pulumi.Input<string | undefined>;
     /**
      * Name of the virtual router.

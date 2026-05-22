@@ -144,6 +144,9 @@ class GetGroupResult:
     @_builtins.property
     @pulumi.getter(name="defaultCooldown")
     def default_cooldown(self) -> _builtins.int:
+        """
+        Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        """
         return pulumi.get(self, "default_cooldown")
 
     @_builtins.property
@@ -158,7 +161,7 @@ class GetGroupResult:
     @pulumi.getter(name="desiredCapacityType")
     def desired_capacity_type(self) -> _builtins.str:
         """
-        The unit of measurement for the value returned for `desired_capacity`.
+        Unit of measurement for the value returned for `desired_capacity`.
         """
         return pulumi.get(self, "desired_capacity_type")
 
@@ -174,7 +177,7 @@ class GetGroupResult:
     @pulumi.getter(name="healthCheckGracePeriod")
     def health_check_grace_period(self) -> _builtins.int:
         """
-        The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
+        Amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
         """
         return pulumi.get(self, "health_check_grace_period")
 
@@ -206,7 +209,7 @@ class GetGroupResult:
     @pulumi.getter(name="launchConfiguration")
     def launch_configuration(self) -> _builtins.str:
         """
-        The name of the associated launch configuration.
+        Name of the associated launch configuration.
         """
         return pulumi.get(self, "launch_configuration")
 
@@ -269,6 +272,9 @@ class GetGroupResult:
     @_builtins.property
     @pulumi.getter(name="newInstancesProtectedFromScaleIn")
     def new_instances_protected_from_scale_in(self) -> _builtins.bool:
+        """
+        Whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
+        """
         return pulumi.get(self, "new_instances_protected_from_scale_in")
 
     @_builtins.property
@@ -336,7 +342,7 @@ class GetGroupResult:
     @pulumi.getter(name="terminationPolicies")
     def termination_policies(self) -> Sequence[_builtins.str]:
         """
-        The termination policies for the group.
+        Termination policies for the group.
         """
         return pulumi.get(self, "termination_policies")
 

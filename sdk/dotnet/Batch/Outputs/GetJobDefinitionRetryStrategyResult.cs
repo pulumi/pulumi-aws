@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionRetryStrategyResult
     {
         /// <summary>
-        /// The number of times to move a job to the RUNNABLE status.
+        /// Number of times to move a job to the RUNNABLE status.
         /// </summary>
         public readonly int Attempts;
         /// <summary>

@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionEksPropertyPodPropertyResult
     {
         /// <summary>
-        /// The properties of the container that's used on the Amazon EKS pod. See containers below.
+        /// Properties of the container that's used on the Amazon EKS pod. See containers below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyContainerResult> Containers;
         /// <summary>
-        /// The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
+        /// DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
         /// </summary>
         public readonly string DnsPolicy;
         /// <summary>
-        /// Indicates if the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
+        /// Whether the pod uses the hosts' network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections.
         /// </summary>
         public readonly bool HostNetwork;
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyImagePullSecretResult> ImagePullSecrets;
@@ -35,15 +35,15 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyMetadataResult> Metadatas;
         /// <summary>
-        /// The name of the service account that's used to run the pod.
+        /// Name of the service account that's used to run the pod.
         /// </summary>
         public readonly string ServiceAccountName;
         /// <summary>
-        /// (Optional) Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+        /// Whether the processes in a container are shared, or visible, to other containers in the same pod.
         /// </summary>
         public readonly bool ShareProcessNamespace;
         /// <summary>
-        /// A list of data volumes used in a job.
+        /// List of data volumes used in a job.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyVolumeResult> Volumes;
 

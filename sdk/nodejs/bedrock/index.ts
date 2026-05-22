@@ -85,6 +85,11 @@ export type AgentcoreGatewayTarget = import("./agentcoreGatewayTarget").Agentcor
 export const AgentcoreGatewayTarget: typeof import("./agentcoreGatewayTarget").AgentcoreGatewayTarget = null as any;
 utilities.lazyLoad(exports, ["AgentcoreGatewayTarget"], () => require("./agentcoreGatewayTarget"));
 
+export { AgentcoreHarnessArgs, AgentcoreHarnessState } from "./agentcoreHarness";
+export type AgentcoreHarness = import("./agentcoreHarness").AgentcoreHarness;
+export const AgentcoreHarness: typeof import("./agentcoreHarness").AgentcoreHarness = null as any;
+utilities.lazyLoad(exports, ["AgentcoreHarness"], () => require("./agentcoreHarness"));
+
 export { AgentcoreMemoryArgs, AgentcoreMemoryState } from "./agentcoreMemory";
 export type AgentcoreMemory = import("./agentcoreMemory").AgentcoreMemory;
 export const AgentcoreMemory: typeof import("./agentcoreMemory").AgentcoreMemory = null as any;
@@ -197,6 +202,8 @@ const _module = {
                 return new AgentcoreGateway(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget":
                 return new AgentcoreGatewayTarget(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreHarness:AgentcoreHarness":
+                return new AgentcoreHarness(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreMemory:AgentcoreMemory":
                 return new AgentcoreMemory(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy":
@@ -238,6 +245,7 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreBrowser", _module
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreCodeInterpreter", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreGatewayTarget", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreHarness", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreMemory", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreMemoryStrategy", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreOauth2CredentialProvider", _module)

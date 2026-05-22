@@ -13,20 +13,28 @@ import java.util.Objects;
 @CustomType
 public final class GetCertificateAuthorityRevocationConfiguration {
     /**
-     * @return Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+     * @return Nested attribute containing configuration of the certificate revocation list (CRL). See `crlConfiguration` below.
      * 
      */
     private List<GetCertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfigurations;
+    /**
+     * @return Nested attribute containing configuration of the Online Certificate Status Protocol (OCSP). See `ocspConfiguration` below.
+     * 
+     */
     private List<GetCertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfigurations;
 
     private GetCertificateAuthorityRevocationConfiguration() {}
     /**
-     * @return Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+     * @return Nested attribute containing configuration of the certificate revocation list (CRL). See `crlConfiguration` below.
      * 
      */
     public List<GetCertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfigurations() {
         return this.crlConfigurations;
     }
+    /**
+     * @return Nested attribute containing configuration of the Online Certificate Status Protocol (OCSP). See `ocspConfiguration` below.
+     * 
+     */
     public List<GetCertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfigurations() {
         return this.ocspConfigurations;
     }

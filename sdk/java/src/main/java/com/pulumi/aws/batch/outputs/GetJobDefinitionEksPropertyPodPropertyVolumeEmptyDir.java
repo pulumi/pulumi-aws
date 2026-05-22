@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir {
     /**
-     * @return The medium to store the volume.
+     * @return Medium to store the volume.
      * 
      */
     private String medium;
     /**
-     * @return The maximum size of the volume. By default, there&#39;s no maximum size defined.
+     * @return Maximum size of the volume. By default, there&#39;s no maximum size defined.
      * 
      */
     private String sizeLimit;
 
     private GetJobDefinitionEksPropertyPodPropertyVolumeEmptyDir() {}
     /**
-     * @return The medium to store the volume.
+     * @return Medium to store the volume.
      * 
      */
     public String medium() {
         return this.medium;
     }
     /**
-     * @return The maximum size of the volume. By default, there&#39;s no maximum size defined.
+     * @return Maximum size of the volume. By default, there&#39;s no maximum size defined.
      * 
      */
     public String sizeLimit() {

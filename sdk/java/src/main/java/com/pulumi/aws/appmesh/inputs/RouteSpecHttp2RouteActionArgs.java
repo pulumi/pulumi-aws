@@ -16,16 +16,14 @@ public final class RouteSpecHttp2RouteActionArgs extends com.pulumi.resources.Re
     public static final RouteSpecHttp2RouteActionArgs Empty = new RouteSpecHttp2RouteActionArgs();
 
     /**
-     * Targets that traffic is routed to when a request matches the route.
-     * You can specify one or more targets and their relative weights with which to distribute traffic.
+     * Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic.
      * 
      */
     @Import(name="weightedTargets", required=true)
     private Output<List<RouteSpecHttp2RouteActionWeightedTargetArgs>> weightedTargets;
 
     /**
-     * @return Targets that traffic is routed to when a request matches the route.
-     * You can specify one or more targets and their relative weights with which to distribute traffic.
+     * @return Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic.
      * 
      */
     public Output<List<RouteSpecHttp2RouteActionWeightedTargetArgs>> weightedTargets() {
@@ -57,8 +55,7 @@ public final class RouteSpecHttp2RouteActionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param weightedTargets Targets that traffic is routed to when a request matches the route.
-         * You can specify one or more targets and their relative weights with which to distribute traffic.
+         * @param weightedTargets Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic.
          * 
          * @return builder
          * 
@@ -69,8 +66,7 @@ public final class RouteSpecHttp2RouteActionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param weightedTargets Targets that traffic is routed to when a request matches the route.
-         * You can specify one or more targets and their relative weights with which to distribute traffic.
+         * @param weightedTargets Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic.
          * 
          * @return builder
          * 
@@ -80,8 +76,7 @@ public final class RouteSpecHttp2RouteActionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param weightedTargets Targets that traffic is routed to when a request matches the route.
-         * You can specify one or more targets and their relative weights with which to distribute traffic.
+         * @param weightedTargets Targets that traffic is routed to when a request matches the route. You can specify one or more targets and their relative weights with which to distribute traffic.
          * 
          * @return builder
          * 

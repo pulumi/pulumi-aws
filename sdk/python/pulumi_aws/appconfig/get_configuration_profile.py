@@ -105,6 +105,9 @@ class GetConfigurationProfileResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> _builtins.str:
+        """
+        KMS key identifier for encrypting the configuration data.
+        """
         return pulumi.get(self, "kms_key_identifier")
 
     @_builtins.property

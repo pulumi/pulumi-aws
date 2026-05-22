@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudfront;
 
+import com.pulumi.aws.cloudfront.inputs.DistributionCacheTagConfigArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionConnectionFunctionAssociationArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionCustomErrorResponseArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
@@ -57,6 +58,21 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> anycastIpListId() {
         return Optional.ofNullable(this.anycastIpListId);
+    }
+
+    /**
+     * Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+     * 
+     */
+    @Import(name="cacheTagConfig")
+    private @Nullable Output<DistributionCacheTagConfigArgs> cacheTagConfig;
+
+    /**
+     * @return Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+     * 
+     */
+    public Optional<Output<DistributionCacheTagConfigArgs>> cacheTagConfig() {
+        return Optional.ofNullable(this.cacheTagConfig);
     }
 
     /**
@@ -394,6 +410,7 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
     private DistributionArgs(DistributionArgs $) {
         this.aliases = $.aliases;
         this.anycastIpListId = $.anycastIpListId;
+        this.cacheTagConfig = $.cacheTagConfig;
         this.comment = $.comment;
         this.connectionFunctionAssociation = $.connectionFunctionAssociation;
         this.continuousDeploymentPolicyId = $.continuousDeploymentPolicyId;
@@ -486,6 +503,27 @@ public final class DistributionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder anycastIpListId(String anycastIpListId) {
             return anycastIpListId(Output.of(anycastIpListId));
+        }
+
+        /**
+         * @param cacheTagConfig Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cacheTagConfig(@Nullable Output<DistributionCacheTagConfigArgs> cacheTagConfig) {
+            $.cacheTagConfig = cacheTagConfig;
+            return this;
+        }
+
+        /**
+         * @param cacheTagConfig Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cacheTagConfig(DistributionCacheTagConfigArgs cacheTagConfig) {
+            return cacheTagConfig(Output.of(cacheTagConfig));
         }
 
         /**

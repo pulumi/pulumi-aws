@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudfront.inputs;
 
+import com.pulumi.aws.cloudfront.inputs.DistributionCacheTagConfigArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionConnectionFunctionAssociationArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionCustomErrorResponseArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
@@ -74,6 +75,21 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
+    }
+
+    /**
+     * Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+     * 
+     */
+    @Import(name="cacheTagConfig")
+    private @Nullable Output<DistributionCacheTagConfigArgs> cacheTagConfig;
+
+    /**
+     * @return Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+     * 
+     */
+    public Optional<Output<DistributionCacheTagConfigArgs>> cacheTagConfig() {
+        return Optional.ofNullable(this.cacheTagConfig);
     }
 
     /**
@@ -577,6 +593,7 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
         this.aliases = $.aliases;
         this.anycastIpListId = $.anycastIpListId;
         this.arn = $.arn;
+        this.cacheTagConfig = $.cacheTagConfig;
         this.callerReference = $.callerReference;
         this.comment = $.comment;
         this.connectionFunctionAssociation = $.connectionFunctionAssociation;
@@ -701,6 +718,27 @@ public final class DistributionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param cacheTagConfig Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cacheTagConfig(@Nullable Output<DistributionCacheTagConfigArgs> cacheTagConfig) {
+            $.cacheTagConfig = cacheTagConfig;
+            return this;
+        }
+
+        /**
+         * @param cacheTagConfig Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cacheTagConfig(DistributionCacheTagConfigArgs cacheTagConfig) {
+            return cacheTagConfig(Output.of(cacheTagConfig));
         }
 
         /**

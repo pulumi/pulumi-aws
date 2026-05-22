@@ -92,6 +92,9 @@ class GetImageResult:
     @_builtins.property
     @pulumi.getter
     def applications(self) -> Sequence['outputs.GetImageApplicationResult']:
+        """
+        A application object that contains the following:
+        """
         return pulumi.get(self, "applications")
 
     @_builtins.property
@@ -163,7 +166,6 @@ class GetImageResult:
     def image_builder_supported(self) -> _builtins.bool:
         """
         Boolean to indicate whether an image builder can be launched from this image.
-        * `image error` - Resource error object that describes the error containing the following:
         """
         return pulumi.get(self, "image_builder_supported")
 
@@ -183,6 +185,9 @@ class GetImageResult:
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Name of the application.
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
@@ -201,6 +206,9 @@ class GetImageResult:
     @_builtins.property
     @pulumi.getter(name="publicBaseImageReleasedDate")
     def public_base_image_released_date(self) -> _builtins.str:
+        """
+        Release date of base image if public. For private images, it is the release date of the base image that it was created from.
+        """
         return pulumi.get(self, "public_base_image_released_date")
 
     @_builtins.property
@@ -219,6 +227,9 @@ class GetImageResult:
     @_builtins.property
     @pulumi.getter(name="stateChangeReasons")
     def state_change_reasons(self) -> Sequence['outputs.GetImageStateChangeReasonResult']:
+        """
+        Reason for the last state change.
+        """
         return pulumi.get(self, "state_change_reasons")
 
     @_builtins.property

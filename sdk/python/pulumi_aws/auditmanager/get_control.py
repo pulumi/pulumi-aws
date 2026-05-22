@@ -65,31 +65,49 @@ class GetControlResult:
     @_builtins.property
     @pulumi.getter(name="actionPlanInstructions")
     def action_plan_instructions(self) -> _builtins.str:
+        """
+        Recommended actions to carry out if the control isn't fulfilled.
+        """
         return pulumi.get(self, "action_plan_instructions")
 
     @_builtins.property
     @pulumi.getter(name="actionPlanTitle")
     def action_plan_title(self) -> _builtins.str:
+        """
+        Title of the action plan for remediating the control.
+        """
         return pulumi.get(self, "action_plan_title")
 
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
+        """
+        ARN of the control.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="controlMappingSources")
     def control_mapping_sources(self) -> Sequence['outputs.GetControlControlMappingSourceResult']:
+        """
+        Data mapping sources for the control.
+        """
         return pulumi.get(self, "control_mapping_sources")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
+        """
+        Description of the control.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        Unique identifier for the control.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -105,11 +123,17 @@ class GetControlResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of tags assigned to the control.
+        """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="testingInformation")
     def testing_information(self) -> _builtins.str:
+        """
+        Steps to follow to determine if the control is satisfied.
+        """
         return pulumi.get(self, "testing_information")
 
     @_builtins.property

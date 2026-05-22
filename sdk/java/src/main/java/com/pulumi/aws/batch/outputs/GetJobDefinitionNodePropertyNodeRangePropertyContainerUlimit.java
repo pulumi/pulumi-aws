@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit {
     /**
-     * @return The hard limit for the ulimit type.
+     * @return Hard limit for the ulimit type.
      * 
      */
     private Integer hardLimit;
     /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+     * @return Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      * 
      */
     private String name;
     /**
-     * @return The soft limit for the ulimit type.
+     * @return Soft limit for the ulimit type.
      * 
      */
     private Integer softLimit;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit() {}
     /**
-     * @return The hard limit for the ulimit type.
+     * @return Hard limit for the ulimit type.
      * 
      */
     public Integer hardLimit() {
         return this.hardLimit;
     }
     /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+     * @return Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return The soft limit for the ulimit type.
+     * @return Soft limit for the ulimit type.
      * 
      */
     public Integer softLimit() {

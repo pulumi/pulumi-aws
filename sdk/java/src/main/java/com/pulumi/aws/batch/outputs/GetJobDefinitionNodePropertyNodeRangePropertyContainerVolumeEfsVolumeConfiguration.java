@@ -14,17 +14,17 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration {
     /**
-     * @return The authorization configuration details for the Amazon EFS file system.
+     * @return Authorization configuration details for the Amazon EFS file system.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig> authorizationConfigs;
     /**
-     * @return The Amazon EFS file system ID to use.
+     * @return Amazon EFS file system ID to use.
      * 
      */
     private String fileSystemId;
     /**
-     * @return The directory within the Amazon EFS file system to mount as the root directory inside the host.
+     * @return Directory within the Amazon EFS file system to mount as the root directory inside the host.
      * 
      */
     private String rootDirectory;
@@ -34,28 +34,28 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeE
      */
     private String transitEncryption;
     /**
-     * @return The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
+     * @return Port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
      * 
      */
     private Integer transitEncryptionPort;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration() {}
     /**
-     * @return The authorization configuration details for the Amazon EFS file system.
+     * @return Authorization configuration details for the Amazon EFS file system.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig> authorizationConfigs() {
         return this.authorizationConfigs;
     }
     /**
-     * @return The Amazon EFS file system ID to use.
+     * @return Amazon EFS file system ID to use.
      * 
      */
     public String fileSystemId() {
         return this.fileSystemId;
     }
     /**
-     * @return The directory within the Amazon EFS file system to mount as the root directory inside the host.
+     * @return Directory within the Amazon EFS file system to mount as the root directory inside the host.
      * 
      */
     public String rootDirectory() {
@@ -69,7 +69,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeE
         return this.transitEncryption;
     }
     /**
-     * @return The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
+     * @return Port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.
      * 
      */
     public Integer transitEncryptionPort() {

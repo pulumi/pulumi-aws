@@ -66,6 +66,10 @@ __all__ = [
     'AutomationRuleCriteriaUserDefinedField',
     'AutomationRuleCriteriaVerificationState',
     'AutomationRuleCriteriaWorkflowStatus',
+    'AutomationRuleV2Action',
+    'AutomationRuleV2ActionExternalIntegrationConfiguration',
+    'AutomationRuleV2ActionFindingFieldsUpdate',
+    'AutomationRuleV2Criteria',
     'ConfigurationPolicyConfigurationPolicy',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter',
@@ -2251,6 +2255,199 @@ class AutomationRuleCriteriaWorkflowStatus(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AutomationRuleV2Action(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalIntegrationConfiguration":
+            suggest = "external_integration_configuration"
+        elif key == "findingFieldsUpdate":
+            suggest = "finding_fields_update"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2Action. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2Action.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2Action.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 external_integration_configuration: Optional['outputs.AutomationRuleV2ActionExternalIntegrationConfiguration'] = None,
+                 finding_fields_update: Optional['outputs.AutomationRuleV2ActionFindingFieldsUpdate'] = None):
+        """
+        :param _builtins.str type: The action type. Valid values: `FINDING_FIELDS_UPDATE`, `EXTERNAL_INTEGRATION`.
+        :param 'AutomationRuleV2ActionExternalIntegrationConfigurationArgs' external_integration_configuration: Settings for external integration actions. See `external_integration_configuration` below.
+        :param 'AutomationRuleV2ActionFindingFieldsUpdateArgs' finding_fields_update: Settings for updating finding fields. See `finding_fields_update` below.
+        """
+        pulumi.set(__self__, "type", type)
+        if external_integration_configuration is not None:
+            pulumi.set(__self__, "external_integration_configuration", external_integration_configuration)
+        if finding_fields_update is not None:
+            pulumi.set(__self__, "finding_fields_update", finding_fields_update)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The action type. Valid values: `FINDING_FIELDS_UPDATE`, `EXTERNAL_INTEGRATION`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="externalIntegrationConfiguration")
+    def external_integration_configuration(self) -> Optional['outputs.AutomationRuleV2ActionExternalIntegrationConfiguration']:
+        """
+        Settings for external integration actions. See `external_integration_configuration` below.
+        """
+        return pulumi.get(self, "external_integration_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="findingFieldsUpdate")
+    def finding_fields_update(self) -> Optional['outputs.AutomationRuleV2ActionFindingFieldsUpdate']:
+        """
+        Settings for updating finding fields. See `finding_fields_update` below.
+        """
+        return pulumi.get(self, "finding_fields_update")
+
+
+@pulumi.output_type
+class AutomationRuleV2ActionExternalIntegrationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorArn":
+            suggest = "connector_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2ActionExternalIntegrationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2ActionExternalIntegrationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2ActionExternalIntegrationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_arn: _builtins.str):
+        """
+        :param _builtins.str connector_arn: The ARN of the connector.
+        """
+        pulumi.set(__self__, "connector_arn", connector_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorArn")
+    def connector_arn(self) -> _builtins.str:
+        """
+        The ARN of the connector.
+        """
+        return pulumi.get(self, "connector_arn")
+
+
+@pulumi.output_type
+class AutomationRuleV2ActionFindingFieldsUpdate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "severityId":
+            suggest = "severity_id"
+        elif key == "statusId":
+            suggest = "status_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2ActionFindingFieldsUpdate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2ActionFindingFieldsUpdate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2ActionFindingFieldsUpdate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 severity_id: Optional[_builtins.int] = None,
+                 status_id: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str comment: A comment for the finding.
+        :param _builtins.int severity_id: The severity ID to assign.
+        :param _builtins.int status_id: The status ID to assign.
+        """
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if severity_id is not None:
+            pulumi.set(__self__, "severity_id", severity_id)
+        if status_id is not None:
+            pulumi.set(__self__, "status_id", status_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        A comment for the finding.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="severityId")
+    def severity_id(self) -> Optional[_builtins.int]:
+        """
+        The severity ID to assign.
+        """
+        return pulumi.get(self, "severity_id")
+
+    @_builtins.property
+    @pulumi.getter(name="statusId")
+    def status_id(self) -> Optional[_builtins.int]:
+        """
+        The status ID to assign.
+        """
+        return pulumi.get(self, "status_id")
+
+
+@pulumi.output_type
+class AutomationRuleV2Criteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ocsfFindingCriteriaJson":
+            suggest = "ocsf_finding_criteria_json"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutomationRuleV2Criteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutomationRuleV2Criteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutomationRuleV2Criteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ocsf_finding_criteria_json: _builtins.str):
+        """
+        :param _builtins.str ocsf_finding_criteria_json: JSON-encoded OCSF finding criteria for the rule. See the [AWS API Reference](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_OcsfFindingFilters.html) for details.
+        """
+        pulumi.set(__self__, "ocsf_finding_criteria_json", ocsf_finding_criteria_json)
+
+    @_builtins.property
+    @pulumi.getter(name="ocsfFindingCriteriaJson")
+    def ocsf_finding_criteria_json(self) -> _builtins.str:
+        """
+        JSON-encoded OCSF finding criteria for the rule. See the [AWS API Reference](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_OcsfFindingFilters.html) for details.
+        """
+        return pulumi.get(self, "ocsf_finding_criteria_json")
 
 
 @pulumi.output_type

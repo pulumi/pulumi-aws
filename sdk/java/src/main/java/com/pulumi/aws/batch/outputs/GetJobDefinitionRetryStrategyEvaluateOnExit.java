@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionRetryStrategyEvaluateOnExit {
     /**
-     * @return Specifies the action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren&#39;t case sensitive.
+     * @return Action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren&#39;t case sensitive.
      * 
      */
     private String action;
@@ -33,7 +33,7 @@ public final class GetJobDefinitionRetryStrategyEvaluateOnExit {
 
     private GetJobDefinitionRetryStrategyEvaluateOnExit() {}
     /**
-     * @return Specifies the action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren&#39;t case sensitive.
+     * @return Action to take if all of the specified conditions (onStatusReason, onReason, and onExitCode) are met. The values aren&#39;t case sensitive.
      * 
      */
     public String action() {

@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * > **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `aws.ses.DomainIdentity`, `aws.sesv2.EmailIdentity`, and related SES/SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+ *
  * Provides a Pinpoint Email Channel resource.
  *
  * ## Example Usage
@@ -86,30 +88,44 @@ export class EmailChannel extends pulumi.CustomResource {
 
     /**
      * The application ID.
+     *
+     * @deprecated application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     declare public readonly applicationId: pulumi.Output<string>;
     /**
      * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+     *
+     * @deprecated configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     declare public readonly configurationSet: pulumi.Output<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
+     *
+     * @deprecated enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+     *
+     * @deprecated from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     declare public readonly fromAddress: pulumi.Output<string>;
     /**
      * The ARN of an identity verified with SES.
+     *
+     * @deprecated identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     declare public readonly identity: pulumi.Output<string>;
     /**
      * Messages per second that can be sent.
+     *
+     * @deprecated messages_per_second is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     declare public /*out*/ readonly messagesPerSecond: pulumi.Output<number>;
     /**
      * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+     *
+     * @deprecated orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     declare public readonly orchestrationSendingRoleArn: pulumi.Output<string | undefined>;
     /**
@@ -118,6 +134,8 @@ export class EmailChannel extends pulumi.CustomResource {
     declare public readonly region: pulumi.Output<string>;
     /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+     *
+     * @deprecated role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     declare public readonly roleArn: pulumi.Output<string | undefined>;
 
@@ -175,30 +193,44 @@ export class EmailChannel extends pulumi.CustomResource {
 export interface EmailChannelState {
     /**
      * The application ID.
+     *
+     * @deprecated application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     applicationId?: pulumi.Input<string | undefined>;
     /**
      * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+     *
+     * @deprecated configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     configurationSet?: pulumi.Input<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
+     *
+     * @deprecated enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+     *
+     * @deprecated from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     fromAddress?: pulumi.Input<string | undefined>;
     /**
      * The ARN of an identity verified with SES.
+     *
+     * @deprecated identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     identity?: pulumi.Input<string | undefined>;
     /**
      * Messages per second that can be sent.
+     *
+     * @deprecated messages_per_second is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     messagesPerSecond?: pulumi.Input<number | undefined>;
     /**
      * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+     *
+     * @deprecated orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     orchestrationSendingRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -207,6 +239,8 @@ export interface EmailChannelState {
     region?: pulumi.Input<string | undefined>;
     /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+     *
+     * @deprecated role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     roleArn?: pulumi.Input<string | undefined>;
 }
@@ -217,26 +251,38 @@ export interface EmailChannelState {
 export interface EmailChannelArgs {
     /**
      * The application ID.
+     *
+     * @deprecated application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     applicationId: pulumi.Input<string>;
     /**
      * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+     *
+     * @deprecated configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     configurationSet?: pulumi.Input<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
+     *
+     * @deprecated enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+     *
+     * @deprecated from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     fromAddress: pulumi.Input<string>;
     /**
      * The ARN of an identity verified with SES.
+     *
+     * @deprecated identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     identity: pulumi.Input<string>;
     /**
      * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+     *
+     * @deprecated orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     orchestrationSendingRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -245,6 +291,8 @@ export interface EmailChannelArgs {
     region?: pulumi.Input<string | undefined>;
     /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+     *
+     * @deprecated role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     roleArn?: pulumi.Input<string | undefined>;
 }

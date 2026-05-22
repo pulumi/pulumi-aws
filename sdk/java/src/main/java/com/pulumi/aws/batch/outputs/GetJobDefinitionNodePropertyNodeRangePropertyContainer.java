@@ -25,42 +25,42 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
     /**
-     * @return The command that&#39;s passed to the container.
+     * @return Command that&#39;s passed to the container.
      * 
      */
     private List<String> commands;
     /**
-     * @return The environment variables to pass to a container.
+     * @return Environment variables to pass to a container.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment> environments;
     /**
-     * @return The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
+     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage> ephemeralStorages;
     /**
-     * @return The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+     * @return Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
      * 
      */
     private String executionRoleArn;
     /**
-     * @return The platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
+     * @return Platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration> fargatePlatformConfigurations;
     /**
-     * @return The image used to start a container.
+     * @return Image used to start a container.
      * 
      */
     private String image;
     /**
-     * @return The instance type to use for a multi-node parallel job.
+     * @return Instance type to use for a multi-node parallel job.
      * 
      */
     private String instanceType;
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+     * @return Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
      * 
      */
     private String jobRoleArn;
@@ -70,17 +70,17 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter> linuxParameters;
     /**
-     * @return The log configuration specification for the container.
+     * @return Log configuration specification for the container.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration> logConfigurations;
     /**
-     * @return The mount points for data volumes in your container.
+     * @return Mount points for data volumes in your container.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint> mountPoints;
     /**
-     * @return The network configuration for jobs that are running on Fargate resources.
+     * @return Network configuration for jobs that are running on Fargate resources.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration> networkConfigurations;
@@ -95,88 +95,88 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
      */
     private Boolean readonlyRootFilesystem;
     /**
-     * @return The type and amount of resources to assign to a container.
+     * @return Type and amount of resources to assign to a container.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement> resourceRequirements;
     /**
-     * @return An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
+     * @return Object that represents the compute environment architecture for AWS Batch jobs on Fargate.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform> runtimePlatforms;
     /**
-     * @return The secrets for the container.
+     * @return Secrets for the container.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret> secrets;
     /**
-     * @return A list of ulimits to set in the container.
+     * @return List of ulimits to set in the container.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit> ulimits;
     /**
-     * @return The user name to use inside the container.
+     * @return User name to use inside the container.
      * 
      */
     private String user;
     /**
-     * @return A list of data volumes used in a job.
+     * @return List of data volumes used in a job.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume> volumes;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainer() {}
     /**
-     * @return The command that&#39;s passed to the container.
+     * @return Command that&#39;s passed to the container.
      * 
      */
     public List<String> commands() {
         return this.commands;
     }
     /**
-     * @return The environment variables to pass to a container.
+     * @return Environment variables to pass to a container.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment> environments() {
         return this.environments;
     }
     /**
-     * @return The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
+     * @return Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage> ephemeralStorages() {
         return this.ephemeralStorages;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+     * @return Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
      * 
      */
     public String executionRoleArn() {
         return this.executionRoleArn;
     }
     /**
-     * @return The platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
+     * @return Platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration> fargatePlatformConfigurations() {
         return this.fargatePlatformConfigurations;
     }
     /**
-     * @return The image used to start a container.
+     * @return Image used to start a container.
      * 
      */
     public String image() {
         return this.image;
     }
     /**
-     * @return The instance type to use for a multi-node parallel job.
+     * @return Instance type to use for a multi-node parallel job.
      * 
      */
     public String instanceType() {
         return this.instanceType;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+     * @return Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
      * 
      */
     public String jobRoleArn() {
@@ -190,21 +190,21 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
         return this.linuxParameters;
     }
     /**
-     * @return The log configuration specification for the container.
+     * @return Log configuration specification for the container.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfiguration> logConfigurations() {
         return this.logConfigurations;
     }
     /**
-     * @return The mount points for data volumes in your container.
+     * @return Mount points for data volumes in your container.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint> mountPoints() {
         return this.mountPoints;
     }
     /**
-     * @return The network configuration for jobs that are running on Fargate resources.
+     * @return Network configuration for jobs that are running on Fargate resources.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration> networkConfigurations() {
@@ -225,42 +225,42 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainer {
         return this.readonlyRootFilesystem;
     }
     /**
-     * @return The type and amount of resources to assign to a container.
+     * @return Type and amount of resources to assign to a container.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement> resourceRequirements() {
         return this.resourceRequirements;
     }
     /**
-     * @return An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
+     * @return Object that represents the compute environment architecture for AWS Batch jobs on Fargate.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatform> runtimePlatforms() {
         return this.runtimePlatforms;
     }
     /**
-     * @return The secrets for the container.
+     * @return Secrets for the container.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerSecret> secrets() {
         return this.secrets;
     }
     /**
-     * @return A list of ulimits to set in the container.
+     * @return List of ulimits to set in the container.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimit> ulimits() {
         return this.ulimits;
     }
     /**
-     * @return The user name to use inside the container.
+     * @return User name to use inside the container.
      * 
      */
     public String user() {
         return this.user;
     }
     /**
-     * @return A list of data volumes used in a job.
+     * @return List of data volumes used in a job.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume> volumes() {

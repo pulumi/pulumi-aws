@@ -68,14 +68,15 @@ type LookupCertificateAuthorityResult struct {
 	// The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
 	CertificateSigningRequest string `pulumi:"certificateSigningRequest"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                         string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Level of security of the key storage endpoint of the certificate authority.
 	KeyStorageSecurityStandard string `pulumi:"keyStorageSecurityStandard"`
 	// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 	NotAfter string `pulumi:"notAfter"`
 	// Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
 	NotBefore string `pulumi:"notBefore"`
 	Region    string `pulumi:"region"`
-	// Nested attribute containing revocation configuration.
+	// Nested attribute containing revocation configuration. See `revocationConfiguration` below.
 	RevocationConfigurations []GetCertificateAuthorityRevocationConfiguration `pulumi:"revocationConfigurations"`
 	// Serial number of the certificate authority. Only available after the certificate authority certificate has been imported.
 	Serial string `pulumi:"serial"`
@@ -151,6 +152,7 @@ func (o LookupCertificateAuthorityResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Level of security of the key storage endpoint of the certificate authority.
 func (o LookupCertificateAuthorityResultOutput) KeyStorageSecurityStandard() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.KeyStorageSecurityStandard }).(pulumi.StringOutput)
 }
@@ -169,7 +171,7 @@ func (o LookupCertificateAuthorityResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Nested attribute containing revocation configuration.
+// Nested attribute containing revocation configuration. See `revocationConfiguration` below.
 func (o LookupCertificateAuthorityResultOutput) RevocationConfigurations() GetCertificateAuthorityRevocationConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupCertificateAuthorityResult) []GetCertificateAuthorityRevocationConfiguration {
 		return v.RevocationConfigurations

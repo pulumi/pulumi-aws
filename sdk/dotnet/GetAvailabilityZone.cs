@@ -78,16 +78,11 @@ namespace Pulumi.Aws
         ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
         ///     {
         ///         VpcId = exampleVpc.Id,
-        ///         CidrBlock = Output.Tuple(exampleVpc.CidrBlock, example).Apply(values =&gt;
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
         ///         {
-        ///             var cidrBlock = values.Item1;
-        ///             var example = values.Item2;
-        ///             return Std.Cidrsubnet.Invoke(new()
-        ///             {
-        ///                 Input = cidrBlock,
-        ///                 Newbits = 4,
-        ///                 Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
-        ///             });
+        ///             Input = exampleVpc.CidrBlock,
+        ///             Newbits = 4,
+        ///             Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
         ///         }).Apply(invoke =&gt; invoke.Result),
         ///     });
         /// 
@@ -164,16 +159,11 @@ namespace Pulumi.Aws
         ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
         ///     {
         ///         VpcId = exampleVpc.Id,
-        ///         CidrBlock = Output.Tuple(exampleVpc.CidrBlock, example).Apply(values =&gt;
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
         ///         {
-        ///             var cidrBlock = values.Item1;
-        ///             var example = values.Item2;
-        ///             return Std.Cidrsubnet.Invoke(new()
-        ///             {
-        ///                 Input = cidrBlock,
-        ///                 Newbits = 4,
-        ///                 Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
-        ///             });
+        ///             Input = exampleVpc.CidrBlock,
+        ///             Newbits = 4,
+        ///             Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
         ///         }).Apply(invoke =&gt; invoke.Result),
         ///     });
         /// 
@@ -250,16 +240,11 @@ namespace Pulumi.Aws
         ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
         ///     {
         ///         VpcId = exampleVpc.Id,
-        ///         CidrBlock = Output.Tuple(exampleVpc.CidrBlock, example).Apply(values =&gt;
+        ///         CidrBlock = Std.Cidrsubnet.Invoke(new()
         ///         {
-        ///             var cidrBlock = values.Item1;
-        ///             var example = values.Item2;
-        ///             return Std.Cidrsubnet.Invoke(new()
-        ///             {
-        ///                 Input = cidrBlock,
-        ///                 Newbits = 4,
-        ///                 Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
-        ///             });
+        ///             Input = exampleVpc.CidrBlock,
+        ///             Newbits = 4,
+        ///             Netnum = azNumber[example.Apply(getAvailabilityZoneResult =&gt; getAvailabilityZoneResult.NameSuffix)],
         ///         }).Apply(invoke =&gt; invoke.Result),
         ///     });
         /// 
@@ -311,10 +296,6 @@ namespace Pulumi.Aws
 
         /// <summary>
         /// Zone ID of the availability zone to select.
-        /// 
-        /// The arguments of this data source act as filters for querying the available
-        /// availability zones. The given filters must match exactly one availability
-        /// zone whose data will be exported as attributes.
         /// </summary>
         [Input("zoneId")]
         public string? ZoneId { get; set; }
@@ -365,10 +346,6 @@ namespace Pulumi.Aws
 
         /// <summary>
         /// Zone ID of the availability zone to select.
-        /// 
-        /// The arguments of this data source act as filters for querying the available
-        /// availability zones. The given filters must match exactly one availability
-        /// zone whose data will be exported as attributes.
         /// </summary>
         [Input("zoneId")]
         public Input<string>? ZoneId { get; set; }
@@ -386,11 +363,11 @@ namespace Pulumi.Aws
         public readonly bool? AllAvailabilityZones;
         public readonly ImmutableArray<Outputs.GetAvailabilityZoneFilterResult> Filters;
         /// <summary>
-        /// The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+        /// Long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
         /// </summary>
         public readonly string GroupLongName;
         /// <summary>
-        /// The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
+        /// Name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
         /// </summary>
         public readonly string GroupName;
         /// <summary>
@@ -399,13 +376,11 @@ namespace Pulumi.Aws
         public readonly string Id;
         public readonly string Name;
         /// <summary>
-        /// Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
-        /// For Availability Zones this is usually a single letter, for example `A` for the `us-west-2a` zone.
-        /// For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
+        /// Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region. For Availability Zones this is usually a single letter, for example `A` for the `us-west-2a` zone. For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
         /// </summary>
         public readonly string NameSuffix;
         /// <summary>
-        /// The name of the location from which the address is advertised.
+        /// Name of the location from which the address is advertised.
         /// </summary>
         public readonly string NetworkBorderGroup;
         /// <summary>

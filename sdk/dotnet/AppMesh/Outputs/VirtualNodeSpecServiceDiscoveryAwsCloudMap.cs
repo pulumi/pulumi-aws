@@ -18,8 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Attributes;
         /// <summary>
-        /// Name of the AWS Cloud Map namespace to use.
-        /// Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
+        /// Name of the AWS Cloud Map namespace to use. Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
         /// </summary>
         public readonly string NamespaceName;
         /// <summary>

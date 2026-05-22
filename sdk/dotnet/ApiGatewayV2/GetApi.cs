@@ -159,8 +159,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public readonly string ApiEndpoint;
         public readonly string ApiId;
         /// <summary>
-        /// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-        /// Applicable for WebSocket APIs.
+        /// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
         /// </summary>
         public readonly string ApiKeySelectionExpression;
         /// <summary>
@@ -168,8 +167,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
-        /// Applicable for HTTP APIs.
+        /// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApiCorsConfigurationResult> CorsConfigurations;
         /// <summary>
@@ -181,15 +179,16 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         public readonly bool DisableExecuteApiEndpoint;
         /// <summary>
-        /// ARN prefix to be used in an `aws.lambda.Permission`'s `SourceArn` attribute
-        /// or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-        /// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+        /// ARN prefix to be used in an `aws.lambda.Permission`'s `SourceArn` attribute or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         /// </summary>
         public readonly string ExecutionArn;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The IP address types that can invoke an API.
+        /// </summary>
         public readonly string IpAddressType;
         /// <summary>
         /// Name of the API.

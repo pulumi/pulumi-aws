@@ -512,7 +512,8 @@ class GetCertificateAuthorityRevocationConfigurationResult(dict):
                  crl_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult'],
                  ocsp_configurations: Sequence['outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult']):
         """
-        :param Sequence['GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs'] crl_configurations: Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+        :param Sequence['GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs'] crl_configurations: Nested attribute containing configuration of the certificate revocation list (CRL). See `crl_configuration` below.
+        :param Sequence['GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs'] ocsp_configurations: Nested attribute containing configuration of the Online Certificate Status Protocol (OCSP). See `ocsp_configuration` below.
         """
         pulumi.set(__self__, "crl_configurations", crl_configurations)
         pulumi.set(__self__, "ocsp_configurations", ocsp_configurations)
@@ -521,13 +522,16 @@ class GetCertificateAuthorityRevocationConfigurationResult(dict):
     @pulumi.getter(name="crlConfigurations")
     def crl_configurations(self) -> Sequence['outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult']:
         """
-        Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+        Nested attribute containing configuration of the certificate revocation list (CRL). See `crl_configuration` below.
         """
         return pulumi.get(self, "crl_configurations")
 
     @_builtins.property
     @pulumi.getter(name="ocspConfigurations")
     def ocsp_configurations(self) -> Sequence['outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult']:
+        """
+        Nested attribute containing configuration of the Online Certificate Status Protocol (OCSP). See `ocsp_configuration` below.
+        """
         return pulumi.get(self, "ocsp_configurations")
 
 
@@ -543,7 +547,7 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict)
         """
         :param _builtins.str custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
         :param _builtins.str custom_path: Custom path for the CRL in S3.
-        :param _builtins.bool enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+        :param _builtins.bool enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
         :param _builtins.int expiration_in_days: Number of days until a certificate expires.
         :param _builtins.str s3_bucket_name: Name of the S3 bucket that contains the CRL.
         :param _builtins.str s3_object_acl: Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
@@ -575,7 +579,7 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict)
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
         """
-        Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+        Boolean value that specifies whether a custom OCSP responder is enabled.
         """
         return pulumi.get(self, "enabled")
 

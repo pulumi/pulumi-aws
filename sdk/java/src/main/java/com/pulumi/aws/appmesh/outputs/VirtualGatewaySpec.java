@@ -16,38 +16,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualGatewaySpec {
     /**
-     * @return Defaults for backends.
+     * @return Defaults for backends. See `backendDefaults` Block for details.
      * 
      */
     private @Nullable VirtualGatewaySpecBackendDefaults backendDefaults;
     /**
-     * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+     * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener. See `listener` Block for details.
      * 
      */
     private List<VirtualGatewaySpecListener> listeners;
     /**
-     * @return Inbound and outbound access logging information for the virtual gateway.
+     * @return Inbound and outbound access logging information for the virtual gateway. See `logging` Block for details.
      * 
      */
     private @Nullable VirtualGatewaySpecLogging logging;
 
     private VirtualGatewaySpec() {}
     /**
-     * @return Defaults for backends.
+     * @return Defaults for backends. See `backendDefaults` Block for details.
      * 
      */
     public Optional<VirtualGatewaySpecBackendDefaults> backendDefaults() {
         return Optional.ofNullable(this.backendDefaults);
     }
     /**
-     * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+     * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener. See `listener` Block for details.
      * 
      */
     public List<VirtualGatewaySpecListener> listeners() {
         return this.listeners;
     }
     /**
-     * @return Inbound and outbound access logging information for the virtual gateway.
+     * @return Inbound and outbound access logging information for the virtual gateway. See `logging` Block for details.
      * 
      */
     public Optional<VirtualGatewaySpecLogging> logging() {

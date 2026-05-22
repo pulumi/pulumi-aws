@@ -14,6 +14,9 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     public sealed class GetFrameworkControlSetResult
     {
         public readonly ImmutableArray<Outputs.GetFrameworkControlSetControlResult> Controls;
+        /// <summary>
+        /// Unique identifier for the framework.
+        /// </summary>
         public readonly string Id;
         /// <summary>
         /// Name of the framework.

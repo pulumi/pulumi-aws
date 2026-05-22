@@ -198,8 +198,7 @@ namespace Pulumi.Aws.AppConfig
         public readonly string Name;
         public readonly string Region;
         /// <summary>
-        /// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-        /// or `ROLLED_BACK`.
+        /// State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
         /// </summary>
         public readonly string State;
         /// <summary>

@@ -34,7 +34,7 @@ class TableMagneticStoreWritePropertiesArgsDict(TypedDict):
     """
     A flag to enable magnetic store writes.
     """
-    magnetic_store_rejected_data_location: NotRequired[pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']]]
+    magnetic_store_rejected_data_location: NotRequired[pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgsDict']]]
     """
     The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
     """
@@ -79,7 +79,7 @@ class TableMagneticStoreWritePropertiesArgs:
 
 
 class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgsDict(TypedDict):
-    s3_configuration: NotRequired[pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']]]
+    s3_configuration: NotRequired[pulumi.Input[Optional['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgsDict']]]
     """
     Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
     """
@@ -244,7 +244,7 @@ class TableRetentionPropertiesArgs:
 
 
 class TableSchemaArgsDict(TypedDict):
-    composite_partition_key: NotRequired[pulumi.Input[Optional['TableSchemaCompositePartitionKeyArgs']]]
+    composite_partition_key: NotRequired[pulumi.Input[Optional['TableSchemaCompositePartitionKeyArgsDict']]]
     """
     A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
     """

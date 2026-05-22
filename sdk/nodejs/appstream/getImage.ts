@@ -70,6 +70,9 @@ export interface GetImageArgs {
  * A collection of values returned by getImage.
  */
 export interface GetImageResult {
+    /**
+     * A application object that contains the following:
+     */
     readonly applications: outputs.appstream.GetImageApplication[];
     /**
      * Version of the AppStream 2.0 agent to use for instances that are launched from this image. Has a maximum length of 100 characters.
@@ -105,7 +108,6 @@ export interface GetImageResult {
     readonly imageBuilderName: string;
     /**
      * Boolean to indicate whether an image builder can be launched from this image.
-     * * `image error` - Resource error object that describes the error containing the following:
      */
     readonly imageBuilderSupported: boolean;
     /**
@@ -113,18 +115,27 @@ export interface GetImageResult {
      */
     readonly imagePermissions: outputs.appstream.GetImageImagePermission[];
     readonly mostRecent?: boolean;
+    /**
+     * Name of the application.
+     */
     readonly name: string;
     readonly nameRegex?: string;
     /**
      * Operating system platform of the image. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
      */
     readonly platform: string;
+    /**
+     * Release date of base image if public. For private images, it is the release date of the base image that it was created from.
+     */
     readonly publicBaseImageReleasedDate: string;
     readonly region: string;
     /**
      * Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
      */
     readonly state: string;
+    /**
+     * Reason for the last state change.
+     */
     readonly stateChangeReasons: outputs.appstream.GetImageStateChangeReason[];
     readonly type?: string;
 }

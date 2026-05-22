@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAuthorizerConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeFilesystemConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeLifecycleConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeProtocolConfigurationArgs;
@@ -143,6 +144,21 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
      */
     public Optional<Output<Map<String,String>>> environmentVariables() {
         return Optional.ofNullable(this.environmentVariables);
+    }
+
+    /**
+     * List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+     * 
+     */
+    @Import(name="filesystemConfigurations")
+    private @Nullable Output<List<AgentcoreAgentRuntimeFilesystemConfigurationArgs>> filesystemConfigurations;
+
+    /**
+     * @return List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+     * 
+     */
+    public Optional<Output<List<AgentcoreAgentRuntimeFilesystemConfigurationArgs>>> filesystemConfigurations() {
+        return Optional.ofNullable(this.filesystemConfigurations);
     }
 
     /**
@@ -302,6 +318,7 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
         this.authorizerConfiguration = $.authorizerConfiguration;
         this.description = $.description;
         this.environmentVariables = $.environmentVariables;
+        this.filesystemConfigurations = $.filesystemConfigurations;
         this.lifecycleConfigurations = $.lifecycleConfigurations;
         this.networkConfiguration = $.networkConfiguration;
         this.protocolConfiguration = $.protocolConfiguration;
@@ -498,6 +515,37 @@ public final class AgentcoreAgentRuntimeState extends com.pulumi.resources.Resou
          */
         public Builder environmentVariables(Map<String,String> environmentVariables) {
             return environmentVariables(Output.of(environmentVariables));
+        }
+
+        /**
+         * @param filesystemConfigurations List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filesystemConfigurations(@Nullable Output<List<AgentcoreAgentRuntimeFilesystemConfigurationArgs>> filesystemConfigurations) {
+            $.filesystemConfigurations = filesystemConfigurations;
+            return this;
+        }
+
+        /**
+         * @param filesystemConfigurations List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filesystemConfigurations(List<AgentcoreAgentRuntimeFilesystemConfigurationArgs> filesystemConfigurations) {
+            return filesystemConfigurations(Output.of(filesystemConfigurations));
+        }
+
+        /**
+         * @param filesystemConfigurations List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filesystemConfigurations(AgentcoreAgentRuntimeFilesystemConfigurationArgs... filesystemConfigurations) {
+            return filesystemConfigurations(List.of(filesystemConfigurations));
         }
 
         /**

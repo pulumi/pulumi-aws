@@ -107,6 +107,16 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` - (String) Access key ID.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+//
 // Using `pulumi import`, import IAM Access Keys using the identifier. For example:
 //
 // ```sh

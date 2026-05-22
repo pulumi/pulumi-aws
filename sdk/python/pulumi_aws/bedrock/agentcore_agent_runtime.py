@@ -28,6 +28,7 @@ class AgentcoreAgentRuntimeArgs:
                  authorizer_configuration: pulumi.Input[Optional['AgentcoreAgentRuntimeAuthorizerConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]]] = None,
                  lifecycle_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]]] = None,
                  protocol_configuration: pulumi.Input[Optional['AgentcoreAgentRuntimeProtocolConfigurationArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -46,6 +47,7 @@ class AgentcoreAgentRuntimeArgs:
         :param pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the agent runtime.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables to pass to the container.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]] filesystem_configurations: List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
         :param pulumi.Input['AgentcoreAgentRuntimeProtocolConfigurationArgs'] protocol_configuration: Protocol configuration for the agent runtime. See `protocol_configuration` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -62,6 +64,8 @@ class AgentcoreAgentRuntimeArgs:
             pulumi.set(__self__, "description", description)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if filesystem_configurations is not None:
+            pulumi.set(__self__, "filesystem_configurations", filesystem_configurations)
         if lifecycle_configurations is not None:
             pulumi.set(__self__, "lifecycle_configurations", lifecycle_configurations)
         if protocol_configuration is not None:
@@ -162,6 +166,18 @@ class AgentcoreAgentRuntimeArgs:
         pulumi.set(self, "environment_variables", value)
 
     @_builtins.property
+    @pulumi.getter(name="filesystemConfigurations")
+    def filesystem_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]]]:
+        """
+        List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
+        """
+        return pulumi.get(self, "filesystem_configurations")
+
+    @filesystem_configurations.setter
+    def filesystem_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]]]):
+        pulumi.set(self, "filesystem_configurations", value)
+
+    @_builtins.property
     @pulumi.getter(name="lifecycleConfigurations")
     def lifecycle_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]]]:
         """
@@ -242,6 +258,7 @@ class _AgentcoreAgentRuntimeState:
                  authorizer_configuration: pulumi.Input[Optional['AgentcoreAgentRuntimeAuthorizerConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]]] = None,
                  lifecycle_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]]] = None,
                  network_configuration: pulumi.Input[Optional['AgentcoreAgentRuntimeNetworkConfigurationArgs']] = None,
                  protocol_configuration: pulumi.Input[Optional['AgentcoreAgentRuntimeProtocolConfigurationArgs']] = None,
@@ -263,6 +280,7 @@ class _AgentcoreAgentRuntimeState:
         :param pulumi.Input['AgentcoreAgentRuntimeAuthorizerConfigurationArgs'] authorizer_configuration: Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the agent runtime.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables to pass to the container.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]] filesystem_configurations: List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input['AgentcoreAgentRuntimeLifecycleConfigurationArgs']]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
         :param pulumi.Input['AgentcoreAgentRuntimeNetworkConfigurationArgs'] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
                
@@ -291,6 +309,8 @@ class _AgentcoreAgentRuntimeState:
             pulumi.set(__self__, "description", description)
         if environment_variables is not None:
             pulumi.set(__self__, "environment_variables", environment_variables)
+        if filesystem_configurations is not None:
+            pulumi.set(__self__, "filesystem_configurations", filesystem_configurations)
         if lifecycle_configurations is not None:
             pulumi.set(__self__, "lifecycle_configurations", lifecycle_configurations)
         if network_configuration is not None:
@@ -407,6 +427,18 @@ class _AgentcoreAgentRuntimeState:
     @environment_variables.setter
     def environment_variables(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "environment_variables", value)
+
+    @_builtins.property
+    @pulumi.getter(name="filesystemConfigurations")
+    def filesystem_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]]]:
+        """
+        List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
+        """
+        return pulumi.get(self, "filesystem_configurations")
+
+    @filesystem_configurations.setter
+    def filesystem_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreAgentRuntimeFilesystemConfigurationArgs']]]]):
+        pulumi.set(self, "filesystem_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="lifecycleConfigurations")
@@ -539,6 +571,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
                  authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeAuthorizerConfigurationArgs', 'AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict']]]]] = None,
                  lifecycle_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict']]]]] = None,
                  network_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict']]] = None,
                  protocol_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict']]] = None,
@@ -687,6 +720,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreAgentRuntimeAuthorizerConfigurationArgs', 'AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the agent runtime.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables to pass to the container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict']]]] filesystem_configurations: List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict']]]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict']] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
                
@@ -855,6 +889,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
                  authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeAuthorizerConfigurationArgs', 'AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict']]]]] = None,
                  lifecycle_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict']]]]] = None,
                  network_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict']]] = None,
                  protocol_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict']]] = None,
@@ -881,6 +916,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             __props__.__dict__["authorizer_configuration"] = authorizer_configuration
             __props__.__dict__["description"] = description
             __props__.__dict__["environment_variables"] = environment_variables
+            __props__.__dict__["filesystem_configurations"] = filesystem_configurations
             __props__.__dict__["lifecycle_configurations"] = lifecycle_configurations
             if network_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'network_configuration'")
@@ -916,6 +952,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             authorizer_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeAuthorizerConfigurationArgs', 'AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict']]]]] = None,
             lifecycle_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict']]]]] = None,
             network_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict']]] = None,
             protocol_configuration: pulumi.Input[Optional[Union['AgentcoreAgentRuntimeProtocolConfigurationArgs', 'AgentcoreAgentRuntimeProtocolConfigurationArgsDict']]] = None,
@@ -941,6 +978,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         :param pulumi.Input[Union['AgentcoreAgentRuntimeAuthorizerConfigurationArgs', 'AgentcoreAgentRuntimeAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorization configuration for authenticating incoming requests. See `authorizer_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the agent runtime.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Map of environment variables to pass to the container.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeFilesystemConfigurationArgs', 'AgentcoreAgentRuntimeFilesystemConfigurationArgsDict']]]] filesystem_configurations: List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreAgentRuntimeLifecycleConfigurationArgs', 'AgentcoreAgentRuntimeLifecycleConfigurationArgsDict']]]] lifecycle_configurations: Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycle_configuration` below.
         :param pulumi.Input[Union['AgentcoreAgentRuntimeNetworkConfigurationArgs', 'AgentcoreAgentRuntimeNetworkConfigurationArgsDict']] network_configuration: Network configuration for the agent runtime. See `network_configuration` below.
                
@@ -965,6 +1003,7 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         __props__.__dict__["authorizer_configuration"] = authorizer_configuration
         __props__.__dict__["description"] = description
         __props__.__dict__["environment_variables"] = environment_variables
+        __props__.__dict__["filesystem_configurations"] = filesystem_configurations
         __props__.__dict__["lifecycle_configurations"] = lifecycle_configurations
         __props__.__dict__["network_configuration"] = network_configuration
         __props__.__dict__["protocol_configuration"] = protocol_configuration
@@ -1040,6 +1079,14 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
         Map of environment variables to pass to the container.
         """
         return pulumi.get(self, "environment_variables")
+
+    @_builtins.property
+    @pulumi.getter(name="filesystemConfigurations")
+    def filesystem_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreAgentRuntimeFilesystemConfiguration']]]:
+        """
+        List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystem_configuration` below.
+        """
+        return pulumi.get(self, "filesystem_configurations")
 
     @_builtins.property
     @pulumi.getter(name="lifecycleConfigurations")

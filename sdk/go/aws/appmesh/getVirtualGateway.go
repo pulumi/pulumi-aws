@@ -74,9 +74,10 @@ type LookupVirtualGatewayResult struct {
 	// Last update date of the virtual gateway.
 	LastUpdatedDate string `pulumi:"lastUpdatedDate"`
 	MeshName        string `pulumi:"meshName"`
-	MeshOwner       string `pulumi:"meshOwner"`
-	Name            string `pulumi:"name"`
-	Region          string `pulumi:"region"`
+	// AWS account ID of the service mesh's owner.
+	MeshOwner string `pulumi:"meshOwner"`
+	Name      string `pulumi:"name"`
+	Region    string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner string `pulumi:"resourceOwner"`
 	// Virtual gateway specification. See the `appmesh.VirtualGateway` resource for details.
@@ -149,6 +150,7 @@ func (o LookupVirtualGatewayResultOutput) MeshName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualGatewayResult) string { return v.MeshName }).(pulumi.StringOutput)
 }
 
+// AWS account ID of the service mesh's owner.
 func (o LookupVirtualGatewayResultOutput) MeshOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVirtualGatewayResult) string { return v.MeshOwner }).(pulumi.StringOutput)
 }

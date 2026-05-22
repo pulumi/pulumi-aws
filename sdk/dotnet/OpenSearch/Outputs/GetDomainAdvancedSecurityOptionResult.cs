@@ -13,6 +13,9 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     [OutputType]
     public sealed class GetDomainAdvancedSecurityOptionResult
     {
+        /// <summary>
+        /// Whether Anonymous auth is enabled.
+        /// </summary>
         public readonly bool AnonymousAuthEnabled;
         /// <summary>
         /// Enabled disabled toggle for off-peak update window
@@ -22,6 +25,10 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// Whether the internal user database is enabled.
         /// </summary>
         public readonly bool InternalUserDatabaseEnabled;
+        /// <summary>
+        /// Block for JWT authentication.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDomainAdvancedSecurityOptionJwtOptionResult> JwtOptions;
 
         [OutputConstructor]
         private GetDomainAdvancedSecurityOptionResult(
@@ -29,11 +36,14 @@ namespace Pulumi.Aws.OpenSearch.Outputs
 
             bool enabled,
 
-            bool internalUserDatabaseEnabled)
+            bool internalUserDatabaseEnabled,
+
+            ImmutableArray<Outputs.GetDomainAdvancedSecurityOptionJwtOptionResult> jwtOptions)
         {
             AnonymousAuthEnabled = anonymousAuthEnabled;
             Enabled = enabled;
             InternalUserDatabaseEnabled = internalUserDatabaseEnabled;
+            JwtOptions = jwtOptions;
         }
     }
 }

@@ -133,8 +133,7 @@ namespace Pulumi.Aws.Ec2
         private List<string>? _executableUsers;
 
         /// <summary>
-        /// Limit search to users with *explicit* launch
-        /// permission on  the image. Valid items are the numeric account ID or `Self`.
+        /// Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `Self`.
         /// </summary>
         public List<string> ExecutableUsers
         {
@@ -146,9 +145,7 @@ namespace Pulumi.Aws.Ec2
         private List<Inputs.GetAmiIdsFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to filter off of. There
-        /// are several valid keys, for a full reference, check out
-        /// [describe-images in the AWS CLI reference][1].
+        /// One or more name/value pairs to filter off of. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `Filter` Block below.
         /// </summary>
         public List<Inputs.GetAmiIdsFilterArgs> Filters
         {
@@ -157,18 +154,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// If true, all deprecated AMIs are included in the response.
-        /// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `False`.
+        /// If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `False`.
         /// </summary>
         [Input("includeDeprecated")]
         public bool? IncludeDeprecated { get; set; }
 
         /// <summary>
-        /// Regex string to apply to the AMI list returned
-        /// by AWS. This allows more advanced filtering not supported from the AWS API.
-        /// This filtering is done locally on what AWS returns, and could have a performance
-        /// impact if the result is large. Combine this with other
-        /// options to narrow down the list AWS returns.
+        /// Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
         /// </summary>
         [Input("nameRegex")]
         public string? NameRegex { get; set; }
@@ -192,8 +184,7 @@ namespace Pulumi.Aws.Ec2
         public string? Region { get; set; }
 
         /// <summary>
-        /// Used to sort AMIs by creation time.
-        /// If no value is specified, the default value is `False`.
+        /// Used to sort AMIs by creation time. If no value is specified, the default value is `False`.
         /// </summary>
         [Input("sortAscending")]
         public bool? SortAscending { get; set; }
@@ -210,8 +201,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _executableUsers;
 
         /// <summary>
-        /// Limit search to users with *explicit* launch
-        /// permission on  the image. Valid items are the numeric account ID or `Self`.
+        /// Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `Self`.
         /// </summary>
         public InputList<string> ExecutableUsers
         {
@@ -223,9 +213,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.GetAmiIdsFilterInputArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to filter off of. There
-        /// are several valid keys, for a full reference, check out
-        /// [describe-images in the AWS CLI reference][1].
+        /// One or more name/value pairs to filter off of. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `Filter` Block below.
         /// </summary>
         public InputList<Inputs.GetAmiIdsFilterInputArgs> Filters
         {
@@ -234,18 +222,13 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// If true, all deprecated AMIs are included in the response.
-        /// If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `False`.
+        /// If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `False`.
         /// </summary>
         [Input("includeDeprecated")]
         public Input<bool>? IncludeDeprecated { get; set; }
 
         /// <summary>
-        /// Regex string to apply to the AMI list returned
-        /// by AWS. This allows more advanced filtering not supported from the AWS API.
-        /// This filtering is done locally on what AWS returns, and could have a performance
-        /// impact if the result is large. Combine this with other
-        /// options to narrow down the list AWS returns.
+        /// Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
         /// </summary>
         [Input("nameRegex")]
         public Input<string>? NameRegex { get; set; }
@@ -269,8 +252,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Used to sort AMIs by creation time.
-        /// If no value is specified, the default value is `False`.
+        /// Used to sort AMIs by creation time. If no value is specified, the default value is `False`.
         /// </summary>
         [Input("sortAscending")]
         public Input<bool>? SortAscending { get; set; }
@@ -292,7 +274,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// is set to the list of AMI IDs, sorted by creation time according to `SortAscending`.
+        /// List of AMI IDs, sorted by creation time according to `SortAscending`.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly bool? IncludeDeprecated;

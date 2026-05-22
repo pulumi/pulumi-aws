@@ -543,7 +543,7 @@ class TableGlobalSecondaryIndexArgsDict(TypedDict):
     """
     Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `key_schema`. Use `key_schema` instead.
     """
-    key_schemas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableGlobalSecondaryIndexKeySchemaArgs']]]]]
+    key_schemas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableGlobalSecondaryIndexKeySchemaArgsDict']]]]]
     """
     Configuration block(s) for the key schema. Mutually exclusive with `hash_key` and `range_key`. Required if `hash_key` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
     """
@@ -551,7 +551,7 @@ class TableGlobalSecondaryIndexArgsDict(TypedDict):
     """
     Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
     """
-    on_demand_throughput: NotRequired[pulumi.Input[Optional['TableGlobalSecondaryIndexOnDemandThroughputArgs']]]
+    on_demand_throughput: NotRequired[pulumi.Input[Optional['TableGlobalSecondaryIndexOnDemandThroughputArgsDict']]]
     """
     Sets the maximum number of read and write units for the specified on-demand index. See below.
     """
@@ -563,7 +563,7 @@ class TableGlobalSecondaryIndexArgsDict(TypedDict):
     """
     Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
     """
-    warm_throughput: NotRequired[pulumi.Input[Optional['TableGlobalSecondaryIndexWarmThroughputArgs']]]
+    warm_throughput: NotRequired[pulumi.Input[Optional['TableGlobalSecondaryIndexWarmThroughputArgsDict']]]
     """
     Sets the number of warm read and write units for this index. See below.
     """
@@ -935,7 +935,7 @@ class TableImportTableArgsDict(TypedDict):
     Type of compression to be used on the input coming from the imported table.
     Valid values are `GZIP`, `ZSTD` and `NONE`.
     """
-    input_format_options: NotRequired[pulumi.Input[Optional['TableImportTableInputFormatOptionsArgs']]]
+    input_format_options: NotRequired[pulumi.Input[Optional['TableImportTableInputFormatOptionsArgsDict']]]
     """
     Describe the format options for the data that was imported into the target table.
     There is one value, `csv`.
@@ -1022,7 +1022,7 @@ class TableImportTableArgs:
 
 
 class TableImportTableInputFormatOptionsArgsDict(TypedDict):
-    csv: NotRequired[pulumi.Input[Optional['TableImportTableInputFormatOptionsCsvArgs']]]
+    csv: NotRequired[pulumi.Input[Optional['TableImportTableInputFormatOptionsCsvArgsDict']]]
     """
     This block contains the processing options for the CSV file being imported:
     """

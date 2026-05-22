@@ -97,8 +97,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetVpcLinkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-        /// If multiple API Gateway VPC Links are found with this name, an error will be returned.
+        /// Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. If multiple API Gateway VPC Links are found with this name, an error will be returned.
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -130,8 +129,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class GetVpcLinkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-        /// If multiple API Gateway VPC Links are found with this name, an error will be returned.
+        /// Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. If multiple API Gateway VPC Links are found with this name, an error will be returned.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -164,6 +162,9 @@ namespace Pulumi.Aws.ApiGateway
     [OutputType]
     public sealed class GetVpcLinkResult
     {
+        /// <summary>
+        /// ARN of the VPC Link.
+        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// Description of the VPC link.

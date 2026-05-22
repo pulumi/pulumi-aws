@@ -83,10 +83,10 @@ class RepositoryAssociationKmsKeyDetailsArgs:
 
 
 class RepositoryAssociationRepositoryArgsDict(TypedDict):
-    bitbucket: NotRequired[pulumi.Input[Optional['RepositoryAssociationRepositoryBitbucketArgs']]]
-    codecommit: NotRequired[pulumi.Input[Optional['RepositoryAssociationRepositoryCodecommitArgs']]]
-    github_enterprise_server: NotRequired[pulumi.Input[Optional['RepositoryAssociationRepositoryGithubEnterpriseServerArgs']]]
-    s3_bucket: NotRequired[pulumi.Input[Optional['RepositoryAssociationRepositoryS3BucketArgs']]]
+    bitbucket: NotRequired[pulumi.Input[Optional['RepositoryAssociationRepositoryBitbucketArgsDict']]]
+    codecommit: NotRequired[pulumi.Input[Optional['RepositoryAssociationRepositoryCodecommitArgsDict']]]
+    github_enterprise_server: NotRequired[pulumi.Input[Optional['RepositoryAssociationRepositoryGithubEnterpriseServerArgsDict']]]
+    s3_bucket: NotRequired[pulumi.Input[Optional['RepositoryAssociationRepositoryS3BucketArgsDict']]]
 
 @pulumi.input_type
 class RepositoryAssociationRepositoryArgs:
@@ -353,7 +353,7 @@ class RepositoryAssociationS3RepositoryDetailArgsDict(TypedDict):
     """
     The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
     """
-    code_artifacts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgs']]]]]
+    code_artifacts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgsDict']]]]]
 
 @pulumi.input_type
 class RepositoryAssociationS3RepositoryDetailArgs:

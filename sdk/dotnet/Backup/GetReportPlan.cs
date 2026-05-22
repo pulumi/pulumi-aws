@@ -176,11 +176,11 @@ namespace Pulumi.Aws.Backup
         public readonly string Name;
         public readonly string Region;
         /// <summary>
-        /// An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        /// Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetReportPlanReportDeliveryChannelResult> ReportDeliveryChannels;
         /// <summary>
-        /// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        /// Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetReportPlanReportSettingResult> ReportSettings;
         /// <summary>

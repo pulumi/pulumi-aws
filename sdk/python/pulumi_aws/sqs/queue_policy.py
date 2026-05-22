@@ -155,7 +155,7 @@ class QueuePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         q = aws.sqs.Queue("q", name="examplequeue")
-        test = q.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        test = aws.iam.get_policy_document_output(statements=[{
             "sid": "First",
             "effect": "Allow",
             "principals": [{
@@ -163,13 +163,13 @@ class QueuePolicy(pulumi.CustomResource):
                 "identifiers": ["*"],
             }],
             "actions": ["sqs:SendMessage"],
-            "resources": [arn],
+            "resources": [q.arn],
             "conditions": [{
                 "test": "ArnEquals",
                 "variable": "aws:SourceArn",
                 "values": [example["arn"]],
             }],
-        }]))
+        }])
         test_queue_policy = aws.sqs.QueuePolicy("test",
             queue_url=q.id,
             policy=test.json)
@@ -242,7 +242,7 @@ class QueuePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         q = aws.sqs.Queue("q", name="examplequeue")
-        test = q.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[{
+        test = aws.iam.get_policy_document_output(statements=[{
             "sid": "First",
             "effect": "Allow",
             "principals": [{
@@ -250,13 +250,13 @@ class QueuePolicy(pulumi.CustomResource):
                 "identifiers": ["*"],
             }],
             "actions": ["sqs:SendMessage"],
-            "resources": [arn],
+            "resources": [q.arn],
             "conditions": [{
                 "test": "ArnEquals",
                 "variable": "aws:SourceArn",
                 "values": [example["arn"]],
             }],
-        }]))
+        }])
         test_queue_policy = aws.sqs.QueuePolicy("test",
             queue_url=q.id,
             policy=test.json)

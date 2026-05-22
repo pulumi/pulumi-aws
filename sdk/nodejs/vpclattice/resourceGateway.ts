@@ -116,6 +116,10 @@ export class ResourceGateway extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+     */
+    declare public readonly resourceConfigDnsResolution: pulumi.Output<string>;
+    /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
@@ -161,6 +165,7 @@ export class ResourceGateway extends pulumi.CustomResource {
             resourceInputs["ipv4AddressesPerEni"] = state?.ipv4AddressesPerEni;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
+            resourceInputs["resourceConfigDnsResolution"] = state?.resourceConfigDnsResolution;
             resourceInputs["securityGroupIds"] = state?.securityGroupIds;
             resourceInputs["status"] = state?.status;
             resourceInputs["subnetIds"] = state?.subnetIds;
@@ -180,6 +185,7 @@ export class ResourceGateway extends pulumi.CustomResource {
             resourceInputs["ipv4AddressesPerEni"] = args?.ipv4AddressesPerEni;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
+            resourceInputs["resourceConfigDnsResolution"] = args?.resourceConfigDnsResolution;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
             resourceInputs["subnetIds"] = args?.subnetIds;
             resourceInputs["tags"] = args?.tags;
@@ -218,6 +224,10 @@ export interface ResourceGatewayState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+     */
+    resourceConfigDnsResolution?: pulumi.Input<string | undefined>;
     /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      */
@@ -267,6 +277,10 @@ export interface ResourceGatewayArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+     */
+    resourceConfigDnsResolution?: pulumi.Input<string | undefined>;
     /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      */

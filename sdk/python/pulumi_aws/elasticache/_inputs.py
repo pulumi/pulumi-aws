@@ -653,11 +653,11 @@ class ReservedCacheNodeTimeoutsArgs:
 
 
 class ServerlessCacheCacheUsageLimitsArgsDict(TypedDict):
-    data_storage: NotRequired[pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsDataStorageArgs']]]
+    data_storage: NotRequired[pulumi.Input[Optional['ServerlessCacheCacheUsageLimitsDataStorageArgsDict']]]
     """
     The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
     """
-    ecpu_per_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs']]]]]
+    ecpu_per_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict']]]]]
     """
     The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
     """

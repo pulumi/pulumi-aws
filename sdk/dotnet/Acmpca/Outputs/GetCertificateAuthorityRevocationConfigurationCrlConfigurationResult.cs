@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// </summary>
         public readonly string CustomPath;
         /// <summary>
-        /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+        /// Boolean value that specifies whether a custom OCSP responder is enabled.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

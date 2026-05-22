@@ -17,6 +17,12 @@ from .. import _utilities
 __all__ = [
     'GroupInsightsConfigurationArgs',
     'GroupInsightsConfigurationArgsDict',
+    'IndexingRuleRuleArgs',
+    'IndexingRuleRuleArgsDict',
+    'IndexingRuleRuleProbabilisticArgs',
+    'IndexingRuleRuleProbabilisticArgsDict',
+    'TraceSegmentDestinationTimeoutsArgs',
+    'TraceSegmentDestinationTimeoutsArgsDict',
 ]
 
 class GroupInsightsConfigurationArgsDict(TypedDict):
@@ -65,5 +71,131 @@ class GroupInsightsConfigurationArgs:
     @notifications_enabled.setter
     def notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "notifications_enabled", value)
+
+
+class IndexingRuleRuleArgsDict(TypedDict):
+    probabilistic: NotRequired[pulumi.Input[Optional['IndexingRuleRuleProbabilisticArgsDict']]]
+    """
+    Indexing rule configuration used to probabilistically sample traceIds. See `probabilistic` Block below.
+    """
+
+@pulumi.input_type
+class IndexingRuleRuleArgs:
+    def __init__(__self__, *,
+                 probabilistic: pulumi.Input[Optional['IndexingRuleRuleProbabilisticArgs']] = None):
+        """
+        :param pulumi.Input['IndexingRuleRuleProbabilisticArgs'] probabilistic: Indexing rule configuration used to probabilistically sample traceIds. See `probabilistic` Block below.
+        """
+        if probabilistic is not None:
+            pulumi.set(__self__, "probabilistic", probabilistic)
+
+    @_builtins.property
+    @pulumi.getter
+    def probabilistic(self) -> pulumi.Input[Optional['IndexingRuleRuleProbabilisticArgs']]:
+        """
+        Indexing rule configuration used to probabilistically sample traceIds. See `probabilistic` Block below.
+        """
+        return pulumi.get(self, "probabilistic")
+
+    @probabilistic.setter
+    def probabilistic(self, value: pulumi.Input[Optional['IndexingRuleRuleProbabilisticArgs']]):
+        pulumi.set(self, "probabilistic", value)
+
+
+class IndexingRuleRuleProbabilisticArgsDict(TypedDict):
+    desired_sampling_percentage: pulumi.Input[_builtins.float]
+    """
+    Configured sampling percentage of traceIds.
+    """
+    actual_sampling_percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Applied sampling percentage of traceIds.
+    """
+
+@pulumi.input_type
+class IndexingRuleRuleProbabilisticArgs:
+    def __init__(__self__, *,
+                 desired_sampling_percentage: pulumi.Input[_builtins.float],
+                 actual_sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.float] desired_sampling_percentage: Configured sampling percentage of traceIds.
+        :param pulumi.Input[_builtins.float] actual_sampling_percentage: Applied sampling percentage of traceIds.
+        """
+        pulumi.set(__self__, "desired_sampling_percentage", desired_sampling_percentage)
+        if actual_sampling_percentage is not None:
+            pulumi.set(__self__, "actual_sampling_percentage", actual_sampling_percentage)
+
+    @_builtins.property
+    @pulumi.getter(name="desiredSamplingPercentage")
+    def desired_sampling_percentage(self) -> pulumi.Input[_builtins.float]:
+        """
+        Configured sampling percentage of traceIds.
+        """
+        return pulumi.get(self, "desired_sampling_percentage")
+
+    @desired_sampling_percentage.setter
+    def desired_sampling_percentage(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "desired_sampling_percentage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actualSamplingPercentage")
+    def actual_sampling_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Applied sampling percentage of traceIds.
+        """
+        return pulumi.get(self, "actual_sampling_percentage")
+
+    @actual_sampling_percentage.setter
+    def actual_sampling_percentage(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "actual_sampling_percentage", value)
+
+
+class TraceSegmentDestinationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class TraceSegmentDestinationTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 

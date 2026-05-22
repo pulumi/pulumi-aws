@@ -34,7 +34,7 @@ class PipelineDefinitionParameterObjectArgsDict(TypedDict):
     """
     ID of the parameter object.
     """
-    attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]]]
+    attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgsDict']]]]]
     """
     Configuration block for attributes of the parameter object. See below
     """
@@ -180,7 +180,7 @@ class PipelineDefinitionPipelineObjectArgsDict(TypedDict):
     """
     ARN of the storage connector.
     """
-    fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]]]]
+    fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgsDict']]]]]
     """
     Configuration block for Key-value pairs that define the properties of the object. See below
     """

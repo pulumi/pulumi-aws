@@ -157,11 +157,11 @@ class AppAuthorizationConnectionTimeoutsArgs:
 
 
 class AppAuthorizationCredentialArgsDict(TypedDict):
-    api_key_credentials: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgs']]]]]
+    api_key_credentials: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgsDict']]]]]
     """
     Contains API key credential information.
     """
-    oauth2_credential: NotRequired[pulumi.Input[Optional['AppAuthorizationCredentialOauth2CredentialArgs']]]
+    oauth2_credential: NotRequired[pulumi.Input[Optional['AppAuthorizationCredentialOauth2CredentialArgsDict']]]
     """
     Contains OAuth2 client credential information.
     """
@@ -453,11 +453,11 @@ class IngestionDestinationDestinationConfigurationAuditLogArgs:
 
 
 class IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict(TypedDict):
-    firehose_stream: NotRequired[pulumi.Input[Optional['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs']]]
+    firehose_stream: NotRequired[pulumi.Input[Optional['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgsDict']]]
     """
     Contains information about an Amazon Data Firehose delivery stream.
     """
-    s3_bucket: NotRequired[pulumi.Input[Optional['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs']]]
+    s3_bucket: NotRequired[pulumi.Input[Optional['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgsDict']]]
     """
     Contains information about an Amazon S3 bucket.
     """

@@ -40,7 +40,7 @@ __all__ = [
 ]
 
 class DocumentClassifierInputDataConfigArgsDict(TypedDict):
-    augmented_manifests: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgs']]]]]
+    augmented_manifests: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgsDict']]]]]
     """
     List of training datasets produced by Amazon SageMaker AI Ground Truth.
     Used if `data_format` is `AUGMENTED_MANIFEST`.
@@ -420,13 +420,13 @@ class EntityRecognizerInputDataConfigArgsDict(TypedDict):
     Has a maximum of 25 items.
     See the `entity_types` Configuration Block section below.
     """
-    annotations: NotRequired[pulumi.Input[Optional['EntityRecognizerInputDataConfigAnnotationsArgs']]]
+    annotations: NotRequired[pulumi.Input[Optional['EntityRecognizerInputDataConfigAnnotationsArgsDict']]]
     """
     Specifies location of the document annotation data.
     See the `annotations` Configuration Block section below.
     One of `annotations` or `entity_list` is required.
     """
-    augmented_manifests: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArgs']]]]]
+    augmented_manifests: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArgsDict']]]]]
     """
     List of training datasets produced by Amazon SageMaker AI Ground Truth.
     Used if `data_format` is `AUGMENTED_MANIFEST`.
@@ -437,13 +437,13 @@ class EntityRecognizerInputDataConfigArgsDict(TypedDict):
     The format for the training data.
     One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
     """
-    documents: NotRequired[pulumi.Input[Optional['EntityRecognizerInputDataConfigDocumentsArgs']]]
+    documents: NotRequired[pulumi.Input[Optional['EntityRecognizerInputDataConfigDocumentsArgsDict']]]
     """
     Specifies a collection of training documents.
     Used if `data_format` is `COMPREHEND_CSV`.
     See the `documents` Configuration Block section below.
     """
-    entity_list: NotRequired[pulumi.Input[Optional['EntityRecognizerInputDataConfigEntityListArgs']]]
+    entity_list: NotRequired[pulumi.Input[Optional['EntityRecognizerInputDataConfigEntityListArgsDict']]]
     """
     Specifies location of the entity list data.
     See the `entity_list` Configuration Block section below.

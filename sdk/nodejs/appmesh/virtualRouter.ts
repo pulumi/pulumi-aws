@@ -109,7 +109,7 @@ export class VirtualRouter extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceOwner: pulumi.Output<string>;
     /**
-     * Virtual router specification to apply.
+     * Virtual router specification to apply. See `spec` Block for details.
      */
     declare public readonly spec: pulumi.Output<outputs.appmesh.VirtualRouterSpec>;
     /**
@@ -207,7 +207,7 @@ export interface VirtualRouterState {
      */
     resourceOwner?: pulumi.Input<string | undefined>;
     /**
-     * Virtual router specification to apply.
+     * Virtual router specification to apply. See `spec` Block for details.
      */
     spec?: pulumi.Input<inputs.appmesh.VirtualRouterSpec | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface VirtualRouterArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Virtual router specification to apply.
+     * Virtual router specification to apply. See `spec` Block for details.
      */
     spec: pulumi.Input<inputs.appmesh.VirtualRouterSpec>;
     /**

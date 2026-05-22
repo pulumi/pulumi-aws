@@ -136,6 +136,8 @@ type ResourceGateway struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+	ResourceConfigDnsResolution pulumi.StringOutput `pulumi:"resourceConfigDnsResolution"`
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// Status of the resource gateway.
@@ -199,6 +201,8 @@ type resourceGatewayState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+	ResourceConfigDnsResolution *string `pulumi:"resourceConfigDnsResolution"`
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// Status of the resource gateway.
@@ -227,6 +231,8 @@ type ResourceGatewayState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+	ResourceConfigDnsResolution pulumi.StringPtrInput
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds pulumi.StringArrayInput
 	// Status of the resource gateway.
@@ -257,6 +263,8 @@ type resourceGatewayArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+	ResourceConfigDnsResolution *string `pulumi:"resourceConfigDnsResolution"`
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// IDs of the VPC subnets in which to create the resource gateway.
@@ -280,6 +288,8 @@ type ResourceGatewayArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+	ResourceConfigDnsResolution pulumi.StringPtrInput
 	// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
 	SecurityGroupIds pulumi.StringArrayInput
 	// IDs of the VPC subnets in which to create the resource gateway.
@@ -403,6 +413,11 @@ func (o ResourceGatewayOutput) Name() pulumi.StringOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o ResourceGatewayOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+func (o ResourceGatewayOutput) ResourceConfigDnsResolution() pulumi.StringOutput {
+	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.ResourceConfigDnsResolution }).(pulumi.StringOutput)
 }
 
 // Security group IDs associated with the resource gateway. The security groups must be in the same VPC.

@@ -82,7 +82,7 @@ class EventActionActionExportRevisionToS3ArgsDict(TypedDict):
     Configures the S3 destination of the exported revision.
     Described in `revision_destination` Configuration Block below.
     """
-    encryption: NotRequired[pulumi.Input[Optional['EventActionActionExportRevisionToS3EncryptionArgs']]]
+    encryption: NotRequired[pulumi.Input[Optional['EventActionActionExportRevisionToS3EncryptionArgsDict']]]
     """
     Configures server-side encryption of the exported revision.
     Described in `encryption` Configuration Block below.
@@ -300,7 +300,7 @@ class RevisionAssetsAssetArgsDict(TypedDict):
     """
     The ARN of the Data Exchange Revision Assets.
     """
-    create_s3_data_access_from_s3_bucket: NotRequired[pulumi.Input[Optional['RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs']]]
+    create_s3_data_access_from_s3_bucket: NotRequired[pulumi.Input[Optional['RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgsDict']]]
     """
     A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
     """
@@ -312,11 +312,11 @@ class RevisionAssetsAssetArgsDict(TypedDict):
     """
     The unique identifier for the revision.
     """
-    import_assets_from_s3: NotRequired[pulumi.Input[Optional['RevisionAssetsAssetImportAssetsFromS3Args']]]
+    import_assets_from_s3: NotRequired[pulumi.Input[Optional['RevisionAssetsAssetImportAssetsFromS3ArgsDict']]]
     """
     A block to import assets from S3. See Import Assets from S3 for more details.
     """
-    import_assets_from_signed_url: NotRequired[pulumi.Input[Optional['RevisionAssetsAssetImportAssetsFromSignedUrlArgs']]]
+    import_assets_from_signed_url: NotRequired[pulumi.Input[Optional['RevisionAssetsAssetImportAssetsFromSignedUrlArgsDict']]]
     """
     A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
     """
@@ -460,7 +460,7 @@ class RevisionAssetsAssetArgs:
 class RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgsDict(TypedDict):
     access_point_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     access_point_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    asset_source: NotRequired[pulumi.Input[Optional['RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs']]]
+    asset_source: NotRequired[pulumi.Input[Optional['RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgsDict']]]
     """
     A block specifying the source bucket for the asset. This block supports the following:
     """
@@ -525,7 +525,7 @@ class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgsDict(Typed
     """
     List of object keys in the S3 bucket.
     """
-    kms_keys_to_grants: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs']]]]]
+    kms_keys_to_grants: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgsDict']]]]]
 
 @pulumi.input_type
 class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs:
@@ -622,7 +622,7 @@ class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant
 
 
 class RevisionAssetsAssetImportAssetsFromS3ArgsDict(TypedDict):
-    asset_source: NotRequired[pulumi.Input[Optional['RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs']]]
+    asset_source: NotRequired[pulumi.Input[Optional['RevisionAssetsAssetImportAssetsFromS3AssetSourceArgsDict']]]
     """
     A block specifying the source bucket and key for the asset. This block supports the following:
     """

@@ -30,7 +30,7 @@ class MeshArgs:
 
         :param pulumi.Input[_builtins.str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['MeshSpecArgs'] spec: Service mesh specification to apply.
+        :param pulumi.Input['MeshSpecArgs'] spec: Service mesh specification to apply. See `spec` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if name is not None:
@@ -70,7 +70,7 @@ class MeshArgs:
     @pulumi.getter
     def spec(self) -> pulumi.Input[Optional['MeshSpecArgs']]:
         """
-        Service mesh specification to apply.
+        Service mesh specification to apply. See `spec` Block for details.
         """
         return pulumi.get(self, "spec")
 
@@ -114,7 +114,7 @@ class _MeshState:
         :param pulumi.Input[_builtins.str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input['MeshSpecArgs'] spec: Service mesh specification to apply.
+        :param pulumi.Input['MeshSpecArgs'] spec: Service mesh specification to apply. See `spec` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -227,7 +227,7 @@ class _MeshState:
     @pulumi.getter
     def spec(self) -> pulumi.Input[Optional['MeshSpecArgs']]:
         """
-        Service mesh specification to apply.
+        Service mesh specification to apply. See `spec` Block for details.
         """
         return pulumi.get(self, "spec")
 
@@ -313,7 +313,7 @@ class Mesh(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['MeshSpecArgs', 'MeshSpecArgsDict']] spec: Service mesh specification to apply.
+        :param pulumi.Input[Union['MeshSpecArgs', 'MeshSpecArgsDict']] spec: Service mesh specification to apply. See `spec` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -432,7 +432,7 @@ class Mesh(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name to use for the service mesh. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input[Union['MeshSpecArgs', 'MeshSpecArgsDict']] spec: Service mesh specification to apply.
+        :param pulumi.Input[Union['MeshSpecArgs', 'MeshSpecArgsDict']] spec: Service mesh specification to apply. See `spec` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -512,7 +512,7 @@ class Mesh(pulumi.CustomResource):
     @pulumi.getter
     def spec(self) -> pulumi.Output[Optional['outputs.MeshSpec']]:
         """
-        Service mesh specification to apply.
+        Service mesh specification to apply. See `spec` Block for details.
         """
         return pulumi.get(self, "spec")
 

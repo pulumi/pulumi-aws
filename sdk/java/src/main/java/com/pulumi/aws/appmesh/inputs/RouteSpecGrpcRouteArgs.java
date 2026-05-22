@@ -20,14 +20,14 @@ public final class RouteSpecGrpcRouteArgs extends com.pulumi.resources.ResourceA
     public static final RouteSpecGrpcRouteArgs Empty = new RouteSpecGrpcRouteArgs();
 
     /**
-     * Action to take if a match is determined.
+     * Action to take if a match is determined. See `action` Block for details.
      * 
      */
     @Import(name="action", required=true)
     private Output<RouteSpecGrpcRouteActionArgs> action;
 
     /**
-     * @return Action to take if a match is determined.
+     * @return Action to take if a match is determined. See `action` Block for details.
      * 
      */
     public Output<RouteSpecGrpcRouteActionArgs> action() {
@@ -35,14 +35,14 @@ public final class RouteSpecGrpcRouteArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Criteria for determining an gRPC request match.
+     * Criteria for determining an gRPC request match. See `match` Block for details.
      * 
      */
     @Import(name="match")
     private @Nullable Output<RouteSpecGrpcRouteMatchArgs> match;
 
     /**
-     * @return Criteria for determining an gRPC request match.
+     * @return Criteria for determining an gRPC request match. See `match` Block for details.
      * 
      */
     public Optional<Output<RouteSpecGrpcRouteMatchArgs>> match() {
@@ -50,14 +50,14 @@ public final class RouteSpecGrpcRouteArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Retry policy.
+     * Retry policy. See `retryPolicy` Block for details.
      * 
      */
     @Import(name="retryPolicy")
     private @Nullable Output<RouteSpecGrpcRouteRetryPolicyArgs> retryPolicy;
 
     /**
-     * @return Retry policy.
+     * @return Retry policy. See `retryPolicy` Block for details.
      * 
      */
     public Optional<Output<RouteSpecGrpcRouteRetryPolicyArgs>> retryPolicy() {
@@ -65,14 +65,14 @@ public final class RouteSpecGrpcRouteArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Types of timeouts.
+     * Types of timeouts. See `timeout` Block for details.
      * 
      */
     @Import(name="timeout")
     private @Nullable Output<RouteSpecGrpcRouteTimeoutArgs> timeout;
 
     /**
-     * @return Types of timeouts.
+     * @return Types of timeouts. See `timeout` Block for details.
      * 
      */
     public Optional<Output<RouteSpecGrpcRouteTimeoutArgs>> timeout() {
@@ -107,7 +107,7 @@ public final class RouteSpecGrpcRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param action Action to take if a match is determined.
+         * @param action Action to take if a match is determined. See `action` Block for details.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class RouteSpecGrpcRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param action Action to take if a match is determined.
+         * @param action Action to take if a match is determined. See `action` Block for details.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class RouteSpecGrpcRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param match Criteria for determining an gRPC request match.
+         * @param match Criteria for determining an gRPC request match. See `match` Block for details.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class RouteSpecGrpcRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param match Criteria for determining an gRPC request match.
+         * @param match Criteria for determining an gRPC request match. See `match` Block for details.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class RouteSpecGrpcRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param retryPolicy Retry policy.
+         * @param retryPolicy Retry policy. See `retryPolicy` Block for details.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class RouteSpecGrpcRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param retryPolicy Retry policy.
+         * @param retryPolicy Retry policy. See `retryPolicy` Block for details.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class RouteSpecGrpcRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param timeout Types of timeouts.
+         * @param timeout Types of timeouts. See `timeout` Block for details.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class RouteSpecGrpcRouteArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param timeout Types of timeouts.
+         * @param timeout Types of timeouts. See `timeout` Block for details.
          * 
          * @return builder
          * 

@@ -30,6 +30,10 @@ public final class GetConfigurationProfileResult {
      * 
      */
     private String id;
+    /**
+     * @return KMS key identifier for encrypting the configuration data.
+     * 
+     */
     private String kmsKeyIdentifier;
     /**
      * @return Location URI of the Configuration Profile.
@@ -91,6 +95,10 @@ public final class GetConfigurationProfileResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return KMS key identifier for encrypting the configuration data.
+     * 
+     */
     public String kmsKeyIdentifier() {
         return this.kmsKeyIdentifier;
     }

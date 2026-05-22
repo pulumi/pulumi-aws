@@ -125,7 +125,7 @@ class ReplicationSetRegionArgs:
 
 
 class ResponsePlanActionArgsDict(TypedDict):
-    ssm_automations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgs']]]]]
+    ssm_automations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgsDict']]]]]
     """
     The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
     """
@@ -170,7 +170,7 @@ class ResponsePlanActionSsmAutomationArgsDict(TypedDict):
     """
     The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgsDict']]]]]
     """
     The key-value pair parameters to use when the automation document runs. The following values are supported:
     """
@@ -344,7 +344,7 @@ class ResponsePlanIncidentTemplateArgsDict(TypedDict):
     """
     The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
     """
-    notification_targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArgs']]]]]
+    notification_targets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArgsDict']]]]]
     """
     The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
     """
@@ -483,7 +483,7 @@ class ResponsePlanIncidentTemplateNotificationTargetArgs:
 
 
 class ResponsePlanIntegrationArgsDict(TypedDict):
-    pagerduties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgs']]]]]
+    pagerduties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgsDict']]]]]
     """
     Details about the PagerDuty configuration for a response plan. The following values are supported:
     """

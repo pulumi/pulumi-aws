@@ -224,7 +224,7 @@ class AddonPodIdentityAssociationArgs:
 
 
 class CapabilityConfigurationArgsDict(TypedDict):
-    argo_cd: NotRequired[pulumi.Input[Optional['CapabilityConfigurationArgoCdArgs']]]
+    argo_cd: NotRequired[pulumi.Input[Optional['CapabilityConfigurationArgoCdArgsDict']]]
     """
     ArgoCD configuration. See `argo_cd` below.
     """
@@ -261,11 +261,11 @@ class CapabilityConfigurationArgoCdArgsDict(TypedDict):
     """
     Kubernetes namespace for ArgoCD.
     """
-    network_access: NotRequired[pulumi.Input[Optional['CapabilityConfigurationArgoCdNetworkAccessArgs']]]
+    network_access: NotRequired[pulumi.Input[Optional['CapabilityConfigurationArgoCdNetworkAccessArgsDict']]]
     """
     Network access configuration. See `network_access` below.
     """
-    rbac_role_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingArgs']]]]]
+    rbac_role_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CapabilityConfigurationArgoCdRbacRoleMappingArgsDict']]]]]
     """
     RBAC role mappings. See `rbac_role_mapping` below.
     """
@@ -865,7 +865,7 @@ class ClusterEncryptionConfigProviderArgs:
 
 
 class ClusterIdentityArgsDict(TypedDict):
-    oidcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterIdentityOidcArgs']]]]]
+    oidcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterIdentityOidcArgsDict']]]]]
     """
     Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
     """
@@ -923,7 +923,7 @@ class ClusterIdentityOidcArgs:
 
 
 class ClusterKubernetesNetworkConfigArgsDict(TypedDict):
-    elastic_load_balancing: NotRequired[pulumi.Input[Optional['ClusterKubernetesNetworkConfigElasticLoadBalancingArgs']]]
+    elastic_load_balancing: NotRequired[pulumi.Input[Optional['ClusterKubernetesNetworkConfigElasticLoadBalancingArgsDict']]]
     """
     Configuration block with elastic load balancing configuration for the cluster. Detailed below.
     """
@@ -1075,7 +1075,7 @@ class ClusterOutpostConfigArgsDict(TypedDict):
     """
     The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
     """
-    control_plane_placement: NotRequired[pulumi.Input[Optional['ClusterOutpostConfigControlPlanePlacementArgs']]]
+    control_plane_placement: NotRequired[pulumi.Input[Optional['ClusterOutpostConfigControlPlanePlacementArgsDict']]]
     """
     An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
     The `control_plane_placement` configuration block supports the following arguments:
@@ -1185,7 +1185,7 @@ class ClusterRemoteNetworkConfigArgsDict(TypedDict):
     """
     Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
     """
-    remote_pod_networks: NotRequired[pulumi.Input[Optional['ClusterRemoteNetworkConfigRemotePodNetworksArgs']]]
+    remote_pod_networks: NotRequired[pulumi.Input[Optional['ClusterRemoteNetworkConfigRemotePodNetworksArgsDict']]]
     """
     Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
     """
@@ -1287,7 +1287,7 @@ class ClusterRemoteNetworkConfigRemotePodNetworksArgs:
 
 
 class ClusterStorageConfigArgsDict(TypedDict):
-    block_storage: NotRequired[pulumi.Input[Optional['ClusterStorageConfigBlockStorageArgs']]]
+    block_storage: NotRequired[pulumi.Input[Optional['ClusterStorageConfigBlockStorageArgsDict']]]
     """
     Configuration block with block storage configuration for the cluster. Detailed below.
     """
@@ -1859,7 +1859,7 @@ class NodeGroupNodeRepairConfigArgsDict(TypedDict):
     """
     Percentage threshold of unhealthy nodes, above which node auto repair actions will stop. Conflicts with `max_unhealthy_node_threshold_count`.
     """
-    node_repair_config_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgs']]]]]
+    node_repair_config_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupNodeRepairConfigNodeRepairConfigOverrideArgsDict']]]]]
     """
     Granular overrides for specific repair actions. See `node_repair_config_overrides` below for details.
     """
@@ -2102,7 +2102,7 @@ class NodeGroupRemoteAccessArgs:
 
 
 class NodeGroupResourceArgsDict(TypedDict):
-    autoscaling_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgs']]]]]
+    autoscaling_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgsDict']]]]]
     """
     List of objects containing information about AutoScaling Groups.
     """

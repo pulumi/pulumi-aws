@@ -63,11 +63,9 @@ type GetArnResult struct {
 	Id      string `pulumi:"id"`
 	// Partition that the resource is in.
 	Partition string `pulumi:"partition"`
-	// Region the resource resides in.
-	// Note that the ARNs for some resources do not include a Region, so this component might be omitted.
+	// Region the resource resides in. Note that the ARNs for some resources do not include a Region, so this component might be omitted.
 	Region string `pulumi:"region"`
-	// Content of this part of the ARN varies by service.
-	// It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
+	// Content of this part of the ARN varies by service. It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
 	Resource string `pulumi:"resource"`
 	// The [service namespace](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces) that identifies the AWS product.
 	Service string `pulumi:"service"`
@@ -126,14 +124,12 @@ func (o GetArnResultOutput) Partition() pulumi.StringOutput {
 	return o.ApplyT(func(v GetArnResult) string { return v.Partition }).(pulumi.StringOutput)
 }
 
-// Region the resource resides in.
-// Note that the ARNs for some resources do not include a Region, so this component might be omitted.
+// Region the resource resides in. Note that the ARNs for some resources do not include a Region, so this component might be omitted.
 func (o GetArnResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetArnResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Content of this part of the ARN varies by service.
-// It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
+// Content of this part of the ARN varies by service. It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
 func (o GetArnResultOutput) Resource() pulumi.StringOutput {
 	return o.ApplyT(func(v GetArnResult) string { return v.Resource }).(pulumi.StringOutput)
 }

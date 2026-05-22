@@ -16,50 +16,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualGatewaySpecListener {
     /**
-     * @return Connection pool information for the listener.
+     * @return Connection pool information for the listener. See `connectionPool` Block for details.
      * 
      */
     private @Nullable VirtualGatewaySpecListenerConnectionPool connectionPool;
     /**
-     * @return Health check information for the listener.
+     * @return Health check information for the listener. See `healthCheck` Block for details.
      * 
      */
     private @Nullable VirtualGatewaySpecListenerHealthCheck healthCheck;
     /**
-     * @return Port mapping information for the listener.
+     * @return Port mapping information for the listener. See `portMapping` Block for details.
      * 
      */
     private VirtualGatewaySpecListenerPortMapping portMapping;
     /**
-     * @return Transport Layer Security (TLS) properties for the listener
+     * @return Transport Layer Security (TLS) properties for the listener. See `tls` Block for details.
      * 
      */
     private @Nullable VirtualGatewaySpecListenerTls tls;
 
     private VirtualGatewaySpecListener() {}
     /**
-     * @return Connection pool information for the listener.
+     * @return Connection pool information for the listener. See `connectionPool` Block for details.
      * 
      */
     public Optional<VirtualGatewaySpecListenerConnectionPool> connectionPool() {
         return Optional.ofNullable(this.connectionPool);
     }
     /**
-     * @return Health check information for the listener.
+     * @return Health check information for the listener. See `healthCheck` Block for details.
      * 
      */
     public Optional<VirtualGatewaySpecListenerHealthCheck> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
     /**
-     * @return Port mapping information for the listener.
+     * @return Port mapping information for the listener. See `portMapping` Block for details.
      * 
      */
     public VirtualGatewaySpecListenerPortMapping portMapping() {
         return this.portMapping;
     }
     /**
-     * @return Transport Layer Security (TLS) properties for the listener
+     * @return Transport Layer Security (TLS) properties for the listener. See `tls` Block for details.
      * 
      */
     public Optional<VirtualGatewaySpecListenerTls> tls() {

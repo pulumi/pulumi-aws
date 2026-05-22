@@ -519,7 +519,7 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgsDict(TypedDict):
     """
     Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [AmazonManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_AmazonManagedKafkaEventSourceConfig.html).
     """
-    schema_registry_config: NotRequired[pulumi.Input[Optional['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs']]]
+    schema_registry_config: NotRequired[pulumi.Input[Optional['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgsDict']]]
     """
     Block for a Kafka schema registry setting. See below.
     """
@@ -564,7 +564,7 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
 
 
 class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgsDict(TypedDict):
-    access_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs']]]]]
+    access_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgsDict']]]]]
     """
     Configuration block for authentication Lambda uses to access the schema registry.
     """
@@ -576,7 +576,7 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigA
     """
     URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
     """
-    schema_validation_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]]]]
+    schema_validation_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgsDict']]]]]
     """
     Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
     """
@@ -731,7 +731,7 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigS
 
 
 class EventSourceMappingDestinationConfigArgsDict(TypedDict):
-    on_failure: NotRequired[pulumi.Input[Optional['EventSourceMappingDestinationConfigOnFailureArgs']]]
+    on_failure: NotRequired[pulumi.Input[Optional['EventSourceMappingDestinationConfigOnFailureArgsDict']]]
     """
     Destination configuration for failed invocations. See below.
     """
@@ -856,7 +856,7 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
 
 
 class EventSourceMappingFilterCriteriaArgsDict(TypedDict):
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgsDict']]]]]
     """
     Set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. See below.
     """
@@ -1072,7 +1072,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgsDict(TypedDict):
     """
     Kafka consumer group ID between 1 and 200 characters for use when creating this event source mapping. If one is not specified, this value will be automatically generated. See [SelfManagedKafkaEventSourceConfig Syntax](https://docs.aws.amazon.com/lambda/latest/dg/API_SelfManagedKafkaEventSourceConfig.html).
     """
-    schema_registry_config: NotRequired[pulumi.Input[Optional['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs']]]
+    schema_registry_config: NotRequired[pulumi.Input[Optional['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgsDict']]]
     """
     Block for a Kafka schema registry setting. See below.
     """
@@ -1117,7 +1117,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
 
 
 class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgsDict(TypedDict):
-    access_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs']]]]]
+    access_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgsDict']]]]]
     """
     Configuration block for authentication Lambda uses to access the schema registry.
     """
@@ -1129,7 +1129,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArg
     """
     URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
     """
-    schema_validation_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgs']]]]]
+    schema_validation_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArgsDict']]]]]
     """
     Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
     """
@@ -1561,11 +1561,11 @@ class FunctionEphemeralStorageArgs:
 
 
 class FunctionEventInvokeConfigDestinationConfigArgsDict(TypedDict):
-    on_failure: NotRequired[pulumi.Input[Optional['FunctionEventInvokeConfigDestinationConfigOnFailureArgs']]]
+    on_failure: NotRequired[pulumi.Input[Optional['FunctionEventInvokeConfigDestinationConfigOnFailureArgsDict']]]
     """
     Configuration block with destination configuration for failed asynchronous invocations. See below.
     """
-    on_success: NotRequired[pulumi.Input[Optional['FunctionEventInvokeConfigDestinationConfigOnSuccessArgs']]]
+    on_success: NotRequired[pulumi.Input[Optional['FunctionEventInvokeConfigDestinationConfigOnSuccessArgsDict']]]
     """
     Configuration block with destination configuration for successful asynchronous invocations. See below.
     """

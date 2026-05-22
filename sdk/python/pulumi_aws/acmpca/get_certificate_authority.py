@@ -114,6 +114,9 @@ class GetCertificateAuthorityResult:
     @_builtins.property
     @pulumi.getter(name="keyStorageSecurityStandard")
     def key_storage_security_standard(self) -> _builtins.str:
+        """
+        Level of security of the key storage endpoint of the certificate authority.
+        """
         return pulumi.get(self, "key_storage_security_standard")
 
     @_builtins.property
@@ -141,7 +144,7 @@ class GetCertificateAuthorityResult:
     @pulumi.getter(name="revocationConfigurations")
     def revocation_configurations(self) -> Sequence['outputs.GetCertificateAuthorityRevocationConfigurationResult']:
         """
-        Nested attribute containing revocation configuration.
+        Nested attribute containing revocation configuration. See `revocation_configuration` below.
         """
         return pulumi.get(self, "revocation_configurations")
 

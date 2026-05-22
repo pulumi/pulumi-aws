@@ -1013,7 +1013,7 @@ class WebAclLoggingConfigurationArgsDict(TypedDict):
     """
     Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
     """
-    redacted_fields: NotRequired[pulumi.Input[Optional['WebAclLoggingConfigurationRedactedFieldsArgs']]]
+    redacted_fields: NotRequired[pulumi.Input[Optional['WebAclLoggingConfigurationRedactedFieldsArgsDict']]]
     """
     Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
     """
@@ -1142,11 +1142,11 @@ class WebAclRuleArgsDict(TypedDict):
     """
     ID of the associated WAF (Global) rule (e.g., `waf.Rule`). WAF (Regional) rules cannot be used.
     """
-    action: NotRequired[pulumi.Input[Optional['WebAclRuleActionArgs']]]
+    action: NotRequired[pulumi.Input[Optional['WebAclRuleActionArgsDict']]]
     """
     The action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Not used if `type` is `GROUP`.
     """
-    override_action: NotRequired[pulumi.Input[Optional['WebAclRuleOverrideActionArgs']]]
+    override_action: NotRequired[pulumi.Input[Optional['WebAclRuleOverrideActionArgsDict']]]
     """
     Override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule. Only used if `type` is `GROUP`.
     """

@@ -44,33 +44,31 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example := exampleWorkspace.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-//						{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//								{
-//									Type: "AWS",
-//									Identifiers: pulumi.StringArray{
-//										current.AccountId,
-//									},
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String(current.AccountId),
 //								},
 //							},
-//							Actions: []string{
-//								"aps:RemoteWrite",
-//								"aps:QueryMetrics",
-//								"aps:GetSeries",
-//								"aps:GetLabels",
-//								"aps:GetMetricMetadata",
-//							},
-//							Resources: []string{
-//								arn,
-//							},
 //						},
-//					}),
-//				}, nil))), nil
-//			}).(iam.GetPolicyDocumentResultOutput)
+//						Actions: pulumi.StringArray{
+//							pulumi.String("aps:RemoteWrite"),
+//							pulumi.String("aps:QueryMetrics"),
+//							pulumi.String("aps:GetSeries"),
+//							pulumi.String("aps:GetLabels"),
+//							pulumi.String("aps:GetMetricMetadata"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleWorkspace.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = amp.NewResourcePolicy(ctx, "example", &amp.ResourcePolicyArgs{
 //				WorkspaceId: exampleWorkspace.ID(),
 //				PolicyDocument: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {

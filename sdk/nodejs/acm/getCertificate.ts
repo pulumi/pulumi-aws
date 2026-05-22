@@ -67,9 +67,7 @@ export interface GetCertificateArgs {
      */
     region?: string;
     /**
-     * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-     * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-     * are returned.
+     * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`, `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state are returned.
      */
     statuses?: string[];
     /**
@@ -180,9 +178,7 @@ export interface GetCertificateOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-     * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-     * are returned.
+     * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`, `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state are returned.
      */
     statuses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

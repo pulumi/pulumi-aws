@@ -46,10 +46,21 @@ namespace Pulumi.Aws.Xray
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import XRay Sampling Rules using the name. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `RuleName` (String) Sampling rule name.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import XRay Sampling Rules using `RuleName`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:xray/samplingRule:SamplingRule example example
+    /// $ pulumi import aws:xray/samplingRule:SamplingRule example example-rule
     /// ```
     /// </summary>
     [AwsResourceType("aws:xray/samplingRule:SamplingRule")]

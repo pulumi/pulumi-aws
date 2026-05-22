@@ -12,16 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualRouterSpec {
     /**
-     * @return Listeners that the virtual router is expected to receive inbound traffic from.
-     * Currently only one listener is supported per virtual router.
+     * @return Listeners that the virtual router is expected to receive inbound traffic from. Currently only one listener is supported per virtual router. See `listener` Block for details.
      * 
      */
     private @Nullable List<VirtualRouterSpecListener> listeners;
 
     private VirtualRouterSpec() {}
     /**
-     * @return Listeners that the virtual router is expected to receive inbound traffic from.
-     * Currently only one listener is supported per virtual router.
+     * @return Listeners that the virtual router is expected to receive inbound traffic from. Currently only one listener is supported per virtual router. See `listener` Block for details.
      * 
      */
     public List<VirtualRouterSpecListener> listeners() {

@@ -735,10 +735,8 @@ class GetImageApplicationResult(dict):
         :param _builtins.str launch_parameters: Arguments that are passed to the application at it's launch.
         :param _builtins.str launch_path: Path to the application's excecutable in the instance.
         :param Mapping[str, _builtins.str] metadata: String to string map that contains additional attributes used to describe the application.
-               * `Name` - Name of the application.
         :param _builtins.str name: Name of the image being searched for. Cannot be used with `name_regex` or `arn`.
-        :param Sequence[_builtins.str] platforms: Array of strings describing the platforms on which the application can run.
-               Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
+        :param Sequence[_builtins.str] platforms: Array of strings describing the platforms on which the application can run. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
         :param _builtins.str working_directory: Working directory for the application.
         """
         pulumi.set(__self__, "app_block_arn", app_block_arn)
@@ -850,7 +848,6 @@ class GetImageApplicationResult(dict):
     def metadata(self) -> Mapping[str, _builtins.str]:
         """
         String to string map that contains additional attributes used to describe the application.
-        * `Name` - Name of the application.
         """
         return pulumi.get(self, "metadata")
 
@@ -866,8 +863,7 @@ class GetImageApplicationResult(dict):
     @pulumi.getter
     def platforms(self) -> Sequence[_builtins.str]:
         """
-        Array of strings describing the platforms on which the application can run.
-        Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
+        Array of strings describing the platforms on which the application can run. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
         """
         return pulumi.get(self, "platforms")
 
@@ -943,17 +939,27 @@ class GetImageStateChangeReasonResult(dict):
     def __init__(__self__, *,
                  code: _builtins.str,
                  message: _builtins.str):
+        """
+        :param _builtins.str code: State change reason code.
+        :param _builtins.str message: State change reason message.
+        """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "message", message)
 
     @_builtins.property
     @pulumi.getter
     def code(self) -> _builtins.str:
+        """
+        State change reason code.
+        """
         return pulumi.get(self, "code")
 
     @_builtins.property
     @pulumi.getter
     def message(self) -> _builtins.str:
+        """
+        State change reason message.
+        """
         return pulumi.get(self, "message")
 
 

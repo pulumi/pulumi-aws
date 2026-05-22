@@ -114,27 +114,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example := exampleContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (iam.GetPolicyDocumentResult, error) {
-//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-//						{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//								{
-//									Type: "AWS",
-//									Identifiers: pulumi.StringArray{
-//										privateRegistryAccess.EcrImagePullerRole.PrincipalArn,
-//									},
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									exampleContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (*string, error) {
+//										return &privateRegistryAccess.EcrImagePullerRole.PrincipalArn, nil
+//									}).(pulumi.StringPtrOutput),
 //								},
 //							},
-//							Actions: []string{
-//								"ecr:BatchGetImage",
-//								"ecr:GetDownloadUrlForLayer",
-//							},
 //						},
-//					}),
-//				}, nil))), nil
-//			}).(iam.GetPolicyDocumentResultOutput)
+//						Actions: pulumi.StringArray{
+//							pulumi.String("ecr:BatchGetImage"),
+//							pulumi.String("ecr:GetDownloadUrlForLayer"),
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = ecr.NewRepositoryPolicy(ctx, "example", &ecr.RepositoryPolicyArgs{
 //				Repository: pulumi.Any(exampleAwsEcrRepository.Name),
 //				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {

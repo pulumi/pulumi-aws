@@ -379,10 +379,7 @@ namespace Pulumi.Aws
         public string? Region { get; set; }
 
         /// <summary>
-        /// Allows to filter list of Availability Zones based on their
-        /// current state. Can be either `"available"`, `"information"`, `"impaired"` or
-        /// `"unavailable"`. By default the list includes a complete set of Availability Zones
-        /// to which the underlying AWS account has access, regardless of their state.
+        /// Allows to filter list of Availability Zones based on their current state. Can be either `"available"`, `"information"`, `"impaired"` or `"unavailable"`. By default the list includes a complete set of Availability Zones to which the underlying AWS account has access, regardless of their state.
         /// </summary>
         [Input("state")]
         public string? State { get; set; }
@@ -444,10 +441,7 @@ namespace Pulumi.Aws
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Allows to filter list of Availability Zones based on their
-        /// current state. Can be either `"available"`, `"information"`, `"impaired"` or
-        /// `"unavailable"`. By default the list includes a complete set of Availability Zones
-        /// to which the underlying AWS account has access, regardless of their state.
+        /// Allows to filter list of Availability Zones based on their current state. Can be either `"available"`, `"information"`, `"impaired"` or `"unavailable"`. By default the list includes a complete set of Availability Zones to which the underlying AWS account has access, regardless of their state.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -467,7 +461,7 @@ namespace Pulumi.Aws
         public readonly ImmutableArray<string> ExcludeZoneIds;
         public readonly ImmutableArray<Outputs.GetAvailabilityZonesFilterResult> Filters;
         /// <summary>
-        /// A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+        /// Set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
         /// </summary>
         public readonly ImmutableArray<string> GroupNames;
         /// <summary>

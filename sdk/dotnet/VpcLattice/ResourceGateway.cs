@@ -138,6 +138,12 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+        /// </summary>
+        [Output("resourceConfigDnsResolution")]
+        public Output<string> ResourceConfigDnsResolution { get; private set; } = null!;
+
+        /// <summary>
         /// Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
         /// </summary>
         [Output("securityGroupIds")]
@@ -248,6 +254,12 @@ namespace Pulumi.Aws.VpcLattice
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+        /// </summary>
+        [Input("resourceConfigDnsResolution")]
+        public Input<string>? ResourceConfigDnsResolution { get; set; }
+
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;
 
@@ -332,6 +344,12 @@ namespace Pulumi.Aws.VpcLattice
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+        /// </summary>
+        [Input("resourceConfigDnsResolution")]
+        public Input<string>? ResourceConfigDnsResolution { get; set; }
 
         [Input("securityGroupIds")]
         private InputList<string>? _securityGroupIds;

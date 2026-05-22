@@ -41,11 +41,11 @@ namespace Pulumi.Aws.S3
     ///     {
     ///         Statements = new[]
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
     ///                 Principals = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
     ///                         Identifiers = new[]
     ///                         {
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///                 Conditions = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
     ///                     {
     ///                         Test = "StringEquals",
     ///                         Variable = "aws:SourceAccount",

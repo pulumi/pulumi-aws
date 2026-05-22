@@ -21,14 +21,14 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
     public static final VirtualNodeSpecArgs Empty = new VirtualNodeSpecArgs();
 
     /**
-     * Defaults for backends.
+     * Defaults for backends. See `backendDefaults` Block for details.
      * 
      */
     @Import(name="backendDefaults")
     private @Nullable Output<VirtualNodeSpecBackendDefaultsArgs> backendDefaults;
 
     /**
-     * @return Defaults for backends.
+     * @return Defaults for backends. See `backendDefaults` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecBackendDefaultsArgs>> backendDefaults() {
@@ -36,14 +36,14 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Backends to which the virtual node is expected to send outbound traffic.
+     * Backends to which the virtual node is expected to send outbound traffic. See `backend` Block for details.
      * 
      */
     @Import(name="backends")
     private @Nullable Output<List<VirtualNodeSpecBackendArgs>> backends;
 
     /**
-     * @return Backends to which the virtual node is expected to send outbound traffic.
+     * @return Backends to which the virtual node is expected to send outbound traffic. See `backend` Block for details.
      * 
      */
     public Optional<Output<List<VirtualNodeSpecBackendArgs>>> backends() {
@@ -51,14 +51,14 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Listeners from which the virtual node is expected to receive inbound traffic.
+     * Listeners from which the virtual node is expected to receive inbound traffic. See `listener` Block for details.
      * 
      */
     @Import(name="listeners")
     private @Nullable Output<List<VirtualNodeSpecListenerArgs>> listeners;
 
     /**
-     * @return Listeners from which the virtual node is expected to receive inbound traffic.
+     * @return Listeners from which the virtual node is expected to receive inbound traffic. See `listener` Block for details.
      * 
      */
     public Optional<Output<List<VirtualNodeSpecListenerArgs>>> listeners() {
@@ -66,14 +66,14 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Inbound and outbound access logging information for the virtual node.
+     * Inbound and outbound access logging information for the virtual node. See `logging` Block for details.
      * 
      */
     @Import(name="logging")
     private @Nullable Output<VirtualNodeSpecLoggingArgs> logging;
 
     /**
-     * @return Inbound and outbound access logging information for the virtual node.
+     * @return Inbound and outbound access logging information for the virtual node. See `logging` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecLoggingArgs>> logging() {
@@ -81,14 +81,14 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Service discovery information for the virtual node.
+     * Service discovery information for the virtual node. See `serviceDiscovery` Block for details.
      * 
      */
     @Import(name="serviceDiscovery")
     private @Nullable Output<VirtualNodeSpecServiceDiscoveryArgs> serviceDiscovery;
 
     /**
-     * @return Service discovery information for the virtual node.
+     * @return Service discovery information for the virtual node. See `serviceDiscovery` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecServiceDiscoveryArgs>> serviceDiscovery() {
@@ -124,7 +124,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param backendDefaults Defaults for backends.
+         * @param backendDefaults Defaults for backends. See `backendDefaults` Block for details.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param backendDefaults Defaults for backends.
+         * @param backendDefaults Defaults for backends. See `backendDefaults` Block for details.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param backends Backends to which the virtual node is expected to send outbound traffic.
+         * @param backends Backends to which the virtual node is expected to send outbound traffic. See `backend` Block for details.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param backends Backends to which the virtual node is expected to send outbound traffic.
+         * @param backends Backends to which the virtual node is expected to send outbound traffic. See `backend` Block for details.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param backends Backends to which the virtual node is expected to send outbound traffic.
+         * @param backends Backends to which the virtual node is expected to send outbound traffic. See `backend` Block for details.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param listeners Listeners from which the virtual node is expected to receive inbound traffic.
+         * @param listeners Listeners from which the virtual node is expected to receive inbound traffic. See `listener` Block for details.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param listeners Listeners from which the virtual node is expected to receive inbound traffic.
+         * @param listeners Listeners from which the virtual node is expected to receive inbound traffic. See `listener` Block for details.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param listeners Listeners from which the virtual node is expected to receive inbound traffic.
+         * @param listeners Listeners from which the virtual node is expected to receive inbound traffic. See `listener` Block for details.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param logging Inbound and outbound access logging information for the virtual node.
+         * @param logging Inbound and outbound access logging information for the virtual node. See `logging` Block for details.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param logging Inbound and outbound access logging information for the virtual node.
+         * @param logging Inbound and outbound access logging information for the virtual node. See `logging` Block for details.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param serviceDiscovery Service discovery information for the virtual node.
+         * @param serviceDiscovery Service discovery information for the virtual node. See `serviceDiscovery` Block for details.
          * 
          * @return builder
          * 
@@ -239,7 +239,7 @@ public final class VirtualNodeSpecArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param serviceDiscovery Service discovery information for the virtual node.
+         * @param serviceDiscovery Service discovery information for the virtual node. See `serviceDiscovery` Block for details.
          * 
          * @return builder
          * 

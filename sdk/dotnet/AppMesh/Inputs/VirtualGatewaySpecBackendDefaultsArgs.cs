@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualGatewaySpecBackendDefaultsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Default client policy for virtual gateway backends.
+        /// Default client policy for virtual gateway backends. See `ClientPolicy` Block for details.
         /// </summary>
         [Input("clientPolicy")]
         public Input<Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyArgs>? ClientPolicy { get; set; }

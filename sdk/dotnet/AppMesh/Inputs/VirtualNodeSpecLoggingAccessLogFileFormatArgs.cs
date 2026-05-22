@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs>? _jsons;
 
         /// <summary>
-        /// The logging format for JSON.
+        /// The logging format for JSON. See `Json` Block for details.
         /// </summary>
         public InputList<Inputs.VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs> Jsons
         {

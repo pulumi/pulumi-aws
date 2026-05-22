@@ -126,7 +126,7 @@ __all__ = [
 ]
 
 class PipeEnrichmentParametersArgsDict(TypedDict):
-    http_parameters: NotRequired[pulumi.Input[Optional['PipeEnrichmentParametersHttpParametersArgs']]]
+    http_parameters: NotRequired[pulumi.Input[Optional['PipeEnrichmentParametersHttpParametersArgsDict']]]
     """
     Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
     """
@@ -225,11 +225,11 @@ class PipeLogConfigurationArgsDict(TypedDict):
     """
     The level of logging detail to include. Valid values `OFF`, `ERROR`, `INFO` and `TRACE`.
     """
-    cloudwatch_logs_log_destination: NotRequired[pulumi.Input[Optional['PipeLogConfigurationCloudwatchLogsLogDestinationArgs']]]
+    cloudwatch_logs_log_destination: NotRequired[pulumi.Input[Optional['PipeLogConfigurationCloudwatchLogsLogDestinationArgsDict']]]
     """
     Amazon CloudWatch Logs logging configuration settings for the pipe. Detailed below.
     """
-    firehose_log_destination: NotRequired[pulumi.Input[Optional['PipeLogConfigurationFirehoseLogDestinationArgs']]]
+    firehose_log_destination: NotRequired[pulumi.Input[Optional['PipeLogConfigurationFirehoseLogDestinationArgsDict']]]
     """
     Amazon Kinesis Data Firehose logging configuration settings for the pipe. Detailed below.
     """
@@ -237,7 +237,7 @@ class PipeLogConfigurationArgsDict(TypedDict):
     """
     String list that specifies whether the execution data (specifically, the `payload`, `awsRequest`, and `awsResponse` fields) is included in the log messages for this pipe. This applies to all log destinations for the pipe. Valid values `ALL`.
     """
-    s3_log_destination: NotRequired[pulumi.Input[Optional['PipeLogConfigurationS3LogDestinationArgs']]]
+    s3_log_destination: NotRequired[pulumi.Input[Optional['PipeLogConfigurationS3LogDestinationArgsDict']]]
     """
     Amazon S3 logging configuration settings for the pipe. Detailed below.
     """
@@ -472,35 +472,35 @@ class PipeLogConfigurationS3LogDestinationArgs:
 
 
 class PipeSourceParametersArgsDict(TypedDict):
-    activemq_broker_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersActivemqBrokerParametersArgs']]]
+    activemq_broker_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersActivemqBrokerParametersArgsDict']]]
     """
     The parameters for using an Active MQ broker as a source. Detailed below.
     """
-    dynamodb_stream_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersDynamodbStreamParametersArgs']]]
+    dynamodb_stream_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersDynamodbStreamParametersArgsDict']]]
     """
     The parameters for using a DynamoDB stream as a source.  Detailed below.
     """
-    filter_criteria: NotRequired[pulumi.Input[Optional['PipeSourceParametersFilterCriteriaArgs']]]
+    filter_criteria: NotRequired[pulumi.Input[Optional['PipeSourceParametersFilterCriteriaArgsDict']]]
     """
     The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
     """
-    kinesis_stream_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersKinesisStreamParametersArgs']]]
+    kinesis_stream_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersKinesisStreamParametersArgsDict']]]
     """
     The parameters for using a Kinesis stream as a source. Detailed below.
     """
-    managed_streaming_kafka_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersManagedStreamingKafkaParametersArgs']]]
+    managed_streaming_kafka_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersManagedStreamingKafkaParametersArgsDict']]]
     """
     The parameters for using an MSK stream as a source. Detailed below.
     """
-    rabbitmq_broker_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersRabbitmqBrokerParametersArgs']]]
+    rabbitmq_broker_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersRabbitmqBrokerParametersArgsDict']]]
     """
     The parameters for using a Rabbit MQ broker as a source. Detailed below.
     """
-    self_managed_kafka_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersArgs']]]
+    self_managed_kafka_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersArgsDict']]]
     """
     The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
     """
-    sqs_queue_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersSqsQueueParametersArgs']]]
+    sqs_queue_parameters: NotRequired[pulumi.Input[Optional['PipeSourceParametersSqsQueueParametersArgsDict']]]
     """
     The parameters for using a Amazon SQS stream as a source. Detailed below.
     """
@@ -764,7 +764,7 @@ class PipeSourceParametersDynamodbStreamParametersArgsDict(TypedDict):
     """
     The maximum number of records to include in each batch. Maximum value of 10000.
     """
-    dead_letter_config: NotRequired[pulumi.Input[Optional['PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs']]]
+    dead_letter_config: NotRequired[pulumi.Input[Optional['PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgsDict']]]
     """
     Define the target queue to send dead-letter queue events to. Detailed below.
     """
@@ -953,7 +953,7 @@ class PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs:
 
 
 class PipeSourceParametersFilterCriteriaArgsDict(TypedDict):
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeSourceParametersFilterCriteriaFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeSourceParametersFilterCriteriaFilterArgsDict']]]]]
     """
     An array of up to 5 event patterns. Detailed below.
     """
@@ -1018,7 +1018,7 @@ class PipeSourceParametersKinesisStreamParametersArgsDict(TypedDict):
     """
     The maximum number of records to include in each batch. Maximum value of 10000.
     """
-    dead_letter_config: NotRequired[pulumi.Input[Optional['PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs']]]
+    dead_letter_config: NotRequired[pulumi.Input[Optional['PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgsDict']]]
     """
     Define the target queue to send dead-letter queue events to. Detailed below.
     """
@@ -1239,7 +1239,7 @@ class PipeSourceParametersManagedStreamingKafkaParametersArgsDict(TypedDict):
     """
     The name of the destination queue to consume. Maximum value of 200.
     """
-    credentials: NotRequired[pulumi.Input[Optional['PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs']]]
+    credentials: NotRequired[pulumi.Input[Optional['PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgsDict']]]
     """
     The credentials needed to access the resource. Detailed below.
     """
@@ -1555,7 +1555,7 @@ class PipeSourceParametersSelfManagedKafkaParametersArgsDict(TypedDict):
     """
     The name of the destination queue to consume. Maximum value of 200.
     """
-    credentials: NotRequired[pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs']]]
+    credentials: NotRequired[pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersCredentialsArgsDict']]]
     """
     The credentials needed to access the resource. Detailed below.
     """
@@ -1571,7 +1571,7 @@ class PipeSourceParametersSelfManagedKafkaParametersArgsDict(TypedDict):
     """
     The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
     """
-    vpc: NotRequired[pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersVpcArgs']]]
+    vpc: NotRequired[pulumi.Input[Optional['PipeSourceParametersSelfManagedKafkaParametersVpcArgsDict']]]
     """
     This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
     """
@@ -1898,23 +1898,23 @@ class PipeSourceParametersSqsQueueParametersArgs:
 
 
 class PipeTargetParametersArgsDict(TypedDict):
-    batch_job_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersBatchJobParametersArgs']]]
+    batch_job_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersBatchJobParametersArgsDict']]]
     """
     The parameters for using an AWS Batch job as a target. Detailed below.
     """
-    cloudwatch_logs_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersCloudwatchLogsParametersArgs']]]
+    cloudwatch_logs_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersCloudwatchLogsParametersArgsDict']]]
     """
     The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
     """
-    ecs_task_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersArgs']]]
+    ecs_task_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersArgsDict']]]
     """
     The parameters for using an Amazon ECS task as a target. Detailed below.
     """
-    eventbridge_event_bus_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersEventbridgeEventBusParametersArgs']]]
+    eventbridge_event_bus_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersEventbridgeEventBusParametersArgsDict']]]
     """
     The parameters for using an EventBridge event bus as a target. Detailed below.
     """
-    http_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersHttpParametersArgs']]]
+    http_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersHttpParametersArgsDict']]]
     """
     These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
     """
@@ -1922,27 +1922,27 @@ class PipeTargetParametersArgsDict(TypedDict):
     """
     Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
     """
-    kinesis_stream_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersKinesisStreamParametersArgs']]]
+    kinesis_stream_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersKinesisStreamParametersArgsDict']]]
     """
     The parameters for using a Kinesis stream as a source. Detailed below.
     """
-    lambda_function_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersLambdaFunctionParametersArgs']]]
+    lambda_function_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersLambdaFunctionParametersArgsDict']]]
     """
     The parameters for using a Lambda function as a target. Detailed below.
     """
-    redshift_data_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersRedshiftDataParametersArgs']]]
+    redshift_data_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersRedshiftDataParametersArgsDict']]]
     """
     These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
     """
-    sagemaker_pipeline_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersSagemakerPipelineParametersArgs']]]
+    sagemaker_pipeline_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersSagemakerPipelineParametersArgsDict']]]
     """
     The parameters for using a SageMaker AI pipeline as a target. Detailed below.
     """
-    sqs_queue_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersSqsQueueParametersArgs']]]
+    sqs_queue_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersSqsQueueParametersArgsDict']]]
     """
     The parameters for using a Amazon SQS stream as a target. Detailed below.
     """
-    step_function_state_machine_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersStepFunctionStateMachineParametersArgs']]]
+    step_function_state_machine_parameters: NotRequired[pulumi.Input[Optional['PipeTargetParametersStepFunctionStateMachineParametersArgsDict']]]
     """
     The parameters for using a Step Functions state machine as a target. Detailed below.
     """
@@ -2155,15 +2155,15 @@ class PipeTargetParametersBatchJobParametersArgsDict(TypedDict):
     """
     The name of the job. It can be up to 128 letters long.
     """
-    array_properties: NotRequired[pulumi.Input[Optional['PipeTargetParametersBatchJobParametersArrayPropertiesArgs']]]
+    array_properties: NotRequired[pulumi.Input[Optional['PipeTargetParametersBatchJobParametersArrayPropertiesArgsDict']]]
     """
     The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
     """
-    container_overrides: NotRequired[pulumi.Input[Optional['PipeTargetParametersBatchJobParametersContainerOverridesArgs']]]
+    container_overrides: NotRequired[pulumi.Input[Optional['PipeTargetParametersBatchJobParametersContainerOverridesArgsDict']]]
     """
     The overrides that are sent to a container. Detailed below.
     """
-    depends_ons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersDependsOnArgs']]]]]
+    depends_ons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersDependsOnArgsDict']]]]]
     """
     A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
     """
@@ -2171,7 +2171,7 @@ class PipeTargetParametersBatchJobParametersArgsDict(TypedDict):
     """
     Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
     """
-    retry_strategy: NotRequired[pulumi.Input[Optional['PipeTargetParametersBatchJobParametersRetryStrategyArgs']]]
+    retry_strategy: NotRequired[pulumi.Input[Optional['PipeTargetParametersBatchJobParametersRetryStrategyArgsDict']]]
     """
     The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
     """
@@ -2327,7 +2327,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesArgsDict(TypedDict
     """
     List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
     """
-    environments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs']]]]]
+    environments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgsDict']]]]]
     """
     The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
     """
@@ -2335,7 +2335,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesArgsDict(TypedDict
     """
     The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
     """
-    resource_requirements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs']]]]]
+    resource_requirements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgsDict']]]]]
     """
     The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
     """
@@ -2639,7 +2639,7 @@ class PipeTargetParametersEcsTaskParametersArgsDict(TypedDict):
     """
     The ARN of the task definition to use if the event target is an Amazon ECS task.
     """
-    capacity_provider_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs']]]]]
+    capacity_provider_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgsDict']]]]]
     """
     List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
     """
@@ -2659,19 +2659,19 @@ class PipeTargetParametersEcsTaskParametersArgsDict(TypedDict):
     """
     Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
     """
-    network_configuration: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs']]]
+    network_configuration: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersNetworkConfigurationArgsDict']]]
     """
     Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
     """
-    overrides: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersOverridesArgs']]]
+    overrides: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersOverridesArgsDict']]]
     """
     The overrides that are associated with a task. Detailed below.
     """
-    placement_constraints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementConstraintArgs']]]]]
+    placement_constraints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementConstraintArgsDict']]]]]
     """
     An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
     """
-    placement_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementStrategyArgs']]]]]
+    placement_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersPlacementStrategyArgsDict']]]]]
     """
     The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
     """
@@ -3011,7 +3011,7 @@ class PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs:
 
 
 class PipeTargetParametersEcsTaskParametersNetworkConfigurationArgsDict(TypedDict):
-    aws_vpc_configuration: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs']]]
+    aws_vpc_configuration: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgsDict']]]
     """
     Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
     """
@@ -3095,7 +3095,7 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurati
 
 
 class PipeTargetParametersEcsTaskParametersOverridesArgsDict(TypedDict):
-    container_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs']]]]]
+    container_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgsDict']]]]]
     """
     One or more container overrides that are sent to a task. Detailed below.
     """
@@ -3103,7 +3103,7 @@ class PipeTargetParametersEcsTaskParametersOverridesArgsDict(TypedDict):
     """
     The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
     """
-    ephemeral_storage: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs']]]
+    ephemeral_storage: NotRequired[pulumi.Input[Optional['PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgsDict']]]
     """
     The ephemeral storage setting override for the task.  Detailed below.
     """
@@ -3111,7 +3111,7 @@ class PipeTargetParametersEcsTaskParametersOverridesArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
     """
-    inference_accelerator_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs']]]]]
+    inference_accelerator_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgsDict']]]]]
     """
     List of Elastic Inference accelerator overrides for the task. Detailed below.
     """
@@ -3252,11 +3252,11 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgsDict(Ty
     """
     The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
     """
-    environment_files: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs']]]]]
+    environment_files: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgsDict']]]]]
     """
     A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
     """
-    environments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs']]]]]
+    environments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgsDict']]]]]
     """
     The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
     """
@@ -3272,7 +3272,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgsDict(Ty
     """
     Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
     """
-    resource_requirements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs']]]]]
+    resource_requirements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgsDict']]]]]
     """
     The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
     """
@@ -4069,7 +4069,7 @@ class PipeTargetParametersRedshiftDataParametersArgs:
 
 
 class PipeTargetParametersSagemakerPipelineParametersArgsDict(TypedDict):
-    pipeline_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs']]]]]
+    pipeline_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgsDict']]]]]
     """
     List of Parameter names and values for SageMaker AI Model Building Pipeline execution. Detailed below.
     """

@@ -48,11 +48,11 @@ __all__ = [
 ]
 
 class IdentitySourceConfigurationArgsDict(TypedDict):
-    cognito_user_pool_configuration: NotRequired[pulumi.Input[Optional['IdentitySourceConfigurationCognitoUserPoolConfigurationArgs']]]
+    cognito_user_pool_configuration: NotRequired[pulumi.Input[Optional['IdentitySourceConfigurationCognitoUserPoolConfigurationArgsDict']]]
     """
     Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
     """
-    open_id_connect_configuration: NotRequired[pulumi.Input[Optional['IdentitySourceConfigurationOpenIdConnectConfigurationArgs']]]
+    open_id_connect_configuration: NotRequired[pulumi.Input[Optional['IdentitySourceConfigurationOpenIdConnectConfigurationArgsDict']]]
     """
     Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
     """
@@ -105,7 +105,7 @@ class IdentitySourceConfigurationCognitoUserPoolConfigurationArgsDict(TypedDict)
     """
     The unique application client IDs that are associated with the specified Amazon Cognito user pool.
     """
-    group_configuration: NotRequired[pulumi.Input[Optional['IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs']]]
+    group_configuration: NotRequired[pulumi.Input[Optional['IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgsDict']]]
     """
     The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
     """
@@ -205,7 +205,7 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationArgsDict(TypedDict):
     """
     A descriptive string that you want to prefix to user entities from your OIDC identity provider.
     """
-    group_configuration: NotRequired[pulumi.Input[Optional['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs']]]
+    group_configuration: NotRequired[pulumi.Input[Optional['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgsDict']]]
     """
     The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
     """
@@ -327,11 +327,11 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArg
 
 
 class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgsDict(TypedDict):
-    access_token_only: NotRequired[pulumi.Input[Optional['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs']]]
+    access_token_only: NotRequired[pulumi.Input[Optional['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgsDict']]]
     """
     The OIDC configuration for processing access tokens. See Access Token Only below.
     """
-    identity_token_only: NotRequired[pulumi.Input[Optional['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs']]]
+    identity_token_only: NotRequired[pulumi.Input[Optional['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgsDict']]]
     """
     The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
     """
@@ -474,11 +474,11 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentit
 
 
 class PolicyDefinitionArgsDict(TypedDict):
-    static: NotRequired[pulumi.Input[Optional['PolicyDefinitionStaticArgs']]]
+    static: NotRequired[pulumi.Input[Optional['PolicyDefinitionStaticArgsDict']]]
     """
     The static policy statement. See Static below.
     """
-    template_linked: NotRequired[pulumi.Input[Optional['PolicyDefinitionTemplateLinkedArgs']]]
+    template_linked: NotRequired[pulumi.Input[Optional['PolicyDefinitionTemplateLinkedArgsDict']]]
     """
     The template linked policy. See Template Linked below.
     """
@@ -575,11 +575,11 @@ class PolicyDefinitionTemplateLinkedArgsDict(TypedDict):
     """
     The ID of the template.
     """
-    principal: NotRequired[pulumi.Input[Optional['PolicyDefinitionTemplateLinkedPrincipalArgs']]]
+    principal: NotRequired[pulumi.Input[Optional['PolicyDefinitionTemplateLinkedPrincipalArgsDict']]]
     """
     The principal of the template linked policy.
     """
-    resource: NotRequired[pulumi.Input[Optional['PolicyDefinitionTemplateLinkedResourceArgs']]]
+    resource: NotRequired[pulumi.Input[Optional['PolicyDefinitionTemplateLinkedResourceArgsDict']]]
     """
     The resource of the template linked policy.
     """

@@ -145,18 +145,18 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example_model_package_group = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
-        example = example_model_package_group.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
+        example = aws.iam.get_policy_document_output(statements=[{
             "sid": "AddPermModelPackageGroup",
             "actions": [
                 "sagemaker:DescribeModelPackage",
                 "sagemaker:ListModelPackages",
             ],
-            "resources": [arn],
+            "resources": [example_model_package_group.arn],
             "principals": [{
                 "identifiers": [current.account_id],
                 "type": "AWS",
             }],
-        }]))
+        }])
         example_model_package_group_policy = aws.sagemaker.ModelPackageGroupPolicy("example",
             model_package_group_name=example_model_package_group.model_package_group_name,
             resource_policy=pulumi.Output.json_dumps(std.jsondecode_output(input=example.json).apply(lambda invoke: invoke.result)))
@@ -197,18 +197,18 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example_model_package_group = aws.sagemaker.ModelPackageGroup("example", model_package_group_name="example")
-        example = example_model_package_group.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
+        example = aws.iam.get_policy_document_output(statements=[{
             "sid": "AddPermModelPackageGroup",
             "actions": [
                 "sagemaker:DescribeModelPackage",
                 "sagemaker:ListModelPackages",
             ],
-            "resources": [arn],
+            "resources": [example_model_package_group.arn],
             "principals": [{
                 "identifiers": [current.account_id],
                 "type": "AWS",
             }],
-        }]))
+        }])
         example_model_package_group_policy = aws.sagemaker.ModelPackageGroupPolicy("example",
             model_package_group_name=example_model_package_group.model_package_group_name,
             resource_policy=pulumi.Output.json_dumps(std.jsondecode_output(input=example.json).apply(lambda invoke: invoke.result)))

@@ -524,17 +524,17 @@ class ContainerService(pulumi.CustomResource):
                 "is_active": True,
             },
         })
-        example = example_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[{
+        example = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
                 "type": "AWS",
-                "identifiers": [private_registry_access.ecr_image_puller_role.principal_arn],
+                "identifiers": [example_container_service.private_registry_access.ecr_image_puller_role.principal_arn],
             }],
             "actions": [
                 "ecr:BatchGetImage",
                 "ecr:GetDownloadUrlForLayer",
             ],
-        }]))
+        }])
         example_repository_policy = aws.ecr.RepositoryPolicy("example",
             repository=example_aws_ecr_repository["name"],
             policy=example.json)
@@ -619,17 +619,17 @@ class ContainerService(pulumi.CustomResource):
                 "is_active": True,
             },
         })
-        example = example_container_service.private_registry_access.apply(lambda private_registry_access: aws.iam.get_policy_document_output(statements=[{
+        example = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
                 "type": "AWS",
-                "identifiers": [private_registry_access.ecr_image_puller_role.principal_arn],
+                "identifiers": [example_container_service.private_registry_access.ecr_image_puller_role.principal_arn],
             }],
             "actions": [
                 "ecr:BatchGetImage",
                 "ecr:GetDownloadUrlForLayer",
             ],
-        }]))
+        }])
         example_repository_policy = aws.ecr.RepositoryPolicy("example",
             repository=example_aws_ecr_repository["name"],
             policy=example.json)

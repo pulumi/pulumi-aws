@@ -188,6 +188,9 @@ namespace Pulumi.Aws.AppConfig
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// KMS key identifier for encrypting the configuration data.
+        /// </summary>
         public readonly string KmsKeyIdentifier;
         /// <summary>
         /// Location URI of the Configuration Profile.

@@ -29,6 +29,10 @@ public final class GetGroupResult {
      * 
      */
     private List<String> availabilityZones;
+    /**
+     * @return Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+     * 
+     */
     private Integer defaultCooldown;
     /**
      * @return Desired size of the group.
@@ -36,7 +40,7 @@ public final class GetGroupResult {
      */
     private Integer desiredCapacity;
     /**
-     * @return The unit of measurement for the value returned for `desiredCapacity`.
+     * @return Unit of measurement for the value returned for `desiredCapacity`.
      * 
      */
     private String desiredCapacityType;
@@ -46,7 +50,7 @@ public final class GetGroupResult {
      */
     private List<String> enabledMetrics;
     /**
-     * @return The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
+     * @return Amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
      * 
      */
     private Integer healthCheckGracePeriod;
@@ -66,7 +70,7 @@ public final class GetGroupResult {
      */
     private List<GetGroupInstanceMaintenancePolicy> instanceMaintenancePolicies;
     /**
-     * @return The name of the associated launch configuration.
+     * @return Name of the associated launch configuration.
      * 
      */
     private String launchConfiguration;
@@ -105,6 +109,10 @@ public final class GetGroupResult {
      * 
      */
     private String name;
+    /**
+     * @return Whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
+     * 
+     */
     private Boolean newInstancesProtectedFromScaleIn;
     /**
      * @return Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
@@ -143,7 +151,7 @@ public final class GetGroupResult {
      */
     private List<String> targetGroupArns;
     /**
-     * @return The termination policies for the group.
+     * @return Termination policies for the group.
      * 
      */
     private List<String> terminationPolicies;
@@ -183,6 +191,10 @@ public final class GetGroupResult {
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }
+    /**
+     * @return Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+     * 
+     */
     public Integer defaultCooldown() {
         return this.defaultCooldown;
     }
@@ -194,7 +206,7 @@ public final class GetGroupResult {
         return this.desiredCapacity;
     }
     /**
-     * @return The unit of measurement for the value returned for `desiredCapacity`.
+     * @return Unit of measurement for the value returned for `desiredCapacity`.
      * 
      */
     public String desiredCapacityType() {
@@ -208,7 +220,7 @@ public final class GetGroupResult {
         return this.enabledMetrics;
     }
     /**
-     * @return The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
+     * @return Amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
      * 
      */
     public Integer healthCheckGracePeriod() {
@@ -236,7 +248,7 @@ public final class GetGroupResult {
         return this.instanceMaintenancePolicies;
     }
     /**
-     * @return The name of the associated launch configuration.
+     * @return Name of the associated launch configuration.
      * 
      */
     public String launchConfiguration() {
@@ -291,6 +303,10 @@ public final class GetGroupResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
+     * 
+     */
     public Boolean newInstancesProtectedFromScaleIn() {
         return this.newInstancesProtectedFromScaleIn;
     }
@@ -347,7 +363,7 @@ public final class GetGroupResult {
         return this.targetGroupArns;
     }
     /**
-     * @return The termination policies for the group.
+     * @return Termination policies for the group.
      * 
      */
     public List<String> terminationPolicies() {

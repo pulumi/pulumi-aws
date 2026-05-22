@@ -289,6 +289,7 @@
         "bedrock/agentcoreCodeInterpreter.ts",
         "bedrock/agentcoreGateway.ts",
         "bedrock/agentcoreGatewayTarget.ts",
+        "bedrock/agentcoreHarness.ts",
         "bedrock/agentcoreMemory.ts",
         "bedrock/agentcoreMemoryStrategy.ts",
         "bedrock/agentcoreOauth2CredentialProvider.ts",
@@ -1707,6 +1708,7 @@
         "observabilityadmin/telemetryEvaluationForOrganization.ts",
         "observabilityadmin/telemetryPipeline.ts",
         "observabilityadmin/telemetryRule.ts",
+        "observabilityadmin/telemetryRuleForOrganization.ts",
         "odb/cloudAutonomousVmCluster.ts",
         "odb/cloudExadataInfrastructure.ts",
         "odb/cloudVmCluster.ts",
@@ -2200,6 +2202,7 @@
         "securityhub/actionTarget.ts",
         "securityhub/aggregatorV2.ts",
         "securityhub/automationRule.ts",
+        "securityhub/automationRuleV2.ts",
         "securityhub/configurationPolicy.ts",
         "securityhub/configurationPolicyAssociation.ts",
         "securityhub/connectorV2.ts",
@@ -2616,7 +2619,9 @@
         "xray/encryptionConfig.ts",
         "xray/group.ts",
         "xray/index.ts",
+        "xray/indexingRule.ts",
         "xray/resourcePolicy.ts",
-        "xray/samplingRule.ts"
+        "xray/samplingRule.ts",
+        "xray/traceSegmentDestination.ts"
     ]
 }

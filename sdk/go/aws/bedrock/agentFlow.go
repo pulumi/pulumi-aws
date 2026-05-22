@@ -16,7 +16,34 @@ import (
 //
 // ## Example Usage
 //
-// The default definition:
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentFlow(ctx, "example", &bedrock.AgentFlowArgs{
+//				Name:             pulumi.String("example-flow"),
+//				ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Default definition
 //
 // ```go
 // package main

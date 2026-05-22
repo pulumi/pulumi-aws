@@ -19,7 +19,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Virtual service gateway route target.
+        /// Virtual service gateway route target. See `VirtualService` Block for details.
         /// </summary>
         [Input("virtualService", required: true)]
         public Input<Inputs.GatewayRouteSpecHttpRouteActionTargetVirtualServiceGetArgs> VirtualService { get; set; } = null!;

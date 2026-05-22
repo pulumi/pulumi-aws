@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualGatewaySpecLoggingAccessLogFileFormat {
     /**
-     * @return The logging format for JSON.
+     * @return The logging format for JSON. See `json` Block for details.
      * 
      */
     private @Nullable List<VirtualGatewaySpecLoggingAccessLogFileFormatJson> jsons;
@@ -26,7 +26,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormat {
 
     private VirtualGatewaySpecLoggingAccessLogFileFormat() {}
     /**
-     * @return The logging format for JSON.
+     * @return The logging format for JSON. See `json` Block for details.
      * 
      */
     public List<VirtualGatewaySpecLoggingAccessLogFileFormatJson> jsons() {

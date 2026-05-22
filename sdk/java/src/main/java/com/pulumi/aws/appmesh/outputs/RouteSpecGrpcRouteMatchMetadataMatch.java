@@ -13,62 +13,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecGrpcRouteMatchMetadataMatch {
     /**
-     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     private @Nullable String exact;
     /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     private @Nullable String prefix;
     /**
-     * @return Object that specifies the range of numbers that the value sent by the client must be included in.
+     * @return Object that specifies the range of numbers that the header value sent by the client must be included in.
      * 
      */
     private @Nullable RouteSpecGrpcRouteMatchMetadataMatchRange range;
     /**
-     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must include the specified characters.
      * 
      */
     private @Nullable String regex;
     /**
-     * @return Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must end with the specified characters.
      * 
      */
     private @Nullable String suffix;
 
     private RouteSpecGrpcRouteMatchMetadataMatch() {}
     /**
-     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     public Optional<String> exact() {
         return Optional.ofNullable(this.exact);
     }
     /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Object that specifies the range of numbers that the value sent by the client must be included in.
+     * @return Object that specifies the range of numbers that the header value sent by the client must be included in.
      * 
      */
     public Optional<RouteSpecGrpcRouteMatchMetadataMatchRange> range() {
         return Optional.ofNullable(this.range);
     }
     /**
-     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must include the specified characters.
      * 
      */
     public Optional<String> regex() {
         return Optional.ofNullable(this.regex);
     }
     /**
-     * @return Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must end with the specified characters.
      * 
      */
     public Optional<String> suffix() {

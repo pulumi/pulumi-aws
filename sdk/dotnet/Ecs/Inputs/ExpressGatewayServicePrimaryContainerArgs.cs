@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         }
 
         /// <summary>
-        /// Port on which the container listens for connections.
+        /// Port on which the container listens for connections. Defaults to `80`.
         /// </summary>
         [Input("containerPort")]
         public Input<int>? ContainerPort { get; set; }

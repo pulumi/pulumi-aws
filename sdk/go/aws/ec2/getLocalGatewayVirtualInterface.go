@@ -45,8 +45,12 @@ type GetLocalGatewayVirtualInterfaceResult struct {
 	// Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the EC2 Local Gateway.
 	LocalBgpAsn int `pulumi:"localBgpAsn"`
 	// Identifier of the EC2 Local Gateway.
-	LocalGatewayId                  string   `pulumi:"localGatewayId"`
-	LocalGatewayVirtualInterfaceIds []string `pulumi:"localGatewayVirtualInterfaceIds"`
+	LocalGatewayId string `pulumi:"localGatewayId"`
+	// Identifier of the EC2 Local Gateway Virtual Interface Group.
+	LocalGatewayVirtualInterfaceGroupId string   `pulumi:"localGatewayVirtualInterfaceGroupId"`
+	LocalGatewayVirtualInterfaceIds     []string `pulumi:"localGatewayVirtualInterfaceIds"`
+	// Identifier of the Outpost LAG.
+	OutpostLagId string `pulumi:"outpostLagId"`
 	// Peer address.
 	PeerAddress string `pulumi:"peerAddress"`
 	// Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the peer.
@@ -122,8 +126,18 @@ func (o GetLocalGatewayVirtualInterfaceResultOutput) LocalGatewayId() pulumi.Str
 	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) string { return v.LocalGatewayId }).(pulumi.StringOutput)
 }
 
+// Identifier of the EC2 Local Gateway Virtual Interface Group.
+func (o GetLocalGatewayVirtualInterfaceResultOutput) LocalGatewayVirtualInterfaceGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) string { return v.LocalGatewayVirtualInterfaceGroupId }).(pulumi.StringOutput)
+}
+
 func (o GetLocalGatewayVirtualInterfaceResultOutput) LocalGatewayVirtualInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) []string { return v.LocalGatewayVirtualInterfaceIds }).(pulumi.StringArrayOutput)
+}
+
+// Identifier of the Outpost LAG.
+func (o GetLocalGatewayVirtualInterfaceResultOutput) OutpostLagId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLocalGatewayVirtualInterfaceResult) string { return v.OutpostLagId }).(pulumi.StringOutput)
 }
 
 // Peer address.

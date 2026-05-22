@@ -18,17 +18,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GatewayRouteSpecHttpRouteMatch {
     /**
-     * @return Client request headers to match on.
+     * @return Client request headers to match on. See `header` Block for details.
      * 
      */
     private @Nullable List<GatewayRouteSpecHttpRouteMatchHeader> headers;
     /**
-     * @return Host name to match on.
+     * @return Host name to match on. See `hostname` Block for details.
      * 
      */
     private @Nullable GatewayRouteSpecHttpRouteMatchHostname hostname;
     /**
-     * @return Client request path to match on.
+     * @return Client request path to match on. See `path` Block for details.
      * 
      */
     private @Nullable GatewayRouteSpecHttpRouteMatchPath path;
@@ -38,33 +38,33 @@ public final class GatewayRouteSpecHttpRouteMatch {
      */
     private @Nullable Integer port;
     /**
-     * @return Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     private @Nullable String prefix;
     /**
-     * @return Client request query parameters to match on.
+     * @return Client request query parameters to match on. See `queryParameter` Block for details.
      * 
      */
     private @Nullable List<GatewayRouteSpecHttpRouteMatchQueryParameter> queryParameters;
 
     private GatewayRouteSpecHttpRouteMatch() {}
     /**
-     * @return Client request headers to match on.
+     * @return Client request headers to match on. See `header` Block for details.
      * 
      */
     public List<GatewayRouteSpecHttpRouteMatchHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return Host name to match on.
+     * @return Host name to match on. See `hostname` Block for details.
      * 
      */
     public Optional<GatewayRouteSpecHttpRouteMatchHostname> hostname() {
         return Optional.ofNullable(this.hostname);
     }
     /**
-     * @return Client request path to match on.
+     * @return Client request path to match on. See `path` Block for details.
      * 
      */
     public Optional<GatewayRouteSpecHttpRouteMatchPath> path() {
@@ -78,14 +78,14 @@ public final class GatewayRouteSpecHttpRouteMatch {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Client request query parameters to match on.
+     * @return Client request query parameters to match on. See `queryParameter` Block for details.
      * 
      */
     public List<GatewayRouteSpecHttpRouteMatchQueryParameter> queryParameters() {

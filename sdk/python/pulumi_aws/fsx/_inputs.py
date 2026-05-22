@@ -124,11 +124,11 @@ __all__ = [
 ]
 
 class DataRepositoryAssociationS3ArgsDict(TypedDict):
-    auto_export_policy: NotRequired[pulumi.Input[Optional['DataRepositoryAssociationS3AutoExportPolicyArgs']]]
+    auto_export_policy: NotRequired[pulumi.Input[Optional['DataRepositoryAssociationS3AutoExportPolicyArgsDict']]]
     """
     Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
     """
-    auto_import_policy: NotRequired[pulumi.Input[Optional['DataRepositoryAssociationS3AutoImportPolicyArgs']]]
+    auto_import_policy: NotRequired[pulumi.Input[Optional['DataRepositoryAssociationS3AutoImportPolicyArgsDict']]]
     """
     Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
     """
@@ -251,7 +251,7 @@ class FileCacheDataRepositoryAssociationArgsDict(TypedDict):
     file_system_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     file_system_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     imported_file_chunk_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    nfs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArgs']]]]]
+    nfs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArgsDict']]]]]
     """
     (Optional) See the `nfs` configuration block.
     """
@@ -483,7 +483,7 @@ class FileCacheLustreConfigurationArgsDict(TypedDict):
     """
     Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
     """
-    log_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgs']]]]]
+    log_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgsDict']]]]]
     mount_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     weekly_maintenance_start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -894,11 +894,11 @@ class OntapFileSystemDiskIopsConfigurationArgs:
 
 
 class OntapFileSystemEndpointArgsDict(TypedDict):
-    interclusters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OntapFileSystemEndpointInterclusterArgs']]]]]
+    interclusters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OntapFileSystemEndpointInterclusterArgsDict']]]]]
     """
     An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
     """
-    managements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OntapFileSystemEndpointManagementArgs']]]]]
+    managements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OntapFileSystemEndpointManagementArgsDict']]]]]
     """
     An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
     """
@@ -1045,7 +1045,7 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationArgsDict(TypedDict):
     """
     The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
     """
-    self_managed_active_directory_configuration: NotRequired[pulumi.Input[Optional['OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs']]]
+    self_managed_active_directory_configuration: NotRequired[pulumi.Input[Optional['OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgsDict']]]
 
 @pulumi.input_type
 class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs:
@@ -1208,19 +1208,19 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
 
 
 class OntapStorageVirtualMachineEndpointArgsDict(TypedDict):
-    iscsis: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArgs']]]]]
+    iscsis: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArgsDict']]]]]
     """
     An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
     """
-    managements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArgs']]]]]
+    managements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArgsDict']]]]]
     """
     An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
     """
-    nfs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArgs']]]]]
+    nfs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArgsDict']]]]]
     """
     An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
     """
-    smbs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArgs']]]]]
+    smbs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArgsDict']]]]]
     """
     An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
     """
@@ -1570,7 +1570,7 @@ class OntapVolumeSnaplockConfigurationArgsDict(TypedDict):
     """
     Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
     """
-    autocommit_period: NotRequired[pulumi.Input[Optional['OntapVolumeSnaplockConfigurationAutocommitPeriodArgs']]]
+    autocommit_period: NotRequired[pulumi.Input[Optional['OntapVolumeSnaplockConfigurationAutocommitPeriodArgsDict']]]
     """
     The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See `autocommit_period` Block for details.
     """
@@ -1578,7 +1578,7 @@ class OntapVolumeSnaplockConfigurationArgsDict(TypedDict):
     """
     Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
     """
-    retention_period: NotRequired[pulumi.Input[Optional['OntapVolumeSnaplockConfigurationRetentionPeriodArgs']]]
+    retention_period: NotRequired[pulumi.Input[Optional['OntapVolumeSnaplockConfigurationRetentionPeriodArgsDict']]]
     """
     The retention period of an FSx for ONTAP SnapLock volume. See `retention_period` Block for details.
     """
@@ -1739,15 +1739,15 @@ class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs:
 
 
 class OntapVolumeSnaplockConfigurationRetentionPeriodArgsDict(TypedDict):
-    default_retention: NotRequired[pulumi.Input[Optional['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs']]]
+    default_retention: NotRequired[pulumi.Input[Optional['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgsDict']]]
     """
     The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See `default_retention` Block for details.
     """
-    maximum_retention: NotRequired[pulumi.Input[Optional['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs']]]
+    maximum_retention: NotRequired[pulumi.Input[Optional['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgsDict']]]
     """
     The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `maximum_retention` Block for details.
     """
-    minimum_retention: NotRequired[pulumi.Input[Optional['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs']]]
+    minimum_retention: NotRequired[pulumi.Input[Optional['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgsDict']]]
     """
     The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See `minimum_retention` Block for details.
     """
@@ -2110,7 +2110,7 @@ class OpenZfsFileSystemRootVolumeConfigurationArgsDict(TypedDict):
     """
     Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
     """
-    nfs_exports: NotRequired[pulumi.Input[Optional['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs']]]
+    nfs_exports: NotRequired[pulumi.Input[Optional['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgsDict']]]
     """
     NFS export configuration for the root volume. Exactly 1 item. See `nfs_exports` Block for details.
     """
@@ -2122,7 +2122,7 @@ class OpenZfsFileSystemRootVolumeConfigurationArgsDict(TypedDict):
     """
     Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
     """
-    user_and_group_quotas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]]]]
+    user_and_group_quotas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgsDict']]]]]
     """
     Specify how much storage users or groups can use on the volume. Maximum of 100 items. See `user_and_group_quotas` Block for details.
     """
@@ -2607,7 +2607,7 @@ class S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgsDict(Type
     """
     FSx for OpenZFS user identity type. Valid values: `POSIX`.
     """
-    posix_user: NotRequired[pulumi.Input[Optional['S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs']]]
+    posix_user: NotRequired[pulumi.Input[Optional['S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgsDict']]]
     """
     UID and GIDs of the file system POSIX user. See `posix_user` Block for details.
     """
@@ -2722,7 +2722,7 @@ class S3AccessPointAttachmentS3AccessPointArgsDict(TypedDict):
     """
     Access policy associated with the S3 access point configuration.
     """
-    vpc_configuration: NotRequired[pulumi.Input[Optional['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs']]]
+    vpc_configuration: NotRequired[pulumi.Input[Optional['S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict']]]
     """
     Amazon S3 restricts access to the S3 access point to requests made from the specified VPC. See `vpc_configuration` Block for details.
     """

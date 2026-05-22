@@ -30,6 +30,8 @@ __all__ = [
     'TelemetryEvaluationTimeouts',
     'TelemetryPipelineConfiguration',
     'TelemetryPipelineTimeouts',
+    'TelemetryRuleForOrganizationRule',
+    'TelemetryRuleForOrganizationTimeouts',
     'TelemetryRuleRule',
     'TelemetryRuleTimeouts',
 ]
@@ -592,6 +594,102 @@ class TelemetryPipelineConfiguration(dict):
 
 @pulumi.output_type
 class TelemetryPipelineTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class TelemetryRuleForOrganizationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "telemetryType":
+            suggest = "telemetry_type"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TelemetryRuleForOrganizationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TelemetryRuleForOrganizationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TelemetryRuleForOrganizationRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 telemetry_type: _builtins.str,
+                 resource_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str telemetry_type: Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+               
+               > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+        :param _builtins.str resource_type: AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+        """
+        pulumi.set(__self__, "telemetry_type", telemetry_type)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetryType")
+    def telemetry_type(self) -> _builtins.str:
+        """
+        Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+
+        > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+        """
+        return pulumi.get(self, "telemetry_type")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> Optional[_builtins.str]:
+        """
+        AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+        """
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
+class TelemetryRuleForOrganizationTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[_builtins.str] = None,
                  delete: Optional[_builtins.str] = None,

@@ -93,20 +93,14 @@ public final class GetAvailabilityZonesPlainArgs extends com.pulumi.resources.In
     }
 
     /**
-     * Allows to filter list of Availability Zones based on their
-     * current state. Can be either `&#34;available&#34;`, `&#34;information&#34;`, `&#34;impaired&#34;` or
-     * `&#34;unavailable&#34;`. By default the list includes a complete set of Availability Zones
-     * to which the underlying AWS account has access, regardless of their state.
+     * Allows to filter list of Availability Zones based on their current state. Can be either `&#34;available&#34;`, `&#34;information&#34;`, `&#34;impaired&#34;` or `&#34;unavailable&#34;`. By default the list includes a complete set of Availability Zones to which the underlying AWS account has access, regardless of their state.
      * 
      */
     @Import(name="state")
     private @Nullable String state;
 
     /**
-     * @return Allows to filter list of Availability Zones based on their
-     * current state. Can be either `&#34;available&#34;`, `&#34;information&#34;`, `&#34;impaired&#34;` or
-     * `&#34;unavailable&#34;`. By default the list includes a complete set of Availability Zones
-     * to which the underlying AWS account has access, regardless of their state.
+     * @return Allows to filter list of Availability Zones based on their current state. Can be either `&#34;available&#34;`, `&#34;information&#34;`, `&#34;impaired&#34;` or `&#34;unavailable&#34;`. By default the list includes a complete set of Availability Zones to which the underlying AWS account has access, regardless of their state.
      * 
      */
     public Optional<String> state() {
@@ -228,10 +222,7 @@ public final class GetAvailabilityZonesPlainArgs extends com.pulumi.resources.In
         }
 
         /**
-         * @param state Allows to filter list of Availability Zones based on their
-         * current state. Can be either `&#34;available&#34;`, `&#34;information&#34;`, `&#34;impaired&#34;` or
-         * `&#34;unavailable&#34;`. By default the list includes a complete set of Availability Zones
-         * to which the underlying AWS account has access, regardless of their state.
+         * @param state Allows to filter list of Availability Zones based on their current state. Can be either `&#34;available&#34;`, `&#34;information&#34;`, `&#34;impaired&#34;` or `&#34;unavailable&#34;`. By default the list includes a complete set of Availability Zones to which the underlying AWS account has access, regardless of their state.
          * 
          * @return builder
          * 

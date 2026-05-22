@@ -221,7 +221,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         example_workspace = aws.amp.Workspace("example", alias="example-workspace")
         current = aws.get_caller_identity()
-        example = example_workspace.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
+        example = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
                 "type": "AWS",
@@ -234,8 +234,8 @@ class ResourcePolicy(pulumi.CustomResource):
                 "aps:GetLabels",
                 "aps:GetMetricMetadata",
             ],
-            "resources": [arn],
-        }]))
+            "resources": [example_workspace.arn],
+        }])
         example_resource_policy = aws.amp.ResourcePolicy("example",
             workspace_id=example_workspace.id,
             policy_document=example.json)
@@ -347,7 +347,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         example_workspace = aws.amp.Workspace("example", alias="example-workspace")
         current = aws.get_caller_identity()
-        example = example_workspace.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
+        example = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
                 "type": "AWS",
@@ -360,8 +360,8 @@ class ResourcePolicy(pulumi.CustomResource):
                 "aps:GetLabels",
                 "aps:GetMetricMetadata",
             ],
-            "resources": [arn],
-        }]))
+            "resources": [example_workspace.arn],
+        }])
         example_resource_policy = aws.amp.ResourcePolicy("example",
             workspace_id=example_workspace.id,
             policy_document=example.json)

@@ -17,16 +17,14 @@ public final class GetVpcLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetVpcLinkPlainArgs Empty = new GetVpcLinkPlainArgs();
 
     /**
-     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-     * If multiple API Gateway VPC Links are found with this name, an error will be returned.
+     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. If multiple API Gateway VPC Links are found with this name, an error will be returned.
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-     * If multiple API Gateway VPC Links are found with this name, an error will be returned.
+     * @return Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. If multiple API Gateway VPC Links are found with this name, an error will be returned.
      * 
      */
     public String name() {
@@ -90,8 +88,7 @@ public final class GetVpcLinkPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-         * If multiple API Gateway VPC Links are found with this name, an error will be returned.
+         * @param name Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. If multiple API Gateway VPC Links are found with this name, an error will be returned.
          * 
          * @return builder
          * 

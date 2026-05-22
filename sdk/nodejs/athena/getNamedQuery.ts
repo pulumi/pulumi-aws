@@ -62,6 +62,9 @@ export interface GetNamedQueryResult {
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * Text of the query itself.
+     */
     readonly querystring: string;
     readonly region: string;
     readonly workgroup?: string;

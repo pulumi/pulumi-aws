@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformResult
     {
         /// <summary>
-        /// The vCPU architecture. The default value is X86_64. Valid values are X86_64 and ARM64.
+        /// vCPU architecture. The default value is X86_64. Valid values are X86_64 and ARM64.
         /// </summary>
         public readonly string CpuArchitecture;
         /// <summary>
-        /// The operating system for the compute environment. V
+        /// Operating system for the compute environment. V
         /// </summary>
         public readonly string OperatingSystemFamily;
 

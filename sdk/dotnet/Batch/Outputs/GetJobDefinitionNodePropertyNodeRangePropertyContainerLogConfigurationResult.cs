@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationResult
     {
         /// <summary>
-        /// The log driver to use for the container.
+        /// Log driver to use for the container.
         /// </summary>
         public readonly string LogDriver;
         /// <summary>
-        /// The configuration options to send to the log driver.
+        /// Configuration options to send to the log driver.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Options;
         /// <summary>
-        /// The secrets to pass to the log configuration.
+        /// Secrets to pass to the log configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionResult> SecretOptions;
 

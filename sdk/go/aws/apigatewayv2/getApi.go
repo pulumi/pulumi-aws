@@ -63,24 +63,21 @@ type LookupApiResult struct {
 	// URI of the API, of the form `https://{api-id}.execute-api.{region}.amazonaws.com` for HTTP APIs and `wss://{api-id}.execute-api.{region}.amazonaws.com` for WebSocket APIs.
 	ApiEndpoint string `pulumi:"apiEndpoint"`
 	ApiId       string `pulumi:"apiId"`
-	// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-	// Applicable for WebSocket APIs.
+	// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
 	ApiKeySelectionExpression string `pulumi:"apiKeySelectionExpression"`
 	// ARN of the API.
 	Arn string `pulumi:"arn"`
-	// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
-	// Applicable for HTTP APIs.
+	// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See below.
 	CorsConfigurations []GetApiCorsConfiguration `pulumi:"corsConfigurations"`
 	// Description of the API.
 	Description string `pulumi:"description"`
 	// Whether clients can invoke the API by using the default `execute-api` endpoint.
 	DisableExecuteApiEndpoint bool `pulumi:"disableExecuteApiEndpoint"`
-	// ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
-	// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+	// ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 	ExecutionArn string `pulumi:"executionArn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The IP address types that can invoke an API.
 	IpAddressType string `pulumi:"ipAddressType"`
 	// Name of the API.
 	Name string `pulumi:"name"`
@@ -142,8 +139,7 @@ func (o LookupApiResultOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-// Applicable for WebSocket APIs.
+// An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
 func (o LookupApiResultOutput) ApiKeySelectionExpression() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.ApiKeySelectionExpression }).(pulumi.StringOutput)
 }
@@ -153,8 +149,7 @@ func (o LookupApiResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
-// Applicable for HTTP APIs.
+// Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See below.
 func (o LookupApiResultOutput) CorsConfigurations() GetApiCorsConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupApiResult) []GetApiCorsConfiguration { return v.CorsConfigurations }).(GetApiCorsConfigurationArrayOutput)
 }
@@ -169,9 +164,7 @@ func (o LookupApiResultOutput) DisableExecuteApiEndpoint() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupApiResult) bool { return v.DisableExecuteApiEndpoint }).(pulumi.BoolOutput)
 }
 
-// ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute
-// or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+// ARN prefix to be used in an `lambda.Permission`'s `sourceArn` attribute or in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 func (o LookupApiResultOutput) ExecutionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.ExecutionArn }).(pulumi.StringOutput)
 }
@@ -181,6 +174,7 @@ func (o LookupApiResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The IP address types that can invoke an API.
 func (o LookupApiResultOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupApiResult) string { return v.IpAddressType }).(pulumi.StringOutput)
 }

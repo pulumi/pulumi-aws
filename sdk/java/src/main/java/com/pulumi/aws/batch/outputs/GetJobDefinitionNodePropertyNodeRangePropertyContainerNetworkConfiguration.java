@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration {
     /**
-     * @return Indicates whether the job has a public IP address.
+     * @return Whether the job has a public IP address.
      * 
      */
     private Boolean assignPublicIp;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfiguration() {}
     /**
-     * @return Indicates whether the job has a public IP address.
+     * @return Whether the job has a public IP address.
      * 
      */
     public Boolean assignPublicIp() {

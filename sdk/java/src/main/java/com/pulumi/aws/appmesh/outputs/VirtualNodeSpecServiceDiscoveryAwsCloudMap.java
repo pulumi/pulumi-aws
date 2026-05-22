@@ -18,8 +18,7 @@ public final class VirtualNodeSpecServiceDiscoveryAwsCloudMap {
      */
     private @Nullable Map<String,String> attributes;
     /**
-     * @return Name of the AWS Cloud Map namespace to use.
-     * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
+     * @return Name of the AWS Cloud Map namespace to use. Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
      * 
      */
     private String namespaceName;
@@ -38,8 +37,7 @@ public final class VirtualNodeSpecServiceDiscoveryAwsCloudMap {
         return this.attributes == null ? Map.of() : this.attributes;
     }
     /**
-     * @return Name of the AWS Cloud Map namespace to use.
-     * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
+     * @return Name of the AWS Cloud Map namespace to use. Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
      * 
      */
     public String namespaceName() {

@@ -35,13 +35,13 @@ namespace Pulumi.Aws.Sqs
     ///     {
     ///         Statements = new[]
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
     ///                 Sid = "First",
     ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
     ///                         Type = "*",
     ///                         Identifiers = new[]
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Sqs
     ///                 },
     ///                 Conditions = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
     ///                     {
     ///                         Test = "ArnEquals",
     ///                         Variable = "aws:SourceArn",

@@ -3974,7 +3974,6 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult(dict):
                  weighted_capacity: _builtins.str):
         """
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs'] instance_requirements: List of instance requirements objects.
-               * `accelerator_count - List of objects describing the minimum and maximum number of accelerators for an instance type.
         :param _builtins.str instance_type: Overriding instance type.
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs'] launch_template_specifications: List of overriding launch template specification objects.
         :param _builtins.str weighted_capacity: Number of capacity units, which gives the instance type a proportional weight to other instance types.
@@ -3989,7 +3988,6 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult(dict):
     def instance_requirements(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult']:
         """
         List of instance requirements objects.
-        * `accelerator_count - List of objects describing the minimum and maximum number of accelerators for an instance type.
         """
         return pulumi.get(self, "instance_requirements")
 
@@ -4046,6 +4044,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
                  total_local_storage_gbs: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult'],
                  vcpu_counts: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult']):
         """
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArgs'] accelerator_counts: List of objects describing the minimum and maximum number of accelerators for an instance type.
         :param Sequence[_builtins.str] accelerator_manufacturers: List of accelerator manufacturer names.
         :param Sequence[_builtins.str] accelerator_names: List of accelerator names.
         :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mibs: List of objects describing the minimum and maximum total memory of the accelerators.
@@ -4098,6 +4097,9 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
     @_builtins.property
     @pulumi.getter(name="acceleratorCounts")
     def accelerator_counts(self) -> Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult']:
+        """
+        List of objects describing the minimum and maximum number of accelerators for an instance type.
+        """
         return pulumi.get(self, "accelerator_counts")
 
     @_builtins.property
@@ -4664,6 +4666,7 @@ class GetGroupWarmPoolResult(dict):
                  pool_state: _builtins.str):
         """
         :param Sequence['GetGroupWarmPoolInstanceReusePolicyArgs'] instance_reuse_policies: List of instance reuse policy objects.
+        :param _builtins.int max_group_prepared_capacity: Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
         :param _builtins.int min_size: Minimum number of instances to maintain in the warm pool.
         :param _builtins.str pool_state: Instance state to transition to after the lifecycle actions are complete.
         """
@@ -4683,6 +4686,9 @@ class GetGroupWarmPoolResult(dict):
     @_builtins.property
     @pulumi.getter(name="maxGroupPreparedCapacity")
     def max_group_prepared_capacity(self) -> _builtins.int:
+        """
+        Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+        """
         return pulumi.get(self, "max_group_prepared_capacity")
 
     @_builtins.property

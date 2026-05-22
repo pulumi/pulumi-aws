@@ -34,7 +34,7 @@ __all__ = [
 ]
 
 class DbClusterLogDeliveryConfigurationArgsDict(TypedDict):
-    s3_configuration: NotRequired[pulumi.Input[Optional['DbClusterLogDeliveryConfigurationS3ConfigurationArgs']]]
+    s3_configuration: NotRequired[pulumi.Input[Optional['DbClusterLogDeliveryConfigurationS3ConfigurationArgsDict']]]
     """
     Configuration for S3 bucket log delivery.
     """
@@ -232,7 +232,7 @@ class DbClusterTimeoutsArgs:
 
 
 class DbInstanceLogDeliveryConfigurationArgsDict(TypedDict):
-    s3_configuration: NotRequired[pulumi.Input[Optional['DbInstanceLogDeliveryConfigurationS3ConfigurationArgs']]]
+    s3_configuration: NotRequired[pulumi.Input[Optional['DbInstanceLogDeliveryConfigurationS3ConfigurationArgsDict']]]
     """
     Configuration for S3 bucket log delivery.
     """

@@ -14,39 +14,39 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionEksPropertyPodPropertyInitContainerResult
     {
         /// <summary>
-        /// An array of arguments to the entrypoint
+        /// Array of arguments to the entrypoint
         /// </summary>
         public readonly ImmutableArray<string> Args;
         /// <summary>
-        /// The command that's passed to the container.
+        /// Command that's passed to the container.
         /// </summary>
         public readonly ImmutableArray<string> Commands;
         /// <summary>
-        /// The environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
+        /// Environment variables to pass to a container.  Array of EksContainerEnvironmentVariable objects.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerEnvResult> Envs;
         /// <summary>
-        /// The image used to start a container.
+        /// Image used to start a container.
         /// </summary>
         public readonly string Image;
         /// <summary>
-        /// The image pull policy for the container.
+        /// Image pull policy for the container.
         /// </summary>
         public readonly string ImagePullPolicy;
         /// <summary>
-        /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+        /// Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The type and amount of resources to assign to a container.
+        /// Type and amount of resources to assign to a container.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerResourceResult> Resources;
         /// <summary>
-        /// The security context for a job.
+        /// Security context for a job.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextResult> SecurityContexts;
         /// <summary>
-        /// The volume mounts for the container.
+        /// Volume mounts for the container.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMountResult> VolumeMounts;
 

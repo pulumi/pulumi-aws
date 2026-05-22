@@ -7588,11 +7588,14 @@ func (o VpcEndpointVpcOptionsPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 type GetDomainAdvancedSecurityOption struct {
+	// Whether Anonymous auth is enabled.
 	AnonymousAuthEnabled bool `pulumi:"anonymousAuthEnabled"`
 	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
 	// Whether the internal user database is enabled.
 	InternalUserDatabaseEnabled bool `pulumi:"internalUserDatabaseEnabled"`
+	// Block for JWT authentication.
+	JwtOptions []GetDomainAdvancedSecurityOptionJwtOption `pulumi:"jwtOptions"`
 }
 
 // GetDomainAdvancedSecurityOptionInput is an input type that accepts GetDomainAdvancedSecurityOptionArgs and GetDomainAdvancedSecurityOptionOutput values.
@@ -7607,11 +7610,14 @@ type GetDomainAdvancedSecurityOptionInput interface {
 }
 
 type GetDomainAdvancedSecurityOptionArgs struct {
+	// Whether Anonymous auth is enabled.
 	AnonymousAuthEnabled pulumi.BoolInput `pulumi:"anonymousAuthEnabled"`
 	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Whether the internal user database is enabled.
 	InternalUserDatabaseEnabled pulumi.BoolInput `pulumi:"internalUserDatabaseEnabled"`
+	// Block for JWT authentication.
+	JwtOptions GetDomainAdvancedSecurityOptionJwtOptionArrayInput `pulumi:"jwtOptions"`
 }
 
 func (GetDomainAdvancedSecurityOptionArgs) ElementType() reflect.Type {
@@ -7665,6 +7671,7 @@ func (o GetDomainAdvancedSecurityOptionOutput) ToGetDomainAdvancedSecurityOption
 	return o
 }
 
+// Whether Anonymous auth is enabled.
 func (o GetDomainAdvancedSecurityOptionOutput) AnonymousAuthEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.AnonymousAuthEnabled }).(pulumi.BoolOutput)
 }
@@ -7677,6 +7684,13 @@ func (o GetDomainAdvancedSecurityOptionOutput) Enabled() pulumi.BoolOutput {
 // Whether the internal user database is enabled.
 func (o GetDomainAdvancedSecurityOptionOutput) InternalUserDatabaseEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) bool { return v.InternalUserDatabaseEnabled }).(pulumi.BoolOutput)
+}
+
+// Block for JWT authentication.
+func (o GetDomainAdvancedSecurityOptionOutput) JwtOptions() GetDomainAdvancedSecurityOptionJwtOptionArrayOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOption) []GetDomainAdvancedSecurityOptionJwtOption {
+		return v.JwtOptions
+	}).(GetDomainAdvancedSecurityOptionJwtOptionArrayOutput)
 }
 
 type GetDomainAdvancedSecurityOptionArrayOutput struct{ *pulumi.OutputState }
@@ -7697,6 +7711,130 @@ func (o GetDomainAdvancedSecurityOptionArrayOutput) Index(i pulumi.IntInput) Get
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainAdvancedSecurityOption {
 		return vs[0].([]GetDomainAdvancedSecurityOption)[vs[1].(int)]
 	}).(GetDomainAdvancedSecurityOptionOutput)
+}
+
+type GetDomainAdvancedSecurityOptionJwtOption struct {
+	// Enabled disabled toggle for off-peak update window
+	Enabled bool `pulumi:"enabled"`
+	// PEM-encoded public key used to verify JWT signatures.
+	PublicKey string `pulumi:"publicKey"`
+	// Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
+	RolesKey string `pulumi:"rolesKey"`
+	// Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
+	SubjectKey string `pulumi:"subjectKey"`
+}
+
+// GetDomainAdvancedSecurityOptionJwtOptionInput is an input type that accepts GetDomainAdvancedSecurityOptionJwtOptionArgs and GetDomainAdvancedSecurityOptionJwtOptionOutput values.
+// You can construct a concrete instance of `GetDomainAdvancedSecurityOptionJwtOptionInput` via:
+//
+//	GetDomainAdvancedSecurityOptionJwtOptionArgs{...}
+type GetDomainAdvancedSecurityOptionJwtOptionInput interface {
+	pulumi.Input
+
+	ToGetDomainAdvancedSecurityOptionJwtOptionOutput() GetDomainAdvancedSecurityOptionJwtOptionOutput
+	ToGetDomainAdvancedSecurityOptionJwtOptionOutputWithContext(context.Context) GetDomainAdvancedSecurityOptionJwtOptionOutput
+}
+
+type GetDomainAdvancedSecurityOptionJwtOptionArgs struct {
+	// Enabled disabled toggle for off-peak update window
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// PEM-encoded public key used to verify JWT signatures.
+	PublicKey pulumi.StringInput `pulumi:"publicKey"`
+	// Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
+	RolesKey pulumi.StringInput `pulumi:"rolesKey"`
+	// Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
+	SubjectKey pulumi.StringInput `pulumi:"subjectKey"`
+}
+
+func (GetDomainAdvancedSecurityOptionJwtOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainAdvancedSecurityOptionJwtOption)(nil)).Elem()
+}
+
+func (i GetDomainAdvancedSecurityOptionJwtOptionArgs) ToGetDomainAdvancedSecurityOptionJwtOptionOutput() GetDomainAdvancedSecurityOptionJwtOptionOutput {
+	return i.ToGetDomainAdvancedSecurityOptionJwtOptionOutputWithContext(context.Background())
+}
+
+func (i GetDomainAdvancedSecurityOptionJwtOptionArgs) ToGetDomainAdvancedSecurityOptionJwtOptionOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionJwtOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAdvancedSecurityOptionJwtOptionOutput)
+}
+
+// GetDomainAdvancedSecurityOptionJwtOptionArrayInput is an input type that accepts GetDomainAdvancedSecurityOptionJwtOptionArray and GetDomainAdvancedSecurityOptionJwtOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainAdvancedSecurityOptionJwtOptionArrayInput` via:
+//
+//	GetDomainAdvancedSecurityOptionJwtOptionArray{ GetDomainAdvancedSecurityOptionJwtOptionArgs{...} }
+type GetDomainAdvancedSecurityOptionJwtOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainAdvancedSecurityOptionJwtOptionArrayOutput() GetDomainAdvancedSecurityOptionJwtOptionArrayOutput
+	ToGetDomainAdvancedSecurityOptionJwtOptionArrayOutputWithContext(context.Context) GetDomainAdvancedSecurityOptionJwtOptionArrayOutput
+}
+
+type GetDomainAdvancedSecurityOptionJwtOptionArray []GetDomainAdvancedSecurityOptionJwtOptionInput
+
+func (GetDomainAdvancedSecurityOptionJwtOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainAdvancedSecurityOptionJwtOption)(nil)).Elem()
+}
+
+func (i GetDomainAdvancedSecurityOptionJwtOptionArray) ToGetDomainAdvancedSecurityOptionJwtOptionArrayOutput() GetDomainAdvancedSecurityOptionJwtOptionArrayOutput {
+	return i.ToGetDomainAdvancedSecurityOptionJwtOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainAdvancedSecurityOptionJwtOptionArray) ToGetDomainAdvancedSecurityOptionJwtOptionArrayOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionJwtOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAdvancedSecurityOptionJwtOptionArrayOutput)
+}
+
+type GetDomainAdvancedSecurityOptionJwtOptionOutput struct{ *pulumi.OutputState }
+
+func (GetDomainAdvancedSecurityOptionJwtOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainAdvancedSecurityOptionJwtOption)(nil)).Elem()
+}
+
+func (o GetDomainAdvancedSecurityOptionJwtOptionOutput) ToGetDomainAdvancedSecurityOptionJwtOptionOutput() GetDomainAdvancedSecurityOptionJwtOptionOutput {
+	return o
+}
+
+func (o GetDomainAdvancedSecurityOptionJwtOptionOutput) ToGetDomainAdvancedSecurityOptionJwtOptionOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionJwtOptionOutput {
+	return o
+}
+
+// Enabled disabled toggle for off-peak update window
+func (o GetDomainAdvancedSecurityOptionJwtOptionOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOptionJwtOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// PEM-encoded public key used to verify JWT signatures.
+func (o GetDomainAdvancedSecurityOptionJwtOptionOutput) PublicKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOptionJwtOption) string { return v.PublicKey }).(pulumi.StringOutput)
+}
+
+// Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
+func (o GetDomainAdvancedSecurityOptionJwtOptionOutput) RolesKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOptionJwtOption) string { return v.RolesKey }).(pulumi.StringOutput)
+}
+
+// Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
+func (o GetDomainAdvancedSecurityOptionJwtOptionOutput) SubjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOptionJwtOption) string { return v.SubjectKey }).(pulumi.StringOutput)
+}
+
+type GetDomainAdvancedSecurityOptionJwtOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainAdvancedSecurityOptionJwtOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainAdvancedSecurityOptionJwtOption)(nil)).Elem()
+}
+
+func (o GetDomainAdvancedSecurityOptionJwtOptionArrayOutput) ToGetDomainAdvancedSecurityOptionJwtOptionArrayOutput() GetDomainAdvancedSecurityOptionJwtOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainAdvancedSecurityOptionJwtOptionArrayOutput) ToGetDomainAdvancedSecurityOptionJwtOptionArrayOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionJwtOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainAdvancedSecurityOptionJwtOptionArrayOutput) Index(i pulumi.IntInput) GetDomainAdvancedSecurityOptionJwtOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainAdvancedSecurityOptionJwtOption {
+		return vs[0].([]GetDomainAdvancedSecurityOptionJwtOption)[vs[1].(int)]
+	}).(GetDomainAdvancedSecurityOptionJwtOptionOutput)
 }
 
 type GetDomainAutoTuneOption struct {
@@ -10680,6 +10818,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointVpcOptionsPtrInput)(nil)).Elem(), VpcEndpointVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionArrayInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionJwtOptionInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionJwtOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionJwtOptionArrayInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionJwtOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionInput)(nil)).Elem(), GetDomainAutoTuneOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionArrayInput)(nil)).Elem(), GetDomainAutoTuneOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleInput)(nil)).Elem(), GetDomainAutoTuneOptionMaintenanceScheduleArgs{})
@@ -10824,6 +10964,8 @@ func init() {
 	pulumi.RegisterOutputType(VpcEndpointVpcOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionJwtOptionOutput{})
+	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionJwtOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainAutoTuneOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainAutoTuneOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainAutoTuneOptionMaintenanceScheduleOutput{})

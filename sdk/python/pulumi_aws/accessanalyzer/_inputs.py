@@ -34,11 +34,11 @@ __all__ = [
 ]
 
 class AnalyzerConfigurationArgsDict(TypedDict):
-    internal_access: NotRequired[pulumi.Input[Optional['AnalyzerConfigurationInternalAccessArgs']]]
+    internal_access: NotRequired[pulumi.Input[Optional['AnalyzerConfigurationInternalAccessArgsDict']]]
     """
     Specifies the configuration of an internal access analyzer for an AWS organization or account. This configuration determines how the analyzer evaluates access within your AWS environment. See `internal_access` Block for details.
     """
-    unused_access: NotRequired[pulumi.Input[Optional['AnalyzerConfigurationUnusedAccessArgs']]]
+    unused_access: NotRequired[pulumi.Input[Optional['AnalyzerConfigurationUnusedAccessArgsDict']]]
     """
     Specifies the configuration of an unused access analyzer for an AWS organization or account. See `unused_access` Block for details.
     """
@@ -83,7 +83,7 @@ class AnalyzerConfigurationArgs:
 
 
 class AnalyzerConfigurationInternalAccessArgsDict(TypedDict):
-    analysis_rule: NotRequired[pulumi.Input[Optional['AnalyzerConfigurationInternalAccessAnalysisRuleArgs']]]
+    analysis_rule: NotRequired[pulumi.Input[Optional['AnalyzerConfigurationInternalAccessAnalysisRuleArgsDict']]]
     """
     Information about analysis rules for the internal access analyzer. These rules determine which resources and access patterns will be analyzed. See `analysis_rule` Block for Internal Access Analyzer for details.
     """
@@ -112,7 +112,7 @@ class AnalyzerConfigurationInternalAccessArgs:
 
 
 class AnalyzerConfigurationInternalAccessAnalysisRuleArgsDict(TypedDict):
-    inclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs']]]]]
+    inclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgsDict']]]]]
     """
     List of rules for the internal access analyzer containing criteria to include in analysis. Only resources that meet the rule criteria will generate findings. See `inclusion` Block for details.
     """
@@ -210,7 +210,7 @@ class AnalyzerConfigurationInternalAccessAnalysisRuleInclusionArgs:
 
 
 class AnalyzerConfigurationUnusedAccessArgsDict(TypedDict):
-    analysis_rule: NotRequired[pulumi.Input[Optional['AnalyzerConfigurationUnusedAccessAnalysisRuleArgs']]]
+    analysis_rule: NotRequired[pulumi.Input[Optional['AnalyzerConfigurationUnusedAccessAnalysisRuleArgsDict']]]
     """
     Information about analysis rules for the analyzer. Analysis rules determine which entities will generate findings based on the criteria you define when you create the rule. See `analysis_rule` Block for Unused Access Analyzer for details.
     """
@@ -259,7 +259,7 @@ class AnalyzerConfigurationUnusedAccessArgs:
 
 
 class AnalyzerConfigurationUnusedAccessAnalysisRuleArgsDict(TypedDict):
-    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs']]]]]
+    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgsDict']]]]]
     """
     List of rules for the analyzer containing criteria to exclude from analysis. Entities that meet the rule criteria will not generate findings. See `exclusion` Block for details.
     """

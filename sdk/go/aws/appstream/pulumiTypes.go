@@ -1936,12 +1936,10 @@ type GetImageApplication struct {
 	// Path to the application's excecutable in the instance.
 	LaunchPath string `pulumi:"launchPath"`
 	// String to string map that contains additional attributes used to describe the application.
-	// * `Name` - Name of the application.
 	Metadata map[string]string `pulumi:"metadata"`
 	// Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
 	Name string `pulumi:"name"`
-	// Array of strings describing the platforms on which the application can run.
-	// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
+	// Array of strings describing the platforms on which the application can run. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
 	Platforms []string `pulumi:"platforms"`
 	// Working directory for the application.
 	WorkingDirectory string `pulumi:"workingDirectory"`
@@ -1982,12 +1980,10 @@ type GetImageApplicationArgs struct {
 	// Path to the application's excecutable in the instance.
 	LaunchPath pulumi.StringInput `pulumi:"launchPath"`
 	// String to string map that contains additional attributes used to describe the application.
-	// * `Name` - Name of the application.
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
 	// Name of the image being searched for. Cannot be used with `nameRegex` or `arn`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Array of strings describing the platforms on which the application can run.
-	// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
+	// Array of strings describing the platforms on which the application can run. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
 	Platforms pulumi.StringArrayInput `pulumi:"platforms"`
 	// Working directory for the application.
 	WorkingDirectory pulumi.StringInput `pulumi:"workingDirectory"`
@@ -2100,7 +2096,6 @@ func (o GetImageApplicationOutput) LaunchPath() pulumi.StringOutput {
 }
 
 // String to string map that contains additional attributes used to describe the application.
-// * `Name` - Name of the application.
 func (o GetImageApplicationOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetImageApplication) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
 }
@@ -2110,8 +2105,7 @@ func (o GetImageApplicationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageApplication) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Array of strings describing the platforms on which the application can run.
-// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
+// Array of strings describing the platforms on which the application can run. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
 func (o GetImageApplicationOutput) Platforms() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetImageApplication) []string { return v.Platforms }).(pulumi.StringArrayOutput)
 }
@@ -2354,7 +2348,9 @@ func (o GetImageImagePermissionArrayOutput) Index(i pulumi.IntInput) GetImageIma
 }
 
 type GetImageStateChangeReason struct {
-	Code    string `pulumi:"code"`
+	// State change reason code.
+	Code string `pulumi:"code"`
+	// State change reason message.
 	Message string `pulumi:"message"`
 }
 
@@ -2370,7 +2366,9 @@ type GetImageStateChangeReasonInput interface {
 }
 
 type GetImageStateChangeReasonArgs struct {
-	Code    pulumi.StringInput `pulumi:"code"`
+	// State change reason code.
+	Code pulumi.StringInput `pulumi:"code"`
+	// State change reason message.
 	Message pulumi.StringInput `pulumi:"message"`
 }
 
@@ -2425,10 +2423,12 @@ func (o GetImageStateChangeReasonOutput) ToGetImageStateChangeReasonOutputWithCo
 	return o
 }
 
+// State change reason code.
 func (o GetImageStateChangeReasonOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageStateChangeReason) string { return v.Code }).(pulumi.StringOutput)
 }
 
+// State change reason message.
 func (o GetImageStateChangeReasonOutput) Message() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageStateChangeReason) string { return v.Message }).(pulumi.StringOutput)
 }

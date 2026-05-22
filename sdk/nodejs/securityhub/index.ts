@@ -30,6 +30,11 @@ export type AutomationRule = import("./automationRule").AutomationRule;
 export const AutomationRule: typeof import("./automationRule").AutomationRule = null as any;
 utilities.lazyLoad(exports, ["AutomationRule"], () => require("./automationRule"));
 
+export { AutomationRuleV2Args, AutomationRuleV2State } from "./automationRuleV2";
+export type AutomationRuleV2 = import("./automationRuleV2").AutomationRuleV2;
+export const AutomationRuleV2: typeof import("./automationRuleV2").AutomationRuleV2 = null as any;
+utilities.lazyLoad(exports, ["AutomationRuleV2"], () => require("./automationRuleV2"));
+
 export { ConfigurationPolicyArgs, ConfigurationPolicyState } from "./configurationPolicy";
 export type ConfigurationPolicy = import("./configurationPolicy").ConfigurationPolicy;
 export const ConfigurationPolicy: typeof import("./configurationPolicy").ConfigurationPolicy = null as any;
@@ -125,6 +130,8 @@ const _module = {
                 return new AggregatorV2(name, <any>undefined, { urn })
             case "aws:securityhub/automationRule:AutomationRule":
                 return new AutomationRule(name, <any>undefined, { urn })
+            case "aws:securityhub/automationRuleV2:AutomationRuleV2":
+                return new AutomationRuleV2(name, <any>undefined, { urn })
             case "aws:securityhub/configurationPolicy:ConfigurationPolicy":
                 return new ConfigurationPolicy(name, <any>undefined, { urn })
             case "aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation":
@@ -161,6 +168,7 @@ pulumi.runtime.registerResourceModule("aws", "securityhub/accountV2", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/actionTarget", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/aggregatorV2", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/automationRule", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/automationRuleV2", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/configurationPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/configurationPolicyAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/connectorV2", _module)

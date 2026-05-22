@@ -204,68 +204,64 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			snsTopicPolicy := pulumi.All(costAnomalyUpdates.Arn, costAnomalyUpdates.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-//				costAnomalyUpdatesArn := _args[0].(string)
-//				costAnomalyUpdatesArn1 := _args[1].(string)
-//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//					PolicyId: pulumi.StringRef(pulumi.StringRef("__default_policy_ID")),
-//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-//						{
-//							Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("AWSAnomalyDetectionSNSPublishingPermissions"))),
-//							Actions: []string{
-//								"SNS:Publish",
-//							},
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//								{
-//									Type: "Service",
-//									Identifiers: []string{
-//										"costalerts.amazonaws.com",
-//									},
+//			snsTopicPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				PolicyId: pulumi.String("__default_policy_ID"),
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid: pulumi.String("AWSAnomalyDetectionSNSPublishingPermissions"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Publish"),
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("costalerts.amazonaws.com"),
 //								},
-//							},
-//							Resources: []string{
-//								costAnomalyUpdatesArn,
 //							},
 //						},
-//						{
-//							Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("__default_statement_ID"))),
-//							Actions: []string{
-//								"SNS:Subscribe",
-//								"SNS:SetTopicAttributes",
-//								"SNS:RemovePermission",
-//								"SNS:Receive",
-//								"SNS:Publish",
-//								"SNS:ListSubscriptionsByTopic",
-//								"SNS:GetTopicAttributes",
-//								"SNS:DeleteTopic",
-//								"SNS:AddPermission",
-//							},
-//							Conditions: []iam.GetPolicyDocumentStatementCondition{
-//								{
-//									Test:     "StringEquals",
-//									Variable: "AWS:SourceOwner",
-//									Values: pulumi.StringArray{
-//										accountId,
-//									},
+//						Resources: pulumi.StringArray{
+//							costAnomalyUpdates.Arn,
+//						},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid: pulumi.String("__default_statement_ID"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Subscribe"),
+//							pulumi.String("SNS:SetTopicAttributes"),
+//							pulumi.String("SNS:RemovePermission"),
+//							pulumi.String("SNS:Receive"),
+//							pulumi.String("SNS:Publish"),
+//							pulumi.String("SNS:ListSubscriptionsByTopic"),
+//							pulumi.String("SNS:GetTopicAttributes"),
+//							pulumi.String("SNS:DeleteTopic"),
+//							pulumi.String("SNS:AddPermission"),
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("AWS:SourceOwner"),
+//								Values: pulumi.StringArray{
+//									accountId,
 //								},
-//							},
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//								{
-//									Type: "AWS",
-//									Identifiers: []string{
-//										"*",
-//									},
-//								},
-//							},
-//							Resources: []string{
-//								costAnomalyUpdatesArn1,
 //							},
 //						},
-//					}),
-//				}, nil))), nil
-//			}).(iam.GetPolicyDocumentResultOutput)
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
+//								},
+//							},
+//						},
+//						Resources: pulumi.StringArray{
+//							costAnomalyUpdates.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
 //			_default, err := sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 //				Arn: costAnomalyUpdates.Arn,
 //				Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {

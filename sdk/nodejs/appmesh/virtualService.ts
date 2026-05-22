@@ -119,7 +119,7 @@ export class VirtualService extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceOwner: pulumi.Output<string>;
     /**
-     * Virtual service specification to apply.
+     * Virtual service specification to apply. See `spec` Block for details.
      */
     declare public readonly spec: pulumi.Output<outputs.appmesh.VirtualServiceSpec>;
     /**
@@ -217,7 +217,7 @@ export interface VirtualServiceState {
      */
     resourceOwner?: pulumi.Input<string | undefined>;
     /**
-     * Virtual service specification to apply.
+     * Virtual service specification to apply. See `spec` Block for details.
      */
     spec?: pulumi.Input<inputs.appmesh.VirtualServiceSpec | undefined>;
     /**
@@ -251,7 +251,7 @@ export interface VirtualServiceArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Virtual service specification to apply.
+     * Virtual service specification to apply. See `spec` Block for details.
      */
     spec: pulumi.Input<inputs.appmesh.VirtualServiceSpec>;
     /**

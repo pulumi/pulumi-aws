@@ -1808,6 +1808,112 @@ func (o DocumentAttachmentsSourceArrayOutput) Index(i pulumi.IntInput) DocumentA
 	}).(DocumentAttachmentsSourceOutput)
 }
 
+type DocumentFilter struct {
+	// The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
+	Key string `pulumi:"key"`
+	// The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
+	Values []string `pulumi:"values"`
+}
+
+// DocumentFilterInput is an input type that accepts DocumentFilterArgs and DocumentFilterOutput values.
+// You can construct a concrete instance of `DocumentFilterInput` via:
+//
+//	DocumentFilterArgs{...}
+type DocumentFilterInput interface {
+	pulumi.Input
+
+	ToDocumentFilterOutput() DocumentFilterOutput
+	ToDocumentFilterOutputWithContext(context.Context) DocumentFilterOutput
+}
+
+type DocumentFilterArgs struct {
+	// The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (DocumentFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentFilter)(nil)).Elem()
+}
+
+func (i DocumentFilterArgs) ToDocumentFilterOutput() DocumentFilterOutput {
+	return i.ToDocumentFilterOutputWithContext(context.Background())
+}
+
+func (i DocumentFilterArgs) ToDocumentFilterOutputWithContext(ctx context.Context) DocumentFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentFilterOutput)
+}
+
+// DocumentFilterArrayInput is an input type that accepts DocumentFilterArray and DocumentFilterArrayOutput values.
+// You can construct a concrete instance of `DocumentFilterArrayInput` via:
+//
+//	DocumentFilterArray{ DocumentFilterArgs{...} }
+type DocumentFilterArrayInput interface {
+	pulumi.Input
+
+	ToDocumentFilterArrayOutput() DocumentFilterArrayOutput
+	ToDocumentFilterArrayOutputWithContext(context.Context) DocumentFilterArrayOutput
+}
+
+type DocumentFilterArray []DocumentFilterInput
+
+func (DocumentFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentFilter)(nil)).Elem()
+}
+
+func (i DocumentFilterArray) ToDocumentFilterArrayOutput() DocumentFilterArrayOutput {
+	return i.ToDocumentFilterArrayOutputWithContext(context.Background())
+}
+
+func (i DocumentFilterArray) ToDocumentFilterArrayOutputWithContext(ctx context.Context) DocumentFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DocumentFilterArrayOutput)
+}
+
+type DocumentFilterOutput struct{ *pulumi.OutputState }
+
+func (DocumentFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DocumentFilter)(nil)).Elem()
+}
+
+func (o DocumentFilterOutput) ToDocumentFilterOutput() DocumentFilterOutput {
+	return o
+}
+
+func (o DocumentFilterOutput) ToDocumentFilterOutputWithContext(ctx context.Context) DocumentFilterOutput {
+	return o
+}
+
+// The key of a key-value pair that identifies the location of an attachment to the document. Valid values: `SourceUrl`, `S3FileUrl`, `AttachmentReference`.
+func (o DocumentFilterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DocumentFilter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of a key-value pair that identifies the location of an attachment to the document. The argument format is a list of a single string that depends on the type of key you specify - see the [API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AttachmentsSource.html) for details.
+func (o DocumentFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DocumentFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type DocumentFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (DocumentFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DocumentFilter)(nil)).Elem()
+}
+
+func (o DocumentFilterArrayOutput) ToDocumentFilterArrayOutput() DocumentFilterArrayOutput {
+	return o
+}
+
+func (o DocumentFilterArrayOutput) ToDocumentFilterArrayOutputWithContext(ctx context.Context) DocumentFilterArrayOutput {
+	return o
+}
+
+func (o DocumentFilterArrayOutput) Index(i pulumi.IntInput) DocumentFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DocumentFilter {
+		return vs[0].([]DocumentFilter)[vs[1].(int)]
+	}).(DocumentFilterOutput)
+}
+
 type DocumentParameter struct {
 	// If specified, the default values for the parameters. Parameters without a default value are required. Parameters with a default value are optional.
 	DefaultValue *string `pulumi:"defaultValue"`
@@ -6895,6 +7001,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContactsRotationRecurrenceWeeklySettingHandOffTimePtrInput)(nil)).Elem(), ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceInput)(nil)).Elem(), DocumentAttachmentsSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceArrayInput)(nil)).Elem(), DocumentAttachmentsSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentFilterInput)(nil)).Elem(), DocumentFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentFilterArrayInput)(nil)).Elem(), DocumentFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentParameterInput)(nil)).Elem(), DocumentParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentParameterArrayInput)(nil)).Elem(), DocumentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTargetTargetInput)(nil)).Elem(), MaintenanceWindowTargetTargetArgs{})
@@ -6997,6 +7105,8 @@ func init() {
 	pulumi.RegisterOutputType(ContactsRotationRecurrenceWeeklySettingHandOffTimePtrOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceOutput{})
 	pulumi.RegisterOutputType(DocumentAttachmentsSourceArrayOutput{})
+	pulumi.RegisterOutputType(DocumentFilterOutput{})
+	pulumi.RegisterOutputType(DocumentFilterArrayOutput{})
 	pulumi.RegisterOutputType(DocumentParameterOutput{})
 	pulumi.RegisterOutputType(DocumentParameterArrayOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowTargetTargetOutput{})

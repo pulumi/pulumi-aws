@@ -187,7 +187,7 @@ class ConfigurationSetEventDestinationEventDestinationArgsDict(TypedDict):
     """
     An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
     """
-    cloud_watch_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs']]]
+    cloud_watch_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgsDict']]]
     """
     An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
     """
@@ -195,19 +195,19 @@ class ConfigurationSetEventDestinationEventDestinationArgsDict(TypedDict):
     """
     When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
     """
-    event_bridge_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs']]]
+    event_bridge_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgsDict']]]
     """
     An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
     """
-    kinesis_firehose_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs']]]
+    kinesis_firehose_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgsDict']]]
     """
     An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
     """
-    pinpoint_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs']]]
+    pinpoint_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgsDict']]]
     """
     An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
     """
-    sns_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs']]]
+    sns_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgsDict']]]
     """
     An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
     """
@@ -702,11 +702,11 @@ class ConfigurationSetTrackingOptionsArgs:
 
 
 class ConfigurationSetVdmOptionsArgsDict(TypedDict):
-    dashboard_options: NotRequired[pulumi.Input[Optional['ConfigurationSetVdmOptionsDashboardOptionsArgs']]]
+    dashboard_options: NotRequired[pulumi.Input[Optional['ConfigurationSetVdmOptionsDashboardOptionsArgsDict']]]
     """
     Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
     """
-    guardian_options: NotRequired[pulumi.Input[Optional['ConfigurationSetVdmOptionsGuardianOptionsArgs']]]
+    guardian_options: NotRequired[pulumi.Input[Optional['ConfigurationSetVdmOptionsGuardianOptionsArgsDict']]]
     """
     Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
     """

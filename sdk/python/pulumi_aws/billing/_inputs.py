@@ -28,15 +28,15 @@ __all__ = [
 ]
 
 class ViewDataFilterExpressionArgsDict(TypedDict):
-    dimensions: NotRequired[pulumi.Input[Optional['ViewDataFilterExpressionDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['ViewDataFilterExpressionDimensionsArgsDict']]]
     """
     Dimension to use for `expression`. Refer to #dimensions for more details.
     """
-    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ViewDataFilterExpressionTagArgs']]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ViewDataFilterExpressionTagArgsDict']]]]]
     """
     List of key value map specifying tags associated to the billing view being created.
     """
-    time_range: NotRequired[pulumi.Input[Optional['ViewDataFilterExpressionTimeRangeArgs']]]
+    time_range: NotRequired[pulumi.Input[Optional['ViewDataFilterExpressionTimeRangeArgsDict']]]
     """
     Time range to use for `expression`. Refer to #time-range for more details.
     """

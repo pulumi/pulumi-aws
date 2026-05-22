@@ -50,6 +50,9 @@ export interface GetKeyArgs {
  * A collection of values returned by getKey.
  */
 export interface GetKeyResult {
+    /**
+     * ARN of the API Key.
+     */
     readonly arn: string;
     /**
      * Date and time when the API Key was created.

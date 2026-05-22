@@ -19,12 +19,12 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfiguration> efsVolumeConfigurations;
     /**
-     * @return The contents of the host parameter determine whether your data volume persists on the host container instance and where it&#39;s stored.
+     * @return Contents of the host parameter determine whether your data volume persists on the host container instance and where it&#39;s stored.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost> hosts;
     /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+     * @return Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      * 
      */
     private String name;
@@ -38,14 +38,14 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolume 
         return this.efsVolumeConfigurations;
     }
     /**
-     * @return The contents of the host parameter determine whether your data volume persists on the host container instance and where it&#39;s stored.
+     * @return Contents of the host parameter determine whether your data volume persists on the host container instance and where it&#39;s stored.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost> hosts() {
         return this.hosts;
     }
     /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+     * @return Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      * 
      */
     public String name() {

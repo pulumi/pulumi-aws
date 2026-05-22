@@ -179,7 +179,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The endpoint configuration of this RestApi showing the endpoint types of the API.
+        /// The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRestApiEndpointConfigurationResult> EndpointConfigurations;
         /// <summary>

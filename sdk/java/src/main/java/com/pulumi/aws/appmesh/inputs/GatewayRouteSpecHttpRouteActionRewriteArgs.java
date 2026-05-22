@@ -18,14 +18,14 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
     public static final GatewayRouteSpecHttpRouteActionRewriteArgs Empty = new GatewayRouteSpecHttpRouteActionRewriteArgs();
 
     /**
-     * Host name to rewrite.
+     * Host name to rewrite. See `hostname` Block for details.
      * 
      */
     @Import(name="hostname")
     private @Nullable Output<GatewayRouteSpecHttpRouteActionRewriteHostnameArgs> hostname;
 
     /**
-     * @return Host name to rewrite.
+     * @return Host name to rewrite. See `hostname` Block for details.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttpRouteActionRewriteHostnameArgs>> hostname() {
@@ -33,14 +33,14 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
     }
 
     /**
-     * Exact path to rewrite.
+     * Exact path to rewrite. See `path` Block for details.
      * 
      */
     @Import(name="path")
     private @Nullable Output<GatewayRouteSpecHttpRouteActionRewritePathArgs> path;
 
     /**
-     * @return Exact path to rewrite.
+     * @return Exact path to rewrite. See `path` Block for details.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttpRouteActionRewritePathArgs>> path() {
@@ -48,14 +48,14 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
     }
 
     /**
-     * Specified beginning characters to rewrite.
+     * Specified beginning characters to rewrite. See `prefix` Block for details.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<GatewayRouteSpecHttpRouteActionRewritePrefixArgs> prefix;
 
     /**
-     * @return Specified beginning characters to rewrite.
+     * @return Specified beginning characters to rewrite. See `prefix` Block for details.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttpRouteActionRewritePrefixArgs>> prefix() {
@@ -89,7 +89,7 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
         }
 
         /**
-         * @param hostname Host name to rewrite.
+         * @param hostname Host name to rewrite. See `hostname` Block for details.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
         }
 
         /**
-         * @param hostname Host name to rewrite.
+         * @param hostname Host name to rewrite. See `hostname` Block for details.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
         }
 
         /**
-         * @param path Exact path to rewrite.
+         * @param path Exact path to rewrite. See `path` Block for details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
         }
 
         /**
-         * @param path Exact path to rewrite.
+         * @param path Exact path to rewrite. See `path` Block for details.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
         }
 
         /**
-         * @param prefix Specified beginning characters to rewrite.
+         * @param prefix Specified beginning characters to rewrite. See `prefix` Block for details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GatewayRouteSpecHttpRouteActionRewriteArgs extends com.pulumi
         }
 
         /**
-         * @param prefix Specified beginning characters to rewrite.
+         * @param prefix Specified beginning characters to rewrite. See `prefix` Block for details.
          * 
          * @return builder
          * 

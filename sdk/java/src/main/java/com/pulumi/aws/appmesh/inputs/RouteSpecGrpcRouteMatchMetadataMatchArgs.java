@@ -17,14 +17,14 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
     public static final RouteSpecGrpcRouteMatchMetadataMatchArgs Empty = new RouteSpecGrpcRouteMatchMetadataMatchArgs();
 
     /**
-     * Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * Header value sent by the client must match the specified value exactly.
      * 
      */
     @Import(name="exact")
     private @Nullable Output<String> exact;
 
     /**
-     * @return Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must match the specified value exactly.
      * 
      */
     public Optional<Output<String>> exact() {
@@ -32,14 +32,14 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
     }
 
     /**
-     * Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+     * Header value sent by the client must begin with the specified characters.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -47,14 +47,14 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
     }
 
     /**
-     * Object that specifies the range of numbers that the value sent by the client must be included in.
+     * Object that specifies the range of numbers that the header value sent by the client must be included in.
      * 
      */
     @Import(name="range")
     private @Nullable Output<RouteSpecGrpcRouteMatchMetadataMatchRangeArgs> range;
 
     /**
-     * @return Object that specifies the range of numbers that the value sent by the client must be included in.
+     * @return Object that specifies the range of numbers that the header value sent by the client must be included in.
      * 
      */
     public Optional<Output<RouteSpecGrpcRouteMatchMetadataMatchRangeArgs>> range() {
@@ -62,14 +62,14 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
     }
 
     /**
-     * Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * Header value sent by the client must include the specified characters.
      * 
      */
     @Import(name="regex")
     private @Nullable Output<String> regex;
 
     /**
-     * @return Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must include the specified characters.
      * 
      */
     public Optional<Output<String>> regex() {
@@ -77,14 +77,14 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
     }
 
     /**
-     * Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+     * Header value sent by the client must end with the specified characters.
      * 
      */
     @Import(name="suffix")
     private @Nullable Output<String> suffix;
 
     /**
-     * @return Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+     * @return Header value sent by the client must end with the specified characters.
      * 
      */
     public Optional<Output<String>> suffix() {
@@ -120,7 +120,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param exact Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+         * @param exact Header value sent by the client must match the specified value exactly.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param exact Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+         * @param exact Header value sent by the client must match the specified value exactly.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param prefix Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+         * @param prefix Header value sent by the client must begin with the specified characters.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param prefix Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+         * @param prefix Header value sent by the client must begin with the specified characters.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param range Object that specifies the range of numbers that the value sent by the client must be included in.
+         * @param range Object that specifies the range of numbers that the header value sent by the client must be included in.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param range Object that specifies the range of numbers that the value sent by the client must be included in.
+         * @param range Object that specifies the range of numbers that the header value sent by the client must be included in.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param regex Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+         * @param regex Header value sent by the client must include the specified characters.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param regex Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+         * @param regex Header value sent by the client must include the specified characters.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param suffix Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+         * @param suffix Header value sent by the client must end with the specified characters.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class RouteSpecGrpcRouteMatchMetadataMatchArgs extends com.pulumi.r
         }
 
         /**
-         * @param suffix Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+         * @param suffix Header value sent by the client must end with the specified characters.
          * 
          * @return builder
          * 

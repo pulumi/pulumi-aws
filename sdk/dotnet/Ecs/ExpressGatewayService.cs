@@ -10,9 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecs
 {
     /// <summary>
-    /// Manages an ECS Express service. The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
-    /// 
-    /// Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
+    /// Manages an [ECS Express service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-overview.html). The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
     /// 
     /// &gt; **Note:** To prevent a race condition during service deletion, make sure to set `DependsOn` to the related `aws.iam.RolePolicy` or `aws.iam.RolePolicyAttachment` resources. Otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
     /// 
@@ -45,7 +43,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ### Updates
     /// 
-    /// When you update an Express service configuration, a new service revision is created and deployed using a rolling deployment strategy with zero downtime. The service automatically manages the transition from the old configuration to the new one, ensuring continuous availability.
+    /// When you update an Express service configuration, a new service revision is created and deployed using a canary deployment strategy with zero downtime. For more information, see [Updating an Express service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-update.html).
     /// 
     /// ### Deletion
     /// 
@@ -69,7 +67,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Cluster { get; private set; } = null!;
 
         /// <summary>
-        /// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+        /// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
         /// </summary>
         [Output("cpu")]
         public Output<string> Cpu { get; private set; } = null!;
@@ -87,7 +85,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> ExecutionRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Path for health check requests. Defaults to `/ping`.
+        /// Path for health check requests. Defaults to `/`.
         /// </summary>
         [Output("healthCheckPath")]
         public Output<string> HealthCheckPath { get; private set; } = null!;
@@ -107,7 +105,7 @@ namespace Pulumi.Aws.Ecs
         public Output<ImmutableArray<Outputs.ExpressGatewayServiceIngressPath>> IngressPaths { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+        /// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         /// </summary>
         [Output("memory")]
         public Output<string> Memory { get; private set; } = null!;
@@ -225,7 +223,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Cluster { get; set; }
 
         /// <summary>
-        /// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+        /// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
@@ -237,7 +235,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string> ExecutionRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Path for health check requests. Defaults to `/ping`.
+        /// Path for health check requests. Defaults to `/`.
         /// </summary>
         [Input("healthCheckPath")]
         public Input<string>? HealthCheckPath { get; set; }
@@ -251,7 +249,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string> InfrastructureRoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+        /// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }
@@ -329,7 +327,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Cluster { get; set; }
 
         /// <summary>
-        /// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+        /// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
@@ -347,7 +345,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? ExecutionRoleArn { get; set; }
 
         /// <summary>
-        /// Path for health check requests. Defaults to `/ping`.
+        /// Path for health check requests. Defaults to `/`.
         /// </summary>
         [Input("healthCheckPath")]
         public Input<string>? HealthCheckPath { get; set; }
@@ -373,7 +371,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+        /// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         /// </summary>
         [Input("memory")]
         public Input<string>? Memory { get; set; }

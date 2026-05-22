@@ -53,8 +53,7 @@ func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getVpcLink.
 type LookupVpcLinkArgs struct {
-	// Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-	// If multiple API Gateway VPC Links are found with this name, an error will be returned.
+	// Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. If multiple API Gateway VPC Links are found with this name, an error will be returned.
 	Name string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -64,6 +63,7 @@ type LookupVpcLinkArgs struct {
 
 // A collection of values returned by getVpcLink.
 type LookupVpcLinkResult struct {
+	// ARN of the VPC Link.
 	Arn string `pulumi:"arn"`
 	// Description of the VPC link.
 	Description string `pulumi:"description"`
@@ -92,8 +92,7 @@ func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts
 
 // A collection of arguments for invoking getVpcLink.
 type LookupVpcLinkOutputArgs struct {
-	// Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-	// If multiple API Gateway VPC Links are found with this name, an error will be returned.
+	// Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. If multiple API Gateway VPC Links are found with this name, an error will be returned.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -120,6 +119,7 @@ func (o LookupVpcLinkResultOutput) ToLookupVpcLinkResultOutputWithContext(ctx co
 	return o
 }
 
+// ARN of the VPC Link.
 func (o LookupVpcLinkResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcLinkResult) string { return v.Arn }).(pulumi.StringOutput)
 }

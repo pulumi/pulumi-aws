@@ -2566,6 +2566,143 @@ func (o ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickine
 	}).(pulumi.IntPtrOutput)
 }
 
+type DistributionCacheTagConfig struct {
+	// Name of the HTTP header to extract cache tags. The header value must contain comma-separated tag values.
+	HeaderName string `pulumi:"headerName"`
+}
+
+// DistributionCacheTagConfigInput is an input type that accepts DistributionCacheTagConfigArgs and DistributionCacheTagConfigOutput values.
+// You can construct a concrete instance of `DistributionCacheTagConfigInput` via:
+//
+//	DistributionCacheTagConfigArgs{...}
+type DistributionCacheTagConfigInput interface {
+	pulumi.Input
+
+	ToDistributionCacheTagConfigOutput() DistributionCacheTagConfigOutput
+	ToDistributionCacheTagConfigOutputWithContext(context.Context) DistributionCacheTagConfigOutput
+}
+
+type DistributionCacheTagConfigArgs struct {
+	// Name of the HTTP header to extract cache tags. The header value must contain comma-separated tag values.
+	HeaderName pulumi.StringInput `pulumi:"headerName"`
+}
+
+func (DistributionCacheTagConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheTagConfig)(nil)).Elem()
+}
+
+func (i DistributionCacheTagConfigArgs) ToDistributionCacheTagConfigOutput() DistributionCacheTagConfigOutput {
+	return i.ToDistributionCacheTagConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheTagConfigArgs) ToDistributionCacheTagConfigOutputWithContext(ctx context.Context) DistributionCacheTagConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheTagConfigOutput)
+}
+
+func (i DistributionCacheTagConfigArgs) ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput {
+	return i.ToDistributionCacheTagConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionCacheTagConfigArgs) ToDistributionCacheTagConfigPtrOutputWithContext(ctx context.Context) DistributionCacheTagConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheTagConfigOutput).ToDistributionCacheTagConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionCacheTagConfigPtrInput is an input type that accepts DistributionCacheTagConfigArgs, DistributionCacheTagConfigPtr and DistributionCacheTagConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionCacheTagConfigPtrInput` via:
+//
+//	        DistributionCacheTagConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionCacheTagConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput
+	ToDistributionCacheTagConfigPtrOutputWithContext(context.Context) DistributionCacheTagConfigPtrOutput
+}
+
+type distributionCacheTagConfigPtrType DistributionCacheTagConfigArgs
+
+func DistributionCacheTagConfigPtr(v *DistributionCacheTagConfigArgs) DistributionCacheTagConfigPtrInput {
+	return (*distributionCacheTagConfigPtrType)(v)
+}
+
+func (*distributionCacheTagConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheTagConfig)(nil)).Elem()
+}
+
+func (i *distributionCacheTagConfigPtrType) ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput {
+	return i.ToDistributionCacheTagConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionCacheTagConfigPtrType) ToDistributionCacheTagConfigPtrOutputWithContext(ctx context.Context) DistributionCacheTagConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionCacheTagConfigPtrOutput)
+}
+
+type DistributionCacheTagConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheTagConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionCacheTagConfig)(nil)).Elem()
+}
+
+func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigOutput() DistributionCacheTagConfigOutput {
+	return o
+}
+
+func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigOutputWithContext(ctx context.Context) DistributionCacheTagConfigOutput {
+	return o
+}
+
+func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput {
+	return o.ToDistributionCacheTagConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionCacheTagConfigOutput) ToDistributionCacheTagConfigPtrOutputWithContext(ctx context.Context) DistributionCacheTagConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionCacheTagConfig) *DistributionCacheTagConfig {
+		return &v
+	}).(DistributionCacheTagConfigPtrOutput)
+}
+
+// Name of the HTTP header to extract cache tags. The header value must contain comma-separated tag values.
+func (o DistributionCacheTagConfigOutput) HeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionCacheTagConfig) string { return v.HeaderName }).(pulumi.StringOutput)
+}
+
+type DistributionCacheTagConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionCacheTagConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionCacheTagConfig)(nil)).Elem()
+}
+
+func (o DistributionCacheTagConfigPtrOutput) ToDistributionCacheTagConfigPtrOutput() DistributionCacheTagConfigPtrOutput {
+	return o
+}
+
+func (o DistributionCacheTagConfigPtrOutput) ToDistributionCacheTagConfigPtrOutputWithContext(ctx context.Context) DistributionCacheTagConfigPtrOutput {
+	return o
+}
+
+func (o DistributionCacheTagConfigPtrOutput) Elem() DistributionCacheTagConfigOutput {
+	return o.ApplyT(func(v *DistributionCacheTagConfig) DistributionCacheTagConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionCacheTagConfig
+		return ret
+	}).(DistributionCacheTagConfigOutput)
+}
+
+// Name of the HTTP header to extract cache tags. The header value must contain comma-separated tag values.
+func (o DistributionCacheTagConfigPtrOutput) HeaderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionCacheTagConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HeaderName
+	}).(pulumi.StringPtrOutput)
+}
+
 type DistributionConnectionFunctionAssociation struct {
 	// Identifier for the distribution. For example: `EDFDVBD632BHDS5`.
 	Id string `pulumi:"id"`
@@ -23602,6 +23739,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheTagConfigInput)(nil)).Elem(), DistributionCacheTagConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCacheTagConfigPtrInput)(nil)).Elem(), DistributionCacheTagConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConnectionFunctionAssociationInput)(nil)).Elem(), DistributionConnectionFunctionAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConnectionFunctionAssociationPtrInput)(nil)).Elem(), DistributionConnectionFunctionAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomErrorResponseInput)(nil)).Elem(), DistributionCustomErrorResponseArgs{})
@@ -23936,6 +24075,8 @@ func init() {
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigPtrOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigPtrOutput{})
+	pulumi.RegisterOutputType(DistributionCacheTagConfigOutput{})
+	pulumi.RegisterOutputType(DistributionCacheTagConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConnectionFunctionAssociationOutput{})
 	pulumi.RegisterOutputType(DistributionConnectionFunctionAssociationPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseOutput{})

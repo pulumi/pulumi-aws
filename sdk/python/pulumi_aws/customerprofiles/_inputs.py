@@ -56,15 +56,15 @@ class DomainMatchingArgsDict(TypedDict):
     """
     The flag that enables the matching process of duplicate profiles.
     """
-    auto_merging: NotRequired[pulumi.Input[Optional['DomainMatchingAutoMergingArgs']]]
+    auto_merging: NotRequired[pulumi.Input[Optional['DomainMatchingAutoMergingArgsDict']]]
     """
     A block that specifies the configuration about the auto-merging process. Documented below.
     """
-    exporting_config: NotRequired[pulumi.Input[Optional['DomainMatchingExportingConfigArgs']]]
+    exporting_config: NotRequired[pulumi.Input[Optional['DomainMatchingExportingConfigArgsDict']]]
     """
     A block that specifies the configuration for exporting Identity Resolution results. Documented below.
     """
-    job_schedule: NotRequired[pulumi.Input[Optional['DomainMatchingJobScheduleArgs']]]
+    job_schedule: NotRequired[pulumi.Input[Optional['DomainMatchingJobScheduleArgsDict']]]
     """
     A block that specifies the day and time when you want to start the Identity Resolution Job every week. Documented below.
     """
@@ -144,11 +144,11 @@ class DomainMatchingAutoMergingArgsDict(TypedDict):
     """
     The flag that enables the auto-merging of duplicate profiles.
     """
-    conflict_resolution: NotRequired[pulumi.Input[Optional['DomainMatchingAutoMergingConflictResolutionArgs']]]
+    conflict_resolution: NotRequired[pulumi.Input[Optional['DomainMatchingAutoMergingConflictResolutionArgsDict']]]
     """
     A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
     """
-    consolidation: NotRequired[pulumi.Input[Optional['DomainMatchingAutoMergingConsolidationArgs']]]
+    consolidation: NotRequired[pulumi.Input[Optional['DomainMatchingAutoMergingConsolidationArgsDict']]]
     """
     A block that specifies a list of matching attributes that represent matching criteria. If two profiles meet at least one of the requirements in the matching attributes list, they will be merged. Documented below.
     * `min_allowed_confidence_score_for_merging ` - (Optional) A number between 0 and 1 that represents the minimum confidence score required for profiles within a matching group to be merged during the auto-merge process. A higher score means higher similarity required to merge profiles.
@@ -300,7 +300,7 @@ class DomainMatchingAutoMergingConsolidationArgs:
 
 
 class DomainMatchingExportingConfigArgsDict(TypedDict):
-    s3_exporting: NotRequired[pulumi.Input[Optional['DomainMatchingExportingConfigS3ExportingArgs']]]
+    s3_exporting: NotRequired[pulumi.Input[Optional['DomainMatchingExportingConfigS3ExportingArgsDict']]]
 
 @pulumi.input_type
 class DomainMatchingExportingConfigArgs:
@@ -419,19 +419,19 @@ class DomainRuleBasedMatchingArgsDict(TypedDict):
     """
     The flag that enables the rule-based matching process of duplicate profiles.
     """
-    attribute_types_selector: NotRequired[pulumi.Input[Optional['DomainRuleBasedMatchingAttributeTypesSelectorArgs']]]
+    attribute_types_selector: NotRequired[pulumi.Input[Optional['DomainRuleBasedMatchingAttributeTypesSelectorArgsDict']]]
     """
     A block that configures information about the `AttributeTypesSelector` where the rule-based identity resolution uses to match profiles. Documented below.
     """
-    conflict_resolution: NotRequired[pulumi.Input[Optional['DomainRuleBasedMatchingConflictResolutionArgs']]]
+    conflict_resolution: NotRequired[pulumi.Input[Optional['DomainRuleBasedMatchingConflictResolutionArgsDict']]]
     """
     A block that specifies how the auto-merging process should resolve conflicts between different profiles. Documented below.
     """
-    exporting_config: NotRequired[pulumi.Input[Optional['DomainRuleBasedMatchingExportingConfigArgs']]]
+    exporting_config: NotRequired[pulumi.Input[Optional['DomainRuleBasedMatchingExportingConfigArgsDict']]]
     """
     A block that specifies the configuration for exporting Identity Resolution results. Documented below.
     """
-    matching_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainRuleBasedMatchingMatchingRuleArgs']]]]]
+    matching_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainRuleBasedMatchingMatchingRuleArgsDict']]]]]
     """
     A block that configures how the rule-based matching process should match profiles. You can have up to 15 `rule` in the `natching_rules`. Documented below.
     """
@@ -712,7 +712,7 @@ class DomainRuleBasedMatchingConflictResolutionArgs:
 
 
 class DomainRuleBasedMatchingExportingConfigArgsDict(TypedDict):
-    s3_exporting: NotRequired[pulumi.Input[Optional['DomainRuleBasedMatchingExportingConfigS3ExportingArgs']]]
+    s3_exporting: NotRequired[pulumi.Input[Optional['DomainRuleBasedMatchingExportingConfigS3ExportingArgsDict']]]
 
 @pulumi.input_type
 class DomainRuleBasedMatchingExportingConfigArgs:

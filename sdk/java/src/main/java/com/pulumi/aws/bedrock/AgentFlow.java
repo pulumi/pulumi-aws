@@ -22,7 +22,41 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * The default definition:
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentFlow;
+ * import com.pulumi.aws.bedrock.AgentFlowArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentFlow("example", AgentFlowArgs.builder()
+ *             .name("example-flow")
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Default definition
  * 
  * <pre>
  * {@code

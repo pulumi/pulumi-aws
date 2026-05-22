@@ -17,14 +17,14 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
     public static final VirtualNodeSpecListenerOutlierDetectionArgs Empty = new VirtualNodeSpecListenerOutlierDetectionArgs();
 
     /**
-     * Base amount of time for which a host is ejected.
+     * Base amount of time for which a host is ejected. See `baseEjectionDuration` Block for details.
      * 
      */
     @Import(name="baseEjectionDuration", required=true)
     private Output<VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs> baseEjectionDuration;
 
     /**
-     * @return Base amount of time for which a host is ejected.
+     * @return Base amount of time for which a host is ejected. See `baseEjectionDuration` Block for details.
      * 
      */
     public Output<VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs> baseEjectionDuration() {
@@ -32,14 +32,14 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
     }
 
     /**
-     * Time interval between ejection sweep analysis.
+     * Time interval between ejection sweep analysis. See `interval` Block for details.
      * 
      */
     @Import(name="interval", required=true)
     private Output<VirtualNodeSpecListenerOutlierDetectionIntervalArgs> interval;
 
     /**
-     * @return Time interval between ejection sweep analysis.
+     * @return Time interval between ejection sweep analysis. See `interval` Block for details.
      * 
      */
     public Output<VirtualNodeSpecListenerOutlierDetectionIntervalArgs> interval() {
@@ -47,16 +47,14 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
     }
 
     /**
-     * Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-     * Minimum value of `0`. Maximum value of `100`.
+     * Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value. Minimum value of `0`. Maximum value of `100`.
      * 
      */
     @Import(name="maxEjectionPercent", required=true)
     private Output<Integer> maxEjectionPercent;
 
     /**
-     * @return Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-     * Minimum value of `0`. Maximum value of `100`.
+     * @return Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value. Minimum value of `0`. Maximum value of `100`.
      * 
      */
     public Output<Integer> maxEjectionPercent() {
@@ -106,7 +104,7 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
         }
 
         /**
-         * @param baseEjectionDuration Base amount of time for which a host is ejected.
+         * @param baseEjectionDuration Base amount of time for which a host is ejected. See `baseEjectionDuration` Block for details.
          * 
          * @return builder
          * 
@@ -117,7 +115,7 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
         }
 
         /**
-         * @param baseEjectionDuration Base amount of time for which a host is ejected.
+         * @param baseEjectionDuration Base amount of time for which a host is ejected. See `baseEjectionDuration` Block for details.
          * 
          * @return builder
          * 
@@ -127,7 +125,7 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
         }
 
         /**
-         * @param interval Time interval between ejection sweep analysis.
+         * @param interval Time interval between ejection sweep analysis. See `interval` Block for details.
          * 
          * @return builder
          * 
@@ -138,7 +136,7 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
         }
 
         /**
-         * @param interval Time interval between ejection sweep analysis.
+         * @param interval Time interval between ejection sweep analysis. See `interval` Block for details.
          * 
          * @return builder
          * 
@@ -148,8 +146,7 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
         }
 
         /**
-         * @param maxEjectionPercent Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-         * Minimum value of `0`. Maximum value of `100`.
+         * @param maxEjectionPercent Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value. Minimum value of `0`. Maximum value of `100`.
          * 
          * @return builder
          * 
@@ -160,8 +157,7 @@ public final class VirtualNodeSpecListenerOutlierDetectionArgs extends com.pulum
         }
 
         /**
-         * @param maxEjectionPercent Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-         * Minimum value of `0`. Maximum value of `100`.
+         * @param maxEjectionPercent Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value. Minimum value of `0`. Maximum value of `100`.
          * 
          * @return builder
          * 

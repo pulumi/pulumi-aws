@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint
 {
     /// <summary>
+    /// &gt; **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `aws.ses.Template` or `aws.sesv2.EmailIdentity` and related SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+    /// 
     /// Provides a Pinpoint Email Template resource
     /// 
     /// ## Example Usage
@@ -139,6 +141,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <summary>
         /// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
         /// </summary>
+        [Obsolete(@"email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.")]
         public InputList<Inputs.EmailTemplateEmailTemplateArgs> EmailTemplates
         {
             get => _emailTemplates ?? (_emailTemplates = new InputList<Inputs.EmailTemplateEmailTemplateArgs>());
@@ -185,6 +188,7 @@ namespace Pulumi.Aws.Pinpoint
         /// <summary>
         /// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
         /// </summary>
+        [Obsolete(@"email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.")]
         public InputList<Inputs.EmailTemplateEmailTemplateGetArgs> EmailTemplates
         {
             get => _emailTemplates ?? (_emailTemplates = new InputList<Inputs.EmailTemplateEmailTemplateGetArgs>());

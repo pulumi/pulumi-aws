@@ -15,6 +15,11 @@ export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
 utilities.lazyLoad(exports, ["Group"], () => require("./group"));
 
+export { IndexingRuleArgs, IndexingRuleState } from "./indexingRule";
+export type IndexingRule = import("./indexingRule").IndexingRule;
+export const IndexingRule: typeof import("./indexingRule").IndexingRule = null as any;
+utilities.lazyLoad(exports, ["IndexingRule"], () => require("./indexingRule"));
+
 export { ResourcePolicyArgs, ResourcePolicyState } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
@@ -25,6 +30,11 @@ export type SamplingRule = import("./samplingRule").SamplingRule;
 export const SamplingRule: typeof import("./samplingRule").SamplingRule = null as any;
 utilities.lazyLoad(exports, ["SamplingRule"], () => require("./samplingRule"));
 
+export { TraceSegmentDestinationArgs, TraceSegmentDestinationState } from "./traceSegmentDestination";
+export type TraceSegmentDestination = import("./traceSegmentDestination").TraceSegmentDestination;
+export const TraceSegmentDestination: typeof import("./traceSegmentDestination").TraceSegmentDestination = null as any;
+utilities.lazyLoad(exports, ["TraceSegmentDestination"], () => require("./traceSegmentDestination"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -34,10 +44,14 @@ const _module = {
                 return new EncryptionConfig(name, <any>undefined, { urn })
             case "aws:xray/group:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "aws:xray/indexingRule:IndexingRule":
+                return new IndexingRule(name, <any>undefined, { urn })
             case "aws:xray/resourcePolicy:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws:xray/samplingRule:SamplingRule":
                 return new SamplingRule(name, <any>undefined, { urn })
+            case "aws:xray/traceSegmentDestination:TraceSegmentDestination":
+                return new TraceSegmentDestination(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -45,5 +59,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "xray/encryptionConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "xray/group", _module)
+pulumi.runtime.registerResourceModule("aws", "xray/indexingRule", _module)
 pulumi.runtime.registerResourceModule("aws", "xray/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "xray/samplingRule", _module)
+pulumi.runtime.registerResourceModule("aws", "xray/traceSegmentDestination", _module)

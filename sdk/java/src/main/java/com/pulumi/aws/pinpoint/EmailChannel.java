@@ -17,6 +17,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `aws.ses.DomainIdentity`, `aws.sesv2.EmailIdentity`, and related SES/SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+ * 
  * Provides a Pinpoint Email Channel resource.
  * 
  * ## Example Usage
@@ -114,7 +116,11 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * The application ID.
      * 
+     * @deprecated
+     * application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * 
      */
+    @Deprecated /* application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
@@ -128,7 +134,11 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
      * 
+     * @deprecated
+     * configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * 
      */
+    @Deprecated /* configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Export(name="configurationSet", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> configurationSet;
 
@@ -142,7 +152,11 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
+     * @deprecated
+     * enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * 
      */
+    @Deprecated /* enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
@@ -156,7 +170,11 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      * 
+     * @deprecated
+     * from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * 
      */
+    @Deprecated /* from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Export(name="fromAddress", refs={String.class}, tree="[0]")
     private Output<String> fromAddress;
 
@@ -170,7 +188,11 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * The ARN of an identity verified with SES.
      * 
+     * @deprecated
+     * identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * 
      */
+    @Deprecated /* identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Export(name="identity", refs={String.class}, tree="[0]")
     private Output<String> identity;
 
@@ -184,7 +206,11 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * Messages per second that can be sent.
      * 
+     * @deprecated
+     * messages_per_second is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * 
      */
+    @Deprecated /* messages_per_second is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Export(name="messagesPerSecond", refs={Integer.class}, tree="[0]")
     private Output<Integer> messagesPerSecond;
 
@@ -198,7 +224,11 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
      * 
+     * @deprecated
+     * orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * 
      */
+    @Deprecated /* orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Export(name="orchestrationSendingRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> orchestrationSendingRoleArn;
 
@@ -226,7 +256,11 @@ public class EmailChannel extends com.pulumi.resources.CustomResource {
     /**
      * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
+     * @deprecated
+     * role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * 
      */
+    @Deprecated /* role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleArn;
 

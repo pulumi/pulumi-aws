@@ -13,6 +13,9 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     [OutputType]
     public sealed class GetFrameworkControlSetControlResult
     {
+        /// <summary>
+        /// Unique identifier for the framework.
+        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

@@ -369,7 +369,7 @@ class FleetRuntimeConfigurationArgsDict(TypedDict):
     """
     Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
     """
-    server_processes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgs']]]]]
+    server_processes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetRuntimeConfigurationServerProcessArgsDict']]]]]
     """
     Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
     """

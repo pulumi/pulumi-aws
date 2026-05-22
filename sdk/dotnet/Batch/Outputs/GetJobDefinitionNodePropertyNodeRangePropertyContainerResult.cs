@@ -14,35 +14,35 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerResult
     {
         /// <summary>
-        /// The command that's passed to the container.
+        /// Command that's passed to the container.
         /// </summary>
         public readonly ImmutableArray<string> Commands;
         /// <summary>
-        /// The environment variables to pass to a container.
+        /// Environment variables to pass to a container.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentResult> Environments;
         /// <summary>
-        /// The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
+        /// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageResult> EphemeralStorages;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+        /// Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
         /// </summary>
         public readonly string ExecutionRoleArn;
         /// <summary>
-        /// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
+        /// Platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationResult> FargatePlatformConfigurations;
         /// <summary>
-        /// The image used to start a container.
+        /// Image used to start a container.
         /// </summary>
         public readonly string Image;
         /// <summary>
-        /// The instance type to use for a multi-node parallel job.
+        /// Instance type to use for a multi-node parallel job.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+        /// Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
         /// </summary>
         public readonly string JobRoleArn;
         /// <summary>
@@ -50,15 +50,15 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterResult> LinuxParameters;
         /// <summary>
-        /// The log configuration specification for the container.
+        /// Log configuration specification for the container.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationResult> LogConfigurations;
         /// <summary>
-        /// The mount points for data volumes in your container.
+        /// Mount points for data volumes in your container.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointResult> MountPoints;
         /// <summary>
-        /// The network configuration for jobs that are running on Fargate resources.
+        /// Network configuration for jobs that are running on Fargate resources.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerNetworkConfigurationResult> NetworkConfigurations;
         /// <summary>
@@ -70,27 +70,27 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly bool ReadonlyRootFilesystem;
         /// <summary>
-        /// The type and amount of resources to assign to a container.
+        /// Type and amount of resources to assign to a container.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementResult> ResourceRequirements;
         /// <summary>
-        /// An object that represents the compute environment architecture for AWS Batch jobs on Fargate.
+        /// Object that represents the compute environment architecture for AWS Batch jobs on Fargate.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerRuntimePlatformResult> RuntimePlatforms;
         /// <summary>
-        /// The secrets for the container.
+        /// Secrets for the container.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerSecretResult> Secrets;
         /// <summary>
-        /// A list of ulimits to set in the container.
+        /// List of ulimits to set in the container.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerUlimitResult> Ulimits;
         /// <summary>
-        /// The user name to use inside the container.
+        /// User name to use inside the container.
         /// </summary>
         public readonly string User;
         /// <summary>
-        /// A list of data volumes used in a job.
+        /// List of data volumes used in a job.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeResult> Volumes;
 

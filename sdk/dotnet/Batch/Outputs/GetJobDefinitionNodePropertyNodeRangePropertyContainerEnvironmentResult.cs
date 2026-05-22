@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentResult
     {
         /// <summary>
-        /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+        /// Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The quantity of the specified resource to reserve for the container.
+        /// Quantity of the specified resource to reserve for the container.
         /// </summary>
         public readonly string Value;
 

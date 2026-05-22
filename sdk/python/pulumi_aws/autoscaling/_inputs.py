@@ -174,7 +174,7 @@ class GroupCapacityReservationSpecificationArgsDict(TypedDict):
     """
     Capacity Reservation preference helps you use Capacity Reservations efficiently by prioritizing reserved capacity in a Capacity Reservation before using On-Demand capacity. Valid values are `default`, `capacity-reservations-only`, `capacity-reservations-first` and `none`. Default is `default`.
     """
-    capacity_reservation_target: NotRequired[pulumi.Input[Optional['GroupCapacityReservationSpecificationCapacityReservationTargetArgs']]]
+    capacity_reservation_target: NotRequired[pulumi.Input[Optional['GroupCapacityReservationSpecificationCapacityReservationTargetArgsDict']]]
     """
     Describes a target Capacity Reservation or Capacity Reservation resource group.
     """
@@ -424,7 +424,7 @@ class GroupInstanceRefreshArgsDict(TypedDict):
     """
     Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
     """
-    preferences: NotRequired[pulumi.Input[Optional['GroupInstanceRefreshPreferencesArgs']]]
+    preferences: NotRequired[pulumi.Input[Optional['GroupInstanceRefreshPreferencesArgsDict']]]
     """
     Override default parameters for Instance Refresh.
     """
@@ -512,7 +512,7 @@ class GroupInstanceRefreshArgs:
 
 
 class GroupInstanceRefreshPreferencesArgsDict(TypedDict):
-    alarm_specification: NotRequired[pulumi.Input[Optional['GroupInstanceRefreshPreferencesAlarmSpecificationArgs']]]
+    alarm_specification: NotRequired[pulumi.Input[Optional['GroupInstanceRefreshPreferencesAlarmSpecificationArgsDict']]]
     """
     Alarm Specification for Instance Refresh.
     """
@@ -823,7 +823,7 @@ class GroupMixedInstancesPolicyArgsDict(TypedDict):
     """
     Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
     """
-    instances_distribution: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyInstancesDistributionArgs']]]
+    instances_distribution: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyInstancesDistributionArgsDict']]]
     """
     Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
     """
@@ -1000,7 +1000,7 @@ class GroupMixedInstancesPolicyLaunchTemplateArgsDict(TypedDict):
     """
     Override the instance launch template specification in the Launch Template.
     """
-    overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideArgs']]]]]
+    overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupMixedInstancesPolicyLaunchTemplateOverrideArgsDict']]]]]
     """
     List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
     """
@@ -1106,7 +1106,7 @@ class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs:
 
 
 class GroupMixedInstancesPolicyLaunchTemplateOverrideArgsDict(TypedDict):
-    instance_requirements: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs']]]
+    instance_requirements: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgsDict']]]
     """
     Override the instance type in the Launch Template with instance types that satisfy the requirements.
     """
@@ -1114,7 +1114,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideArgsDict(TypedDict):
     """
     Override the instance type in the Launch Template.
     """
-    launch_template_specification: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs']]]
+    launch_template_specification: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgsDict']]]
     """
     Override the instance launch template specification in the Launch Template.
     """
@@ -1195,7 +1195,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideArgs:
 
 
 class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgsDict(TypedDict):
-    accelerator_count: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs']]]
+    accelerator_count: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgsDict']]]
     """
     Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
     """
@@ -1226,7 +1226,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgsDic
     * vu9p            - Xilinx VU9P FPGAs
     ```
     """
-    accelerator_total_memory_mib: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']]]
+    accelerator_total_memory_mib: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgsDict']]]
     """
     Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
     """
@@ -1251,7 +1251,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgsDic
     """
     Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
     """
-    baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]]
+    baseline_ebs_bandwidth_mbps: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgsDict']]]
     """
     Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
     """
@@ -1306,19 +1306,19 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgsDic
     """
     The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Conflicts with `spot_max_price_percentage_over_lowest_price`
     """
-    memory_gib_per_vcpu: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs']]]
+    memory_gib_per_vcpu: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgsDict']]]
     """
     Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
     """
-    memory_mib: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs']]]
+    memory_mib: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgsDict']]]
     """
     Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
     """
-    network_bandwidth_gbps: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']]]
+    network_bandwidth_gbps: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgsDict']]]
     """
     Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
     """
-    network_interface_count: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs']]]
+    network_interface_count: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgsDict']]]
     """
     Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
     """
@@ -1338,11 +1338,11 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgsDic
 
     If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
     """
-    total_local_storage_gb: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs']]]
+    total_local_storage_gb: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgsDict']]]
     """
     Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
     """
-    vcpu_count: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs']]]
+    vcpu_count: NotRequired[pulumi.Input[Optional['GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgsDict']]]
     """
     Block describing the minimum and maximum number of vCPUs. Default is no maximum.
     """
@@ -2349,7 +2349,7 @@ class GroupTrafficSourceArgs:
 
 
 class GroupWarmPoolArgsDict(TypedDict):
-    instance_reuse_policy: NotRequired[pulumi.Input[Optional['GroupWarmPoolInstanceReusePolicyArgs']]]
+    instance_reuse_policy: NotRequired[pulumi.Input[Optional['GroupWarmPoolInstanceReusePolicyArgsDict']]]
     """
     Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
     """
@@ -2579,27 +2579,27 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationArgsDict(TypedDict)
     """
     Target value for the metric.
     """
-    customized_capacity_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs']]]
+    customized_capacity_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgsDict']]]
     """
     Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
     """
-    customized_load_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs']]]
+    customized_load_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgsDict']]]
     """
     Customized load metric specification.
     """
-    customized_scaling_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs']]]
+    customized_scaling_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgsDict']]]
     """
     Customized scaling metric specification.
     """
-    predefined_load_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs']]]
+    predefined_load_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgsDict']]]
     """
     Predefined load metric specification.
     """
-    predefined_metric_pair_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs']]]
+    predefined_metric_pair_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgsDict']]]
     """
     Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
     """
-    predefined_scaling_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs']]]
+    predefined_scaling_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgsDict']]]
     """
     Predefined scaling metric specification.
     """
@@ -2763,7 +2763,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityM
     """
     Human-readable label for this metric or expression.
     """
-    metric_stat: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs']]]
+    metric_stat: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgsDict']]]
     """
     Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
     """
@@ -2934,7 +2934,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityM
     """
     Namespace of the metric.
     """
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict']]]]]
     """
     Dimensions of the metric.
     """
@@ -3080,7 +3080,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetri
     """
     Human-readable label for this metric or expression.
     """
-    metric_stat: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs']]]
+    metric_stat: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgsDict']]]
     """
     Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
     """
@@ -3251,7 +3251,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetri
     """
     Namespace of the metric.
     """
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict']]]]]
     """
     Dimensions of the metric.
     """
@@ -3397,7 +3397,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMe
     """
     Human-readable label for this metric or expression.
     """
-    metric_stat: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs']]]
+    metric_stat: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgsDict']]]
     """
     Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
     """
@@ -3568,7 +3568,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMe
     """
     Namespace of the metric.
     """
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict']]]]]
     """
     Dimensions of the metric.
     """
@@ -3923,7 +3923,7 @@ class PolicyTargetTrackingConfigurationArgsDict(TypedDict):
     """
     Target value for the metric.
     """
-    customized_metric_specification: NotRequired[pulumi.Input[Optional['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs']]]
+    customized_metric_specification: NotRequired[pulumi.Input[Optional['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgsDict']]]
     """
     Customized metric. Conflicts with `predefined_metric_specification`.
     """
@@ -3931,7 +3931,7 @@ class PolicyTargetTrackingConfigurationArgsDict(TypedDict):
     """
     Whether scale in by the target tracking policy is disabled.
     """
-    predefined_metric_specification: NotRequired[pulumi.Input[Optional['PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs']]]
+    predefined_metric_specification: NotRequired[pulumi.Input[Optional['PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgsDict']]]
     """
     Predefined metric. Conflicts with `customized_metric_specification`.
     """
@@ -4007,7 +4007,7 @@ class PolicyTargetTrackingConfigurationArgs:
 
 
 class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgsDict(TypedDict):
-    metric_dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs']]]]]
+    metric_dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgsDict']]]]]
     """
     Dimensions of the metric.
     """
@@ -4015,7 +4015,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgsDict(Typ
     """
     Name of the metric.
     """
-    metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs']]]]]
+    metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgsDict']]]]]
     """
     Metrics to include, as a metric data query.
     """
@@ -4168,7 +4168,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgsDi
     """
     Human-readable label for this metric or expression.
     """
-    metric_stat: NotRequired[pulumi.Input[Optional['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs']]]
+    metric_stat: NotRequired[pulumi.Input[Optional['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgsDict']]]
     """
     Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
     """
@@ -4406,7 +4406,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetric
     """
     Namespace of the metric.
     """
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgsDict']]]]]
     """
     Dimensions of the metric.
     """

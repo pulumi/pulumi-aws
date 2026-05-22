@@ -204,14 +204,14 @@ public class Mesh extends com.pulumi.resources.CustomResource {
         return this.resourceOwner;
     }
     /**
-     * Service mesh specification to apply.
+     * Service mesh specification to apply. See `spec` Block for details.
      * 
      */
     @Export(name="spec", refs={MeshSpec.class}, tree="[0]")
     private Output</* @Nullable */ MeshSpec> spec;
 
     /**
-     * @return Service mesh specification to apply.
+     * @return Service mesh specification to apply. See `spec` Block for details.
      * 
      */
     public Output<Optional<MeshSpec>> spec() {

@@ -32,7 +32,17 @@ public final class GetLocalGatewayVirtualInterfaceResult {
      * 
      */
     private String localGatewayId;
+    /**
+     * @return Identifier of the EC2 Local Gateway Virtual Interface Group.
+     * 
+     */
+    private String localGatewayVirtualInterfaceGroupId;
     private List<String> localGatewayVirtualInterfaceIds;
+    /**
+     * @return Identifier of the Outpost LAG.
+     * 
+     */
+    private String outpostLagId;
     /**
      * @return Peer address.
      * 
@@ -79,8 +89,22 @@ public final class GetLocalGatewayVirtualInterfaceResult {
     public String localGatewayId() {
         return this.localGatewayId;
     }
+    /**
+     * @return Identifier of the EC2 Local Gateway Virtual Interface Group.
+     * 
+     */
+    public String localGatewayVirtualInterfaceGroupId() {
+        return this.localGatewayVirtualInterfaceGroupId;
+    }
     public List<String> localGatewayVirtualInterfaceIds() {
         return this.localGatewayVirtualInterfaceIds;
+    }
+    /**
+     * @return Identifier of the Outpost LAG.
+     * 
+     */
+    public String outpostLagId() {
+        return this.outpostLagId;
     }
     /**
      * @return Peer address.
@@ -124,7 +148,9 @@ public final class GetLocalGatewayVirtualInterfaceResult {
         private String localAddress;
         private Integer localBgpAsn;
         private String localGatewayId;
+        private String localGatewayVirtualInterfaceGroupId;
         private List<String> localGatewayVirtualInterfaceIds;
+        private String outpostLagId;
         private String peerAddress;
         private Integer peerBgpAsn;
         private String region;
@@ -138,7 +164,9 @@ public final class GetLocalGatewayVirtualInterfaceResult {
     	      this.localAddress = defaults.localAddress;
     	      this.localBgpAsn = defaults.localBgpAsn;
     	      this.localGatewayId = defaults.localGatewayId;
+    	      this.localGatewayVirtualInterfaceGroupId = defaults.localGatewayVirtualInterfaceGroupId;
     	      this.localGatewayVirtualInterfaceIds = defaults.localGatewayVirtualInterfaceIds;
+    	      this.outpostLagId = defaults.outpostLagId;
     	      this.peerAddress = defaults.peerAddress;
     	      this.peerBgpAsn = defaults.peerBgpAsn;
     	      this.region = defaults.region;
@@ -188,6 +216,14 @@ public final class GetLocalGatewayVirtualInterfaceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder localGatewayVirtualInterfaceGroupId(String localGatewayVirtualInterfaceGroupId) {
+            if (localGatewayVirtualInterfaceGroupId == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "localGatewayVirtualInterfaceGroupId");
+            }
+            this.localGatewayVirtualInterfaceGroupId = localGatewayVirtualInterfaceGroupId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder localGatewayVirtualInterfaceIds(List<String> localGatewayVirtualInterfaceIds) {
             if (localGatewayVirtualInterfaceIds == null) {
               throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "localGatewayVirtualInterfaceIds");
@@ -197,6 +233,14 @@ public final class GetLocalGatewayVirtualInterfaceResult {
         }
         public Builder localGatewayVirtualInterfaceIds(String... localGatewayVirtualInterfaceIds) {
             return localGatewayVirtualInterfaceIds(List.of(localGatewayVirtualInterfaceIds));
+        }
+        @CustomType.Setter
+        public Builder outpostLagId(String outpostLagId) {
+            if (outpostLagId == null) {
+              throw new MissingRequiredPropertyException("GetLocalGatewayVirtualInterfaceResult", "outpostLagId");
+            }
+            this.outpostLagId = outpostLagId;
+            return this;
         }
         @CustomType.Setter
         public Builder peerAddress(String peerAddress) {
@@ -245,7 +289,9 @@ public final class GetLocalGatewayVirtualInterfaceResult {
             _resultValue.localAddress = localAddress;
             _resultValue.localBgpAsn = localBgpAsn;
             _resultValue.localGatewayId = localGatewayId;
+            _resultValue.localGatewayVirtualInterfaceGroupId = localGatewayVirtualInterfaceGroupId;
             _resultValue.localGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
+            _resultValue.outpostLagId = outpostLagId;
             _resultValue.peerAddress = peerAddress;
             _resultValue.peerBgpAsn = peerBgpAsn;
             _resultValue.region = region;

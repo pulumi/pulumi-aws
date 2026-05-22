@@ -11104,7 +11104,6 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArr
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverride struct {
 	// List of instance requirements objects.
-	// * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
 	InstanceRequirements []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement `pulumi:"instanceRequirements"`
 	// Overriding instance type.
 	InstanceType string `pulumi:"instanceType"`
@@ -11127,7 +11126,6 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInput interface {
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideArgs struct {
 	// List of instance requirements objects.
-	// * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
 	InstanceRequirements GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayInput `pulumi:"instanceRequirements"`
 	// Overriding instance type.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
@@ -11189,7 +11187,6 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) ToGetGroupMixe
 }
 
 // List of instance requirements objects.
-// * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideOutput) InstanceRequirements() GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverride) []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement {
 		return v.InstanceRequirements
@@ -11234,6 +11231,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) Index(i p
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement struct {
+	// List of objects describing the minimum and maximum number of accelerators for an instance type.
 	AcceleratorCounts []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount `pulumi:"acceleratorCounts"`
 	// List of accelerator manufacturer names.
 	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
@@ -11295,6 +11293,7 @@ type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementInput 
 }
 
 type GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs struct {
+	// List of objects describing the minimum and maximum number of accelerators for an instance type.
 	AcceleratorCounts GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayInput `pulumi:"acceleratorCounts"`
 	// List of accelerator manufacturer names.
 	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
@@ -11395,6 +11394,7 @@ func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOut
 	return o
 }
 
+// List of objects describing the minimum and maximum number of accelerators for an instance type.
 func (o GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementOutput) AcceleratorCounts() GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountArrayOutput {
 	return o.ApplyT(func(v GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement) []GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount {
 		return v.AcceleratorCounts
@@ -12916,8 +12916,9 @@ func (o GetGroupTrafficSourceArrayOutput) Index(i pulumi.IntInput) GetGroupTraff
 
 type GetGroupWarmPool struct {
 	// List of instance reuse policy objects.
-	InstanceReusePolicies    []GetGroupWarmPoolInstanceReusePolicy `pulumi:"instanceReusePolicies"`
-	MaxGroupPreparedCapacity int                                   `pulumi:"maxGroupPreparedCapacity"`
+	InstanceReusePolicies []GetGroupWarmPoolInstanceReusePolicy `pulumi:"instanceReusePolicies"`
+	// Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+	MaxGroupPreparedCapacity int `pulumi:"maxGroupPreparedCapacity"`
 	// Minimum number of instances to maintain in the warm pool.
 	MinSize int `pulumi:"minSize"`
 	// Instance state to transition to after the lifecycle actions are complete.
@@ -12937,8 +12938,9 @@ type GetGroupWarmPoolInput interface {
 
 type GetGroupWarmPoolArgs struct {
 	// List of instance reuse policy objects.
-	InstanceReusePolicies    GetGroupWarmPoolInstanceReusePolicyArrayInput `pulumi:"instanceReusePolicies"`
-	MaxGroupPreparedCapacity pulumi.IntInput                               `pulumi:"maxGroupPreparedCapacity"`
+	InstanceReusePolicies GetGroupWarmPoolInstanceReusePolicyArrayInput `pulumi:"instanceReusePolicies"`
+	// Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+	MaxGroupPreparedCapacity pulumi.IntInput `pulumi:"maxGroupPreparedCapacity"`
 	// Minimum number of instances to maintain in the warm pool.
 	MinSize pulumi.IntInput `pulumi:"minSize"`
 	// Instance state to transition to after the lifecycle actions are complete.
@@ -13001,6 +13003,7 @@ func (o GetGroupWarmPoolOutput) InstanceReusePolicies() GetGroupWarmPoolInstance
 	return o.ApplyT(func(v GetGroupWarmPool) []GetGroupWarmPoolInstanceReusePolicy { return v.InstanceReusePolicies }).(GetGroupWarmPoolInstanceReusePolicyArrayOutput)
 }
 
+// Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
 func (o GetGroupWarmPoolOutput) MaxGroupPreparedCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGroupWarmPool) int { return v.MaxGroupPreparedCapacity }).(pulumi.IntOutput)
 }

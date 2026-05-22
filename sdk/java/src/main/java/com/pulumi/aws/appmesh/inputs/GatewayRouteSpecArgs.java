@@ -19,14 +19,14 @@ public final class GatewayRouteSpecArgs extends com.pulumi.resources.ResourceArg
     public static final GatewayRouteSpecArgs Empty = new GatewayRouteSpecArgs();
 
     /**
-     * Specification of a gRPC gateway route.
+     * Specification of a gRPC gateway route. See `grpcRoute` Block for details.
      * 
      */
     @Import(name="grpcRoute")
     private @Nullable Output<GatewayRouteSpecGrpcRouteArgs> grpcRoute;
 
     /**
-     * @return Specification of a gRPC gateway route.
+     * @return Specification of a gRPC gateway route. See `grpcRoute` Block for details.
      * 
      */
     public Optional<Output<GatewayRouteSpecGrpcRouteArgs>> grpcRoute() {
@@ -34,14 +34,14 @@ public final class GatewayRouteSpecArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specification of an HTTP/2 gateway route.
+     * Specification of an HTTP/2 gateway route. See `http2Route` Block for details.
      * 
      */
     @Import(name="http2Route")
     private @Nullable Output<GatewayRouteSpecHttp2RouteArgs> http2Route;
 
     /**
-     * @return Specification of an HTTP/2 gateway route.
+     * @return Specification of an HTTP/2 gateway route. See `http2Route` Block for details.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttp2RouteArgs>> http2Route() {
@@ -49,14 +49,14 @@ public final class GatewayRouteSpecArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specification of an HTTP gateway route.
+     * Specification of an HTTP gateway route. See `httpRoute` Block for details.
      * 
      */
     @Import(name="httpRoute")
     private @Nullable Output<GatewayRouteSpecHttpRouteArgs> httpRoute;
 
     /**
-     * @return Specification of an HTTP gateway route.
+     * @return Specification of an HTTP gateway route. See `httpRoute` Block for details.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttpRouteArgs>> httpRoute() {
@@ -106,7 +106,7 @@ public final class GatewayRouteSpecArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param grpcRoute Specification of a gRPC gateway route.
+         * @param grpcRoute Specification of a gRPC gateway route. See `grpcRoute` Block for details.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class GatewayRouteSpecArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param grpcRoute Specification of a gRPC gateway route.
+         * @param grpcRoute Specification of a gRPC gateway route. See `grpcRoute` Block for details.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class GatewayRouteSpecArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param http2Route Specification of an HTTP/2 gateway route.
+         * @param http2Route Specification of an HTTP/2 gateway route. See `http2Route` Block for details.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class GatewayRouteSpecArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param http2Route Specification of an HTTP/2 gateway route.
+         * @param http2Route Specification of an HTTP/2 gateway route. See `http2Route` Block for details.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class GatewayRouteSpecArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param httpRoute Specification of an HTTP gateway route.
+         * @param httpRoute Specification of an HTTP gateway route. See `httpRoute` Block for details.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class GatewayRouteSpecArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param httpRoute Specification of an HTTP gateway route.
+         * @param httpRoute Specification of an HTTP gateway route. See `httpRoute` Block for details.
          * 
          * @return builder
          * 

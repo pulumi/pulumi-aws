@@ -68,6 +68,7 @@ type GetImageArgs struct {
 
 // A collection of values returned by getImage.
 type GetImageResult struct {
+	// A application object that contains the following:
 	Applications []GetImageApplication `pulumi:"applications"`
 	// Version of the AppStream 2.0 agent to use for instances that are launched from this image. Has a maximum length of 100 characters.
 	AppstreamAgentVersion string `pulumi:"appstreamAgentVersion"`
@@ -86,19 +87,21 @@ type GetImageResult struct {
 	// The name of the image builder that was used to created the private image. If the image is sharedthen the value is null.
 	ImageBuilderName string `pulumi:"imageBuilderName"`
 	// Boolean to indicate whether an image builder can be launched from this image.
-	// * `image error` - Resource error object that describes the error containing the following:
 	ImageBuilderSupported bool `pulumi:"imageBuilderSupported"`
 	// List of strings describing the image permissions containing the following:
 	ImagePermissions []GetImageImagePermission `pulumi:"imagePermissions"`
 	MostRecent       *bool                     `pulumi:"mostRecent"`
-	Name             string                    `pulumi:"name"`
-	NameRegex        *string                   `pulumi:"nameRegex"`
+	// Name of the application.
+	Name      string  `pulumi:"name"`
+	NameRegex *string `pulumi:"nameRegex"`
 	// Operating system platform of the image. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
-	Platform                    string `pulumi:"platform"`
+	Platform string `pulumi:"platform"`
+	// Release date of base image if public. For private images, it is the release date of the base image that it was created from.
 	PublicBaseImageReleasedDate string `pulumi:"publicBaseImageReleasedDate"`
 	Region                      string `pulumi:"region"`
 	// Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
-	State              string                      `pulumi:"state"`
+	State string `pulumi:"state"`
+	// Reason for the last state change.
 	StateChangeReasons []GetImageStateChangeReason `pulumi:"stateChangeReasons"`
 	Type               *string                     `pulumi:"type"`
 }
@@ -147,6 +150,7 @@ func (o GetImageResultOutput) ToGetImageResultOutputWithContext(ctx context.Cont
 	return o
 }
 
+// A application object that contains the following:
 func (o GetImageResultOutput) Applications() GetImageApplicationArrayOutput {
 	return o.ApplyT(func(v GetImageResult) []GetImageApplication { return v.Applications }).(GetImageApplicationArrayOutput)
 }
@@ -192,7 +196,6 @@ func (o GetImageResultOutput) ImageBuilderName() pulumi.StringOutput {
 }
 
 // Boolean to indicate whether an image builder can be launched from this image.
-// * `image error` - Resource error object that describes the error containing the following:
 func (o GetImageResultOutput) ImageBuilderSupported() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetImageResult) bool { return v.ImageBuilderSupported }).(pulumi.BoolOutput)
 }
@@ -206,6 +209,7 @@ func (o GetImageResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetImageResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
+// Name of the application.
 func (o GetImageResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -219,6 +223,7 @@ func (o GetImageResultOutput) Platform() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.Platform }).(pulumi.StringOutput)
 }
 
+// Release date of base image if public. For private images, it is the release date of the base image that it was created from.
 func (o GetImageResultOutput) PublicBaseImageReleasedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.PublicBaseImageReleasedDate }).(pulumi.StringOutput)
 }
@@ -232,6 +237,7 @@ func (o GetImageResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetImageResult) string { return v.State }).(pulumi.StringOutput)
 }
 
+// Reason for the last state change.
 func (o GetImageResultOutput) StateChangeReasons() GetImageStateChangeReasonArrayOutput {
 	return o.ApplyT(func(v GetImageResult) []GetImageStateChangeReason { return v.StateChangeReasons }).(GetImageStateChangeReasonArrayOutput)
 }

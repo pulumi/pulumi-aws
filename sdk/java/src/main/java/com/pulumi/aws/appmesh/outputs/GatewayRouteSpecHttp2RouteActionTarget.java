@@ -19,7 +19,7 @@ public final class GatewayRouteSpecHttp2RouteActionTarget {
      */
     private @Nullable Integer port;
     /**
-     * @return Virtual service gateway route target.
+     * @return Virtual service gateway route target. See `virtualService` Block for details.
      * 
      */
     private GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService;
@@ -33,7 +33,7 @@ public final class GatewayRouteSpecHttp2RouteActionTarget {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return Virtual service gateway route target.
+     * @return Virtual service gateway route target. See `virtualService` Block for details.
      * 
      */
     public GatewayRouteSpecHttp2RouteActionTargetVirtualService virtualService() {

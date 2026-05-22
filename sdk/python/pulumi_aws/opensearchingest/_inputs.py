@@ -86,7 +86,7 @@ class PipelineEncryptionAtRestOptionsArgs:
 
 
 class PipelineLogPublishingOptionsArgsDict(TypedDict):
-    cloudwatch_log_destination: NotRequired[pulumi.Input[Optional['PipelineLogPublishingOptionsCloudwatchLogDestinationArgs']]]
+    cloudwatch_log_destination: NotRequired[pulumi.Input[Optional['PipelineLogPublishingOptionsCloudwatchLogDestinationArgsDict']]]
     """
     The destination for OpenSearch Ingestion logs sent to Amazon CloudWatch Logs. This parameter is required if IsLoggingEnabled is set to true. See `cloudwatch_log_destination` below.
     """

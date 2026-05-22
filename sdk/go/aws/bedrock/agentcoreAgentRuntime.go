@@ -243,6 +243,8 @@ type AgentcoreAgentRuntime struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Map of environment variables to pass to the container.
 	EnvironmentVariables pulumi.StringMapOutput `pulumi:"environmentVariables"`
+	// List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+	FilesystemConfigurations AgentcoreAgentRuntimeFilesystemConfigurationArrayOutput `pulumi:"filesystemConfigurations"`
 	// Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.
 	LifecycleConfigurations AgentcoreAgentRuntimeLifecycleConfigurationArrayOutput `pulumi:"lifecycleConfigurations"`
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
@@ -324,6 +326,8 @@ type agentcoreAgentRuntimeState struct {
 	Description *string `pulumi:"description"`
 	// Map of environment variables to pass to the container.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
+	// List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+	FilesystemConfigurations []AgentcoreAgentRuntimeFilesystemConfiguration `pulumi:"filesystemConfigurations"`
 	// Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.
 	LifecycleConfigurations []AgentcoreAgentRuntimeLifecycleConfiguration `pulumi:"lifecycleConfigurations"`
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
@@ -364,6 +368,8 @@ type AgentcoreAgentRuntimeState struct {
 	Description pulumi.StringPtrInput
 	// Map of environment variables to pass to the container.
 	EnvironmentVariables pulumi.StringMapInput
+	// List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+	FilesystemConfigurations AgentcoreAgentRuntimeFilesystemConfigurationArrayInput
 	// Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.
 	LifecycleConfigurations AgentcoreAgentRuntimeLifecycleConfigurationArrayInput
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
@@ -402,6 +408,8 @@ type agentcoreAgentRuntimeArgs struct {
 	Description *string `pulumi:"description"`
 	// Map of environment variables to pass to the container.
 	EnvironmentVariables map[string]string `pulumi:"environmentVariables"`
+	// List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+	FilesystemConfigurations []AgentcoreAgentRuntimeFilesystemConfiguration `pulumi:"filesystemConfigurations"`
 	// Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.
 	LifecycleConfigurations []AgentcoreAgentRuntimeLifecycleConfiguration `pulumi:"lifecycleConfigurations"`
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
@@ -433,6 +441,8 @@ type AgentcoreAgentRuntimeArgs struct {
 	Description pulumi.StringPtrInput
 	// Map of environment variables to pass to the container.
 	EnvironmentVariables pulumi.StringMapInput
+	// List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+	FilesystemConfigurations AgentcoreAgentRuntimeFilesystemConfigurationArrayInput
 	// Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.
 	LifecycleConfigurations AgentcoreAgentRuntimeLifecycleConfigurationArrayInput
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
@@ -581,6 +591,13 @@ func (o AgentcoreAgentRuntimeOutput) Description() pulumi.StringPtrOutput {
 // Map of environment variables to pass to the container.
 func (o AgentcoreAgentRuntimeOutput) EnvironmentVariables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AgentcoreAgentRuntime) pulumi.StringMapOutput { return v.EnvironmentVariables }).(pulumi.StringMapOutput)
+}
+
+// List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+func (o AgentcoreAgentRuntimeOutput) FilesystemConfigurations() AgentcoreAgentRuntimeFilesystemConfigurationArrayOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntime) AgentcoreAgentRuntimeFilesystemConfigurationArrayOutput {
+		return v.FilesystemConfigurations
+	}).(AgentcoreAgentRuntimeFilesystemConfigurationArrayOutput)
 }
 
 // Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.

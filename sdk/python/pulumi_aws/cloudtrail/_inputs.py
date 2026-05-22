@@ -32,7 +32,7 @@ __all__ = [
 ]
 
 class EventDataStoreAdvancedEventSelectorArgsDict(TypedDict):
-    field_selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArgs']]]]]
+    field_selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArgsDict']]]]]
     """
     Specifies the selector statements in an advanced event selector. Fields documented below.
     """
@@ -426,7 +426,7 @@ class TrailAdvancedEventSelectorFieldSelectorArgs:
 
 
 class TrailEventSelectorArgsDict(TypedDict):
-    data_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrailEventSelectorDataResourceArgs']]]]]
+    data_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrailEventSelectorDataResourceArgsDict']]]]]
     """
     Configuration block for data events. See details below.
     """

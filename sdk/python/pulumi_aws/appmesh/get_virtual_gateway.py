@@ -102,6 +102,9 @@ class GetVirtualGatewayResult:
     @_builtins.property
     @pulumi.getter(name="meshOwner")
     def mesh_owner(self) -> _builtins.str:
+        """
+        AWS account ID of the service mesh's owner.
+        """
         return pulumi.get(self, "mesh_owner")
 
     @_builtins.property

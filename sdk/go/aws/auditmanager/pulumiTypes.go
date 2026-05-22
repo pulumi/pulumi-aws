@@ -1502,7 +1502,8 @@ func (o GetControlControlMappingSourceSourceKeywordArrayOutput) Index(i pulumi.I
 
 type GetFrameworkControlSet struct {
 	Controls []GetFrameworkControlSetControl `pulumi:"controls"`
-	Id       string                          `pulumi:"id"`
+	// Unique identifier for the framework.
+	Id string `pulumi:"id"`
 	// Name of the framework.
 	Name string `pulumi:"name"`
 }
@@ -1520,7 +1521,8 @@ type GetFrameworkControlSetInput interface {
 
 type GetFrameworkControlSetArgs struct {
 	Controls GetFrameworkControlSetControlArrayInput `pulumi:"controls"`
-	Id       pulumi.StringInput                      `pulumi:"id"`
+	// Unique identifier for the framework.
+	Id pulumi.StringInput `pulumi:"id"`
 	// Name of the framework.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -1580,6 +1582,7 @@ func (o GetFrameworkControlSetOutput) Controls() GetFrameworkControlSetControlAr
 	return o.ApplyT(func(v GetFrameworkControlSet) []GetFrameworkControlSetControl { return v.Controls }).(GetFrameworkControlSetControlArrayOutput)
 }
 
+// Unique identifier for the framework.
 func (o GetFrameworkControlSetOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrameworkControlSet) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -1610,6 +1613,7 @@ func (o GetFrameworkControlSetArrayOutput) Index(i pulumi.IntInput) GetFramework
 }
 
 type GetFrameworkControlSetControl struct {
+	// Unique identifier for the framework.
 	Id string `pulumi:"id"`
 }
 
@@ -1625,6 +1629,7 @@ type GetFrameworkControlSetControlInput interface {
 }
 
 type GetFrameworkControlSetControlArgs struct {
+	// Unique identifier for the framework.
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
@@ -1679,6 +1684,7 @@ func (o GetFrameworkControlSetControlOutput) ToGetFrameworkControlSetControlOutp
 	return o
 }
 
+// Unique identifier for the framework.
 func (o GetFrameworkControlSetControlOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrameworkControlSetControl) string { return v.Id }).(pulumi.StringOutput)
 }

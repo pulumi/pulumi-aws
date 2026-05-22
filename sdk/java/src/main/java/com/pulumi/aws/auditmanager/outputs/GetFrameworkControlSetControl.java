@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFrameworkControlSetControl {
+    /**
+     * @return Unique identifier for the framework.
+     * 
+     */
     private String id;
 
     private GetFrameworkControlSetControl() {}
+    /**
+     * @return Unique identifier for the framework.
+     * 
+     */
     public String id() {
         return this.id;
     }

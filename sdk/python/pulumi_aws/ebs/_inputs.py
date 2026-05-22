@@ -186,7 +186,7 @@ class SnapshotImportDiskContainerArgsDict(TypedDict):
     """
     The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
     """
-    user_bucket: NotRequired[pulumi.Input[Optional['SnapshotImportDiskContainerUserBucketArgs']]]
+    user_bucket: NotRequired[pulumi.Input[Optional['SnapshotImportDiskContainerUserBucketArgsDict']]]
     """
     The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
     """

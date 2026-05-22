@@ -429,19 +429,14 @@ class EventBus(pulumi.CustomResource):
             resource_arn=example.arn)
         # Logging to S3 Bucket
         example_bucket = aws.s3.Bucket("example", bucket="example-event-bus-logs")
-        bucket = pulumi.Output.all(
-            exampleBucketArn=example_bucket.arn,
-            infoLogsArn=info_logs.arn,
-            errorLogsArn=error_logs.arn,
-            traceLogsArn=trace_logs.arn
-        ).apply(lambda resolved_outputs: aws.iam.get_policy_document(statements=[{
+        bucket = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["delivery.logs.amazonaws.com"],
             }],
             "actions": ["s3:PutObject"],
-            "resources": [f"{resolved_outputs['exampleBucketArn']}/AWSLogs/{current.account_id}/EventBusLogs/*"],
+            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/AWSLogs/{current.account_id}/EventBusLogs/*")],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -457,14 +452,13 @@ class EventBus(pulumi.CustomResource):
                     "test": "ArnLike",
                     "variable": "aws:SourceArn",
                     "values": [
-                        resolved_outputs['infoLogsArn'],
-                        resolved_outputs['errorLogsArn'],
-                        resolved_outputs['traceLogsArn'],
+                        info_logs.arn,
+                        error_logs.arn,
+                        trace_logs.arn,
                     ],
                 },
             ],
-        }]))
-
+        }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket.bucket,
             policy=bucket.json)
@@ -486,12 +480,7 @@ class EventBus(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[s3_error_logs]))
         # Logging to CloudWatch Log Group
         event_bus_logs = aws.cloudwatch.LogGroup("event_bus_logs", name=example.name.apply(lambda name: f"/aws/vendedlogs/events/event-bus/{name}"))
-        cwlogs = pulumi.Output.all(
-            eventBusLogsArn=event_bus_logs.arn,
-            infoLogsArn=info_logs.arn,
-            errorLogsArn=error_logs.arn,
-            traceLogsArn=trace_logs.arn
-        ).apply(lambda resolved_outputs: aws.iam.get_policy_document(statements=[{
+        cwlogs = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
                 "type": "Service",
@@ -501,7 +490,7 @@ class EventBus(pulumi.CustomResource):
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
-            "resources": [f"{resolved_outputs['eventBusLogsArn']}:log-stream:*"],
+            "resources": [event_bus_logs.arn.apply(lambda arn: f"{arn}:log-stream:*")],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -512,14 +501,13 @@ class EventBus(pulumi.CustomResource):
                     "test": "ArnLike",
                     "variable": "aws:SourceArn",
                     "values": [
-                        resolved_outputs['infoLogsArn'],
-                        resolved_outputs['errorLogsArn'],
-                        resolved_outputs['traceLogsArn'],
+                        info_logs.arn,
+                        error_logs.arn,
+                        trace_logs.arn,
                     ],
                 },
             ],
-        }]))
-
+        }])
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
             policy_document=cwlogs.json,
             policy_name=example.name.apply(lambda name: f"AWSLogDeliveryWrite-{name}"))
@@ -685,19 +673,14 @@ class EventBus(pulumi.CustomResource):
             resource_arn=example.arn)
         # Logging to S3 Bucket
         example_bucket = aws.s3.Bucket("example", bucket="example-event-bus-logs")
-        bucket = pulumi.Output.all(
-            exampleBucketArn=example_bucket.arn,
-            infoLogsArn=info_logs.arn,
-            errorLogsArn=error_logs.arn,
-            traceLogsArn=trace_logs.arn
-        ).apply(lambda resolved_outputs: aws.iam.get_policy_document(statements=[{
+        bucket = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["delivery.logs.amazonaws.com"],
             }],
             "actions": ["s3:PutObject"],
-            "resources": [f"{resolved_outputs['exampleBucketArn']}/AWSLogs/{current.account_id}/EventBusLogs/*"],
+            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/AWSLogs/{current.account_id}/EventBusLogs/*")],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -713,14 +696,13 @@ class EventBus(pulumi.CustomResource):
                     "test": "ArnLike",
                     "variable": "aws:SourceArn",
                     "values": [
-                        resolved_outputs['infoLogsArn'],
-                        resolved_outputs['errorLogsArn'],
-                        resolved_outputs['traceLogsArn'],
+                        info_logs.arn,
+                        error_logs.arn,
+                        trace_logs.arn,
                     ],
                 },
             ],
-        }]))
-
+        }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket.bucket,
             policy=bucket.json)
@@ -742,12 +724,7 @@ class EventBus(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[s3_error_logs]))
         # Logging to CloudWatch Log Group
         event_bus_logs = aws.cloudwatch.LogGroup("event_bus_logs", name=example.name.apply(lambda name: f"/aws/vendedlogs/events/event-bus/{name}"))
-        cwlogs = pulumi.Output.all(
-            eventBusLogsArn=event_bus_logs.arn,
-            infoLogsArn=info_logs.arn,
-            errorLogsArn=error_logs.arn,
-            traceLogsArn=trace_logs.arn
-        ).apply(lambda resolved_outputs: aws.iam.get_policy_document(statements=[{
+        cwlogs = aws.iam.get_policy_document_output(statements=[{
             "effect": "Allow",
             "principals": [{
                 "type": "Service",
@@ -757,7 +734,7 @@ class EventBus(pulumi.CustomResource):
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
-            "resources": [f"{resolved_outputs['eventBusLogsArn']}:log-stream:*"],
+            "resources": [event_bus_logs.arn.apply(lambda arn: f"{arn}:log-stream:*")],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -768,14 +745,13 @@ class EventBus(pulumi.CustomResource):
                     "test": "ArnLike",
                     "variable": "aws:SourceArn",
                     "values": [
-                        resolved_outputs['infoLogsArn'],
-                        resolved_outputs['errorLogsArn'],
-                        resolved_outputs['traceLogsArn'],
+                        info_logs.arn,
+                        error_logs.arn,
+                        trace_logs.arn,
                     ],
                 },
             ],
-        }]))
-
+        }])
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
             policy_document=cwlogs.json,
             policy_name=example.name.apply(lambda name: f"AWSLogDeliveryWrite-{name}"))

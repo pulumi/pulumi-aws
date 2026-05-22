@@ -191,6 +191,9 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public readonly string LastUpdatedDate;
         public readonly string MeshName;
+        /// <summary>
+        /// AWS account ID of the service mesh's owner.
+        /// </summary>
         public readonly string MeshOwner;
         public readonly string Name;
         public readonly string Region;

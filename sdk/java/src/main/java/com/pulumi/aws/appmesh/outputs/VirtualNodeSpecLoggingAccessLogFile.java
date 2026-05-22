@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecLoggingAccessLogFile {
     /**
-     * @return The specified format for the logs.
+     * @return The specified format for the logs. See `format` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecLoggingAccessLogFileFormat format;
@@ -26,7 +26,7 @@ public final class VirtualNodeSpecLoggingAccessLogFile {
 
     private VirtualNodeSpecLoggingAccessLogFile() {}
     /**
-     * @return The specified format for the logs.
+     * @return The specified format for the logs. See `format` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecLoggingAccessLogFileFormat> format() {

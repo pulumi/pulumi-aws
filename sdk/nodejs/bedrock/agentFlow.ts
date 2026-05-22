@@ -12,7 +12,19 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * The default definition:
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentFlow("example", {
+ *     name: "example-flow",
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ * });
+ * ```
+ *
+ * ### Default definition
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

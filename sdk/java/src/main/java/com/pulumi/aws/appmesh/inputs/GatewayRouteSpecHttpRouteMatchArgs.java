@@ -22,14 +22,14 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     public static final GatewayRouteSpecHttpRouteMatchArgs Empty = new GatewayRouteSpecHttpRouteMatchArgs();
 
     /**
-     * Client request headers to match on.
+     * Client request headers to match on. See `header` Block for details.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<List<GatewayRouteSpecHttpRouteMatchHeaderArgs>> headers;
 
     /**
-     * @return Client request headers to match on.
+     * @return Client request headers to match on. See `header` Block for details.
      * 
      */
     public Optional<Output<List<GatewayRouteSpecHttpRouteMatchHeaderArgs>>> headers() {
@@ -37,14 +37,14 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     }
 
     /**
-     * Host name to match on.
+     * Host name to match on. See `hostname` Block for details.
      * 
      */
     @Import(name="hostname")
     private @Nullable Output<GatewayRouteSpecHttpRouteMatchHostnameArgs> hostname;
 
     /**
-     * @return Host name to match on.
+     * @return Host name to match on. See `hostname` Block for details.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttpRouteMatchHostnameArgs>> hostname() {
@@ -52,14 +52,14 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     }
 
     /**
-     * Client request path to match on.
+     * Client request path to match on. See `path` Block for details.
      * 
      */
     @Import(name="path")
     private @Nullable Output<GatewayRouteSpecHttpRouteMatchPathArgs> path;
 
     /**
-     * @return Client request path to match on.
+     * @return Client request path to match on. See `path` Block for details.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttpRouteMatchPathArgs>> path() {
@@ -82,14 +82,14 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     }
 
     /**
-     * Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+     * Header value sent by the client must begin with the specified characters.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -97,14 +97,14 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     }
 
     /**
-     * Client request query parameters to match on.
+     * Client request query parameters to match on. See `queryParameter` Block for details.
      * 
      */
     @Import(name="queryParameters")
     private @Nullable Output<List<GatewayRouteSpecHttpRouteMatchQueryParameterArgs>> queryParameters;
 
     /**
-     * @return Client request query parameters to match on.
+     * @return Client request query parameters to match on. See `queryParameter` Block for details.
      * 
      */
     public Optional<Output<List<GatewayRouteSpecHttpRouteMatchQueryParameterArgs>>> queryParameters() {
@@ -141,7 +141,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param headers Client request headers to match on.
+         * @param headers Client request headers to match on. See `header` Block for details.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param headers Client request headers to match on.
+         * @param headers Client request headers to match on. See `header` Block for details.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param headers Client request headers to match on.
+         * @param headers Client request headers to match on. See `header` Block for details.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param hostname Host name to match on.
+         * @param hostname Host name to match on. See `hostname` Block for details.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param hostname Host name to match on.
+         * @param hostname Host name to match on. See `hostname` Block for details.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param path Client request path to match on.
+         * @param path Client request path to match on. See `path` Block for details.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param path Client request path to match on.
+         * @param path Client request path to match on. See `path` Block for details.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param prefix Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+         * @param prefix Header value sent by the client must begin with the specified characters.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param prefix Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+         * @param prefix Header value sent by the client must begin with the specified characters.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param queryParameters Client request query parameters to match on.
+         * @param queryParameters Client request query parameters to match on. See `queryParameter` Block for details.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param queryParameters Client request query parameters to match on.
+         * @param queryParameters Client request query parameters to match on. See `queryParameter` Block for details.
          * 
          * @return builder
          * 
@@ -277,7 +277,7 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param queryParameters Client request query parameters to match on.
+         * @param queryParameters Client request query parameters to match on. See `queryParameter` Block for details.
          * 
          * @return builder
          * 

@@ -170,6 +170,17 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `zone_id` (String) The ID of the private hosted zone that you want to authorize associating a VPC with.
+        * `vpc_id` (String) The VPC to authorize for association with the private hosted zone.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
 
         ```sh
@@ -220,6 +231,17 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `zone_id` (String) The ID of the private hosted zone that you want to authorize associating a VPC with.
+        * `vpc_id` (String) The VPC to authorize for association with the private hosted zone.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
 
         Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
 

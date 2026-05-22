@@ -34,7 +34,7 @@ public final class GetRestApiResult {
      */
     private String description;
     /**
-     * @return The endpoint configuration of this RestApi showing the endpoint types of the API.
+     * @return The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
      * 
      */
     private List<GetRestApiEndpointConfiguration> endpointConfigurations;
@@ -101,7 +101,7 @@ public final class GetRestApiResult {
         return this.description;
     }
     /**
-     * @return The endpoint configuration of this RestApi showing the endpoint types of the API.
+     * @return The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
      * 
      */
     public List<GetRestApiEndpointConfiguration> endpointConfigurations() {

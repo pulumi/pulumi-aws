@@ -83,6 +83,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `zoneId` (String) The ID of the private hosted zone that you want to authorize associating a VPC with.
+ * * `vpcId` (String) The VPC to authorize for association with the private hosted zone.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * 
  * Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
  * 
  * ```sh

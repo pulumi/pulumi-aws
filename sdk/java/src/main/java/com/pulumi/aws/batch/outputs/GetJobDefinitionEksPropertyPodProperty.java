@@ -18,17 +18,17 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionEksPropertyPodProperty {
     /**
-     * @return The properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyContainer> containers;
     /**
-     * @return The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
+     * @return DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
      * 
      */
     private String dnsPolicy;
     /**
-     * @return Indicates if the pod uses the hosts&#39; network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
+     * @return Whether the pod uses the hosts&#39; network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
      * 
      */
     private Boolean hostNetwork;
@@ -44,38 +44,38 @@ public final class GetJobDefinitionEksPropertyPodProperty {
      */
     private List<GetJobDefinitionEksPropertyPodPropertyMetadata> metadatas;
     /**
-     * @return The name of the service account that&#39;s used to run the pod.
+     * @return Name of the service account that&#39;s used to run the pod.
      * 
      */
     private String serviceAccountName;
     /**
-     * @return (Optional) Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+     * @return Whether the processes in a container are shared, or visible, to other containers in the same pod.
      * 
      */
     private Boolean shareProcessNamespace;
     /**
-     * @return A list of data volumes used in a job.
+     * @return List of data volumes used in a job.
      * 
      */
     private List<GetJobDefinitionEksPropertyPodPropertyVolume> volumes;
 
     private GetJobDefinitionEksPropertyPodProperty() {}
     /**
-     * @return The properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
+     * @return Properties of the container that&#39;s used on the Amazon EKS pod. See containers below.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyContainer> containers() {
         return this.containers;
     }
     /**
-     * @return The DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
+     * @return DNS policy for the pod. The default value is ClusterFirst. If the hostNetwork parameter is not specified, the default is ClusterFirstWithHostNet. ClusterFirst indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node.
      * 
      */
     public String dnsPolicy() {
         return this.dnsPolicy;
     }
     /**
-     * @return Indicates if the pod uses the hosts&#39; network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
+     * @return Whether the pod uses the hosts&#39; network IP address. The default value is true. Setting this to false enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don&#39;t require the overhead of IP allocation for each pod for incoming connections.
      * 
      */
     public Boolean hostNetwork() {
@@ -99,21 +99,21 @@ public final class GetJobDefinitionEksPropertyPodProperty {
         return this.metadatas;
     }
     /**
-     * @return The name of the service account that&#39;s used to run the pod.
+     * @return Name of the service account that&#39;s used to run the pod.
      * 
      */
     public String serviceAccountName() {
         return this.serviceAccountName;
     }
     /**
-     * @return (Optional) Indicates if the processes in a container are shared, or visible, to other containers in the same pod.
+     * @return Whether the processes in a container are shared, or visible, to other containers in the same pod.
      * 
      */
     public Boolean shareProcessNamespace() {
         return this.shareProcessNamespace;
     }
     /**
-     * @return A list of data volumes used in a job.
+     * @return List of data volumes used in a job.
      * 
      */
     public List<GetJobDefinitionEksPropertyPodPropertyVolume> volumes() {

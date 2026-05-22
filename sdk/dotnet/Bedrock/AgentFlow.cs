@@ -14,7 +14,26 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Example Usage
     /// 
-    /// The default definition:
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentFlow("example", new()
+    ///     {
+    ///         Name = "example-flow",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Default definition
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

@@ -31,7 +31,7 @@ class VirtualServiceArgs:
         The set of arguments for constructing a VirtualService resource.
 
         :param pulumi.Input[_builtins.str] mesh_name: Name of the service mesh in which to create the virtual service. Must be between 1 and 255 characters in length.
-        :param pulumi.Input['VirtualServiceSpecArgs'] spec: Virtual service specification to apply.
+        :param pulumi.Input['VirtualServiceSpecArgs'] spec: Virtual service specification to apply. See `spec` Block for details.
         :param pulumi.Input[_builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[_builtins.str] name: Name to use for the virtual service. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -64,7 +64,7 @@ class VirtualServiceArgs:
     @pulumi.getter
     def spec(self) -> pulumi.Input['VirtualServiceSpecArgs']:
         """
-        Virtual service specification to apply.
+        Virtual service specification to apply. See `spec` Block for details.
         """
         return pulumi.get(self, "spec")
 
@@ -146,7 +146,7 @@ class _VirtualServiceState:
         :param pulumi.Input[_builtins.str] name: Name to use for the virtual service. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input['VirtualServiceSpecArgs'] spec: Virtual service specification to apply.
+        :param pulumi.Input['VirtualServiceSpecArgs'] spec: Virtual service specification to apply. See `spec` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -273,7 +273,7 @@ class _VirtualServiceState:
     @pulumi.getter
     def spec(self) -> pulumi.Input[Optional['VirtualServiceSpecArgs']]:
         """
-        Virtual service specification to apply.
+        Virtual service specification to apply. See `spec` Block for details.
         """
         return pulumi.get(self, "spec")
 
@@ -375,7 +375,7 @@ class VirtualService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] mesh_owner: AWS account ID of the service mesh's owner. Defaults to the account ID the AWS provider is currently connected to.
         :param pulumi.Input[_builtins.str] name: Name to use for the virtual service. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['VirtualServiceSpecArgs', 'VirtualServiceSpecArgsDict']] spec: Virtual service specification to apply.
+        :param pulumi.Input[Union['VirtualServiceSpecArgs', 'VirtualServiceSpecArgsDict']] spec: Virtual service specification to apply. See `spec` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -515,7 +515,7 @@ class VirtualService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name to use for the virtual service. Must be between 1 and 255 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_owner: Resource owner's AWS account ID.
-        :param pulumi.Input[Union['VirtualServiceSpecArgs', 'VirtualServiceSpecArgsDict']] spec: Virtual service specification to apply.
+        :param pulumi.Input[Union['VirtualServiceSpecArgs', 'VirtualServiceSpecArgsDict']] spec: Virtual service specification to apply. See `spec` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -604,7 +604,7 @@ class VirtualService(pulumi.CustomResource):
     @pulumi.getter
     def spec(self) -> pulumi.Output['outputs.VirtualServiceSpec']:
         """
-        Virtual service specification to apply.
+        Virtual service specification to apply. See `spec` Block for details.
         """
         return pulumi.get(self, "spec")
 

@@ -8,9 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Manages an ECS Express service. The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
- *
- * Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
+ * Manages an [ECS Express service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-overview.html). The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
  *
  * > **Note:** To prevent a race condition during service deletion, make sure to set `dependsOn` to the related `aws.iam.RolePolicy` or `aws.iam.RolePolicyAttachment` resources. Otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
  *
@@ -35,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * ### Updates
  *
- * When you update an Express service configuration, a new service revision is created and deployed using a rolling deployment strategy with zero downtime. The service automatically manages the transition from the old configuration to the new one, ensuring continuous availability.
+ * When you update an Express service configuration, a new service revision is created and deployed using a canary deployment strategy with zero downtime. For more information, see [Updating an Express service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-update.html).
  *
  * ### Deletion
  *
@@ -82,7 +80,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
      */
     declare public readonly cluster: pulumi.Output<string>;
     /**
-     * Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+     * Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
      */
     declare public readonly cpu: pulumi.Output<string>;
     /**
@@ -96,7 +94,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
      */
     declare public readonly executionRoleArn: pulumi.Output<string>;
     /**
-     * Path for health check requests. Defaults to `/ping`.
+     * Path for health check requests. Defaults to `/`.
      */
     declare public readonly healthCheckPath: pulumi.Output<string>;
     /**
@@ -110,7 +108,7 @@ export class ExpressGatewayService extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ingressPaths: pulumi.Output<outputs.ecs.ExpressGatewayServiceIngressPath[]>;
     /**
-     * Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+     * Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
      */
     declare public readonly memory: pulumi.Output<string>;
     declare public readonly networkConfigurations: pulumi.Output<outputs.ecs.ExpressGatewayServiceNetworkConfiguration[]>;
@@ -229,7 +227,7 @@ export interface ExpressGatewayServiceState {
      */
     cluster?: pulumi.Input<string | undefined>;
     /**
-     * Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+     * Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
      */
     cpu?: pulumi.Input<string | undefined>;
     /**
@@ -243,7 +241,7 @@ export interface ExpressGatewayServiceState {
      */
     executionRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * Path for health check requests. Defaults to `/ping`.
+     * Path for health check requests. Defaults to `/`.
      */
     healthCheckPath?: pulumi.Input<string | undefined>;
     /**
@@ -257,7 +255,7 @@ export interface ExpressGatewayServiceState {
      */
     ingressPaths?: pulumi.Input<pulumi.Input<inputs.ecs.ExpressGatewayServiceIngressPath>[] | undefined>;
     /**
-     * Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+     * Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
      */
     memory?: pulumi.Input<string | undefined>;
     networkConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ExpressGatewayServiceNetworkConfiguration>[] | undefined>;
@@ -307,7 +305,7 @@ export interface ExpressGatewayServiceArgs {
      */
     cluster?: pulumi.Input<string | undefined>;
     /**
-     * Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+     * Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
      */
     cpu?: pulumi.Input<string | undefined>;
     /**
@@ -315,7 +313,7 @@ export interface ExpressGatewayServiceArgs {
      */
     executionRoleArn: pulumi.Input<string>;
     /**
-     * Path for health check requests. Defaults to `/ping`.
+     * Path for health check requests. Defaults to `/`.
      */
     healthCheckPath?: pulumi.Input<string | undefined>;
     /**
@@ -325,7 +323,7 @@ export interface ExpressGatewayServiceArgs {
      */
     infrastructureRoleArn: pulumi.Input<string>;
     /**
-     * Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+     * Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
      */
     memory?: pulumi.Input<string | undefined>;
     networkConfigurations?: pulumi.Input<pulumi.Input<inputs.ecs.ExpressGatewayServiceNetworkConfiguration>[] | undefined>;

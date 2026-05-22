@@ -59,19 +59,19 @@ import * as utilities from "../utilities";
  *         isActive: true,
  *     },
  * }});
- * const example = exampleContainerService.privateRegistryAccess.apply(privateRegistryAccess => aws.iam.getPolicyDocumentOutput({
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
- *             identifiers: [privateRegistryAccess.ecrImagePullerRole?.principalArn],
+ *             identifiers: [exampleContainerService.privateRegistryAccess.apply(privateRegistryAccess => privateRegistryAccess.ecrImagePullerRole?.principalArn)],
  *         }],
  *         actions: [
  *             "ecr:BatchGetImage",
  *             "ecr:GetDownloadUrlForLayer",
  *         ],
  *     }],
- * }));
+ * });
  * const exampleRepositoryPolicy = new aws.ecr.RepositoryPolicy("example", {
  *     repository: exampleAwsEcrRepository.name,
  *     policy: example.apply(example => example.json),

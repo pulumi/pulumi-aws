@@ -18,14 +18,14 @@ public final class GatewayRouteSpecHttpRouteActionArgs extends com.pulumi.resour
     public static final GatewayRouteSpecHttpRouteActionArgs Empty = new GatewayRouteSpecHttpRouteActionArgs();
 
     /**
-     * Gateway route action to rewrite.
+     * Gateway route action to rewrite. See `rewrite` Block for details.
      * 
      */
     @Import(name="rewrite")
     private @Nullable Output<GatewayRouteSpecHttpRouteActionRewriteArgs> rewrite;
 
     /**
-     * @return Gateway route action to rewrite.
+     * @return Gateway route action to rewrite. See `rewrite` Block for details.
      * 
      */
     public Optional<Output<GatewayRouteSpecHttpRouteActionRewriteArgs>> rewrite() {
@@ -33,14 +33,14 @@ public final class GatewayRouteSpecHttpRouteActionArgs extends com.pulumi.resour
     }
 
     /**
-     * Target that traffic is routed to when a request matches the gateway route.
+     * Target that traffic is routed to when a request matches the gateway route. See `target` Block for details.
      * 
      */
     @Import(name="target", required=true)
     private Output<GatewayRouteSpecHttpRouteActionTargetArgs> target;
 
     /**
-     * @return Target that traffic is routed to when a request matches the gateway route.
+     * @return Target that traffic is routed to when a request matches the gateway route. See `target` Block for details.
      * 
      */
     public Output<GatewayRouteSpecHttpRouteActionTargetArgs> target() {
@@ -73,7 +73,7 @@ public final class GatewayRouteSpecHttpRouteActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param rewrite Gateway route action to rewrite.
+         * @param rewrite Gateway route action to rewrite. See `rewrite` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class GatewayRouteSpecHttpRouteActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param rewrite Gateway route action to rewrite.
+         * @param rewrite Gateway route action to rewrite. See `rewrite` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class GatewayRouteSpecHttpRouteActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param target Target that traffic is routed to when a request matches the gateway route.
+         * @param target Target that traffic is routed to when a request matches the gateway route. See `target` Block for details.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class GatewayRouteSpecHttpRouteActionArgs extends com.pulumi.resour
         }
 
         /**
-         * @param target Target that traffic is routed to when a request matches the gateway route.
+         * @param target Target that traffic is routed to when a request matches the gateway route. See `target` Block for details.
          * 
          * @return builder
          * 

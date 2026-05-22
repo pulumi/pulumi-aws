@@ -118,8 +118,7 @@ def get_apis(name: Optional[_builtins.str] = None,
     :param _builtins.str name: API name.
     :param _builtins.str protocol_type: API protocol.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired APIs.
+    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired APIs.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -157,8 +156,7 @@ def get_apis_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None
     :param _builtins.str name: API name.
     :param _builtins.str protocol_type: API protocol.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired APIs.
+    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired APIs.
     """
     __args__ = dict()
     __args__['name'] = name

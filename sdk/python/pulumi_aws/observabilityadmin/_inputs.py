@@ -43,6 +43,10 @@ __all__ = [
     'TelemetryPipelineConfigurationArgsDict',
     'TelemetryPipelineTimeoutsArgs',
     'TelemetryPipelineTimeoutsArgsDict',
+    'TelemetryRuleForOrganizationRuleArgs',
+    'TelemetryRuleForOrganizationRuleArgsDict',
+    'TelemetryRuleForOrganizationTimeoutsArgs',
+    'TelemetryRuleForOrganizationTimeoutsArgsDict',
     'TelemetryRuleRuleArgs',
     'TelemetryRuleRuleArgsDict',
     'TelemetryRuleTimeoutsArgs',
@@ -105,7 +109,7 @@ class CentralizationRuleForOrganizationRuleDestinationArgsDict(TypedDict):
     """
     AWS region where logs will be centralized.
     """
-    destination_logs_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']]]
+    destination_logs_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict']]]
     """
     Configuration block for destination logs settings. See `destination_logs_configuration` below.
     """
@@ -164,15 +168,15 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
 
 
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict(TypedDict):
-    backup_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs']]]
+    backup_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict']]]
     """
     Configuration block for backup settings. See `backup_configuration` below.
     """
-    log_group_name_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs']]]
+    log_group_name_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgsDict']]]
     """
     Configuration block for a naming pattern for destination log groups created during centralization. See `log_group_name_configuration` below.
     """
-    logs_encryption_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs']]]
+    logs_encryption_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict']]]
     """
     Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
     """
@@ -386,7 +390,7 @@ class CentralizationRuleForOrganizationRuleSourceArgsDict(TypedDict):
     """
     Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
     """
-    source_logs_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']]]
+    source_logs_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict']]]
     """
     Configuration block for source logs settings. See `source_logs_configuration` below.
     """
@@ -745,6 +749,129 @@ class TelemetryPipelineTimeoutsArgsDict(TypedDict):
 
 @pulumi.input_type
 class TelemetryPipelineTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+class TelemetryRuleForOrganizationRuleArgsDict(TypedDict):
+    telemetry_type: pulumi.Input[_builtins.str]
+    """
+    Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+
+    > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+    """
+    resource_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+    """
+
+@pulumi.input_type
+class TelemetryRuleForOrganizationRuleArgs:
+    def __init__(__self__, *,
+                 telemetry_type: pulumi.Input[_builtins.str],
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] telemetry_type: Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+               
+               > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+        :param pulumi.Input[_builtins.str] resource_type: AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+        """
+        pulumi.set(__self__, "telemetry_type", telemetry_type)
+        if resource_type is not None:
+            pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="telemetryType")
+    def telemetry_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+
+        > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+        """
+        return pulumi.get(self, "telemetry_type")
+
+    @telemetry_type.setter
+    def telemetry_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "telemetry_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_type", value)
+
+
+class TelemetryRuleForOrganizationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class TelemetryRuleForOrganizationTimeoutsArgs:
     def __init__(__self__, *,
                  create: pulumi.Input[Optional[_builtins.str]] = None,
                  delete: pulumi.Input[Optional[_builtins.str]] = None,

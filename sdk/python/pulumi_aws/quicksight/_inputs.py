@@ -311,19 +311,19 @@ class AccountSettingsTimeoutsArgs:
 
 
 class AnalysisParametersArgsDict(TypedDict):
-    date_time_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersDateTimeParameterArgs']]]]]
+    date_time_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersDateTimeParameterArgsDict']]]]]
     """
     A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
     """
-    decimal_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersDecimalParameterArgs']]]]]
+    decimal_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersDecimalParameterArgsDict']]]]]
     """
     A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
     """
-    integer_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersIntegerParameterArgs']]]]]
+    integer_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersIntegerParameterArgsDict']]]]]
     """
     A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
     """
-    string_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersStringParameterArgs']]]]]
+    string_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalysisParametersStringParameterArgsDict']]]]]
     """
     A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
     """
@@ -631,7 +631,7 @@ class AnalysisPermissionArgs:
 
 
 class AnalysisSourceEntityArgsDict(TypedDict):
-    source_template: NotRequired[pulumi.Input[Optional['AnalysisSourceEntitySourceTemplateArgs']]]
+    source_template: NotRequired[pulumi.Input[Optional['AnalysisSourceEntitySourceTemplateArgsDict']]]
     """
     The source template. See source_template.
     """
@@ -1223,43 +1223,43 @@ class CustomPermissionsCapabilitiesArgs:
 
 
 class DashboardDashboardPublishOptionsArgsDict(TypedDict):
-    ad_hoc_filtering_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsAdHocFilteringOptionArgs']]]
+    ad_hoc_filtering_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsAdHocFilteringOptionArgsDict']]]
     """
     Ad hoc (one-time) filtering option. See ad_hoc_filtering_option.
     """
-    data_point_drill_up_down_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgs']]]
+    data_point_drill_up_down_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsDataPointDrillUpDownOptionArgsDict']]]
     """
     The drill-down options of data points in a dashboard. See data_point_drill_up_down_option.
     """
-    data_point_menu_label_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgs']]]
+    data_point_menu_label_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsDataPointMenuLabelOptionArgsDict']]]
     """
     The data point menu label options of a dashboard. See data_point_menu_label_option.
     """
-    data_point_tooltip_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsDataPointTooltipOptionArgs']]]
+    data_point_tooltip_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsDataPointTooltipOptionArgsDict']]]
     """
     The data point tool tip options of a dashboard. See data_point_tooltip_option.
     """
-    export_to_csv_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsExportToCsvOptionArgs']]]
+    export_to_csv_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsExportToCsvOptionArgsDict']]]
     """
     Export to .csv option. See export_to_csv_option.
     """
-    export_with_hidden_fields_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgs']]]
+    export_with_hidden_fields_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsExportWithHiddenFieldsOptionArgsDict']]]
     """
     Determines if hidden fields are exported with a dashboard. See export_with_hidden_fields_option.
     """
-    sheet_controls_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsSheetControlsOptionArgs']]]
+    sheet_controls_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsSheetControlsOptionArgsDict']]]
     """
     Sheet controls option. See sheet_controls_option.
     """
-    sheet_layout_element_maximization_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgs']]]
+    sheet_layout_element_maximization_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsSheetLayoutElementMaximizationOptionArgsDict']]]
     """
     The sheet layout maximization options of a dashboard. See sheet_layout_element_maximization_option.
     """
-    visual_axis_sort_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsVisualAxisSortOptionArgs']]]
+    visual_axis_sort_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsVisualAxisSortOptionArgsDict']]]
     """
     The axis sort options of a dashboard. See visual_axis_sort_option.
     """
-    visual_menu_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsVisualMenuOptionArgs']]]
+    visual_menu_option: NotRequired[pulumi.Input[Optional['DashboardDashboardPublishOptionsVisualMenuOptionArgsDict']]]
     """
     The menu options of a visual in a dashboard. See visual_menu_option.
     """
@@ -1722,19 +1722,19 @@ class DashboardDashboardPublishOptionsVisualMenuOptionArgs:
 
 
 class DashboardParametersArgsDict(TypedDict):
-    date_time_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersDateTimeParameterArgs']]]]]
+    date_time_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersDateTimeParameterArgsDict']]]]]
     """
     A list of parameters that have a data type of date-time. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DateTimeParameter.html).
     """
-    decimal_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersDecimalParameterArgs']]]]]
+    decimal_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersDecimalParameterArgsDict']]]]]
     """
     A list of parameters that have a data type of decimal. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DecimalParameter.html).
     """
-    integer_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersIntegerParameterArgs']]]]]
+    integer_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersIntegerParameterArgsDict']]]]]
     """
     A list of parameters that have a data type of integer. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_IntegerParameter.html).
     """
-    string_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersStringParameterArgs']]]]]
+    string_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DashboardParametersStringParameterArgsDict']]]]]
     """
     A list of parameters that have a data type of string. See [AWS API Documentation for complete description](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_StringParameter.html).
     """
@@ -2018,7 +2018,7 @@ class DashboardPermissionArgs:
 
 
 class DashboardSourceEntityArgsDict(TypedDict):
-    source_template: NotRequired[pulumi.Input[Optional['DashboardSourceEntitySourceTemplateArgs']]]
+    source_template: NotRequired[pulumi.Input[Optional['DashboardSourceEntitySourceTemplateArgsDict']]]
     """
     The source template. See source_template.
     """
@@ -2141,7 +2141,7 @@ class DashboardSourceEntitySourceTemplateDataSetReferenceArgs:
 
 
 class DataSetColumnGroupArgsDict(TypedDict):
-    geo_spatial_column_group: NotRequired[pulumi.Input[Optional['DataSetColumnGroupGeoSpatialColumnGroupArgs']]]
+    geo_spatial_column_group: NotRequired[pulumi.Input[Optional['DataSetColumnGroupGeoSpatialColumnGroupArgsDict']]]
     """
     Geospatial column group that denotes a hierarchy. See geo_spatial_column_group.
     """
@@ -2414,7 +2414,7 @@ class DataSetLogicalTableMapArgsDict(TypedDict):
     """
     Source of this logical table. See source.
     """
-    data_transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformArgs']]]]]
+    data_transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSetLogicalTableMapDataTransformArgsDict']]]]]
     """
     Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. See data_transforms.
     """
@@ -2488,31 +2488,31 @@ class DataSetLogicalTableMapArgs:
 
 
 class DataSetLogicalTableMapDataTransformArgsDict(TypedDict):
-    cast_column_type_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgs']]]
+    cast_column_type_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformCastColumnTypeOperationArgsDict']]]
     """
     A transform operation that casts a column to a different type. See cast_column_type_operation.
     """
-    create_columns_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformCreateColumnsOperationArgs']]]
+    create_columns_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformCreateColumnsOperationArgsDict']]]
     """
     An operation that creates calculated columns. Columns created in one such operation form a lexical closure. See create_columns_operation.
     """
-    filter_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformFilterOperationArgs']]]
+    filter_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformFilterOperationArgsDict']]]
     """
     An operation that filters rows based on some condition. See filter_operation.
     """
-    project_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformProjectOperationArgs']]]
+    project_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformProjectOperationArgsDict']]]
     """
     An operation that projects columns. Operations that come after a projection can only refer to projected columns. See project_operation.
     """
-    rename_column_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformRenameColumnOperationArgs']]]
+    rename_column_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformRenameColumnOperationArgsDict']]]
     """
     An operation that renames a column. See rename_column_operation.
     """
-    tag_column_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformTagColumnOperationArgs']]]
+    tag_column_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformTagColumnOperationArgsDict']]]
     """
     An operation that tags a column with additional information. See tag_column_operation.
     """
-    untag_column_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformUntagColumnOperationArgs']]]
+    untag_column_operation: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformUntagColumnOperationArgsDict']]]
     """
     A transform operation that removes tags associated with a column. See untag_column_operation.
     """
@@ -2948,7 +2948,7 @@ class DataSetLogicalTableMapDataTransformTagColumnOperationArgs:
 
 
 class DataSetLogicalTableMapDataTransformTagColumnOperationTagArgsDict(TypedDict):
-    column_description: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgs']]]
+    column_description: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapDataTransformTagColumnOperationTagColumnDescriptionArgsDict']]]
     """
     A description for a column. See column_description.
     """
@@ -3077,7 +3077,7 @@ class DataSetLogicalTableMapSourceArgsDict(TypedDict):
     """
     ARN of the parent data set.
     """
-    join_instruction: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapSourceJoinInstructionArgs']]]
+    join_instruction: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapSourceJoinInstructionArgsDict']]]
     """
     Specifies the result of a join of two logical tables. See join_instruction.
     """
@@ -3158,11 +3158,11 @@ class DataSetLogicalTableMapSourceJoinInstructionArgsDict(TypedDict):
     """
     Type of join. Valid values are `INNER`, `OUTER`, `LEFT`, and `RIGHT`.
     """
-    left_join_key_properties: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgs']]]
+    left_join_key_properties: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapSourceJoinInstructionLeftJoinKeyPropertiesArgsDict']]]
     """
     Join key properties of the left operand. See left_join_key_properties.
     """
-    right_join_key_properties: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgs']]]
+    right_join_key_properties: NotRequired[pulumi.Input[Optional['DataSetLogicalTableMapSourceJoinInstructionRightJoinKeyPropertiesArgsDict']]]
     """
     Join key properties of the right operand. See right_join_key_properties.
     """
@@ -3451,15 +3451,15 @@ class DataSetPhysicalTableMapArgsDict(TypedDict):
     """
     Key of the physical table map.
     """
-    custom_sql: NotRequired[pulumi.Input[Optional['DataSetPhysicalTableMapCustomSqlArgs']]]
+    custom_sql: NotRequired[pulumi.Input[Optional['DataSetPhysicalTableMapCustomSqlArgsDict']]]
     """
     A physical table type built from the results of the custom SQL query. See custom_sql.
     """
-    relational_table: NotRequired[pulumi.Input[Optional['DataSetPhysicalTableMapRelationalTableArgs']]]
+    relational_table: NotRequired[pulumi.Input[Optional['DataSetPhysicalTableMapRelationalTableArgsDict']]]
     """
     A physical table type for relational data sources. See relational_table.
     """
-    s3_source: NotRequired[pulumi.Input[Optional['DataSetPhysicalTableMapS3SourceArgs']]]
+    s3_source: NotRequired[pulumi.Input[Optional['DataSetPhysicalTableMapS3SourceArgsDict']]]
     """
     A physical table type for as S3 data source. See s3_source.
     """
@@ -3547,7 +3547,7 @@ class DataSetPhysicalTableMapCustomSqlArgsDict(TypedDict):
     """
     SQL query.
     """
-    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSetPhysicalTableMapCustomSqlColumnArgs']]]]]
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSetPhysicalTableMapCustomSqlColumnArgsDict']]]]]
     """
     Column schema from the SQL query result set. See columns.
     """
@@ -4440,7 +4440,7 @@ class DataSourceCredentialsArgsDict(TypedDict):
     The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
     When the value is not null, the `credential_pair` from the data source in the ARN is used.
     """
-    credential_pair: NotRequired[pulumi.Input[Optional['DataSourceCredentialsCredentialPairArgs']]]
+    credential_pair: NotRequired[pulumi.Input[Optional['DataSourceCredentialsCredentialPairArgsDict']]]
     """
     Credential pair. See Credential Pair below for more details.
     """
@@ -4554,87 +4554,87 @@ class DataSourceCredentialsCredentialPairArgs:
 
 
 class DataSourceParametersArgsDict(TypedDict):
-    amazon_elasticsearch: NotRequired[pulumi.Input[Optional['DataSourceParametersAmazonElasticsearchArgs']]]
+    amazon_elasticsearch: NotRequired[pulumi.Input[Optional['DataSourceParametersAmazonElasticsearchArgsDict']]]
     """
     Parameters for connecting to Amazon Elasticsearch.
     """
-    athena: NotRequired[pulumi.Input[Optional['DataSourceParametersAthenaArgs']]]
+    athena: NotRequired[pulumi.Input[Optional['DataSourceParametersAthenaArgsDict']]]
     """
     Parameters for connecting to Athena.
     """
-    aurora: NotRequired[pulumi.Input[Optional['DataSourceParametersAuroraArgs']]]
+    aurora: NotRequired[pulumi.Input[Optional['DataSourceParametersAuroraArgsDict']]]
     """
     Parameters for connecting to Aurora MySQL.
     """
-    aurora_postgresql: NotRequired[pulumi.Input[Optional['DataSourceParametersAuroraPostgresqlArgs']]]
+    aurora_postgresql: NotRequired[pulumi.Input[Optional['DataSourceParametersAuroraPostgresqlArgsDict']]]
     """
     Parameters for connecting to Aurora Postgresql.
     """
-    aws_iot_analytics: NotRequired[pulumi.Input[Optional['DataSourceParametersAwsIotAnalyticsArgs']]]
+    aws_iot_analytics: NotRequired[pulumi.Input[Optional['DataSourceParametersAwsIotAnalyticsArgsDict']]]
     """
     Parameters for connecting to AWS IOT Analytics.
     """
-    databricks: NotRequired[pulumi.Input[Optional['DataSourceParametersDatabricksArgs']]]
+    databricks: NotRequired[pulumi.Input[Optional['DataSourceParametersDatabricksArgsDict']]]
     """
     Parameters for connecting to Databricks.
     """
-    jira: NotRequired[pulumi.Input[Optional['DataSourceParametersJiraArgs']]]
+    jira: NotRequired[pulumi.Input[Optional['DataSourceParametersJiraArgsDict']]]
     """
     Parameters for connecting to Jira.
     """
-    maria_db: NotRequired[pulumi.Input[Optional['DataSourceParametersMariaDbArgs']]]
+    maria_db: NotRequired[pulumi.Input[Optional['DataSourceParametersMariaDbArgsDict']]]
     """
     Parameters for connecting to MariaDB.
     """
-    mysql: NotRequired[pulumi.Input[Optional['DataSourceParametersMysqlArgs']]]
+    mysql: NotRequired[pulumi.Input[Optional['DataSourceParametersMysqlArgsDict']]]
     """
     Parameters for connecting to MySQL.
     """
-    oracle: NotRequired[pulumi.Input[Optional['DataSourceParametersOracleArgs']]]
+    oracle: NotRequired[pulumi.Input[Optional['DataSourceParametersOracleArgsDict']]]
     """
     Parameters for connecting to Oracle.
     """
-    postgresql: NotRequired[pulumi.Input[Optional['DataSourceParametersPostgresqlArgs']]]
+    postgresql: NotRequired[pulumi.Input[Optional['DataSourceParametersPostgresqlArgsDict']]]
     """
     Parameters for connecting to Postgresql.
     """
-    presto: NotRequired[pulumi.Input[Optional['DataSourceParametersPrestoArgs']]]
+    presto: NotRequired[pulumi.Input[Optional['DataSourceParametersPrestoArgsDict']]]
     """
     Parameters for connecting to Presto.
     """
-    rds: NotRequired[pulumi.Input[Optional['DataSourceParametersRdsArgs']]]
+    rds: NotRequired[pulumi.Input[Optional['DataSourceParametersRdsArgsDict']]]
     """
     Parameters for connecting to RDS.
     """
-    redshift: NotRequired[pulumi.Input[Optional['DataSourceParametersRedshiftArgs']]]
+    redshift: NotRequired[pulumi.Input[Optional['DataSourceParametersRedshiftArgsDict']]]
     """
     Parameters for connecting to Redshift.
     """
-    s3: NotRequired[pulumi.Input[Optional['DataSourceParametersS3Args']]]
+    s3: NotRequired[pulumi.Input[Optional['DataSourceParametersS3ArgsDict']]]
     """
     Parameters for connecting to S3.
     """
-    service_now: NotRequired[pulumi.Input[Optional['DataSourceParametersServiceNowArgs']]]
+    service_now: NotRequired[pulumi.Input[Optional['DataSourceParametersServiceNowArgsDict']]]
     """
     Parameters for connecting to ServiceNow.
     """
-    snowflake: NotRequired[pulumi.Input[Optional['DataSourceParametersSnowflakeArgs']]]
+    snowflake: NotRequired[pulumi.Input[Optional['DataSourceParametersSnowflakeArgsDict']]]
     """
     Parameters for connecting to Snowflake.
     """
-    spark: NotRequired[pulumi.Input[Optional['DataSourceParametersSparkArgs']]]
+    spark: NotRequired[pulumi.Input[Optional['DataSourceParametersSparkArgsDict']]]
     """
     Parameters for connecting to Spark.
     """
-    sql_server: NotRequired[pulumi.Input[Optional['DataSourceParametersSqlServerArgs']]]
+    sql_server: NotRequired[pulumi.Input[Optional['DataSourceParametersSqlServerArgsDict']]]
     """
     Parameters for connecting to SQL Server.
     """
-    teradata: NotRequired[pulumi.Input[Optional['DataSourceParametersTeradataArgs']]]
+    teradata: NotRequired[pulumi.Input[Optional['DataSourceParametersTeradataArgsDict']]]
     """
     Parameters for connecting to Teradata.
     """
-    twitter: NotRequired[pulumi.Input[Optional['DataSourceParametersTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['DataSourceParametersTwitterArgsDict']]]
     """
     Parameters for connecting to Twitter.
     """
@@ -6541,7 +6541,7 @@ class RefreshScheduleScheduleScheduleFrequencyArgsDict(TypedDict):
     """
     The interval between scheduled refreshes. Valid values are `MINUTE15`, `MINUTE30`, `HOURLY`, `DAILY`, `WEEKLY` and `MONTHLY`.
     """
-    refresh_on_day: NotRequired[pulumi.Input[Optional['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs']]]
+    refresh_on_day: NotRequired[pulumi.Input[Optional['RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgsDict']]]
     """
     The [refresh on entity](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ScheduleRefreshOnEntity.html) configuration for weekly or monthly schedules. See refresh_on_day.
     """
@@ -6721,11 +6721,11 @@ class TemplatePermissionArgs:
 
 
 class TemplateSourceEntityArgsDict(TypedDict):
-    source_analysis: NotRequired[pulumi.Input[Optional['TemplateSourceEntitySourceAnalysisArgs']]]
+    source_analysis: NotRequired[pulumi.Input[Optional['TemplateSourceEntitySourceAnalysisArgsDict']]]
     """
     The source analysis, if it is based on an analysis.. Only one of `source_analysis` or `source_template` should be configured. See source_analysis.
     """
-    source_template: NotRequired[pulumi.Input[Optional['TemplateSourceEntitySourceTemplateArgs']]]
+    source_template: NotRequired[pulumi.Input[Optional['TemplateSourceEntitySourceTemplateArgsDict']]]
     """
     The source template, if it is based on an template.. Only one of `source_analysis` or `source_template` should be configured. See source_template.
     """
@@ -6892,19 +6892,19 @@ class TemplateSourceEntitySourceTemplateArgs:
 
 
 class ThemeConfigurationArgsDict(TypedDict):
-    data_color_palette: NotRequired[pulumi.Input[Optional['ThemeConfigurationDataColorPaletteArgs']]]
+    data_color_palette: NotRequired[pulumi.Input[Optional['ThemeConfigurationDataColorPaletteArgsDict']]]
     """
     Color properties that apply to chart data colors. See data_color_palette.
     """
-    sheet: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetArgs']]]
+    sheet: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetArgsDict']]]
     """
     Display options related to sheets. See sheet.
     """
-    typography: NotRequired[pulumi.Input[Optional['ThemeConfigurationTypographyArgs']]]
+    typography: NotRequired[pulumi.Input[Optional['ThemeConfigurationTypographyArgsDict']]]
     """
     Determines the typography options. See typography.
     """
-    ui_color_palette: NotRequired[pulumi.Input[Optional['ThemeConfigurationUiColorPaletteArgs']]]
+    ui_color_palette: NotRequired[pulumi.Input[Optional['ThemeConfigurationUiColorPaletteArgsDict']]]
     """
     Color properties that apply to the UI and to charts, excluding the colors that apply to data. See ui_color_palette.
     """
@@ -7050,11 +7050,11 @@ class ThemeConfigurationDataColorPaletteArgs:
 
 
 class ThemeConfigurationSheetArgsDict(TypedDict):
-    tile: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileArgs']]]
+    tile: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileArgsDict']]]
     """
     The display options for tiles. See tile.
     """
-    tile_layout: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutArgs']]]
+    tile_layout: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutArgsDict']]]
     """
     The layout options for tiles. See tile_layout.
     """
@@ -7099,7 +7099,7 @@ class ThemeConfigurationSheetArgs:
 
 
 class ThemeConfigurationSheetTileArgsDict(TypedDict):
-    border: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileBorderArgs']]]
+    border: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileBorderArgsDict']]]
     """
     The border around a tile. See border.
     """
@@ -7157,11 +7157,11 @@ class ThemeConfigurationSheetTileBorderArgs:
 
 
 class ThemeConfigurationSheetTileLayoutArgsDict(TypedDict):
-    gutter: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutGutterArgs']]]
+    gutter: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutGutterArgsDict']]]
     """
     The gutter settings that apply between tiles. See gutter.
     """
-    margin: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutMarginArgs']]]
+    margin: NotRequired[pulumi.Input[Optional['ThemeConfigurationSheetTileLayoutMarginArgsDict']]]
     """
     The margin settings that apply around the outside edge of sheets. See margin.
     """
@@ -7264,7 +7264,7 @@ class ThemeConfigurationSheetTileLayoutMarginArgs:
 
 
 class ThemeConfigurationTypographyArgsDict(TypedDict):
-    font_families: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgs']]]]]
+    font_families: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThemeConfigurationTypographyFontFamilyArgsDict']]]]]
     """
     Determines the list of font families. Maximum number of 5 items. See font_families.
     """

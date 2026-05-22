@@ -22,12 +22,12 @@ import * as utilities from "../utilities";
  *
  * const exampleWorkspace = new aws.amp.Workspace("example", {alias: "example-workspace"});
  * const current = aws.getCallerIdentity({});
- * const example = pulumi.all([current, exampleWorkspace.arn]).apply(([current, arn]) => aws.iam.getPolicyDocumentOutput({
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
- *             identifiers: [current.accountId],
+ *             identifiers: [current.then(current => current.accountId)],
  *         }],
  *         actions: [
  *             "aps:RemoteWrite",
@@ -36,9 +36,9 @@ import * as utilities from "../utilities";
  *             "aps:GetLabels",
  *             "aps:GetMetricMetadata",
  *         ],
- *         resources: [arn],
+ *         resources: [exampleWorkspace.arn],
  *     }],
- * }));
+ * });
  * const exampleResourcePolicy = new aws.amp.ResourcePolicy("example", {
  *     workspaceId: exampleWorkspace.id,
  *     policyDocument: example.apply(example => example.json),

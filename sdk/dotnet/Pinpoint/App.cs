@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Pinpoint
     /// <summary>
     /// Provides a Pinpoint App resource.
     /// 
+    /// &gt; **NOTE:** The `CampaignHook`, `Limits`, and `QuietTime` attributes are deprecated. Amazon Pinpoint engagement features, including the Settings API that backs these attributes, are being discontinued on October 30, 2026. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp

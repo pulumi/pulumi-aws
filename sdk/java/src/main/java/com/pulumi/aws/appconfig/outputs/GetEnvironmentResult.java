@@ -42,8 +42,7 @@ public final class GetEnvironmentResult {
     private String name;
     private String region;
     /**
-     * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-     * or `ROLLED_BACK`.
+     * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
      * 
      */
     private String state;
@@ -99,8 +98,7 @@ public final class GetEnvironmentResult {
         return this.region;
     }
     /**
-     * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-     * or `ROLLED_BACK`.
+     * @return State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
      * 
      */
     public String state() {

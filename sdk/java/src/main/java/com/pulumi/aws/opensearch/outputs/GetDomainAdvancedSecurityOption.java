@@ -3,13 +3,19 @@
 
 package com.pulumi.aws.opensearch.outputs;
 
+import com.pulumi.aws.opensearch.outputs.GetDomainAdvancedSecurityOptionJwtOption;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetDomainAdvancedSecurityOption {
+    /**
+     * @return Whether Anonymous auth is enabled.
+     * 
+     */
     private Boolean anonymousAuthEnabled;
     /**
      * @return Enabled disabled toggle for off-peak update window
@@ -21,8 +27,17 @@ public final class GetDomainAdvancedSecurityOption {
      * 
      */
     private Boolean internalUserDatabaseEnabled;
+    /**
+     * @return Block for JWT authentication.
+     * 
+     */
+    private List<GetDomainAdvancedSecurityOptionJwtOption> jwtOptions;
 
     private GetDomainAdvancedSecurityOption() {}
+    /**
+     * @return Whether Anonymous auth is enabled.
+     * 
+     */
     public Boolean anonymousAuthEnabled() {
         return this.anonymousAuthEnabled;
     }
@@ -40,6 +55,13 @@ public final class GetDomainAdvancedSecurityOption {
     public Boolean internalUserDatabaseEnabled() {
         return this.internalUserDatabaseEnabled;
     }
+    /**
+     * @return Block for JWT authentication.
+     * 
+     */
+    public List<GetDomainAdvancedSecurityOptionJwtOption> jwtOptions() {
+        return this.jwtOptions;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -53,12 +75,14 @@ public final class GetDomainAdvancedSecurityOption {
         private Boolean anonymousAuthEnabled;
         private Boolean enabled;
         private Boolean internalUserDatabaseEnabled;
+        private List<GetDomainAdvancedSecurityOptionJwtOption> jwtOptions;
         public Builder() {}
         public Builder(GetDomainAdvancedSecurityOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.anonymousAuthEnabled = defaults.anonymousAuthEnabled;
     	      this.enabled = defaults.enabled;
     	      this.internalUserDatabaseEnabled = defaults.internalUserDatabaseEnabled;
+    	      this.jwtOptions = defaults.jwtOptions;
         }
 
         @CustomType.Setter
@@ -85,11 +109,23 @@ public final class GetDomainAdvancedSecurityOption {
             this.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
             return this;
         }
+        @CustomType.Setter
+        public Builder jwtOptions(List<GetDomainAdvancedSecurityOptionJwtOption> jwtOptions) {
+            if (jwtOptions == null) {
+              throw new MissingRequiredPropertyException("GetDomainAdvancedSecurityOption", "jwtOptions");
+            }
+            this.jwtOptions = jwtOptions;
+            return this;
+        }
+        public Builder jwtOptions(GetDomainAdvancedSecurityOptionJwtOption... jwtOptions) {
+            return jwtOptions(List.of(jwtOptions));
+        }
         public GetDomainAdvancedSecurityOption build() {
             final var _resultValue = new GetDomainAdvancedSecurityOption();
             _resultValue.anonymousAuthEnabled = anonymousAuthEnabled;
             _resultValue.enabled = enabled;
             _resultValue.internalUserDatabaseEnabled = internalUserDatabaseEnabled;
+            _resultValue.jwtOptions = jwtOptions;
             return _resultValue;
         }
     }

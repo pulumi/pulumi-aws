@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     [OutputType]
     public sealed class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult
     {
+        /// <summary>
+        /// List of objects describing the minimum and maximum number of accelerators for an instance type.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult> AcceleratorCounts;
         /// <summary>
         /// List of accelerator manufacturer names.

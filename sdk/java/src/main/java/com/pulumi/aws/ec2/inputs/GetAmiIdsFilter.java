@@ -14,16 +14,32 @@ public final class GetAmiIdsFilter extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAmiIdsFilter Empty = new GetAmiIdsFilter();
 
+    /**
+     * Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
+     * 
+     */
     @Import(name="name", required=true)
     private String name;
 
+    /**
+     * @return Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
+     * 
+     */
     public String name() {
         return this.name;
     }
 
+    /**
+     * Set of values that are accepted for the given filter.
+     * 
+     */
     @Import(name="values", required=true)
     private List<String> values;
 
+    /**
+     * @return Set of values that are accepted for the given filter.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }
@@ -53,16 +69,34 @@ public final class GetAmiIdsFilter extends com.pulumi.resources.InvokeArgs {
             $ = new GetAmiIdsFilter(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param values Set of values that are accepted for the given filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values Set of values that are accepted for the given filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

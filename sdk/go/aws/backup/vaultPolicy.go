@@ -40,36 +40,34 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example := exampleVault.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-//						{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//								{
-//									Type: "AWS",
-//									Identifiers: pulumi.StringArray{
-//										current.AccountId,
-//									},
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String(current.AccountId),
 //								},
 //							},
-//							Actions: []string{
-//								"backup:DescribeBackupVault",
-//								"backup:DeleteBackupVault",
-//								"backup:PutBackupVaultAccessPolicy",
-//								"backup:DeleteBackupVaultAccessPolicy",
-//								"backup:GetBackupVaultAccessPolicy",
-//								"backup:StartBackupJob",
-//								"backup:GetBackupVaultNotifications",
-//								"backup:PutBackupVaultNotifications",
-//							},
-//							Resources: []string{
-//								arn,
-//							},
 //						},
-//					}),
-//				}, nil))), nil
-//			}).(iam.GetPolicyDocumentResultOutput)
+//						Actions: pulumi.StringArray{
+//							pulumi.String("backup:DescribeBackupVault"),
+//							pulumi.String("backup:DeleteBackupVault"),
+//							pulumi.String("backup:PutBackupVaultAccessPolicy"),
+//							pulumi.String("backup:DeleteBackupVaultAccessPolicy"),
+//							pulumi.String("backup:GetBackupVaultAccessPolicy"),
+//							pulumi.String("backup:StartBackupJob"),
+//							pulumi.String("backup:GetBackupVaultNotifications"),
+//							pulumi.String("backup:PutBackupVaultNotifications"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleVault.Arn,
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = backup.NewVaultPolicy(ctx, "example", &backup.VaultPolicyArgs{
 //				BackupVaultName: exampleVault.Name,
 //				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {

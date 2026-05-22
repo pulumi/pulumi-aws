@@ -17,6 +17,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetImageResult {
+    /**
+     * @return A application object that contains the following:
+     * 
+     */
     private List<GetImageApplication> applications;
     /**
      * @return Version of the AppStream 2.0 agent to use for instances that are launched from this image. Has a maximum length of 100 characters.
@@ -60,7 +64,6 @@ public final class GetImageResult {
     private String imageBuilderName;
     /**
      * @return Boolean to indicate whether an image builder can be launched from this image.
-     * * `image error` - Resource error object that describes the error containing the following:
      * 
      */
     private Boolean imageBuilderSupported;
@@ -70,6 +73,10 @@ public final class GetImageResult {
      */
     private List<GetImageImagePermission> imagePermissions;
     private @Nullable Boolean mostRecent;
+    /**
+     * @return Name of the application.
+     * 
+     */
     private String name;
     private @Nullable String nameRegex;
     /**
@@ -77,6 +84,10 @@ public final class GetImageResult {
      * 
      */
     private String platform;
+    /**
+     * @return Release date of base image if public. For private images, it is the release date of the base image that it was created from.
+     * 
+     */
     private String publicBaseImageReleasedDate;
     private String region;
     /**
@@ -84,10 +95,18 @@ public final class GetImageResult {
      * 
      */
     private String state;
+    /**
+     * @return Reason for the last state change.
+     * 
+     */
     private List<GetImageStateChangeReason> stateChangeReasons;
     private @Nullable String type;
 
     private GetImageResult() {}
+    /**
+     * @return A application object that contains the following:
+     * 
+     */
     public List<GetImageApplication> applications() {
         return this.applications;
     }
@@ -149,7 +168,6 @@ public final class GetImageResult {
     }
     /**
      * @return Boolean to indicate whether an image builder can be launched from this image.
-     * * `image error` - Resource error object that describes the error containing the following:
      * 
      */
     public Boolean imageBuilderSupported() {
@@ -165,6 +183,10 @@ public final class GetImageResult {
     public Optional<Boolean> mostRecent() {
         return Optional.ofNullable(this.mostRecent);
     }
+    /**
+     * @return Name of the application.
+     * 
+     */
     public String name() {
         return this.name;
     }
@@ -178,6 +200,10 @@ public final class GetImageResult {
     public String platform() {
         return this.platform;
     }
+    /**
+     * @return Release date of base image if public. For private images, it is the release date of the base image that it was created from.
+     * 
+     */
     public String publicBaseImageReleasedDate() {
         return this.publicBaseImageReleasedDate;
     }
@@ -191,6 +217,10 @@ public final class GetImageResult {
     public String state() {
         return this.state;
     }
+    /**
+     * @return Reason for the last state change.
+     * 
+     */
     public List<GetImageStateChangeReason> stateChangeReasons() {
         return this.stateChangeReasons;
     }

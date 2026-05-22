@@ -46,12 +46,12 @@ public final class GetDomainNameResult {
     private String domainName;
     private String domainNameId;
     /**
-     * @return (Optional) Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
+     * @return Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
      * 
      */
     private String endpointAccessMode;
     /**
-     * @return List of objects with the endpoint configuration of this domain name.
+     * @return List of objects with the endpoint configuration of this domain name. See below.
      * 
      */
     private List<GetDomainNameEndpointConfiguration> endpointConfigurations;
@@ -147,14 +147,14 @@ public final class GetDomainNameResult {
         return this.domainNameId;
     }
     /**
-     * @return (Optional) Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
+     * @return Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
      * 
      */
     public String endpointAccessMode() {
         return this.endpointAccessMode;
     }
     /**
-     * @return List of objects with the endpoint configuration of this domain name.
+     * @return List of objects with the endpoint configuration of this domain name. See below.
      * 
      */
     public List<GetDomainNameEndpointConfiguration> endpointConfigurations() {

@@ -53,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentcoreGateway{}
 	case "aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget":
 		r = &AgentcoreGatewayTarget{}
+	case "aws:bedrock/agentcoreHarness:AgentcoreHarness":
+		r = &AgentcoreHarness{}
 	case "aws:bedrock/agentcoreMemory:AgentcoreMemory":
 		r = &AgentcoreMemory{}
 	case "aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy":
@@ -164,6 +166,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"bedrock/agentcoreGatewayTarget",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreHarness",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

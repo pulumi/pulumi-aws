@@ -65,8 +65,9 @@ type LookupNamedQueryResult struct {
 	// Brief explanation of the query.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string  `pulumi:"id"`
-	Name        string  `pulumi:"name"`
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+	// Text of the query itself.
 	Querystring string  `pulumi:"querystring"`
 	Region      string  `pulumi:"region"`
 	Workgroup   *string `pulumi:"workgroup"`
@@ -129,6 +130,7 @@ func (o LookupNamedQueryResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamedQueryResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Text of the query itself.
 func (o LookupNamedQueryResultOutput) Querystring() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNamedQueryResult) string { return v.Querystring }).(pulumi.StringOutput)
 }

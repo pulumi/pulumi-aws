@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirementResult
     {
         /// <summary>
-        /// The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
+        /// Type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The quantity of the specified resource to reserve for the container.
+        /// Quantity of the specified resource to reserve for the container.
         /// </summary>
         public readonly string Value;
 

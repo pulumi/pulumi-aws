@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig {
     /**
-     * @return The Amazon EFS access point ID to use.
+     * @return Amazon EFS access point ID to use.
      * 
      */
     private String accessPointId;
@@ -23,7 +23,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeE
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfig() {}
     /**
-     * @return The Amazon EFS access point ID to use.
+     * @return Amazon EFS access point ID to use.
      * 
      */
     public String accessPointId() {

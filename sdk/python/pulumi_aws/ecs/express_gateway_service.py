@@ -44,9 +44,9 @@ class ExpressGatewayServiceArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
-        :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/ping`.
-        :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
+        :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/`.
+        :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
         :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -132,7 +132,7 @@ class ExpressGatewayServiceArgs:
     @pulumi.getter
     def cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+        Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
         """
         return pulumi.get(self, "cpu")
 
@@ -144,7 +144,7 @@ class ExpressGatewayServiceArgs:
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Path for health check requests. Defaults to `/ping`.
+        Path for health check requests. Defaults to `/`.
         """
         return pulumi.get(self, "health_check_path")
 
@@ -156,7 +156,7 @@ class ExpressGatewayServiceArgs:
     @pulumi.getter
     def memory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+        Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         """
         return pulumi.get(self, "memory")
 
@@ -279,15 +279,15 @@ class _ExpressGatewayServiceState:
         Input properties used for looking up and filtering ExpressGatewayService resources.
 
         :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
         :param pulumi.Input[_builtins.str] current_deployment: (**Deprecated**) ARN of the current deployment.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-        :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/ping`.
+        :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/`.
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceIngressPathArgs']]] ingress_paths: List of ingress paths with access type and endpoint information.
-        :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+        :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
         :param pulumi.Input[_builtins.str] service_arn: ARN of the Express Gateway Service.
         :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
@@ -357,7 +357,7 @@ class _ExpressGatewayServiceState:
     @pulumi.getter
     def cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+        Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
         """
         return pulumi.get(self, "cpu")
 
@@ -394,7 +394,7 @@ class _ExpressGatewayServiceState:
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Path for health check requests. Defaults to `/ping`.
+        Path for health check requests. Defaults to `/`.
         """
         return pulumi.get(self, "health_check_path")
 
@@ -432,7 +432,7 @@ class _ExpressGatewayServiceState:
     @pulumi.getter
     def memory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+        Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         """
         return pulumi.get(self, "memory")
 
@@ -596,9 +596,7 @@ class ExpressGatewayService(pulumi.CustomResource):
                  wait_for_steady_state: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
-        Manages an ECS Express service. The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
-
-        Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
+        Manages an [ECS Express service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-overview.html). The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
 
         > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `iam.RolePolicy` or `iam.RolePolicyAttachment` resources. Otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
 
@@ -622,7 +620,7 @@ class ExpressGatewayService(pulumi.CustomResource):
 
         ### Updates
 
-        When you update an Express service configuration, a new service revision is created and deployed using a rolling deployment strategy with zero downtime. The service automatically manages the transition from the old configuration to the new one, ensuring continuous availability.
+        When you update an Express service configuration, a new service revision is created and deployed using a canary deployment strategy with zero downtime. For more information, see [Updating an Express service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-update.html).
 
         ### Deletion
 
@@ -640,13 +638,13 @@ class ExpressGatewayService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-        :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/ping`.
+        :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/`.
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+        :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
         :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -660,9 +658,7 @@ class ExpressGatewayService(pulumi.CustomResource):
                  args: ExpressGatewayServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an ECS Express service. The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
-
-        Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
+        Manages an [ECS Express service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-overview.html). The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
 
         > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `iam.RolePolicy` or `iam.RolePolicyAttachment` resources. Otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
 
@@ -686,7 +682,7 @@ class ExpressGatewayService(pulumi.CustomResource):
 
         ### Updates
 
-        When you update an Express service configuration, a new service revision is created and deployed using a rolling deployment strategy with zero downtime. The service automatically manages the transition from the old configuration to the new one, ensuring continuous availability.
+        When you update an Express service configuration, a new service revision is created and deployed using a canary deployment strategy with zero downtime. For more information, see [Updating an Express service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-update.html).
 
         ### Deletion
 
@@ -804,15 +800,15 @@ class ExpressGatewayService(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster: Name or ARN of the ECS cluster. Defaults to `default`.
-        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+        :param pulumi.Input[_builtins.str] cpu: Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
         :param pulumi.Input[_builtins.str] current_deployment: (**Deprecated**) ARN of the current deployment.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
-        :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/ping`.
+        :param pulumi.Input[_builtins.str] health_check_path: Path for health check requests. Defaults to `/`.
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExpressGatewayServiceIngressPathArgs', 'ExpressGatewayServiceIngressPathArgsDict']]]] ingress_paths: List of ingress paths with access type and endpoint information.
-        :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+        :param pulumi.Input[_builtins.str] memory: Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         :param pulumi.Input[_builtins.str] region: AWS region where the service will be created. If not specified, the region configured in the provider will be used.
         :param pulumi.Input[_builtins.str] service_arn: ARN of the Express Gateway Service.
         :param pulumi.Input[_builtins.str] service_name: Name of the service. If not specified, a name will be generated. Changing this forces a new resource to be created.
@@ -860,7 +856,7 @@ class ExpressGatewayService(pulumi.CustomResource):
     @pulumi.getter
     def cpu(self) -> pulumi.Output[_builtins.str]:
         """
-        Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+        Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
         """
         return pulumi.get(self, "cpu")
 
@@ -885,7 +881,7 @@ class ExpressGatewayService(pulumi.CustomResource):
     @pulumi.getter(name="healthCheckPath")
     def health_check_path(self) -> pulumi.Output[_builtins.str]:
         """
-        Path for health check requests. Defaults to `/ping`.
+        Path for health check requests. Defaults to `/`.
         """
         return pulumi.get(self, "health_check_path")
 
@@ -911,7 +907,7 @@ class ExpressGatewayService(pulumi.CustomResource):
     @pulumi.getter
     def memory(self) -> pulumi.Output[_builtins.str]:
         """
-        Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+        Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
         """
         return pulumi.get(self, "memory")
 

@@ -110,11 +110,11 @@ class ClusterBrokerNodeGroupInfoArgsDict(TypedDict):
     """
     The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
     """
-    connectivity_info: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']]]
+    connectivity_info: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict']]]
     """
     Information about the cluster access configuration. See broker_node_group_info connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
     """
-    storage_info: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoArgs']]]
+    storage_info: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoArgsDict']]]
     """
     A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below. This block must not be specified when an Express instance type is specified for `instance_type`.
     """
@@ -224,11 +224,11 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict(TypedDict):
     """
     Network type of the cluster. Valid values are: `IPV4` or `DUAL`. Default value: `IPV4`. Only updating from `IPV4` to `DUAL` is allowed.
     """
-    public_access: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs']]]
+    public_access: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgsDict']]]
     """
     Access control settings for brokers. See connectivity_info public_access Argument Reference below.
     """
-    vpc_connectivity: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs']]]
+    vpc_connectivity: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgsDict']]]
     """
     VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
     """
@@ -318,7 +318,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs:
 
 
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgsDict(TypedDict):
-    client_authentication: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs']]]
+    client_authentication: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgsDict']]]
     """
     Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
     """
@@ -347,7 +347,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs:
 
 
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgsDict(TypedDict):
-    sasl: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs']]]
+    sasl: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgsDict']]]
     """
     Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
     """
@@ -429,7 +429,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
 
 
 class ClusterBrokerNodeGroupInfoStorageInfoArgsDict(TypedDict):
-    ebs_storage_info: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']]]
+    ebs_storage_info: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgsDict']]]
     """
     A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
     """
@@ -458,7 +458,7 @@ class ClusterBrokerNodeGroupInfoStorageInfoArgs:
 
 
 class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgsDict(TypedDict):
-    provisioned_throughput: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']]]
+    provisioned_throughput: NotRequired[pulumi.Input[Optional['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgsDict']]]
     """
     A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
     """
@@ -549,11 +549,11 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputAr
 
 
 class ClusterClientAuthenticationArgsDict(TypedDict):
-    sasl: NotRequired[pulumi.Input[Optional['ClusterClientAuthenticationSaslArgs']]]
+    sasl: NotRequired[pulumi.Input[Optional['ClusterClientAuthenticationSaslArgsDict']]]
     """
     Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
     """
-    tls: NotRequired[pulumi.Input[Optional['ClusterClientAuthenticationTlsArgs']]]
+    tls: NotRequired[pulumi.Input[Optional['ClusterClientAuthenticationTlsArgsDict']]]
     """
     Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
     """
@@ -731,7 +731,7 @@ class ClusterEncryptionInfoArgsDict(TypedDict):
     """
     You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
     """
-    encryption_in_transit: NotRequired[pulumi.Input[Optional['ClusterEncryptionInfoEncryptionInTransitArgs']]]
+    encryption_in_transit: NotRequired[pulumi.Input[Optional['ClusterEncryptionInfoEncryptionInTransitArgsDict']]]
     """
     Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
     """
@@ -853,15 +853,15 @@ class ClusterLoggingInfoArgs:
 
 
 class ClusterLoggingInfoBrokerLogsArgsDict(TypedDict):
-    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs']]]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgsDict']]]
     """
     Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
     """
-    firehose: NotRequired[pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsFirehoseArgs']]]
+    firehose: NotRequired[pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsFirehoseArgsDict']]]
     """
     Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
     """
-    s3: NotRequired[pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsS3Args']]]
+    s3: NotRequired[pulumi.Input[Optional['ClusterLoggingInfoBrokerLogsS3ArgsDict']]]
     """
     Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
     """
@@ -1093,11 +1093,11 @@ class ClusterOpenMonitoringArgs:
 
 
 class ClusterOpenMonitoringPrometheusArgsDict(TypedDict):
-    jmx_exporter: NotRequired[pulumi.Input[Optional['ClusterOpenMonitoringPrometheusJmxExporterArgs']]]
+    jmx_exporter: NotRequired[pulumi.Input[Optional['ClusterOpenMonitoringPrometheusJmxExporterArgsDict']]]
     """
     Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
     """
-    node_exporter: NotRequired[pulumi.Input[Optional['ClusterOpenMonitoringPrometheusNodeExporterArgs']]]
+    node_exporter: NotRequired[pulumi.Input[Optional['ClusterOpenMonitoringPrometheusNodeExporterArgsDict']]]
     """
     Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
     """
@@ -1589,11 +1589,11 @@ class ReplicatorReplicationInfoListTopicReplicationArgsDict(TypedDict):
     """
     Whether to periodically check for new topics and partitions.
     """
-    starting_position: NotRequired[pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs']]]
+    starting_position: NotRequired[pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict']]]
     """
     Configuration for specifying the position in the topics to start replicating from.
     """
-    topic_name_configuration: NotRequired[pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs']]]
+    topic_name_configuration: NotRequired[pulumi.Input[Optional['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict']]]
     """
     Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
     """

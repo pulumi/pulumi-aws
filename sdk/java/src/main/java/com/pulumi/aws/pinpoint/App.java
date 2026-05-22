@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
 /**
  * Provides a Pinpoint App resource.
  * 
+ * &gt; **NOTE:** The `campaignHook`, `limits`, and `quietTime` attributes are deprecated. Amazon Pinpoint engagement features, including the Settings API that backs these attributes, are being discontinued on October 30, 2026. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -105,7 +107,11 @@ public class App extends com.pulumi.resources.CustomResource {
     /**
      * Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
      * 
+     * @deprecated
+     * campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * 
      */
+    @Deprecated /* campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     @Export(name="campaignHook", refs={AppCampaignHook.class}, tree="[0]")
     private Output</* @Nullable */ AppCampaignHook> campaignHook;
 
@@ -119,7 +125,11 @@ public class App extends com.pulumi.resources.CustomResource {
     /**
      * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
      * 
+     * @deprecated
+     * limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * 
      */
+    @Deprecated /* limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     @Export(name="limits", refs={AppLimits.class}, tree="[0]")
     private Output</* @Nullable */ AppLimits> limits;
 
@@ -161,7 +171,11 @@ public class App extends com.pulumi.resources.CustomResource {
     /**
      * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
      * 
+     * @deprecated
+     * quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * 
      */
+    @Deprecated /* quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     @Export(name="quietTime", refs={AppQuietTime.class}, tree="[0]")
     private Output</* @Nullable */ AppQuietTime> quietTime;
 

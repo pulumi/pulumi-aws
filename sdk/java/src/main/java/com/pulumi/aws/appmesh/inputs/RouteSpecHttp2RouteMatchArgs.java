@@ -21,14 +21,14 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     public static final RouteSpecHttp2RouteMatchArgs Empty = new RouteSpecHttp2RouteMatchArgs();
 
     /**
-     * Client request headers to match on.
+     * Client request headers to match on. See `header` Block for details.
      * 
      */
     @Import(name="headers")
     private @Nullable Output<List<RouteSpecHttp2RouteMatchHeaderArgs>> headers;
 
     /**
-     * @return Client request headers to match on.
+     * @return Client request headers to match on. See `header` Block for details.
      * 
      */
     public Optional<Output<List<RouteSpecHttp2RouteMatchHeaderArgs>>> headers() {
@@ -51,14 +51,14 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Client request path to match on.
+     * Client request path to match on. See `path` Block for details.
      * 
      */
     @Import(name="path")
     private @Nullable Output<RouteSpecHttp2RouteMatchPathArgs> path;
 
     /**
-     * @return Client request path to match on.
+     * @return Client request path to match on. See `path` Block for details.
      * 
      */
     public Optional<Output<RouteSpecHttp2RouteMatchPathArgs>> path() {
@@ -81,16 +81,14 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Path with which to match requests.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+     * Header value sent by the client must begin with the specified characters.
      * 
      */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
     /**
-     * @return Path with which to match requests.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<Output<String>> prefix() {
@@ -98,14 +96,14 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Client request query parameters to match on.
+     * Client request query parameters to match on. See `queryParameter` Block for details.
      * 
      */
     @Import(name="queryParameters")
     private @Nullable Output<List<RouteSpecHttp2RouteMatchQueryParameterArgs>> queryParameters;
 
     /**
-     * @return Client request query parameters to match on.
+     * @return Client request query parameters to match on. See `queryParameter` Block for details.
      * 
      */
     public Optional<Output<List<RouteSpecHttp2RouteMatchQueryParameterArgs>>> queryParameters() {
@@ -158,7 +156,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param headers Client request headers to match on.
+         * @param headers Client request headers to match on. See `header` Block for details.
          * 
          * @return builder
          * 
@@ -169,7 +167,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param headers Client request headers to match on.
+         * @param headers Client request headers to match on. See `header` Block for details.
          * 
          * @return builder
          * 
@@ -179,7 +177,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param headers Client request headers to match on.
+         * @param headers Client request headers to match on. See `header` Block for details.
          * 
          * @return builder
          * 
@@ -210,7 +208,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param path Client request path to match on.
+         * @param path Client request path to match on. See `path` Block for details.
          * 
          * @return builder
          * 
@@ -221,7 +219,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param path Client request path to match on.
+         * @param path Client request path to match on. See `path` Block for details.
          * 
          * @return builder
          * 
@@ -252,8 +250,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param prefix Path with which to match requests.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * @param prefix Header value sent by the client must begin with the specified characters.
          * 
          * @return builder
          * 
@@ -264,8 +261,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param prefix Path with which to match requests.
-         * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+         * @param prefix Header value sent by the client must begin with the specified characters.
          * 
          * @return builder
          * 
@@ -275,7 +271,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param queryParameters Client request query parameters to match on.
+         * @param queryParameters Client request query parameters to match on. See `queryParameter` Block for details.
          * 
          * @return builder
          * 
@@ -286,7 +282,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param queryParameters Client request query parameters to match on.
+         * @param queryParameters Client request query parameters to match on. See `queryParameter` Block for details.
          * 
          * @return builder
          * 
@@ -296,7 +292,7 @@ public final class RouteSpecHttp2RouteMatchArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param queryParameters Client request query parameters to match on.
+         * @param queryParameters Client request query parameters to match on. See `queryParameter` Block for details.
          * 
          * @return builder
          * 

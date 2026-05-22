@@ -18,14 +18,14 @@ public final class VirtualGatewaySpecLoggingAccessLogFileArgs extends com.pulumi
     public static final VirtualGatewaySpecLoggingAccessLogFileArgs Empty = new VirtualGatewaySpecLoggingAccessLogFileArgs();
 
     /**
-     * The specified format for the logs.
+     * The specified format for the logs. See `format` Block for details.
      * 
      */
     @Import(name="format")
     private @Nullable Output<VirtualGatewaySpecLoggingAccessLogFileFormatArgs> format;
 
     /**
-     * @return The specified format for the logs.
+     * @return The specified format for the logs. See `format` Block for details.
      * 
      */
     public Optional<Output<VirtualGatewaySpecLoggingAccessLogFileFormatArgs>> format() {
@@ -73,7 +73,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileArgs extends com.pulumi
         }
 
         /**
-         * @param format The specified format for the logs.
+         * @param format The specified format for the logs. See `format` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileArgs extends com.pulumi
         }
 
         /**
-         * @param format The specified format for the logs.
+         * @param format The specified format for the logs. See `format` Block for details.
          * 
          * @return builder
          * 

@@ -208,6 +208,10 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
      */
     declare public readonly environmentVariables: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+     */
+    declare public readonly filesystemConfigurations: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeFilesystemConfiguration[] | undefined>;
+    /**
      * Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.
      */
     declare public readonly lifecycleConfigurations: pulumi.Output<outputs.bedrock.AgentcoreAgentRuntimeLifecycleConfiguration[]>;
@@ -268,6 +272,7 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
             resourceInputs["authorizerConfiguration"] = state?.authorizerConfiguration;
             resourceInputs["description"] = state?.description;
             resourceInputs["environmentVariables"] = state?.environmentVariables;
+            resourceInputs["filesystemConfigurations"] = state?.filesystemConfigurations;
             resourceInputs["lifecycleConfigurations"] = state?.lifecycleConfigurations;
             resourceInputs["networkConfiguration"] = state?.networkConfiguration;
             resourceInputs["protocolConfiguration"] = state?.protocolConfiguration;
@@ -297,6 +302,7 @@ export class AgentcoreAgentRuntime extends pulumi.CustomResource {
             resourceInputs["authorizerConfiguration"] = args?.authorizerConfiguration;
             resourceInputs["description"] = args?.description;
             resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["filesystemConfigurations"] = args?.filesystemConfigurations;
             resourceInputs["lifecycleConfigurations"] = args?.lifecycleConfigurations;
             resourceInputs["networkConfiguration"] = args?.networkConfiguration;
             resourceInputs["protocolConfiguration"] = args?.protocolConfiguration;
@@ -352,6 +358,10 @@ export interface AgentcoreAgentRuntimeState {
      * Map of environment variables to pass to the container.
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+     */
+    filesystemConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeFilesystemConfiguration>[] | undefined>;
     /**
      * Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.
      */
@@ -417,6 +427,10 @@ export interface AgentcoreAgentRuntimeArgs {
      * Map of environment variables to pass to the container.
      */
     environmentVariables?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+     */
+    filesystemConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreAgentRuntimeFilesystemConfiguration>[] | undefined>;
     /**
      * Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.
      */

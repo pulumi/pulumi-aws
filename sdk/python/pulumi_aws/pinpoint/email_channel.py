@@ -39,22 +39,44 @@ class EmailChannelArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
+        if application_id is not None:
+            warnings.warn("""application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""application_id is deprecated: application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
         pulumi.set(__self__, "application_id", application_id)
+        if from_address is not None:
+            warnings.warn("""from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""from_address is deprecated: from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
         pulumi.set(__self__, "from_address", from_address)
+        if identity is not None:
+            warnings.warn("""identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""identity is deprecated: identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
         pulumi.set(__self__, "identity", identity)
+        if configuration_set is not None:
+            warnings.warn("""configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""configuration_set is deprecated: configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
         if configuration_set is not None:
             pulumi.set(__self__, "configuration_set", configuration_set)
         if enabled is not None:
+            warnings.warn("""enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""enabled is deprecated: enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
+        if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if orchestration_sending_role_arn is not None:
+            warnings.warn("""orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""orchestration_sending_role_arn is deprecated: orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
         if orchestration_sending_role_arn is not None:
             pulumi.set(__self__, "orchestration_sending_role_arn", orchestration_sending_role_arn)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if role_arn is not None:
+            warnings.warn("""role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""role_arn is deprecated: role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
+        if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
+    @_utilities.deprecated("""application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def application_id(self) -> pulumi.Input[_builtins.str]:
         """
         The application ID.
@@ -67,6 +89,7 @@ class EmailChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="fromAddress")
+    @_utilities.deprecated("""from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def from_address(self) -> pulumi.Input[_builtins.str]:
         """
         The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
@@ -79,6 +102,7 @@ class EmailChannelArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def identity(self) -> pulumi.Input[_builtins.str]:
         """
         The ARN of an identity verified with SES.
@@ -91,6 +115,7 @@ class EmailChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationSet")
+    @_utilities.deprecated("""configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def configuration_set(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
@@ -103,6 +128,7 @@ class EmailChannelArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the channel is enabled or disabled. Defaults to `true`.
@@ -115,6 +141,7 @@ class EmailChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="orchestrationSendingRoleArn")
+    @_utilities.deprecated("""orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def orchestration_sending_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
@@ -139,6 +166,7 @@ class EmailChannelArgs:
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
+    @_utilities.deprecated("""role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
@@ -176,26 +204,51 @@ class _EmailChannelState:
         :param pulumi.Input[_builtins.str] role_arn: *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         """
         if application_id is not None:
+            warnings.warn("""application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""application_id is deprecated: application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
+        if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
+        if configuration_set is not None:
+            warnings.warn("""configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""configuration_set is deprecated: configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
         if configuration_set is not None:
             pulumi.set(__self__, "configuration_set", configuration_set)
         if enabled is not None:
+            warnings.warn("""enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""enabled is deprecated: enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
+        if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if from_address is not None:
+            warnings.warn("""from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""from_address is deprecated: from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
         if from_address is not None:
             pulumi.set(__self__, "from_address", from_address)
         if identity is not None:
+            warnings.warn("""identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""identity is deprecated: identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
+        if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if messages_per_second is not None:
+            warnings.warn("""messages_per_second is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""messages_per_second is deprecated: messages_per_second is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
+        if messages_per_second is not None:
             pulumi.set(__self__, "messages_per_second", messages_per_second)
+        if orchestration_sending_role_arn is not None:
+            warnings.warn("""orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""orchestration_sending_role_arn is deprecated: orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
         if orchestration_sending_role_arn is not None:
             pulumi.set(__self__, "orchestration_sending_role_arn", orchestration_sending_role_arn)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if role_arn is not None:
+            warnings.warn("""role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""role_arn is deprecated: role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
+        if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
+    @_utilities.deprecated("""application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The application ID.
@@ -208,6 +261,7 @@ class _EmailChannelState:
 
     @_builtins.property
     @pulumi.getter(name="configurationSet")
+    @_utilities.deprecated("""configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def configuration_set(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
@@ -220,6 +274,7 @@ class _EmailChannelState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the channel is enabled or disabled. Defaults to `true`.
@@ -232,6 +287,7 @@ class _EmailChannelState:
 
     @_builtins.property
     @pulumi.getter(name="fromAddress")
+    @_utilities.deprecated("""from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def from_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
@@ -244,6 +300,7 @@ class _EmailChannelState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an identity verified with SES.
@@ -256,6 +313,7 @@ class _EmailChannelState:
 
     @_builtins.property
     @pulumi.getter(name="messagesPerSecond")
+    @_utilities.deprecated("""messages_per_second is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def messages_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Messages per second that can be sent.
@@ -268,6 +326,7 @@ class _EmailChannelState:
 
     @_builtins.property
     @pulumi.getter(name="orchestrationSendingRoleArn")
+    @_utilities.deprecated("""orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def orchestration_sending_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
@@ -292,6 +351,7 @@ class _EmailChannelState:
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
+    @_utilities.deprecated("""role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
@@ -319,6 +379,8 @@ class EmailChannel(pulumi.CustomResource):
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
+        > **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `ses.DomainIdentity`, `sesv2.EmailIdentity`, and related SES/SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+
         Provides a Pinpoint Email Channel resource.
 
         ## Example Usage
@@ -383,6 +445,8 @@ class EmailChannel(pulumi.CustomResource):
                  args: EmailChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `ses.DomainIdentity`, `sesv2.EmailIdentity`, and related SES/SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+
         Provides a Pinpoint Email Channel resource.
 
         ## Example Usage
@@ -529,6 +593,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
+    @_utilities.deprecated("""application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def application_id(self) -> pulumi.Output[_builtins.str]:
         """
         The application ID.
@@ -537,6 +602,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="configurationSet")
+    @_utilities.deprecated("""configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def configuration_set(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
@@ -545,6 +611,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Whether the channel is enabled or disabled. Defaults to `true`.
@@ -553,6 +620,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="fromAddress")
+    @_utilities.deprecated("""from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def from_address(self) -> pulumi.Output[_builtins.str]:
         """
         The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User <user@example.com>`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
@@ -561,6 +629,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def identity(self) -> pulumi.Output[_builtins.str]:
         """
         The ARN of an identity verified with SES.
@@ -569,6 +638,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="messagesPerSecond")
+    @_utilities.deprecated("""messages_per_second is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def messages_per_second(self) -> pulumi.Output[_builtins.int]:
         """
         Messages per second that can be sent.
@@ -577,6 +647,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="orchestrationSendingRoleArn")
+    @_utilities.deprecated("""orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def orchestration_sending_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
@@ -593,6 +664,7 @@ class EmailChannel(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
+    @_utilities.deprecated("""role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.

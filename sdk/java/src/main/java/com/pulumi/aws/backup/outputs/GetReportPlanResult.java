@@ -42,12 +42,12 @@ public final class GetReportPlanResult {
     private String name;
     private String region;
     /**
-     * @return An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+     * @return Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
      */
     private List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels;
     /**
-     * @return An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+     * @return Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
     private List<GetReportPlanReportSetting> reportSettings;
@@ -100,14 +100,14 @@ public final class GetReportPlanResult {
         return this.region;
     }
     /**
-     * @return An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+     * @return Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      * 
      */
     public List<GetReportPlanReportDeliveryChannel> reportDeliveryChannels() {
         return this.reportDeliveryChannels;
     }
     /**
-     * @return An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+     * @return Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      * 
      */
     public List<GetReportPlanReportSetting> reportSettings() {

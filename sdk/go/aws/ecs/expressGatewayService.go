@@ -12,9 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an ECS Express service. The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
-//
-// Express services automatically handle infrastructure provisioning and updates through rolling deployments, ensuring high availability during service modifications. When you update an Express service, a new service revision is created and deployed with zero downtime.
+// Manages an [ECS Express service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-overview.html). The Express service provides a simplified way to deploy containerized applications with automatic provisioning and management of AWS infrastructure including Application Load Balancers (ALBs), target groups, security groups, and auto-scaling policies. This service offers built-in load balancing, auto-scaling, and networking capabilities with zero-downtime deployments.
 //
 // > **Note:** To prevent a race condition during service deletion, make sure to set `dependsOn` to the related `iam.RolePolicy` or `iam.RolePolicyAttachment` resources. Otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
 //
@@ -54,7 +52,7 @@ import (
 //
 // ### Updates
 //
-// When you update an Express service configuration, a new service revision is created and deployed using a rolling deployment strategy with zero downtime. The service automatically manages the transition from the old configuration to the new one, ensuring continuous availability.
+// When you update an Express service configuration, a new service revision is created and deployed using a canary deployment strategy with zero downtime. For more information, see [Updating an Express service](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-update.html).
 //
 // ### Deletion
 //
@@ -72,7 +70,7 @@ type ExpressGatewayService struct {
 
 	// Name or ARN of the ECS cluster. Defaults to `default`.
 	Cluster pulumi.StringOutput `pulumi:"cluster"`
-	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
 	Cpu pulumi.StringOutput `pulumi:"cpu"`
 	// (**Deprecated**) ARN of the current deployment.
 	//
@@ -80,7 +78,7 @@ type ExpressGatewayService struct {
 	CurrentDeployment pulumi.StringOutput `pulumi:"currentDeployment"`
 	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
 	ExecutionRoleArn pulumi.StringOutput `pulumi:"executionRoleArn"`
-	// Path for health check requests. Defaults to `/ping`.
+	// Path for health check requests. Defaults to `/`.
 	HealthCheckPath pulumi.StringOutput `pulumi:"healthCheckPath"`
 	// ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
 	//
@@ -88,7 +86,7 @@ type ExpressGatewayService struct {
 	InfrastructureRoleArn pulumi.StringOutput `pulumi:"infrastructureRoleArn"`
 	// List of ingress paths with access type and endpoint information.
 	IngressPaths ExpressGatewayServiceIngressPathArrayOutput `pulumi:"ingressPaths"`
-	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
 	Memory                pulumi.StringOutput                                  `pulumi:"memory"`
 	NetworkConfigurations ExpressGatewayServiceNetworkConfigurationArrayOutput `pulumi:"networkConfigurations"`
 	PrimaryContainer      ExpressGatewayServicePrimaryContainerOutput          `pulumi:"primaryContainer"`
@@ -153,7 +151,7 @@ func GetExpressGatewayService(ctx *pulumi.Context,
 type expressGatewayServiceState struct {
 	// Name or ARN of the ECS cluster. Defaults to `default`.
 	Cluster *string `pulumi:"cluster"`
-	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
 	Cpu *string `pulumi:"cpu"`
 	// (**Deprecated**) ARN of the current deployment.
 	//
@@ -161,7 +159,7 @@ type expressGatewayServiceState struct {
 	CurrentDeployment *string `pulumi:"currentDeployment"`
 	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
-	// Path for health check requests. Defaults to `/ping`.
+	// Path for health check requests. Defaults to `/`.
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
 	//
@@ -169,7 +167,7 @@ type expressGatewayServiceState struct {
 	InfrastructureRoleArn *string `pulumi:"infrastructureRoleArn"`
 	// List of ingress paths with access type and endpoint information.
 	IngressPaths []ExpressGatewayServiceIngressPath `pulumi:"ingressPaths"`
-	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
 	Memory                *string                                     `pulumi:"memory"`
 	NetworkConfigurations []ExpressGatewayServiceNetworkConfiguration `pulumi:"networkConfigurations"`
 	PrimaryContainer      *ExpressGatewayServicePrimaryContainer      `pulumi:"primaryContainer"`
@@ -196,7 +194,7 @@ type expressGatewayServiceState struct {
 type ExpressGatewayServiceState struct {
 	// Name or ARN of the ECS cluster. Defaults to `default`.
 	Cluster pulumi.StringPtrInput
-	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
 	Cpu pulumi.StringPtrInput
 	// (**Deprecated**) ARN of the current deployment.
 	//
@@ -204,7 +202,7 @@ type ExpressGatewayServiceState struct {
 	CurrentDeployment pulumi.StringPtrInput
 	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
 	ExecutionRoleArn pulumi.StringPtrInput
-	// Path for health check requests. Defaults to `/ping`.
+	// Path for health check requests. Defaults to `/`.
 	HealthCheckPath pulumi.StringPtrInput
 	// ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
 	//
@@ -212,7 +210,7 @@ type ExpressGatewayServiceState struct {
 	InfrastructureRoleArn pulumi.StringPtrInput
 	// List of ingress paths with access type and endpoint information.
 	IngressPaths ExpressGatewayServiceIngressPathArrayInput
-	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
 	Memory                pulumi.StringPtrInput
 	NetworkConfigurations ExpressGatewayServiceNetworkConfigurationArrayInput
 	PrimaryContainer      ExpressGatewayServicePrimaryContainerPtrInput
@@ -243,17 +241,17 @@ func (ExpressGatewayServiceState) ElementType() reflect.Type {
 type expressGatewayServiceArgs struct {
 	// Name or ARN of the ECS cluster. Defaults to `default`.
 	Cluster *string `pulumi:"cluster"`
-	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
 	Cpu *string `pulumi:"cpu"`
 	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
-	// Path for health check requests. Defaults to `/ping`.
+	// Path for health check requests. Defaults to `/`.
 	HealthCheckPath *string `pulumi:"healthCheckPath"`
 	// ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
 	//
 	// The following arguments are optional:
 	InfrastructureRoleArn string `pulumi:"infrastructureRoleArn"`
-	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
 	Memory                *string                                     `pulumi:"memory"`
 	NetworkConfigurations []ExpressGatewayServiceNetworkConfiguration `pulumi:"networkConfigurations"`
 	PrimaryContainer      ExpressGatewayServicePrimaryContainer       `pulumi:"primaryContainer"`
@@ -275,17 +273,17 @@ type expressGatewayServiceArgs struct {
 type ExpressGatewayServiceArgs struct {
 	// Name or ARN of the ECS cluster. Defaults to `default`.
 	Cluster pulumi.StringPtrInput
-	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+	// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
 	Cpu pulumi.StringPtrInput
 	// ARN of the IAM role that allows ECS to pull container images and publish container logs to Amazon CloudWatch.
 	ExecutionRoleArn pulumi.StringInput
-	// Path for health check requests. Defaults to `/ping`.
+	// Path for health check requests. Defaults to `/`.
 	HealthCheckPath pulumi.StringPtrInput
 	// ARN of the IAM role that allows ECS to manage AWS infrastructure on your behalf. **Important:** The infrastructure role cannot be modified after the service is created. Changing this forces a new resource to be created.
 	//
 	// The following arguments are optional:
 	InfrastructureRoleArn pulumi.StringInput
-	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+	// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
 	Memory                pulumi.StringPtrInput
 	NetworkConfigurations ExpressGatewayServiceNetworkConfigurationArrayInput
 	PrimaryContainer      ExpressGatewayServicePrimaryContainerInput
@@ -395,7 +393,7 @@ func (o ExpressGatewayServiceOutput) Cluster() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Cluster }).(pulumi.StringOutput)
 }
 
-// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+// Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
 func (o ExpressGatewayServiceOutput) Cpu() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Cpu }).(pulumi.StringOutput)
 }
@@ -412,7 +410,7 @@ func (o ExpressGatewayServiceOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }
 
-// Path for health check requests. Defaults to `/ping`.
+// Path for health check requests. Defaults to `/`.
 func (o ExpressGatewayServiceOutput) HealthCheckPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.HealthCheckPath }).(pulumi.StringOutput)
 }
@@ -429,7 +427,7 @@ func (o ExpressGatewayServiceOutput) IngressPaths() ExpressGatewayServiceIngress
 	return o.ApplyT(func(v *ExpressGatewayService) ExpressGatewayServiceIngressPathArrayOutput { return v.IngressPaths }).(ExpressGatewayServiceIngressPathArrayOutput)
 }
 
-// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+// Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
 func (o ExpressGatewayServiceOutput) Memory() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExpressGatewayService) pulumi.StringOutput { return v.Memory }).(pulumi.StringOutput)
 }

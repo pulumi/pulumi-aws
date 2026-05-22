@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerTimeoutHttpGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        /// Idle timeout. An idle timeout bounds the amount of time that a connection may be idle. See `Idle` Block for details.
         /// </summary>
         [Input("idle")]
         public Input<Inputs.VirtualNodeSpecListenerTimeoutHttpIdleGetArgs>? Idle { get; set; }
 
         /// <summary>
-        /// Per request timeout.
+        /// Per request timeout. See `PerRequest` Block for details.
         /// </summary>
         [Input("perRequest")]
         public Input<Inputs.VirtualNodeSpecListenerTimeoutHttpPerRequestGetArgs>? PerRequest { get; set; }

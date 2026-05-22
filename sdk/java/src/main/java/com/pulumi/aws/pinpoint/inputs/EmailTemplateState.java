@@ -36,14 +36,22 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
     /**
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
      * 
+     * @deprecated
+     * email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * 
      */
+    @Deprecated /* email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Import(name="emailTemplates")
     private @Nullable Output<List<EmailTemplateEmailTemplateArgs>> emailTemplates;
 
     /**
      * @return Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
      * 
+     * @deprecated
+     * email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * 
      */
+    @Deprecated /* email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     public Optional<Output<List<EmailTemplateEmailTemplateArgs>>> emailTemplates() {
         return Optional.ofNullable(this.emailTemplates);
     }
@@ -80,14 +88,22 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      * 
+     * @deprecated
+     * template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * 
      */
+    @Deprecated /* template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Import(name="templateName")
     private @Nullable Output<String> templateName;
 
     /**
      * @return name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      * 
+     * @deprecated
+     * template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * 
      */
+    @Deprecated /* template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     public Optional<Output<String>> templateName() {
         return Optional.ofNullable(this.templateName);
     }
@@ -147,7 +163,11 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * 
          */
+        @Deprecated /* email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder emailTemplates(@Nullable Output<List<EmailTemplateEmailTemplateArgs>> emailTemplates) {
             $.emailTemplates = emailTemplates;
             return this;
@@ -158,7 +178,11 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * 
          */
+        @Deprecated /* email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder emailTemplates(List<EmailTemplateEmailTemplateArgs> emailTemplates) {
             return emailTemplates(Output.of(emailTemplates));
         }
@@ -168,7 +192,11 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * 
          */
+        @Deprecated /* email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder emailTemplates(EmailTemplateEmailTemplateArgs... emailTemplates) {
             return emailTemplates(List.of(emailTemplates));
         }
@@ -217,7 +245,11 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * 
          */
+        @Deprecated /* template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder templateName(@Nullable Output<String> templateName) {
             $.templateName = templateName;
             return this;
@@ -228,7 +260,11 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * 
          */
+        @Deprecated /* template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder templateName(String templateName) {
             return templateName(Output.of(templateName));
         }

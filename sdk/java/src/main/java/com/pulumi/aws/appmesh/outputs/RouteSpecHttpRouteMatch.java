@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecHttpRouteMatch {
     /**
-     * @return Client request headers to match on.
+     * @return Client request headers to match on. See `header` Block for details.
      * 
      */
     private @Nullable List<RouteSpecHttpRouteMatchHeader> headers;
@@ -27,7 +27,7 @@ public final class RouteSpecHttpRouteMatch {
      */
     private @Nullable String method;
     /**
-     * @return Client request path to match on.
+     * @return Client request path to match on. See `path` Block for details.
      * 
      */
     private @Nullable RouteSpecHttpRouteMatchPath path;
@@ -37,13 +37,12 @@ public final class RouteSpecHttpRouteMatch {
      */
     private @Nullable Integer port;
     /**
-     * @return Path with which to match requests.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     private @Nullable String prefix;
     /**
-     * @return Client request query parameters to match on.
+     * @return Client request query parameters to match on. See `queryParameter` Block for details.
      * 
      */
     private @Nullable List<RouteSpecHttpRouteMatchQueryParameter> queryParameters;
@@ -55,7 +54,7 @@ public final class RouteSpecHttpRouteMatch {
 
     private RouteSpecHttpRouteMatch() {}
     /**
-     * @return Client request headers to match on.
+     * @return Client request headers to match on. See `header` Block for details.
      * 
      */
     public List<RouteSpecHttpRouteMatchHeader> headers() {
@@ -69,7 +68,7 @@ public final class RouteSpecHttpRouteMatch {
         return Optional.ofNullable(this.method);
     }
     /**
-     * @return Client request path to match on.
+     * @return Client request path to match on. See `path` Block for details.
      * 
      */
     public Optional<RouteSpecHttpRouteMatchPath> path() {
@@ -83,15 +82,14 @@ public final class RouteSpecHttpRouteMatch {
         return Optional.ofNullable(this.port);
     }
     /**
-     * @return Path with which to match requests.
-     * This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+     * @return Header value sent by the client must begin with the specified characters.
      * 
      */
     public Optional<String> prefix() {
         return Optional.ofNullable(this.prefix);
     }
     /**
-     * @return Client request query parameters to match on.
+     * @return Client request query parameters to match on. See `queryParameter` Block for details.
      * 
      */
     public List<RouteSpecHttpRouteMatchQueryParameter> queryParameters() {

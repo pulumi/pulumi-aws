@@ -20,20 +20,14 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAmiArgs Empty = new GetAmiArgs();
 
     /**
-     * If true, allow unsafe filter values. With unsafe
-     * filters and `mostRecent` set to `true`, a third party may introduce a new image which
-     * will be returned by this data source. Consider filtering by owner or image ID rather
-     * than setting this argument.
+     * If true, allow unsafe filter values. With unsafe filters and `mostRecent` set to `true`, a third party may introduce a new image which will be returned by this data source. Consider filtering by owner or image ID rather than setting this argument.
      * 
      */
     @Import(name="allowUnsafeFilter")
     private @Nullable Output<Boolean> allowUnsafeFilter;
 
     /**
-     * @return If true, allow unsafe filter values. With unsafe
-     * filters and `mostRecent` set to `true`, a third party may introduce a new image which
-     * will be returned by this data source. Consider filtering by owner or image ID rather
-     * than setting this argument.
+     * @return If true, allow unsafe filter values. With unsafe filters and `mostRecent` set to `true`, a third party may introduce a new image which will be returned by this data source. Consider filtering by owner or image ID rather than setting this argument.
      * 
      */
     public Optional<Output<Boolean>> allowUnsafeFilter() {
@@ -41,16 +35,14 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Limit search to users with *explicit* launch permission on
-     * the image. Valid items are the numeric account ID or `self`.
+     * Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
      * 
      */
     @Import(name="executableUsers")
     private @Nullable Output<List<String>> executableUsers;
 
     /**
-     * @return Limit search to users with *explicit* launch permission on
-     * the image. Valid items are the numeric account ID or `self`.
+     * @return Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
      * 
      */
     public Optional<Output<List<String>>> executableUsers() {
@@ -58,18 +50,14 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-images in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
      * 
      */
     @Import(name="filters")
     private @Nullable Output<List<GetAmiFilterArgs>> filters;
 
     /**
-     * @return One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-images in the AWS CLI reference][1].
+     * @return One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
      * 
      */
     public Optional<Output<List<GetAmiFilterArgs>>> filters() {
@@ -92,16 +80,14 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * If more than one result is returned, use the most
-     * recent AMI.
+     * If more than one result is returned, use the most recent AMI.
      * 
      */
     @Import(name="mostRecent")
     private @Nullable Output<Boolean> mostRecent;
 
     /**
-     * @return If more than one result is returned, use the most
-     * recent AMI.
+     * @return If more than one result is returned, use the most recent AMI.
      * 
      */
     public Optional<Output<Boolean>> mostRecent() {
@@ -109,32 +95,14 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Regex string to apply to the AMI list returned
-     * by AWS. This allows more advanced filtering not supported from the AWS API. This
-     * filtering is done locally on what AWS returns, and could have a performance
-     * impact if the result is large. Combine this with other
-     * options to narrow down the list AWS returns.
-     * 
-     * &gt; **NOTE:** If more or less than a single match is returned by the search,
-     * this call will fail. Ensure that your search is specific enough to return
-     * a single AMI ID only, or use `mostRecent` to choose the most recent one. If
-     * you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
+     * Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
      * 
      */
     @Import(name="nameRegex")
     private @Nullable Output<String> nameRegex;
 
     /**
-     * @return Regex string to apply to the AMI list returned
-     * by AWS. This allows more advanced filtering not supported from the AWS API. This
-     * filtering is done locally on what AWS returns, and could have a performance
-     * impact if the result is large. Combine this with other
-     * options to narrow down the list AWS returns.
-     * 
-     * &gt; **NOTE:** If more or less than a single match is returned by the search,
-     * this call will fail. Ensure that your search is specific enough to return
-     * a single AMI ID only, or use `mostRecent` to choose the most recent one. If
-     * you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
+     * @return Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
      * 
      */
     public Optional<Output<String>> nameRegex() {
@@ -173,8 +141,6 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * Any tags assigned to the image.
-     * * `tags.#.key` - Key name of the tag.
-     * * `tags.#.value` - Value of the tag.
      * 
      */
     @Import(name="tags")
@@ -182,8 +148,6 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return Any tags assigned to the image.
-     * * `tags.#.key` - Key name of the tag.
-     * * `tags.#.value` - Value of the tag.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -191,14 +155,18 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * (Optional) Base64 representation of the non-volatile UEFI variable store.
+     * Base64 representation of the non-volatile UEFI variable store.
+     * 
+     * &gt; **NOTE:** If more or less than a single match is returned by the search, this call will fail. Ensure that your search is specific enough to return a single AMI ID only, or use `mostRecent` to choose the most recent one. If you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
      * 
      */
     @Import(name="uefiData")
     private @Nullable Output<String> uefiData;
 
     /**
-     * @return (Optional) Base64 representation of the non-volatile UEFI variable store.
+     * @return Base64 representation of the non-volatile UEFI variable store.
+     * 
+     * &gt; **NOTE:** If more or less than a single match is returned by the search, this call will fail. Ensure that your search is specific enough to return a single AMI ID only, or use `mostRecent` to choose the most recent one. If you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
      * 
      */
     public Optional<Output<String>> uefiData() {
@@ -239,10 +207,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param allowUnsafeFilter If true, allow unsafe filter values. With unsafe
-         * filters and `mostRecent` set to `true`, a third party may introduce a new image which
-         * will be returned by this data source. Consider filtering by owner or image ID rather
-         * than setting this argument.
+         * @param allowUnsafeFilter If true, allow unsafe filter values. With unsafe filters and `mostRecent` set to `true`, a third party may introduce a new image which will be returned by this data source. Consider filtering by owner or image ID rather than setting this argument.
          * 
          * @return builder
          * 
@@ -253,10 +218,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param allowUnsafeFilter If true, allow unsafe filter values. With unsafe
-         * filters and `mostRecent` set to `true`, a third party may introduce a new image which
-         * will be returned by this data source. Consider filtering by owner or image ID rather
-         * than setting this argument.
+         * @param allowUnsafeFilter If true, allow unsafe filter values. With unsafe filters and `mostRecent` set to `true`, a third party may introduce a new image which will be returned by this data source. Consider filtering by owner or image ID rather than setting this argument.
          * 
          * @return builder
          * 
@@ -266,8 +228,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param executableUsers Limit search to users with *explicit* launch permission on
-         * the image. Valid items are the numeric account ID or `self`.
+         * @param executableUsers Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
          * 
          * @return builder
          * 
@@ -278,8 +239,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param executableUsers Limit search to users with *explicit* launch permission on
-         * the image. Valid items are the numeric account ID or `self`.
+         * @param executableUsers Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
          * 
          * @return builder
          * 
@@ -289,8 +249,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param executableUsers Limit search to users with *explicit* launch permission on
-         * the image. Valid items are the numeric account ID or `self`.
+         * @param executableUsers Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
          * 
          * @return builder
          * 
@@ -300,9 +259,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-images in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
          * 
          * @return builder
          * 
@@ -313,9 +270,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-images in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
          * 
          * @return builder
          * 
@@ -325,9 +280,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param filters One or more name/value pairs to filter off of. There are
-         * several valid keys, for a full reference, check out
-         * [describe-images in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
          * 
          * @return builder
          * 
@@ -358,8 +311,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param mostRecent If more than one result is returned, use the most
-         * recent AMI.
+         * @param mostRecent If more than one result is returned, use the most recent AMI.
          * 
          * @return builder
          * 
@@ -370,8 +322,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param mostRecent If more than one result is returned, use the most
-         * recent AMI.
+         * @param mostRecent If more than one result is returned, use the most recent AMI.
          * 
          * @return builder
          * 
@@ -381,16 +332,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param nameRegex Regex string to apply to the AMI list returned
-         * by AWS. This allows more advanced filtering not supported from the AWS API. This
-         * filtering is done locally on what AWS returns, and could have a performance
-         * impact if the result is large. Combine this with other
-         * options to narrow down the list AWS returns.
-         * 
-         * &gt; **NOTE:** If more or less than a single match is returned by the search,
-         * this call will fail. Ensure that your search is specific enough to return
-         * a single AMI ID only, or use `mostRecent` to choose the most recent one. If
-         * you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
+         * @param nameRegex Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
          * 
          * @return builder
          * 
@@ -401,16 +343,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param nameRegex Regex string to apply to the AMI list returned
-         * by AWS. This allows more advanced filtering not supported from the AWS API. This
-         * filtering is done locally on what AWS returns, and could have a performance
-         * impact if the result is large. Combine this with other
-         * options to narrow down the list AWS returns.
-         * 
-         * &gt; **NOTE:** If more or less than a single match is returned by the search,
-         * this call will fail. Ensure that your search is specific enough to return
-         * a single AMI ID only, or use `mostRecent` to choose the most recent one. If
-         * you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
+         * @param nameRegex Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
          * 
          * @return builder
          * 
@@ -473,8 +406,6 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param tags Any tags assigned to the image.
-         * * `tags.#.key` - Key name of the tag.
-         * * `tags.#.value` - Value of the tag.
          * 
          * @return builder
          * 
@@ -486,8 +417,6 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param tags Any tags assigned to the image.
-         * * `tags.#.key` - Key name of the tag.
-         * * `tags.#.value` - Value of the tag.
          * 
          * @return builder
          * 
@@ -497,7 +426,9 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param uefiData (Optional) Base64 representation of the non-volatile UEFI variable store.
+         * @param uefiData Base64 representation of the non-volatile UEFI variable store.
+         * 
+         * &gt; **NOTE:** If more or less than a single match is returned by the search, this call will fail. Ensure that your search is specific enough to return a single AMI ID only, or use `mostRecent` to choose the most recent one. If you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
          * 
          * @return builder
          * 
@@ -508,7 +439,9 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param uefiData (Optional) Base64 representation of the non-volatile UEFI variable store.
+         * @param uefiData Base64 representation of the non-volatile UEFI variable store.
+         * 
+         * &gt; **NOTE:** If more or less than a single match is returned by the search, this call will fail. Ensure that your search is specific enough to return a single AMI ID only, or use `mostRecent` to choose the most recent one. If you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
          * 
          * @return builder
          * 

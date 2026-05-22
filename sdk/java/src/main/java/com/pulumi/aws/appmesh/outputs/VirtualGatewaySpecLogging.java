@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualGatewaySpecLogging {
     /**
-     * @return Access log configuration for a virtual gateway.
+     * @return Access log configuration for a virtual gateway. See `accessLog` Block for details.
      * 
      */
     private @Nullable VirtualGatewaySpecLoggingAccessLog accessLog;
 
     private VirtualGatewaySpecLogging() {}
     /**
-     * @return Access log configuration for a virtual gateway.
+     * @return Access log configuration for a virtual gateway. See `accessLog` Block for details.
      * 
      */
     public Optional<VirtualGatewaySpecLoggingAccessLog> accessLog() {

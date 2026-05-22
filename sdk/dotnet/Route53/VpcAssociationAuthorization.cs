@@ -65,6 +65,17 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `ZoneId` (String) The ID of the private hosted zone that you want to authorize associating a VPC with.
+    /// * `VpcId` (String) The VPC to authorize for association with the private hosted zone.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
     /// 
     /// ```sh

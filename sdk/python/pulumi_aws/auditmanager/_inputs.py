@@ -179,11 +179,11 @@ class AssessmentRolesAllArgs:
 
 
 class AssessmentScopeArgsDict(TypedDict):
-    aws_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]]]]
+    aws_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgsDict']]]]]
     """
     Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
     """
-    aws_services: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]]]]
+    aws_services: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgsDict']]]]]
     """
     Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
     """
@@ -307,7 +307,7 @@ class ControlControlMappingSourceArgsDict(TypedDict):
     Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
     """
     source_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    source_keyword: NotRequired[pulumi.Input[Optional['ControlControlMappingSourceSourceKeywordArgs']]]
+    source_keyword: NotRequired[pulumi.Input[Optional['ControlControlMappingSourceSourceKeywordArgsDict']]]
     """
     The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
     """
@@ -500,7 +500,7 @@ class FrameworkControlSetArgsDict(TypedDict):
     """
     Name of the control set.
     """
-    controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]]]]
+    controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrameworkControlSetControlArgsDict']]]]]
     """
     Configuration block(s) for the controls within the control set. See `controls` Block below for details.
     """

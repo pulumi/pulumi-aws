@@ -17,16 +17,14 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
     public static final VirtualRouterSpecArgs Empty = new VirtualRouterSpecArgs();
 
     /**
-     * Listeners that the virtual router is expected to receive inbound traffic from.
-     * Currently only one listener is supported per virtual router.
+     * Listeners that the virtual router is expected to receive inbound traffic from. Currently only one listener is supported per virtual router. See `listener` Block for details.
      * 
      */
     @Import(name="listeners")
     private @Nullable Output<List<VirtualRouterSpecListenerArgs>> listeners;
 
     /**
-     * @return Listeners that the virtual router is expected to receive inbound traffic from.
-     * Currently only one listener is supported per virtual router.
+     * @return Listeners that the virtual router is expected to receive inbound traffic from. Currently only one listener is supported per virtual router. See `listener` Block for details.
      * 
      */
     public Optional<Output<List<VirtualRouterSpecListenerArgs>>> listeners() {
@@ -58,8 +56,7 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param listeners Listeners that the virtual router is expected to receive inbound traffic from.
-         * Currently only one listener is supported per virtual router.
+         * @param listeners Listeners that the virtual router is expected to receive inbound traffic from. Currently only one listener is supported per virtual router. See `listener` Block for details.
          * 
          * @return builder
          * 
@@ -70,8 +67,7 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param listeners Listeners that the virtual router is expected to receive inbound traffic from.
-         * Currently only one listener is supported per virtual router.
+         * @param listeners Listeners that the virtual router is expected to receive inbound traffic from. Currently only one listener is supported per virtual router. See `listener` Block for details.
          * 
          * @return builder
          * 
@@ -81,8 +77,7 @@ public final class VirtualRouterSpecArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param listeners Listeners that the virtual router is expected to receive inbound traffic from.
-         * Currently only one listener is supported per virtual router.
+         * @param listeners Listeners that the virtual router is expected to receive inbound traffic from. Currently only one listener is supported per virtual router. See `listener` Block for details.
          * 
          * @return builder
          * 

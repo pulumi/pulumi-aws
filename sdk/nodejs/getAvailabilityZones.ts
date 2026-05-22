@@ -106,10 +106,7 @@ export interface GetAvailabilityZonesArgs {
      */
     region?: string;
     /**
-     * Allows to filter list of Availability Zones based on their
-     * current state. Can be either `"available"`, `"information"`, `"impaired"` or
-     * `"unavailable"`. By default the list includes a complete set of Availability Zones
-     * to which the underlying AWS account has access, regardless of their state.
+     * Allows to filter list of Availability Zones based on their current state. Can be either `"available"`, `"information"`, `"impaired"` or `"unavailable"`. By default the list includes a complete set of Availability Zones to which the underlying AWS account has access, regardless of their state.
      */
     state?: string;
 }
@@ -123,7 +120,7 @@ export interface GetAvailabilityZonesResult {
     readonly excludeZoneIds?: string[];
     readonly filters?: outputs.GetAvailabilityZonesFilter[];
     /**
-     * A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+     * Set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
      */
     readonly groupNames: string[];
     /**
@@ -240,10 +237,7 @@ export interface GetAvailabilityZonesOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Allows to filter list of Availability Zones based on their
-     * current state. Can be either `"available"`, `"information"`, `"impaired"` or
-     * `"unavailable"`. By default the list includes a complete set of Availability Zones
-     * to which the underlying AWS account has access, regardless of their state.
+     * Allows to filter list of Availability Zones based on their current state. Can be either `"available"`, `"information"`, `"impaired"` or `"unavailable"`. By default the list includes a complete set of Availability Zones to which the underlying AWS account has access, regardless of their state.
      */
     state?: pulumi.Input<string | undefined>;
 }

@@ -52,35 +52,35 @@ class MediaInsightsPipelineConfigurationElementArgsDict(TypedDict):
     """
     Element type.
     """
-    amazon_transcribe_call_analytics_processor_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs']]]
+    amazon_transcribe_call_analytics_processor_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgsDict']]]
     """
     Configuration for Amazon Transcribe Call Analytics processor.
     """
-    amazon_transcribe_processor_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs']]]
+    amazon_transcribe_processor_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgsDict']]]
     """
     Configuration for Amazon Transcribe processor.
     """
-    kinesis_data_stream_sink_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs']]]
+    kinesis_data_stream_sink_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgsDict']]]
     """
     Configuration for Kinesis Data Stream sink.
     """
-    lambda_function_sink_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs']]]
+    lambda_function_sink_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgsDict']]]
     """
     Configuration for Lambda Function sink.
     """
-    s3_recording_sink_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs']]]
+    s3_recording_sink_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgsDict']]]
     """
     Configuration for S3 recording sink.
     """
-    sns_topic_sink_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs']]]
+    sns_topic_sink_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgsDict']]]
     """
     Configuration for SNS Topic sink.
     """
-    sqs_queue_sink_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs']]]
+    sqs_queue_sink_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgsDict']]]
     """
     Configuration for SQS Queue sink.
     """
-    voice_analytics_processor_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs']]]
+    voice_analytics_processor_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgsDict']]]
     """
     Configuration for Voice analytics processor.
     """
@@ -272,7 +272,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
     """
     Types of personally identifiable information (PII) to redact from an Utterance event.
     """
-    post_call_analytics_settings: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs']]]
+    post_call_analytics_settings: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgsDict']]]
     """
     Settings for post call analytics.
     """
@@ -1079,15 +1079,15 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgsDict(T
     """
     Rule type.
     """
-    issue_detection_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs']]]
+    issue_detection_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgsDict']]]
     """
     Configuration for an issue detection rule.
     """
-    keyword_match_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs']]]
+    keyword_match_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgsDict']]]
     """
     Configuration for a keyword match rule.
     """
-    sentiment_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs']]]
+    sentiment_configuration: NotRequired[pulumi.Input[Optional['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgsDict']]]
     """
     Configuration for a sentiment rule.
     """

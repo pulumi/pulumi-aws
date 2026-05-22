@@ -209,7 +209,7 @@ class WorkgroupConfigurationArgsDict(TypedDict):
     """
     Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
     """
-    customer_content_encryption_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationCustomerContentEncryptionConfigurationArgs']]]
+    customer_content_encryption_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationCustomerContentEncryptionConfigurationArgsDict']]]
     """
     Configuration block to specify the KMS key that is used to encrypt the user's data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
     """
@@ -221,7 +221,7 @@ class WorkgroupConfigurationArgsDict(TypedDict):
     """
     Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
     """
-    engine_version: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationEngineVersionArgs']]]
+    engine_version: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationEngineVersionArgsDict']]]
     """
     Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
     """
@@ -229,15 +229,15 @@ class WorkgroupConfigurationArgsDict(TypedDict):
     """
     Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
     """
-    identity_center_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationIdentityCenterConfigurationArgs']]]
+    identity_center_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationIdentityCenterConfigurationArgsDict']]]
     """
     Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
     """
-    managed_query_results_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationManagedQueryResultsConfigurationArgs']]]
+    managed_query_results_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationManagedQueryResultsConfigurationArgsDict']]]
     """
     Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
     """
-    monitoring_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationMonitoringConfigurationArgs']]]
+    monitoring_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationMonitoringConfigurationArgsDict']]]
     """
     Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
     """
@@ -245,7 +245,7 @@ class WorkgroupConfigurationArgsDict(TypedDict):
     """
     Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
     """
-    query_results_s3_access_grants_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs']]]
+    query_results_s3_access_grants_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgsDict']]]
     """
     Configuration block for S3 access grants. See Query Results S3 Access Grants Configuration below.
     """
@@ -253,7 +253,7 @@ class WorkgroupConfigurationArgsDict(TypedDict):
     """
     If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
     """
-    result_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationResultConfigurationArgs']]]
+    result_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationResultConfigurationArgsDict']]]
     """
     Configuration block with result settings. See Result Configuration below.
     """
@@ -596,7 +596,7 @@ class WorkgroupConfigurationManagedQueryResultsConfigurationArgsDict(TypedDict):
     """
     If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
     """
-    encryption_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs']]]
+    encryption_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgsDict']]]
     """
     Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
     """
@@ -661,15 +661,15 @@ class WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurat
 
 
 class WorkgroupConfigurationMonitoringConfigurationArgsDict(TypedDict):
-    cloud_watch_logging_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgs']]]
+    cloud_watch_logging_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgsDict']]]
     """
     Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
     """
-    managed_logging_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs']]]
+    managed_logging_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgsDict']]]
     """
     Configuration block for managed log persistence. See Managed Logging Configuration below.
     """
-    s3_logging_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs']]]
+    s3_logging_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgsDict']]]
     """
     Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
     """
@@ -739,7 +739,7 @@ class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguratio
     """
     Prefix for the CloudWatch log stream name.
     """
-    log_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs']]]]]
+    log_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgsDict']]]]]
     """
     Repeatable block defining log types to be delivered to CloudWatch.
     """
@@ -1034,11 +1034,11 @@ class WorkgroupConfigurationQueryResultsS3AccessGrantsConfigurationArgs:
 
 
 class WorkgroupConfigurationResultConfigurationArgsDict(TypedDict):
-    acl_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationResultConfigurationAclConfigurationArgs']]]
+    acl_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationResultConfigurationAclConfigurationArgsDict']]]
     """
     That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
     """
-    encryption_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs']]]
+    encryption_configuration: NotRequired[pulumi.Input[Optional['WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgsDict']]]
     """
     Configuration block with encryption settings. See Encryption Configuration below.
     """

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualGatewaySpecBackendDefaultsClientPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Transport Layer Security (TLS) client policy.
+        /// Transport Layer Security (TLS) client policy. See `Tls` Block for details.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs>? Tls { get; set; }

@@ -144,7 +144,7 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternAr
     """
     The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Values range from 1 (low confidence) to 3 (high confidence).
     """
-    custom_pattern: NotRequired[pulumi.Input[Optional['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgs']]]
+    custom_pattern: NotRequired[pulumi.Input[Optional['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternCustomPatternArgsDict']]]
     """
     The configuration for a custom pattern. Either a `custom_pattern` or `built_in_pattern_id` is required. Detailed below.
     """
@@ -156,7 +156,7 @@ class DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternAr
     """
     The exempt URL configuration for the inline redaction pattern.
     """
-    redaction_place_holders: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs']]]]]
+    redaction_place_holders: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgsDict']]]]]
     """
     The redaction placeholder that will replace the redacted text in session. Detailed below.
     """
@@ -517,7 +517,7 @@ class PortalTimeoutsArgs:
 
 
 class SessionLoggerEventFilterArgsDict(TypedDict):
-    all: NotRequired[pulumi.Input[Optional['SessionLoggerEventFilterAllArgs']]]
+    all: NotRequired[pulumi.Input[Optional['SessionLoggerEventFilterAllArgsDict']]]
     """
     Block that specifies to monitor all events. Set to `{}` to monitor all events.
     """
@@ -575,7 +575,7 @@ class SessionLoggerEventFilterAllArgs:
 
 
 class SessionLoggerLogConfigurationArgsDict(TypedDict):
-    s3: NotRequired[pulumi.Input[Optional['SessionLoggerLogConfigurationS3Args']]]
+    s3: NotRequired[pulumi.Input[Optional['SessionLoggerLogConfigurationS3ArgsDict']]]
     """
     Configuration block for S3 log delivery. See S3 Configuration below.
     """
@@ -838,11 +838,11 @@ class TrustStoreCertificateArgs:
 
 
 class UserSettingsCookieSynchronizationConfigurationArgsDict(TypedDict):
-    allowlists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserSettingsCookieSynchronizationConfigurationAllowlistArgs']]]]]
+    allowlists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserSettingsCookieSynchronizationConfigurationAllowlistArgsDict']]]]]
     """
     List of cookie specifications that are allowed to be synchronized to the remote browser.
     """
-    blocklists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserSettingsCookieSynchronizationConfigurationBlocklistArgs']]]]]
+    blocklists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserSettingsCookieSynchronizationConfigurationBlocklistArgsDict']]]]]
     """
     List of cookie specifications that are blocked from being synchronized to the remote browser.
     """

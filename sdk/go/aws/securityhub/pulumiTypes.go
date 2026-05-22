@@ -6565,6 +6565,634 @@ func (o AutomationRuleCriteriaWorkflowStatusArrayOutput) Index(i pulumi.IntInput
 	}).(AutomationRuleCriteriaWorkflowStatusOutput)
 }
 
+type AutomationRuleV2Action struct {
+	// Settings for external integration actions. See `externalIntegrationConfiguration` below.
+	ExternalIntegrationConfiguration *AutomationRuleV2ActionExternalIntegrationConfiguration `pulumi:"externalIntegrationConfiguration"`
+	// Settings for updating finding fields. See `findingFieldsUpdate` below.
+	FindingFieldsUpdate *AutomationRuleV2ActionFindingFieldsUpdate `pulumi:"findingFieldsUpdate"`
+	// The action type. Valid values: `FINDING_FIELDS_UPDATE`, `EXTERNAL_INTEGRATION`.
+	Type string `pulumi:"type"`
+}
+
+// AutomationRuleV2ActionInput is an input type that accepts AutomationRuleV2ActionArgs and AutomationRuleV2ActionOutput values.
+// You can construct a concrete instance of `AutomationRuleV2ActionInput` via:
+//
+//	AutomationRuleV2ActionArgs{...}
+type AutomationRuleV2ActionInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2ActionOutput() AutomationRuleV2ActionOutput
+	ToAutomationRuleV2ActionOutputWithContext(context.Context) AutomationRuleV2ActionOutput
+}
+
+type AutomationRuleV2ActionArgs struct {
+	// Settings for external integration actions. See `externalIntegrationConfiguration` below.
+	ExternalIntegrationConfiguration AutomationRuleV2ActionExternalIntegrationConfigurationPtrInput `pulumi:"externalIntegrationConfiguration"`
+	// Settings for updating finding fields. See `findingFieldsUpdate` below.
+	FindingFieldsUpdate AutomationRuleV2ActionFindingFieldsUpdatePtrInput `pulumi:"findingFieldsUpdate"`
+	// The action type. Valid values: `FINDING_FIELDS_UPDATE`, `EXTERNAL_INTEGRATION`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AutomationRuleV2ActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2Action)(nil)).Elem()
+}
+
+func (i AutomationRuleV2ActionArgs) ToAutomationRuleV2ActionOutput() AutomationRuleV2ActionOutput {
+	return i.ToAutomationRuleV2ActionOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2ActionArgs) ToAutomationRuleV2ActionOutputWithContext(ctx context.Context) AutomationRuleV2ActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2ActionOutput)
+}
+
+func (i AutomationRuleV2ActionArgs) ToAutomationRuleV2ActionPtrOutput() AutomationRuleV2ActionPtrOutput {
+	return i.ToAutomationRuleV2ActionPtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2ActionArgs) ToAutomationRuleV2ActionPtrOutputWithContext(ctx context.Context) AutomationRuleV2ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2ActionOutput).ToAutomationRuleV2ActionPtrOutputWithContext(ctx)
+}
+
+// AutomationRuleV2ActionPtrInput is an input type that accepts AutomationRuleV2ActionArgs, AutomationRuleV2ActionPtr and AutomationRuleV2ActionPtrOutput values.
+// You can construct a concrete instance of `AutomationRuleV2ActionPtrInput` via:
+//
+//	        AutomationRuleV2ActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleV2ActionPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2ActionPtrOutput() AutomationRuleV2ActionPtrOutput
+	ToAutomationRuleV2ActionPtrOutputWithContext(context.Context) AutomationRuleV2ActionPtrOutput
+}
+
+type automationRuleV2ActionPtrType AutomationRuleV2ActionArgs
+
+func AutomationRuleV2ActionPtr(v *AutomationRuleV2ActionArgs) AutomationRuleV2ActionPtrInput {
+	return (*automationRuleV2ActionPtrType)(v)
+}
+
+func (*automationRuleV2ActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2Action)(nil)).Elem()
+}
+
+func (i *automationRuleV2ActionPtrType) ToAutomationRuleV2ActionPtrOutput() AutomationRuleV2ActionPtrOutput {
+	return i.ToAutomationRuleV2ActionPtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleV2ActionPtrType) ToAutomationRuleV2ActionPtrOutputWithContext(ctx context.Context) AutomationRuleV2ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2ActionPtrOutput)
+}
+
+type AutomationRuleV2ActionOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2ActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2Action)(nil)).Elem()
+}
+
+func (o AutomationRuleV2ActionOutput) ToAutomationRuleV2ActionOutput() AutomationRuleV2ActionOutput {
+	return o
+}
+
+func (o AutomationRuleV2ActionOutput) ToAutomationRuleV2ActionOutputWithContext(ctx context.Context) AutomationRuleV2ActionOutput {
+	return o
+}
+
+func (o AutomationRuleV2ActionOutput) ToAutomationRuleV2ActionPtrOutput() AutomationRuleV2ActionPtrOutput {
+	return o.ToAutomationRuleV2ActionPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2ActionOutput) ToAutomationRuleV2ActionPtrOutputWithContext(ctx context.Context) AutomationRuleV2ActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2Action) *AutomationRuleV2Action {
+		return &v
+	}).(AutomationRuleV2ActionPtrOutput)
+}
+
+// Settings for external integration actions. See `externalIntegrationConfiguration` below.
+func (o AutomationRuleV2ActionOutput) ExternalIntegrationConfiguration() AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2Action) *AutomationRuleV2ActionExternalIntegrationConfiguration {
+		return v.ExternalIntegrationConfiguration
+	}).(AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput)
+}
+
+// Settings for updating finding fields. See `findingFieldsUpdate` below.
+func (o AutomationRuleV2ActionOutput) FindingFieldsUpdate() AutomationRuleV2ActionFindingFieldsUpdatePtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2Action) *AutomationRuleV2ActionFindingFieldsUpdate {
+		return v.FindingFieldsUpdate
+	}).(AutomationRuleV2ActionFindingFieldsUpdatePtrOutput)
+}
+
+// The action type. Valid values: `FINDING_FIELDS_UPDATE`, `EXTERNAL_INTEGRATION`.
+func (o AutomationRuleV2ActionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleV2Action) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AutomationRuleV2ActionPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2ActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2Action)(nil)).Elem()
+}
+
+func (o AutomationRuleV2ActionPtrOutput) ToAutomationRuleV2ActionPtrOutput() AutomationRuleV2ActionPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2ActionPtrOutput) ToAutomationRuleV2ActionPtrOutputWithContext(ctx context.Context) AutomationRuleV2ActionPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2ActionPtrOutput) Elem() AutomationRuleV2ActionOutput {
+	return o.ApplyT(func(v *AutomationRuleV2Action) AutomationRuleV2Action {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2Action
+		return ret
+	}).(AutomationRuleV2ActionOutput)
+}
+
+// Settings for external integration actions. See `externalIntegrationConfiguration` below.
+func (o AutomationRuleV2ActionPtrOutput) ExternalIntegrationConfiguration() AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2Action) *AutomationRuleV2ActionExternalIntegrationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalIntegrationConfiguration
+	}).(AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput)
+}
+
+// Settings for updating finding fields. See `findingFieldsUpdate` below.
+func (o AutomationRuleV2ActionPtrOutput) FindingFieldsUpdate() AutomationRuleV2ActionFindingFieldsUpdatePtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2Action) *AutomationRuleV2ActionFindingFieldsUpdate {
+		if v == nil {
+			return nil
+		}
+		return v.FindingFieldsUpdate
+	}).(AutomationRuleV2ActionFindingFieldsUpdatePtrOutput)
+}
+
+// The action type. Valid values: `FINDING_FIELDS_UPDATE`, `EXTERNAL_INTEGRATION`.
+func (o AutomationRuleV2ActionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2Action) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2ActionExternalIntegrationConfiguration struct {
+	// The ARN of the connector.
+	ConnectorArn string `pulumi:"connectorArn"`
+}
+
+// AutomationRuleV2ActionExternalIntegrationConfigurationInput is an input type that accepts AutomationRuleV2ActionExternalIntegrationConfigurationArgs and AutomationRuleV2ActionExternalIntegrationConfigurationOutput values.
+// You can construct a concrete instance of `AutomationRuleV2ActionExternalIntegrationConfigurationInput` via:
+//
+//	AutomationRuleV2ActionExternalIntegrationConfigurationArgs{...}
+type AutomationRuleV2ActionExternalIntegrationConfigurationInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2ActionExternalIntegrationConfigurationOutput() AutomationRuleV2ActionExternalIntegrationConfigurationOutput
+	ToAutomationRuleV2ActionExternalIntegrationConfigurationOutputWithContext(context.Context) AutomationRuleV2ActionExternalIntegrationConfigurationOutput
+}
+
+type AutomationRuleV2ActionExternalIntegrationConfigurationArgs struct {
+	// The ARN of the connector.
+	ConnectorArn pulumi.StringInput `pulumi:"connectorArn"`
+}
+
+func (AutomationRuleV2ActionExternalIntegrationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2ActionExternalIntegrationConfiguration)(nil)).Elem()
+}
+
+func (i AutomationRuleV2ActionExternalIntegrationConfigurationArgs) ToAutomationRuleV2ActionExternalIntegrationConfigurationOutput() AutomationRuleV2ActionExternalIntegrationConfigurationOutput {
+	return i.ToAutomationRuleV2ActionExternalIntegrationConfigurationOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2ActionExternalIntegrationConfigurationArgs) ToAutomationRuleV2ActionExternalIntegrationConfigurationOutputWithContext(ctx context.Context) AutomationRuleV2ActionExternalIntegrationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2ActionExternalIntegrationConfigurationOutput)
+}
+
+func (i AutomationRuleV2ActionExternalIntegrationConfigurationArgs) ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput() AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput {
+	return i.ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2ActionExternalIntegrationConfigurationArgs) ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutputWithContext(ctx context.Context) AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2ActionExternalIntegrationConfigurationOutput).ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutputWithContext(ctx)
+}
+
+// AutomationRuleV2ActionExternalIntegrationConfigurationPtrInput is an input type that accepts AutomationRuleV2ActionExternalIntegrationConfigurationArgs, AutomationRuleV2ActionExternalIntegrationConfigurationPtr and AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput values.
+// You can construct a concrete instance of `AutomationRuleV2ActionExternalIntegrationConfigurationPtrInput` via:
+//
+//	        AutomationRuleV2ActionExternalIntegrationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleV2ActionExternalIntegrationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput() AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput
+	ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutputWithContext(context.Context) AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput
+}
+
+type automationRuleV2ActionExternalIntegrationConfigurationPtrType AutomationRuleV2ActionExternalIntegrationConfigurationArgs
+
+func AutomationRuleV2ActionExternalIntegrationConfigurationPtr(v *AutomationRuleV2ActionExternalIntegrationConfigurationArgs) AutomationRuleV2ActionExternalIntegrationConfigurationPtrInput {
+	return (*automationRuleV2ActionExternalIntegrationConfigurationPtrType)(v)
+}
+
+func (*automationRuleV2ActionExternalIntegrationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2ActionExternalIntegrationConfiguration)(nil)).Elem()
+}
+
+func (i *automationRuleV2ActionExternalIntegrationConfigurationPtrType) ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput() AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput {
+	return i.ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleV2ActionExternalIntegrationConfigurationPtrType) ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutputWithContext(ctx context.Context) AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput)
+}
+
+type AutomationRuleV2ActionExternalIntegrationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2ActionExternalIntegrationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2ActionExternalIntegrationConfiguration)(nil)).Elem()
+}
+
+func (o AutomationRuleV2ActionExternalIntegrationConfigurationOutput) ToAutomationRuleV2ActionExternalIntegrationConfigurationOutput() AutomationRuleV2ActionExternalIntegrationConfigurationOutput {
+	return o
+}
+
+func (o AutomationRuleV2ActionExternalIntegrationConfigurationOutput) ToAutomationRuleV2ActionExternalIntegrationConfigurationOutputWithContext(ctx context.Context) AutomationRuleV2ActionExternalIntegrationConfigurationOutput {
+	return o
+}
+
+func (o AutomationRuleV2ActionExternalIntegrationConfigurationOutput) ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput() AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput {
+	return o.ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2ActionExternalIntegrationConfigurationOutput) ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutputWithContext(ctx context.Context) AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2ActionExternalIntegrationConfiguration) *AutomationRuleV2ActionExternalIntegrationConfiguration {
+		return &v
+	}).(AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput)
+}
+
+// The ARN of the connector.
+func (o AutomationRuleV2ActionExternalIntegrationConfigurationOutput) ConnectorArn() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleV2ActionExternalIntegrationConfiguration) string { return v.ConnectorArn }).(pulumi.StringOutput)
+}
+
+type AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2ActionExternalIntegrationConfiguration)(nil)).Elem()
+}
+
+func (o AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput) ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput() AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput) ToAutomationRuleV2ActionExternalIntegrationConfigurationPtrOutputWithContext(ctx context.Context) AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput) Elem() AutomationRuleV2ActionExternalIntegrationConfigurationOutput {
+	return o.ApplyT(func(v *AutomationRuleV2ActionExternalIntegrationConfiguration) AutomationRuleV2ActionExternalIntegrationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2ActionExternalIntegrationConfiguration
+		return ret
+	}).(AutomationRuleV2ActionExternalIntegrationConfigurationOutput)
+}
+
+// The ARN of the connector.
+func (o AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput) ConnectorArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2ActionExternalIntegrationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectorArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutomationRuleV2ActionFindingFieldsUpdate struct {
+	// A comment for the finding.
+	Comment *string `pulumi:"comment"`
+	// The severity ID to assign.
+	SeverityId *int `pulumi:"severityId"`
+	// The status ID to assign.
+	StatusId *int `pulumi:"statusId"`
+}
+
+// AutomationRuleV2ActionFindingFieldsUpdateInput is an input type that accepts AutomationRuleV2ActionFindingFieldsUpdateArgs and AutomationRuleV2ActionFindingFieldsUpdateOutput values.
+// You can construct a concrete instance of `AutomationRuleV2ActionFindingFieldsUpdateInput` via:
+//
+//	AutomationRuleV2ActionFindingFieldsUpdateArgs{...}
+type AutomationRuleV2ActionFindingFieldsUpdateInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2ActionFindingFieldsUpdateOutput() AutomationRuleV2ActionFindingFieldsUpdateOutput
+	ToAutomationRuleV2ActionFindingFieldsUpdateOutputWithContext(context.Context) AutomationRuleV2ActionFindingFieldsUpdateOutput
+}
+
+type AutomationRuleV2ActionFindingFieldsUpdateArgs struct {
+	// A comment for the finding.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// The severity ID to assign.
+	SeverityId pulumi.IntPtrInput `pulumi:"severityId"`
+	// The status ID to assign.
+	StatusId pulumi.IntPtrInput `pulumi:"statusId"`
+}
+
+func (AutomationRuleV2ActionFindingFieldsUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2ActionFindingFieldsUpdate)(nil)).Elem()
+}
+
+func (i AutomationRuleV2ActionFindingFieldsUpdateArgs) ToAutomationRuleV2ActionFindingFieldsUpdateOutput() AutomationRuleV2ActionFindingFieldsUpdateOutput {
+	return i.ToAutomationRuleV2ActionFindingFieldsUpdateOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2ActionFindingFieldsUpdateArgs) ToAutomationRuleV2ActionFindingFieldsUpdateOutputWithContext(ctx context.Context) AutomationRuleV2ActionFindingFieldsUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2ActionFindingFieldsUpdateOutput)
+}
+
+func (i AutomationRuleV2ActionFindingFieldsUpdateArgs) ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutput() AutomationRuleV2ActionFindingFieldsUpdatePtrOutput {
+	return i.ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2ActionFindingFieldsUpdateArgs) ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutputWithContext(ctx context.Context) AutomationRuleV2ActionFindingFieldsUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2ActionFindingFieldsUpdateOutput).ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutputWithContext(ctx)
+}
+
+// AutomationRuleV2ActionFindingFieldsUpdatePtrInput is an input type that accepts AutomationRuleV2ActionFindingFieldsUpdateArgs, AutomationRuleV2ActionFindingFieldsUpdatePtr and AutomationRuleV2ActionFindingFieldsUpdatePtrOutput values.
+// You can construct a concrete instance of `AutomationRuleV2ActionFindingFieldsUpdatePtrInput` via:
+//
+//	        AutomationRuleV2ActionFindingFieldsUpdateArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleV2ActionFindingFieldsUpdatePtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutput() AutomationRuleV2ActionFindingFieldsUpdatePtrOutput
+	ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutputWithContext(context.Context) AutomationRuleV2ActionFindingFieldsUpdatePtrOutput
+}
+
+type automationRuleV2ActionFindingFieldsUpdatePtrType AutomationRuleV2ActionFindingFieldsUpdateArgs
+
+func AutomationRuleV2ActionFindingFieldsUpdatePtr(v *AutomationRuleV2ActionFindingFieldsUpdateArgs) AutomationRuleV2ActionFindingFieldsUpdatePtrInput {
+	return (*automationRuleV2ActionFindingFieldsUpdatePtrType)(v)
+}
+
+func (*automationRuleV2ActionFindingFieldsUpdatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2ActionFindingFieldsUpdate)(nil)).Elem()
+}
+
+func (i *automationRuleV2ActionFindingFieldsUpdatePtrType) ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutput() AutomationRuleV2ActionFindingFieldsUpdatePtrOutput {
+	return i.ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleV2ActionFindingFieldsUpdatePtrType) ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutputWithContext(ctx context.Context) AutomationRuleV2ActionFindingFieldsUpdatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2ActionFindingFieldsUpdatePtrOutput)
+}
+
+type AutomationRuleV2ActionFindingFieldsUpdateOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2ActionFindingFieldsUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2ActionFindingFieldsUpdate)(nil)).Elem()
+}
+
+func (o AutomationRuleV2ActionFindingFieldsUpdateOutput) ToAutomationRuleV2ActionFindingFieldsUpdateOutput() AutomationRuleV2ActionFindingFieldsUpdateOutput {
+	return o
+}
+
+func (o AutomationRuleV2ActionFindingFieldsUpdateOutput) ToAutomationRuleV2ActionFindingFieldsUpdateOutputWithContext(ctx context.Context) AutomationRuleV2ActionFindingFieldsUpdateOutput {
+	return o
+}
+
+func (o AutomationRuleV2ActionFindingFieldsUpdateOutput) ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutput() AutomationRuleV2ActionFindingFieldsUpdatePtrOutput {
+	return o.ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2ActionFindingFieldsUpdateOutput) ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutputWithContext(ctx context.Context) AutomationRuleV2ActionFindingFieldsUpdatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2ActionFindingFieldsUpdate) *AutomationRuleV2ActionFindingFieldsUpdate {
+		return &v
+	}).(AutomationRuleV2ActionFindingFieldsUpdatePtrOutput)
+}
+
+// A comment for the finding.
+func (o AutomationRuleV2ActionFindingFieldsUpdateOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2ActionFindingFieldsUpdate) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// The severity ID to assign.
+func (o AutomationRuleV2ActionFindingFieldsUpdateOutput) SeverityId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2ActionFindingFieldsUpdate) *int { return v.SeverityId }).(pulumi.IntPtrOutput)
+}
+
+// The status ID to assign.
+func (o AutomationRuleV2ActionFindingFieldsUpdateOutput) StatusId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AutomationRuleV2ActionFindingFieldsUpdate) *int { return v.StatusId }).(pulumi.IntPtrOutput)
+}
+
+type AutomationRuleV2ActionFindingFieldsUpdatePtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2ActionFindingFieldsUpdatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2ActionFindingFieldsUpdate)(nil)).Elem()
+}
+
+func (o AutomationRuleV2ActionFindingFieldsUpdatePtrOutput) ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutput() AutomationRuleV2ActionFindingFieldsUpdatePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2ActionFindingFieldsUpdatePtrOutput) ToAutomationRuleV2ActionFindingFieldsUpdatePtrOutputWithContext(ctx context.Context) AutomationRuleV2ActionFindingFieldsUpdatePtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2ActionFindingFieldsUpdatePtrOutput) Elem() AutomationRuleV2ActionFindingFieldsUpdateOutput {
+	return o.ApplyT(func(v *AutomationRuleV2ActionFindingFieldsUpdate) AutomationRuleV2ActionFindingFieldsUpdate {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2ActionFindingFieldsUpdate
+		return ret
+	}).(AutomationRuleV2ActionFindingFieldsUpdateOutput)
+}
+
+// A comment for the finding.
+func (o AutomationRuleV2ActionFindingFieldsUpdatePtrOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2ActionFindingFieldsUpdate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Comment
+	}).(pulumi.StringPtrOutput)
+}
+
+// The severity ID to assign.
+func (o AutomationRuleV2ActionFindingFieldsUpdatePtrOutput) SeverityId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2ActionFindingFieldsUpdate) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SeverityId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The status ID to assign.
+func (o AutomationRuleV2ActionFindingFieldsUpdatePtrOutput) StatusId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2ActionFindingFieldsUpdate) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StatusId
+	}).(pulumi.IntPtrOutput)
+}
+
+type AutomationRuleV2Criteria struct {
+	// JSON-encoded OCSF finding criteria for the rule. See the [AWS API Reference](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_OcsfFindingFilters.html) for details.
+	OcsfFindingCriteriaJson string `pulumi:"ocsfFindingCriteriaJson"`
+}
+
+// AutomationRuleV2CriteriaInput is an input type that accepts AutomationRuleV2CriteriaArgs and AutomationRuleV2CriteriaOutput values.
+// You can construct a concrete instance of `AutomationRuleV2CriteriaInput` via:
+//
+//	AutomationRuleV2CriteriaArgs{...}
+type AutomationRuleV2CriteriaInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2CriteriaOutput() AutomationRuleV2CriteriaOutput
+	ToAutomationRuleV2CriteriaOutputWithContext(context.Context) AutomationRuleV2CriteriaOutput
+}
+
+type AutomationRuleV2CriteriaArgs struct {
+	// JSON-encoded OCSF finding criteria for the rule. See the [AWS API Reference](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_OcsfFindingFilters.html) for details.
+	OcsfFindingCriteriaJson pulumi.StringInput `pulumi:"ocsfFindingCriteriaJson"`
+}
+
+func (AutomationRuleV2CriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2Criteria)(nil)).Elem()
+}
+
+func (i AutomationRuleV2CriteriaArgs) ToAutomationRuleV2CriteriaOutput() AutomationRuleV2CriteriaOutput {
+	return i.ToAutomationRuleV2CriteriaOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2CriteriaArgs) ToAutomationRuleV2CriteriaOutputWithContext(ctx context.Context) AutomationRuleV2CriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2CriteriaOutput)
+}
+
+func (i AutomationRuleV2CriteriaArgs) ToAutomationRuleV2CriteriaPtrOutput() AutomationRuleV2CriteriaPtrOutput {
+	return i.ToAutomationRuleV2CriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i AutomationRuleV2CriteriaArgs) ToAutomationRuleV2CriteriaPtrOutputWithContext(ctx context.Context) AutomationRuleV2CriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2CriteriaOutput).ToAutomationRuleV2CriteriaPtrOutputWithContext(ctx)
+}
+
+// AutomationRuleV2CriteriaPtrInput is an input type that accepts AutomationRuleV2CriteriaArgs, AutomationRuleV2CriteriaPtr and AutomationRuleV2CriteriaPtrOutput values.
+// You can construct a concrete instance of `AutomationRuleV2CriteriaPtrInput` via:
+//
+//	        AutomationRuleV2CriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type AutomationRuleV2CriteriaPtrInput interface {
+	pulumi.Input
+
+	ToAutomationRuleV2CriteriaPtrOutput() AutomationRuleV2CriteriaPtrOutput
+	ToAutomationRuleV2CriteriaPtrOutputWithContext(context.Context) AutomationRuleV2CriteriaPtrOutput
+}
+
+type automationRuleV2CriteriaPtrType AutomationRuleV2CriteriaArgs
+
+func AutomationRuleV2CriteriaPtr(v *AutomationRuleV2CriteriaArgs) AutomationRuleV2CriteriaPtrInput {
+	return (*automationRuleV2CriteriaPtrType)(v)
+}
+
+func (*automationRuleV2CriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2Criteria)(nil)).Elem()
+}
+
+func (i *automationRuleV2CriteriaPtrType) ToAutomationRuleV2CriteriaPtrOutput() AutomationRuleV2CriteriaPtrOutput {
+	return i.ToAutomationRuleV2CriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *automationRuleV2CriteriaPtrType) ToAutomationRuleV2CriteriaPtrOutputWithContext(ctx context.Context) AutomationRuleV2CriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutomationRuleV2CriteriaPtrOutput)
+}
+
+type AutomationRuleV2CriteriaOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2CriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutomationRuleV2Criteria)(nil)).Elem()
+}
+
+func (o AutomationRuleV2CriteriaOutput) ToAutomationRuleV2CriteriaOutput() AutomationRuleV2CriteriaOutput {
+	return o
+}
+
+func (o AutomationRuleV2CriteriaOutput) ToAutomationRuleV2CriteriaOutputWithContext(ctx context.Context) AutomationRuleV2CriteriaOutput {
+	return o
+}
+
+func (o AutomationRuleV2CriteriaOutput) ToAutomationRuleV2CriteriaPtrOutput() AutomationRuleV2CriteriaPtrOutput {
+	return o.ToAutomationRuleV2CriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o AutomationRuleV2CriteriaOutput) ToAutomationRuleV2CriteriaPtrOutputWithContext(ctx context.Context) AutomationRuleV2CriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutomationRuleV2Criteria) *AutomationRuleV2Criteria {
+		return &v
+	}).(AutomationRuleV2CriteriaPtrOutput)
+}
+
+// JSON-encoded OCSF finding criteria for the rule. See the [AWS API Reference](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_OcsfFindingFilters.html) for details.
+func (o AutomationRuleV2CriteriaOutput) OcsfFindingCriteriaJson() pulumi.StringOutput {
+	return o.ApplyT(func(v AutomationRuleV2Criteria) string { return v.OcsfFindingCriteriaJson }).(pulumi.StringOutput)
+}
+
+type AutomationRuleV2CriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (AutomationRuleV2CriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutomationRuleV2Criteria)(nil)).Elem()
+}
+
+func (o AutomationRuleV2CriteriaPtrOutput) ToAutomationRuleV2CriteriaPtrOutput() AutomationRuleV2CriteriaPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2CriteriaPtrOutput) ToAutomationRuleV2CriteriaPtrOutputWithContext(ctx context.Context) AutomationRuleV2CriteriaPtrOutput {
+	return o
+}
+
+func (o AutomationRuleV2CriteriaPtrOutput) Elem() AutomationRuleV2CriteriaOutput {
+	return o.ApplyT(func(v *AutomationRuleV2Criteria) AutomationRuleV2Criteria {
+		if v != nil {
+			return *v
+		}
+		var ret AutomationRuleV2Criteria
+		return ret
+	}).(AutomationRuleV2CriteriaOutput)
+}
+
+// JSON-encoded OCSF finding criteria for the rule. See the [AWS API Reference](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_OcsfFindingFilters.html) for details.
+func (o AutomationRuleV2CriteriaPtrOutput) OcsfFindingCriteriaJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AutomationRuleV2Criteria) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OcsfFindingCriteriaJson
+	}).(pulumi.StringPtrOutput)
+}
+
 type ConfigurationPolicyConfigurationPolicy struct {
 	// A list that defines which security standards are enabled in the configuration policy. It must be defined if `serviceEnabled` is set to true.
 	EnabledStandardArns []string `pulumi:"enabledStandardArns"`
@@ -23048,6 +23676,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaVerificationStateArrayInput)(nil)).Elem(), AutomationRuleCriteriaVerificationStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaWorkflowStatusInput)(nil)).Elem(), AutomationRuleCriteriaWorkflowStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaWorkflowStatusArrayInput)(nil)).Elem(), AutomationRuleCriteriaWorkflowStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2ActionInput)(nil)).Elem(), AutomationRuleV2ActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2ActionPtrInput)(nil)).Elem(), AutomationRuleV2ActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2ActionExternalIntegrationConfigurationInput)(nil)).Elem(), AutomationRuleV2ActionExternalIntegrationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2ActionExternalIntegrationConfigurationPtrInput)(nil)).Elem(), AutomationRuleV2ActionExternalIntegrationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2ActionFindingFieldsUpdateInput)(nil)).Elem(), AutomationRuleV2ActionFindingFieldsUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2ActionFindingFieldsUpdatePtrInput)(nil)).Elem(), AutomationRuleV2ActionFindingFieldsUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2CriteriaInput)(nil)).Elem(), AutomationRuleV2CriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleV2CriteriaPtrInput)(nil)).Elem(), AutomationRuleV2CriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicyInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicyPtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{})
@@ -23400,6 +24036,14 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRuleCriteriaVerificationStateArrayOutput{})
 	pulumi.RegisterOutputType(AutomationRuleCriteriaWorkflowStatusOutput{})
 	pulumi.RegisterOutputType(AutomationRuleCriteriaWorkflowStatusArrayOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2ActionOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2ActionPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2ActionExternalIntegrationConfigurationOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2ActionExternalIntegrationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2ActionFindingFieldsUpdateOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2ActionFindingFieldsUpdatePtrOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2CriteriaOutput{})
+	pulumi.RegisterOutputType(AutomationRuleV2CriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicyOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput{})

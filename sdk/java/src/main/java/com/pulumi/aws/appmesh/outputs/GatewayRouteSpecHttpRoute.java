@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class GatewayRouteSpecHttpRoute {
     /**
-     * @return Action to take if a match is determined.
+     * @return Action to take if a match is determined. See `action` Block for details.
      * 
      */
     private GatewayRouteSpecHttpRouteAction action;
     /**
-     * @return Criteria for determining a request match.
+     * @return Criteria for determining a request match. See `match` Block for details.
      * 
      */
     private GatewayRouteSpecHttpRouteMatch match;
 
     private GatewayRouteSpecHttpRoute() {}
     /**
-     * @return Action to take if a match is determined.
+     * @return Action to take if a match is determined. See `action` Block for details.
      * 
      */
     public GatewayRouteSpecHttpRouteAction action() {
         return this.action;
     }
     /**
-     * @return Criteria for determining a request match.
+     * @return Criteria for determining a request match. See `match` Block for details.
      * 
      */
     public GatewayRouteSpecHttpRouteMatch match() {

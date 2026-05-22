@@ -18,14 +18,14 @@ public final class VirtualGatewaySpecListenerConnectionPoolArgs extends com.pulu
     public static final VirtualGatewaySpecListenerConnectionPoolArgs Empty = new VirtualGatewaySpecListenerConnectionPoolArgs();
 
     /**
-     * Connection pool information for gRPC listeners.
+     * Connection pool information for gRPC listeners. See `grpc` Block for details.
      * 
      */
     @Import(name="grpc")
     private @Nullable Output<VirtualGatewaySpecListenerConnectionPoolGrpcArgs> grpc;
 
     /**
-     * @return Connection pool information for gRPC listeners.
+     * @return Connection pool information for gRPC listeners. See `grpc` Block for details.
      * 
      */
     public Optional<Output<VirtualGatewaySpecListenerConnectionPoolGrpcArgs>> grpc() {
@@ -33,14 +33,14 @@ public final class VirtualGatewaySpecListenerConnectionPoolArgs extends com.pulu
     }
 
     /**
-     * Connection pool information for HTTP listeners.
+     * Connection pool information for HTTP listeners. See `http` Block for details.
      * 
      */
     @Import(name="http")
     private @Nullable Output<VirtualGatewaySpecListenerConnectionPoolHttpArgs> http;
 
     /**
-     * @return Connection pool information for HTTP listeners.
+     * @return Connection pool information for HTTP listeners. See `http` Block for details.
      * 
      */
     public Optional<Output<VirtualGatewaySpecListenerConnectionPoolHttpArgs>> http() {
@@ -48,14 +48,14 @@ public final class VirtualGatewaySpecListenerConnectionPoolArgs extends com.pulu
     }
 
     /**
-     * Connection pool information for HTTP2 listeners.
+     * Connection pool information for HTTP2 listeners. See `http2` Block for details.
      * 
      */
     @Import(name="http2")
     private @Nullable Output<VirtualGatewaySpecListenerConnectionPoolHttp2Args> http2;
 
     /**
-     * @return Connection pool information for HTTP2 listeners.
+     * @return Connection pool information for HTTP2 listeners. See `http2` Block for details.
      * 
      */
     public Optional<Output<VirtualGatewaySpecListenerConnectionPoolHttp2Args>> http2() {
@@ -89,7 +89,7 @@ public final class VirtualGatewaySpecListenerConnectionPoolArgs extends com.pulu
         }
 
         /**
-         * @param grpc Connection pool information for gRPC listeners.
+         * @param grpc Connection pool information for gRPC listeners. See `grpc` Block for details.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class VirtualGatewaySpecListenerConnectionPoolArgs extends com.pulu
         }
 
         /**
-         * @param grpc Connection pool information for gRPC listeners.
+         * @param grpc Connection pool information for gRPC listeners. See `grpc` Block for details.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class VirtualGatewaySpecListenerConnectionPoolArgs extends com.pulu
         }
 
         /**
-         * @param http Connection pool information for HTTP listeners.
+         * @param http Connection pool information for HTTP listeners. See `http` Block for details.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class VirtualGatewaySpecListenerConnectionPoolArgs extends com.pulu
         }
 
         /**
-         * @param http Connection pool information for HTTP listeners.
+         * @param http Connection pool information for HTTP listeners. See `http` Block for details.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class VirtualGatewaySpecListenerConnectionPoolArgs extends com.pulu
         }
 
         /**
-         * @param http2 Connection pool information for HTTP2 listeners.
+         * @param http2 Connection pool information for HTTP2 listeners. See `http2` Block for details.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class VirtualGatewaySpecListenerConnectionPoolArgs extends com.pulu
         }
 
         /**
-         * @param http2 Connection pool information for HTTP2 listeners.
+         * @param http2 Connection pool information for HTTP2 listeners. See `http2` Block for details.
          * 
          * @return builder
          * 

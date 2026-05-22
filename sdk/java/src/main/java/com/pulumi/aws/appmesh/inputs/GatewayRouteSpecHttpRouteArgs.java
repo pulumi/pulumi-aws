@@ -16,14 +16,14 @@ public final class GatewayRouteSpecHttpRouteArgs extends com.pulumi.resources.Re
     public static final GatewayRouteSpecHttpRouteArgs Empty = new GatewayRouteSpecHttpRouteArgs();
 
     /**
-     * Action to take if a match is determined.
+     * Action to take if a match is determined. See `action` Block for details.
      * 
      */
     @Import(name="action", required=true)
     private Output<GatewayRouteSpecHttpRouteActionArgs> action;
 
     /**
-     * @return Action to take if a match is determined.
+     * @return Action to take if a match is determined. See `action` Block for details.
      * 
      */
     public Output<GatewayRouteSpecHttpRouteActionArgs> action() {
@@ -31,14 +31,14 @@ public final class GatewayRouteSpecHttpRouteArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Criteria for determining a request match.
+     * Criteria for determining a request match. See `match` Block for details.
      * 
      */
     @Import(name="match", required=true)
     private Output<GatewayRouteSpecHttpRouteMatchArgs> match;
 
     /**
-     * @return Criteria for determining a request match.
+     * @return Criteria for determining a request match. See `match` Block for details.
      * 
      */
     public Output<GatewayRouteSpecHttpRouteMatchArgs> match() {
@@ -71,7 +71,7 @@ public final class GatewayRouteSpecHttpRouteArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param action Action to take if a match is determined.
+         * @param action Action to take if a match is determined. See `action` Block for details.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class GatewayRouteSpecHttpRouteArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param action Action to take if a match is determined.
+         * @param action Action to take if a match is determined. See `action` Block for details.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class GatewayRouteSpecHttpRouteArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param match Criteria for determining a request match.
+         * @param match Criteria for determining a request match. See `match` Block for details.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GatewayRouteSpecHttpRouteArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param match Criteria for determining a request match.
+         * @param match Criteria for determining a request match. See `match` Block for details.
          * 
          * @return builder
          * 

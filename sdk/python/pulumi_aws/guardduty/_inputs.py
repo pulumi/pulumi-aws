@@ -64,17 +64,17 @@ __all__ = [
 ]
 
 class DetectorDatasourcesArgsDict(TypedDict):
-    kubernetes: NotRequired[pulumi.Input[Optional['DetectorDatasourcesKubernetesArgs']]]
+    kubernetes: NotRequired[pulumi.Input[Optional['DetectorDatasourcesKubernetesArgsDict']]]
     """
     Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
     See Kubernetes and Kubernetes Audit Logs below for more details.
     """
-    malware_protection: NotRequired[pulumi.Input[Optional['DetectorDatasourcesMalwareProtectionArgs']]]
+    malware_protection: NotRequired[pulumi.Input[Optional['DetectorDatasourcesMalwareProtectionArgsDict']]]
     """
     Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
     See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
     """
-    s3_logs: NotRequired[pulumi.Input[Optional['DetectorDatasourcesS3LogsArgs']]]
+    s3_logs: NotRequired[pulumi.Input[Optional['DetectorDatasourcesS3LogsArgsDict']]]
     """
     Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
     See S3 Logs below for more details.
@@ -761,15 +761,15 @@ class MemberDetectorFeatureAdditionalConfigurationArgs:
 
 
 class OrganizationConfigurationDatasourcesArgsDict(TypedDict):
-    kubernetes: NotRequired[pulumi.Input[Optional['OrganizationConfigurationDatasourcesKubernetesArgs']]]
+    kubernetes: NotRequired[pulumi.Input[Optional['OrganizationConfigurationDatasourcesKubernetesArgsDict']]]
     """
     Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
     """
-    malware_protection: NotRequired[pulumi.Input[Optional['OrganizationConfigurationDatasourcesMalwareProtectionArgs']]]
+    malware_protection: NotRequired[pulumi.Input[Optional['OrganizationConfigurationDatasourcesMalwareProtectionArgsDict']]]
     """
     Enable Malware Protection automatically for new member accounts.
     """
-    s3_logs: NotRequired[pulumi.Input[Optional['OrganizationConfigurationDatasourcesS3LogsArgs']]]
+    s3_logs: NotRequired[pulumi.Input[Optional['OrganizationConfigurationDatasourcesS3LogsArgsDict']]]
     """
     Enable S3 Protection automatically for new member accounts.
     """

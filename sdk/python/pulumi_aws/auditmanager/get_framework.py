@@ -59,21 +59,33 @@ class GetFrameworkResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
+        """
+        ARN of the framework.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="complianceType")
     def compliance_type(self) -> _builtins.str:
+        """
+        Compliance type that the framework supports.
+        """
         return pulumi.get(self, "compliance_type")
 
     @_builtins.property
     @pulumi.getter(name="controlSets")
     def control_sets(self) -> Sequence['outputs.GetFrameworkControlSetResult']:
+        """
+        Control sets associated with the framework.
+        """
         return pulumi.get(self, "control_sets")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> _builtins.str:
+        """
+        Description of the framework.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
@@ -84,6 +96,9 @@ class GetFrameworkResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        Unique identifier for the framework.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -99,6 +114,9 @@ class GetFrameworkResult:
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
+        """
+        Map of tags assigned to the framework.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -139,6 +157,7 @@ def get_framework(framework_type: Optional[_builtins.str] = None,
     ```
 
 
+    :param _builtins.str framework_type: Type of framework. Valid values are `Custom` and `Standard`.
     :param _builtins.str name: Name of the framework.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -179,6 +198,7 @@ def get_framework_output(framework_type: pulumi.Input[Optional[_builtins.str]] =
     ```
 
 
+    :param _builtins.str framework_type: Type of framework. Valid values are `Custom` and `Standard`.
     :param _builtins.str name: Name of the framework.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

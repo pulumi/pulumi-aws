@@ -115,6 +115,14 @@ __all__ = [
     'AutomationRuleCriteriaVerificationStateArgsDict',
     'AutomationRuleCriteriaWorkflowStatusArgs',
     'AutomationRuleCriteriaWorkflowStatusArgsDict',
+    'AutomationRuleV2ActionArgs',
+    'AutomationRuleV2ActionArgsDict',
+    'AutomationRuleV2ActionExternalIntegrationConfigurationArgs',
+    'AutomationRuleV2ActionExternalIntegrationConfigurationArgsDict',
+    'AutomationRuleV2ActionFindingFieldsUpdateArgs',
+    'AutomationRuleV2ActionFindingFieldsUpdateArgsDict',
+    'AutomationRuleV2CriteriaArgs',
+    'AutomationRuleV2CriteriaArgsDict',
     'ConfigurationPolicyConfigurationPolicyArgs',
     'ConfigurationPolicyConfigurationPolicyArgsDict',
     'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs',
@@ -362,7 +370,7 @@ __all__ = [
 ]
 
 class AutomationRuleActionArgsDict(TypedDict):
-    finding_fields_update: NotRequired[pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateArgs']]]
+    finding_fields_update: NotRequired[pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateArgsDict']]]
     """
     A block that specifies that the automation rule action is an update to a finding field.  Documented below.
     """
@@ -419,15 +427,15 @@ class AutomationRuleActionFindingFieldsUpdateArgsDict(TypedDict):
     """
     The rule action updates the `Criticality` field of a finding.
     """
-    note: NotRequired[pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateNoteArgs']]]
+    note: NotRequired[pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateNoteArgsDict']]]
     """
     A resource block that updates the note. Documented below.
     """
-    related_findings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleActionFindingFieldsUpdateRelatedFindingArgs']]]]]
+    related_findings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleActionFindingFieldsUpdateRelatedFindingArgsDict']]]]]
     """
     A resource block that the rule action updates the `RelatedFindings` field of a finding. Documented below.
     """
-    severity: NotRequired[pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateSeverityArgs']]]
+    severity: NotRequired[pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateSeverityArgsDict']]]
     """
     A resource block that updates to the severity information for a finding. Documented below.
     """
@@ -443,7 +451,7 @@ class AutomationRuleActionFindingFieldsUpdateArgsDict(TypedDict):
     """
     The rule action updates the `VerificationState` field of a finding. The allowed values are the following `UNKNOWN`, `TRUE_POSITIVE`, `FALSE_POSITIVE` and `BENIGN_POSITIVE`.
     """
-    workflow: NotRequired[pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateWorkflowArgs']]]
+    workflow: NotRequired[pulumi.Input[Optional['AutomationRuleActionFindingFieldsUpdateWorkflowArgsDict']]]
     """
     A resource block that is used to update information about the investigation into the finding. Documented below.
     """
@@ -772,155 +780,155 @@ class AutomationRuleActionFindingFieldsUpdateWorkflowArgs:
 
 
 class AutomationRuleCriteriaArgsDict(TypedDict):
-    aws_account_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountIdArgs']]]]]
+    aws_account_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountIdArgsDict']]]]]
     """
     The AWS account ID in which a finding was generated. Documented below.
     """
-    aws_account_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountNameArgs']]]]]
+    aws_account_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaAwsAccountNameArgsDict']]]]]
     """
     The name of the AWS account in which a finding was generated. Documented below.
     """
-    company_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCompanyNameArgs']]]]]
+    company_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCompanyNameArgsDict']]]]]
     """
     The name of the company for the product that generated the finding. For control-based findings, the company is AWS. Documented below.
     """
-    compliance_associated_standards_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceAssociatedStandardsIdArgs']]]]]
+    compliance_associated_standards_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceAssociatedStandardsIdArgsDict']]]]]
     """
     The unique identifier of a standard in which a control is enabled. Documented below.
     """
-    compliance_security_control_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceSecurityControlIdArgs']]]]]
+    compliance_security_control_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceSecurityControlIdArgsDict']]]]]
     """
     The security control ID for which a finding was generated. Security control IDs are the same across standards. Documented below.
     """
-    compliance_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceStatusArgs']]]]]
+    compliance_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaComplianceStatusArgsDict']]]]]
     """
     The result of a security check. This field is only used for findings generated from controls. Documented below.
     """
-    confidences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaConfidenceArgs']]]]]
+    confidences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaConfidenceArgsDict']]]]]
     """
     The likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. `Confidence` is scored on a 0–100 basis using a ratio scale. A value of `0` means 0 percent confidence, and a value of `100` means 100 percent confidence. Documented below.
     """
-    created_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCreatedAtArgs']]]]]
+    created_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCreatedAtArgsDict']]]]]
     """
     A timestamp that indicates when this finding record was created. Documented below.
     """
-    criticalities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCriticalityArgs']]]]]
+    criticalities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaCriticalityArgsDict']]]]]
     """
     The level of importance that is assigned to the resources that are associated with a finding. Documented below.
     """
-    descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaDescriptionArgs']]]]]
+    descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaDescriptionArgsDict']]]]]
     """
     A finding's description. Documented below.
     """
-    first_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaFirstObservedAtArgs']]]]]
+    first_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaFirstObservedAtArgsDict']]]]]
     """
     A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product. Documented below.
     """
-    generator_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaGeneratorIdArgs']]]]]
+    generator_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaGeneratorIdArgsDict']]]]]
     """
     The identifier for the solution-specific component that generated a finding. Documented below.
     """
-    ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaIdArgs']]]]]
+    ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaIdArgsDict']]]]]
     """
     The product-specific identifier for a finding. Documented below.
     """
-    last_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaLastObservedAtArgs']]]]]
+    last_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaLastObservedAtArgsDict']]]]]
     """
     A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product. Documented below.
     """
-    note_texts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteTextArgs']]]]]
+    note_texts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteTextArgsDict']]]]]
     """
     The text of a user-defined note that's added to a finding. Documented below.
     """
-    note_updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtArgs']]]]]
+    note_updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedAtArgsDict']]]]]
     """
     The timestamp of when the note was updated. Documented below.
     """
-    note_updated_bies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedByArgs']]]]]
+    note_updated_bies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaNoteUpdatedByArgsDict']]]]]
     """
     The principal that created a note. Documented below.
     """
-    product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgs']]]]]
+    product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductArnArgsDict']]]]]
     """
     The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
     """
-    product_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgs']]]]]
+    product_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaProductNameArgsDict']]]]]
     """
     Provides the name of the product that generated the finding. For control-based findings, the product name is Security Hub. Documented below.
     """
-    record_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRecordStateArgs']]]]]
+    record_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRecordStateArgsDict']]]]]
     """
     Provides the current state of a finding. Documented below.
     """
-    related_findings_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsIdArgs']]]]]
+    related_findings_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsIdArgsDict']]]]]
     """
     The product-generated identifier for a related finding.  Documented below.
     """
-    related_findings_product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsProductArnArgs']]]]]
+    related_findings_product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaRelatedFindingsProductArnArgsDict']]]]]
     """
     The ARN for the product that generated a related finding. Documented below.
     """
-    resource_application_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgs']]]]]
+    resource_application_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationArnArgsDict']]]]]
     """
     The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
     """
-    resource_application_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgs']]]]]
+    resource_application_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceApplicationNameArgsDict']]]]]
     """
     The name of the application that is related to a finding. Documented below.
     """
-    resource_details_others: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceDetailsOtherArgs']]]]]
+    resource_details_others: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceDetailsOtherArgsDict']]]]]
     """
     Custom fields and values about the resource that a finding pertains to. Documented below.
     """
-    resource_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgs']]]]]
+    resource_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceIdArgsDict']]]]]
     """
     The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
     """
-    resource_partitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgs']]]]]
+    resource_partitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourcePartitionArgsDict']]]]]
     """
     The partition in which the resource that the finding pertains to is located. A partition is a group of AWS Regions. Each AWS account is scoped to one partition. Documented below.
     """
-    resource_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceRegionArgs']]]]]
+    resource_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceRegionArgsDict']]]]]
     """
     The AWS Region where the resource that a finding pertains to is located. Documented below.
     """
-    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTagArgs']]]]]
+    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTagArgsDict']]]]]
     """
     A list of AWS tags associated with a resource at the time the finding was processed. Documented below.
     """
-    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTypeArgs']]]]]
+    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaResourceTypeArgsDict']]]]]
     """
     The type of resource that the finding pertains to. Documented below.
     """
-    severity_labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaSeverityLabelArgs']]]]]
+    severity_labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaSeverityLabelArgsDict']]]]]
     """
     The severity value of the finding. Documented below.
     """
-    source_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaSourceUrlArgs']]]]]
+    source_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaSourceUrlArgsDict']]]]]
     """
     Provides a URL that links to a page about the current finding in the finding product. Documented below.
     """
-    titles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaTitleArgs']]]]]
+    titles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaTitleArgsDict']]]]]
     """
     A finding's title. Documented below.
     """
-    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaTypeArgs']]]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaTypeArgsDict']]]]]
     """
     One or more finding types in the format of namespace/category/classifier that classify a finding. Documented below.
     """
-    updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaUpdatedAtArgs']]]]]
+    updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaUpdatedAtArgsDict']]]]]
     """
     A timestamp that indicates when the finding record was most recently updated. Documented below.
     """
-    user_defined_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaUserDefinedFieldArgs']]]]]
+    user_defined_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaUserDefinedFieldArgsDict']]]]]
     """
     A list of user-defined name and value string pairs added to a finding. Documented below.
     """
-    verification_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaVerificationStateArgs']]]]]
+    verification_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaVerificationStateArgsDict']]]]]
     """
     Provides the veracity of a finding. Documented below.
     """
-    workflow_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaWorkflowStatusArgs']]]]]
+    workflow_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationRuleCriteriaWorkflowStatusArgsDict']]]]]
     """
     Provides information about the status of the investigation into a finding. Documented below.
     """
@@ -1822,7 +1830,7 @@ class AutomationRuleCriteriaConfidenceArgs:
 
 
 class AutomationRuleCriteriaCreatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaCreatedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaCreatedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -2064,7 +2072,7 @@ class AutomationRuleCriteriaDescriptionArgs:
 
 
 class AutomationRuleCriteriaFirstObservedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaFirstObservedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaFirstObservedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -2242,7 +2250,7 @@ class AutomationRuleCriteriaIdArgs:
 
 
 class AutomationRuleCriteriaLastObservedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaLastObservedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaLastObservedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -2389,7 +2397,7 @@ class AutomationRuleCriteriaNoteTextArgs:
 
 
 class AutomationRuleCriteriaNoteUpdatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaNoteUpdatedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaNoteUpdatedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -3105,7 +3113,7 @@ class AutomationRuleCriteriaTypeArgs:
 
 
 class AutomationRuleCriteriaUpdatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaUpdatedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['AutomationRuleCriteriaUpdatedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -3334,6 +3342,199 @@ class AutomationRuleCriteriaWorkflowStatusArgs:
         pulumi.set(self, "value", value)
 
 
+class AutomationRuleV2ActionArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The action type. Valid values: `FINDING_FIELDS_UPDATE`, `EXTERNAL_INTEGRATION`.
+    """
+    external_integration_configuration: NotRequired[pulumi.Input[Optional['AutomationRuleV2ActionExternalIntegrationConfigurationArgsDict']]]
+    """
+    Settings for external integration actions. See `external_integration_configuration` below.
+    """
+    finding_fields_update: NotRequired[pulumi.Input[Optional['AutomationRuleV2ActionFindingFieldsUpdateArgsDict']]]
+    """
+    Settings for updating finding fields. See `finding_fields_update` below.
+    """
+
+@pulumi.input_type
+class AutomationRuleV2ActionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 external_integration_configuration: pulumi.Input[Optional['AutomationRuleV2ActionExternalIntegrationConfigurationArgs']] = None,
+                 finding_fields_update: pulumi.Input[Optional['AutomationRuleV2ActionFindingFieldsUpdateArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: The action type. Valid values: `FINDING_FIELDS_UPDATE`, `EXTERNAL_INTEGRATION`.
+        :param pulumi.Input['AutomationRuleV2ActionExternalIntegrationConfigurationArgs'] external_integration_configuration: Settings for external integration actions. See `external_integration_configuration` below.
+        :param pulumi.Input['AutomationRuleV2ActionFindingFieldsUpdateArgs'] finding_fields_update: Settings for updating finding fields. See `finding_fields_update` below.
+        """
+        pulumi.set(__self__, "type", type)
+        if external_integration_configuration is not None:
+            pulumi.set(__self__, "external_integration_configuration", external_integration_configuration)
+        if finding_fields_update is not None:
+            pulumi.set(__self__, "finding_fields_update", finding_fields_update)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The action type. Valid values: `FINDING_FIELDS_UPDATE`, `EXTERNAL_INTEGRATION`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalIntegrationConfiguration")
+    def external_integration_configuration(self) -> pulumi.Input[Optional['AutomationRuleV2ActionExternalIntegrationConfigurationArgs']]:
+        """
+        Settings for external integration actions. See `external_integration_configuration` below.
+        """
+        return pulumi.get(self, "external_integration_configuration")
+
+    @external_integration_configuration.setter
+    def external_integration_configuration(self, value: pulumi.Input[Optional['AutomationRuleV2ActionExternalIntegrationConfigurationArgs']]):
+        pulumi.set(self, "external_integration_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="findingFieldsUpdate")
+    def finding_fields_update(self) -> pulumi.Input[Optional['AutomationRuleV2ActionFindingFieldsUpdateArgs']]:
+        """
+        Settings for updating finding fields. See `finding_fields_update` below.
+        """
+        return pulumi.get(self, "finding_fields_update")
+
+    @finding_fields_update.setter
+    def finding_fields_update(self, value: pulumi.Input[Optional['AutomationRuleV2ActionFindingFieldsUpdateArgs']]):
+        pulumi.set(self, "finding_fields_update", value)
+
+
+class AutomationRuleV2ActionExternalIntegrationConfigurationArgsDict(TypedDict):
+    connector_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the connector.
+    """
+
+@pulumi.input_type
+class AutomationRuleV2ActionExternalIntegrationConfigurationArgs:
+    def __init__(__self__, *,
+                 connector_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] connector_arn: The ARN of the connector.
+        """
+        pulumi.set(__self__, "connector_arn", connector_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorArn")
+    def connector_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the connector.
+        """
+        return pulumi.get(self, "connector_arn")
+
+    @connector_arn.setter
+    def connector_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connector_arn", value)
+
+
+class AutomationRuleV2ActionFindingFieldsUpdateArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A comment for the finding.
+    """
+    severity_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The severity ID to assign.
+    """
+    status_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The status ID to assign.
+    """
+
+@pulumi.input_type
+class AutomationRuleV2ActionFindingFieldsUpdateArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 status_id: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] comment: A comment for the finding.
+        :param pulumi.Input[_builtins.int] severity_id: The severity ID to assign.
+        :param pulumi.Input[_builtins.int] status_id: The status ID to assign.
+        """
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if severity_id is not None:
+            pulumi.set(__self__, "severity_id", severity_id)
+        if status_id is not None:
+            pulumi.set(__self__, "status_id", status_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A comment for the finding.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="severityId")
+    def severity_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The severity ID to assign.
+        """
+        return pulumi.get(self, "severity_id")
+
+    @severity_id.setter
+    def severity_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "severity_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="statusId")
+    def status_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The status ID to assign.
+        """
+        return pulumi.get(self, "status_id")
+
+    @status_id.setter
+    def status_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "status_id", value)
+
+
+class AutomationRuleV2CriteriaArgsDict(TypedDict):
+    ocsf_finding_criteria_json: pulumi.Input[_builtins.str]
+    """
+    JSON-encoded OCSF finding criteria for the rule. See the [AWS API Reference](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_OcsfFindingFilters.html) for details.
+    """
+
+@pulumi.input_type
+class AutomationRuleV2CriteriaArgs:
+    def __init__(__self__, *,
+                 ocsf_finding_criteria_json: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] ocsf_finding_criteria_json: JSON-encoded OCSF finding criteria for the rule. See the [AWS API Reference](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_OcsfFindingFilters.html) for details.
+        """
+        pulumi.set(__self__, "ocsf_finding_criteria_json", ocsf_finding_criteria_json)
+
+    @_builtins.property
+    @pulumi.getter(name="ocsfFindingCriteriaJson")
+    def ocsf_finding_criteria_json(self) -> pulumi.Input[_builtins.str]:
+        """
+        JSON-encoded OCSF finding criteria for the rule. See the [AWS API Reference](https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_OcsfFindingFilters.html) for details.
+        """
+        return pulumi.get(self, "ocsf_finding_criteria_json")
+
+    @ocsf_finding_criteria_json.setter
+    def ocsf_finding_criteria_json(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "ocsf_finding_criteria_json", value)
+
+
 class ConfigurationPolicyConfigurationPolicyArgsDict(TypedDict):
     service_enabled: pulumi.Input[_builtins.bool]
     """
@@ -3343,7 +3544,7 @@ class ConfigurationPolicyConfigurationPolicyArgsDict(TypedDict):
     """
     A list that defines which security standards are enabled in the configuration policy. It must be defined if `service_enabled` is set to true.
     """
-    security_controls_configuration: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']]]
+    security_controls_configuration: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgsDict']]]
     """
     Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
     """
@@ -3411,7 +3612,7 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgsDic
     """
     A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
     """
-    security_control_custom_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs']]]]]
+    security_control_custom_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgsDict']]]]]
     """
     A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
     """
@@ -3527,35 +3728,35 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
     """
     Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
     """
-    bool: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs']]]
+    bool: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgsDict']]]
     """
     The bool `value` for a Boolean-typed Security Hub Control Parameter.
     """
-    double: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs']]]
+    double: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgsDict']]]
     """
     The float `value` for a Double-typed Security Hub Control Parameter.
     """
-    enum: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs']]]
+    enum: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgsDict']]]
     """
     The string `value` for a Enum-typed Security Hub Control Parameter.
     """
-    enum_list: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs']]]
+    enum_list: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgsDict']]]
     """
     The string list `value` for a EnumList-typed Security Hub Control Parameter.
     """
-    int: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs']]]
+    int: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgsDict']]]
     """
     The int `value` for a Int-typed Security Hub Control Parameter.
     """
-    int_list: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs']]]
+    int_list: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgsDict']]]
     """
     The int list `value` for a IntList-typed Security Hub Control Parameter.
     """
-    string: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs']]]
+    string: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgsDict']]]
     """
     The string `value` for a String-typed Security Hub Control Parameter.
     """
-    string_list: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs']]]
+    string_list: NotRequired[pulumi.Input[Optional['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgsDict']]]
     """
     The string list `value` for a StringList-typed Security Hub Control Parameter.
     """
@@ -3878,11 +4079,11 @@ class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurit
 
 
 class ConnectorV2ConnectorProviderArgsDict(TypedDict):
-    jira_cloud: NotRequired[pulumi.Input[Optional['ConnectorV2ConnectorProviderJiraCloudArgs']]]
+    jira_cloud: NotRequired[pulumi.Input[Optional['ConnectorV2ConnectorProviderJiraCloudArgsDict']]]
     """
     Details about a Jira Cloud integration. See `jira_cloud` below.
     """
-    service_now: NotRequired[pulumi.Input[Optional['ConnectorV2ConnectorProviderServiceNowArgs']]]
+    service_now: NotRequired[pulumi.Input[Optional['ConnectorV2ConnectorProviderServiceNowArgsDict']]]
     """
     Details about a ServiceNow ITSM integration. See `service_now` below.
     """
@@ -4168,375 +4369,375 @@ class ConnectorV2HealthArgs:
 
 
 class InsightFiltersArgsDict(TypedDict):
-    aws_account_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgs']]]]]
+    aws_account_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersAwsAccountIdArgsDict']]]]]
     """
     AWS account ID that a finding is generated in. See String_Filter below for more details.
     """
-    aws_account_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgs']]]]]
+    aws_account_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersAwsAccountNameArgsDict']]]]]
     """
     The name of the AWS account in which a finding is generated. See String_Filter below for more details.
     """
-    company_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCompanyNameArgs']]]]]
+    company_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCompanyNameArgsDict']]]]]
     """
     The name of the findings provider (company) that owns the solution (product) that generates findings. See String_Filter below for more details.
     """
-    compliance_associated_standards_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgs']]]]]
+    compliance_associated_standards_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceAssociatedStandardsIdArgsDict']]]]]
     """
     The unique identifier of a standard in which a control is enabled. See String_Filter below for more details.
     """
-    compliance_security_control_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgs']]]]]
+    compliance_security_control_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlIdArgsDict']]]]]
     """
     The unique identifier of a control across standards. See String_Filter below for more details.
     """
-    compliance_security_control_parameters_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgs']]]]]
+    compliance_security_control_parameters_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersNameArgsDict']]]]]
     """
     The unique identifier of a control across standards. See String_Filter below for more details.
     """
-    compliance_security_control_parameters_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgs']]]]]
+    compliance_security_control_parameters_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceSecurityControlParametersValueArgsDict']]]]]
     """
     The current value of a security control parameter. See String_Filter below for more details.
     """
-    compliance_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgs']]]]]
+    compliance_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersComplianceStatusArgsDict']]]]]
     """
     Exclusive to findings that are generated as the result of a check run against a specific rule in a supported standard, such as CIS AWS Foundations. Contains security standard-related finding details. See String Filter below for more details.
     """
-    confidences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersConfidenceArgs']]]]]
+    confidences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersConfidenceArgsDict']]]]]
     """
     A finding's confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
     """
-    created_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCreatedAtArgs']]]]]
+    created_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCreatedAtArgsDict']]]]]
     """
     An ISO8601-formatted timestamp that indicates when the security-findings provider captured the potential security issue that a finding captured. See Date Filter below for more details.
     """
-    criticalities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCriticalityArgs']]]]]
+    criticalities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersCriticalityArgsDict']]]]]
     """
     The level of importance assigned to the resources associated with the finding. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
     """
-    descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersDescriptionArgs']]]]]
+    descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersDescriptionArgsDict']]]]]
     """
     A finding's description. See String Filter below for more details.
     """
-    finding_provider_fields_confidences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgs']]]]]
+    finding_provider_fields_confidences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsConfidenceArgsDict']]]]]
     """
     The finding provider value for the finding confidence. Confidence is defined as the likelihood that a finding accurately identifies the behavior or issue that it was intended to identify. Confidence is scored on a 0-100 basis using a ratio scale, where 0 means zero percent confidence and 100 means 100 percent confidence. See Number Filter below for more details.
     """
-    finding_provider_fields_criticalities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgs']]]]]
+    finding_provider_fields_criticalities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsCriticalityArgsDict']]]]]
     """
     The finding provider value for the level of importance assigned to the resources associated with the findings. A score of 0 means that the underlying resources have no criticality, and a score of 100 is reserved for the most critical resources. See Number Filter below for more details.
     """
-    finding_provider_fields_related_findings_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgs']]]]]
+    finding_provider_fields_related_findings_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsIdArgsDict']]]]]
     """
     The finding identifier of a related finding that is identified by the finding provider. See String Filter below for more details.
     """
-    finding_provider_fields_related_findings_product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgs']]]]]
+    finding_provider_fields_related_findings_product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsRelatedFindingsProductArnArgsDict']]]]]
     """
     The ARN of the solution that generated a related finding that is identified by the finding provider. See String Filter below for more details.
     """
-    finding_provider_fields_severity_labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgs']]]]]
+    finding_provider_fields_severity_labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityLabelArgsDict']]]]]
     """
     The finding provider value for the severity label. See String Filter below for more details.
     """
-    finding_provider_fields_severity_originals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgs']]]]]
+    finding_provider_fields_severity_originals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsSeverityOriginalArgsDict']]]]]
     """
     The finding provider's original value for the severity. See String Filter below for more details.
     """
-    finding_provider_fields_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgs']]]]]
+    finding_provider_fields_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFindingProviderFieldsTypeArgsDict']]]]]
     """
     One or more finding types that the finding provider assigned to the finding. Uses the format of `namespace/category/classifier` that classify a finding. Valid namespace values include: `Software and Configuration Checks`, `TTPs`, `Effects`, `Unusual Behaviors`, and `Sensitive Data Identifications`. See String Filter below for more details.
     """
-    first_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgs']]]]]
+    first_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersFirstObservedAtArgsDict']]]]]
     """
     An ISO8601-formatted timestamp that indicates when the security-findings provider first observed the potential security issue that a finding captured. See Date Filter below for more details.
     """
-    generator_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgs']]]]]
+    generator_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersGeneratorIdArgsDict']]]]]
     """
     The identifier for the solution-specific component (a discrete unit of logic) that generated a finding. See String Filter below for more details.
     """
-    ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersIdArgs']]]]]
+    ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersIdArgsDict']]]]]
     """
     The security findings provider-specific identifier for a finding. See String Filter below for more details.
     """
-    keywords: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersKeywordArgs']]]]]
+    keywords: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersKeywordArgsDict']]]]]
     """
     A keyword for a finding. See Keyword Filter below for more details.
     """
-    last_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgs']]]]]
+    last_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersLastObservedAtArgsDict']]]]]
     """
     An ISO8601-formatted timestamp that indicates when the security-findings provider most recently observed the potential security issue that a finding captured. See Date Filter below for more details.
     """
-    malware_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareNameArgs']]]]]
+    malware_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareNameArgsDict']]]]]
     """
     The name of the malware that was observed. See String Filter below for more details.
     """
-    malware_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwarePathArgs']]]]]
+    malware_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwarePathArgsDict']]]]]
     """
     The filesystem path of the malware that was observed. See String Filter below for more details.
     """
-    malware_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareStateArgs']]]]]
+    malware_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareStateArgsDict']]]]]
     """
     The state of the malware that was observed. See String Filter below for more details.
     """
-    malware_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgs']]]]]
+    malware_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersMalwareTypeArgsDict']]]]]
     """
     The type of the malware that was observed. See String Filter below for more details.
     """
-    network_destination_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgs']]]]]
+    network_destination_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationDomainArgsDict']]]]]
     """
     The destination domain of network-related information about a finding. See String Filter below for more details.
     """
-    network_destination_ipv4s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4Args']]]]]
+    network_destination_ipv4s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv4ArgsDict']]]]]
     """
     The destination IPv4 address of network-related information about a finding. See Ip Filter below for more details.
     """
-    network_destination_ipv6s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6Args']]]]]
+    network_destination_ipv6s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationIpv6ArgsDict']]]]]
     """
     The destination IPv6 address of network-related information about a finding. See Ip Filter below for more details.
     """
-    network_destination_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgs']]]]]
+    network_destination_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDestinationPortArgsDict']]]]]
     """
     The destination port of network-related information about a finding. See Number Filter below for more details.
     """
-    network_directions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgs']]]]]
+    network_directions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkDirectionArgsDict']]]]]
     """
     Indicates the direction of network traffic associated with a finding. See String Filter below for more details.
     """
-    network_protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgs']]]]]
+    network_protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkProtocolArgsDict']]]]]
     """
     The protocol of network-related information about a finding. See String Filter below for more details.
     """
-    network_source_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgs']]]]]
+    network_source_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceDomainArgsDict']]]]]
     """
     The source domain of network-related information about a finding. See String Filter below for more details.
     """
-    network_source_ipv4s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4Args']]]]]
+    network_source_ipv4s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv4ArgsDict']]]]]
     """
     The source IPv4 address of network-related information about a finding. See Ip Filter below for more details.
     """
-    network_source_ipv6s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6Args']]]]]
+    network_source_ipv6s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceIpv6ArgsDict']]]]]
     """
     The source IPv6 address of network-related information about a finding. See Ip Filter below for more details.
     """
-    network_source_macs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgs']]]]]
+    network_source_macs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourceMacArgsDict']]]]]
     """
     The source media access control (MAC) address of network-related information about a finding. See String Filter below for more details.
     """
-    network_source_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgs']]]]]
+    network_source_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNetworkSourcePortArgsDict']]]]]
     """
     The source port of network-related information about a finding. See Number Filter below for more details.
     """
-    note_texts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteTextArgs']]]]]
+    note_texts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteTextArgsDict']]]]]
     """
     The text of a note. See String Filter below for more details.
     """
-    note_updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgs']]]]]
+    note_updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteUpdatedAtArgsDict']]]]]
     """
     The timestamp of when the note was updated. See Date Filter below for more details.
     """
-    note_updated_bies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgs']]]]]
+    note_updated_bies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersNoteUpdatedByArgsDict']]]]]
     """
     The principal that created a note. See String Filter below for more details.
     """
-    process_launched_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgs']]]]]
+    process_launched_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessLaunchedAtArgsDict']]]]]
     """
     The date/time that the process was launched. See Date Filter below for more details.
     """
-    process_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessNameArgs']]]]]
+    process_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessNameArgsDict']]]]]
     """
     The name of the process. See String Filter below for more details.
     """
-    process_parent_pids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgs']]]]]
+    process_parent_pids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessParentPidArgsDict']]]]]
     """
     The parent process ID. See Number Filter below for more details.
     """
-    process_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessPathArgs']]]]]
+    process_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessPathArgsDict']]]]]
     """
     The path to the process executable. See String Filter below for more details.
     """
-    process_pids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessPidArgs']]]]]
+    process_pids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessPidArgsDict']]]]]
     """
     The process ID. See Number Filter below for more details.
     """
-    process_terminated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgs']]]]]
+    process_terminated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProcessTerminatedAtArgsDict']]]]]
     """
     The date/time that the process was terminated. See Date Filter below for more details.
     """
-    product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductArnArgs']]]]]
+    product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductArnArgsDict']]]]]
     """
     The ARN generated by Security Hub that uniquely identifies a third-party company (security findings provider) after this provider's product (solution that generates findings) is registered with Security Hub. See String Filter below for more details.
     """
-    product_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductFieldArgs']]]]]
+    product_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductFieldArgsDict']]]]]
     """
     A data type where security-findings providers can include additional solution-specific details that aren't part of the defined `AwsSecurityFinding` format. See Map Filter below for more details.
     """
-    product_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductNameArgs']]]]]
+    product_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersProductNameArgsDict']]]]]
     """
     The name of the solution (product) that generates findings. See String Filter below for more details.
     """
-    recommendation_texts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgs']]]]]
+    recommendation_texts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRecommendationTextArgsDict']]]]]
     """
     The recommendation of what to do about the issue described in a finding. See String Filter below for more details.
     """
-    record_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRecordStateArgs']]]]]
+    record_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRecordStateArgsDict']]]]]
     """
     The updated record state for the finding. See String Filter below for more details.
     """
-    related_findings_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgs']]]]]
+    related_findings_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRelatedFindingsIdArgsDict']]]]]
     """
     The solution-generated identifier for a related finding. See String Filter below for more details.
     """
-    related_findings_product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgs']]]]]
+    related_findings_product_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersRelatedFindingsProductArnArgsDict']]]]]
     """
     The ARN of the solution that generated a related finding. See String Filter below for more details.
     """
-    resource_aws_ec2_instance_iam_instance_profile_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgs']]]]]
+    resource_aws_ec2_instance_iam_instance_profile_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArnArgsDict']]]]]
     """
     The IAM profile ARN of the instance. See String Filter below for more details.
     """
-    resource_aws_ec2_instance_image_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgs']]]]]
+    resource_aws_ec2_instance_image_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceImageIdArgsDict']]]]]
     """
     The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
     """
-    resource_aws_ec2_instance_ipv4_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgs']]]]]
+    resource_aws_ec2_instance_ipv4_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv4AddressArgsDict']]]]]
     """
     The IPv4 addresses associated with the instance. See Ip Filter below for more details.
     """
-    resource_aws_ec2_instance_ipv6_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgs']]]]]
+    resource_aws_ec2_instance_ipv6_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceIpv6AddressArgsDict']]]]]
     """
     The IPv6 addresses associated with the instance. See Ip Filter below for more details.
     """
-    resource_aws_ec2_instance_key_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgs']]]]]
+    resource_aws_ec2_instance_key_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceKeyNameArgsDict']]]]]
     """
     The key name associated with the instance. See String Filter below for more details.
     """
-    resource_aws_ec2_instance_launched_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgs']]]]]
+    resource_aws_ec2_instance_launched_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceLaunchedAtArgsDict']]]]]
     """
     The date and time the instance was launched. See Date Filter below for more details.
     """
-    resource_aws_ec2_instance_subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgs']]]]]
+    resource_aws_ec2_instance_subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceSubnetIdArgsDict']]]]]
     """
     The identifier of the subnet that the instance was launched in. See String Filter below for more details.
     """
-    resource_aws_ec2_instance_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgs']]]]]
+    resource_aws_ec2_instance_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceTypeArgsDict']]]]]
     """
     The instance type of the instance. See String Filter below for more details.
     """
-    resource_aws_ec2_instance_vpc_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgs']]]]]
+    resource_aws_ec2_instance_vpc_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsEc2InstanceVpcIdArgsDict']]]]]
     """
     The identifier of the VPC that the instance was launched in. See String Filter below for more details.
     """
-    resource_aws_iam_access_key_created_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgs']]]]]
+    resource_aws_iam_access_key_created_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyCreatedAtArgsDict']]]]]
     """
     The creation date/time of the IAM access key related to a finding. See Date Filter below for more details.
     """
-    resource_aws_iam_access_key_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgs']]]]]
+    resource_aws_iam_access_key_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyStatusArgsDict']]]]]
     """
     The status of the IAM access key related to a finding. See String Filter below for more details.
     """
-    resource_aws_iam_access_key_user_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgs']]]]]
+    resource_aws_iam_access_key_user_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsIamAccessKeyUserNameArgsDict']]]]]
     """
     The user associated with the IAM access key related to a finding. See String Filter below for more details.
     """
-    resource_aws_s3_bucket_owner_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgs']]]]]
+    resource_aws_s3_bucket_owner_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerIdArgsDict']]]]]
     """
     The canonical user ID of the owner of the S3 bucket. See String Filter below for more details.
     """
-    resource_aws_s3_bucket_owner_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgs']]]]]
+    resource_aws_s3_bucket_owner_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceAwsS3BucketOwnerNameArgsDict']]]]]
     """
     The display name of the owner of the S3 bucket. See String Filter below for more details.
     """
-    resource_container_image_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgs']]]]]
+    resource_container_image_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerImageIdArgsDict']]]]]
     """
     The identifier of the image related to a finding. See String Filter below for more details.
     """
-    resource_container_image_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgs']]]]]
+    resource_container_image_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerImageNameArgsDict']]]]]
     """
     The name of the image related to a finding. See String Filter below for more details.
     """
-    resource_container_launched_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgs']]]]]
+    resource_container_launched_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerLaunchedAtArgsDict']]]]]
     """
     The date/time that the container was started. See Date Filter below for more details.
     """
-    resource_container_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgs']]]]]
+    resource_container_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceContainerNameArgsDict']]]]]
     """
     The name of the container related to a finding. See String Filter below for more details.
     """
-    resource_details_others: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgs']]]]]
+    resource_details_others: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceDetailsOtherArgsDict']]]]]
     """
     The details of a resource that doesn't have a specific subfield for the resource type defined. See Map Filter below for more details.
     """
-    resource_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceIdArgs']]]]]
+    resource_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceIdArgsDict']]]]]
     """
     The canonical identifier for the given resource type. See String Filter below for more details.
     """
-    resource_partitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgs']]]]]
+    resource_partitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourcePartitionArgsDict']]]]]
     """
     The canonical AWS partition name that the Region is assigned to. See String Filter below for more details.
     """
-    resource_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceRegionArgs']]]]]
+    resource_regions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceRegionArgsDict']]]]]
     """
     The canonical AWS external Region name where this resource is located. See String Filter below for more details.
     """
-    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceTagArgs']]]]]
+    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceTagArgsDict']]]]]
     """
     A list of AWS tags associated with a resource at the time the finding was processed. See Map Filter below for more details.
     """
-    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceTypeArgs']]]]]
+    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersResourceTypeArgsDict']]]]]
     """
     Specifies the type of the resource that details are provided for. See String Filter below for more details.
     """
-    severity_labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgs']]]]]
+    severity_labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersSeverityLabelArgsDict']]]]]
     """
     The label of a finding's severity. See String Filter below for more details.
     """
-    source_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersSourceUrlArgs']]]]]
+    source_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersSourceUrlArgsDict']]]]]
     """
     A URL that links to a page about the current finding in the security-findings provider's solution. See String Filter below for more details.
     """
-    threat_intel_indicator_categories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgs']]]]]
+    threat_intel_indicator_categories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorCategoryArgsDict']]]]]
     """
     The category of a threat intelligence indicator. See String Filter below for more details.
     """
-    threat_intel_indicator_last_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgs']]]]]
+    threat_intel_indicator_last_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorLastObservedAtArgsDict']]]]]
     """
     The date/time of the last observation of a threat intelligence indicator. See Date Filter below for more details.
     """
-    threat_intel_indicator_source_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgs']]]]]
+    threat_intel_indicator_source_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceUrlArgsDict']]]]]
     """
     The URL for more details from the source of the threat intelligence. See String Filter below for more details.
     """
-    threat_intel_indicator_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgs']]]]]
+    threat_intel_indicator_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorSourceArgsDict']]]]]
     """
     The source of the threat intelligence. See String Filter below for more details.
     """
-    threat_intel_indicator_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgs']]]]]
+    threat_intel_indicator_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorTypeArgsDict']]]]]
     """
     The type of a threat intelligence indicator. See String Filter below for more details.
     """
-    threat_intel_indicator_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgs']]]]]
+    threat_intel_indicator_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersThreatIntelIndicatorValueArgsDict']]]]]
     """
     The value of a threat intelligence indicator. See String Filter below for more details.
     """
-    titles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersTitleArgs']]]]]
+    titles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersTitleArgsDict']]]]]
     """
     A finding's title. See String Filter below for more details.
     """
-    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersTypeArgs']]]]]
+    types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersTypeArgsDict']]]]]
     """
     A finding type in the format of `namespace/category/classifier` that classifies a finding. See String Filter below for more details.
     """
-    updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgs']]]]]
+    updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersUpdatedAtArgsDict']]]]]
     """
     An ISO8601-formatted timestamp that indicates when the security-findings provider last updated the finding record. See Date Filter below for more details.
     """
-    user_defined_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgs']]]]]
+    user_defined_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersUserDefinedValueArgsDict']]]]]
     """
     A list of name/value string pairs associated with the finding. These are custom, user-defined fields added to a finding. See Map Filter below for more details.
     """
-    verification_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersVerificationStateArgs']]]]]
+    verification_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersVerificationStateArgsDict']]]]]
     """
     The veracity of a finding. See String Filter below for more details.
     """
-    workflow_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgs']]]]]
+    workflow_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InsightFiltersWorkflowStatusArgsDict']]]]]
     """
     The status of the investigation into a finding. See Workflow Status Filter below for more details.
     """
@@ -6354,7 +6555,7 @@ class InsightFiltersConfidenceArgs:
 
 
 class InsightFiltersCreatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersCreatedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersCreatedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -6863,7 +7064,7 @@ class InsightFiltersFindingProviderFieldsTypeArgs:
 
 
 class InsightFiltersFirstObservedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersFirstObservedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersFirstObservedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -7069,7 +7270,7 @@ class InsightFiltersKeywordArgs:
 
 
 class InsightFiltersLastObservedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersLastObservedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersLastObservedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -7745,7 +7946,7 @@ class InsightFiltersNoteTextArgs:
 
 
 class InsightFiltersNoteUpdatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersNoteUpdatedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersNoteUpdatedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -7892,7 +8093,7 @@ class InsightFiltersNoteUpdatedByArgs:
 
 
 class InsightFiltersProcessLaunchedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersProcessLaunchedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersProcessLaunchedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -8208,7 +8409,7 @@ class InsightFiltersProcessPidArgs:
 
 
 class InsightFiltersProcessTerminatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersProcessTerminatedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersProcessTerminatedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -8711,7 +8912,7 @@ class InsightFiltersResourceAwsEc2InstanceKeyNameArgs:
 
 
 class InsightFiltersResourceAwsEc2InstanceLaunchedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersResourceAwsEc2InstanceLaunchedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -8920,7 +9121,7 @@ class InsightFiltersResourceAwsEc2InstanceVpcIdArgs:
 
 
 class InsightFiltersResourceAwsIamAccessKeyCreatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersResourceAwsIamAccessKeyCreatedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -9222,7 +9423,7 @@ class InsightFiltersResourceContainerImageNameArgs:
 
 
 class InsightFiltersResourceContainerLaunchedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersResourceContainerLaunchedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersResourceContainerLaunchedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -9690,7 +9891,7 @@ class InsightFiltersThreatIntelIndicatorCategoryArgs:
 
 
 class InsightFiltersThreatIntelIndicatorLastObservedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersThreatIntelIndicatorLastObservedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """
@@ -9992,7 +10193,7 @@ class InsightFiltersTypeArgs:
 
 
 class InsightFiltersUpdatedAtArgsDict(TypedDict):
-    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersUpdatedAtDateRangeArgs']]]
+    date_range: NotRequired[pulumi.Input[Optional['InsightFiltersUpdatedAtDateRangeArgsDict']]]
     """
     A configuration block of the date range for the date filter. See date_range below for more details.
     """

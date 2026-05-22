@@ -46,10 +46,21 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import X-Ray Resource Policy using the `policyName`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `policyName` (String) Resource policy name.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import X-Ray Resource Policies using `policyName`. For example:
 //
 // ```sh
-// $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example resource_policy-name
+// $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example example-policy
 // ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
@@ -62,7 +73,7 @@ type ResourcePolicy struct {
 	//
 	// The following arguments are optional:
 	PolicyDocument pulumi.StringOutput `pulumi:"policyDocument"`
-	// name of the resource policy. Must be unique within a specific Amazon Web Services account.
+	// Name of the resource policy. Must be unique within a specific Amazon Web Services account.
 	PolicyName pulumi.StringOutput `pulumi:"policyName"`
 	// Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
 	PolicyRevisionId pulumi.StringOutput `pulumi:"policyRevisionId"`
@@ -114,7 +125,7 @@ type resourcePolicyState struct {
 	//
 	// The following arguments are optional:
 	PolicyDocument *string `pulumi:"policyDocument"`
-	// name of the resource policy. Must be unique within a specific Amazon Web Services account.
+	// Name of the resource policy. Must be unique within a specific Amazon Web Services account.
 	PolicyName *string `pulumi:"policyName"`
 	// Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
 	PolicyRevisionId *string `pulumi:"policyRevisionId"`
@@ -131,7 +142,7 @@ type ResourcePolicyState struct {
 	//
 	// The following arguments are optional:
 	PolicyDocument pulumi.StringPtrInput
-	// name of the resource policy. Must be unique within a specific Amazon Web Services account.
+	// Name of the resource policy. Must be unique within a specific Amazon Web Services account.
 	PolicyName pulumi.StringPtrInput
 	// Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
 	PolicyRevisionId pulumi.StringPtrInput
@@ -150,7 +161,7 @@ type resourcePolicyArgs struct {
 	//
 	// The following arguments are optional:
 	PolicyDocument string `pulumi:"policyDocument"`
-	// name of the resource policy. Must be unique within a specific Amazon Web Services account.
+	// Name of the resource policy. Must be unique within a specific Amazon Web Services account.
 	PolicyName string `pulumi:"policyName"`
 	// Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
 	PolicyRevisionId *string `pulumi:"policyRevisionId"`
@@ -166,7 +177,7 @@ type ResourcePolicyArgs struct {
 	//
 	// The following arguments are optional:
 	PolicyDocument pulumi.StringInput
-	// name of the resource policy. Must be unique within a specific Amazon Web Services account.
+	// Name of the resource policy. Must be unique within a specific Amazon Web Services account.
 	PolicyName pulumi.StringInput
 	// Specifies a specific policy revision, to ensure an atomic create operation. By default the resource policy is created if it does not exist, or updated with an incremented revision id. The revision id is unique to each policy in the account. If the policy revision id does not match the latest revision id, the operation will fail with an InvalidPolicyRevisionIdException exception. You can also provide a PolicyRevisionId of 0. In this case, the operation will fail with an InvalidPolicyRevisionIdException exception if a resource policy with the same name already exists.
 	PolicyRevisionId pulumi.StringPtrInput
@@ -278,7 +289,7 @@ func (o ResourcePolicyOutput) PolicyDocument() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.PolicyDocument }).(pulumi.StringOutput)
 }
 
-// name of the resource policy. Must be unique within a specific Amazon Web Services account.
+// Name of the resource policy. Must be unique within a specific Amazon Web Services account.
 func (o ResourcePolicyOutput) PolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.PolicyName }).(pulumi.StringOutput)
 }

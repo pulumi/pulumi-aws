@@ -117,23 +117,23 @@ class ListenerDefaultActionArgsDict(TypedDict):
 
     The following arguments are optional:
     """
-    authenticate_cognito: NotRequired[pulumi.Input[Optional['ListenerDefaultActionAuthenticateCognitoArgs']]]
+    authenticate_cognito: NotRequired[pulumi.Input[Optional['ListenerDefaultActionAuthenticateCognitoArgsDict']]]
     """
     Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. See below.
     """
-    authenticate_oidc: NotRequired[pulumi.Input[Optional['ListenerDefaultActionAuthenticateOidcArgs']]]
+    authenticate_oidc: NotRequired[pulumi.Input[Optional['ListenerDefaultActionAuthenticateOidcArgsDict']]]
     """
     Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. See below.
     """
-    fixed_response: NotRequired[pulumi.Input[Optional['ListenerDefaultActionFixedResponseArgs']]]
+    fixed_response: NotRequired[pulumi.Input[Optional['ListenerDefaultActionFixedResponseArgsDict']]]
     """
     Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
     """
-    forward: NotRequired[pulumi.Input[Optional['ListenerDefaultActionForwardArgs']]]
+    forward: NotRequired[pulumi.Input[Optional['ListenerDefaultActionForwardArgsDict']]]
     """
     Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. See below.
     """
-    jwt_validation: NotRequired[pulumi.Input[Optional['ListenerDefaultActionJwtValidationArgs']]]
+    jwt_validation: NotRequired[pulumi.Input[Optional['ListenerDefaultActionJwtValidationArgsDict']]]
     """
     Configuration block for creating a JWT validation action. Required if `type` is `jwt-validation`.
     """
@@ -141,7 +141,7 @@ class ListenerDefaultActionArgsDict(TypedDict):
     """
     Order for the action. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`. Defaults to the position in the list of actions.
     """
-    redirect: NotRequired[pulumi.Input[Optional['ListenerDefaultActionRedirectArgs']]]
+    redirect: NotRequired[pulumi.Input[Optional['ListenerDefaultActionRedirectArgsDict']]]
     """
     Configuration block for creating a redirect action. Required if `type` is `redirect`. See below.
     """
@@ -786,7 +786,7 @@ class ListenerDefaultActionForwardArgsDict(TypedDict):
 
     The following arguments are optional:
     """
-    stickiness: NotRequired[pulumi.Input[Optional['ListenerDefaultActionForwardStickinessArgs']]]
+    stickiness: NotRequired[pulumi.Input[Optional['ListenerDefaultActionForwardStickinessArgsDict']]]
     """
     Configuration block for target group stickiness for the rule. See below.
     """
@@ -952,7 +952,7 @@ class ListenerDefaultActionJwtValidationArgsDict(TypedDict):
 
     The following arguments are optional:
     """
-    additional_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerDefaultActionJwtValidationAdditionalClaimArgs']]]]]
+    additional_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerDefaultActionJwtValidationAdditionalClaimArgsDict']]]]]
     """
     Repeatable configuration block for additional claims to validate.
     """
@@ -1310,25 +1310,25 @@ class ListenerRuleActionArgsDict(TypedDict):
     """
     The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito`, `authenticate-oidc` and `jwt-validation`.
     """
-    authenticate_cognito: NotRequired[pulumi.Input[Optional['ListenerRuleActionAuthenticateCognitoArgs']]]
+    authenticate_cognito: NotRequired[pulumi.Input[Optional['ListenerRuleActionAuthenticateCognitoArgsDict']]]
     """
     Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
     """
-    authenticate_oidc: NotRequired[pulumi.Input[Optional['ListenerRuleActionAuthenticateOidcArgs']]]
+    authenticate_oidc: NotRequired[pulumi.Input[Optional['ListenerRuleActionAuthenticateOidcArgsDict']]]
     """
     Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
     """
-    fixed_response: NotRequired[pulumi.Input[Optional['ListenerRuleActionFixedResponseArgs']]]
+    fixed_response: NotRequired[pulumi.Input[Optional['ListenerRuleActionFixedResponseArgsDict']]]
     """
     Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
     """
-    forward: NotRequired[pulumi.Input[Optional['ListenerRuleActionForwardArgs']]]
+    forward: NotRequired[pulumi.Input[Optional['ListenerRuleActionForwardArgsDict']]]
     """
     Configuration block for creating an action that distributes requests among one or more target groups.
     Specify only if `type` is `forward`.
     Cannot be specified with `target_group_arn`.
     """
-    jwt_validation: NotRequired[pulumi.Input[Optional['ListenerRuleActionJwtValidationArgs']]]
+    jwt_validation: NotRequired[pulumi.Input[Optional['ListenerRuleActionJwtValidationArgsDict']]]
     """
     Information for creating a JWT validation action. Required if `type` is `jwt-validation`.
     """
@@ -1339,7 +1339,7 @@ class ListenerRuleActionArgsDict(TypedDict):
     Valid values are between `1` and `50000`.
     Defaults to the position in the list of actions.
     """
-    redirect: NotRequired[pulumi.Input[Optional['ListenerRuleActionRedirectArgs']]]
+    redirect: NotRequired[pulumi.Input[Optional['ListenerRuleActionRedirectArgsDict']]]
     """
     Information for creating a redirect action. Required if `type` is `redirect`.
     """
@@ -1979,7 +1979,7 @@ class ListenerRuleActionForwardArgsDict(TypedDict):
     """
     One or more target group blocks.
     """
-    stickiness: NotRequired[pulumi.Input[Optional['ListenerRuleActionForwardStickinessArgs']]]
+    stickiness: NotRequired[pulumi.Input[Optional['ListenerRuleActionForwardStickinessArgsDict']]]
     """
     The target group stickiness for the rule.
     """
@@ -2127,7 +2127,7 @@ class ListenerRuleActionJwtValidationArgsDict(TypedDict):
     """
     JSON Web Key Set (JWKS) endpoint. This endpoint contains JSON Web Keys (JWK) that are used to validate signatures from the provider. This must be a full URL, including the HTTPS protocol, the domain, and the path.
     """
-    additional_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleActionJwtValidationAdditionalClaimArgs']]]]]
+    additional_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleActionJwtValidationAdditionalClaimArgsDict']]]]]
     """
     Repeatable configuration block for additional claims to validate.
     """
@@ -2380,27 +2380,27 @@ class ListenerRuleActionRedirectArgs:
 
 
 class ListenerRuleConditionArgsDict(TypedDict):
-    host_header: NotRequired[pulumi.Input[Optional['ListenerRuleConditionHostHeaderArgs']]]
+    host_header: NotRequired[pulumi.Input[Optional['ListenerRuleConditionHostHeaderArgsDict']]]
     """
     Host header patterns to match. Host Header block fields documented below.
     """
-    http_header: NotRequired[pulumi.Input[Optional['ListenerRuleConditionHttpHeaderArgs']]]
+    http_header: NotRequired[pulumi.Input[Optional['ListenerRuleConditionHttpHeaderArgsDict']]]
     """
     HTTP headers to match. HTTP Header block fields documented below.
     """
-    http_request_method: NotRequired[pulumi.Input[Optional['ListenerRuleConditionHttpRequestMethodArgs']]]
+    http_request_method: NotRequired[pulumi.Input[Optional['ListenerRuleConditionHttpRequestMethodArgsDict']]]
     """
     Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
     """
-    path_pattern: NotRequired[pulumi.Input[Optional['ListenerRuleConditionPathPatternArgs']]]
+    path_pattern: NotRequired[pulumi.Input[Optional['ListenerRuleConditionPathPatternArgsDict']]]
     """
     Path patterns to match against the request URL. Path Pattern block fields documented below.
     """
-    query_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]]]]
+    query_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgsDict']]]]]
     """
     Query strings to match. Query String block fields documented below.
     """
-    source_ip: NotRequired[pulumi.Input[Optional['ListenerRuleConditionSourceIpArgs']]]
+    source_ip: NotRequired[pulumi.Input[Optional['ListenerRuleConditionSourceIpArgsDict']]]
     """
     Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
 
@@ -2771,11 +2771,11 @@ class ListenerRuleTransformArgsDict(TypedDict):
     """
     Type of transform. Valid values are `host-header-rewrite` and `url-rewrite`.
     """
-    host_header_rewrite_config: NotRequired[pulumi.Input[Optional['ListenerRuleTransformHostHeaderRewriteConfigArgs']]]
+    host_header_rewrite_config: NotRequired[pulumi.Input[Optional['ListenerRuleTransformHostHeaderRewriteConfigArgsDict']]]
     """
     Configuration block for host header rewrite. Required if `type` is `host-header-rewrite`. See Host Header Rewrite Config Blocks below.
     """
-    url_rewrite_config: NotRequired[pulumi.Input[Optional['ListenerRuleTransformUrlRewriteConfigArgs']]]
+    url_rewrite_config: NotRequired[pulumi.Input[Optional['ListenerRuleTransformUrlRewriteConfigArgsDict']]]
     """
     Configuration block for URL rewrite. Required if `type` is `url-rewrite`. See URL Rewrite Config Blocks below.
     """
@@ -2835,7 +2835,7 @@ class ListenerRuleTransformArgs:
 
 
 class ListenerRuleTransformHostHeaderRewriteConfigArgsDict(TypedDict):
-    rewrite: NotRequired[pulumi.Input[Optional['ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs']]]
+    rewrite: NotRequired[pulumi.Input[Optional['ListenerRuleTransformHostHeaderRewriteConfigRewriteArgsDict']]]
     """
     Block for host header rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
     """
@@ -2911,7 +2911,7 @@ class ListenerRuleTransformHostHeaderRewriteConfigRewriteArgs:
 
 
 class ListenerRuleTransformUrlRewriteConfigArgsDict(TypedDict):
-    rewrite: NotRequired[pulumi.Input[Optional['ListenerRuleTransformUrlRewriteConfigRewriteArgs']]]
+    rewrite: NotRequired[pulumi.Input[Optional['ListenerRuleTransformUrlRewriteConfigRewriteArgsDict']]]
     """
     Block for URL rewrite configuration. Only one block is accepted. See Rewrite Blocks below.
     """
@@ -3720,11 +3720,11 @@ class TargetGroupTargetFailoverArgs:
 
 
 class TargetGroupTargetGroupHealthArgsDict(TypedDict):
-    dns_failover: NotRequired[pulumi.Input[Optional['TargetGroupTargetGroupHealthDnsFailoverArgs']]]
+    dns_failover: NotRequired[pulumi.Input[Optional['TargetGroupTargetGroupHealthDnsFailoverArgsDict']]]
     """
     Block to configure DNS Failover requirements. See DNS Failover below for details on attributes.
     """
-    unhealthy_state_routing: NotRequired[pulumi.Input[Optional['TargetGroupTargetGroupHealthUnhealthyStateRoutingArgs']]]
+    unhealthy_state_routing: NotRequired[pulumi.Input[Optional['TargetGroupTargetGroupHealthUnhealthyStateRoutingArgsDict']]]
     """
     Block to configure Unhealthy State Routing requirements. See Unhealthy State Routing below for details on attributes.
     """

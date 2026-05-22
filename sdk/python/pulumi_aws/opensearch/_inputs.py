@@ -422,11 +422,11 @@ class DomainAdvancedSecurityOptionsArgsDict(TypedDict):
     """
     Whether the internal user database is enabled. Default is `false`.
     """
-    jwt_options: NotRequired[pulumi.Input[Optional['DomainAdvancedSecurityOptionsJwtOptionsArgs']]]
+    jwt_options: NotRequired[pulumi.Input[Optional['DomainAdvancedSecurityOptionsJwtOptionsArgsDict']]]
     """
     Configuration block for JWT authentication. Requires OpenSearch 2.11 or later. Detailed below.
     """
-    master_user_options: NotRequired[pulumi.Input[Optional['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']]]
+    master_user_options: NotRequired[pulumi.Input[Optional['DomainAdvancedSecurityOptionsMasterUserOptionsArgsDict']]]
     """
     Configuration block for the main user. Detailed below.
     """
@@ -676,15 +676,15 @@ class DomainAdvancedSecurityOptionsMasterUserOptionsArgs:
 
 
 class DomainAimlOptionsArgsDict(TypedDict):
-    natural_language_query_generation_options: NotRequired[pulumi.Input[Optional['DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs']]]
+    natural_language_query_generation_options: NotRequired[pulumi.Input[Optional['DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgsDict']]]
     """
     Configuration block for parameters required for natural language query generation on the specified domain.
     """
-    s3_vectors_engine: NotRequired[pulumi.Input[Optional['DomainAimlOptionsS3VectorsEngineArgs']]]
+    s3_vectors_engine: NotRequired[pulumi.Input[Optional['DomainAimlOptionsS3VectorsEngineArgsDict']]]
     """
     Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
     """
-    serverless_vector_acceleration: NotRequired[pulumi.Input[Optional['DomainAimlOptionsServerlessVectorAccelerationArgs']]]
+    serverless_vector_acceleration: NotRequired[pulumi.Input[Optional['DomainAimlOptionsServerlessVectorAccelerationArgsDict']]]
     """
     Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
     """
@@ -836,7 +836,7 @@ class DomainAutoTuneOptionsArgsDict(TypedDict):
     """
     Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
     """
-    maintenance_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgs']]]]]
+    maintenance_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgsDict']]]]]
     """
     Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
 
@@ -1039,7 +1039,7 @@ class DomainAutoTuneOptionsMaintenanceScheduleDurationArgs:
 
 
 class DomainClusterConfigArgsDict(TypedDict):
-    cold_storage_options: NotRequired[pulumi.Input[Optional['DomainClusterConfigColdStorageOptionsArgs']]]
+    cold_storage_options: NotRequired[pulumi.Input[Optional['DomainClusterConfigColdStorageOptionsArgsDict']]]
     """
     Configuration block containing cold storage configuration. Detailed below.
     """
@@ -1067,7 +1067,7 @@ class DomainClusterConfigArgsDict(TypedDict):
     """
     Whether a multi-AZ domain is turned on with a standby AZ. For more information, see [Configuring a multi-AZ domain in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html).
     """
-    node_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainClusterConfigNodeOptionArgs']]]]]
+    node_options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainClusterConfigNodeOptionArgsDict']]]]]
     """
     List of node options for the domain.
     """
@@ -1083,7 +1083,7 @@ class DomainClusterConfigArgsDict(TypedDict):
     """
     Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
     """
-    zone_awareness_config: NotRequired[pulumi.Input[Optional['DomainClusterConfigZoneAwarenessConfigArgs']]]
+    zone_awareness_config: NotRequired[pulumi.Input[Optional['DomainClusterConfigZoneAwarenessConfigArgsDict']]]
     """
     Configuration block containing zone awareness settings. Detailed below.
     """
@@ -1337,7 +1337,7 @@ class DomainClusterConfigColdStorageOptionsArgs:
 
 
 class DomainClusterConfigNodeOptionArgsDict(TypedDict):
-    node_config: NotRequired[pulumi.Input[Optional['DomainClusterConfigNodeOptionNodeConfigArgs']]]
+    node_config: NotRequired[pulumi.Input[Optional['DomainClusterConfigNodeOptionNodeConfigArgsDict']]]
     """
     Container to specify sizing of a node type.
     """
@@ -2037,7 +2037,7 @@ class DomainOffPeakWindowOptionsArgsDict(TypedDict):
     """
     Enabled disabled toggle for off-peak update window.
     """
-    off_peak_window: NotRequired[pulumi.Input[Optional['DomainOffPeakWindowOptionsOffPeakWindowArgs']]]
+    off_peak_window: NotRequired[pulumi.Input[Optional['DomainOffPeakWindowOptionsOffPeakWindowArgsDict']]]
 
 @pulumi.input_type
 class DomainOffPeakWindowOptionsArgs:
@@ -2075,7 +2075,7 @@ class DomainOffPeakWindowOptionsArgs:
 
 
 class DomainOffPeakWindowOptionsOffPeakWindowArgsDict(TypedDict):
-    window_start_time: NotRequired[pulumi.Input[Optional['DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs']]]
+    window_start_time: NotRequired[pulumi.Input[Optional['DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgsDict']]]
     """
     10h window for updates
     """
@@ -2157,7 +2157,7 @@ class DomainSamlOptionsSamlOptionsArgsDict(TypedDict):
     """
     Whether SAML authentication is enabled.
     """
-    idp: NotRequired[pulumi.Input[Optional['DomainSamlOptionsSamlOptionsIdpArgs']]]
+    idp: NotRequired[pulumi.Input[Optional['DomainSamlOptionsSamlOptionsIdpArgsDict']]]
     """
     Information from your identity provider.
     """
@@ -2495,7 +2495,7 @@ class DomainVpcOptionsArgs:
 
 
 class OutboundConnectionConnectionPropertiesArgsDict(TypedDict):
-    cross_cluster_search: NotRequired[pulumi.Input[Optional['OutboundConnectionConnectionPropertiesCrossClusterSearchArgs']]]
+    cross_cluster_search: NotRequired[pulumi.Input[Optional['OutboundConnectionConnectionPropertiesCrossClusterSearchArgsDict']]]
     """
     Configuration block for cross cluster search.
     """

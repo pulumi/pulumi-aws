@@ -74,6 +74,9 @@ export interface GetConfigurationProfileResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * KMS key identifier for encrypting the configuration data.
+     */
     readonly kmsKeyIdentifier: string;
     /**
      * Location URI of the Configuration Profile.

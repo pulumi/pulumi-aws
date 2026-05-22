@@ -52,14 +52,14 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * name of the resource policy. Must be unique within a specific Amazon Web Services account.
+     * Name of the resource policy. Must be unique within a specific Amazon Web Services account.
      * 
      */
     @Import(name="policyName", required=true)
     private Output<String> policyName;
 
     /**
-     * @return name of the resource policy. Must be unique within a specific Amazon Web Services account.
+     * @return Name of the resource policy. Must be unique within a specific Amazon Web Services account.
      * 
      */
     public Output<String> policyName() {
@@ -171,7 +171,7 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param policyName name of the resource policy. Must be unique within a specific Amazon Web Services account.
+         * @param policyName Name of the resource policy. Must be unique within a specific Amazon Web Services account.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class ResourcePolicyArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param policyName name of the resource policy. Must be unique within a specific Amazon Web Services account.
+         * @param policyName Name of the resource policy. Must be unique within a specific Amazon Web Services account.
          * 
          * @return builder
          * 

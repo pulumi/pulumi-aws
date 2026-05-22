@@ -136,7 +136,7 @@ class ContainerRecipeComponentArgsDict(TypedDict):
     """
     Amazon Resource Name (ARN) of the Image Builder Component to associate.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgsDict']]]]]
     """
     Configuration block(s) for parameters to configure the component. Detailed below.
     """
@@ -227,7 +227,7 @@ class ContainerRecipeComponentParameterArgs:
 
 
 class ContainerRecipeInstanceConfigurationArgsDict(TypedDict):
-    block_device_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs']]]]]
+    block_device_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRecipeInstanceConfigurationBlockDeviceMappingArgsDict']]]]]
     """
     Configuration block(s) with block device mappings for the container recipe. Detailed below.
     """
@@ -280,7 +280,7 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMappingArgsDict(TypedDict):
     """
     Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
     """
-    ebs: NotRequired[pulumi.Input[Optional['ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs']]]
+    ebs: NotRequired[pulumi.Input[Optional['ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgsDict']]]
     """
     Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
     """
@@ -585,19 +585,19 @@ class DistributionConfigurationDistributionArgsDict(TypedDict):
     """
     Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
-    ami_distribution_configuration: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionAmiDistributionConfigurationArgs']]]
+    ami_distribution_configuration: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionAmiDistributionConfigurationArgsDict']]]
     """
     Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
     """
-    container_distribution_configuration: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionContainerDistributionConfigurationArgs']]]
+    container_distribution_configuration: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionContainerDistributionConfigurationArgsDict']]]
     """
     Configuration block with container distribution settings. Detailed below.
     """
-    fast_launch_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationArgs']]]]]
+    fast_launch_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationArgsDict']]]]]
     """
     Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
     """
-    launch_template_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs']]]]]
+    launch_template_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgsDict']]]]]
     """
     Set of launch template configuration settings that apply to image distribution. Detailed below.
     """
@@ -605,11 +605,11 @@ class DistributionConfigurationDistributionArgsDict(TypedDict):
     """
     Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
     """
-    s3_export_configuration: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionS3ExportConfigurationArgs']]]
+    s3_export_configuration: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionS3ExportConfigurationArgsDict']]]
     """
     Configuration block with S3 export settings. Detailed below.
     """
-    ssm_parameter_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgs']]]]]
+    ssm_parameter_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgsDict']]]]]
     """
     Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
     """
@@ -761,7 +761,7 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationArgsDict(
     """
     Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
     """
-    launch_permission: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs']]]
+    launch_permission: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgsDict']]]
     """
     Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
     """
@@ -1090,7 +1090,7 @@ class DistributionConfigurationDistributionFastLaunchConfigurationArgsDict(Typed
     """
     A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
     """
-    launch_template: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs']]]
+    launch_template: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgsDict']]]
     """
     Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
     """
@@ -1098,7 +1098,7 @@ class DistributionConfigurationDistributionFastLaunchConfigurationArgsDict(Typed
     """
     The maximum number of parallel instances that are launched for creating resources.
     """
-    snapshot_configuration: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs']]]
+    snapshot_configuration: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgsDict']]]
     """
     Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
     """
@@ -1509,7 +1509,7 @@ class DistributionConfigurationDistributionSsmParameterConfigurationArgs:
 
 
 class ImageImageScanningConfigurationArgsDict(TypedDict):
-    ecr_configuration: NotRequired[pulumi.Input[Optional['ImageImageScanningConfigurationEcrConfigurationArgs']]]
+    ecr_configuration: NotRequired[pulumi.Input[Optional['ImageImageScanningConfigurationEcrConfigurationArgsDict']]]
     """
     Configuration block with ECR configuration. Detailed below.
     """
@@ -1684,11 +1684,11 @@ class ImageLoggingConfigurationArgs:
 
 
 class ImageOutputResourceArgsDict(TypedDict):
-    amis: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]]]]
+    amis: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImageOutputResourceAmiArgsDict']]]]]
     """
     Set of objects with each Amazon Machine Image (AMI) created.
     """
-    containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImageOutputResourceContainerArgs']]]]]
+    containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImageOutputResourceContainerArgsDict']]]]]
     """
     Set of objects with each container image created and stored in the output repository.
     """
@@ -1891,7 +1891,7 @@ class ImageOutputResourceContainerArgs:
 
 
 class ImagePipelineImageScanningConfigurationArgsDict(TypedDict):
-    ecr_configuration: NotRequired[pulumi.Input[Optional['ImagePipelineImageScanningConfigurationEcrConfigurationArgs']]]
+    ecr_configuration: NotRequired[pulumi.Input[Optional['ImagePipelineImageScanningConfigurationEcrConfigurationArgsDict']]]
     """
     Configuration block with ECR configuration for image scanning. Detailed below.
     """
@@ -2168,7 +2168,7 @@ class ImagePipelineWorkflowArgsDict(TypedDict):
     """
     The parallel group in which to run a test Workflow.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImagePipelineWorkflowParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImagePipelineWorkflowParameterArgsDict']]]]]
     """
     Configuration block for the workflow parameters. Detailed below.
     """
@@ -2299,7 +2299,7 @@ class ImageRecipeBlockDeviceMappingArgsDict(TypedDict):
     """
     Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
     """
-    ebs: NotRequired[pulumi.Input[Optional['ImageRecipeBlockDeviceMappingEbsArgs']]]
+    ebs: NotRequired[pulumi.Input[Optional['ImageRecipeBlockDeviceMappingEbsArgsDict']]]
     """
     Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
     """
@@ -2557,7 +2557,7 @@ class ImageRecipeComponentArgsDict(TypedDict):
     """
     Amazon Resource Name (ARN) of the Image Builder Component to associate.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImageRecipeComponentParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImageRecipeComponentParameterArgsDict']]]]]
     """
     Configuration block(s) for parameters to configure the component. Detailed below.
     """
@@ -2690,7 +2690,7 @@ class ImageWorkflowArgsDict(TypedDict):
     """
     The parallel group in which to run a test Workflow.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImageWorkflowParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImageWorkflowParameterArgsDict']]]]]
     """
     Configuration block for the workflow parameters. Detailed below.
     """
@@ -3047,7 +3047,7 @@ class LifecyclePolicyPolicyDetailArgsDict(TypedDict):
 
     The following arguments are optional:
     """
-    exclusion_rules: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailExclusionRulesArgs']]]
+    exclusion_rules: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailExclusionRulesArgsDict']]]
     """
     Additional rules to specify resources that should be exempt from policy actions.
     """
@@ -3116,7 +3116,7 @@ class LifecyclePolicyPolicyDetailActionArgsDict(TypedDict):
 
     The following arguments are optional:
     """
-    include_resources: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailActionIncludeResourcesArgs']]]
+    include_resources: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailActionIncludeResourcesArgsDict']]]
     """
     Specifies the resources that the lifecycle policy applies to. Detailed below.
     """
@@ -3233,7 +3233,7 @@ class LifecyclePolicyPolicyDetailActionIncludeResourcesArgs:
 
 
 class LifecyclePolicyPolicyDetailExclusionRulesArgsDict(TypedDict):
-    amis: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailExclusionRulesAmisArgs']]]
+    amis: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailExclusionRulesAmisArgsDict']]]
     """
     Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
     """
@@ -3286,7 +3286,7 @@ class LifecyclePolicyPolicyDetailExclusionRulesAmisArgsDict(TypedDict):
     """
     Configures whether public AMIs are excluded from the lifecycle action.
     """
-    last_launched: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs']]]
+    last_launched: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgsDict']]]
     """
     Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
     """
@@ -3531,7 +3531,7 @@ class LifecyclePolicyPolicyDetailFilterArgs:
 
 
 class LifecyclePolicyResourceSelectionArgsDict(TypedDict):
-    recipes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LifecyclePolicyResourceSelectionRecipeArgs']]]]]
+    recipes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LifecyclePolicyResourceSelectionRecipeArgsDict']]]]]
     """
     A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
     """

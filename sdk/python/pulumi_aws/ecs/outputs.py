@@ -1625,7 +1625,7 @@ class ExpressGatewayServicePrimaryContainer(dict):
         """
         :param _builtins.str image: Docker image to use for the container.
         :param Sequence[_builtins.str] commands: Command to run in the container. Overrides the default command from the Docker image.
-        :param _builtins.int container_port: Port on which the container listens for connections.
+        :param _builtins.int container_port: Port on which the container listens for connections. Defaults to `80`.
         """
         pulumi.set(__self__, "image", image)
         if aws_logs_configurations is not None:
@@ -1666,7 +1666,7 @@ class ExpressGatewayServicePrimaryContainer(dict):
     @pulumi.getter(name="containerPort")
     def container_port(self) -> Optional[_builtins.int]:
         """
-        Port on which the container listens for connections.
+        Port on which the container listens for connections. Defaults to `80`.
         """
         return pulumi.get(self, "container_port")
 
@@ -1873,8 +1873,8 @@ class ExpressGatewayServiceScalingTarget(dict):
         """
         :param _builtins.str auto_scaling_metric: Metric to use for auto-scaling. Valid values are `AVERAGE_CPU`, `AVERAGE_MEMORY` and `REQUEST_COUNT_PER_TARGET`.
         :param _builtins.int auto_scaling_target_value: Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
-        :param _builtins.int max_task_count: Maximum number of tasks to run.
-        :param _builtins.int min_task_count: Minimum number of tasks to run.
+        :param _builtins.int max_task_count: Maximum number of tasks to run. Defaults to `20`.
+        :param _builtins.int min_task_count: Minimum number of tasks to run. Defaults to `1`.
         """
         pulumi.set(__self__, "auto_scaling_metric", auto_scaling_metric)
         pulumi.set(__self__, "auto_scaling_target_value", auto_scaling_target_value)
@@ -1901,7 +1901,7 @@ class ExpressGatewayServiceScalingTarget(dict):
     @pulumi.getter(name="maxTaskCount")
     def max_task_count(self) -> _builtins.int:
         """
-        Maximum number of tasks to run.
+        Maximum number of tasks to run. Defaults to `20`.
         """
         return pulumi.get(self, "max_task_count")
 
@@ -1909,7 +1909,7 @@ class ExpressGatewayServiceScalingTarget(dict):
     @pulumi.getter(name="minTaskCount")
     def min_task_count(self) -> _builtins.int:
         """
-        Minimum number of tasks to run.
+        Minimum number of tasks to run. Defaults to `1`.
         """
         return pulumi.get(self, "min_task_count")
 

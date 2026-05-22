@@ -778,7 +778,7 @@ class UsagePlanApiStageArgsDict(TypedDict):
     """
     API stage name of the associated API stage in a usage plan.
     """
-    throttles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]]]
+    throttles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgsDict']]]]]
     """
     The throttling limits of the usage plan.
     """
