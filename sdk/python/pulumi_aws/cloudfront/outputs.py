@@ -32,6 +32,7 @@ __all__ = [
     'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig',
     'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig',
     'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig',
+    'DistributionCacheTagConfig',
     'DistributionConnectionFunctionAssociation',
     'DistributionCustomErrorResponse',
     'DistributionDefaultCacheBehavior',
@@ -845,6 +846,41 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickiness
         The maximum amount of time in seconds to consider requests from the viewer as being part of the same session. Valid values are `300` - `3600` (5–60 minutes). The value must be greater than or equal to `idle_ttl`.
         """
         return pulumi.get(self, "maximum_ttl")
+
+
+@pulumi.output_type
+class DistributionCacheTagConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionCacheTagConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionCacheTagConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionCacheTagConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_name: _builtins.str):
+        """
+        :param _builtins.str header_name: Name of the HTTP header to extract cache tags. The header value must contain comma-separated tag values.
+        """
+        pulumi.set(__self__, "header_name", header_name)
+
+    @_builtins.property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> _builtins.str:
+        """
+        Name of the HTTP header to extract cache tags. The header value must contain comma-separated tag values.
+        """
+        return pulumi.get(self, "header_name")
 
 
 @pulumi.output_type

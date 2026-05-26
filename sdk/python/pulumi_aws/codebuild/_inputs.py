@@ -206,7 +206,7 @@ class FleetScalingConfigurationArgsDict(TypedDict):
     """
     Scaling type for a compute fleet. Valid value: `TARGET_TRACKING_SCALING`.
     """
-    target_tracking_scaling_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetScalingConfigurationTargetTrackingScalingConfigArgs']]]]]
+    target_tracking_scaling_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FleetScalingConfigurationTargetTrackingScalingConfigArgsDict']]]]]
     """
     Configuration block. Detailed below.
     """
@@ -707,7 +707,7 @@ class ProjectBuildBatchConfigArgsDict(TypedDict):
     Specifies if the build artifacts for the batch build should be combined into a single
     artifact location.
     """
-    restrictions: NotRequired[pulumi.Input[Optional['ProjectBuildBatchConfigRestrictionsArgs']]]
+    restrictions: NotRequired[pulumi.Input[Optional['ProjectBuildBatchConfigRestrictionsArgsDict']]]
     """
     Configuration block specifying the restrictions for the batch build. Detailed below.
     """
@@ -974,15 +974,15 @@ class ProjectEnvironmentArgsDict(TypedDict):
     """
     ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
     """
-    docker_server: NotRequired[pulumi.Input[Optional['ProjectEnvironmentDockerServerArgs']]]
+    docker_server: NotRequired[pulumi.Input[Optional['ProjectEnvironmentDockerServerArgsDict']]]
     """
     Configuration block. Detailed below.
     """
-    environment_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]]]
+    environment_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgsDict']]]]]
     """
     Configuration block. Detailed below.
     """
-    fleet: NotRequired[pulumi.Input[Optional['ProjectEnvironmentFleetArgs']]]
+    fleet: NotRequired[pulumi.Input[Optional['ProjectEnvironmentFleetArgsDict']]]
     """
     Configuration block. Detailed below.
     """
@@ -997,7 +997,7 @@ class ProjectEnvironmentArgsDict(TypedDict):
     Whether to enable running the Docker daemon inside a Docker container. Defaults to
     `false`.
     """
-    registry_credential: NotRequired[pulumi.Input[Optional['ProjectEnvironmentRegistryCredentialArgs']]]
+    registry_credential: NotRequired[pulumi.Input[Optional['ProjectEnvironmentRegistryCredentialArgsDict']]]
     """
     Configuration block. Detailed below.
     """
@@ -1505,11 +1505,11 @@ class ProjectFileSystemLocationArgs:
 
 
 class ProjectLogsConfigArgsDict(TypedDict):
-    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ProjectLogsConfigCloudwatchLogsArgs']]]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ProjectLogsConfigCloudwatchLogsArgsDict']]]
     """
     Configuration block. Detailed below.
     """
-    s3_logs: NotRequired[pulumi.Input[Optional['ProjectLogsConfigS3LogsArgs']]]
+    s3_logs: NotRequired[pulumi.Input[Optional['ProjectLogsConfigS3LogsArgsDict']]]
     """
     Configuration block. Detailed below.
     """
@@ -1989,12 +1989,12 @@ class ProjectSecondarySourceArgsDict(TypedDict):
     Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
     `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
     """
-    auth: NotRequired[pulumi.Input[Optional['ProjectSecondarySourceAuthArgs']]]
+    auth: NotRequired[pulumi.Input[Optional['ProjectSecondarySourceAuthArgsDict']]]
     """
     Information about the strategy CodeBuild should use when authenticating with the source code host.
     Detailed below.
     """
-    build_status_config: NotRequired[pulumi.Input[Optional['ProjectSecondarySourceBuildStatusConfigArgs']]]
+    build_status_config: NotRequired[pulumi.Input[Optional['ProjectSecondarySourceBuildStatusConfigArgsDict']]]
     """
     Configuration block that contains information that defines how the build project
     reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
@@ -2013,7 +2013,7 @@ class ProjectSecondarySourceArgsDict(TypedDict):
     See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
     for details.
     """
-    git_submodules_config: NotRequired[pulumi.Input[Optional['ProjectSecondarySourceGitSubmodulesConfigArgs']]]
+    git_submodules_config: NotRequired[pulumi.Input[Optional['ProjectSecondarySourceGitSubmodulesConfigArgsDict']]]
     """
     Configuration block. Detailed below.
     """
@@ -2416,12 +2416,12 @@ class ProjectSourceArgsDict(TypedDict):
     Type of repository that contains the source code to be built. Valid values: `BITBUCKET`,
     `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `GITLAB`, `GITLAB_SELF_MANAGED`, `NO_SOURCE`, `S3`.
     """
-    auth: NotRequired[pulumi.Input[Optional['ProjectSourceAuthArgs']]]
+    auth: NotRequired[pulumi.Input[Optional['ProjectSourceAuthArgsDict']]]
     """
     Information about the strategy CodeBuild should use when authenticating with the source code host.
     Detailed below.
     """
-    build_status_config: NotRequired[pulumi.Input[Optional['ProjectSourceBuildStatusConfigArgs']]]
+    build_status_config: NotRequired[pulumi.Input[Optional['ProjectSourceBuildStatusConfigArgsDict']]]
     """
     Configuration block that contains information that defines how the build project
     reports the build status to the source provider. This option is only used when the source provider is GitHub, GitHub
@@ -2440,7 +2440,7 @@ class ProjectSourceArgsDict(TypedDict):
     See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html)
     for details.
     """
-    git_submodules_config: NotRequired[pulumi.Input[Optional['ProjectSourceGitSubmodulesConfigArgs']]]
+    git_submodules_config: NotRequired[pulumi.Input[Optional['ProjectSourceGitSubmodulesConfigArgsDict']]]
     """
     Configuration block. Detailed below.
     """
@@ -2838,7 +2838,7 @@ class ReportGroupExportConfigArgsDict(TypedDict):
     """
     The export configuration type. Valid values are `S3` and `NO_EXPORT`.
     """
-    s3_destination: NotRequired[pulumi.Input[Optional['ReportGroupExportConfigS3DestinationArgs']]]
+    s3_destination: NotRequired[pulumi.Input[Optional['ReportGroupExportConfigS3DestinationArgsDict']]]
     """
     contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
     """
@@ -2992,7 +2992,7 @@ class ReportGroupExportConfigS3DestinationArgs:
 
 
 class WebhookFilterGroupArgsDict(TypedDict):
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WebhookFilterGroupFilterArgsDict']]]]]
     """
     A webhook filter for the group. See filter for details.
     """

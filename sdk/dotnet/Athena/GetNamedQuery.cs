@@ -154,6 +154,9 @@ namespace Pulumi.Aws.Athena
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// Text of the query itself.
+        /// </summary>
         public readonly string Querystring;
         public readonly string Region;
         public readonly string? Workgroup;

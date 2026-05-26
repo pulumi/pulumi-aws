@@ -115,7 +115,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<string> ResourceOwner { get; private set; } = null!;
 
         /// <summary>
-        /// Virtual router specification to apply.
+        /// Virtual router specification to apply. See `Spec` Block for details.
         /// </summary>
         [Output("spec")]
         public Output<Outputs.VirtualRouterSpec> Spec { get; private set; } = null!;
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Virtual router specification to apply.
+        /// Virtual router specification to apply. See `Spec` Block for details.
         /// </summary>
         [Input("spec", required: true)]
         public Input<Inputs.VirtualRouterSpecArgs> Spec { get; set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? ResourceOwner { get; set; }
 
         /// <summary>
-        /// Virtual router specification to apply.
+        /// Virtual router specification to apply. See `Spec` Block for details.
         /// </summary>
         [Input("spec")]
         public Input<Inputs.VirtualRouterSpecGetArgs>? Spec { get; set; }

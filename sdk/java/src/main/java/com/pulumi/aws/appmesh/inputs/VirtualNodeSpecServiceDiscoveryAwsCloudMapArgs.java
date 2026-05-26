@@ -33,16 +33,14 @@ public final class VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs extends com.pu
     }
 
     /**
-     * Name of the AWS Cloud Map namespace to use.
-     * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
+     * Name of the AWS Cloud Map namespace to use. Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
      * 
      */
     @Import(name="namespaceName", required=true)
     private Output<String> namespaceName;
 
     /**
-     * @return Name of the AWS Cloud Map namespace to use.
-     * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
+     * @return Name of the AWS Cloud Map namespace to use. Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
      * 
      */
     public Output<String> namespaceName() {
@@ -112,8 +110,7 @@ public final class VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs extends com.pu
         }
 
         /**
-         * @param namespaceName Name of the AWS Cloud Map namespace to use.
-         * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
+         * @param namespaceName Name of the AWS Cloud Map namespace to use. Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
          * 
          * @return builder
          * 
@@ -124,8 +121,7 @@ public final class VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs extends com.pu
         }
 
         /**
-         * @param namespaceName Name of the AWS Cloud Map namespace to use.
-         * Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
+         * @param namespaceName Name of the AWS Cloud Map namespace to use. Use the `aws.servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
          * 
          * @return builder
          * 

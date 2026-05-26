@@ -138,14 +138,14 @@ public final class VirtualServiceState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Virtual service specification to apply.
+     * Virtual service specification to apply. See `spec` Block for details.
      * 
      */
     @Import(name="spec")
     private @Nullable Output<VirtualServiceSpecArgs> spec;
 
     /**
-     * @return Virtual service specification to apply.
+     * @return Virtual service specification to apply. See `spec` Block for details.
      * 
      */
     public Optional<Output<VirtualServiceSpecArgs>> spec() {
@@ -385,7 +385,7 @@ public final class VirtualServiceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param spec Virtual service specification to apply.
+         * @param spec Virtual service specification to apply. See `spec` Block for details.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class VirtualServiceState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param spec Virtual service specification to apply.
+         * @param spec Virtual service specification to apply. See `spec` Block for details.
          * 
          * @return builder
          * 

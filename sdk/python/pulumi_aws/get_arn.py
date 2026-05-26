@@ -79,8 +79,7 @@ class GetArnResult:
     @pulumi.getter
     def region(self) -> _builtins.str:
         """
-        Region the resource resides in.
-        Note that the ARNs for some resources do not include a Region, so this component might be omitted.
+        Region the resource resides in. Note that the ARNs for some resources do not include a Region, so this component might be omitted.
         """
         return pulumi.get(self, "region")
 
@@ -88,8 +87,7 @@ class GetArnResult:
     @pulumi.getter
     def resource(self) -> _builtins.str:
         """
-        Content of this part of the ARN varies by service.
-        It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
+        Content of this part of the ARN varies by service. It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
         """
         return pulumi.get(self, "resource")
 

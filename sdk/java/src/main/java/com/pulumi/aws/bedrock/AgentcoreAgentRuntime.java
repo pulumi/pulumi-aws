@@ -8,6 +8,7 @@ import com.pulumi.aws.bedrock.AgentcoreAgentRuntimeArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeState;
 import com.pulumi.aws.bedrock.outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact;
 import com.pulumi.aws.bedrock.outputs.AgentcoreAgentRuntimeAuthorizerConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentcoreAgentRuntimeFilesystemConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreAgentRuntimeLifecycleConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreAgentRuntimeNetworkConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreAgentRuntimeProtocolConfiguration;
@@ -363,6 +364,20 @@ public class AgentcoreAgentRuntime extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> environmentVariables() {
         return Codegen.optional(this.environmentVariables);
+    }
+    /**
+     * List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+     * 
+     */
+    @Export(name="filesystemConfigurations", refs={List.class,AgentcoreAgentRuntimeFilesystemConfiguration.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<AgentcoreAgentRuntimeFilesystemConfiguration>> filesystemConfigurations;
+
+    /**
+     * @return List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `filesystemConfiguration` below.
+     * 
+     */
+    public Output<Optional<List<AgentcoreAgentRuntimeFilesystemConfiguration>>> filesystemConfigurations() {
+        return Codegen.optional(this.filesystemConfigurations);
     }
     /**
      * Runtime session and resource lifecycle configuration for the agent runtime. See `lifecycleConfiguration` below.

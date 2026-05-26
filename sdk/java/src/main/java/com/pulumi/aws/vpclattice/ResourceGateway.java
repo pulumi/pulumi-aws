@@ -214,6 +214,20 @@ public class ResourceGateway extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
+     * Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+     * 
+     */
+    @Export(name="resourceConfigDnsResolution", refs={String.class}, tree="[0]")
+    private Output<String> resourceConfigDnsResolution;
+
+    /**
+     * @return Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+     * 
+     */
+    public Output<String> resourceConfigDnsResolution() {
+        return this.resourceConfigDnsResolution;
+    }
+    /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      * 
      */

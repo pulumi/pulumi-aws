@@ -148,7 +148,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="endpointAccessMode")
     def endpoint_access_mode(self) -> _builtins.str:
         """
-        (Optional) Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
+        Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
         """
         return pulumi.get(self, "endpoint_access_mode")
 
@@ -156,7 +156,7 @@ class GetDomainNameResult:
     @pulumi.getter(name="endpointConfigurations")
     def endpoint_configurations(self) -> Sequence['outputs.GetDomainNameEndpointConfigurationResult']:
         """
-        List of objects with the endpoint configuration of this domain name.
+        List of objects with the endpoint configuration of this domain name. See below.
         """
         return pulumi.get(self, "endpoint_configurations")
 

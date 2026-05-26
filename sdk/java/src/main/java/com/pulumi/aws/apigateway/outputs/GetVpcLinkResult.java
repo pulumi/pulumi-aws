@@ -12,6 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetVpcLinkResult {
+    /**
+     * @return ARN of the VPC Link.
+     * 
+     */
     private String arn;
     /**
      * @return Description of the VPC link.
@@ -47,6 +51,10 @@ public final class GetVpcLinkResult {
     private List<String> targetArns;
 
     private GetVpcLinkResult() {}
+    /**
+     * @return ARN of the VPC Link.
+     * 
+     */
     public String arn() {
         return this.arn;
     }

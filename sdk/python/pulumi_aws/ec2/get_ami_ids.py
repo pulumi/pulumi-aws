@@ -79,7 +79,7 @@ class GetAmiIdsResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        is set to the list of AMI IDs, sorted by creation time according to `sort_ascending`.
+        List of AMI IDs, sorted by creation time according to `sort_ascending`.
         """
         return pulumi.get(self, "ids")
 
@@ -151,22 +151,13 @@ def get_ami_ids(executable_users: Optional[Sequence[_builtins.str]] = None,
     ```
 
 
-    :param Sequence[_builtins.str] executable_users: Limit search to users with *explicit* launch
-           permission on  the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. There
-           are several valid keys, for a full reference, check out
-           [describe-images in the AWS CLI reference][1].
-    :param _builtins.bool include_deprecated: If true, all deprecated AMIs are included in the response.
-           If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
-    :param _builtins.str name_regex: Regex string to apply to the AMI list returned
-           by AWS. This allows more advanced filtering not supported from the AWS API.
-           This filtering is done locally on what AWS returns, and could have a performance
-           impact if the result is large. Combine this with other
-           options to narrow down the list AWS returns.
+    :param Sequence[_builtins.str] executable_users: Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
+    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` Block below.
+    :param _builtins.bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+    :param _builtins.str name_regex: Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
     :param Sequence[_builtins.str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.bool sort_ascending: Used to sort AMIs by creation time.
-           If no value is specified, the default value is `false`.
+    :param _builtins.bool sort_ascending: Used to sort AMIs by creation time. If no value is specified, the default value is `false`.
     """
     __args__ = dict()
     __args__['executableUsers'] = executable_users
@@ -214,22 +205,13 @@ def get_ami_ids_output(executable_users: pulumi.Input[Optional[Optional[Sequence
     ```
 
 
-    :param Sequence[_builtins.str] executable_users: Limit search to users with *explicit* launch
-           permission on  the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. There
-           are several valid keys, for a full reference, check out
-           [describe-images in the AWS CLI reference][1].
-    :param _builtins.bool include_deprecated: If true, all deprecated AMIs are included in the response.
-           If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
-    :param _builtins.str name_regex: Regex string to apply to the AMI list returned
-           by AWS. This allows more advanced filtering not supported from the AWS API.
-           This filtering is done locally on what AWS returns, and could have a performance
-           impact if the result is large. Combine this with other
-           options to narrow down the list AWS returns.
+    :param Sequence[_builtins.str] executable_users: Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
+    :param Sequence[Union['GetAmiIdsFilterArgs', 'GetAmiIdsFilterArgsDict']] filters: One or more name/value pairs to filter off of. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` Block below.
+    :param _builtins.bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+    :param _builtins.str name_regex: Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
     :param Sequence[_builtins.str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.bool sort_ascending: Used to sort AMIs by creation time.
-           If no value is specified, the default value is `false`.
+    :param _builtins.bool sort_ascending: Used to sort AMIs by creation time. If no value is specified, the default value is `false`.
     """
     __args__ = dict()
     __args__['executableUsers'] = executable_users

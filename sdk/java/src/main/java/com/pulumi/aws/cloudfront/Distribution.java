@@ -6,6 +6,7 @@ package com.pulumi.aws.cloudfront;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.cloudfront.DistributionArgs;
 import com.pulumi.aws.cloudfront.inputs.DistributionState;
+import com.pulumi.aws.cloudfront.outputs.DistributionCacheTagConfig;
 import com.pulumi.aws.cloudfront.outputs.DistributionConnectionFunctionAssociation;
 import com.pulumi.aws.cloudfront.outputs.DistributionCustomErrorResponse;
 import com.pulumi.aws.cloudfront.outputs.DistributionDefaultCacheBehavior;
@@ -678,6 +679,20 @@ public class Distribution extends com.pulumi.resources.CustomResource {
      */
     public Output<String> arn() {
         return this.arn;
+    }
+    /**
+     * Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+     * 
+     */
+    @Export(name="cacheTagConfig", refs={DistributionCacheTagConfig.class}, tree="[0]")
+    private Output</* @Nullable */ DistributionCacheTagConfig> cacheTagConfig;
+
+    /**
+     * @return Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+     * 
+     */
+    public Output<Optional<DistributionCacheTagConfig>> cacheTagConfig() {
+        return Codegen.optional(this.cacheTagConfig);
     }
     /**
      * Internal value used by CloudFront to allow future updates to the distribution configuration.

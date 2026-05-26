@@ -96,7 +96,7 @@ import * as utilities from "../utilities";
  * });
  * // Logging to S3 Bucket
  * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example-event-bus-logs"});
- * const bucket = pulumi.all([exampleBucket.arn, current, current, infoLogs.arn, errorLogs.arn, traceLogs.arn]).apply(([exampleBucketArn, current, current1, infoLogsArn, errorLogsArn, traceLogsArn]) => aws.iam.getPolicyDocumentOutput({
+ * const bucket = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -104,7 +104,7 @@ import * as utilities from "../utilities";
  *             identifiers: ["delivery.logs.amazonaws.com"],
  *         }],
  *         actions: ["s3:PutObject"],
- *         resources: [`${exampleBucketArn}/AWSLogs/${current.accountId}/EventBusLogs/*`],
+ *         resources: [Promise.all([exampleBucket.arn, current]).then(([arn, current]) => `${arn}/AWSLogs/${current.accountId}/EventBusLogs/*`)],
  *         conditions: [
  *             {
  *                 test: "StringEquals",
@@ -114,20 +114,20 @@ import * as utilities from "../utilities";
  *             {
  *                 test: "StringEquals",
  *                 variable: "aws:SourceAccount",
- *                 values: [current1.accountId],
+ *                 values: [current.then(current => current.accountId)],
  *             },
  *             {
  *                 test: "ArnLike",
  *                 variable: "aws:SourceArn",
  *                 values: [
- *                     infoLogsArn,
- *                     errorLogsArn,
- *                     traceLogsArn,
+ *                     infoLogs.arn,
+ *                     errorLogs.arn,
+ *                     traceLogs.arn,
  *                 ],
  *             },
  *         ],
  *     }],
- * }));
+ * });
  * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
  *     bucket: exampleBucket.bucket,
  *     policy: bucket.apply(bucket => bucket.json),
@@ -156,7 +156,7 @@ import * as utilities from "../utilities";
  * });
  * // Logging to CloudWatch Log Group
  * const eventBusLogs = new aws.cloudwatch.LogGroup("event_bus_logs", {name: pulumi.interpolate`/aws/vendedlogs/events/event-bus/${example.name}`});
- * const cwlogs = pulumi.all([eventBusLogs.arn, current, infoLogs.arn, errorLogs.arn, traceLogs.arn]).apply(([eventBusLogsArn, current, infoLogsArn, errorLogsArn, traceLogsArn]) => aws.iam.getPolicyDocumentOutput({
+ * const cwlogs = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -167,25 +167,25 @@ import * as utilities from "../utilities";
  *             "logs:CreateLogStream",
  *             "logs:PutLogEvents",
  *         ],
- *         resources: [`${eventBusLogsArn}:log-stream:*`],
+ *         resources: [pulumi.interpolate`${eventBusLogs.arn}:log-stream:*`],
  *         conditions: [
  *             {
  *                 test: "StringEquals",
  *                 variable: "aws:SourceAccount",
- *                 values: [current.accountId],
+ *                 values: [current.then(current => current.accountId)],
  *             },
  *             {
  *                 test: "ArnLike",
  *                 variable: "aws:SourceArn",
  *                 values: [
- *                     infoLogsArn,
- *                     errorLogsArn,
- *                     traceLogsArn,
+ *                     infoLogs.arn,
+ *                     errorLogs.arn,
+ *                     traceLogs.arn,
  *                 ],
  *             },
  *         ],
  *     }],
- * }));
+ * });
  * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("example", {
  *     policyDocument: cwlogs.apply(cwlogs => cwlogs.json),
  *     policyName: pulumi.interpolate`AWSLogDeliveryWrite-${example.name}`,

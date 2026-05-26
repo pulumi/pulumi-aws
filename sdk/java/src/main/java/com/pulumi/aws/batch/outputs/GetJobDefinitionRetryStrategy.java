@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionRetryStrategy {
     /**
-     * @return The number of times to move a job to the RUNNABLE status.
+     * @return Number of times to move a job to the RUNNABLE status.
      * 
      */
     private Integer attempts;
@@ -25,7 +25,7 @@ public final class GetJobDefinitionRetryStrategy {
 
     private GetJobDefinitionRetryStrategy() {}
     /**
-     * @return The number of times to move a job to the RUNNABLE status.
+     * @return Number of times to move a job to the RUNNABLE status.
      * 
      */
     public Integer attempts() {

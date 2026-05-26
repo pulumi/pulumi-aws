@@ -61,21 +61,15 @@ export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<
  */
 export interface GetAmiArgs {
     /**
-     * If true, allow unsafe filter values. With unsafe
-     * filters and `mostRecent` set to `true`, a third party may introduce a new image which
-     * will be returned by this data source. Consider filtering by owner or image ID rather
-     * than setting this argument.
+     * If true, allow unsafe filter values. With unsafe filters and `mostRecent` set to `true`, a third party may introduce a new image which will be returned by this data source. Consider filtering by owner or image ID rather than setting this argument.
      */
     allowUnsafeFilter?: boolean;
     /**
-     * Limit search to users with *explicit* launch permission on
-     * the image. Valid items are the numeric account ID or `self`.
+     * Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
      */
     executableUsers?: string[];
     /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-images in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
      */
     filters?: inputs.ec2.GetAmiFilter[];
     /**
@@ -83,21 +77,11 @@ export interface GetAmiArgs {
      */
     includeDeprecated?: boolean;
     /**
-     * If more than one result is returned, use the most
-     * recent AMI.
+     * If more than one result is returned, use the most recent AMI.
      */
     mostRecent?: boolean;
     /**
-     * Regex string to apply to the AMI list returned
-     * by AWS. This allows more advanced filtering not supported from the AWS API. This
-     * filtering is done locally on what AWS returns, and could have a performance
-     * impact if the result is large. Combine this with other
-     * options to narrow down the list AWS returns.
-     *
-     * > **NOTE:** If more or less than a single match is returned by the search,
-     * this call will fail. Ensure that your search is specific enough to return
-     * a single AMI ID only, or use `mostRecent` to choose the most recent one. If
-     * you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
+     * Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
      */
     nameRegex?: string;
     /**
@@ -110,12 +94,12 @@ export interface GetAmiArgs {
     region?: string;
     /**
      * Any tags assigned to the image.
-     * * `tags.#.key` - Key name of the tag.
-     * * `tags.#.value` - Value of the tag.
      */
     tags?: {[key: string]: string};
     /**
-     * (Optional) Base64 representation of the non-volatile UEFI variable store.
+     * Base64 representation of the non-volatile UEFI variable store.
+     *
+     * > **NOTE:** If more or less than a single match is returned by the search, this call will fail. Ensure that your search is specific enough to return a single AMI ID only, or use `mostRecent` to choose the most recent one. If you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
      */
     uefiData?: string;
 }
@@ -134,7 +118,7 @@ export interface GetAmiResult {
      */
     readonly arn: string;
     /**
-     * Set of objects with block device mappings of the AMI.
+     * Set of objects with block device mappings of the AMI. See `blockDeviceMappings` below.
      */
     readonly blockDeviceMappings: outputs.ec2.GetAmiBlockDeviceMapping[];
     /**
@@ -150,8 +134,7 @@ export interface GetAmiResult {
      */
     readonly deprecationTime: string;
     /**
-     * Description of the AMI that was provided during image
-     * creation.
+     * Description of the AMI that was provided during image creation.
      */
     readonly description: string;
     /**
@@ -177,8 +160,7 @@ export interface GetAmiResult {
      */
     readonly imageLocation: string;
     /**
-     * AWS account alias (for example, `amazon`, `self`) or
-     * the AWS account ID of the AMI owner.
+     * AWS account alias (for example, `amazon`, `self`) or the AWS account ID of the AMI owner.
      */
     readonly imageOwnerAlias: string;
     /**
@@ -191,17 +173,16 @@ export interface GetAmiResult {
     readonly imdsSupport: string;
     readonly includeDeprecated?: boolean;
     /**
-     * Kernel associated with the image, if any. Only applicable
-     * for machine images.
+     * Kernel associated with the image, if any. Only applicable for machine images.
      */
     readonly kernelId: string;
     /**
-     * Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+     * Date and time, in ISO 8601 date-time format, when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
      */
     readonly lastLaunchedTime: string;
     readonly mostRecent?: boolean;
     /**
-     * Name of the AMI that was provided during image creation.
+     * Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
      */
     readonly name: string;
     readonly nameRegex?: string;
@@ -219,9 +200,7 @@ export interface GetAmiResult {
      */
     readonly platformDetails: string;
     /**
-     * Any product codes associated with the AMI.
-     * * `product_codes.#.product_code_id` - The product code.
-     * * `product_codes.#.product_code_type` - The type of product code.
+     * Any product codes associated with the AMI. See `productCodes` below.
      */
     readonly productCodes: outputs.ec2.GetAmiProductCode[];
     /**
@@ -229,8 +208,7 @@ export interface GetAmiResult {
      */
     readonly public: boolean;
     /**
-     * RAM disk associated with the image, if any. Only applicable
-     * for machine images.
+     * RAM disk associated with the image, if any. Only applicable for machine images.
      */
     readonly ramdiskId: string;
     readonly region: string;
@@ -243,8 +221,7 @@ export interface GetAmiResult {
      */
     readonly rootDeviceType: string;
     /**
-     * Snapshot id associated with the root device, if any
-     * (only applies to `ebs` root devices).
+     * Snapshot id associated with the root device, if any (only applies to `ebs` root devices).
      */
     readonly rootSnapshotId: string;
     /**
@@ -252,35 +229,28 @@ export interface GetAmiResult {
      */
     readonly sriovNetSupport: string;
     /**
-     * Current state of the AMI. If the state is `available`, the image
-     * is successfully registered and can be used to launch an instance.
+     * Current state of the AMI. If the state is `available`, the image is successfully registered and can be used to launch an instance.
      */
     readonly state: string;
     /**
-     * Describes a state change. Fields are `UNSET` if not available.
+     * Describes a state change. Fields are `UNSET` if not available. See `stateReason` below.
      */
     readonly stateReason: {[key: string]: string};
     /**
      * Any tags assigned to the image.
-     * * `tags.#.key` - Key name of the tag.
-     * * `tags.#.value` - Value of the tag.
      */
     readonly tags: {[key: string]: string};
     /**
      * If the image is configured for NitroTPM support, the value is `v2.0`.
      */
     readonly tpmSupport: string;
-    /**
-     * (Optional) Base64 representation of the non-volatile UEFI variable store.
-     */
     readonly uefiData?: string;
     /**
      * Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
     readonly usageOperation: string;
     /**
-     * Type of virtualization of the AMI (ie: `hvm` or
-     * `paravirtual`).
+     * Type of virtualization of the AMI (ie: `hvm` or `paravirtual`).
      */
     readonly virtualizationType: string;
 }
@@ -338,21 +308,15 @@ export function getAmiOutput(args?: GetAmiOutputArgs, opts?: pulumi.InvokeOutput
  */
 export interface GetAmiOutputArgs {
     /**
-     * If true, allow unsafe filter values. With unsafe
-     * filters and `mostRecent` set to `true`, a third party may introduce a new image which
-     * will be returned by this data source. Consider filtering by owner or image ID rather
-     * than setting this argument.
+     * If true, allow unsafe filter values. With unsafe filters and `mostRecent` set to `true`, a third party may introduce a new image which will be returned by this data source. Consider filtering by owner or image ID rather than setting this argument.
      */
     allowUnsafeFilter?: pulumi.Input<boolean | undefined>;
     /**
-     * Limit search to users with *explicit* launch permission on
-     * the image. Valid items are the numeric account ID or `self`.
+     * Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
      */
     executableUsers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * One or more name/value pairs to filter off of. There are
-     * several valid keys, for a full reference, check out
-     * [describe-images in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetAmiFilterArgs>[] | undefined>;
     /**
@@ -360,21 +324,11 @@ export interface GetAmiOutputArgs {
      */
     includeDeprecated?: pulumi.Input<boolean | undefined>;
     /**
-     * If more than one result is returned, use the most
-     * recent AMI.
+     * If more than one result is returned, use the most recent AMI.
      */
     mostRecent?: pulumi.Input<boolean | undefined>;
     /**
-     * Regex string to apply to the AMI list returned
-     * by AWS. This allows more advanced filtering not supported from the AWS API. This
-     * filtering is done locally on what AWS returns, and could have a performance
-     * impact if the result is large. Combine this with other
-     * options to narrow down the list AWS returns.
-     *
-     * > **NOTE:** If more or less than a single match is returned by the search,
-     * this call will fail. Ensure that your search is specific enough to return
-     * a single AMI ID only, or use `mostRecent` to choose the most recent one. If
-     * you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
+     * Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
      */
     nameRegex?: pulumi.Input<string | undefined>;
     /**
@@ -387,12 +341,12 @@ export interface GetAmiOutputArgs {
     region?: pulumi.Input<string | undefined>;
     /**
      * Any tags assigned to the image.
-     * * `tags.#.key` - Key name of the tag.
-     * * `tags.#.value` - Value of the tag.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * (Optional) Base64 representation of the non-volatile UEFI variable store.
+     * Base64 representation of the non-volatile UEFI variable store.
+     *
+     * > **NOTE:** If more or less than a single match is returned by the search, this call will fail. Ensure that your search is specific enough to return a single AMI ID only, or use `mostRecent` to choose the most recent one. If you want to match multiple AMIs, use the `aws.ec2.getAmiIds` data source instead.
      */
     uefiData?: pulumi.Input<string | undefined>;
 }

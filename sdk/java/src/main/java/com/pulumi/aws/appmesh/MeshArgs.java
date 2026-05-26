@@ -48,14 +48,14 @@ public final class MeshArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Service mesh specification to apply.
+     * Service mesh specification to apply. See `spec` Block for details.
      * 
      */
     @Import(name="spec")
     private @Nullable Output<MeshSpecArgs> spec;
 
     /**
-     * @return Service mesh specification to apply.
+     * @return Service mesh specification to apply. See `spec` Block for details.
      * 
      */
     public Optional<Output<MeshSpecArgs>> spec() {
@@ -147,7 +147,7 @@ public final class MeshArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec Service mesh specification to apply.
+         * @param spec Service mesh specification to apply. See `spec` Block for details.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class MeshArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param spec Service mesh specification to apply.
+         * @param spec Service mesh specification to apply. See `spec` Block for details.
          * 
          * @return builder
          * 

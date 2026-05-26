@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAmiProductCode {
+    /**
+     * @return The product code.
+     * 
+     */
     private String productCodeId;
+    /**
+     * @return The type of product code.
+     * 
+     */
     private String productCodeType;
 
     private GetAmiProductCode() {}
+    /**
+     * @return The product code.
+     * 
+     */
     public String productCodeId() {
         return this.productCodeId;
     }
+    /**
+     * @return The type of product code.
+     * 
+     */
     public String productCodeType() {
         return this.productCodeType;
     }

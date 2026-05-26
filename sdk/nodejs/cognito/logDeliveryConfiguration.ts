@@ -38,7 +38,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cognito.UserPool("example", {name: "example"});
+ * const example = new aws.cognito.UserPool("example", {
+ *     name: "example",
+ *     userPoolTier: "PLUS",
+ * });
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "example"});
  * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "example-bucket",
@@ -99,7 +102,7 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             eventSource: "userAuthEvents",
- *             logLevel: "ERROR",
+ *             logLevel: "INFO",
  *             firehoseConfiguration: {
  *                 streamArn: exampleFirehoseDeliveryStream.arn,
  *             },
@@ -114,7 +117,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.cognito.UserPool("example", {name: "example"});
+ * const example = new aws.cognito.UserPool("example", {
+ *     name: "example",
+ *     userPoolTier: "PLUS",
+ * });
  * const exampleBucket = new aws.s3.Bucket("example", {
  *     bucket: "example-bucket",
  *     forceDestroy: true,
@@ -122,8 +128,8 @@ import * as utilities from "../utilities";
  * const exampleLogDeliveryConfiguration = new aws.cognito.LogDeliveryConfiguration("example", {
  *     userPoolId: example.id,
  *     logConfigurations: [{
- *         eventSource: "userNotification",
- *         logLevel: "ERROR",
+ *         eventSource: "userAuthEvents",
+ *         logLevel: "INFO",
  *         s3Configuration: {
  *             bucketArn: exampleBucket.arn,
  *         },

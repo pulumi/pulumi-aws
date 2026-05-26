@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost {
     /**
-     * @return The path on the host container instance that&#39;s presented to the container.
+     * @return Path on the host container instance that&#39;s presented to the container.
      * 
      */
     private String sourcePath;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHost() {}
     /**
-     * @return The path on the host container instance that&#39;s presented to the container.
+     * @return Path on the host container instance that&#39;s presented to the container.
      * 
      */
     public String sourcePath() {

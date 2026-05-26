@@ -616,6 +616,8 @@ type Distribution struct {
 	AnycastIpListId pulumi.StringPtrOutput `pulumi:"anycastIpListId"`
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+	CacheTagConfig DistributionCacheTagConfigPtrOutput `pulumi:"cacheTagConfig"`
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
 	CallerReference pulumi.StringOutput `pulumi:"callerReference"`
 	// Any comments you want to include about the distribution.
@@ -735,6 +737,8 @@ type distributionState struct {
 	AnycastIpListId *string `pulumi:"anycastIpListId"`
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn *string `pulumi:"arn"`
+	// Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+	CacheTagConfig *DistributionCacheTagConfig `pulumi:"cacheTagConfig"`
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
 	CallerReference *string `pulumi:"callerReference"`
 	// Any comments you want to include about the distribution.
@@ -810,6 +814,8 @@ type DistributionState struct {
 	AnycastIpListId pulumi.StringPtrInput
 	// ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 	Arn pulumi.StringPtrInput
+	// Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+	CacheTagConfig DistributionCacheTagConfigPtrInput
 	// Internal value used by CloudFront to allow future updates to the distribution configuration.
 	CallerReference pulumi.StringPtrInput
 	// Any comments you want to include about the distribution.
@@ -887,6 +893,8 @@ type distributionArgs struct {
 	Aliases []string `pulumi:"aliases"`
 	// ID of the Anycast static IP list that is associated with the distribution.
 	AnycastIpListId *string `pulumi:"anycastIpListId"`
+	// Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+	CacheTagConfig *DistributionCacheTagConfig `pulumi:"cacheTagConfig"`
 	// Any comments you want to include about the distribution.
 	Comment *string `pulumi:"comment"`
 	// A connection function association configuration block (maximum one).
@@ -939,6 +947,8 @@ type DistributionArgs struct {
 	Aliases pulumi.StringArrayInput
 	// ID of the Anycast static IP list that is associated with the distribution.
 	AnycastIpListId pulumi.StringPtrInput
+	// Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+	CacheTagConfig DistributionCacheTagConfigPtrInput
 	// Any comments you want to include about the distribution.
 	Comment pulumi.StringPtrInput
 	// A connection function association configuration block (maximum one).
@@ -1085,6 +1095,11 @@ func (o DistributionOutput) AnycastIpListId() pulumi.StringPtrOutput {
 // ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
 func (o DistributionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Distribution) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+func (o DistributionOutput) CacheTagConfig() DistributionCacheTagConfigPtrOutput {
+	return o.ApplyT(func(v *Distribution) DistributionCacheTagConfigPtrOutput { return v.CacheTagConfig }).(DistributionCacheTagConfigPtrOutput)
 }
 
 // Internal value used by CloudFront to allow future updates to the distribution configuration.

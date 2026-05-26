@@ -22,12 +22,12 @@ public final class ExpressGatewayServiceScalingTarget {
      */
     private Integer autoScalingTargetValue;
     /**
-     * @return Maximum number of tasks to run.
+     * @return Maximum number of tasks to run. Defaults to `20`.
      * 
      */
     private Integer maxTaskCount;
     /**
-     * @return Minimum number of tasks to run.
+     * @return Minimum number of tasks to run. Defaults to `1`.
      * 
      */
     private Integer minTaskCount;
@@ -48,14 +48,14 @@ public final class ExpressGatewayServiceScalingTarget {
         return this.autoScalingTargetValue;
     }
     /**
-     * @return Maximum number of tasks to run.
+     * @return Maximum number of tasks to run. Defaults to `20`.
      * 
      */
     public Integer maxTaskCount() {
         return this.maxTaskCount;
     }
     /**
-     * @return Minimum number of tasks to run.
+     * @return Minimum number of tasks to run. Defaults to `1`.
      * 
      */
     public Integer minTaskCount() {

@@ -407,7 +407,18 @@ class AgentFlow(pulumi.CustomResource):
 
         ## Example Usage
 
-        The default definition:
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentFlow("example",
+            name="example-flow",
+            execution_role_arn=example_aws_iam_role["arn"])
+        ```
+
+        ### Default definition
 
         ```python
         import pulumi
@@ -542,7 +553,18 @@ class AgentFlow(pulumi.CustomResource):
 
         ## Example Usage
 
-        The default definition:
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentFlow("example",
+            name="example-flow",
+            execution_role_arn=example_aws_iam_role["arn"])
+        ```
+
+        ### Default definition
 
         ```python
         import pulumi

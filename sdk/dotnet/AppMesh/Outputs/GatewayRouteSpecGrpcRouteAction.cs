@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class GatewayRouteSpecGrpcRouteAction
     {
         /// <summary>
-        /// Target that traffic is routed to when a request matches the gateway route.
+        /// Target that traffic is routed to when a request matches the gateway route. See `Target` Block for details.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecGrpcRouteActionTarget Target;
 

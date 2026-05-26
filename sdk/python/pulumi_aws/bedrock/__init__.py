@@ -22,6 +22,7 @@ from .agentcore_browser import *
 from .agentcore_code_interpreter import *
 from .agentcore_gateway import *
 from .agentcore_gateway_target import *
+from .agentcore_harness import *
 from .agentcore_memory import *
 from .agentcore_memory_strategy import *
 from .agentcore_oauth2_credential_provider import *

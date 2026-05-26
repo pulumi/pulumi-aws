@@ -13,9 +13,13 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GroupInsightsConfiguration',
+    'IndexingRuleRule',
+    'IndexingRuleRuleProbabilistic',
+    'TraceSegmentDestinationTimeouts',
 ]
 
 @pulumi.output_type
@@ -65,5 +69,104 @@ class GroupInsightsConfiguration(dict):
         Specifies whether insight notifications are enabled.
         """
         return pulumi.get(self, "notifications_enabled")
+
+
+@pulumi.output_type
+class IndexingRuleRule(dict):
+    def __init__(__self__, *,
+                 probabilistic: Optional['outputs.IndexingRuleRuleProbabilistic'] = None):
+        """
+        :param 'IndexingRuleRuleProbabilisticArgs' probabilistic: Indexing rule configuration used to probabilistically sample traceIds. See `probabilistic` Block below.
+        """
+        if probabilistic is not None:
+            pulumi.set(__self__, "probabilistic", probabilistic)
+
+    @_builtins.property
+    @pulumi.getter
+    def probabilistic(self) -> Optional['outputs.IndexingRuleRuleProbabilistic']:
+        """
+        Indexing rule configuration used to probabilistically sample traceIds. See `probabilistic` Block below.
+        """
+        return pulumi.get(self, "probabilistic")
+
+
+@pulumi.output_type
+class IndexingRuleRuleProbabilistic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "desiredSamplingPercentage":
+            suggest = "desired_sampling_percentage"
+        elif key == "actualSamplingPercentage":
+            suggest = "actual_sampling_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IndexingRuleRuleProbabilistic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IndexingRuleRuleProbabilistic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IndexingRuleRuleProbabilistic.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 desired_sampling_percentage: _builtins.float,
+                 actual_sampling_percentage: Optional[_builtins.float] = None):
+        """
+        :param _builtins.float desired_sampling_percentage: Configured sampling percentage of traceIds.
+        :param _builtins.float actual_sampling_percentage: Applied sampling percentage of traceIds.
+        """
+        pulumi.set(__self__, "desired_sampling_percentage", desired_sampling_percentage)
+        if actual_sampling_percentage is not None:
+            pulumi.set(__self__, "actual_sampling_percentage", actual_sampling_percentage)
+
+    @_builtins.property
+    @pulumi.getter(name="desiredSamplingPercentage")
+    def desired_sampling_percentage(self) -> _builtins.float:
+        """
+        Configured sampling percentage of traceIds.
+        """
+        return pulumi.get(self, "desired_sampling_percentage")
+
+    @_builtins.property
+    @pulumi.getter(name="actualSamplingPercentage")
+    def actual_sampling_percentage(self) -> Optional[_builtins.float]:
+        """
+        Applied sampling percentage of traceIds.
+        """
+        return pulumi.get(self, "actual_sampling_percentage")
+
+
+@pulumi.output_type
+class TraceSegmentDestinationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 

@@ -84,9 +84,7 @@ type LookupCertificateArgs struct {
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-	// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-	// are returned.
+	// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`, `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state are returned.
 	Statuses []string `pulumi:"statuses"`
 	// A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
 	Tags map[string]string `pulumi:"tags"`
@@ -135,9 +133,7 @@ type LookupCertificateOutputArgs struct {
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-	// `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-	// are returned.
+	// List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`, `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state are returned.
 	Statuses pulumi.StringArrayInput `pulumi:"statuses"`
 	// A mapping of tags, each pair of which must exactly match a pair on the desired certificates.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

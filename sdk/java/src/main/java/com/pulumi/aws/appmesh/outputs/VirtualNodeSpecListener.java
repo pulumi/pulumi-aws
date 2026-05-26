@@ -18,74 +18,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecListener {
     /**
-     * @return Connection pool information for the listener.
+     * @return Connection pool information for the listener. See `connectionPool` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerConnectionPool connectionPool;
     /**
-     * @return Health check information for the listener.
+     * @return Health check information for the listener. See `healthCheck` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerHealthCheck healthCheck;
     /**
-     * @return Outlier detection information for the listener.
+     * @return Outlier detection information for the listener. See `outlierDetection` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerOutlierDetection outlierDetection;
     /**
-     * @return Port mapping information for the listener.
+     * @return Port mapping information for the listener. See `portMapping` Block for details.
      * 
      */
     private VirtualNodeSpecListenerPortMapping portMapping;
     /**
-     * @return Timeouts for different protocols.
+     * @return Timeouts for different protocols. See `timeout` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTimeout timeout;
     /**
-     * @return Transport Layer Security (TLS) properties for the listener
+     * @return Transport Layer Security (TLS) properties for the listener. See `tls` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTls tls;
 
     private VirtualNodeSpecListener() {}
     /**
-     * @return Connection pool information for the listener.
+     * @return Connection pool information for the listener. See `connectionPool` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerConnectionPool> connectionPool() {
         return Optional.ofNullable(this.connectionPool);
     }
     /**
-     * @return Health check information for the listener.
+     * @return Health check information for the listener. See `healthCheck` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerHealthCheck> healthCheck() {
         return Optional.ofNullable(this.healthCheck);
     }
     /**
-     * @return Outlier detection information for the listener.
+     * @return Outlier detection information for the listener. See `outlierDetection` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerOutlierDetection> outlierDetection() {
         return Optional.ofNullable(this.outlierDetection);
     }
     /**
-     * @return Port mapping information for the listener.
+     * @return Port mapping information for the listener. See `portMapping` Block for details.
      * 
      */
     public VirtualNodeSpecListenerPortMapping portMapping() {
         return this.portMapping;
     }
     /**
-     * @return Timeouts for different protocols.
+     * @return Timeouts for different protocols. See `timeout` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTimeout> timeout() {
         return Optional.ofNullable(this.timeout);
     }
     /**
-     * @return Transport Layer Security (TLS) properties for the listener
+     * @return Transport Layer Security (TLS) properties for the listener. See `tls` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTls> tls() {

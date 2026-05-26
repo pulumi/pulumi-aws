@@ -385,7 +385,7 @@ class ConnectorAs2ConfigArgs:
 
 
 class ConnectorEgressConfigArgsDict(TypedDict):
-    vpc_lattice: NotRequired[pulumi.Input[Optional['ConnectorEgressConfigVpcLatticeArgs']]]
+    vpc_lattice: NotRequired[pulumi.Input[Optional['ConnectorEgressConfigVpcLatticeArgsDict']]]
     """
     VPC Lattice configuration for routing connector traffic through customer VPCs. Fields documented below.
     """
@@ -744,11 +744,11 @@ class ServerS3StorageOptionsArgs:
 
 
 class ServerWorkflowDetailsArgsDict(TypedDict):
-    on_partial_upload: NotRequired[pulumi.Input[Optional['ServerWorkflowDetailsOnPartialUploadArgs']]]
+    on_partial_upload: NotRequired[pulumi.Input[Optional['ServerWorkflowDetailsOnPartialUploadArgsDict']]]
     """
     A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below. See `on_partial_upload` Block below for details.
     """
-    on_upload: NotRequired[pulumi.Input[Optional['ServerWorkflowDetailsOnUploadArgs']]]
+    on_upload: NotRequired[pulumi.Input[Optional['ServerWorkflowDetailsOnUploadArgsDict']]]
     """
     A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See `on_upload` Block below for details.
     """
@@ -1028,7 +1028,7 @@ class UserPosixProfileArgs:
 
 
 class WebAppEndpointDetailsArgsDict(TypedDict):
-    vpc: NotRequired[pulumi.Input[Optional['WebAppEndpointDetailsVpcArgs']]]
+    vpc: NotRequired[pulumi.Input[Optional['WebAppEndpointDetailsVpcArgsDict']]]
     """
     Block defining VPC configuration for hosting the web app endpoint within a VPC. See Vpc below.
     """
@@ -1144,7 +1144,7 @@ class WebAppEndpointDetailsVpcArgs:
 
 
 class WebAppIdentityProviderDetailsArgsDict(TypedDict):
-    identity_center_config: NotRequired[pulumi.Input[Optional['WebAppIdentityProviderDetailsIdentityCenterConfigArgs']]]
+    identity_center_config: NotRequired[pulumi.Input[Optional['WebAppIdentityProviderDetailsIdentityCenterConfigArgsDict']]]
     """
     Block that describes the values to use for the IAM Identity Center settings. See Identity center config below.
     """
@@ -1255,23 +1255,23 @@ class WebAppWebAppUnitArgs:
 
 class WorkflowOnExceptionStepArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    copy_step_details: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepCopyStepDetailsArgs']]]
+    copy_step_details: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepCopyStepDetailsArgsDict']]]
     """
     Details for a step that performs a file copy. See Copy Step Details below.
     """
-    custom_step_details: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepCustomStepDetailsArgs']]]
+    custom_step_details: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepCustomStepDetailsArgsDict']]]
     """
     Details for a step that invokes a lambda function.
     """
-    decrypt_step_details: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepDecryptStepDetailsArgs']]]
+    decrypt_step_details: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepDecryptStepDetailsArgsDict']]]
     """
     Details for a step that decrypts the file.
     """
-    delete_step_details: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepDeleteStepDetailsArgs']]]
+    delete_step_details: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepDeleteStepDetailsArgsDict']]]
     """
     Details for a step that deletes the file.
     """
-    tag_step_details: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepTagStepDetailsArgs']]]
+    tag_step_details: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepTagStepDetailsArgsDict']]]
     """
     Details for a step that creates one or more tags.
     """
@@ -1375,7 +1375,7 @@ class WorkflowOnExceptionStepArgs:
 
 
 class WorkflowOnExceptionStepCopyStepDetailsArgsDict(TypedDict):
-    destination_file_location: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs']]]
+    destination_file_location: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgsDict']]]
     """
     Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
     """
@@ -1464,11 +1464,11 @@ class WorkflowOnExceptionStepCopyStepDetailsArgs:
 
 
 class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgsDict(TypedDict):
-    efs_file_location: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs']]]
+    efs_file_location: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgsDict']]]
     """
     Specifies the details for the EFS file being copied.
     """
-    s3_file_location: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs']]]
+    s3_file_location: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgsDict']]]
     """
     Specifies the details for the S3 file being copied.
     """
@@ -1704,7 +1704,7 @@ class WorkflowOnExceptionStepDecryptStepDetailsArgsDict(TypedDict):
     """
     The type of encryption used. Currently, this value must be `"PGP"`.
     """
-    destination_file_location: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs']]]
+    destination_file_location: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgsDict']]]
     """
     Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
     """
@@ -1808,11 +1808,11 @@ class WorkflowOnExceptionStepDecryptStepDetailsArgs:
 
 
 class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgsDict(TypedDict):
-    efs_file_location: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs']]]
+    efs_file_location: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgsDict']]]
     """
     Specifies the details for the EFS file being copied.
     """
-    s3_file_location: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs']]]
+    s3_file_location: NotRequired[pulumi.Input[Optional['WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgsDict']]]
     """
     Specifies the details for the S3 file being copied.
     """
@@ -2012,7 +2012,7 @@ class WorkflowOnExceptionStepTagStepDetailsArgsDict(TypedDict):
     """
     Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
     """
-    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowOnExceptionStepTagStepDetailsTagArgs']]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowOnExceptionStepTagStepDetailsTagArgsDict']]]]]
     """
     Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
     """
@@ -2114,23 +2114,23 @@ class WorkflowOnExceptionStepTagStepDetailsTagArgs:
 
 class WorkflowStepArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
-    copy_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepCopyStepDetailsArgs']]]
+    copy_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepCopyStepDetailsArgsDict']]]
     """
     Details for a step that performs a file copy. See Copy Step Details below.
     """
-    custom_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepCustomStepDetailsArgs']]]
+    custom_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepCustomStepDetailsArgsDict']]]
     """
     Details for a step that invokes a lambda function.
     """
-    decrypt_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepDecryptStepDetailsArgs']]]
+    decrypt_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepDecryptStepDetailsArgsDict']]]
     """
     Details for a step that decrypts the file.
     """
-    delete_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepDeleteStepDetailsArgs']]]
+    delete_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepDeleteStepDetailsArgsDict']]]
     """
     Details for a step that deletes the file.
     """
-    tag_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepTagStepDetailsArgs']]]
+    tag_step_details: NotRequired[pulumi.Input[Optional['WorkflowStepTagStepDetailsArgsDict']]]
     """
     Details for a step that creates one or more tags.
     """
@@ -2234,7 +2234,7 @@ class WorkflowStepArgs:
 
 
 class WorkflowStepCopyStepDetailsArgsDict(TypedDict):
-    destination_file_location: NotRequired[pulumi.Input[Optional['WorkflowStepCopyStepDetailsDestinationFileLocationArgs']]]
+    destination_file_location: NotRequired[pulumi.Input[Optional['WorkflowStepCopyStepDetailsDestinationFileLocationArgsDict']]]
     """
     Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
     """
@@ -2323,11 +2323,11 @@ class WorkflowStepCopyStepDetailsArgs:
 
 
 class WorkflowStepCopyStepDetailsDestinationFileLocationArgsDict(TypedDict):
-    efs_file_location: NotRequired[pulumi.Input[Optional['WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs']]]
+    efs_file_location: NotRequired[pulumi.Input[Optional['WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgsDict']]]
     """
     Specifies the details for the EFS file being copied.
     """
-    s3_file_location: NotRequired[pulumi.Input[Optional['WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs']]]
+    s3_file_location: NotRequired[pulumi.Input[Optional['WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgsDict']]]
     """
     Specifies the details for the S3 file being copied.
     """
@@ -2563,7 +2563,7 @@ class WorkflowStepDecryptStepDetailsArgsDict(TypedDict):
     """
     The type of encryption used. Currently, this value must be `"PGP"`.
     """
-    destination_file_location: NotRequired[pulumi.Input[Optional['WorkflowStepDecryptStepDetailsDestinationFileLocationArgs']]]
+    destination_file_location: NotRequired[pulumi.Input[Optional['WorkflowStepDecryptStepDetailsDestinationFileLocationArgsDict']]]
     """
     Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
     """
@@ -2667,11 +2667,11 @@ class WorkflowStepDecryptStepDetailsArgs:
 
 
 class WorkflowStepDecryptStepDetailsDestinationFileLocationArgsDict(TypedDict):
-    efs_file_location: NotRequired[pulumi.Input[Optional['WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs']]]
+    efs_file_location: NotRequired[pulumi.Input[Optional['WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgsDict']]]
     """
     Specifies the details for the EFS file being copied.
     """
-    s3_file_location: NotRequired[pulumi.Input[Optional['WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs']]]
+    s3_file_location: NotRequired[pulumi.Input[Optional['WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgsDict']]]
     """
     Specifies the details for the S3 file being copied.
     """
@@ -2871,7 +2871,7 @@ class WorkflowStepTagStepDetailsArgsDict(TypedDict):
     """
     Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
     """
-    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowStepTagStepDetailsTagArgs']]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowStepTagStepDetailsTagArgsDict']]]]]
     """
     Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
     """

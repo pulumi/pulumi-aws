@@ -1105,6 +1105,206 @@ func (o RouteServerVpcAssociationTimeoutsPtrOutput) Delete() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type SecurityGroupEgressRuleFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// SecurityGroupEgressRuleFilterInput is an input type that accepts SecurityGroupEgressRuleFilterArgs and SecurityGroupEgressRuleFilterOutput values.
+// You can construct a concrete instance of `SecurityGroupEgressRuleFilterInput` via:
+//
+//	SecurityGroupEgressRuleFilterArgs{...}
+type SecurityGroupEgressRuleFilterInput interface {
+	pulumi.Input
+
+	ToSecurityGroupEgressRuleFilterOutput() SecurityGroupEgressRuleFilterOutput
+	ToSecurityGroupEgressRuleFilterOutputWithContext(context.Context) SecurityGroupEgressRuleFilterOutput
+}
+
+type SecurityGroupEgressRuleFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (SecurityGroupEgressRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupEgressRuleFilter)(nil)).Elem()
+}
+
+func (i SecurityGroupEgressRuleFilterArgs) ToSecurityGroupEgressRuleFilterOutput() SecurityGroupEgressRuleFilterOutput {
+	return i.ToSecurityGroupEgressRuleFilterOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupEgressRuleFilterArgs) ToSecurityGroupEgressRuleFilterOutputWithContext(ctx context.Context) SecurityGroupEgressRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressRuleFilterOutput)
+}
+
+// SecurityGroupEgressRuleFilterArrayInput is an input type that accepts SecurityGroupEgressRuleFilterArray and SecurityGroupEgressRuleFilterArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupEgressRuleFilterArrayInput` via:
+//
+//	SecurityGroupEgressRuleFilterArray{ SecurityGroupEgressRuleFilterArgs{...} }
+type SecurityGroupEgressRuleFilterArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupEgressRuleFilterArrayOutput() SecurityGroupEgressRuleFilterArrayOutput
+	ToSecurityGroupEgressRuleFilterArrayOutputWithContext(context.Context) SecurityGroupEgressRuleFilterArrayOutput
+}
+
+type SecurityGroupEgressRuleFilterArray []SecurityGroupEgressRuleFilterInput
+
+func (SecurityGroupEgressRuleFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupEgressRuleFilter)(nil)).Elem()
+}
+
+func (i SecurityGroupEgressRuleFilterArray) ToSecurityGroupEgressRuleFilterArrayOutput() SecurityGroupEgressRuleFilterArrayOutput {
+	return i.ToSecurityGroupEgressRuleFilterArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupEgressRuleFilterArray) ToSecurityGroupEgressRuleFilterArrayOutputWithContext(ctx context.Context) SecurityGroupEgressRuleFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupEgressRuleFilterArrayOutput)
+}
+
+type SecurityGroupEgressRuleFilterOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupEgressRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupEgressRuleFilter)(nil)).Elem()
+}
+
+func (o SecurityGroupEgressRuleFilterOutput) ToSecurityGroupEgressRuleFilterOutput() SecurityGroupEgressRuleFilterOutput {
+	return o
+}
+
+func (o SecurityGroupEgressRuleFilterOutput) ToSecurityGroupEgressRuleFilterOutputWithContext(ctx context.Context) SecurityGroupEgressRuleFilterOutput {
+	return o
+}
+
+func (o SecurityGroupEgressRuleFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityGroupEgressRuleFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupEgressRuleFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityGroupEgressRuleFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SecurityGroupEgressRuleFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupEgressRuleFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupEgressRuleFilter)(nil)).Elem()
+}
+
+func (o SecurityGroupEgressRuleFilterArrayOutput) ToSecurityGroupEgressRuleFilterArrayOutput() SecurityGroupEgressRuleFilterArrayOutput {
+	return o
+}
+
+func (o SecurityGroupEgressRuleFilterArrayOutput) ToSecurityGroupEgressRuleFilterArrayOutputWithContext(ctx context.Context) SecurityGroupEgressRuleFilterArrayOutput {
+	return o
+}
+
+func (o SecurityGroupEgressRuleFilterArrayOutput) Index(i pulumi.IntInput) SecurityGroupEgressRuleFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupEgressRuleFilter {
+		return vs[0].([]SecurityGroupEgressRuleFilter)[vs[1].(int)]
+	}).(SecurityGroupEgressRuleFilterOutput)
+}
+
+type SecurityGroupIngressRuleFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// SecurityGroupIngressRuleFilterInput is an input type that accepts SecurityGroupIngressRuleFilterArgs and SecurityGroupIngressRuleFilterOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressRuleFilterInput` via:
+//
+//	SecurityGroupIngressRuleFilterArgs{...}
+type SecurityGroupIngressRuleFilterInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressRuleFilterOutput() SecurityGroupIngressRuleFilterOutput
+	ToSecurityGroupIngressRuleFilterOutputWithContext(context.Context) SecurityGroupIngressRuleFilterOutput
+}
+
+type SecurityGroupIngressRuleFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (SecurityGroupIngressRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupIngressRuleFilter)(nil)).Elem()
+}
+
+func (i SecurityGroupIngressRuleFilterArgs) ToSecurityGroupIngressRuleFilterOutput() SecurityGroupIngressRuleFilterOutput {
+	return i.ToSecurityGroupIngressRuleFilterOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupIngressRuleFilterArgs) ToSecurityGroupIngressRuleFilterOutputWithContext(ctx context.Context) SecurityGroupIngressRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressRuleFilterOutput)
+}
+
+// SecurityGroupIngressRuleFilterArrayInput is an input type that accepts SecurityGroupIngressRuleFilterArray and SecurityGroupIngressRuleFilterArrayOutput values.
+// You can construct a concrete instance of `SecurityGroupIngressRuleFilterArrayInput` via:
+//
+//	SecurityGroupIngressRuleFilterArray{ SecurityGroupIngressRuleFilterArgs{...} }
+type SecurityGroupIngressRuleFilterArrayInput interface {
+	pulumi.Input
+
+	ToSecurityGroupIngressRuleFilterArrayOutput() SecurityGroupIngressRuleFilterArrayOutput
+	ToSecurityGroupIngressRuleFilterArrayOutputWithContext(context.Context) SecurityGroupIngressRuleFilterArrayOutput
+}
+
+type SecurityGroupIngressRuleFilterArray []SecurityGroupIngressRuleFilterInput
+
+func (SecurityGroupIngressRuleFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupIngressRuleFilter)(nil)).Elem()
+}
+
+func (i SecurityGroupIngressRuleFilterArray) ToSecurityGroupIngressRuleFilterArrayOutput() SecurityGroupIngressRuleFilterArrayOutput {
+	return i.ToSecurityGroupIngressRuleFilterArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityGroupIngressRuleFilterArray) ToSecurityGroupIngressRuleFilterArrayOutputWithContext(ctx context.Context) SecurityGroupIngressRuleFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupIngressRuleFilterArrayOutput)
+}
+
+type SecurityGroupIngressRuleFilterOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupIngressRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityGroupIngressRuleFilter)(nil)).Elem()
+}
+
+func (o SecurityGroupIngressRuleFilterOutput) ToSecurityGroupIngressRuleFilterOutput() SecurityGroupIngressRuleFilterOutput {
+	return o
+}
+
+func (o SecurityGroupIngressRuleFilterOutput) ToSecurityGroupIngressRuleFilterOutputWithContext(ctx context.Context) SecurityGroupIngressRuleFilterOutput {
+	return o
+}
+
+func (o SecurityGroupIngressRuleFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v SecurityGroupIngressRuleFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o SecurityGroupIngressRuleFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityGroupIngressRuleFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type SecurityGroupIngressRuleFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityGroupIngressRuleFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityGroupIngressRuleFilter)(nil)).Elem()
+}
+
+func (o SecurityGroupIngressRuleFilterArrayOutput) ToSecurityGroupIngressRuleFilterArrayOutput() SecurityGroupIngressRuleFilterArrayOutput {
+	return o
+}
+
+func (o SecurityGroupIngressRuleFilterArrayOutput) ToSecurityGroupIngressRuleFilterArrayOutputWithContext(ctx context.Context) SecurityGroupIngressRuleFilterArrayOutput {
+	return o
+}
+
+func (o SecurityGroupIngressRuleFilterArrayOutput) Index(i pulumi.IntInput) SecurityGroupIngressRuleFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroupIngressRuleFilter {
+		return vs[0].([]SecurityGroupIngressRuleFilter)[vs[1].(int)]
+	}).(SecurityGroupIngressRuleFilterOutput)
+}
+
 type SecurityGroupVpcAssociationTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -1879,6 +2079,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerTimeoutsPtrInput)(nil)).Elem(), RouteServerTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerVpcAssociationTimeoutsInput)(nil)).Elem(), RouteServerVpcAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteServerVpcAssociationTimeoutsPtrInput)(nil)).Elem(), RouteServerVpcAssociationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupEgressRuleFilterInput)(nil)).Elem(), SecurityGroupEgressRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupEgressRuleFilterArrayInput)(nil)).Elem(), SecurityGroupEgressRuleFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressRuleFilterInput)(nil)).Elem(), SecurityGroupIngressRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressRuleFilterArrayInput)(nil)).Elem(), SecurityGroupIngressRuleFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupVpcAssociationTimeoutsInput)(nil)).Elem(), SecurityGroupVpcAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupVpcAssociationTimeoutsPtrInput)(nil)).Elem(), SecurityGroupVpcAssociationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEndpointAssociationsAssociationInput)(nil)).Elem(), GetEndpointAssociationsAssociationArgs{})
@@ -1905,6 +2109,10 @@ func init() {
 	pulumi.RegisterOutputType(RouteServerTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(RouteServerVpcAssociationTimeoutsOutput{})
 	pulumi.RegisterOutputType(RouteServerVpcAssociationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(SecurityGroupEgressRuleFilterOutput{})
+	pulumi.RegisterOutputType(SecurityGroupEgressRuleFilterArrayOutput{})
+	pulumi.RegisterOutputType(SecurityGroupIngressRuleFilterOutput{})
+	pulumi.RegisterOutputType(SecurityGroupIngressRuleFilterArrayOutput{})
 	pulumi.RegisterOutputType(SecurityGroupVpcAssociationTimeoutsOutput{})
 	pulumi.RegisterOutputType(SecurityGroupVpcAssociationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetEndpointAssociationsAssociationOutput{})

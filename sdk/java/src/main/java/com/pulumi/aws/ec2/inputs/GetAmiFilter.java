@@ -15,23 +15,31 @@ public final class GetAmiFilter extends com.pulumi.resources.InvokeArgs {
     public static final GetAmiFilter Empty = new GetAmiFilter();
 
     /**
-     * Name of the AMI that was provided during image creation.
+     * Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the AMI that was provided during image creation.
+     * @return Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
      * 
      */
     public String name() {
         return this.name;
     }
 
+    /**
+     * Set of values that are accepted for the given filter.
+     * 
+     */
     @Import(name="values", required=true)
     private List<String> values;
 
+    /**
+     * @return Set of values that are accepted for the given filter.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }
@@ -62,7 +70,7 @@ public final class GetAmiFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the AMI that was provided during image creation.
+         * @param name Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
          * 
          * @return builder
          * 
@@ -72,11 +80,23 @@ public final class GetAmiFilter extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
+        /**
+         * @param values Set of values that are accepted for the given filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values Set of values that are accepted for the given filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

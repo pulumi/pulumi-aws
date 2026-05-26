@@ -102,7 +102,7 @@ export class Mesh extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly resourceOwner: pulumi.Output<string>;
     /**
-     * Service mesh specification to apply.
+     * Service mesh specification to apply. See `spec` Block for details.
      */
     declare public readonly spec: pulumi.Output<outputs.appmesh.MeshSpec | undefined>;
     /**
@@ -188,7 +188,7 @@ export interface MeshState {
      */
     resourceOwner?: pulumi.Input<string | undefined>;
     /**
-     * Service mesh specification to apply.
+     * Service mesh specification to apply. See `spec` Block for details.
      */
     spec?: pulumi.Input<inputs.appmesh.MeshSpec | undefined>;
     /**
@@ -214,7 +214,7 @@ export interface MeshArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Service mesh specification to apply.
+     * Service mesh specification to apply. See `spec` Block for details.
      */
     spec?: pulumi.Input<inputs.appmesh.MeshSpec | undefined>;
     /**

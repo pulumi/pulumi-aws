@@ -15,50 +15,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecListenerTimeout {
     /**
-     * @return Timeouts for gRPC listeners.
+     * @return Timeouts for gRPC listeners. See `grpc` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTimeoutGrpc grpc;
     /**
-     * @return Timeouts for HTTP listeners.
+     * @return Timeouts for HTTP listeners. See `http` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTimeoutHttp http;
     /**
-     * @return Timeouts for HTTP2 listeners.
+     * @return Timeouts for HTTP2 listeners. See `http2` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTimeoutHttp2 http2;
     /**
-     * @return Timeouts for TCP listeners.
+     * @return Timeouts for TCP listeners. See `tcp` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerTimeoutTcp tcp;
 
     private VirtualNodeSpecListenerTimeout() {}
     /**
-     * @return Timeouts for gRPC listeners.
+     * @return Timeouts for gRPC listeners. See `grpc` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTimeoutGrpc> grpc() {
         return Optional.ofNullable(this.grpc);
     }
     /**
-     * @return Timeouts for HTTP listeners.
+     * @return Timeouts for HTTP listeners. See `http` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTimeoutHttp> http() {
         return Optional.ofNullable(this.http);
     }
     /**
-     * @return Timeouts for HTTP2 listeners.
+     * @return Timeouts for HTTP2 listeners. See `http2` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTimeoutHttp2> http2() {
         return Optional.ofNullable(this.http2);
     }
     /**
-     * @return Timeouts for TCP listeners.
+     * @return Timeouts for TCP listeners. See `tcp` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerTimeoutTcp> tcp() {

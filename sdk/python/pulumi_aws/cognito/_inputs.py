@@ -201,7 +201,7 @@ class IdentityPoolRoleAttachmentRoleMappingArgsDict(TypedDict):
     """
     Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
     """
-    mapping_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs']]]]]
+    mapping_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgsDict']]]]]
     """
     The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
     """
@@ -369,15 +369,15 @@ class LogDeliveryConfigurationLogConfigurationArgsDict(TypedDict):
     """
     The log level to set for the event source. Valid values are `ERROR` and `INFO`.
     """
-    cloud_watch_logs_configuration: NotRequired[pulumi.Input[Optional['LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs']]]
+    cloud_watch_logs_configuration: NotRequired[pulumi.Input[Optional['LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgsDict']]]
     """
     Configuration for CloudWatch Logs delivery. See CloudWatch Logs Configuration below.
     """
-    firehose_configuration: NotRequired[pulumi.Input[Optional['LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs']]]
+    firehose_configuration: NotRequired[pulumi.Input[Optional['LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgsDict']]]
     """
     Configuration for Kinesis Data Firehose delivery. See Firehose Configuration below.
     """
-    s3_configuration: NotRequired[pulumi.Input[Optional['LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs']]]
+    s3_configuration: NotRequired[pulumi.Input[Optional['LogDeliveryConfigurationLogConfigurationS3ConfigurationArgsDict']]]
     """
     Configuration for S3 delivery. See S3 Configuration below.
 
@@ -937,7 +937,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationArgsDict(TypedDict):
     """
     Account takeover risk configuration actions. See details below.
     """
-    notify_configuration: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']]]
+    notify_configuration: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgsDict']]]
     """
     The notify configuration used to construct email notifications. See details below.
     """
@@ -981,15 +981,15 @@ class RiskConfigurationAccountTakeoverRiskConfigurationArgs:
 
 
 class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgsDict(TypedDict):
-    high_action: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs']]]
+    high_action: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgsDict']]]
     """
     Action to take for a high risk. See action block below.
     """
-    low_action: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs']]]
+    low_action: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgsDict']]]
     """
     Action to take for a low risk. See action block below.
     """
-    medium_action: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs']]]
+    medium_action: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgsDict']]]
     """
     Action to take for a medium risk. See action block below.
     """
@@ -1174,7 +1174,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgsDi
     """
     The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
     """
-    block_email: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs']]]
+    block_email: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgsDict']]]
     """
     Email template used when a detected risk event is blocked. See notify email type below.
     """
@@ -1182,11 +1182,11 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgsDi
     """
     The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
     """
-    mfa_email: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs']]]
+    mfa_email: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgsDict']]]
     """
     The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
     """
-    no_action_email: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs']]]
+    no_action_email: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgsDict']]]
     """
     The email template used when a detected risk event is allowed. See notify email type below.
     """
@@ -1633,7 +1633,7 @@ class RiskConfigurationRiskExceptionConfigurationArgs:
 
 
 class UserPoolAccountRecoverySettingArgsDict(TypedDict):
-    recovery_mechanisms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]]]
+    recovery_mechanisms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgsDict']]]]]
     """
     List of Account Recovery Options of the following structure:
     """
@@ -1713,7 +1713,7 @@ class UserPoolAdminCreateUserConfigArgsDict(TypedDict):
     """
     Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
     """
-    invite_message_template: NotRequired[pulumi.Input[Optional['UserPoolAdminCreateUserConfigInviteMessageTemplateArgs']]]
+    invite_message_template: NotRequired[pulumi.Input[Optional['UserPoolAdminCreateUserConfigInviteMessageTemplateArgsDict']]]
     """
     Invite message template structure. Detailed below.
     """
@@ -2264,7 +2264,7 @@ class UserPoolLambdaConfigArgsDict(TypedDict):
     """
     ARN of the lambda creating an authentication challenge.
     """
-    custom_email_sender: NotRequired[pulumi.Input[Optional['UserPoolLambdaConfigCustomEmailSenderArgs']]]
+    custom_email_sender: NotRequired[pulumi.Input[Optional['UserPoolLambdaConfigCustomEmailSenderArgsDict']]]
     """
     A custom email sender AWS Lambda trigger. See custom_email_sender Below.
     """
@@ -2272,7 +2272,7 @@ class UserPoolLambdaConfigArgsDict(TypedDict):
     """
     Custom Message AWS Lambda trigger.
     """
-    custom_sms_sender: NotRequired[pulumi.Input[Optional['UserPoolLambdaConfigCustomSmsSenderArgs']]]
+    custom_sms_sender: NotRequired[pulumi.Input[Optional['UserPoolLambdaConfigCustomSmsSenderArgsDict']]]
     """
     A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
     """
@@ -2304,7 +2304,7 @@ class UserPoolLambdaConfigArgsDict(TypedDict):
     """
     Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
     """
-    pre_token_generation_config: NotRequired[pulumi.Input[Optional['UserPoolLambdaConfigPreTokenGenerationConfigArgs']]]
+    pre_token_generation_config: NotRequired[pulumi.Input[Optional['UserPoolLambdaConfigPreTokenGenerationConfigArgsDict']]]
     """
     Allow to customize access tokens. See pre_token_configuration_type
     """
@@ -2845,7 +2845,7 @@ class UserPoolSchemaArgsDict(TypedDict):
     """
     Whether the attribute can be changed once it has been created.
     """
-    number_attribute_constraints: NotRequired[pulumi.Input[Optional['UserPoolSchemaNumberAttributeConstraintsArgs']]]
+    number_attribute_constraints: NotRequired[pulumi.Input[Optional['UserPoolSchemaNumberAttributeConstraintsArgsDict']]]
     """
     Configuration block for the constraints for an attribute of the number type. Detailed below.
     """
@@ -2853,7 +2853,7 @@ class UserPoolSchemaArgsDict(TypedDict):
     """
     Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
     """
-    string_attribute_constraints: NotRequired[pulumi.Input[Optional['UserPoolSchemaStringAttributeConstraintsArgs']]]
+    string_attribute_constraints: NotRequired[pulumi.Input[Optional['UserPoolSchemaStringAttributeConstraintsArgsDict']]]
     """
     Constraints for an attribute of the string type. Detailed below.
     """
@@ -3230,7 +3230,7 @@ class UserPoolUserPoolAddOnsArgsDict(TypedDict):
     """
     Mode for advanced security, must be one of `OFF`, `AUDIT` or `ENFORCED`.
     """
-    advanced_security_additional_flows: NotRequired[pulumi.Input[Optional['UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgs']]]
+    advanced_security_additional_flows: NotRequired[pulumi.Input[Optional['UserPoolUserPoolAddOnsAdvancedSecurityAdditionalFlowsArgsDict']]]
     """
     A block to specify the threat protection configuration options for additional authentication types in your user pool, including custom authentication. Detailed below.
     """

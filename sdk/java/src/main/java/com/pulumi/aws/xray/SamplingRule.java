@@ -66,10 +66,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import XRay Sampling Rules using the name. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `ruleName` (String) Sampling rule name.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import XRay Sampling Rules using `ruleName`. For example:
  * 
  * ```sh
- * $ pulumi import aws:xray/samplingRule:SamplingRule example example
+ * $ pulumi import aws:xray/samplingRule:SamplingRule example example-rule
  * ```
  * 
  */

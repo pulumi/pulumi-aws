@@ -77,86 +77,84 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example := pulumi.All(exampleBucket.Arn, exampleBucket.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-//				exampleBucketArn := _args[0].(string)
-//				exampleBucketArn1 := _args[1].(string)
-//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//					Statements: []iam.GetPolicyDocumentStatement(pulumi.Array{
-//						iam.GetPolicyDocumentStatement{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Actions: []string{
-//								"logs:CreateLogGroup",
-//								"logs:CreateLogStream",
-//								"logs:PutLogEvents",
-//							},
-//							Resources: []string{
-//								"*",
-//							},
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("logs:CreateLogGroup"),
+//							pulumi.String("logs:CreateLogStream"),
+//							pulumi.String("logs:PutLogEvents"),
 //						},
-//						iam.GetPolicyDocumentStatement{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Actions: []string{
-//								"ec2:CreateNetworkInterface",
-//								"ec2:DescribeDhcpOptions",
-//								"ec2:DescribeNetworkInterfaces",
-//								"ec2:DeleteNetworkInterface",
-//								"ec2:DescribeSubnets",
-//								"ec2:DescribeSecurityGroups",
-//								"ec2:DescribeVpcs",
-//							},
-//							Resources: []string{
-//								"*",
-//							},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("*"),
 //						},
-//						iam.GetPolicyDocumentStatement{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Actions: []string{
-//								"ec2:CreateNetworkInterfacePermission",
-//							},
-//							Resources: []string{
-//								"arn:aws:ec2:us-east-1:123456789012:network-interface/*",
-//							},
-//							Conditions: []iam.GetPolicyDocumentStatementCondition{
-//								{
-//									Test:     "StringEquals",
-//									Variable: "ec2:Subnet",
-//									Values: pulumi.StringArray{
-//										example1.Arn,
-//										example2.Arn,
-//									},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("ec2:CreateNetworkInterface"),
+//							pulumi.String("ec2:DescribeDhcpOptions"),
+//							pulumi.String("ec2:DescribeNetworkInterfaces"),
+//							pulumi.String("ec2:DeleteNetworkInterface"),
+//							pulumi.String("ec2:DescribeSubnets"),
+//							pulumi.String("ec2:DescribeSecurityGroups"),
+//							pulumi.String("ec2:DescribeVpcs"),
+//						},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("ec2:CreateNetworkInterfacePermission"),
+//						},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("arn:aws:ec2:us-east-1:123456789012:network-interface/*"),
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("ec2:Subnet"),
+//								Values: pulumi.StringArray{
+//									example1.Arn,
+//									example2.Arn,
 //								},
-//								{
-//									Test:     "StringEquals",
-//									Variable: "ec2:AuthorizedService",
-//									Values: []string{
-//										"codebuild.amazonaws.com",
-//									},
+//							},
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("ec2:AuthorizedService"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("codebuild.amazonaws.com"),
 //								},
 //							},
 //						},
-//						iam.GetPolicyDocumentStatement{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Actions: []string{
-//								"s3:*",
-//							},
-//							Resources: []string{
-//								exampleBucketArn,
-//								fmt.Sprintf("%v/*", exampleBucketArn1),
-//							},
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:*"),
 //						},
-//						iam.GetPolicyDocumentStatement{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Actions: []string{
-//								"codeconnections:GetConnectionToken",
-//								"codeconnections:GetConnection",
-//							},
-//							Resources: []string{
-//								"arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string",
-//							},
+//						Resources: pulumi.StringArray{
+//							exampleBucket.Arn,
+//							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
 //						},
-//					}),
-//				}, nil))), nil
-//			}).(iam.GetPolicyDocumentResultOutput)
+//					},
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("codeconnections:GetConnectionToken"),
+//							pulumi.String("codeconnections:GetConnection"),
+//						},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string"),
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Role: exampleRole.Name,
 //				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {

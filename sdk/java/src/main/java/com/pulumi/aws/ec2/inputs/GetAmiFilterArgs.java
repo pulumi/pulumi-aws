@@ -16,23 +16,31 @@ public final class GetAmiFilterArgs extends com.pulumi.resources.ResourceArgs {
     public static final GetAmiFilterArgs Empty = new GetAmiFilterArgs();
 
     /**
-     * Name of the AMI that was provided during image creation.
+     * Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the AMI that was provided during image creation.
+     * @return Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Set of values that are accepted for the given filter.
+     * 
+     */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
+    /**
+     * @return Set of values that are accepted for the given filter.
+     * 
+     */
     public Output<List<String>> values() {
         return this.values;
     }
@@ -63,7 +71,7 @@ public final class GetAmiFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the AMI that was provided during image creation.
+         * @param name Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
          * 
          * @return builder
          * 
@@ -74,7 +82,7 @@ public final class GetAmiFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the AMI that was provided during image creation.
+         * @param name Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
          * 
          * @return builder
          * 
@@ -83,15 +91,33 @@ public final class GetAmiFilterArgs extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        /**
+         * @param values Set of values that are accepted for the given filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(Output<List<String>> values) {
             $.values = values;
             return this;
         }
 
+        /**
+         * @param values Set of values that are accepted for the given filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(List<String> values) {
             return values(Output.of(values));
         }
 
+        /**
+         * @param values Set of values that are accepted for the given filter.
+         * 
+         * @return builder
+         * 
+         */
         public Builder values(String... values) {
             return values(List.of(values));
         }

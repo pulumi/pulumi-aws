@@ -1270,8 +1270,9 @@ func (o CertificateValidityPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type GetCertificateAuthorityRevocationConfiguration struct {
-	// Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
-	CrlConfigurations  []GetCertificateAuthorityRevocationConfigurationCrlConfiguration  `pulumi:"crlConfigurations"`
+	// Nested attribute containing configuration of the certificate revocation list (CRL). See `crlConfiguration` below.
+	CrlConfigurations []GetCertificateAuthorityRevocationConfigurationCrlConfiguration `pulumi:"crlConfigurations"`
+	// Nested attribute containing configuration of the Online Certificate Status Protocol (OCSP). See `ocspConfiguration` below.
 	OcspConfigurations []GetCertificateAuthorityRevocationConfigurationOcspConfiguration `pulumi:"ocspConfigurations"`
 }
 
@@ -1287,8 +1288,9 @@ type GetCertificateAuthorityRevocationConfigurationInput interface {
 }
 
 type GetCertificateAuthorityRevocationConfigurationArgs struct {
-	// Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
-	CrlConfigurations  GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput  `pulumi:"crlConfigurations"`
+	// Nested attribute containing configuration of the certificate revocation list (CRL). See `crlConfiguration` below.
+	CrlConfigurations GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput `pulumi:"crlConfigurations"`
+	// Nested attribute containing configuration of the Online Certificate Status Protocol (OCSP). See `ocspConfiguration` below.
 	OcspConfigurations GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayInput `pulumi:"ocspConfigurations"`
 }
 
@@ -1343,13 +1345,14 @@ func (o GetCertificateAuthorityRevocationConfigurationOutput) ToGetCertificateAu
 	return o
 }
 
-// Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+// Nested attribute containing configuration of the certificate revocation list (CRL). See `crlConfiguration` below.
 func (o GetCertificateAuthorityRevocationConfigurationOutput) CrlConfigurations() GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfiguration) []GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
 		return v.CrlConfigurations
 	}).(GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput)
 }
 
+// Nested attribute containing configuration of the Online Certificate Status Protocol (OCSP). See `ocspConfiguration` below.
 func (o GetCertificateAuthorityRevocationConfigurationOutput) OcspConfigurations() GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfiguration) []GetCertificateAuthorityRevocationConfigurationOcspConfiguration {
 		return v.OcspConfigurations
@@ -1381,7 +1384,7 @@ type GetCertificateAuthorityRevocationConfigurationCrlConfiguration struct {
 	CustomCname string `pulumi:"customCname"`
 	// Custom path for the CRL in S3.
 	CustomPath string `pulumi:"customPath"`
-	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+	// Boolean value that specifies whether a custom OCSP responder is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// Number of days until a certificate expires.
 	ExpirationInDays int `pulumi:"expirationInDays"`
@@ -1407,7 +1410,7 @@ type GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs struct {
 	CustomCname pulumi.StringInput `pulumi:"customCname"`
 	// Custom path for the CRL in S3.
 	CustomPath pulumi.StringInput `pulumi:"customPath"`
-	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+	// Boolean value that specifies whether a custom OCSP responder is enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Number of days until a certificate expires.
 	ExpirationInDays pulumi.IntInput `pulumi:"expirationInDays"`
@@ -1478,7 +1481,7 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Cu
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.CustomPath }).(pulumi.StringOutput)
 }
 
-// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+// Boolean value that specifies whether a custom OCSP responder is enabled.
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }

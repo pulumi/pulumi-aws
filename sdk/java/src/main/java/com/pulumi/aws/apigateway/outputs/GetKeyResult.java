@@ -12,6 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKeyResult {
+    /**
+     * @return ARN of the API Key.
+     * 
+     */
     private String arn;
     /**
      * @return Date and time when the API Key was created.
@@ -61,6 +65,10 @@ public final class GetKeyResult {
     private String value;
 
     private GetKeyResult() {}
+    /**
+     * @return ARN of the API Key.
+     * 
+     */
     public String arn() {
         return this.arn;
     }

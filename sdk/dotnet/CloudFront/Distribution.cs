@@ -622,6 +622,12 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+        /// </summary>
+        [Output("cacheTagConfig")]
+        public Output<Outputs.DistributionCacheTagConfig?> CacheTagConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Internal value used by CloudFront to allow future updates to the distribution configuration.
         /// </summary>
         [Output("callerReference")]
@@ -884,6 +890,12 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? AnycastIpListId { get; set; }
 
         /// <summary>
+        /// Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+        /// </summary>
+        [Input("cacheTagConfig")]
+        public Input<Inputs.DistributionCacheTagConfigArgs>? CacheTagConfig { get; set; }
+
+        /// <summary>
         /// Any comments you want to include about the distribution.
         /// </summary>
         [Input("comment")]
@@ -1076,6 +1088,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+        /// </summary>
+        [Input("cacheTagConfig")]
+        public Input<Inputs.DistributionCacheTagConfigGetArgs>? CacheTagConfig { get; set; }
 
         /// <summary>
         /// Internal value used by CloudFront to allow future updates to the distribution configuration.

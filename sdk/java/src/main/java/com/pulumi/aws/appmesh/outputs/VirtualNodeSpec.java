@@ -17,62 +17,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpec {
     /**
-     * @return Defaults for backends.
+     * @return Defaults for backends. See `backendDefaults` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecBackendDefaults backendDefaults;
     /**
-     * @return Backends to which the virtual node is expected to send outbound traffic.
+     * @return Backends to which the virtual node is expected to send outbound traffic. See `backend` Block for details.
      * 
      */
     private @Nullable List<VirtualNodeSpecBackend> backends;
     /**
-     * @return Listeners from which the virtual node is expected to receive inbound traffic.
+     * @return Listeners from which the virtual node is expected to receive inbound traffic. See `listener` Block for details.
      * 
      */
     private @Nullable List<VirtualNodeSpecListener> listeners;
     /**
-     * @return Inbound and outbound access logging information for the virtual node.
+     * @return Inbound and outbound access logging information for the virtual node. See `logging` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecLogging logging;
     /**
-     * @return Service discovery information for the virtual node.
+     * @return Service discovery information for the virtual node. See `serviceDiscovery` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecServiceDiscovery serviceDiscovery;
 
     private VirtualNodeSpec() {}
     /**
-     * @return Defaults for backends.
+     * @return Defaults for backends. See `backendDefaults` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecBackendDefaults> backendDefaults() {
         return Optional.ofNullable(this.backendDefaults);
     }
     /**
-     * @return Backends to which the virtual node is expected to send outbound traffic.
+     * @return Backends to which the virtual node is expected to send outbound traffic. See `backend` Block for details.
      * 
      */
     public List<VirtualNodeSpecBackend> backends() {
         return this.backends == null ? List.of() : this.backends;
     }
     /**
-     * @return Listeners from which the virtual node is expected to receive inbound traffic.
+     * @return Listeners from which the virtual node is expected to receive inbound traffic. See `listener` Block for details.
      * 
      */
     public List<VirtualNodeSpecListener> listeners() {
         return this.listeners == null ? List.of() : this.listeners;
     }
     /**
-     * @return Inbound and outbound access logging information for the virtual node.
+     * @return Inbound and outbound access logging information for the virtual node. See `logging` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecLogging> logging() {
         return Optional.ofNullable(this.logging);
     }
     /**
-     * @return Service discovery information for the virtual node.
+     * @return Service discovery information for the virtual node. See `serviceDiscovery` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecServiceDiscovery> serviceDiscovery() {

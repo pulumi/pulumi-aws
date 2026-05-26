@@ -22,6 +22,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement {
+    /**
+     * @return List of objects describing the minimum and maximum number of accelerators for an instance type.
+     * 
+     */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount> acceleratorCounts;
     /**
      * @return List of accelerator manufacturer names.
@@ -140,6 +144,10 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceReq
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCount> vcpuCounts;
 
     private GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement() {}
+    /**
+     * @return List of objects describing the minimum and maximum number of accelerators for an instance type.
+     * 
+     */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCount> acceleratorCounts() {
         return this.acceleratorCounts;
     }

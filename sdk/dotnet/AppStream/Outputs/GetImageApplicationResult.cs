@@ -59,7 +59,6 @@ namespace Pulumi.Aws.AppStream.Outputs
         public readonly string LaunchPath;
         /// <summary>
         /// String to string map that contains additional attributes used to describe the application.
-        /// * `Name` - Name of the application.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Metadata;
         /// <summary>
@@ -67,8 +66,7 @@ namespace Pulumi.Aws.AppStream.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Array of strings describing the platforms on which the application can run.
-        /// Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
+        /// Array of strings describing the platforms on which the application can run. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
         /// </summary>
         public readonly ImmutableArray<string> Platforms;
         /// <summary>

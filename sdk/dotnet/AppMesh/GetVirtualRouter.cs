@@ -96,6 +96,9 @@ namespace Pulumi.Aws.AppMesh
         [Input("meshName", required: true)]
         public string MeshName { get; set; } = null!;
 
+        /// <summary>
+        /// AWS account ID of the service mesh's owner.
+        /// </summary>
         [Input("meshOwner")]
         public string? MeshOwner { get; set; }
 
@@ -137,6 +140,9 @@ namespace Pulumi.Aws.AppMesh
         [Input("meshName", required: true)]
         public Input<string> MeshName { get; set; } = null!;
 
+        /// <summary>
+        /// AWS account ID of the service mesh's owner.
+        /// </summary>
         [Input("meshOwner")]
         public Input<string>? MeshOwner { get; set; }
 

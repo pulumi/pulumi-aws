@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeHostResult
     {
         /// <summary>
-        /// The path on the host container instance that's presented to the container.
+        /// Path on the host container instance that's presented to the container.
         /// </summary>
         public readonly string SourcePath;
 

@@ -14,9 +14,12 @@ namespace Pulumi.Aws.Ec2.Outputs
     public sealed class GetAmiFilterResult
     {
         /// <summary>
-        /// Name of the AMI that was provided during image creation.
+        /// Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Set of values that are accepted for the given filter.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

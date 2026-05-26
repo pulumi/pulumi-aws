@@ -36,7 +36,7 @@ class ExportExportArgsDict(TypedDict):
     """
     Name of this specific data export.
     """
-    data_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDataQueryArgs']]]]]
+    data_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDataQueryArgsDict']]]]]
     """
     Data query for this specific data export. See the `data_query` argument reference below.
     """
@@ -44,12 +44,12 @@ class ExportExportArgsDict(TypedDict):
     """
     Description for this specific data export.
     """
-    destination_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgs']]]]]
+    destination_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationArgsDict']]]]]
     """
     Destination configuration for this specific data export. See the `destination_configurations` argument reference below.
     """
     export_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    refresh_cadences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportRefreshCadenceArgs']]]]]
+    refresh_cadences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportRefreshCadenceArgsDict']]]]]
     """
     Cadence for Amazon Web Services to update the export in your S3 bucket. See the `refresh_cadence` argument reference below.
     """
@@ -213,7 +213,7 @@ class ExportExportDataQueryArgs:
 
 
 class ExportExportDestinationConfigurationArgsDict(TypedDict):
-    s3_destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgs']]]]]
+    s3_destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationArgsDict']]]]]
     """
     Object that describes the destination of the data exports file. See the `s3_destination` argument reference below.
     """
@@ -254,7 +254,7 @@ class ExportExportDestinationConfigurationS3DestinationArgsDict(TypedDict):
     """
     S3 bucket region.
     """
-    s3_output_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs']]]]]
+    s3_output_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgsDict']]]]]
     """
     Output configuration for the data export. See the `s3_output_configurations` argument reference below.
     """

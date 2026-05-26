@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionTimeoutResult
     {
         /// <summary>
-        /// The job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
+        /// Job timeout time (in seconds) that's measured from the job attempt's startedAt timestamp.
         /// </summary>
         public readonly int AttemptDurationSeconds;
 

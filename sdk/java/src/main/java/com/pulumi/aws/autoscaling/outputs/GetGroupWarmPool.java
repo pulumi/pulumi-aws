@@ -18,6 +18,10 @@ public final class GetGroupWarmPool {
      * 
      */
     private List<GetGroupWarmPoolInstanceReusePolicy> instanceReusePolicies;
+    /**
+     * @return Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+     * 
+     */
     private Integer maxGroupPreparedCapacity;
     /**
      * @return Minimum number of instances to maintain in the warm pool.
@@ -38,6 +42,10 @@ public final class GetGroupWarmPool {
     public List<GetGroupWarmPoolInstanceReusePolicy> instanceReusePolicies() {
         return this.instanceReusePolicies;
     }
+    /**
+     * @return Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+     * 
+     */
     public Integer maxGroupPreparedCapacity() {
         return this.maxGroupPreparedCapacity;
     }

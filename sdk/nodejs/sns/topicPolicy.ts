@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.sns.Topic("test", {name: "my-topic-with-policy"});
- * const snsTopicPolicy = test.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
+ * const snsTopicPolicy = aws.iam.getPolicyDocumentOutput({
  *     policyId: "__default_policy_ID",
  *     statements: [{
  *         actions: [
@@ -43,10 +43,10 @@ import * as utilities from "../utilities";
  *             type: "AWS",
  *             identifiers: ["*"],
  *         }],
- *         resources: [arn],
+ *         resources: [test.arn],
  *         sid: "__default_statement_ID",
  *     }],
- * }));
+ * });
  * const _default = new aws.sns.TopicPolicy("default", {
  *     arn: test.arn,
  *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),

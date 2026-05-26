@@ -46,14 +46,14 @@ public final class ExpressGatewayServiceScalingTargetArgs extends com.pulumi.res
     }
 
     /**
-     * Maximum number of tasks to run.
+     * Maximum number of tasks to run. Defaults to `20`.
      * 
      */
     @Import(name="maxTaskCount", required=true)
     private Output<Integer> maxTaskCount;
 
     /**
-     * @return Maximum number of tasks to run.
+     * @return Maximum number of tasks to run. Defaults to `20`.
      * 
      */
     public Output<Integer> maxTaskCount() {
@@ -61,14 +61,14 @@ public final class ExpressGatewayServiceScalingTargetArgs extends com.pulumi.res
     }
 
     /**
-     * Minimum number of tasks to run.
+     * Minimum number of tasks to run. Defaults to `1`.
      * 
      */
     @Import(name="minTaskCount", required=true)
     private Output<Integer> minTaskCount;
 
     /**
-     * @return Minimum number of tasks to run.
+     * @return Minimum number of tasks to run. Defaults to `1`.
      * 
      */
     public Output<Integer> minTaskCount() {
@@ -145,7 +145,7 @@ public final class ExpressGatewayServiceScalingTargetArgs extends com.pulumi.res
         }
 
         /**
-         * @param maxTaskCount Maximum number of tasks to run.
+         * @param maxTaskCount Maximum number of tasks to run. Defaults to `20`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class ExpressGatewayServiceScalingTargetArgs extends com.pulumi.res
         }
 
         /**
-         * @param maxTaskCount Maximum number of tasks to run.
+         * @param maxTaskCount Maximum number of tasks to run. Defaults to `20`.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class ExpressGatewayServiceScalingTargetArgs extends com.pulumi.res
         }
 
         /**
-         * @param minTaskCount Minimum number of tasks to run.
+         * @param minTaskCount Minimum number of tasks to run. Defaults to `1`.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class ExpressGatewayServiceScalingTargetArgs extends com.pulumi.res
         }
 
         /**
-         * @param minTaskCount Minimum number of tasks to run.
+         * @param minTaskCount Minimum number of tasks to run. Defaults to `1`.
          * 
          * @return builder
          * 

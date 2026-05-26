@@ -940,11 +940,11 @@ class AlgorithmInferenceSpecificationArgs:
 
 
 class AlgorithmInferenceSpecificationContainerArgsDict(TypedDict):
-    additional_s3_data_source: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgs']]]
+    additional_s3_data_source: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerAdditionalS3DataSourceArgsDict']]]
     """
     Additional model data to make available to the container. See Additional S3 Data Source.
     """
-    base_model: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerBaseModelArgs']]]
+    base_model: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerBaseModelArgsDict']]]
     """
     Base model information for the container. See Base Model.
     """
@@ -980,7 +980,7 @@ class AlgorithmInferenceSpecificationContainerArgsDict(TypedDict):
     """
     ETag for `model_data_url`.
     """
-    model_data_source: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerModelDataSourceArgs']]]
+    model_data_source: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerModelDataSourceArgsDict']]]
     """
     Source of model data for the container. See Model Data Source.
     """
@@ -988,7 +988,7 @@ class AlgorithmInferenceSpecificationContainerArgsDict(TypedDict):
     """
     S3 or HTTPS URL of the model artifacts.
     """
-    model_input: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerModelInputArgs']]]
+    model_input: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerModelInputArgsDict']]]
     """
     Additional model input configuration. See Model Input.
     """
@@ -1405,7 +1405,7 @@ class AlgorithmInferenceSpecificationContainerBaseModelArgs:
 
 
 class AlgorithmInferenceSpecificationContainerModelDataSourceArgsDict(TypedDict):
-    s3_data_source: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs']]]
+    s3_data_source: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgsDict']]]
     """
     S3-backed model data source. See Model Data Source S3 Data Source.
     """
@@ -1438,7 +1438,7 @@ class AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgsDic
     s3_data_type: pulumi.Input[_builtins.str]
     s3_uri: pulumi.Input[_builtins.str]
     etag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    hub_access_config: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgs']]]
+    hub_access_config: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceHubAccessConfigArgsDict']]]
     manifest_etag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ETag of the manifest file.
@@ -1447,7 +1447,7 @@ class AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgsDic
     """
     S3 or HTTPS URI of the manifest file.
     """
-    model_access_config: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgs']]]
+    model_access_config: NotRequired[pulumi.Input[Optional['AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict']]]
 
 @pulumi.input_type
 class AlgorithmInferenceSpecificationContainerModelDataSourceS3DataSourceArgs:
@@ -1706,19 +1706,19 @@ class AlgorithmTrainingSpecificationArgsDict(TypedDict):
     """
     Training image URI.
     """
-    additional_s3_data_source: NotRequired[pulumi.Input[Optional['AlgorithmTrainingSpecificationAdditionalS3DataSourceArgs']]]
+    additional_s3_data_source: NotRequired[pulumi.Input[Optional['AlgorithmTrainingSpecificationAdditionalS3DataSourceArgsDict']]]
     """
     Additional training data to make available to the algorithm. See Additional S3 Data Source.
     """
-    metric_definitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlgorithmTrainingSpecificationMetricDefinitionArgs']]]]]
+    metric_definitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlgorithmTrainingSpecificationMetricDefinitionArgsDict']]]]]
     """
     List of metric definitions used to parse training logs. See Metric Definitions.
     """
-    supported_hyper_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlgorithmTrainingSpecificationSupportedHyperParameterArgs']]]]]
+    supported_hyper_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlgorithmTrainingSpecificationSupportedHyperParameterArgsDict']]]]]
     """
     Hyperparameter definitions supported by the algorithm. See Supported Hyper Parameters.
     """
-    supported_tuning_job_objective_metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArgs']]]]]
+    supported_tuning_job_objective_metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArgsDict']]]]]
     """
     Objective metrics supported for hyperparameter tuning jobs. See Supported Tuning Job Objective Metrics.
     """
@@ -2038,7 +2038,7 @@ class AlgorithmTrainingSpecificationSupportedHyperParameterArgsDict(TypedDict):
     """
     Whether the hyperparameter can be tuned.
     """
-    range: NotRequired[pulumi.Input[Optional['AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs']]]
+    range: NotRequired[pulumi.Input[Optional['AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgsDict']]]
     """
     Allowed value range for the hyperparameter. See Parameter Range.
     """
@@ -2161,15 +2161,15 @@ class AlgorithmTrainingSpecificationSupportedHyperParameterArgs:
 
 
 class AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgsDict(TypedDict):
-    categorical_parameter_range_specification: NotRequired[pulumi.Input[Optional['AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs']]]
+    categorical_parameter_range_specification: NotRequired[pulumi.Input[Optional['AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgsDict']]]
     """
     Categorical range definition. See Categorical Parameter Range Specification.
     """
-    continuous_parameter_range_specification: NotRequired[pulumi.Input[Optional['AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs']]]
+    continuous_parameter_range_specification: NotRequired[pulumi.Input[Optional['AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgsDict']]]
     """
     Continuous range definition. See Continuous Parameter Range Specification.
     """
-    integer_parameter_range_specification: NotRequired[pulumi.Input[Optional['AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs']]]
+    integer_parameter_range_specification: NotRequired[pulumi.Input[Optional['AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgsDict']]]
     """
     Integer range definition. See Integer Parameter Range Specification.
     """
@@ -2580,7 +2580,7 @@ class AlgorithmValidationSpecificationValidationProfilesArgsDict(TypedDict):
     """
     Training job definition used during validation. See Training Job Definition.
     """
-    transform_job_definition: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs']]]
+    transform_job_definition: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgsDict']]]
     """
     Transform job definition used during validation. See Transform Job Definition.
     """
@@ -2787,7 +2787,7 @@ class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInp
     """
     Record wrapper type. Allowed values are: `None` and `RecordIO`.
     """
-    shuffle_config: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs']]]
+    shuffle_config: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgsDict']]]
     """
     Shuffle configuration for the channel. See Shuffle Config.
     """
@@ -2910,11 +2910,11 @@ class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInp
 
 
 class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgsDict(TypedDict):
-    file_system_data_source: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs']]]
+    file_system_data_source: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgsDict']]]
     """
     File system-backed data source. See File System Data Source.
     """
-    s3_data_source: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs']]]
+    s3_data_source: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgsDict']]]
     """
     S3-backed training data source. See Training S3 Data Source.
     """
@@ -3050,12 +3050,12 @@ class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInp
     """
     List of JSON attribute names to select from the input data.
     """
-    hub_access_config: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs']]]
+    hub_access_config: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgsDict']]]
     instance_group_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Instance group names associated with the data source.
     """
-    model_access_config: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs']]]
+    model_access_config: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgsDict']]]
     s3_data_distribution_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Distribution type for S3 data. Allowed values are: `FullyReplicated` and `ShardedByS3Key`.
@@ -3321,11 +3321,11 @@ class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionRes
     """
     Number of training instances.
     """
-    instance_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArgs']]]]]
+    instance_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstanceGroupArgsDict']]]]]
     """
     Instance group definitions for the training job. See Instance Groups.
     """
-    instance_placement_config: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs']]]
+    instance_placement_config: NotRequired[pulumi.Input[Optional['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigArgsDict']]]
     """
     Placement configuration for the training job. See Instance Placement Config.
     """
@@ -3556,7 +3556,7 @@ class AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionRes
     """
     Whether multiple jobs can share the placement configuration.
     """
-    placement_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgs']]]]]
+    placement_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgsDict']]]]]
     """
     Placement specifications for ultra servers. See Placement Specifications.
     """
@@ -4186,11 +4186,11 @@ class AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTr
 
 
 class AppImageConfigCodeEditorAppImageConfigArgsDict(TypedDict):
-    container_config: NotRequired[pulumi.Input[Optional['AppImageConfigCodeEditorAppImageConfigContainerConfigArgs']]]
+    container_config: NotRequired[pulumi.Input[Optional['AppImageConfigCodeEditorAppImageConfigContainerConfigArgsDict']]]
     """
     The configuration used to run the application image container. See Container Config details below.
     """
-    file_system_config: NotRequired[pulumi.Input[Optional['AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs']]]
+    file_system_config: NotRequired[pulumi.Input[Optional['AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgsDict']]]
     """
     The URL where the Git repository is located. See File System Config details below.
     """
@@ -4379,11 +4379,11 @@ class AppImageConfigCodeEditorAppImageConfigFileSystemConfigArgs:
 
 
 class AppImageConfigJupyterLabImageConfigArgsDict(TypedDict):
-    container_config: NotRequired[pulumi.Input[Optional['AppImageConfigJupyterLabImageConfigContainerConfigArgs']]]
+    container_config: NotRequired[pulumi.Input[Optional['AppImageConfigJupyterLabImageConfigContainerConfigArgsDict']]]
     """
     The configuration used to run the application image container. See Container Config details below.
     """
-    file_system_config: NotRequired[pulumi.Input[Optional['AppImageConfigJupyterLabImageConfigFileSystemConfigArgs']]]
+    file_system_config: NotRequired[pulumi.Input[Optional['AppImageConfigJupyterLabImageConfigFileSystemConfigArgsDict']]]
     """
     The URL where the Git repository is located. See File System Config details below.
     """
@@ -4576,7 +4576,7 @@ class AppImageConfigKernelGatewayImageConfigArgsDict(TypedDict):
     """
     The default branch for the Git repository. See Kernel Spec details below.
     """
-    file_system_config: NotRequired[pulumi.Input[Optional['AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs']]]
+    file_system_config: NotRequired[pulumi.Input[Optional['AppImageConfigKernelGatewayImageConfigFileSystemConfigArgsDict']]]
     """
     The URL where the Git repository is located. See File System Config details below.
     """
@@ -5008,11 +5008,11 @@ class DataQualityJobDefinitionDataQualityAppSpecificationArgs:
 
 
 class DataQualityJobDefinitionDataQualityBaselineConfigArgsDict(TypedDict):
-    constraints_resource: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs']]]
+    constraints_resource: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgsDict']]]
     """
     The constraints resource for a monitoring job. Fields are documented below.
     """
-    statistics_resource: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs']]]
+    statistics_resource: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgsDict']]]
     """
     The statistics resource for a monitoring job. Fields are documented below.
     """
@@ -5115,11 +5115,11 @@ class DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs:
 
 
 class DataQualityJobDefinitionDataQualityJobInputArgsDict(TypedDict):
-    batch_transform_input: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs']]]
+    batch_transform_input: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgsDict']]]
     """
     Input object for the batch transform job. Fields are documented below.
     """
-    endpoint_input: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs']]]
+    endpoint_input: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionDataQualityJobInputEndpointInputArgsDict']]]
     """
     Input object for the endpoint. Fields are documented below.
     """
@@ -5271,11 +5271,11 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs:
 
 
 class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgsDict(TypedDict):
-    csv: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs']]]
+    csv: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgsDict']]]
     """
     The CSV dataset used in the monitoring job. Fields are documented below.
     """
-    json: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs']]]
+    json: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgsDict']]]
     """
     The JSON dataset used in the monitoring job. Fields are documented below.
     """
@@ -5732,7 +5732,7 @@ class DataQualityJobDefinitionNetworkConfigArgsDict(TypedDict):
     """
     Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
     """
-    vpc_config: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionNetworkConfigVpcConfigArgs']]]
+    vpc_config: NotRequired[pulumi.Input[Optional['DataQualityJobDefinitionNetworkConfigVpcConfigArgsDict']]]
     """
     Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
     """
@@ -5989,23 +5989,23 @@ class DomainDefaultSpaceSettingsArgsDict(TypedDict):
     """
     The execution role for the space.
     """
-    custom_file_system_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigArgs']]]]]
+    custom_file_system_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultSpaceSettingsCustomFileSystemConfigArgsDict']]]]]
     """
     The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
     """
-    custom_posix_user_config: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsCustomPosixUserConfigArgs']]]
+    custom_posix_user_config: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsCustomPosixUserConfigArgsDict']]]
     """
     Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
     """
-    jupyter_lab_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs']]]
+    jupyter_lab_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterLabAppSettingsArgsDict']]]
     """
     The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
     """
-    jupyter_server_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs']]]
+    jupyter_server_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterServerAppSettingsArgsDict']]]
     """
     The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
     """
-    kernel_gateway_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs']]]
+    kernel_gateway_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgsDict']]]
     """
     The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
     """
@@ -6013,7 +6013,7 @@ class DomainDefaultSpaceSettingsArgsDict(TypedDict):
     """
     The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
     """
-    space_storage_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsSpaceStorageSettingsArgs']]]
+    space_storage_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsSpaceStorageSettingsArgsDict']]]
     """
     The storage settings for a private space. See `space_storage_settings` Block below.
     """
@@ -6153,7 +6153,7 @@ class DomainDefaultSpaceSettingsArgs:
 
 
 class DomainDefaultSpaceSettingsCustomFileSystemConfigArgsDict(TypedDict):
-    efs_file_system_config: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']]]
+    efs_file_system_config: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsCustomFileSystemConfigEfsFileSystemConfigArgsDict']]]
     """
     The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
     """
@@ -6276,7 +6276,7 @@ class DomainDefaultSpaceSettingsCustomPosixUserConfigArgs:
 
 
 class DomainDefaultSpaceSettingsJupyterLabAppSettingsArgsDict(TypedDict):
-    app_lifecycle_management: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs']]]
+    app_lifecycle_management: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgsDict']]]
     """
     Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
     """
@@ -6284,19 +6284,19 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsArgsDict(TypedDict):
     """
     The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
     """
-    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]]
+    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgsDict']]]]]
     """
     A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
     """
-    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgs']]]]]
+    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImageArgsDict']]]]]
     """
     A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `custom_image` Block below.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
     """
-    emr_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs']]]
+    emr_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgsDict']]]
     """
     The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
     """
@@ -6425,7 +6425,7 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsArgs:
 
 
 class DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgsDict(TypedDict):
-    idle_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs']]]
+    idle_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgsDict']]]
     """
     Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
     """
@@ -6796,11 +6796,11 @@ class DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettingsArgs:
 
 
 class DomainDefaultSpaceSettingsJupyterServerAppSettingsArgsDict(TypedDict):
-    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]]]
+    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgsDict']]]]]
     """
     A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
     """
@@ -7002,11 +7002,11 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
 
 
 class DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgsDict(TypedDict):
-    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]]]]
+    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgsDict']]]]]
     """
     A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `custom_image` Block below.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
     """
@@ -7247,7 +7247,7 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
 
 
 class DomainDefaultSpaceSettingsSpaceStorageSettingsArgsDict(TypedDict):
-    default_ebs_storage_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']]]
+    default_ebs_storage_settings: NotRequired[pulumi.Input[Optional['DomainDefaultSpaceSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgsDict']]]
     """
     The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
     """
@@ -7331,19 +7331,19 @@ class DomainDefaultUserSettingsArgsDict(TypedDict):
     """
     Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
     """
-    canvas_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsArgs']]]
+    canvas_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsArgsDict']]]
     """
     The Canvas app settings. See `canvas_app_settings` Block below.
     """
-    code_editor_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCodeEditorAppSettingsArgs']]]
+    code_editor_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCodeEditorAppSettingsArgsDict']]]
     """
     The Code Editor application settings. See `code_editor_app_settings` Block below.
     """
-    custom_file_system_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgs']]]]]
+    custom_file_system_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsCustomFileSystemConfigArgsDict']]]]]
     """
     The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See `custom_file_system_config` Block below.
     """
-    custom_posix_user_config: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCustomPosixUserConfigArgs']]]
+    custom_posix_user_config: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCustomPosixUserConfigArgsDict']]]
     """
     Details about the POSIX identity that is used for file system operations. See `custom_posix_user_config` Block below.
     """
@@ -7351,23 +7351,23 @@ class DomainDefaultUserSettingsArgsDict(TypedDict):
     """
     The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
     """
-    jupyter_lab_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterLabAppSettingsArgs']]]
+    jupyter_lab_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterLabAppSettingsArgsDict']]]
     """
     The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
     """
-    jupyter_server_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterServerAppSettingsArgs']]]
+    jupyter_server_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterServerAppSettingsArgsDict']]]
     """
     The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
     """
-    kernel_gateway_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsKernelGatewayAppSettingsArgs']]]
+    kernel_gateway_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsKernelGatewayAppSettingsArgsDict']]]
     """
     The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
     """
-    r_session_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsRSessionAppSettingsArgs']]]
+    r_session_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsRSessionAppSettingsArgsDict']]]
     """
     The RSession app settings. See `r_session_app_settings` Block below.
     """
-    r_studio_server_pro_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsRStudioServerProAppSettingsArgs']]]
+    r_studio_server_pro_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsRStudioServerProAppSettingsArgsDict']]]
     """
     A collection of settings that configure user interaction with the RStudioServerPro app. See `r_studio_server_pro_app_settings` Block below.
     """
@@ -7375,11 +7375,11 @@ class DomainDefaultUserSettingsArgsDict(TypedDict):
     """
     A list of security group IDs that will be attached to the user.
     """
-    sharing_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsSharingSettingsArgs']]]
+    sharing_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsSharingSettingsArgsDict']]]
     """
     The sharing settings. See `sharing_settings` Block below.
     """
-    space_storage_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsSpaceStorageSettingsArgs']]]
+    space_storage_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsSpaceStorageSettingsArgsDict']]]
     """
     The storage settings for a private space. See `space_storage_settings` Block below.
     """
@@ -7387,11 +7387,11 @@ class DomainDefaultUserSettingsArgsDict(TypedDict):
     """
     Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
     """
-    studio_web_portal_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsStudioWebPortalSettingsArgs']]]
+    studio_web_portal_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsStudioWebPortalSettingsArgsDict']]]
     """
     The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
     """
-    tensor_board_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsTensorBoardAppSettingsArgs']]]
+    tensor_board_app_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsTensorBoardAppSettingsArgsDict']]]
     """
     The TensorBoard app settings. See `tensor_board_app_settings` Block below.
     """
@@ -7691,32 +7691,32 @@ class DomainDefaultUserSettingsArgs:
 
 
 class DomainDefaultUserSettingsCanvasAppSettingsArgsDict(TypedDict):
-    direct_deploy_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']]]
+    direct_deploy_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgsDict']]]
     """
     The model deployment settings for the SageMaker AI Canvas application. See `direct_deploy_settings` Block below.
     """
-    emr_serverless_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs']]]
+    emr_serverless_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgsDict']]]
     """
     The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
     """
-    generative_ai_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs']]]
-    identity_provider_oauth_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]]]]
+    generative_ai_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsGenerativeAiSettingsArgsDict']]]
+    identity_provider_oauth_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgsDict']]]]]
     """
     The settings for connecting to an external data source with OAuth. See `identity_provider_oauth_settings` Block below.
     """
-    kendra_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs']]]
+    kendra_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgsDict']]]
     """
     The settings for document querying. See `kendra_settings` Block below.
     """
-    model_register_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']]]
+    model_register_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgsDict']]]
     """
     The model registry settings for the SageMaker AI Canvas application. See `model_register_settings` Block below.
     """
-    time_series_forecasting_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']]]
+    time_series_forecasting_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgsDict']]]
     """
     Time series forecast settings for the Canvas app. See `time_series_forecasting_settings` Block below.
     """
-    workspace_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']]]
+    workspace_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgsDict']]]
     """
     The workspace settings for the SageMaker AI Canvas application. See `workspace_settings` Block below.
     """
@@ -8195,7 +8195,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs:
 
 
 class DomainDefaultUserSettingsCodeEditorAppSettingsArgsDict(TypedDict):
-    app_lifecycle_management: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs']]]
+    app_lifecycle_management: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgsDict']]]
     """
     Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
     """
@@ -8203,11 +8203,11 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsArgsDict(TypedDict):
     """
     The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
     """
-    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgs']]]]]
+    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsCodeEditorAppSettingsCustomImageArgsDict']]]]]
     """
     A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see `custom_image` Block below.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
     """
@@ -8304,7 +8304,7 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsArgs:
 
 
 class DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgsDict(TypedDict):
-    idle_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs']]]
+    idle_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgsDict']]]
     """
     Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
     """
@@ -8598,7 +8598,7 @@ class DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
 
 
 class DomainDefaultUserSettingsCustomFileSystemConfigArgsDict(TypedDict):
-    efs_file_system_config: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']]]
+    efs_file_system_config: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgsDict']]]
     """
     The default EBS storage settings for a private space. See `efs_file_system_config` Block below.
     """
@@ -8721,7 +8721,7 @@ class DomainDefaultUserSettingsCustomPosixUserConfigArgs:
 
 
 class DomainDefaultUserSettingsJupyterLabAppSettingsArgsDict(TypedDict):
-    app_lifecycle_management: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs']]]
+    app_lifecycle_management: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgsDict']]]
     """
     Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
     """
@@ -8729,19 +8729,19 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsArgsDict(TypedDict):
     """
     The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
     """
-    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]]
+    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCodeRepositoryArgsDict']]]]]
     """
     A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
     """
-    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgs']]]]]
+    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterLabAppSettingsCustomImageArgsDict']]]]]
     """
     A list of custom SageMaker AI images that are configured to run as a JupyterLab app. see `custom_image` Block below.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
     """
-    emr_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs']]]
+    emr_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgsDict']]]
     """
     The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
     """
@@ -8870,7 +8870,7 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsArgs:
 
 
 class DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgsDict(TypedDict):
-    idle_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs']]]
+    idle_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgsDict']]]
     """
     Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
     """
@@ -9241,11 +9241,11 @@ class DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettingsArgs:
 
 
 class DomainDefaultUserSettingsJupyterServerAppSettingsArgsDict(TypedDict):
-    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]]]
+    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgsDict']]]]]
     """
     A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see `code_repository` Block below.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
     """
@@ -9447,11 +9447,11 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
 
 
 class DomainDefaultUserSettingsKernelGatewayAppSettingsArgsDict(TypedDict):
-    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs']]]]]
+    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgsDict']]]]]
     """
     A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see `custom_image` Block below.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
     """
@@ -9692,11 +9692,11 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
 
 
 class DomainDefaultUserSettingsRSessionAppSettingsArgsDict(TypedDict):
-    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs']]]]]
+    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgsDict']]]]]
     """
     A list of custom SageMaker AI images that are configured to run as a RSession app. see `custom_image` Block below.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
     """
@@ -10035,7 +10035,7 @@ class DomainDefaultUserSettingsSharingSettingsArgs:
 
 
 class DomainDefaultUserSettingsSpaceStorageSettingsArgsDict(TypedDict):
-    default_ebs_storage_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']]]
+    default_ebs_storage_settings: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgsDict']]]
     """
     The default EBS storage settings for a private space. See `default_ebs_storage_settings` Block below.
     """
@@ -10180,7 +10180,7 @@ class DomainDefaultUserSettingsStudioWebPortalSettingsArgs:
 
 
 class DomainDefaultUserSettingsTensorBoardAppSettingsArgsDict(TypedDict):
-    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block below.
     """
@@ -10318,7 +10318,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
 
 
 class DomainDomainSettingsArgsDict(TypedDict):
-    docker_settings: NotRequired[pulumi.Input[Optional['DomainDomainSettingsDockerSettingsArgs']]]
+    docker_settings: NotRequired[pulumi.Input[Optional['DomainDomainSettingsDockerSettingsArgsDict']]]
     """
     A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
     """
@@ -10326,7 +10326,7 @@ class DomainDomainSettingsArgsDict(TypedDict):
     """
     The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
     """
-    r_studio_server_pro_domain_settings: NotRequired[pulumi.Input[Optional['DomainDomainSettingsRStudioServerProDomainSettingsArgs']]]
+    r_studio_server_pro_domain_settings: NotRequired[pulumi.Input[Optional['DomainDomainSettingsRStudioServerProDomainSettingsArgsDict']]]
     """
     A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
     """
@@ -10334,7 +10334,7 @@ class DomainDomainSettingsArgsDict(TypedDict):
     """
     The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
     """
-    trusted_identity_propagation_settings: NotRequired[pulumi.Input[Optional['DomainDomainSettingsTrustedIdentityPropagationSettingsArgs']]]
+    trusted_identity_propagation_settings: NotRequired[pulumi.Input[Optional['DomainDomainSettingsTrustedIdentityPropagationSettingsArgsDict']]]
     """
     Configuration for trusted identity propagation. See the `trusted_identity_propagation_settings` Block below.
     """
@@ -10480,7 +10480,7 @@ class DomainDomainSettingsRStudioServerProDomainSettingsArgsDict(TypedDict):
     """
     The ARN of the execution role for the RStudioServerPro Domain-level app.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `default_resource_spec` Block above.
     """
@@ -10734,7 +10734,7 @@ class EndpointConfigurationAsyncInferenceConfigArgsDict(TypedDict):
     """
     Configuration for asynchronous inference invocation outputs.
     """
-    client_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationAsyncInferenceConfigClientConfigArgs']]]
+    client_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationAsyncInferenceConfigClientConfigArgsDict']]]
     """
     Configures the behavior of the client used by SageMaker AI to interact with the model container during asynchronous inference.
     """
@@ -10815,7 +10815,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigArgsDict(TypedDict):
     """
     KMS key that SageMaker AI uses to encrypt the asynchronous inference output in S3.
     """
-    notification_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs']]]
+    notification_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgsDict']]]
     """
     Configuration for notifications of inference results for asynchronous inference.
     """
@@ -10976,7 +10976,7 @@ class EndpointConfigurationDataCaptureConfigArgsDict(TypedDict):
     """
     Portion of data to capture. Should be between 0 and 100.
     """
-    capture_content_type_header: NotRequired[pulumi.Input[Optional['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs']]]
+    capture_content_type_header: NotRequired[pulumi.Input[Optional['EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgsDict']]]
     """
     Content type headers to capture. See `capture_content_type_header` below.
     """
@@ -11175,7 +11175,7 @@ class EndpointConfigurationProductionVariantArgsDict(TypedDict):
     """
     Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
     """
-    core_dump_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationProductionVariantCoreDumpConfigArgs']]]
+    core_dump_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationProductionVariantCoreDumpConfigArgsDict']]]
     """
     Core dump configuration from the model container when the process crashes. Fields are documented below.
     """
@@ -11199,7 +11199,7 @@ class EndpointConfigurationProductionVariantArgsDict(TypedDict):
     """
     Type of instance to start.
     """
-    managed_instance_scaling: NotRequired[pulumi.Input[Optional['EndpointConfigurationProductionVariantManagedInstanceScalingArgs']]]
+    managed_instance_scaling: NotRequired[pulumi.Input[Optional['EndpointConfigurationProductionVariantManagedInstanceScalingArgsDict']]]
     """
     Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
     """
@@ -11211,11 +11211,11 @@ class EndpointConfigurationProductionVariantArgsDict(TypedDict):
     """
     Name of the model to use. Required unless using Inference Components (in which case `execution_role_arn` must be specified at the endpoint configuration level).
     """
-    routing_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointConfigurationProductionVariantRoutingConfigArgs']]]]]
+    routing_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointConfigurationProductionVariantRoutingConfigArgsDict']]]]]
     """
     How the endpoint routes incoming traffic. See routing_config below.
     """
-    serverless_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationProductionVariantServerlessConfigArgs']]]
+    serverless_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationProductionVariantServerlessConfigArgsDict']]]
     """
     How an endpoint performs asynchronous inference.
     """
@@ -11696,7 +11696,7 @@ class EndpointConfigurationShadowProductionVariantArgsDict(TypedDict):
     """
     Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
     """
-    core_dump_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs']]]
+    core_dump_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationShadowProductionVariantCoreDumpConfigArgsDict']]]
     """
     Core dump configuration from the model container when the process crashes. Fields are documented below.
     """
@@ -11720,7 +11720,7 @@ class EndpointConfigurationShadowProductionVariantArgsDict(TypedDict):
     """
     Type of instance to start.
     """
-    managed_instance_scaling: NotRequired[pulumi.Input[Optional['EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs']]]
+    managed_instance_scaling: NotRequired[pulumi.Input[Optional['EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgsDict']]]
     """
     Control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
     """
@@ -11732,11 +11732,11 @@ class EndpointConfigurationShadowProductionVariantArgsDict(TypedDict):
     """
     Name of the model to use. Required unless using Inference Components (in which case `execution_role_arn` must be specified at the endpoint configuration level).
     """
-    routing_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantRoutingConfigArgs']]]]]
+    routing_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointConfigurationShadowProductionVariantRoutingConfigArgsDict']]]]]
     """
     How the endpoint routes incoming traffic. See routing_config below.
     """
-    serverless_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationShadowProductionVariantServerlessConfigArgs']]]
+    serverless_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationShadowProductionVariantServerlessConfigArgsDict']]]
     """
     How an endpoint performs asynchronous inference.
     """
@@ -12208,15 +12208,15 @@ class EndpointConfigurationShadowProductionVariantServerlessConfigArgs:
 
 
 class EndpointDeploymentConfigArgsDict(TypedDict):
-    auto_rollback_configuration: NotRequired[pulumi.Input[Optional['EndpointDeploymentConfigAutoRollbackConfigurationArgs']]]
+    auto_rollback_configuration: NotRequired[pulumi.Input[Optional['EndpointDeploymentConfigAutoRollbackConfigurationArgsDict']]]
     """
     Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
     """
-    blue_green_update_policy: NotRequired[pulumi.Input[Optional['EndpointDeploymentConfigBlueGreenUpdatePolicyArgs']]]
+    blue_green_update_policy: NotRequired[pulumi.Input[Optional['EndpointDeploymentConfigBlueGreenUpdatePolicyArgsDict']]]
     """
     Update policy for a blue/green deployment. If this update policy is specified, SageMaker AI creates a new fleet during the deployment while maintaining the old fleet. SageMaker AI flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker AI uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
     """
-    rolling_update_policy: NotRequired[pulumi.Input[Optional['EndpointDeploymentConfigRollingUpdatePolicyArgs']]]
+    rolling_update_policy: NotRequired[pulumi.Input[Optional['EndpointDeploymentConfigRollingUpdatePolicyArgsDict']]]
     """
     Specifies a rolling deployment strategy for updating a SageMaker AI endpoint. See Rolling Update Policy.
     """
@@ -12277,7 +12277,7 @@ class EndpointDeploymentConfigArgs:
 
 
 class EndpointDeploymentConfigAutoRollbackConfigurationArgsDict(TypedDict):
-    alarms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs']]]]]
+    alarms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgsDict']]]]]
     """
     List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker AI rolls back the deployment. See Alarms.
     """
@@ -12403,11 +12403,11 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationAr
     """
     The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
     """
-    canary_size: NotRequired[pulumi.Input[Optional['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs']]]
+    canary_size: NotRequired[pulumi.Input[Optional['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgsDict']]]
     """
     Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
     """
-    linear_step_size: NotRequired[pulumi.Input[Optional['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs']]]
+    linear_step_size: NotRequired[pulumi.Input[Optional['EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgsDict']]]
     """
     Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
     """
@@ -12588,7 +12588,7 @@ class EndpointDeploymentConfigRollingUpdatePolicyArgsDict(TypedDict):
     """
     The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
     """
-    rollback_maximum_batch_size: NotRequired[pulumi.Input[Optional['EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs']]]
+    rollback_maximum_batch_size: NotRequired[pulumi.Input[Optional['EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgsDict']]]
     """
     Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
     """
@@ -12757,7 +12757,7 @@ class EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs:
 
 
 class FeatureGroupFeatureDefinitionArgsDict(TypedDict):
-    collection_config: NotRequired[pulumi.Input[Optional['FeatureGroupFeatureDefinitionCollectionConfigArgs']]]
+    collection_config: NotRequired[pulumi.Input[Optional['FeatureGroupFeatureDefinitionCollectionConfigArgsDict']]]
     collection_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     feature_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -12832,7 +12832,7 @@ class FeatureGroupFeatureDefinitionArgs:
 
 
 class FeatureGroupFeatureDefinitionCollectionConfigArgsDict(TypedDict):
-    vector_config: NotRequired[pulumi.Input[Optional['FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgs']]]
+    vector_config: NotRequired[pulumi.Input[Optional['FeatureGroupFeatureDefinitionCollectionConfigVectorConfigArgsDict']]]
 
 @pulumi.input_type
 class FeatureGroupFeatureDefinitionCollectionConfigArgs:
@@ -12876,7 +12876,7 @@ class FeatureGroupOfflineStoreConfigArgsDict(TypedDict):
     """
     The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
     """
-    data_catalog_config: NotRequired[pulumi.Input[Optional['FeatureGroupOfflineStoreConfigDataCatalogConfigArgs']]]
+    data_catalog_config: NotRequired[pulumi.Input[Optional['FeatureGroupOfflineStoreConfigDataCatalogConfigArgsDict']]]
     """
     The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
     """
@@ -13101,7 +13101,7 @@ class FeatureGroupOnlineStoreConfigArgsDict(TypedDict):
     """
     Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
     """
-    security_config: NotRequired[pulumi.Input[Optional['FeatureGroupOnlineStoreConfigSecurityConfigArgs']]]
+    security_config: NotRequired[pulumi.Input[Optional['FeatureGroupOnlineStoreConfigSecurityConfigArgsDict']]]
     """
     Security config for at-rest encryption of your OnlineStore. See Security Config Below.
     """
@@ -13109,7 +13109,7 @@ class FeatureGroupOnlineStoreConfigArgsDict(TypedDict):
     """
     Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
     """
-    ttl_duration: NotRequired[pulumi.Input[Optional['FeatureGroupOnlineStoreConfigTtlDurationArgs']]]
+    ttl_duration: NotRequired[pulumi.Input[Optional['FeatureGroupOnlineStoreConfigTtlDurationArgsDict']]]
     """
     Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
     """
@@ -13310,7 +13310,7 @@ class FeatureGroupThroughputConfigArgs:
 
 
 class FlowDefinitionHumanLoopActivationConfigArgsDict(TypedDict):
-    human_loop_activation_conditions_config: NotRequired[pulumi.Input[Optional['FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs']]]
+    human_loop_activation_conditions_config: NotRequired[pulumi.Input[Optional['FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgsDict']]]
     """
     defines under what conditions SageMaker AI creates a human loop. See Human Loop Activation Conditions Config details below.
     """
@@ -13387,7 +13387,7 @@ class FlowDefinitionHumanLoopConfigArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
     """
-    public_workforce_task_price: NotRequired[pulumi.Input[Optional['FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs']]]
+    public_workforce_task_price: NotRequired[pulumi.Input[Optional['FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgsDict']]]
     """
     Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
     """
@@ -13551,7 +13551,7 @@ class FlowDefinitionHumanLoopConfigArgs:
 
 
 class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgsDict(TypedDict):
-    amount_in_usd: NotRequired[pulumi.Input[Optional['FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs']]]
+    amount_in_usd: NotRequired[pulumi.Input[Optional['FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgsDict']]]
     """
     Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
     """
@@ -13859,11 +13859,11 @@ class HyperParameterTuningJobConfigArgsDict(TypedDict):
     """
     Search strategy for tuning.
     """
-    objective: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigObjectiveArgs']]]
+    objective: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigObjectiveArgsDict']]]
     """
     Objective metric used by tuning. See `objective`.
     """
-    parameter_ranges: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigParameterRangesArgs']]]
+    parameter_ranges: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigParameterRangesArgsDict']]]
     """
     Hyperparameter search ranges. See `parameter_ranges`.
     """
@@ -13871,7 +13871,7 @@ class HyperParameterTuningJobConfigArgsDict(TypedDict):
     """
     Random seed for tuning.
     """
-    strategy_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigStrategyConfigArgs']]]
+    strategy_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigStrategyConfigArgsDict']]]
     """
     Extra strategy options. See `strategy_config`.
     """
@@ -13879,7 +13879,7 @@ class HyperParameterTuningJobConfigArgsDict(TypedDict):
     """
     Early stopping behavior for training jobs.
     """
-    tuning_job_completion_criteria: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigTuningJobCompletionCriteriaArgs']]]
+    tuning_job_completion_criteria: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigTuningJobCompletionCriteriaArgsDict']]]
     """
     Conditions to complete tuning. See `tuning_job_completion_criteria`.
     """
@@ -14065,19 +14065,19 @@ class HyperParameterTuningJobConfigObjectiveArgs:
 
 
 class HyperParameterTuningJobConfigParameterRangesArgsDict(TypedDict):
-    auto_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobConfigParameterRangesAutoParameterArgs']]]]]
+    auto_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobConfigParameterRangesAutoParameterArgsDict']]]]]
     """
     Parameter list for automatic range selection.
     """
-    categorical_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobConfigParameterRangesCategoricalParameterRangeArgs']]]]]
+    categorical_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobConfigParameterRangesCategoricalParameterRangeArgsDict']]]]]
     """
     Categorical parameter ranges.
     """
-    continuous_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobConfigParameterRangesContinuousParameterRangeArgs']]]]]
+    continuous_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobConfigParameterRangesContinuousParameterRangeArgsDict']]]]]
     """
     Continuous parameter ranges.
     """
-    integer_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobConfigParameterRangesIntegerParameterRangeArgs']]]]]
+    integer_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobConfigParameterRangesIntegerParameterRangeArgsDict']]]]]
     """
     Integer parameter ranges.
     """
@@ -14488,7 +14488,7 @@ class HyperParameterTuningJobConfigResourceLimitsArgs:
 
 
 class HyperParameterTuningJobConfigStrategyConfigArgsDict(TypedDict):
-    hyperband_strategy_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigStrategyConfigHyperbandStrategyConfigArgs']]]
+    hyperband_strategy_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigStrategyConfigHyperbandStrategyConfigArgsDict']]]
     """
     Hyperband strategy settings. See `hyperband_strategy_config`.
     """
@@ -14566,11 +14566,11 @@ class HyperParameterTuningJobConfigStrategyConfigHyperbandStrategyConfigArgs:
 
 
 class HyperParameterTuningJobConfigTuningJobCompletionCriteriaArgsDict(TypedDict):
-    best_objective_not_improving: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigTuningJobCompletionCriteriaBestObjectiveNotImprovingArgs']]]
+    best_objective_not_improving: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigTuningJobCompletionCriteriaBestObjectiveNotImprovingArgsDict']]]
     """
     Stop condition for non-improving jobs. See `best_objective_not_improving`.
     """
-    convergence_detected: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigTuningJobCompletionCriteriaConvergenceDetectedArgs']]]
+    convergence_detected: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobConfigTuningJobCompletionCriteriaConvergenceDetectedArgsDict']]]
     """
     Stop condition based on convergence. See `convergence_detected`.
     """
@@ -14758,7 +14758,7 @@ class HyperParameterTuningJobTrainingJobDefinitionArgsDict(TypedDict):
     """
     Stopping settings. See `stopping_condition`.
     """
-    checkpoint_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionCheckpointConfigArgs']]]
+    checkpoint_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionCheckpointConfigArgsDict']]]
     """
     Checkpoint output location. See `checkpoint_config`.
     """
@@ -14782,23 +14782,23 @@ class HyperParameterTuningJobTrainingJobDefinitionArgsDict(TypedDict):
     """
     Map of environment variables.
     """
-    hyper_parameter_ranges: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesArgs']]]
+    hyper_parameter_ranges: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesArgsDict']]]
     """
     Hyperparameter ranges for this definition. See `parameter_ranges`.
     """
-    hyper_parameter_tuning_resource_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigArgs']]]
+    hyper_parameter_tuning_resource_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigArgsDict']]]
     """
     Tuning resource settings. See `hyper_parameter_tuning_resource_config`.
     """
-    input_data_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs']]]]]
+    input_data_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgsDict']]]]]
     """
     Input data channels. See `input_data_config`.
     """
-    resource_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionResourceConfigArgs']]]
+    resource_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionResourceConfigArgsDict']]]
     """
     Training resources. See `resource_config`.
     """
-    retry_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionRetryStrategyArgs']]]]]
+    retry_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionRetryStrategyArgsDict']]]]]
     """
     Retry settings. See `retry_strategy`.
     """
@@ -14806,11 +14806,11 @@ class HyperParameterTuningJobTrainingJobDefinitionArgsDict(TypedDict):
     """
     Map of fixed hyperparameters.
     """
-    tuning_objective: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionTuningObjectiveArgs']]]
+    tuning_objective: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionTuningObjectiveArgsDict']]]
     """
     Objective for this training definition. See `tuning_objective`.
     """
-    vpc_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionVpcConfigArgs']]]
+    vpc_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionVpcConfigArgsDict']]]
     """
     VPC settings. See `vpc_config`.
     """
@@ -15117,7 +15117,7 @@ class HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationArgsDict
     """
     SageMaker algorithm ARN.
     """
-    metric_definitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationMetricDefinitionArgs']]]]]
+    metric_definitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationMetricDefinitionArgsDict']]]]]
     """
     Metric extraction rules.
     """
@@ -15296,19 +15296,19 @@ class HyperParameterTuningJobTrainingJobDefinitionCheckpointConfigArgs:
 
 
 class HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesArgsDict(TypedDict):
-    auto_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesAutoParameterArgs']]]]]
+    auto_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesAutoParameterArgsDict']]]]]
     """
     Parameter list for automatic range selection.
     """
-    categorical_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesCategoricalParameterRangeArgs']]]]]
+    categorical_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesCategoricalParameterRangeArgsDict']]]]]
     """
     Categorical parameter ranges.
     """
-    continuous_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesContinuousParameterRangeArgs']]]]]
+    continuous_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesContinuousParameterRangeArgsDict']]]]]
     """
     Continuous parameter ranges.
     """
-    integer_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesIntegerParameterRangeArgs']]]]]
+    integer_parameter_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionHyperParameterRangesIntegerParameterRangeArgsDict']]]]]
     """
     Integer parameter ranges.
     """
@@ -15655,7 +15655,7 @@ class HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceCo
     """
     Allocation strategy for tuning resources.
     """
-    instance_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigInstanceConfigArgs']]]]]
+    instance_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionHyperParameterTuningResourceConfigInstanceConfigArgsDict']]]]]
     """
     Per-instance-type resource settings. See `instance_configs`.
     """
@@ -15879,7 +15879,7 @@ class HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgsDict(TypedD
     """
     Record wrapper format.
     """
-    shuffle_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigShuffleConfigArgs']]]
+    shuffle_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigShuffleConfigArgsDict']]]
     """
     Shuffling settings. See `shuffle_config`.
     """
@@ -16002,11 +16002,11 @@ class HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs:
 
 
 class HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgsDict(TypedDict):
-    file_system_data_source: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgs']]]
+    file_system_data_source: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceFileSystemDataSourceArgsDict']]]
     """
     File system source settings. See `file_system_data_source`.
     """
-    s3_data_source: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs']]]
+    s3_data_source: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgsDict']]]
     """
     S3 source settings. See `s3_data_source`.
     """
@@ -16148,7 +16148,7 @@ class HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3Dat
     """
     Attribute names for Pipe mode.
     """
-    hub_access_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs']]]
+    hub_access_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceHubAccessConfigArgsDict']]]
     """
     Hub access settings. See `hub_access_config`.
     """
@@ -16156,7 +16156,7 @@ class HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3Dat
     """
     Instance group names used with this channel.
     """
-    model_access_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs']]]
+    model_access_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceModelAccessConfigArgsDict']]]
     """
     Model access settings. See `model_access_config`.
     """
@@ -16439,11 +16439,11 @@ class HyperParameterTuningJobTrainingJobDefinitionResourceConfigArgsDict(TypedDi
     """
     Number of instances.
     """
-    instance_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstanceGroupArgs']]]]]
+    instance_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstanceGroupArgsDict']]]]]
     """
     Instance group settings. See `instance_groups`.
     """
-    instance_placement_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigArgs']]]
+    instance_placement_config: NotRequired[pulumi.Input[Optional['HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigArgsDict']]]
     """
     Placement settings. See `instance_placement_config`.
     """
@@ -16674,7 +16674,7 @@ class HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacemen
     """
     Whether to run multiple jobs on shared infrastructure.
     """
-    placement_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgs']]]]]
+    placement_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobTrainingJobDefinitionResourceConfigInstancePlacementConfigPlacementSpecificationArgsDict']]]]]
     """
     Placement details. See `placement_specifications`.
     """
@@ -16958,7 +16958,7 @@ class HyperParameterTuningJobTrainingJobDefinitionVpcConfigArgs:
 
 
 class HyperParameterTuningJobWarmStartConfigArgsDict(TypedDict):
-    parent_hyper_parameter_tuning_jobs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobArgs']]]]]
+    parent_hyper_parameter_tuning_jobs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HyperParameterTuningJobWarmStartConfigParentHyperParameterTuningJobArgsDict']]]]]
     """
     Parent tuning jobs for warm start.
     """
@@ -17059,7 +17059,7 @@ class LabelingJobHumanTaskConfigArgsDict(TypedDict):
     """
     ARN of the work team assigned to complete the tasks.
     """
-    annotation_consolidation_config: NotRequired[pulumi.Input[Optional['LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs']]]
+    annotation_consolidation_config: NotRequired[pulumi.Input[Optional['LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgsDict']]]
     """
     How labels are consolidated across human workers. Fields are documented below.
     """
@@ -17071,7 +17071,7 @@ class LabelingJobHumanTaskConfigArgsDict(TypedDict):
     """
     ARN of a Lambda function that is run before a data object is sent to a human worker.
     """
-    public_workforce_task_price: NotRequired[pulumi.Input[Optional['LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs']]]
+    public_workforce_task_price: NotRequired[pulumi.Input[Optional['LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgsDict']]]
     """
     Price to pay for each task performed by an Amazon Mechanical Turk worker. Fields are documented below.
     """
@@ -17306,7 +17306,7 @@ class LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs:
 
 
 class LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgsDict(TypedDict):
-    amount_in_usd: NotRequired[pulumi.Input[Optional['LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs']]]
+    amount_in_usd: NotRequired[pulumi.Input[Optional['LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgsDict']]]
     """
     Amount of money paid to an Amazon Mechanical Turk worker in United States dollars. Fields are documented below.
     """
@@ -17457,7 +17457,7 @@ class LabelingJobInputConfigArgsDict(TypedDict):
     """
     Location of the input data.. Fields are documented below.
     """
-    data_attributes: NotRequired[pulumi.Input[Optional['LabelingJobInputConfigDataAttributesArgs']]]
+    data_attributes: NotRequired[pulumi.Input[Optional['LabelingJobInputConfigDataAttributesArgsDict']]]
     """
     Attributes of the data. Fields are documented below.
     """
@@ -17530,11 +17530,11 @@ class LabelingJobInputConfigDataAttributesArgs:
 
 
 class LabelingJobInputConfigDataSourceArgsDict(TypedDict):
-    s3_data_source: NotRequired[pulumi.Input[Optional['LabelingJobInputConfigDataSourceS3DataSourceArgs']]]
+    s3_data_source: NotRequired[pulumi.Input[Optional['LabelingJobInputConfigDataSourceS3DataSourceArgsDict']]]
     """
     S3 location of the input data objects.. Fields are documented below.
     """
-    sns_data_source: NotRequired[pulumi.Input[Optional['LabelingJobInputConfigDataSourceSnsDataSourceArgs']]]
+    sns_data_source: NotRequired[pulumi.Input[Optional['LabelingJobInputConfigDataSourceSnsDataSourceArgsDict']]]
     """
     SNS data source used for streaming labeling jobs. Fields are documented below.
     """
@@ -17747,7 +17747,7 @@ class LabelingJobLabelingJobAlgorithmsConfigArgsDict(TypedDict):
     """
     ARN of the final model used for auto-labeling.
     """
-    labeling_job_resource_config: NotRequired[pulumi.Input[Optional['LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs']]]
+    labeling_job_resource_config: NotRequired[pulumi.Input[Optional['LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgsDict']]]
     """
     Configuration information for the labeling job. Fields are documented below.
     """
@@ -17811,7 +17811,7 @@ class LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgsDict(Ty
     """
     ID of the key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training and inference jobs used for automated data labeling.
     """
-    vpc_config: NotRequired[pulumi.Input[Optional['LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs']]]
+    vpc_config: NotRequired[pulumi.Input[Optional['LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgsDict']]]
     """
     VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
     """
@@ -18229,7 +18229,7 @@ class ModelCardTimeoutsArgs:
 
 
 class ModelContainerArgsDict(TypedDict):
-    additional_model_data_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ModelContainerAdditionalModelDataSourceArgs']]]]]
+    additional_model_data_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ModelContainerAdditionalModelDataSourceArgsDict']]]]]
     """
     Additional data sources that are available to the model in addition to those specified in `model_data_source`. See Additional Model Data Source.
     """
@@ -18245,7 +18245,7 @@ class ModelContainerArgsDict(TypedDict):
     """
     Registry path where the inference code image is stored in Amazon ECR.
     """
-    image_config: NotRequired[pulumi.Input[Optional['ModelContainerImageConfigArgs']]]
+    image_config: NotRequired[pulumi.Input[Optional['ModelContainerImageConfigArgsDict']]]
     """
     Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
     """
@@ -18257,7 +18257,7 @@ class ModelContainerArgsDict(TypedDict):
     """
     Container hosts value. Allowed values are: `SingleModel` and `MultiModel`. The default value is `SingleModel`.
     """
-    model_data_source: NotRequired[pulumi.Input[Optional['ModelContainerModelDataSourceArgs']]]
+    model_data_source: NotRequired[pulumi.Input[Optional['ModelContainerModelDataSourceArgsDict']]]
     """
     Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
     """
@@ -18270,7 +18270,7 @@ class ModelContainerArgsDict(TypedDict):
     Amazon Resource Name (ARN) of the model package to use to create the model.
     A list of key value pairs.
     """
-    multi_model_config: NotRequired[pulumi.Input[Optional['ModelContainerMultiModelConfigArgs']]]
+    multi_model_config: NotRequired[pulumi.Input[Optional['ModelContainerMultiModelConfigArgsDict']]]
     """
     Specifies additional configuration for multi-model endpoints. see Multi Model Config.
     """
@@ -18520,7 +18520,7 @@ class ModelContainerAdditionalModelDataSourceS3DataSourceArgsDict(TypedDict):
     """
     The S3 path of model data to deploy.
     """
-    model_access_config: NotRequired[pulumi.Input[Optional['ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs']]]
+    model_access_config: NotRequired[pulumi.Input[Optional['ModelContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgsDict']]]
     """
     Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
     """
@@ -18626,7 +18626,7 @@ class ModelContainerImageConfigArgsDict(TypedDict):
     """
     Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
     """
-    repository_auth_config: NotRequired[pulumi.Input[Optional['ModelContainerImageConfigRepositoryAuthConfigArgs']]]
+    repository_auth_config: NotRequired[pulumi.Input[Optional['ModelContainerImageConfigRepositoryAuthConfigArgsDict']]]
     """
     Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
     """
@@ -18738,7 +18738,7 @@ class ModelContainerModelDataSourceS3DataSourceArgsDict(TypedDict):
     """
     The S3 path of model data to deploy.
     """
-    model_access_config: NotRequired[pulumi.Input[Optional['ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgs']]]
+    model_access_config: NotRequired[pulumi.Input[Optional['ModelContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict']]]
     """
     Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
     """
@@ -18897,7 +18897,7 @@ class ModelInferenceExecutionConfigArgs:
 
 
 class ModelPrimaryContainerArgsDict(TypedDict):
-    additional_model_data_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ModelPrimaryContainerAdditionalModelDataSourceArgs']]]]]
+    additional_model_data_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ModelPrimaryContainerAdditionalModelDataSourceArgsDict']]]]]
     """
     Additional data sources that are available to the model in addition to those specified in `model_data_source`. See Additional Model Data Source.
     """
@@ -18913,7 +18913,7 @@ class ModelPrimaryContainerArgsDict(TypedDict):
     """
     Registry path where the inference code image is stored in Amazon ECR.
     """
-    image_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerImageConfigArgs']]]
+    image_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerImageConfigArgsDict']]]
     """
     Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
     """
@@ -18922,7 +18922,7 @@ class ModelPrimaryContainerArgsDict(TypedDict):
     Inference specification name in the model package version.
     """
     mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    model_data_source: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerModelDataSourceArgs']]]
+    model_data_source: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerModelDataSourceArgsDict']]]
     """
     Location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker AI Developer Guide_.
     """
@@ -18935,7 +18935,7 @@ class ModelPrimaryContainerArgsDict(TypedDict):
     Amazon Resource Name (ARN) of the model package to use to create the model.
     A list of key value pairs.
     """
-    multi_model_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerMultiModelConfigArgs']]]
+    multi_model_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerMultiModelConfigArgsDict']]]
     """
     Specifies additional configuration for multi-model endpoints. see Multi Model Config.
     """
@@ -19181,7 +19181,7 @@ class ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceArgsDict(TypedDi
     """
     The S3 path of model data to deploy.
     """
-    model_access_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgs']]]
+    model_access_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerAdditionalModelDataSourceS3DataSourceModelAccessConfigArgsDict']]]
     """
     Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
     """
@@ -19287,7 +19287,7 @@ class ModelPrimaryContainerImageConfigArgsDict(TypedDict):
     """
     Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
     """
-    repository_auth_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs']]]
+    repository_auth_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgsDict']]]
     """
     Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
     """
@@ -19399,7 +19399,7 @@ class ModelPrimaryContainerModelDataSourceS3DataSourceArgsDict(TypedDict):
     """
     The S3 path of model data to deploy.
     """
-    model_access_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgs']]]
+    model_access_config: NotRequired[pulumi.Input[Optional['ModelPrimaryContainerModelDataSourceS3DataSourceModelAccessConfigArgsDict']]]
     """
     Specifies the access configuration file for the ML model. You can explicitly accept the model end-user license agreement (EULA) within the [`model_access_config` configuration block]. See Model Access Config.
     """
@@ -19581,7 +19581,7 @@ class MonitoringScheduleMonitoringScheduleConfigArgsDict(TypedDict):
     """
     The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
     """
-    monitoring_job_definition: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs']]]
+    monitoring_job_definition: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgsDict']]]
     """
     Defines the monitoring job. Fields are documented below.
     """
@@ -19589,7 +19589,7 @@ class MonitoringScheduleMonitoringScheduleConfigArgsDict(TypedDict):
     """
     The name of the monitoring job definition to schedule.
     """
-    schedule_config: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs']]]
+    schedule_config: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgsDict']]]
     """
     Configures the monitoring schedule. Fields are documented below.
     """
@@ -19685,7 +19685,7 @@ class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgsDict(
     """
     ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
     """
-    baseline: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs']]]
+    baseline: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgsDict']]]
     """
     Baseline configuration used to validate that the data conforms to the specified constraints and statistics. Fields are documented below.
     """
@@ -19693,11 +19693,11 @@ class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgsDict(
     """
     Map of environment variables in the Docker container.
     """
-    network_config: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs']]]
+    network_config: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgsDict']]]
     """
     Networking options for the monitoring job. Fields are documented below.
     """
-    stopping_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArgs']]]]]
+    stopping_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArgsDict']]]]]
     """
     How long the monitoring job is allowed to run. Fields are documented below.
     """
@@ -19850,8 +19850,8 @@ class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs:
 
 class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgsDict(TypedDict):
     baselining_job_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    constraints_resource: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs']]]
-    statistics_resource: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs']]]
+    constraints_resource: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgsDict']]]
+    statistics_resource: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgsDict']]]
 
 @pulumi.input_type
 class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs:
@@ -20061,11 +20061,11 @@ class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitorin
 
 
 class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgsDict(TypedDict):
-    batch_transform_input: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs']]]
+    batch_transform_input: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgsDict']]]
     """
     Input object for the batch transform job. Fields are documented below.
     """
-    endpoint_input: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs']]]
+    endpoint_input: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgsDict']]]
     """
     Endpoint for a monitoring job. Fields are documented below.
     """
@@ -20356,11 +20356,11 @@ class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitorin
 
 
 class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgsDict(TypedDict):
-    csv: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs']]]
+    csv: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgsDict']]]
     """
     CSV dataset used in the monitoring job. Fields are documented below.
     """
-    json: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs']]]
+    json: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgsDict']]]
     """
     JSON dataset used in the monitoring job. Fields are documented below.
     """
@@ -20955,7 +20955,7 @@ class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkCo
     """
     Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
     """
-    vpc_config: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs']]]
+    vpc_config: NotRequired[pulumi.Input[Optional['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgsDict']]]
     """
     VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
     """
@@ -21256,7 +21256,7 @@ class ProjectServiceCatalogProvisioningDetailsArgsDict(TypedDict):
     """
     The ID of the provisioning artifact.
     """
-    provisioning_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs']]]]]
+    provisioning_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgsDict']]]]]
     """
     A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
     """
@@ -21412,27 +21412,27 @@ class SpaceSpaceSettingsArgsDict(TypedDict):
     """
     The type of app created within the space.
     """
-    code_editor_app_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsCodeEditorAppSettingsArgs']]]
+    code_editor_app_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsCodeEditorAppSettingsArgsDict']]]
     """
     The Code Editor application settings. See `code_editor_app_settings` Block below.
     """
-    custom_file_systems: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgs']]]]]
+    custom_file_systems: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpaceSpaceSettingsCustomFileSystemArgsDict']]]]]
     """
     A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. See `custom_file_system` Block below.
     """
-    jupyter_lab_app_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsJupyterLabAppSettingsArgs']]]
+    jupyter_lab_app_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsJupyterLabAppSettingsArgsDict']]]
     """
     The settings for the JupyterLab application. See `jupyter_lab_app_settings` Block below.
     """
-    jupyter_server_app_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsJupyterServerAppSettingsArgs']]]
+    jupyter_server_app_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsJupyterServerAppSettingsArgsDict']]]
     """
     The Jupyter server's app settings. See `jupyter_server_app_settings` Block below.
     """
-    kernel_gateway_app_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsKernelGatewayAppSettingsArgs']]]
+    kernel_gateway_app_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsKernelGatewayAppSettingsArgsDict']]]
     """
     The kernel gateway app settings. See `kernel_gateway_app_settings` Block below.
     """
-    space_storage_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsSpaceStorageSettingsArgs']]]
+    space_storage_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsSpaceStorageSettingsArgsDict']]]
     """
     The storage settings. See `space_storage_settings` Block below.
     """
@@ -21561,7 +21561,7 @@ class SpaceSpaceSettingsCodeEditorAppSettingsArgsDict(TypedDict):
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
     """
-    app_lifecycle_management: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgs']]]
+    app_lifecycle_management: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgsDict']]]
     """
     Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
     """
@@ -21605,7 +21605,7 @@ class SpaceSpaceSettingsCodeEditorAppSettingsArgs:
 
 
 class SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementArgsDict(TypedDict):
-    idle_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs']]]
+    idle_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgsDict']]]
     """
     Settings related to idle shutdown of Studio applications. See `idle_settings` Block below.
     """
@@ -21832,11 +21832,11 @@ class SpaceSpaceSettingsJupyterLabAppSettingsArgsDict(TypedDict):
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
     """
-    app_lifecycle_management: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgs']]]
+    app_lifecycle_management: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgsDict']]]
     """
     Settings that are used to configure and manage the lifecycle of JupyterLab applications in a space. See `app_lifecycle_management` Block below.
     """
-    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]]
+    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterLabAppSettingsCodeRepositoryArgsDict']]]]]
     """
     A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterLab application. See `code_repository` Block below.
     """
@@ -21896,7 +21896,7 @@ class SpaceSpaceSettingsJupyterLabAppSettingsArgs:
 
 
 class SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementArgsDict(TypedDict):
-    idle_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs']]]
+    idle_settings: NotRequired[pulumi.Input[Optional['SpaceSpaceSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgsDict']]]
     """
     Settings related to idle shutdown of Studio applications. See `idle_settings` Block below.
     """
@@ -22095,7 +22095,7 @@ class SpaceSpaceSettingsJupyterServerAppSettingsArgsDict(TypedDict):
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
     """
-    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]]]
+    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgsDict']]]]]
     """
     A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. See `code_repository` Block below.
     """
@@ -22300,7 +22300,7 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsArgsDict(TypedDict):
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `default_resource_spec` Block below.
     """
-    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs']]]]]
+    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgsDict']]]]]
     """
     A list of custom SageMaker AI images that are configured to run as a KernelGateway app. See `custom_image` Block below.
     """
@@ -22640,7 +22640,7 @@ class TrainingJobAlgorithmSpecificationArgsDict(TypedDict):
     """
     Whether to enable SageMaker AI metrics time series collection.
     """
-    metric_definitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobAlgorithmSpecificationMetricDefinitionArgs']]]]]
+    metric_definitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobAlgorithmSpecificationMetricDefinitionArgsDict']]]]]
     """
     List of metric definitions for the training job. Maximum of 40. Use this to extract custom metrics from your own training container logs. SageMaker can still publish built-in metrics for built-in algorithms and supported prebuilt images when this block is omitted. See `metric_definitions` below.
     """
@@ -22648,7 +22648,7 @@ class TrainingJobAlgorithmSpecificationArgsDict(TypedDict):
     """
     Registry path of the Docker image that contains the training algorithm.
     """
-    training_image_config: NotRequired[pulumi.Input[Optional['TrainingJobAlgorithmSpecificationTrainingImageConfigArgs']]]
+    training_image_config: NotRequired[pulumi.Input[Optional['TrainingJobAlgorithmSpecificationTrainingImageConfigArgsDict']]]
     """
     Training image configuration. See `training_image_config` below.
     """
@@ -22844,7 +22844,7 @@ class TrainingJobAlgorithmSpecificationTrainingImageConfigArgsDict(TypedDict):
     """
     Access mode for the training image repository.
     """
-    training_repository_auth_config: NotRequired[pulumi.Input[Optional['TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgs']]]
+    training_repository_auth_config: NotRequired[pulumi.Input[Optional['TrainingJobAlgorithmSpecificationTrainingImageConfigTrainingRepositoryAuthConfigArgsDict']]]
     """
     Authentication configuration for the training image repository. See `training_repository_auth_config` below.
     """
@@ -22970,7 +22970,7 @@ class TrainingJobDebugHookConfigArgsDict(TypedDict):
     """
     S3 URI where debug output is stored.
     """
-    collection_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobDebugHookConfigCollectionConfigurationArgs']]]]]
+    collection_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobDebugHookConfigCollectionConfigurationArgsDict']]]]]
     """
     List of tensor collections to configure for the debug hook. Maximum of 20. See `collection_configurations` below.
     """
@@ -23380,7 +23380,7 @@ class TrainingJobInputDataConfigArgsDict(TypedDict):
     """
     MIME type of the input data.
     """
-    data_source: NotRequired[pulumi.Input[Optional['TrainingJobInputDataConfigDataSourceArgs']]]
+    data_source: NotRequired[pulumi.Input[Optional['TrainingJobInputDataConfigDataSourceArgsDict']]]
     """
     Location of the channel data. See `data_source` below.
     """
@@ -23392,7 +23392,7 @@ class TrainingJobInputDataConfigArgsDict(TypedDict):
     """
     Record wrapper type. Valid values: `None`, `RecordIO`.
     """
-    shuffle_config: NotRequired[pulumi.Input[Optional['TrainingJobInputDataConfigShuffleConfigArgs']]]
+    shuffle_config: NotRequired[pulumi.Input[Optional['TrainingJobInputDataConfigShuffleConfigArgsDict']]]
     """
     Configuration for shuffling data in the channel. See `shuffle_config` below.
     """
@@ -23516,11 +23516,11 @@ class TrainingJobInputDataConfigArgs:
 
 
 class TrainingJobInputDataConfigDataSourceArgsDict(TypedDict):
-    file_system_data_source: NotRequired[pulumi.Input[Optional['TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgs']]]
+    file_system_data_source: NotRequired[pulumi.Input[Optional['TrainingJobInputDataConfigDataSourceFileSystemDataSourceArgsDict']]]
     """
     File system data source. See `file_system_data_source` below.
     """
-    s3_data_source: NotRequired[pulumi.Input[Optional['TrainingJobInputDataConfigDataSourceS3DataSourceArgs']]]
+    s3_data_source: NotRequired[pulumi.Input[Optional['TrainingJobInputDataConfigDataSourceS3DataSourceArgsDict']]]
     """
     S3 data source. See `s3_data_source` below.
     """
@@ -23662,7 +23662,7 @@ class TrainingJobInputDataConfigDataSourceS3DataSourceArgsDict(TypedDict):
     """
     List of attribute names to include in the training dataset. Maximum of 16.
     """
-    hub_access_config: NotRequired[pulumi.Input[Optional['TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgs']]]
+    hub_access_config: NotRequired[pulumi.Input[Optional['TrainingJobInputDataConfigDataSourceS3DataSourceHubAccessConfigArgsDict']]]
     """
     SageMaker AI Hub access configuration. See `hub_access_config` below.
     """
@@ -23670,7 +23670,7 @@ class TrainingJobInputDataConfigDataSourceS3DataSourceArgsDict(TypedDict):
     """
     List of instance group names for the training data distribution. Maximum of 5.
     """
-    model_access_config: NotRequired[pulumi.Input[Optional['TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgs']]]
+    model_access_config: NotRequired[pulumi.Input[Optional['TrainingJobInputDataConfigDataSourceS3DataSourceModelAccessConfigArgsDict']]]
     """
     Model access configuration. See `model_access_config` below.
     """
@@ -24335,11 +24335,11 @@ class TrainingJobResourceConfigArgsDict(TypedDict):
     """
     Number of ML compute instances to use. Conflicts with `instance_groups`.
     """
-    instance_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobResourceConfigInstanceGroupArgs']]]]]
+    instance_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobResourceConfigInstanceGroupArgsDict']]]]]
     """
     List of instance groups for heterogeneous cluster training. Maximum of 5. Conflicts with `instance_count`, `instance_type`, and `keep_alive_period_in_seconds`. See `instance_groups` below.
     """
-    instance_placement_config: NotRequired[pulumi.Input[Optional['TrainingJobResourceConfigInstancePlacementConfigArgs']]]
+    instance_placement_config: NotRequired[pulumi.Input[Optional['TrainingJobResourceConfigInstancePlacementConfigArgsDict']]]
     """
     Instance placement configuration. See `instance_placement_config` below.
     """
@@ -24573,7 +24573,7 @@ class TrainingJobResourceConfigInstancePlacementConfigArgsDict(TypedDict):
     """
     Whether to enable multiple jobs on the same instance.
     """
-    placement_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgs']]]]]
+    placement_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrainingJobResourceConfigInstancePlacementConfigPlacementSpecificationArgsDict']]]]]
     """
     Placement specifications for instance placement. See `placement_specifications` below.
     """
@@ -25112,19 +25112,19 @@ class UserProfileUserSettingsArgsDict(TypedDict):
     """
     Indicates whether auto-mounting of an EFS volume is supported for the user profile. The `DefaultAsDomain` value is only supported for user profiles. Do not use the `DefaultAsDomain` value when setting this parameter for a domain. Valid values are: `Enabled`, `Disabled`, and `DefaultAsDomain`.
     """
-    canvas_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsArgs']]]
+    canvas_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsArgsDict']]]
     """
     The Canvas app settings. See Canvas App Settings below.
     """
-    code_editor_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCodeEditorAppSettingsArgs']]]
+    code_editor_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCodeEditorAppSettingsArgsDict']]]
     """
     The Code Editor application settings. See Code Editor App Settings below.
     """
-    custom_file_system_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigArgs']]]]]
+    custom_file_system_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigArgsDict']]]]]
     """
     The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio. See Custom File System Config below.
     """
-    custom_posix_user_config: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCustomPosixUserConfigArgs']]]
+    custom_posix_user_config: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCustomPosixUserConfigArgsDict']]]
     """
     Details about the POSIX identity that is used for file system operations. See Custom Posix User Config below.
     """
@@ -25132,23 +25132,23 @@ class UserProfileUserSettingsArgsDict(TypedDict):
     """
     The default experience that the user is directed to when accessing the domain. The supported values are: `studio::`: Indicates that Studio is the default experience. This value can only be passed if StudioWebPortal is set to ENABLED. `app:JupyterServer:`: Indicates that Studio Classic is the default experience.
     """
-    jupyter_lab_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterLabAppSettingsArgs']]]
+    jupyter_lab_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterLabAppSettingsArgsDict']]]
     """
     The settings for the JupyterLab application. See Jupyter Lab App Settings below.
     """
-    jupyter_server_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterServerAppSettingsArgs']]]
+    jupyter_server_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterServerAppSettingsArgsDict']]]
     """
     The Jupyter server's app settings. See Jupyter Server App Settings below.
     """
-    kernel_gateway_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsKernelGatewayAppSettingsArgs']]]
+    kernel_gateway_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsKernelGatewayAppSettingsArgsDict']]]
     """
     The kernel gateway app settings. See Kernel Gateway App Settings below.
     """
-    r_session_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsRSessionAppSettingsArgs']]]
+    r_session_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsRSessionAppSettingsArgsDict']]]
     """
     The RSession app settings. See RSession App Settings below.
     """
-    r_studio_server_pro_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsRStudioServerProAppSettingsArgs']]]
+    r_studio_server_pro_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsRStudioServerProAppSettingsArgsDict']]]
     """
     A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
     """
@@ -25156,11 +25156,11 @@ class UserProfileUserSettingsArgsDict(TypedDict):
     """
     A list of security group IDs that will be attached to the user.
     """
-    sharing_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsSharingSettingsArgs']]]
+    sharing_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsSharingSettingsArgsDict']]]
     """
     The sharing settings. See Sharing Settings below.
     """
-    space_storage_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsSpaceStorageSettingsArgs']]]
+    space_storage_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsSpaceStorageSettingsArgsDict']]]
     """
     The storage settings for a private space. See Space Storage Settings below.
     """
@@ -25168,11 +25168,11 @@ class UserProfileUserSettingsArgsDict(TypedDict):
     """
     Whether the user can access Studio. If this value is set to `DISABLED`, the user cannot access Studio, even if that is the default experience for the domain. Valid values are `ENABLED` and `DISABLED`.
     """
-    studio_web_portal_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsStudioWebPortalSettingsArgs']]]
+    studio_web_portal_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsStudioWebPortalSettingsArgsDict']]]
     """
     The Studio Web Portal settings. See `studio_web_portal_settings` Block below.
     """
-    tensor_board_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsTensorBoardAppSettingsArgs']]]
+    tensor_board_app_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsTensorBoardAppSettingsArgsDict']]]
     """
     The TensorBoard app settings. See TensorBoard App Settings below.
     """
@@ -25472,32 +25472,32 @@ class UserProfileUserSettingsArgs:
 
 
 class UserProfileUserSettingsCanvasAppSettingsArgsDict(TypedDict):
-    direct_deploy_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']]]
+    direct_deploy_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgsDict']]]
     """
     The model deployment settings for the SageMaker AI Canvas application. See Direct Deploy Settings below.
     """
-    emr_serverless_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs']]]
+    emr_serverless_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettingsArgsDict']]]
     """
     The settings for running Amazon EMR Serverless jobs in SageMaker AI Canvas. See `emr_serverless_settings` Block below.
     """
-    generative_ai_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgs']]]
-    identity_provider_oauth_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]]]]
+    generative_ai_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsGenerativeAiSettingsArgsDict']]]
+    identity_provider_oauth_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgsDict']]]]]
     """
     The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
     """
-    kendra_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs']]]
+    kendra_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgsDict']]]
     """
     The settings for document querying. See Kendra Settings below.
     """
-    model_register_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']]]
+    model_register_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgsDict']]]
     """
     The model registry settings for the SageMaker AI Canvas application. See Model Register Settings below.
     """
-    time_series_forecasting_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']]]
+    time_series_forecasting_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgsDict']]]
     """
     Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
     """
-    workspace_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']]]
+    workspace_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgsDict']]]
     """
     The workspace settings for the SageMaker AI Canvas application. See Workspace Settings below.
     """
@@ -25976,7 +25976,7 @@ class UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs:
 
 
 class UserProfileUserSettingsCodeEditorAppSettingsArgsDict(TypedDict):
-    app_lifecycle_management: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgs']]]
+    app_lifecycle_management: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgsDict']]]
     """
     Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
     """
@@ -25984,11 +25984,11 @@ class UserProfileUserSettingsCodeEditorAppSettingsArgsDict(TypedDict):
     """
     The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
     """
-    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgs']]]]]
+    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsCodeEditorAppSettingsCustomImageArgsDict']]]]]
     """
     A list of custom SageMaker AI images that are configured to run as a CodeEditor app. see Custom Image below.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
     """
@@ -26085,7 +26085,7 @@ class UserProfileUserSettingsCodeEditorAppSettingsArgs:
 
 
 class UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementArgsDict(TypedDict):
-    idle_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgs']]]
+    idle_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsCodeEditorAppSettingsAppLifecycleManagementIdleSettingsArgsDict']]]
     """
     Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
     """
@@ -26379,7 +26379,7 @@ class UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpecArgs:
 
 
 class UserProfileUserSettingsCustomFileSystemConfigArgsDict(TypedDict):
-    efs_file_system_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgs']]]]]
+    efs_file_system_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsCustomFileSystemConfigEfsFileSystemConfigArgsDict']]]]]
     """
     The default EBS storage settings for a private space. See EFS File System Config below.
     """
@@ -26503,7 +26503,7 @@ class UserProfileUserSettingsCustomPosixUserConfigArgs:
 
 
 class UserProfileUserSettingsJupyterLabAppSettingsArgsDict(TypedDict):
-    app_lifecycle_management: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgs']]]
+    app_lifecycle_management: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgsDict']]]
     """
     Indicates whether idle shutdown is activated for JupyterLab applications. see `app_lifecycle_management` Block below.
     """
@@ -26511,16 +26511,16 @@ class UserProfileUserSettingsJupyterLabAppSettingsArgsDict(TypedDict):
     """
     The lifecycle configuration that runs before the default lifecycle configuration. It can override changes made in the default lifecycle configuration.
     """
-    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgs']]]]]
+    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCodeRepositoryArgsDict']]]]]
     """
     A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
     """
-    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgs']]]]]
-    default_resource_spec: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs']]]
+    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsJupyterLabAppSettingsCustomImageArgsDict']]]]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
     """
-    emr_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs']]]
+    emr_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgsDict']]]
     """
     The configuration parameters that specify the IAM roles assumed by the execution role of SageMaker AI (assumable roles) and the cluster instances or job execution environments (execution roles or runtime roles) to manage and access resources required for running Amazon EMR clusters or Amazon EMR Serverless applications. see `emr_settings` Block below.
     """
@@ -26645,7 +26645,7 @@ class UserProfileUserSettingsJupyterLabAppSettingsArgs:
 
 
 class UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementArgsDict(TypedDict):
-    idle_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgs']]]
+    idle_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterLabAppSettingsAppLifecycleManagementIdleSettingsArgsDict']]]
     """
     Settings related to idle shutdown of Studio applications. see `idle_settings` Block below.
     """
@@ -27016,11 +27016,11 @@ class UserProfileUserSettingsJupyterLabAppSettingsEmrSettingsArgs:
 
 
 class UserProfileUserSettingsJupyterServerAppSettingsArgsDict(TypedDict):
-    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs']]]]]
+    code_repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgsDict']]]]]
     """
     A list of Git repositories that SageMaker AI automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
     """
@@ -27222,11 +27222,11 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
 
 
 class UserProfileUserSettingsKernelGatewayAppSettingsArgsDict(TypedDict):
-    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs']]]]]
+    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgsDict']]]]]
     """
     A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
     """
@@ -27467,11 +27467,11 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
 
 
 class UserProfileUserSettingsRSessionAppSettingsArgsDict(TypedDict):
-    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsCustomImageArgs']]]]]
+    custom_images: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserProfileUserSettingsRSessionAppSettingsCustomImageArgsDict']]]]]
     """
     A list of custom SageMaker AI images that are configured to run as a KernelGateway app. see Custom Image below.
     """
-    default_resource_spec: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
     """
@@ -27810,7 +27810,7 @@ class UserProfileUserSettingsSharingSettingsArgs:
 
 
 class UserProfileUserSettingsSpaceStorageSettingsArgsDict(TypedDict):
-    default_ebs_storage_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgs']]]
+    default_ebs_storage_settings: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsSpaceStorageSettingsDefaultEbsStorageSettingsArgsDict']]]
     """
     The default EBS storage settings for a private space. See Default EBS Storage Settings below.
     """
@@ -27955,7 +27955,7 @@ class UserProfileUserSettingsStudioWebPortalSettingsArgs:
 
 
 class UserProfileUserSettingsTensorBoardAppSettingsArgsDict(TypedDict):
-    default_resource_spec: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs']]]
+    default_resource_spec: NotRequired[pulumi.Input[Optional['UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgsDict']]]
     """
     The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
     """
@@ -28458,11 +28458,11 @@ class WorkforceWorkforceVpcConfigArgs:
 
 
 class WorkteamMemberDefinitionArgsDict(TypedDict):
-    cognito_member_definition: NotRequired[pulumi.Input[Optional['WorkteamMemberDefinitionCognitoMemberDefinitionArgs']]]
+    cognito_member_definition: NotRequired[pulumi.Input[Optional['WorkteamMemberDefinitionCognitoMemberDefinitionArgsDict']]]
     """
     The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
     """
-    oidc_member_definition: NotRequired[pulumi.Input[Optional['WorkteamMemberDefinitionOidcMemberDefinitionArgs']]]
+    oidc_member_definition: NotRequired[pulumi.Input[Optional['WorkteamMemberDefinitionOidcMemberDefinitionArgsDict']]]
     """
     A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
     """
@@ -28630,7 +28630,7 @@ class WorkteamNotificationConfigurationArgs:
 
 
 class WorkteamWorkerAccessConfigurationArgsDict(TypedDict):
-    s3_presign: NotRequired[pulumi.Input[Optional['WorkteamWorkerAccessConfigurationS3PresignArgs']]]
+    s3_presign: NotRequired[pulumi.Input[Optional['WorkteamWorkerAccessConfigurationS3PresignArgsDict']]]
     """
     Defines any Amazon S3 resource constraints. see S3 Presign details below.
     """
@@ -28659,7 +28659,7 @@ class WorkteamWorkerAccessConfigurationArgs:
 
 
 class WorkteamWorkerAccessConfigurationS3PresignArgsDict(TypedDict):
-    iam_policy_constraints: NotRequired[pulumi.Input[Optional['WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgs']]]
+    iam_policy_constraints: NotRequired[pulumi.Input[Optional['WorkteamWorkerAccessConfigurationS3PresignIamPolicyConstraintsArgsDict']]]
     """
     Use this parameter to specify the allowed request source. Possible sources are either SourceIp or VpcSourceIp. see IAM Policy Constraints details below.
     """

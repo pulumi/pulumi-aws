@@ -72,7 +72,15 @@ export interface GetLocalGatewayVirtualInterfaceResult {
      * Identifier of the EC2 Local Gateway.
      */
     readonly localGatewayId: string;
+    /**
+     * Identifier of the EC2 Local Gateway Virtual Interface Group.
+     */
+    readonly localGatewayVirtualInterfaceGroupId: string;
     readonly localGatewayVirtualInterfaceIds: string[];
+    /**
+     * Identifier of the Outpost LAG.
+     */
+    readonly outpostLagId: string;
     /**
      * Peer address.
      */

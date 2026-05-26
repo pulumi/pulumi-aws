@@ -20,16 +20,14 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
     public static final RouteSpecGrpcRouteRetryPolicyArgs Empty = new RouteSpecGrpcRouteRetryPolicyArgs();
 
     /**
-     * List of gRPC retry events.
-     * Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+     * List of gRPC retry events. Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
      * 
      */
     @Import(name="grpcRetryEvents")
     private @Nullable Output<List<String>> grpcRetryEvents;
 
     /**
-     * @return List of gRPC retry events.
-     * Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+     * @return List of gRPC retry events. Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
      * 
      */
     public Optional<Output<List<String>>> grpcRetryEvents() {
@@ -37,16 +35,14 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
     }
 
     /**
-     * List of HTTP retry events.
-     * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+     * List of HTTP retry events. Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
      * 
      */
     @Import(name="httpRetryEvents")
     private @Nullable Output<List<String>> httpRetryEvents;
 
     /**
-     * @return List of HTTP retry events.
-     * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+     * @return List of HTTP retry events. Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
      * 
      */
     public Optional<Output<List<String>>> httpRetryEvents() {
@@ -84,14 +80,14 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
     }
 
     /**
-     * List of TCP retry events. The only valid value is `connection-error`.
+     * List of TCP retry events. The only valid value is `connection-error`. You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
      * 
      */
     @Import(name="tcpRetryEvents")
     private @Nullable Output<List<String>> tcpRetryEvents;
 
     /**
-     * @return List of TCP retry events. The only valid value is `connection-error`.
+     * @return List of TCP retry events. The only valid value is `connection-error`. You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
      * 
      */
     public Optional<Output<List<String>>> tcpRetryEvents() {
@@ -127,8 +123,7 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param grpcRetryEvents List of gRPC retry events.
-         * Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+         * @param grpcRetryEvents List of gRPC retry events. Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
          * 
          * @return builder
          * 
@@ -139,8 +134,7 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param grpcRetryEvents List of gRPC retry events.
-         * Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+         * @param grpcRetryEvents List of gRPC retry events. Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
          * 
          * @return builder
          * 
@@ -150,8 +144,7 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param grpcRetryEvents List of gRPC retry events.
-         * Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+         * @param grpcRetryEvents List of gRPC retry events. Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
          * 
          * @return builder
          * 
@@ -161,8 +154,7 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpRetryEvents List of HTTP retry events.
-         * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+         * @param httpRetryEvents List of HTTP retry events. Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
          * 
          * @return builder
          * 
@@ -173,8 +165,7 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpRetryEvents List of HTTP retry events.
-         * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+         * @param httpRetryEvents List of HTTP retry events. Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
          * 
          * @return builder
          * 
@@ -184,8 +175,7 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param httpRetryEvents List of HTTP retry events.
-         * Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+         * @param httpRetryEvents List of HTTP retry events. Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
          * 
          * @return builder
          * 
@@ -237,7 +227,7 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param tcpRetryEvents List of TCP retry events. The only valid value is `connection-error`.
+         * @param tcpRetryEvents List of TCP retry events. The only valid value is `connection-error`. You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
          * 
          * @return builder
          * 
@@ -248,7 +238,7 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param tcpRetryEvents List of TCP retry events. The only valid value is `connection-error`.
+         * @param tcpRetryEvents List of TCP retry events. The only valid value is `connection-error`. You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
          * 
          * @return builder
          * 
@@ -258,7 +248,7 @@ public final class RouteSpecGrpcRouteRetryPolicyArgs extends com.pulumi.resource
         }
 
         /**
-         * @param tcpRetryEvents List of TCP retry events. The only valid value is `connection-error`.
+         * @param tcpRetryEvents List of TCP retry events. The only valid value is `connection-error`. You must specify at least one value for `httpRetryEvents`, or at least one value for `tcpRetryEvents`.
          * 
          * @return builder
          * 

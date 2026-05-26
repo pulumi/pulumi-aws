@@ -117,6 +117,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new UserPool("example", UserPoolArgs.builder()
  *             .name("example")
+ *             .userPoolTier("PLUS")
  *             .build());
  * 
  *         var exampleLogGroup = new LogGroup("exampleLogGroup", LogGroupArgs.builder()
@@ -192,7 +193,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 LogDeliveryConfigurationLogConfigurationArgs.builder()
  *                     .eventSource("userAuthEvents")
- *                     .logLevel("ERROR")
+ *                     .logLevel("INFO")
  *                     .firehoseConfiguration(LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs.builder()
  *                         .streamArn(exampleFirehoseDeliveryStream.arn())
  *                         .build())
@@ -236,6 +237,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new UserPool("example", UserPoolArgs.builder()
  *             .name("example")
+ *             .userPoolTier("PLUS")
  *             .build());
  * 
  *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
@@ -246,8 +248,8 @@ import javax.annotation.Nullable;
  *         var exampleLogDeliveryConfiguration = new LogDeliveryConfiguration("exampleLogDeliveryConfiguration", LogDeliveryConfigurationArgs.builder()
  *             .userPoolId(example.id())
  *             .logConfigurations(LogDeliveryConfigurationLogConfigurationArgs.builder()
- *                 .eventSource("userNotification")
- *                 .logLevel("ERROR")
+ *                 .eventSource("userAuthEvents")
+ *                 .logLevel("INFO")
  *                 .s3Configuration(LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs.builder()
  *                     .bucketArn(exampleBucket.arn())
  *                     .build())

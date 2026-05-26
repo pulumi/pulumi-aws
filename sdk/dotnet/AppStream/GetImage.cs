@@ -183,6 +183,9 @@ namespace Pulumi.Aws.AppStream
     [OutputType]
     public sealed class GetImageResult
     {
+        /// <summary>
+        /// A application object that contains the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetImageApplicationResult> Applications;
         /// <summary>
         /// Version of the AppStream 2.0 agent to use for instances that are launched from this image. Has a maximum length of 100 characters.
@@ -218,7 +221,6 @@ namespace Pulumi.Aws.AppStream
         public readonly string ImageBuilderName;
         /// <summary>
         /// Boolean to indicate whether an image builder can be launched from this image.
-        /// * `image error` - Resource error object that describes the error containing the following:
         /// </summary>
         public readonly bool ImageBuilderSupported;
         /// <summary>
@@ -226,18 +228,27 @@ namespace Pulumi.Aws.AppStream
         /// </summary>
         public readonly ImmutableArray<Outputs.GetImageImagePermissionResult> ImagePermissions;
         public readonly bool? MostRecent;
+        /// <summary>
+        /// Name of the application.
+        /// </summary>
         public readonly string Name;
         public readonly string? NameRegex;
         /// <summary>
         /// Operating system platform of the image. Values will be from: WINDOWS | WINDOWS_SERVER_2016 | WINDOWS_SERVER_2019 | WINDOWS_SERVER_2022 | AMAZON_LINUX2
         /// </summary>
         public readonly string Platform;
+        /// <summary>
+        /// Release date of base image if public. For private images, it is the release date of the base image that it was created from.
+        /// </summary>
         public readonly string PublicBaseImageReleasedDate;
         public readonly string Region;
         /// <summary>
         /// Current state of image. Image starts in PENDING state which changes to AVAILABLE if creation passes and FAILED if it fails. Values will be from: PENDING | AVAILABLE | FAILED | COPYING | DELETING | CREATING | IMPORTING.
         /// </summary>
         public readonly string State;
+        /// <summary>
+        /// Reason for the last state change.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetImageStateChangeReasonResult> StateChangeReasons;
         public readonly string? Type;
 

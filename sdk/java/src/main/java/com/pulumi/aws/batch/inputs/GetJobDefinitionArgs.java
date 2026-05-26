@@ -32,14 +32,14 @@ public final class GetJobDefinitionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+     * Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+     * @return Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      * 
      */
     public Optional<Output<String>> name() {
@@ -62,14 +62,14 @@ public final class GetJobDefinitionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The revision of the job definition.
+     * Revision of the job definition.
      * 
      */
     @Import(name="revision")
     private @Nullable Output<Integer> revision;
 
     /**
-     * @return The revision of the job definition.
+     * @return Revision of the job definition.
      * 
      */
     public Optional<Output<Integer>> revision() {
@@ -77,14 +77,14 @@ public final class GetJobDefinitionArgs extends com.pulumi.resources.InvokeArgs 
     }
 
     /**
-     * The status of the job definition.
+     * Status of the job definition.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of the job definition.
+     * @return Status of the job definition.
      * 
      */
     public Optional<Output<String>> status() {
@@ -141,7 +141,7 @@ public final class GetJobDefinitionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+         * @param name Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class GetJobDefinitionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param name The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+         * @param name Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class GetJobDefinitionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param revision The revision of the job definition.
+         * @param revision Revision of the job definition.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class GetJobDefinitionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param revision The revision of the job definition.
+         * @param revision Revision of the job definition.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class GetJobDefinitionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param status The status of the job definition.
+         * @param status Status of the job definition.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class GetJobDefinitionArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param status The status of the job definition.
+         * @param status Status of the job definition.
          * 
          * @return builder
          * 

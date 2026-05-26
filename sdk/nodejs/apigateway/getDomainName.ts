@@ -84,11 +84,11 @@ export interface GetDomainNameResult {
     readonly domainName: string;
     readonly domainNameId: string;
     /**
-     * (Optional) Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
+     * Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
      */
     readonly endpointAccessMode: string;
     /**
-     * List of objects with the endpoint configuration of this domain name.
+     * List of objects with the endpoint configuration of this domain name. See below.
      */
     readonly endpointConfigurations: outputs.apigateway.GetDomainNameEndpointConfiguration[];
     /**

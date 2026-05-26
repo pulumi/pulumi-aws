@@ -89,7 +89,7 @@ class GetAvailabilityZoneResult:
     @pulumi.getter(name="groupLongName")
     def group_long_name(self) -> _builtins.str:
         """
-        The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+        Long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
         """
         return pulumi.get(self, "group_long_name")
 
@@ -97,7 +97,7 @@ class GetAvailabilityZoneResult:
     @pulumi.getter(name="groupName")
     def group_name(self) -> _builtins.str:
         """
-        The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
+        Name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
         """
         return pulumi.get(self, "group_name")
 
@@ -118,9 +118,7 @@ class GetAvailabilityZoneResult:
     @pulumi.getter(name="nameSuffix")
     def name_suffix(self) -> _builtins.str:
         """
-        Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
-        For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
-        For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
+        Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region. For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone. For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
         """
         return pulumi.get(self, "name_suffix")
 
@@ -128,7 +126,7 @@ class GetAvailabilityZoneResult:
     @pulumi.getter(name="networkBorderGroup")
     def network_border_group(self) -> _builtins.str:
         """
-        The name of the location from which the address is advertised.
+        Name of the location from which the address is advertised.
         """
         return pulumi.get(self, "network_border_group")
 
@@ -263,9 +261,9 @@ def get_availability_zone(all_availability_zones: Optional[_builtins.bool] = Non
     # Create a subnet for the AZ within the regional VPC
     example_subnet = aws.ec2.Subnet("example",
         vpc_id=example_vpc.id,
-        cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet(input=cidr_block,
+        cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
             newbits=4,
-            netnum=output(az_number[example.name_suffix]).apply(lambda x: int(x)))).apply(lambda invoke: invoke.result))
+            netnum=output(az_number[example.name_suffix]).apply(lambda x: int(x))).apply(lambda invoke: invoke.result))
     ```
 
 
@@ -275,10 +273,6 @@ def get_availability_zone(all_availability_zones: Optional[_builtins.bool] = Non
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param _builtins.str zone_id: Zone ID of the availability zone to select.
-           
-           The arguments of this data source act as filters for querying the available
-           availability zones. The given filters must match exactly one availability
-           zone whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['allAvailabilityZones'] = all_availability_zones
@@ -366,9 +360,9 @@ def get_availability_zone_output(all_availability_zones: pulumi.Input[Optional[O
     # Create a subnet for the AZ within the regional VPC
     example_subnet = aws.ec2.Subnet("example",
         vpc_id=example_vpc.id,
-        cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet(input=cidr_block,
+        cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
             newbits=4,
-            netnum=output(az_number[example.name_suffix]).apply(lambda x: int(x)))).apply(lambda invoke: invoke.result))
+            netnum=output(az_number[example.name_suffix]).apply(lambda x: int(x))).apply(lambda invoke: invoke.result))
     ```
 
 
@@ -378,10 +372,6 @@ def get_availability_zone_output(all_availability_zones: pulumi.Input[Optional[O
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str state: Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
     :param _builtins.str zone_id: Zone ID of the availability zone to select.
-           
-           The arguments of this data source act as filters for querying the available
-           availability zones. The given filters must match exactly one availability
-           zone whose data will be exported as attributes.
     """
     __args__ = dict()
     __args__['allAvailabilityZones'] = all_availability_zones

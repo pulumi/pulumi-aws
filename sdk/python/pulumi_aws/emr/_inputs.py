@@ -235,11 +235,11 @@ class ClusterCoreInstanceFleetArgsDict(TypedDict):
     """
     ID of the cluster.
     """
-    instance_type_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArgs']]]]]
+    instance_type_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigArgsDict']]]]]
     """
     Configuration block for instance fleet.
     """
-    launch_specifications: NotRequired[pulumi.Input[Optional['ClusterCoreInstanceFleetLaunchSpecificationsArgs']]]
+    launch_specifications: NotRequired[pulumi.Input[Optional['ClusterCoreInstanceFleetLaunchSpecificationsArgsDict']]]
     """
     Configuration block for launch specification.
     """
@@ -398,11 +398,11 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgsDict(TypedDict):
     """
     Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
     """
-    configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs']]]]]
+    configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgsDict']]]]]
     """
     Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
     """
-    ebs_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs']]]]]
+    ebs_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgsDict']]]]]
     """
     Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
     """
@@ -650,11 +650,11 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
 
 
 class ClusterCoreInstanceFleetLaunchSpecificationsArgsDict(TypedDict):
-    on_demand_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]]]
+    on_demand_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict']]]]]
     """
     Configuration block for on demand instances launch specifications.
     """
-    spot_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]]]
+    spot_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgsDict']]]]]
     """
     Configuration block for spot instances launch specifications.
     """
@@ -825,7 +825,7 @@ class ClusterCoreInstanceGroupArgsDict(TypedDict):
     """
     Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
     """
-    ebs_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArgs']]]]]
+    ebs_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterCoreInstanceGroupEbsConfigArgsDict']]]]]
     """
     Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
     """
@@ -1373,11 +1373,11 @@ class ClusterMasterInstanceFleetArgsDict(TypedDict):
     """
     ID of the cluster.
     """
-    instance_type_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArgs']]]]]
+    instance_type_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigArgsDict']]]]]
     """
     Configuration block for instance fleet.
     """
-    launch_specifications: NotRequired[pulumi.Input[Optional['ClusterMasterInstanceFleetLaunchSpecificationsArgs']]]
+    launch_specifications: NotRequired[pulumi.Input[Optional['ClusterMasterInstanceFleetLaunchSpecificationsArgsDict']]]
     """
     Configuration block for launch specification.
     """
@@ -1536,11 +1536,11 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgsDict(TypedDict):
     """
     Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
     """
-    configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs']]]]]
+    configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgsDict']]]]]
     """
     Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
     """
-    ebs_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs']]]]]
+    ebs_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgsDict']]]]]
     """
     Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
     """
@@ -1788,11 +1788,11 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
 
 
 class ClusterMasterInstanceFleetLaunchSpecificationsArgsDict(TypedDict):
-    on_demand_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]]]
+    on_demand_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict']]]]]
     """
     Configuration block for on demand instances launch specifications.
     """
-    spot_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]]]
+    spot_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgsDict']]]]]
     """
     Configuration block for spot instances launch specifications.
     """
@@ -1959,7 +1959,7 @@ class ClusterMasterInstanceGroupArgsDict(TypedDict):
     """
     Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
     """
-    ebs_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArgs']]]]]
+    ebs_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClusterMasterInstanceGroupEbsConfigArgsDict']]]]]
     """
     Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
     """
@@ -2400,11 +2400,11 @@ class InstanceFleetInstanceTypeConfigArgsDict(TypedDict):
     """
     The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
     """
-    configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgs']]]]]
+    configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgsDict']]]]]
     """
     A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
     """
-    ebs_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgs']]]]]
+    ebs_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgsDict']]]]]
     """
     Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
     """
@@ -2652,11 +2652,11 @@ class InstanceFleetInstanceTypeConfigEbsConfigArgs:
 
 
 class InstanceFleetLaunchSpecificationsArgsDict(TypedDict):
-    on_demand_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs']]]]]
+    on_demand_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgsDict']]]]]
     """
     Configuration block for on demand instances launch specifications
     """
-    spot_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArgs']]]]]
+    spot_specifications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InstanceFleetLaunchSpecificationsSpotSpecificationArgsDict']]]]]
     """
     Configuration block for spot instances launch specifications
     """

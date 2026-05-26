@@ -169,9 +169,470 @@ func (o GroupInsightsConfigurationPtrOutput) NotificationsEnabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
+type IndexingRuleRule struct {
+	// Indexing rule configuration used to probabilistically sample traceIds. See `probabilistic` Block below.
+	Probabilistic *IndexingRuleRuleProbabilistic `pulumi:"probabilistic"`
+}
+
+// IndexingRuleRuleInput is an input type that accepts IndexingRuleRuleArgs and IndexingRuleRuleOutput values.
+// You can construct a concrete instance of `IndexingRuleRuleInput` via:
+//
+//	IndexingRuleRuleArgs{...}
+type IndexingRuleRuleInput interface {
+	pulumi.Input
+
+	ToIndexingRuleRuleOutput() IndexingRuleRuleOutput
+	ToIndexingRuleRuleOutputWithContext(context.Context) IndexingRuleRuleOutput
+}
+
+type IndexingRuleRuleArgs struct {
+	// Indexing rule configuration used to probabilistically sample traceIds. See `probabilistic` Block below.
+	Probabilistic IndexingRuleRuleProbabilisticPtrInput `pulumi:"probabilistic"`
+}
+
+func (IndexingRuleRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingRuleRule)(nil)).Elem()
+}
+
+func (i IndexingRuleRuleArgs) ToIndexingRuleRuleOutput() IndexingRuleRuleOutput {
+	return i.ToIndexingRuleRuleOutputWithContext(context.Background())
+}
+
+func (i IndexingRuleRuleArgs) ToIndexingRuleRuleOutputWithContext(ctx context.Context) IndexingRuleRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingRuleRuleOutput)
+}
+
+func (i IndexingRuleRuleArgs) ToIndexingRuleRulePtrOutput() IndexingRuleRulePtrOutput {
+	return i.ToIndexingRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (i IndexingRuleRuleArgs) ToIndexingRuleRulePtrOutputWithContext(ctx context.Context) IndexingRuleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingRuleRuleOutput).ToIndexingRuleRulePtrOutputWithContext(ctx)
+}
+
+// IndexingRuleRulePtrInput is an input type that accepts IndexingRuleRuleArgs, IndexingRuleRulePtr and IndexingRuleRulePtrOutput values.
+// You can construct a concrete instance of `IndexingRuleRulePtrInput` via:
+//
+//	        IndexingRuleRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type IndexingRuleRulePtrInput interface {
+	pulumi.Input
+
+	ToIndexingRuleRulePtrOutput() IndexingRuleRulePtrOutput
+	ToIndexingRuleRulePtrOutputWithContext(context.Context) IndexingRuleRulePtrOutput
+}
+
+type indexingRuleRulePtrType IndexingRuleRuleArgs
+
+func IndexingRuleRulePtr(v *IndexingRuleRuleArgs) IndexingRuleRulePtrInput {
+	return (*indexingRuleRulePtrType)(v)
+}
+
+func (*indexingRuleRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexingRuleRule)(nil)).Elem()
+}
+
+func (i *indexingRuleRulePtrType) ToIndexingRuleRulePtrOutput() IndexingRuleRulePtrOutput {
+	return i.ToIndexingRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (i *indexingRuleRulePtrType) ToIndexingRuleRulePtrOutputWithContext(ctx context.Context) IndexingRuleRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingRuleRulePtrOutput)
+}
+
+type IndexingRuleRuleOutput struct{ *pulumi.OutputState }
+
+func (IndexingRuleRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingRuleRule)(nil)).Elem()
+}
+
+func (o IndexingRuleRuleOutput) ToIndexingRuleRuleOutput() IndexingRuleRuleOutput {
+	return o
+}
+
+func (o IndexingRuleRuleOutput) ToIndexingRuleRuleOutputWithContext(ctx context.Context) IndexingRuleRuleOutput {
+	return o
+}
+
+func (o IndexingRuleRuleOutput) ToIndexingRuleRulePtrOutput() IndexingRuleRulePtrOutput {
+	return o.ToIndexingRuleRulePtrOutputWithContext(context.Background())
+}
+
+func (o IndexingRuleRuleOutput) ToIndexingRuleRulePtrOutputWithContext(ctx context.Context) IndexingRuleRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexingRuleRule) *IndexingRuleRule {
+		return &v
+	}).(IndexingRuleRulePtrOutput)
+}
+
+// Indexing rule configuration used to probabilistically sample traceIds. See `probabilistic` Block below.
+func (o IndexingRuleRuleOutput) Probabilistic() IndexingRuleRuleProbabilisticPtrOutput {
+	return o.ApplyT(func(v IndexingRuleRule) *IndexingRuleRuleProbabilistic { return v.Probabilistic }).(IndexingRuleRuleProbabilisticPtrOutput)
+}
+
+type IndexingRuleRulePtrOutput struct{ *pulumi.OutputState }
+
+func (IndexingRuleRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexingRuleRule)(nil)).Elem()
+}
+
+func (o IndexingRuleRulePtrOutput) ToIndexingRuleRulePtrOutput() IndexingRuleRulePtrOutput {
+	return o
+}
+
+func (o IndexingRuleRulePtrOutput) ToIndexingRuleRulePtrOutputWithContext(ctx context.Context) IndexingRuleRulePtrOutput {
+	return o
+}
+
+func (o IndexingRuleRulePtrOutput) Elem() IndexingRuleRuleOutput {
+	return o.ApplyT(func(v *IndexingRuleRule) IndexingRuleRule {
+		if v != nil {
+			return *v
+		}
+		var ret IndexingRuleRule
+		return ret
+	}).(IndexingRuleRuleOutput)
+}
+
+// Indexing rule configuration used to probabilistically sample traceIds. See `probabilistic` Block below.
+func (o IndexingRuleRulePtrOutput) Probabilistic() IndexingRuleRuleProbabilisticPtrOutput {
+	return o.ApplyT(func(v *IndexingRuleRule) *IndexingRuleRuleProbabilistic {
+		if v == nil {
+			return nil
+		}
+		return v.Probabilistic
+	}).(IndexingRuleRuleProbabilisticPtrOutput)
+}
+
+type IndexingRuleRuleProbabilistic struct {
+	// Applied sampling percentage of traceIds.
+	ActualSamplingPercentage *float64 `pulumi:"actualSamplingPercentage"`
+	// Configured sampling percentage of traceIds.
+	DesiredSamplingPercentage float64 `pulumi:"desiredSamplingPercentage"`
+}
+
+// IndexingRuleRuleProbabilisticInput is an input type that accepts IndexingRuleRuleProbabilisticArgs and IndexingRuleRuleProbabilisticOutput values.
+// You can construct a concrete instance of `IndexingRuleRuleProbabilisticInput` via:
+//
+//	IndexingRuleRuleProbabilisticArgs{...}
+type IndexingRuleRuleProbabilisticInput interface {
+	pulumi.Input
+
+	ToIndexingRuleRuleProbabilisticOutput() IndexingRuleRuleProbabilisticOutput
+	ToIndexingRuleRuleProbabilisticOutputWithContext(context.Context) IndexingRuleRuleProbabilisticOutput
+}
+
+type IndexingRuleRuleProbabilisticArgs struct {
+	// Applied sampling percentage of traceIds.
+	ActualSamplingPercentage pulumi.Float64PtrInput `pulumi:"actualSamplingPercentage"`
+	// Configured sampling percentage of traceIds.
+	DesiredSamplingPercentage pulumi.Float64Input `pulumi:"desiredSamplingPercentage"`
+}
+
+func (IndexingRuleRuleProbabilisticArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingRuleRuleProbabilistic)(nil)).Elem()
+}
+
+func (i IndexingRuleRuleProbabilisticArgs) ToIndexingRuleRuleProbabilisticOutput() IndexingRuleRuleProbabilisticOutput {
+	return i.ToIndexingRuleRuleProbabilisticOutputWithContext(context.Background())
+}
+
+func (i IndexingRuleRuleProbabilisticArgs) ToIndexingRuleRuleProbabilisticOutputWithContext(ctx context.Context) IndexingRuleRuleProbabilisticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingRuleRuleProbabilisticOutput)
+}
+
+func (i IndexingRuleRuleProbabilisticArgs) ToIndexingRuleRuleProbabilisticPtrOutput() IndexingRuleRuleProbabilisticPtrOutput {
+	return i.ToIndexingRuleRuleProbabilisticPtrOutputWithContext(context.Background())
+}
+
+func (i IndexingRuleRuleProbabilisticArgs) ToIndexingRuleRuleProbabilisticPtrOutputWithContext(ctx context.Context) IndexingRuleRuleProbabilisticPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingRuleRuleProbabilisticOutput).ToIndexingRuleRuleProbabilisticPtrOutputWithContext(ctx)
+}
+
+// IndexingRuleRuleProbabilisticPtrInput is an input type that accepts IndexingRuleRuleProbabilisticArgs, IndexingRuleRuleProbabilisticPtr and IndexingRuleRuleProbabilisticPtrOutput values.
+// You can construct a concrete instance of `IndexingRuleRuleProbabilisticPtrInput` via:
+//
+//	        IndexingRuleRuleProbabilisticArgs{...}
+//
+//	or:
+//
+//	        nil
+type IndexingRuleRuleProbabilisticPtrInput interface {
+	pulumi.Input
+
+	ToIndexingRuleRuleProbabilisticPtrOutput() IndexingRuleRuleProbabilisticPtrOutput
+	ToIndexingRuleRuleProbabilisticPtrOutputWithContext(context.Context) IndexingRuleRuleProbabilisticPtrOutput
+}
+
+type indexingRuleRuleProbabilisticPtrType IndexingRuleRuleProbabilisticArgs
+
+func IndexingRuleRuleProbabilisticPtr(v *IndexingRuleRuleProbabilisticArgs) IndexingRuleRuleProbabilisticPtrInput {
+	return (*indexingRuleRuleProbabilisticPtrType)(v)
+}
+
+func (*indexingRuleRuleProbabilisticPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexingRuleRuleProbabilistic)(nil)).Elem()
+}
+
+func (i *indexingRuleRuleProbabilisticPtrType) ToIndexingRuleRuleProbabilisticPtrOutput() IndexingRuleRuleProbabilisticPtrOutput {
+	return i.ToIndexingRuleRuleProbabilisticPtrOutputWithContext(context.Background())
+}
+
+func (i *indexingRuleRuleProbabilisticPtrType) ToIndexingRuleRuleProbabilisticPtrOutputWithContext(ctx context.Context) IndexingRuleRuleProbabilisticPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingRuleRuleProbabilisticPtrOutput)
+}
+
+type IndexingRuleRuleProbabilisticOutput struct{ *pulumi.OutputState }
+
+func (IndexingRuleRuleProbabilisticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingRuleRuleProbabilistic)(nil)).Elem()
+}
+
+func (o IndexingRuleRuleProbabilisticOutput) ToIndexingRuleRuleProbabilisticOutput() IndexingRuleRuleProbabilisticOutput {
+	return o
+}
+
+func (o IndexingRuleRuleProbabilisticOutput) ToIndexingRuleRuleProbabilisticOutputWithContext(ctx context.Context) IndexingRuleRuleProbabilisticOutput {
+	return o
+}
+
+func (o IndexingRuleRuleProbabilisticOutput) ToIndexingRuleRuleProbabilisticPtrOutput() IndexingRuleRuleProbabilisticPtrOutput {
+	return o.ToIndexingRuleRuleProbabilisticPtrOutputWithContext(context.Background())
+}
+
+func (o IndexingRuleRuleProbabilisticOutput) ToIndexingRuleRuleProbabilisticPtrOutputWithContext(ctx context.Context) IndexingRuleRuleProbabilisticPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IndexingRuleRuleProbabilistic) *IndexingRuleRuleProbabilistic {
+		return &v
+	}).(IndexingRuleRuleProbabilisticPtrOutput)
+}
+
+// Applied sampling percentage of traceIds.
+func (o IndexingRuleRuleProbabilisticOutput) ActualSamplingPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v IndexingRuleRuleProbabilistic) *float64 { return v.ActualSamplingPercentage }).(pulumi.Float64PtrOutput)
+}
+
+// Configured sampling percentage of traceIds.
+func (o IndexingRuleRuleProbabilisticOutput) DesiredSamplingPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v IndexingRuleRuleProbabilistic) float64 { return v.DesiredSamplingPercentage }).(pulumi.Float64Output)
+}
+
+type IndexingRuleRuleProbabilisticPtrOutput struct{ *pulumi.OutputState }
+
+func (IndexingRuleRuleProbabilisticPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexingRuleRuleProbabilistic)(nil)).Elem()
+}
+
+func (o IndexingRuleRuleProbabilisticPtrOutput) ToIndexingRuleRuleProbabilisticPtrOutput() IndexingRuleRuleProbabilisticPtrOutput {
+	return o
+}
+
+func (o IndexingRuleRuleProbabilisticPtrOutput) ToIndexingRuleRuleProbabilisticPtrOutputWithContext(ctx context.Context) IndexingRuleRuleProbabilisticPtrOutput {
+	return o
+}
+
+func (o IndexingRuleRuleProbabilisticPtrOutput) Elem() IndexingRuleRuleProbabilisticOutput {
+	return o.ApplyT(func(v *IndexingRuleRuleProbabilistic) IndexingRuleRuleProbabilistic {
+		if v != nil {
+			return *v
+		}
+		var ret IndexingRuleRuleProbabilistic
+		return ret
+	}).(IndexingRuleRuleProbabilisticOutput)
+}
+
+// Applied sampling percentage of traceIds.
+func (o IndexingRuleRuleProbabilisticPtrOutput) ActualSamplingPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *IndexingRuleRuleProbabilistic) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ActualSamplingPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Configured sampling percentage of traceIds.
+func (o IndexingRuleRuleProbabilisticPtrOutput) DesiredSamplingPercentage() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *IndexingRuleRuleProbabilistic) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.DesiredSamplingPercentage
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TraceSegmentDestinationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// TraceSegmentDestinationTimeoutsInput is an input type that accepts TraceSegmentDestinationTimeoutsArgs and TraceSegmentDestinationTimeoutsOutput values.
+// You can construct a concrete instance of `TraceSegmentDestinationTimeoutsInput` via:
+//
+//	TraceSegmentDestinationTimeoutsArgs{...}
+type TraceSegmentDestinationTimeoutsInput interface {
+	pulumi.Input
+
+	ToTraceSegmentDestinationTimeoutsOutput() TraceSegmentDestinationTimeoutsOutput
+	ToTraceSegmentDestinationTimeoutsOutputWithContext(context.Context) TraceSegmentDestinationTimeoutsOutput
+}
+
+type TraceSegmentDestinationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (TraceSegmentDestinationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TraceSegmentDestinationTimeouts)(nil)).Elem()
+}
+
+func (i TraceSegmentDestinationTimeoutsArgs) ToTraceSegmentDestinationTimeoutsOutput() TraceSegmentDestinationTimeoutsOutput {
+	return i.ToTraceSegmentDestinationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i TraceSegmentDestinationTimeoutsArgs) ToTraceSegmentDestinationTimeoutsOutputWithContext(ctx context.Context) TraceSegmentDestinationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TraceSegmentDestinationTimeoutsOutput)
+}
+
+func (i TraceSegmentDestinationTimeoutsArgs) ToTraceSegmentDestinationTimeoutsPtrOutput() TraceSegmentDestinationTimeoutsPtrOutput {
+	return i.ToTraceSegmentDestinationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i TraceSegmentDestinationTimeoutsArgs) ToTraceSegmentDestinationTimeoutsPtrOutputWithContext(ctx context.Context) TraceSegmentDestinationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TraceSegmentDestinationTimeoutsOutput).ToTraceSegmentDestinationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// TraceSegmentDestinationTimeoutsPtrInput is an input type that accepts TraceSegmentDestinationTimeoutsArgs, TraceSegmentDestinationTimeoutsPtr and TraceSegmentDestinationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `TraceSegmentDestinationTimeoutsPtrInput` via:
+//
+//	        TraceSegmentDestinationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TraceSegmentDestinationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToTraceSegmentDestinationTimeoutsPtrOutput() TraceSegmentDestinationTimeoutsPtrOutput
+	ToTraceSegmentDestinationTimeoutsPtrOutputWithContext(context.Context) TraceSegmentDestinationTimeoutsPtrOutput
+}
+
+type traceSegmentDestinationTimeoutsPtrType TraceSegmentDestinationTimeoutsArgs
+
+func TraceSegmentDestinationTimeoutsPtr(v *TraceSegmentDestinationTimeoutsArgs) TraceSegmentDestinationTimeoutsPtrInput {
+	return (*traceSegmentDestinationTimeoutsPtrType)(v)
+}
+
+func (*traceSegmentDestinationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TraceSegmentDestinationTimeouts)(nil)).Elem()
+}
+
+func (i *traceSegmentDestinationTimeoutsPtrType) ToTraceSegmentDestinationTimeoutsPtrOutput() TraceSegmentDestinationTimeoutsPtrOutput {
+	return i.ToTraceSegmentDestinationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *traceSegmentDestinationTimeoutsPtrType) ToTraceSegmentDestinationTimeoutsPtrOutputWithContext(ctx context.Context) TraceSegmentDestinationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TraceSegmentDestinationTimeoutsPtrOutput)
+}
+
+type TraceSegmentDestinationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (TraceSegmentDestinationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TraceSegmentDestinationTimeouts)(nil)).Elem()
+}
+
+func (o TraceSegmentDestinationTimeoutsOutput) ToTraceSegmentDestinationTimeoutsOutput() TraceSegmentDestinationTimeoutsOutput {
+	return o
+}
+
+func (o TraceSegmentDestinationTimeoutsOutput) ToTraceSegmentDestinationTimeoutsOutputWithContext(ctx context.Context) TraceSegmentDestinationTimeoutsOutput {
+	return o
+}
+
+func (o TraceSegmentDestinationTimeoutsOutput) ToTraceSegmentDestinationTimeoutsPtrOutput() TraceSegmentDestinationTimeoutsPtrOutput {
+	return o.ToTraceSegmentDestinationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o TraceSegmentDestinationTimeoutsOutput) ToTraceSegmentDestinationTimeoutsPtrOutputWithContext(ctx context.Context) TraceSegmentDestinationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TraceSegmentDestinationTimeouts) *TraceSegmentDestinationTimeouts {
+		return &v
+	}).(TraceSegmentDestinationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TraceSegmentDestinationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TraceSegmentDestinationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TraceSegmentDestinationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TraceSegmentDestinationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type TraceSegmentDestinationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (TraceSegmentDestinationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TraceSegmentDestinationTimeouts)(nil)).Elem()
+}
+
+func (o TraceSegmentDestinationTimeoutsPtrOutput) ToTraceSegmentDestinationTimeoutsPtrOutput() TraceSegmentDestinationTimeoutsPtrOutput {
+	return o
+}
+
+func (o TraceSegmentDestinationTimeoutsPtrOutput) ToTraceSegmentDestinationTimeoutsPtrOutputWithContext(ctx context.Context) TraceSegmentDestinationTimeoutsPtrOutput {
+	return o
+}
+
+func (o TraceSegmentDestinationTimeoutsPtrOutput) Elem() TraceSegmentDestinationTimeoutsOutput {
+	return o.ApplyT(func(v *TraceSegmentDestinationTimeouts) TraceSegmentDestinationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret TraceSegmentDestinationTimeouts
+		return ret
+	}).(TraceSegmentDestinationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TraceSegmentDestinationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TraceSegmentDestinationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TraceSegmentDestinationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TraceSegmentDestinationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInsightsConfigurationInput)(nil)).Elem(), GroupInsightsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInsightsConfigurationPtrInput)(nil)).Elem(), GroupInsightsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingRuleRuleInput)(nil)).Elem(), IndexingRuleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingRuleRulePtrInput)(nil)).Elem(), IndexingRuleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingRuleRuleProbabilisticInput)(nil)).Elem(), IndexingRuleRuleProbabilisticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IndexingRuleRuleProbabilisticPtrInput)(nil)).Elem(), IndexingRuleRuleProbabilisticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TraceSegmentDestinationTimeoutsInput)(nil)).Elem(), TraceSegmentDestinationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TraceSegmentDestinationTimeoutsPtrInput)(nil)).Elem(), TraceSegmentDestinationTimeoutsArgs{})
 	pulumi.RegisterOutputType(GroupInsightsConfigurationOutput{})
 	pulumi.RegisterOutputType(GroupInsightsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(IndexingRuleRuleOutput{})
+	pulumi.RegisterOutputType(IndexingRuleRulePtrOutput{})
+	pulumi.RegisterOutputType(IndexingRuleRuleProbabilisticOutput{})
+	pulumi.RegisterOutputType(IndexingRuleRuleProbabilisticPtrOutput{})
+	pulumi.RegisterOutputType(TraceSegmentDestinationTimeoutsOutput{})
+	pulumi.RegisterOutputType(TraceSegmentDestinationTimeoutsPtrOutput{})
 }

@@ -58,8 +58,7 @@ export interface GetApiResult {
     readonly apiEndpoint: string;
     readonly apiId: string;
     /**
-     * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-     * Applicable for WebSocket APIs.
+     * An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
      */
     readonly apiKeySelectionExpression: string;
     /**
@@ -67,8 +66,7 @@ export interface GetApiResult {
      */
     readonly arn: string;
     /**
-     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
-     * Applicable for HTTP APIs.
+     * Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See below.
      */
     readonly corsConfigurations: outputs.apigatewayv2.GetApiCorsConfiguration[];
     /**
@@ -80,15 +78,16 @@ export interface GetApiResult {
      */
     readonly disableExecuteApiEndpoint: boolean;
     /**
-     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute
-     * or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+     * ARN prefix to be used in an `aws.lambda.Permission`'s `sourceArn` attribute or in an `aws.iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      */
     readonly executionArn: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The IP address types that can invoke an API.
+     */
     readonly ipAddressType: string;
     /**
      * Name of the API.

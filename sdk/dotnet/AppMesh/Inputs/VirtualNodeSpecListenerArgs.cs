@@ -13,37 +13,37 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Connection pool information for the listener.
+        /// Connection pool information for the listener. See `ConnectionPool` Block for details.
         /// </summary>
         [Input("connectionPool")]
         public Input<Inputs.VirtualNodeSpecListenerConnectionPoolArgs>? ConnectionPool { get; set; }
 
         /// <summary>
-        /// Health check information for the listener.
+        /// Health check information for the listener. See `HealthCheck` Block for details.
         /// </summary>
         [Input("healthCheck")]
         public Input<Inputs.VirtualNodeSpecListenerHealthCheckArgs>? HealthCheck { get; set; }
 
         /// <summary>
-        /// Outlier detection information for the listener.
+        /// Outlier detection information for the listener. See `OutlierDetection` Block for details.
         /// </summary>
         [Input("outlierDetection")]
         public Input<Inputs.VirtualNodeSpecListenerOutlierDetectionArgs>? OutlierDetection { get; set; }
 
         /// <summary>
-        /// Port mapping information for the listener.
+        /// Port mapping information for the listener. See `PortMapping` Block for details.
         /// </summary>
         [Input("portMapping", required: true)]
         public Input<Inputs.VirtualNodeSpecListenerPortMappingArgs> PortMapping { get; set; } = null!;
 
         /// <summary>
-        /// Timeouts for different protocols.
+        /// Timeouts for different protocols. See `Timeout` Block for details.
         /// </summary>
         [Input("timeout")]
         public Input<Inputs.VirtualNodeSpecListenerTimeoutArgs>? Timeout { get; set; }
 
         /// <summary>
-        /// Transport Layer Security (TLS) properties for the listener
+        /// Transport Layer Security (TLS) properties for the listener. See `Tls` Block for details.
         /// </summary>
         [Input("tls")]
         public Input<Inputs.VirtualNodeSpecListenerTlsArgs>? Tls { get; set; }

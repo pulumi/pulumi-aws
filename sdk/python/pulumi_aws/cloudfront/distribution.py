@@ -28,6 +28,7 @@ class DistributionArgs:
                  viewer_certificate: pulumi.Input['DistributionViewerCertificateArgs'],
                  aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_tag_config: pulumi.Input[Optional['DistributionCacheTagConfigArgs']] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_function_association: pulumi.Input[Optional['DistributionConnectionFunctionAssociationArgs']] = None,
                  continuous_deployment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -55,6 +56,7 @@ class DistributionArgs:
         :param pulumi.Input['DistributionViewerCertificateArgs'] viewer_certificate: The SSL configuration for this distribution (maximum one).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
         :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
+        :param pulumi.Input['DistributionCacheTagConfigArgs'] cache_tag_config: Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
         :param pulumi.Input['DistributionConnectionFunctionAssociationArgs'] connection_function_association: A connection function association configuration block (maximum one).
         :param pulumi.Input[_builtins.str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
@@ -82,6 +84,8 @@ class DistributionArgs:
             pulumi.set(__self__, "aliases", aliases)
         if anycast_ip_list_id is not None:
             pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
+        if cache_tag_config is not None:
+            pulumi.set(__self__, "cache_tag_config", cache_tag_config)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if connection_function_association is not None:
@@ -200,6 +204,18 @@ class DistributionArgs:
     @anycast_ip_list_id.setter
     def anycast_ip_list_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "anycast_ip_list_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cacheTagConfig")
+    def cache_tag_config(self) -> pulumi.Input[Optional['DistributionCacheTagConfigArgs']]:
+        """
+        Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+        """
+        return pulumi.get(self, "cache_tag_config")
+
+    @cache_tag_config.setter
+    def cache_tag_config(self, value: pulumi.Input[Optional['DistributionCacheTagConfigArgs']]):
+        pulumi.set(self, "cache_tag_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -412,6 +428,7 @@ class _DistributionState:
                  aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_tag_config: pulumi.Input[Optional['DistributionCacheTagConfigArgs']] = None,
                  caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_function_association: pulumi.Input[Optional['DistributionConnectionFunctionAssociationArgs']] = None,
@@ -451,6 +468,7 @@ class _DistributionState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
         :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
         :param pulumi.Input[_builtins.str] arn: ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
+        :param pulumi.Input['DistributionCacheTagConfigArgs'] cache_tag_config: Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
         :param pulumi.Input[_builtins.str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
         :param pulumi.Input['DistributionConnectionFunctionAssociationArgs'] connection_function_association: A connection function association configuration block (maximum one).
@@ -491,6 +509,8 @@ class _DistributionState:
             pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if cache_tag_config is not None:
+            pulumi.set(__self__, "cache_tag_config", cache_tag_config)
         if caller_reference is not None:
             pulumi.set(__self__, "caller_reference", caller_reference)
         if comment is not None:
@@ -593,6 +613,18 @@ class _DistributionState:
     @arn.setter
     def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cacheTagConfig")
+    def cache_tag_config(self) -> pulumi.Input[Optional['DistributionCacheTagConfigArgs']]:
+        """
+        Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+        """
+        return pulumi.get(self, "cache_tag_config")
+
+    @cache_tag_config.setter
+    def cache_tag_config(self, value: pulumi.Input[Optional['DistributionCacheTagConfigArgs']]):
+        pulumi.set(self, "cache_tag_config", value)
 
     @_builtins.property
     @pulumi.getter(name="callerReference")
@@ -999,6 +1031,7 @@ class Distribution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_tag_config: pulumi.Input[Optional[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
                  continuous_deployment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1418,6 +1451,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
         :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
+        :param pulumi.Input[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict']] cache_tag_config: Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
         :param pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']] connection_function_association: A connection function association configuration block (maximum one).
         :param pulumi.Input[_builtins.str] continuous_deployment_policy_id: Identifier of a continuous deployment policy. This argument should only be set on a production distribution. See the `cloudfront.ContinuousDeploymentPolicy` resource for additional details.
@@ -1856,6 +1890,7 @@ class Distribution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_tag_config: pulumi.Input[Optional[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
                  continuous_deployment_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1889,6 +1924,7 @@ class Distribution(pulumi.CustomResource):
 
             __props__.__dict__["aliases"] = aliases
             __props__.__dict__["anycast_ip_list_id"] = anycast_ip_list_id
+            __props__.__dict__["cache_tag_config"] = cache_tag_config
             __props__.__dict__["comment"] = comment
             __props__.__dict__["connection_function_association"] = connection_function_association
             __props__.__dict__["continuous_deployment_policy_id"] = continuous_deployment_policy_id
@@ -1946,6 +1982,7 @@ class Distribution(pulumi.CustomResource):
             aliases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             anycast_ip_list_id: pulumi.Input[Optional[_builtins.str]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cache_tag_config: pulumi.Input[Optional[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict']]] = None,
             caller_reference: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             connection_function_association: pulumi.Input[Optional[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']]] = None,
@@ -1989,6 +2026,7 @@ class Distribution(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aliases: Extra CNAMEs (alternate domain names), if any, for this distribution.
         :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
         :param pulumi.Input[_builtins.str] arn: ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
+        :param pulumi.Input[Union['DistributionCacheTagConfigArgs', 'DistributionCacheTagConfigArgsDict']] cache_tag_config: Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
         :param pulumi.Input[_builtins.str] caller_reference: Internal value used by CloudFront to allow future updates to the distribution configuration.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
         :param pulumi.Input[Union['DistributionConnectionFunctionAssociationArgs', 'DistributionConnectionFunctionAssociationArgsDict']] connection_function_association: A connection function association configuration block (maximum one).
@@ -2030,6 +2068,7 @@ class Distribution(pulumi.CustomResource):
         __props__.__dict__["aliases"] = aliases
         __props__.__dict__["anycast_ip_list_id"] = anycast_ip_list_id
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["cache_tag_config"] = cache_tag_config
         __props__.__dict__["caller_reference"] = caller_reference
         __props__.__dict__["comment"] = comment
         __props__.__dict__["connection_function_association"] = connection_function_association
@@ -2088,6 +2127,14 @@ class Distribution(pulumi.CustomResource):
         ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="cacheTagConfig")
+    def cache_tag_config(self) -> pulumi.Output[Optional['outputs.DistributionCacheTagConfig']]:
+        """
+        Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+        """
+        return pulumi.get(self, "cache_tag_config")
 
     @_builtins.property
     @pulumi.getter(name="callerReference")

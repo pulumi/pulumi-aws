@@ -34,6 +34,10 @@ public final class GetVirtualGatewayResult {
      */
     private String lastUpdatedDate;
     private String meshName;
+    /**
+     * @return AWS account ID of the service mesh&#39;s owner.
+     * 
+     */
     private String meshOwner;
     private String name;
     private String region;
@@ -85,6 +89,10 @@ public final class GetVirtualGatewayResult {
     public String meshName() {
         return this.meshName;
     }
+    /**
+     * @return AWS account ID of the service mesh&#39;s owner.
+     * 
+     */
     public String meshOwner() {
         return this.meshOwner;
     }

@@ -68,7 +68,7 @@ class DomainAdvancedSecurityOptionsArgsDict(TypedDict):
     """
     Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
     """
-    master_user_options: NotRequired[pulumi.Input[Optional['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']]]
+    master_user_options: NotRequired[pulumi.Input[Optional['DomainAdvancedSecurityOptionsMasterUserOptionsArgsDict']]]
     """
     Configuration block for the main user. Detailed below.
     """
@@ -201,7 +201,7 @@ class DomainAutoTuneOptionsArgsDict(TypedDict):
     """
     The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
     """
-    maintenance_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgs']]]]]
+    maintenance_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgsDict']]]]]
     """
     Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
     """
@@ -378,7 +378,7 @@ class DomainAutoTuneOptionsMaintenanceScheduleDurationArgs:
 
 
 class DomainClusterConfigArgsDict(TypedDict):
-    cold_storage_options: NotRequired[pulumi.Input[Optional['DomainClusterConfigColdStorageOptionsArgs']]]
+    cold_storage_options: NotRequired[pulumi.Input[Optional['DomainClusterConfigColdStorageOptionsArgsDict']]]
     """
     Configuration block containing cold storage configuration. Detailed below.
     """
@@ -414,7 +414,7 @@ class DomainClusterConfigArgsDict(TypedDict):
     """
     Instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
     """
-    zone_awareness_config: NotRequired[pulumi.Input[Optional['DomainClusterConfigZoneAwarenessConfigArgs']]]
+    zone_awareness_config: NotRequired[pulumi.Input[Optional['DomainClusterConfigZoneAwarenessConfigArgsDict']]]
     """
     Configuration block containing zone awareness settings. Detailed below.
     """
@@ -1115,7 +1115,7 @@ class DomainSamlOptionsSamlOptionsArgsDict(TypedDict):
     """
     Whether SAML authentication is enabled.
     """
-    idp: NotRequired[pulumi.Input[Optional['DomainSamlOptionsSamlOptionsIdpArgs']]]
+    idp: NotRequired[pulumi.Input[Optional['DomainSamlOptionsSamlOptionsIdpArgsDict']]]
     """
     Information from your identity provider.
     """

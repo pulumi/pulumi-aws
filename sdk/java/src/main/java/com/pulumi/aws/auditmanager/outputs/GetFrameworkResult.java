@@ -13,32 +13,76 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFrameworkResult {
+    /**
+     * @return ARN of the framework.
+     * 
+     */
     private String arn;
+    /**
+     * @return Compliance type that the framework supports.
+     * 
+     */
     private String complianceType;
+    /**
+     * @return Control sets associated with the framework.
+     * 
+     */
     private List<GetFrameworkControlSet> controlSets;
+    /**
+     * @return Description of the framework.
+     * 
+     */
     private String description;
     private String frameworkType;
+    /**
+     * @return Unique identifier for the framework.
+     * 
+     */
     private String id;
     private String name;
     private String region;
+    /**
+     * @return Map of tags assigned to the framework.
+     * 
+     */
     private Map<String,String> tags;
 
     private GetFrameworkResult() {}
+    /**
+     * @return ARN of the framework.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Compliance type that the framework supports.
+     * 
+     */
     public String complianceType() {
         return this.complianceType;
     }
+    /**
+     * @return Control sets associated with the framework.
+     * 
+     */
     public List<GetFrameworkControlSet> controlSets() {
         return this.controlSets;
     }
+    /**
+     * @return Description of the framework.
+     * 
+     */
     public String description() {
         return this.description;
     }
     public String frameworkType() {
         return this.frameworkType;
     }
+    /**
+     * @return Unique identifier for the framework.
+     * 
+     */
     public String id() {
         return this.id;
     }
@@ -48,6 +92,10 @@ public final class GetFrameworkResult {
     public String region() {
         return this.region;
     }
+    /**
+     * @return Map of tags assigned to the framework.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }

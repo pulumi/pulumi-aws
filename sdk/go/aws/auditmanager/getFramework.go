@@ -53,6 +53,7 @@ func LookupFramework(ctx *pulumi.Context, args *LookupFrameworkArgs, opts ...pul
 
 // A collection of arguments for invoking getFramework.
 type LookupFrameworkArgs struct {
+	// Type of framework. Valid values are `Custom` and `Standard`.
 	FrameworkType string `pulumi:"frameworkType"`
 	// Name of the framework.
 	Name string `pulumi:"name"`
@@ -62,15 +63,21 @@ type LookupFrameworkArgs struct {
 
 // A collection of values returned by getFramework.
 type LookupFrameworkResult struct {
-	Arn            string                   `pulumi:"arn"`
-	ComplianceType string                   `pulumi:"complianceType"`
-	ControlSets    []GetFrameworkControlSet `pulumi:"controlSets"`
-	Description    string                   `pulumi:"description"`
-	FrameworkType  string                   `pulumi:"frameworkType"`
-	Id             string                   `pulumi:"id"`
-	Name           string                   `pulumi:"name"`
-	Region         string                   `pulumi:"region"`
-	Tags           map[string]string        `pulumi:"tags"`
+	// ARN of the framework.
+	Arn string `pulumi:"arn"`
+	// Compliance type that the framework supports.
+	ComplianceType string `pulumi:"complianceType"`
+	// Control sets associated with the framework.
+	ControlSets []GetFrameworkControlSet `pulumi:"controlSets"`
+	// Description of the framework.
+	Description   string `pulumi:"description"`
+	FrameworkType string `pulumi:"frameworkType"`
+	// Unique identifier for the framework.
+	Id     string `pulumi:"id"`
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
+	// Map of tags assigned to the framework.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupFrameworkOutput(ctx *pulumi.Context, args LookupFrameworkOutputArgs, opts ...pulumi.InvokeOption) LookupFrameworkResultOutput {
@@ -84,6 +91,7 @@ func LookupFrameworkOutput(ctx *pulumi.Context, args LookupFrameworkOutputArgs, 
 
 // A collection of arguments for invoking getFramework.
 type LookupFrameworkOutputArgs struct {
+	// Type of framework. Valid values are `Custom` and `Standard`.
 	FrameworkType pulumi.StringInput `pulumi:"frameworkType"`
 	// Name of the framework.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -110,18 +118,22 @@ func (o LookupFrameworkResultOutput) ToLookupFrameworkResultOutputWithContext(ct
 	return o
 }
 
+// ARN of the framework.
 func (o LookupFrameworkResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Compliance type that the framework supports.
 func (o LookupFrameworkResultOutput) ComplianceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrameworkResult) string { return v.ComplianceType }).(pulumi.StringOutput)
 }
 
+// Control sets associated with the framework.
 func (o LookupFrameworkResultOutput) ControlSets() GetFrameworkControlSetArrayOutput {
 	return o.ApplyT(func(v LookupFrameworkResult) []GetFrameworkControlSet { return v.ControlSets }).(GetFrameworkControlSetArrayOutput)
 }
 
+// Description of the framework.
 func (o LookupFrameworkResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -130,6 +142,7 @@ func (o LookupFrameworkResultOutput) FrameworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrameworkResult) string { return v.FrameworkType }).(pulumi.StringOutput)
 }
 
+// Unique identifier for the framework.
 func (o LookupFrameworkResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -142,6 +155,7 @@ func (o LookupFrameworkResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrameworkResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// Map of tags assigned to the framework.
 func (o LookupFrameworkResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupFrameworkResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

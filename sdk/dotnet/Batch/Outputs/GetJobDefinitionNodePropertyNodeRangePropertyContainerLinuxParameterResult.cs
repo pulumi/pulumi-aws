@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly bool InitProcessEnabled;
         /// <summary>
-        /// The total amount of swap memory (in MiB) a container can use.
+        /// Total amount of swap memory (in MiB) a container can use.
         /// </summary>
         public readonly int MaxSwap;
         /// <summary>
-        /// The value for the size (in MiB) of the `/dev/shm` volume.
+        /// Value for the size (in MiB) of the `/dev/shm` volume.
         /// </summary>
         public readonly int SharedMemorySize;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly int Swappiness;
         /// <summary>
-        /// The container path, mount options, and size (in MiB) of the tmpfs mount.
+        /// Container path, mount options, and size (in MiB) of the tmpfs mount.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpfResult> Tmpfs;
 

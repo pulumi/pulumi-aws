@@ -14,19 +14,19 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecListenerTimeout
     {
         /// <summary>
-        /// Timeouts for gRPC listeners.
+        /// Timeouts for gRPC listeners. See `Grpc` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTimeoutGrpc? Grpc;
         /// <summary>
-        /// Timeouts for HTTP listeners.
+        /// Timeouts for HTTP listeners. See `Http` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTimeoutHttp? Http;
         /// <summary>
-        /// Timeouts for HTTP2 listeners.
+        /// Timeouts for HTTP2 listeners. See `Http2` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTimeoutHttp2? Http2;
         /// <summary>
-        /// Timeouts for TCP listeners.
+        /// Timeouts for TCP listeners. See `Tcp` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTimeoutTcp? Tcp;
 

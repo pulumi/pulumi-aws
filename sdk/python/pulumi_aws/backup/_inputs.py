@@ -68,11 +68,11 @@ class FrameworkControlArgsDict(TypedDict):
     """
     The name of a control. This name is between 1 and 256 characters.
     """
-    input_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrameworkControlInputParameterArgs']]]]]
+    input_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrameworkControlInputParameterArgsDict']]]]]
     """
     One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
     """
-    scope: NotRequired[pulumi.Input[Optional['FrameworkControlScopeArgs']]]
+    scope: NotRequired[pulumi.Input[Optional['FrameworkControlScopeArgsDict']]]
     """
     The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
     """
@@ -338,7 +338,7 @@ class PlanRuleArgsDict(TypedDict):
     """
     The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
     """
-    copy_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanRuleCopyActionArgs']]]]]
+    copy_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanRuleCopyActionArgsDict']]]]]
     """
     Configuration block(s) with copy operation settings. Detailed below.
     """
@@ -346,7 +346,7 @@ class PlanRuleArgsDict(TypedDict):
     """
     Enable continuous backups for supported resources.
     """
-    lifecycle: NotRequired[pulumi.Input[Optional['PlanRuleLifecycleArgs']]]
+    lifecycle: NotRequired[pulumi.Input[Optional['PlanRuleLifecycleArgsDict']]]
     """
     The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
     """
@@ -354,7 +354,7 @@ class PlanRuleArgsDict(TypedDict):
     """
     Metadata that you can assign to help organize the resources that you create.
     """
-    scan_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanRuleScanActionArgs']]]]]
+    scan_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanRuleScanActionArgsDict']]]]]
     """
     Block for scanning configuration for the backup rule and includes the malware scanner, and scan mode of either full or incremental.
     """
@@ -577,7 +577,7 @@ class PlanRuleCopyActionArgsDict(TypedDict):
     """
     An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
     """
-    lifecycle: NotRequired[pulumi.Input[Optional['PlanRuleCopyActionLifecycleArgs']]]
+    lifecycle: NotRequired[pulumi.Input[Optional['PlanRuleCopyActionLifecycleArgsDict']]]
     """
     The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
     """
@@ -1174,11 +1174,11 @@ class RestoreTestingPlanRecoveryPointSelectionArgs:
 
 
 class RestoreTestingSelectionProtectedResourceConditionsArgsDict(TypedDict):
-    string_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs']]]]]
+    string_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringEqualArgsDict']]]]]
     """
     The list of string equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching.". See the structure for details
     """
-    string_not_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs']]]]]
+    string_not_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgsDict']]]]]
     """
     The list of string not equals conditions for resource tags. Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching.". See the structure for details
     """
@@ -1317,19 +1317,19 @@ class RestoreTestingSelectionProtectedResourceConditionsStringNotEqualArgs:
 
 
 class SelectionConditionArgsDict(TypedDict):
-    string_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionStringEqualArgs']]]]]
+    string_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionStringEqualArgsDict']]]]]
     """
     Filters the values of your tagged resources for only those resources that you tagged with the same value. Also called "exact matching". See below for details.
     """
-    string_likes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionStringLikeArgs']]]]]
+    string_likes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionStringLikeArgsDict']]]]]
     """
     Filters the values of your tagged resources for matching tag values with the use of a wildcard character (`*`) anywhere in the string. For example, `prod*` or `*rod*` matches the tag value `production`. See below for details.
     """
-    string_not_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgs']]]]]
+    string_not_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgsDict']]]]]
     """
     Filters the values of your tagged resources for only those resources that you tagged that do not have the same value. Also called "negated matching". See below for details.
     """
-    string_not_likes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgs']]]]]
+    string_not_likes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgsDict']]]]]
     """
     Filters the values of your tagged resources for non-matching tag values with the use of a wildcard character (`*`) anywhere in the string. See below for details.
     """

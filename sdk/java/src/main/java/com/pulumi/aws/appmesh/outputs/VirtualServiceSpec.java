@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualServiceSpec {
     /**
-     * @return App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
+     * @return App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router. See `provider` Block for details.
      * 
      */
     private @Nullable VirtualServiceSpecProvider provider;
 
     private VirtualServiceSpec() {}
     /**
-     * @return App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
+     * @return App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router. See `provider` Block for details.
      * 
      */
     public Optional<VirtualServiceSpecProvider> provider() {

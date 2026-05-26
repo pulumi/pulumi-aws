@@ -233,14 +233,14 @@ public class VirtualService extends com.pulumi.resources.CustomResource {
         return this.resourceOwner;
     }
     /**
-     * Virtual service specification to apply.
+     * Virtual service specification to apply. See `spec` Block for details.
      * 
      */
     @Export(name="spec", refs={VirtualServiceSpec.class}, tree="[0]")
     private Output<VirtualServiceSpec> spec;
 
     /**
-     * @return Virtual service specification to apply.
+     * @return Virtual service specification to apply. See `spec` Block for details.
      * 
      */
     public Output<VirtualServiceSpec> spec() {

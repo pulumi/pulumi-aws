@@ -96,6 +96,9 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class GetFrameworkArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Type of framework. Valid values are `Custom` and `Standard`.
+        /// </summary>
         [Input("frameworkType", required: true)]
         public string FrameworkType { get; set; } = null!;
 
@@ -119,6 +122,9 @@ namespace Pulumi.Aws.Auditmanager
 
     public sealed class GetFrameworkInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Type of framework. Valid values are `Custom` and `Standard`.
+        /// </summary>
         [Input("frameworkType", required: true)]
         public Input<string> FrameworkType { get; set; } = null!;
 
@@ -144,14 +150,32 @@ namespace Pulumi.Aws.Auditmanager
     [OutputType]
     public sealed class GetFrameworkResult
     {
+        /// <summary>
+        /// ARN of the framework.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Compliance type that the framework supports.
+        /// </summary>
         public readonly string ComplianceType;
+        /// <summary>
+        /// Control sets associated with the framework.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetFrameworkControlSetResult> ControlSets;
+        /// <summary>
+        /// Description of the framework.
+        /// </summary>
         public readonly string Description;
         public readonly string FrameworkType;
+        /// <summary>
+        /// Unique identifier for the framework.
+        /// </summary>
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
+        /// <summary>
+        /// Map of tags assigned to the framework.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]

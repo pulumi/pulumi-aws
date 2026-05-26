@@ -194,27 +194,27 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationArgsDict(Type
     """
     Target utilization.
     """
-    customized_capacity_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs']]]
+    customized_capacity_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgsDict']]]
     """
     Customized capacity metric specification. See supported fields below.
     """
-    customized_load_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs']]]
+    customized_load_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgsDict']]]
     """
     Customized load metric specification. See supported fields below.
     """
-    customized_scaling_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs']]]
+    customized_scaling_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgsDict']]]
     """
     Customized scaling metric specification. See supported fields below.
     """
-    predefined_load_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs']]]
+    predefined_load_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgsDict']]]
     """
     Predefined load metric specification. See supported fields below.
     """
-    predefined_metric_pair_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs']]]
+    predefined_metric_pair_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgsDict']]]
     """
     Predefined metric pair specification that determines the appropriate scaling metric and load metric to use. See supported fields below.
     """
-    predefined_scaling_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs']]]
+    predefined_scaling_metric_specification: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgsDict']]]
     """
     Predefined scaling metric specification. See supported fields below.
     """
@@ -378,7 +378,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
     """
     Human-readable label for this metric or expression.
     """
-    metric_stat: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs']]]
+    metric_stat: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgsDict']]]
     """
     Information about the metric data to return. See supported fields below.
     """
@@ -541,7 +541,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCap
 
 
 class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgsDict(TypedDict):
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict']]]]]
     """
     Dimensions of the metric. See supported fields below.
     """
@@ -697,7 +697,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
     """
     Human-readable label for this metric or expression.
     """
-    metric_stat: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs']]]
+    metric_stat: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgsDict']]]
     """
     Information about the metric data to return. See supported fields below.
     """
@@ -860,7 +860,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoa
 
 
 class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgsDict(TypedDict):
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict']]]]]
     """
     Dimensions of the metric. See supported fields below.
     """
@@ -1016,7 +1016,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
     """
     Human-readable label for this metric or expression.
     """
-    metric_stat: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs']]]
+    metric_stat: NotRequired[pulumi.Input[Optional['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgsDict']]]
     """
     Information about the metric data to return. See supported fields below.
     """
@@ -1179,7 +1179,7 @@ class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedSca
 
 
 class PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgsDict(TypedDict):
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPredictiveScalingPolicyConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgsDict']]]]]
     """
     Dimensions of the metric. See supported fields below.
     """
@@ -1455,7 +1455,7 @@ class PolicyStepScalingPolicyConfigurationArgsDict(TypedDict):
     """
     Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
     """
-    step_adjustments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs']]]]]
+    step_adjustments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyStepScalingPolicyConfigurationStepAdjustmentArgsDict']]]]]
     """
     Set of adjustments that manage scaling. These have the following structure:
 
@@ -1680,7 +1680,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgsDict(TypedDict):
     """
     Target value for the metric.
     """
-    customized_metric_specification: NotRequired[pulumi.Input[Optional['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs']]]
+    customized_metric_specification: NotRequired[pulumi.Input[Optional['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgsDict']]]
     """
     Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
     """
@@ -1688,7 +1688,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgsDict(TypedDict):
     """
     Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
     """
-    predefined_metric_specification: NotRequired[pulumi.Input[Optional['PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs']]]
+    predefined_metric_specification: NotRequired[pulumi.Input[Optional['PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgsDict']]]
     """
     Predefined metric. See supported fields below.
     """
@@ -1804,7 +1804,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationArgs:
 
 
 class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgsDict(TypedDict):
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgsDict']]]]]
     """
     Dimensions of the metric.
     """
@@ -1812,7 +1812,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     """
     Name of the metric.
     """
-    metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs']]]]]
+    metrics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgsDict']]]]]
     """
     Metrics to include, as a metric data query.
     """
@@ -1992,7 +1992,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     """
     Human-readable label for this metric or expression.
     """
-    metric_stat: NotRequired[pulumi.Input[Optional['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs']]]
+    metric_stat: NotRequired[pulumi.Input[Optional['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgsDict']]]
     """
     Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
     """
@@ -2163,7 +2163,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
     """
     Namespace of the metric.
     """
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgsDict']]]]]
     """
     Dimensions of the metric.
     """

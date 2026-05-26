@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Ecs.Inputs
         public Input<int> AutoScalingTargetValue { get; set; } = null!;
 
         /// <summary>
-        /// Maximum number of tasks to run.
+        /// Maximum number of tasks to run. Defaults to `20`.
         /// </summary>
         [Input("maxTaskCount", required: true)]
         public Input<int> MaxTaskCount { get; set; } = null!;
 
         /// <summary>
-        /// Minimum number of tasks to run.
+        /// Minimum number of tasks to run. Defaults to `1`.
         /// </summary>
         [Input("minTaskCount", required: true)]
         public Input<int> MinTaskCount { get; set; } = null!;

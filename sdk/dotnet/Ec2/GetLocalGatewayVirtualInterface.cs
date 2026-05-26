@@ -209,7 +209,15 @@ namespace Pulumi.Aws.Ec2
         /// Identifier of the EC2 Local Gateway.
         /// </summary>
         public readonly string LocalGatewayId;
+        /// <summary>
+        /// Identifier of the EC2 Local Gateway Virtual Interface Group.
+        /// </summary>
+        public readonly string LocalGatewayVirtualInterfaceGroupId;
         public readonly ImmutableArray<string> LocalGatewayVirtualInterfaceIds;
+        /// <summary>
+        /// Identifier of the Outpost LAG.
+        /// </summary>
+        public readonly string OutpostLagId;
         /// <summary>
         /// Peer address.
         /// </summary>
@@ -237,7 +245,11 @@ namespace Pulumi.Aws.Ec2
 
             string localGatewayId,
 
+            string localGatewayVirtualInterfaceGroupId,
+
             ImmutableArray<string> localGatewayVirtualInterfaceIds,
+
+            string outpostLagId,
 
             string peerAddress,
 
@@ -254,7 +266,9 @@ namespace Pulumi.Aws.Ec2
             LocalAddress = localAddress;
             LocalBgpAsn = localBgpAsn;
             LocalGatewayId = localGatewayId;
+            LocalGatewayVirtualInterfaceGroupId = localGatewayVirtualInterfaceGroupId;
             LocalGatewayVirtualInterfaceIds = localGatewayVirtualInterfaceIds;
+            OutpostLagId = outpostLagId;
             PeerAddress = peerAddress;
             PeerBgpAsn = peerBgpAsn;
             Region = region;

@@ -210,11 +210,11 @@ class CatalogCatalogPropertiesArgsDict(TypedDict):
     """
     Map of custom key-value pairs for the catalog properties.
     """
-    data_lake_access_properties: NotRequired[pulumi.Input[Optional['CatalogCatalogPropertiesDataLakeAccessPropertiesArgs']]]
+    data_lake_access_properties: NotRequired[pulumi.Input[Optional['CatalogCatalogPropertiesDataLakeAccessPropertiesArgsDict']]]
     """
     Configuration block for data lake access properties. See `data_lake_access_properties` below.
     """
-    iceberg_optimization_properties: NotRequired[pulumi.Input[Optional['CatalogCatalogPropertiesIcebergOptimizationPropertiesArgs']]]
+    iceberg_optimization_properties: NotRequired[pulumi.Input[Optional['CatalogCatalogPropertiesIcebergOptimizationPropertiesArgsDict']]]
     """
     Configuration block for Iceberg optimization properties. See `iceberg_optimization_properties` below.
     """
@@ -537,7 +537,7 @@ class CatalogCreateDatabaseDefaultPermissionArgsDict(TypedDict):
     """
     Permissions that are granted to the principal. Valid values include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`.
     """
-    principal: NotRequired[pulumi.Input[Optional['CatalogCreateDatabaseDefaultPermissionPrincipalArgs']]]
+    principal: NotRequired[pulumi.Input[Optional['CatalogCreateDatabaseDefaultPermissionPrincipalArgsDict']]]
     """
     Principal who is granted permissions. See `principal` below.
     """
@@ -615,7 +615,7 @@ class CatalogCreateTableDefaultPermissionArgsDict(TypedDict):
     """
     Permissions that are granted to the principal. Valid values include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`.
     """
-    principal: NotRequired[pulumi.Input[Optional['CatalogCreateTableDefaultPermissionPrincipalArgs']]]
+    principal: NotRequired[pulumi.Input[Optional['CatalogCreateTableDefaultPermissionPrincipalArgsDict']]]
     """
     Principal who is granted permissions. See `principal` below.
     """
@@ -693,7 +693,7 @@ class CatalogDatabaseCreateTableDefaultPermissionArgsDict(TypedDict):
     """
     The permissions that are granted to the principal.
     """
-    principal: NotRequired[pulumi.Input[Optional['CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs']]]
+    principal: NotRequired[pulumi.Input[Optional['CatalogDatabaseCreateTableDefaultPermissionPrincipalArgsDict']]]
     """
     The principal who is granted permissions.. See `principal` below.
     """
@@ -984,7 +984,7 @@ class CatalogTableOpenTableFormatInputIcebergInputArgsDict(TypedDict):
     """
     A required metadata operation. Can only be set to CREATE.
     """
-    iceberg_table_input: NotRequired[pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs']]]
+    iceberg_table_input: NotRequired[pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgsDict']]]
     """
     Configuration parameters, including table properties and metadata specifications. See `iceberg_table_input` below.
     """
@@ -1056,7 +1056,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgsDict(Type
     """
     The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
     """
-    partition_spec: NotRequired[pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs']]]
+    partition_spec: NotRequired[pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgsDict']]]
     """
     The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partition_spec` below.
     """
@@ -1064,7 +1064,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgsDict(Type
     """
     Key-value pairs of additional table properties and configuration settings for the Iceberg table.
     """
-    sort_order: NotRequired[pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs']]]
+    sort_order: NotRequired[pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgsDict']]]
     """
     The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sort_order` below.
     """
@@ -1627,11 +1627,11 @@ class CatalogTableOptimizerConfigurationArgsDict(TypedDict):
     """
     The ARN of the IAM role to use for the table optimizer.
     """
-    orphan_file_deletion_configuration: NotRequired[pulumi.Input[Optional['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs']]]
+    orphan_file_deletion_configuration: NotRequired[pulumi.Input[Optional['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgsDict']]]
     """
     The configuration block for an orphan file deletion optimizer. See Orphan File Deletion Configuration for additional details.
     """
-    retention_configuration: NotRequired[pulumi.Input[Optional['CatalogTableOptimizerConfigurationRetentionConfigurationArgs']]]
+    retention_configuration: NotRequired[pulumi.Input[Optional['CatalogTableOptimizerConfigurationRetentionConfigurationArgsDict']]]
     """
     The configuration block for a snapshot retention optimizer. See Retention Configuration for additional details.
     """
@@ -1706,7 +1706,7 @@ class CatalogTableOptimizerConfigurationArgs:
 
 
 class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgsDict(TypedDict):
-    iceberg_configuration: NotRequired[pulumi.Input[Optional['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs']]]
+    iceberg_configuration: NotRequired[pulumi.Input[Optional['CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgsDict']]]
     """
     The configuration for an Iceberg orphan file deletion optimizer.
     """
@@ -1804,7 +1804,7 @@ class CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergCo
 
 
 class CatalogTableOptimizerConfigurationRetentionConfigurationArgsDict(TypedDict):
-    iceberg_configuration: NotRequired[pulumi.Input[Optional['CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs']]]
+    iceberg_configuration: NotRequired[pulumi.Input[Optional['CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgsDict']]]
     """
     The configuration for an Iceberg snapshot retention optimizer.
     """
@@ -2078,7 +2078,7 @@ class CatalogTableStorageDescriptorArgsDict(TypedDict):
     """
     List of reducer grouping columns, clustering columns, and bucketing columns in the table.
     """
-    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTableStorageDescriptorColumnArgs']]]]]
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTableStorageDescriptorColumnArgsDict']]]]]
     """
     Configuration block for columns in the table. See `columns` below.
     """
@@ -2106,19 +2106,19 @@ class CatalogTableStorageDescriptorArgsDict(TypedDict):
     """
     User-supplied properties in key-value form.
     """
-    schema_reference: NotRequired[pulumi.Input[Optional['CatalogTableStorageDescriptorSchemaReferenceArgs']]]
+    schema_reference: NotRequired[pulumi.Input[Optional['CatalogTableStorageDescriptorSchemaReferenceArgsDict']]]
     """
     Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
     """
-    ser_de_info: NotRequired[pulumi.Input[Optional['CatalogTableStorageDescriptorSerDeInfoArgs']]]
+    ser_de_info: NotRequired[pulumi.Input[Optional['CatalogTableStorageDescriptorSerDeInfoArgsDict']]]
     """
     Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
     """
-    skewed_info: NotRequired[pulumi.Input[Optional['CatalogTableStorageDescriptorSkewedInfoArgs']]]
+    skewed_info: NotRequired[pulumi.Input[Optional['CatalogTableStorageDescriptorSkewedInfoArgsDict']]]
     """
     Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
     """
-    sort_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArgs']]]]]
+    sort_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArgsDict']]]]]
     """
     Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
     """
@@ -2451,7 +2451,7 @@ class CatalogTableStorageDescriptorSchemaReferenceArgsDict(TypedDict):
     """
     Version number of the schema.
     """
-    schema_id: NotRequired[pulumi.Input[Optional['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs']]]
+    schema_id: NotRequired[pulumi.Input[Optional['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgsDict']]]
     """
     Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
     """
@@ -2871,7 +2871,7 @@ class CatalogTableViewDefinitionArgsDict(TypedDict):
     """
     Auto refresh interval in seconds for the materialized view.
     """
-    representations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTableViewDefinitionRepresentationArgs']]]]]
+    representations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTableViewDefinitionRepresentationArgsDict']]]]]
     """
     A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
     """
@@ -3585,7 +3585,7 @@ class ConnectionAuthenticationConfigurationArgsDict(TypedDict):
     """
     Type of authentication. Valid values: `BASIC`, `CUSTOM`, `IAM`, `OAUTH2`.
     """
-    basic_authentication_credentials: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs']]]
+    basic_authentication_credentials: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgsDict']]]
     """
     Basic authentication credentials. See `basic_authentication_credentials` below.
     """
@@ -3597,7 +3597,7 @@ class ConnectionAuthenticationConfigurationArgsDict(TypedDict):
     """
     ARN of the KMS key used for encryption.
     """
-    oauth2_properties: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationConfigurationOauth2PropertiesArgs']]]
+    oauth2_properties: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationConfigurationOauth2PropertiesArgsDict']]]
     """
     OAuth2 properties. See `oauth2_properties` below.
     """
@@ -3756,15 +3756,15 @@ class ConnectionAuthenticationConfigurationBasicAuthenticationCredentialsArgs:
 
 
 class ConnectionAuthenticationConfigurationOauth2PropertiesArgsDict(TypedDict):
-    authorization_code_properties: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgs']]]
+    authorization_code_properties: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationConfigurationOauth2PropertiesAuthorizationCodePropertiesArgsDict']]]
     """
     Authorization code properties. See `authorization_code_properties` below.
     """
-    oauth2_client_application: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgs']]]
+    oauth2_client_application: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationConfigurationOauth2PropertiesOauth2ClientApplicationArgsDict']]]
     """
     OAuth2 client application details. See `oauth2_client_application` below.
     """
-    oauth2_credentials: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgs']]]
+    oauth2_credentials: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationConfigurationOauth2PropertiesOauth2CredentialsArgsDict']]]
     """
     OAuth2 credentials. See `oauth2_credentials` below.
     """
@@ -5912,7 +5912,7 @@ class PartitionStorageDescriptorArgsDict(TypedDict):
     """
     A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
     """
-    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArgs']]]]]
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArgsDict']]]]]
     """
     A list of the Columns in the table.
     """
@@ -5940,15 +5940,15 @@ class PartitionStorageDescriptorArgsDict(TypedDict):
     """
     User-supplied properties in key-value form.
     """
-    ser_de_info: NotRequired[pulumi.Input[Optional['PartitionStorageDescriptorSerDeInfoArgs']]]
+    ser_de_info: NotRequired[pulumi.Input[Optional['PartitionStorageDescriptorSerDeInfoArgsDict']]]
     """
     Serialization/deserialization (SerDe) information.
     """
-    skewed_info: NotRequired[pulumi.Input[Optional['PartitionStorageDescriptorSkewedInfoArgs']]]
+    skewed_info: NotRequired[pulumi.Input[Optional['PartitionStorageDescriptorSkewedInfoArgsDict']]]
     """
     Information about values that appear very frequently in a column (skewed values).
     """
-    sort_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArgs']]]]]
+    sort_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArgsDict']]]]]
     """
     A list of Order objects specifying the sort order of each bucket in the table.
     """
@@ -6630,7 +6630,7 @@ class TriggerActionArgsDict(TypedDict):
     """
     The name of a job to be executed. Conflicts with `crawler_name`.
     """
-    notification_property: NotRequired[pulumi.Input[Optional['TriggerActionNotificationPropertyArgs']]]
+    notification_property: NotRequired[pulumi.Input[Optional['TriggerActionNotificationPropertyArgsDict']]]
     """
     Specifies configuration properties of a job run notification. See Notification Property details below.
     """

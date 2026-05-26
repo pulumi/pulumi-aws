@@ -20,14 +20,14 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
     public static final VirtualGatewaySpecListenerArgs Empty = new VirtualGatewaySpecListenerArgs();
 
     /**
-     * Connection pool information for the listener.
+     * Connection pool information for the listener. See `connectionPool` Block for details.
      * 
      */
     @Import(name="connectionPool")
     private @Nullable Output<VirtualGatewaySpecListenerConnectionPoolArgs> connectionPool;
 
     /**
-     * @return Connection pool information for the listener.
+     * @return Connection pool information for the listener. See `connectionPool` Block for details.
      * 
      */
     public Optional<Output<VirtualGatewaySpecListenerConnectionPoolArgs>> connectionPool() {
@@ -35,14 +35,14 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Health check information for the listener.
+     * Health check information for the listener. See `healthCheck` Block for details.
      * 
      */
     @Import(name="healthCheck")
     private @Nullable Output<VirtualGatewaySpecListenerHealthCheckArgs> healthCheck;
 
     /**
-     * @return Health check information for the listener.
+     * @return Health check information for the listener. See `healthCheck` Block for details.
      * 
      */
     public Optional<Output<VirtualGatewaySpecListenerHealthCheckArgs>> healthCheck() {
@@ -50,14 +50,14 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Port mapping information for the listener.
+     * Port mapping information for the listener. See `portMapping` Block for details.
      * 
      */
     @Import(name="portMapping", required=true)
     private Output<VirtualGatewaySpecListenerPortMappingArgs> portMapping;
 
     /**
-     * @return Port mapping information for the listener.
+     * @return Port mapping information for the listener. See `portMapping` Block for details.
      * 
      */
     public Output<VirtualGatewaySpecListenerPortMappingArgs> portMapping() {
@@ -65,14 +65,14 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Transport Layer Security (TLS) properties for the listener
+     * Transport Layer Security (TLS) properties for the listener. See `tls` Block for details.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<VirtualGatewaySpecListenerTlsArgs> tls;
 
     /**
-     * @return Transport Layer Security (TLS) properties for the listener
+     * @return Transport Layer Security (TLS) properties for the listener. See `tls` Block for details.
      * 
      */
     public Optional<Output<VirtualGatewaySpecListenerTlsArgs>> tls() {
@@ -107,7 +107,7 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param connectionPool Connection pool information for the listener.
+         * @param connectionPool Connection pool information for the listener. See `connectionPool` Block for details.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param connectionPool Connection pool information for the listener.
+         * @param connectionPool Connection pool information for the listener. See `connectionPool` Block for details.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param healthCheck Health check information for the listener.
+         * @param healthCheck Health check information for the listener. See `healthCheck` Block for details.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param healthCheck Health check information for the listener.
+         * @param healthCheck Health check information for the listener. See `healthCheck` Block for details.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param portMapping Port mapping information for the listener.
+         * @param portMapping Port mapping information for the listener. See `portMapping` Block for details.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param portMapping Port mapping information for the listener.
+         * @param portMapping Port mapping information for the listener. See `portMapping` Block for details.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param tls Transport Layer Security (TLS) properties for the listener
+         * @param tls Transport Layer Security (TLS) properties for the listener. See `tls` Block for details.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param tls Transport Layer Security (TLS) properties for the listener
+         * @param tls Transport Layer Security (TLS) properties for the listener. See `tls` Block for details.
          * 
          * @return builder
          * 

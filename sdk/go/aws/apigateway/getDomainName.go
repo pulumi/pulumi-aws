@@ -76,9 +76,9 @@ type LookupDomainNameResult struct {
 	CloudfrontZoneId string `pulumi:"cloudfrontZoneId"`
 	DomainName       string `pulumi:"domainName"`
 	DomainNameId     string `pulumi:"domainNameId"`
-	// (Optional) Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
+	// Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
 	EndpointAccessMode string `pulumi:"endpointAccessMode"`
-	// List of objects with the endpoint configuration of this domain name.
+	// List of objects with the endpoint configuration of this domain name. See below.
 	EndpointConfigurations []GetDomainNameEndpointConfiguration `pulumi:"endpointConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -177,12 +177,12 @@ func (o LookupDomainNameResultOutput) DomainNameId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) string { return v.DomainNameId }).(pulumi.StringOutput)
 }
 
-// (Optional) Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
+// Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`.
 func (o LookupDomainNameResultOutput) EndpointAccessMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) string { return v.EndpointAccessMode }).(pulumi.StringOutput)
 }
 
-// List of objects with the endpoint configuration of this domain name.
+// List of objects with the endpoint configuration of this domain name. See below.
 func (o LookupDomainNameResultOutput) EndpointConfigurations() GetDomainNameEndpointConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) []GetDomainNameEndpointConfiguration { return v.EndpointConfigurations }).(GetDomainNameEndpointConfigurationArrayOutput)
 }

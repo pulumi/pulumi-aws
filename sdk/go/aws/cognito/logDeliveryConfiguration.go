@@ -86,7 +86,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("example"),
+//				Name:         pulumi.String("example"),
+//				UserPoolTier: pulumi.String("PLUS"),
 //			})
 //			if err != nil {
 //				return err
@@ -187,7 +188,7 @@ import (
 //					},
 //					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
 //						EventSource: pulumi.String("userAuthEvents"),
-//						LogLevel:    pulumi.String("ERROR"),
+//						LogLevel:    pulumi.String("INFO"),
 //						FirehoseConfiguration: &cognito.LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs{
 //							StreamArn: exampleFirehoseDeliveryStream.Arn,
 //						},
@@ -219,7 +220,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := cognito.NewUserPool(ctx, "example", &cognito.UserPoolArgs{
-//				Name: pulumi.String("example"),
+//				Name:         pulumi.String("example"),
+//				UserPoolTier: pulumi.String("PLUS"),
 //			})
 //			if err != nil {
 //				return err
@@ -235,8 +237,8 @@ import (
 //				UserPoolId: example.ID(),
 //				LogConfigurations: cognito.LogDeliveryConfigurationLogConfigurationArray{
 //					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
-//						EventSource: pulumi.String("userNotification"),
-//						LogLevel:    pulumi.String("ERROR"),
+//						EventSource: pulumi.String("userAuthEvents"),
+//						LogLevel:    pulumi.String("INFO"),
 //						S3Configuration: &cognito.LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs{
 //							BucketArn: exampleBucket.Arn,
 //						},

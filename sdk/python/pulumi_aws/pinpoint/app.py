@@ -40,13 +40,22 @@ class AppArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if campaign_hook is not None:
+            warnings.warn("""campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""", DeprecationWarning)
+            pulumi.log.warn("""campaign_hook is deprecated: campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
+        if campaign_hook is not None:
             pulumi.set(__self__, "campaign_hook", campaign_hook)
+        if limits is not None:
+            warnings.warn("""limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""", DeprecationWarning)
+            pulumi.log.warn("""limits is deprecated: limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
             pulumi.set(__self__, "name_prefix", name_prefix)
+        if quiet_time is not None:
+            warnings.warn("""quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""", DeprecationWarning)
+            pulumi.log.warn("""quiet_time is deprecated: quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
         if quiet_time is not None:
             pulumi.set(__self__, "quiet_time", quiet_time)
         if region is not None:
@@ -56,6 +65,7 @@ class AppArgs:
 
     @_builtins.property
     @pulumi.getter(name="campaignHook")
+    @_utilities.deprecated("""campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
     def campaign_hook(self) -> pulumi.Input[Optional['AppCampaignHookArgs']]:
         """
         Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
@@ -68,6 +78,7 @@ class AppArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
     def limits(self) -> pulumi.Input[Optional['AppLimitsArgs']]:
         """
         The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
@@ -104,6 +115,7 @@ class AppArgs:
 
     @_builtins.property
     @pulumi.getter(name="quietTime")
+    @_utilities.deprecated("""quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
     def quiet_time(self) -> pulumi.Input[Optional['AppQuietTimeArgs']]:
         """
         The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
@@ -171,13 +183,22 @@ class _AppState:
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if campaign_hook is not None:
+            warnings.warn("""campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""", DeprecationWarning)
+            pulumi.log.warn("""campaign_hook is deprecated: campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
+        if campaign_hook is not None:
             pulumi.set(__self__, "campaign_hook", campaign_hook)
+        if limits is not None:
+            warnings.warn("""limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""", DeprecationWarning)
+            pulumi.log.warn("""limits is deprecated: limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
         if limits is not None:
             pulumi.set(__self__, "limits", limits)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if name_prefix is not None:
             pulumi.set(__self__, "name_prefix", name_prefix)
+        if quiet_time is not None:
+            warnings.warn("""quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""", DeprecationWarning)
+            pulumi.log.warn("""quiet_time is deprecated: quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
         if quiet_time is not None:
             pulumi.set(__self__, "quiet_time", quiet_time)
         if region is not None:
@@ -213,6 +234,7 @@ class _AppState:
 
     @_builtins.property
     @pulumi.getter(name="campaignHook")
+    @_utilities.deprecated("""campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
     def campaign_hook(self) -> pulumi.Input[Optional['AppCampaignHookArgs']]:
         """
         Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
@@ -225,6 +247,7 @@ class _AppState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
     def limits(self) -> pulumi.Input[Optional['AppLimitsArgs']]:
         """
         The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
@@ -261,6 +284,7 @@ class _AppState:
 
     @_builtins.property
     @pulumi.getter(name="quietTime")
+    @_utilities.deprecated("""quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
     def quiet_time(self) -> pulumi.Input[Optional['AppQuietTimeArgs']]:
         """
         The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
@@ -325,6 +349,8 @@ class App(pulumi.CustomResource):
         """
         Provides a Pinpoint App resource.
 
+        > **NOTE:** The `campaign_hook`, `limits`, and `quiet_time` attributes are deprecated. Amazon Pinpoint engagement features, including the Settings API that backs these attributes, are being discontinued on October 30, 2026. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+
         ## Example Usage
 
         ```python
@@ -369,6 +395,8 @@ class App(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Pinpoint App resource.
+
+        > **NOTE:** The `campaign_hook`, `limits`, and `quiet_time` attributes are deprecated. Amazon Pinpoint engagement features, including the Settings API that backs these attributes, are being discontinued on October 30, 2026. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
 
         ## Example Usage
 
@@ -509,6 +537,7 @@ class App(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="campaignHook")
+    @_utilities.deprecated("""campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
     def campaign_hook(self) -> pulumi.Output[Optional['outputs.AppCampaignHook']]:
         """
         Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
@@ -517,6 +546,7 @@ class App(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
     def limits(self) -> pulumi.Output[Optional['outputs.AppLimits']]:
         """
         The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
@@ -541,6 +571,7 @@ class App(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="quietTime")
+    @_utilities.deprecated("""quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.""")
     def quiet_time(self) -> pulumi.Output[Optional['outputs.AppQuietTime']]:
         """
         The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own

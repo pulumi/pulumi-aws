@@ -19,62 +19,30 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
 
     public static final RouteSpecHttpRouteArgs Empty = new RouteSpecHttpRouteArgs();
 
-    /**
-     * Action to take if a match is determined.
-     * 
-     */
     @Import(name="action", required=true)
     private Output<RouteSpecHttpRouteActionArgs> action;
 
-    /**
-     * @return Action to take if a match is determined.
-     * 
-     */
     public Output<RouteSpecHttpRouteActionArgs> action() {
         return this.action;
     }
 
-    /**
-     * Criteria for determining an HTTP request match.
-     * 
-     */
     @Import(name="match", required=true)
     private Output<RouteSpecHttpRouteMatchArgs> match;
 
-    /**
-     * @return Criteria for determining an HTTP request match.
-     * 
-     */
     public Output<RouteSpecHttpRouteMatchArgs> match() {
         return this.match;
     }
 
-    /**
-     * Retry policy.
-     * 
-     */
     @Import(name="retryPolicy")
     private @Nullable Output<RouteSpecHttpRouteRetryPolicyArgs> retryPolicy;
 
-    /**
-     * @return Retry policy.
-     * 
-     */
     public Optional<Output<RouteSpecHttpRouteRetryPolicyArgs>> retryPolicy() {
         return Optional.ofNullable(this.retryPolicy);
     }
 
-    /**
-     * Types of timeouts.
-     * 
-     */
     @Import(name="timeout")
     private @Nullable Output<RouteSpecHttpRouteTimeoutArgs> timeout;
 
-    /**
-     * @return Types of timeouts.
-     * 
-     */
     public Optional<Output<RouteSpecHttpRouteTimeoutArgs>> timeout() {
         return Optional.ofNullable(this.timeout);
     }
@@ -106,86 +74,38 @@ public final class RouteSpecHttpRouteArgs extends com.pulumi.resources.ResourceA
             $ = new RouteSpecHttpRouteArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param action Action to take if a match is determined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(Output<RouteSpecHttpRouteActionArgs> action) {
             $.action = action;
             return this;
         }
 
-        /**
-         * @param action Action to take if a match is determined.
-         * 
-         * @return builder
-         * 
-         */
         public Builder action(RouteSpecHttpRouteActionArgs action) {
             return action(Output.of(action));
         }
 
-        /**
-         * @param match Criteria for determining an HTTP request match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(Output<RouteSpecHttpRouteMatchArgs> match) {
             $.match = match;
             return this;
         }
 
-        /**
-         * @param match Criteria for determining an HTTP request match.
-         * 
-         * @return builder
-         * 
-         */
         public Builder match(RouteSpecHttpRouteMatchArgs match) {
             return match(Output.of(match));
         }
 
-        /**
-         * @param retryPolicy Retry policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryPolicy(@Nullable Output<RouteSpecHttpRouteRetryPolicyArgs> retryPolicy) {
             $.retryPolicy = retryPolicy;
             return this;
         }
 
-        /**
-         * @param retryPolicy Retry policy.
-         * 
-         * @return builder
-         * 
-         */
         public Builder retryPolicy(RouteSpecHttpRouteRetryPolicyArgs retryPolicy) {
             return retryPolicy(Output.of(retryPolicy));
         }
 
-        /**
-         * @param timeout Types of timeouts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeout(@Nullable Output<RouteSpecHttpRouteTimeoutArgs> timeout) {
             $.timeout = timeout;
             return this;
         }
 
-        /**
-         * @param timeout Types of timeouts.
-         * 
-         * @return builder
-         * 
-         */
         public Builder timeout(RouteSpecHttpRouteTimeoutArgs timeout) {
             return timeout(Output.of(timeout));
         }

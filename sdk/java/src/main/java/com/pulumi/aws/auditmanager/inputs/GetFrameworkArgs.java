@@ -16,9 +16,17 @@ public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetFrameworkArgs Empty = new GetFrameworkArgs();
 
+    /**
+     * Type of framework. Valid values are `Custom` and `Standard`.
+     * 
+     */
     @Import(name="frameworkType", required=true)
     private Output<String> frameworkType;
 
+    /**
+     * @return Type of framework. Valid values are `Custom` and `Standard`.
+     * 
+     */
     public Output<String> frameworkType() {
         return this.frameworkType;
     }
@@ -79,11 +87,23 @@ public final class GetFrameworkArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetFrameworkArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param frameworkType Type of framework. Valid values are `Custom` and `Standard`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameworkType(Output<String> frameworkType) {
             $.frameworkType = frameworkType;
             return this;
         }
 
+        /**
+         * @param frameworkType Type of framework. Valid values are `Custom` and `Standard`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder frameworkType(String frameworkType) {
             return frameworkType(Output.of(frameworkType));
         }

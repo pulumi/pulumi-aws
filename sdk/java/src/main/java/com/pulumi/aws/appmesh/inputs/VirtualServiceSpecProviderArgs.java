@@ -17,14 +17,14 @@ public final class VirtualServiceSpecProviderArgs extends com.pulumi.resources.R
     public static final VirtualServiceSpecProviderArgs Empty = new VirtualServiceSpecProviderArgs();
 
     /**
-     * Virtual node associated with a virtual service.
+     * Virtual node associated with a virtual service. See `virtualNode` Block for details.
      * 
      */
     @Import(name="virtualNode")
     private @Nullable Output<VirtualServiceSpecProviderVirtualNodeArgs> virtualNode;
 
     /**
-     * @return Virtual node associated with a virtual service.
+     * @return Virtual node associated with a virtual service. See `virtualNode` Block for details.
      * 
      */
     public Optional<Output<VirtualServiceSpecProviderVirtualNodeArgs>> virtualNode() {
@@ -32,14 +32,14 @@ public final class VirtualServiceSpecProviderArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Virtual router associated with a virtual service.
+     * Virtual router associated with a virtual service. See `virtualRouter` Block for details.
      * 
      */
     @Import(name="virtualRouter")
     private @Nullable Output<VirtualServiceSpecProviderVirtualRouterArgs> virtualRouter;
 
     /**
-     * @return Virtual router associated with a virtual service.
+     * @return Virtual router associated with a virtual service. See `virtualRouter` Block for details.
      * 
      */
     public Optional<Output<VirtualServiceSpecProviderVirtualRouterArgs>> virtualRouter() {
@@ -72,7 +72,7 @@ public final class VirtualServiceSpecProviderArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param virtualNode Virtual node associated with a virtual service.
+         * @param virtualNode Virtual node associated with a virtual service. See `virtualNode` Block for details.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class VirtualServiceSpecProviderArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param virtualNode Virtual node associated with a virtual service.
+         * @param virtualNode Virtual node associated with a virtual service. See `virtualNode` Block for details.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class VirtualServiceSpecProviderArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param virtualRouter Virtual router associated with a virtual service.
+         * @param virtualRouter Virtual router associated with a virtual service. See `virtualRouter` Block for details.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class VirtualServiceSpecProviderArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param virtualRouter Virtual router associated with a virtual service.
+         * @param virtualRouter Virtual router associated with a virtual service. See `virtualRouter` Block for details.
          * 
          * @return builder
          * 

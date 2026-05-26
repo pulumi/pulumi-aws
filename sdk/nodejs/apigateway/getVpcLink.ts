@@ -35,8 +35,7 @@ export function getVpcLink(args: GetVpcLinkArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetVpcLinkArgs {
     /**
-     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-     * If multiple API Gateway VPC Links are found with this name, an error will be returned.
+     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. If multiple API Gateway VPC Links are found with this name, an error will be returned.
      */
     name: string;
     /**
@@ -53,6 +52,9 @@ export interface GetVpcLinkArgs {
  * A collection of values returned by getVpcLink.
  */
 export interface GetVpcLinkResult {
+    /**
+     * ARN of the VPC Link.
+     */
     readonly arn: string;
     /**
      * Description of the VPC link.
@@ -112,8 +114,7 @@ export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.Invok
  */
 export interface GetVpcLinkOutputArgs {
     /**
-     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
-     * If multiple API Gateway VPC Links are found with this name, an error will be returned.
+     * Name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned. If multiple API Gateway VPC Links are found with this name, an error will be returned.
      */
     name: pulumi.Input<string>;
     /**

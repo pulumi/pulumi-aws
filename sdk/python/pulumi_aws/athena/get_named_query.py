@@ -81,6 +81,9 @@ class GetNamedQueryResult:
     @_builtins.property
     @pulumi.getter
     def querystring(self) -> _builtins.str:
+        """
+        Text of the query itself.
+        """
         return pulumi.get(self, "querystring")
 
     @_builtins.property

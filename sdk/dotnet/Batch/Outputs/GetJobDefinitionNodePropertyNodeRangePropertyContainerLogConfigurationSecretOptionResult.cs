@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationSecretOptionResult
     {
         /// <summary>
-        /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+        /// Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+        /// Secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
         /// </summary>
         public readonly string ValueFrom;
 

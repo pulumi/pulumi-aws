@@ -14,11 +14,11 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class MeshSpec
     {
         /// <summary>
-        /// Egress filter rules for the service mesh.
+        /// Egress filter rules for the service mesh. See `EgressFilter` Block for details.
         /// </summary>
         public readonly Outputs.MeshSpecEgressFilter? EgressFilter;
         /// <summary>
-        /// The service discovery information for the service mesh.
+        /// The service discovery information for the service mesh. See `ServiceDiscovery` Block for details.
         /// </summary>
         public readonly Outputs.MeshSpecServiceDiscovery? ServiceDiscovery;
 

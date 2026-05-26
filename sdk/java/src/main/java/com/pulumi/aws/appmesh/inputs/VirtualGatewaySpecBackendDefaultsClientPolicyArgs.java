@@ -16,14 +16,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyArgs extends com
     public static final VirtualGatewaySpecBackendDefaultsClientPolicyArgs Empty = new VirtualGatewaySpecBackendDefaultsClientPolicyArgs();
 
     /**
-     * Transport Layer Security (TLS) client policy.
+     * Transport Layer Security (TLS) client policy. See `tls` Block for details.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs> tls;
 
     /**
-     * @return Transport Layer Security (TLS) client policy.
+     * @return Transport Layer Security (TLS) client policy. See `tls` Block for details.
      * 
      */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs>> tls() {
@@ -55,7 +55,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyArgs extends com
         }
 
         /**
-         * @param tls Transport Layer Security (TLS) client policy.
+         * @param tls Transport Layer Security (TLS) client policy. See `tls` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyArgs extends com
         }
 
         /**
-         * @param tls Transport Layer Security (TLS) client policy.
+         * @param tls Transport Layer Security (TLS) client policy. See `tls` Block for details.
          * 
          * @return builder
          * 

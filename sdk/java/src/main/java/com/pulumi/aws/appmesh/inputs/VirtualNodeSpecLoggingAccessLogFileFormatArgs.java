@@ -18,14 +18,14 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatArgs extends com.pul
     public static final VirtualNodeSpecLoggingAccessLogFileFormatArgs Empty = new VirtualNodeSpecLoggingAccessLogFileFormatArgs();
 
     /**
-     * The logging format for JSON.
+     * The logging format for JSON. See `json` Block for details.
      * 
      */
     @Import(name="jsons")
     private @Nullable Output<List<VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs>> jsons;
 
     /**
-     * @return The logging format for JSON.
+     * @return The logging format for JSON. See `json` Block for details.
      * 
      */
     public Optional<Output<List<VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs>>> jsons() {
@@ -73,7 +73,7 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatArgs extends com.pul
         }
 
         /**
-         * @param jsons The logging format for JSON.
+         * @param jsons The logging format for JSON. See `json` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatArgs extends com.pul
         }
 
         /**
-         * @param jsons The logging format for JSON.
+         * @param jsons The logging format for JSON. See `json` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class VirtualNodeSpecLoggingAccessLogFileFormatArgs extends com.pul
         }
 
         /**
-         * @param jsons The logging format for JSON.
+         * @param jsons The logging format for JSON. See `json` Block for details.
          * 
          * @return builder
          * 

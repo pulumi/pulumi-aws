@@ -315,15 +315,39 @@ namespace Pulumi.Aws.Auditmanager
     [OutputType]
     public sealed class GetControlResult
     {
+        /// <summary>
+        /// Recommended actions to carry out if the control isn't fulfilled.
+        /// </summary>
         public readonly string ActionPlanInstructions;
+        /// <summary>
+        /// Title of the action plan for remediating the control.
+        /// </summary>
         public readonly string ActionPlanTitle;
+        /// <summary>
+        /// ARN of the control.
+        /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// Data mapping sources for the control.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetControlControlMappingSourceResult> ControlMappingSources;
+        /// <summary>
+        /// Description of the control.
+        /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Unique identifier for the control.
+        /// </summary>
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
+        /// <summary>
+        /// Map of tags assigned to the control.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Steps to follow to determine if the control is satisfied.
+        /// </summary>
         public readonly string TestingInformation;
         public readonly string Type;
 

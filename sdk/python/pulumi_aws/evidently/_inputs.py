@@ -534,7 +534,7 @@ class LaunchScheduledSplitsConfigStepArgsDict(TypedDict):
     """
     Specifies the date and time that this step of the launch starts.
     """
-    segment_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgs']]]]]
+    segment_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgsDict']]]]]
     """
     One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
     """
@@ -659,11 +659,11 @@ class LaunchScheduledSplitsConfigStepSegmentOverrideArgs:
 
 
 class ProjectDataDeliveryArgsDict(TypedDict):
-    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ProjectDataDeliveryCloudwatchLogsArgs']]]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ProjectDataDeliveryCloudwatchLogsArgsDict']]]
     """
     A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
     """
-    s3_destination: NotRequired[pulumi.Input[Optional['ProjectDataDeliveryS3DestinationArgs']]]
+    s3_destination: NotRequired[pulumi.Input[Optional['ProjectDataDeliveryS3DestinationArgsDict']]]
     """
     A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
     """

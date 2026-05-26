@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecLoggingAccessLogFileFormat
     {
         /// <summary>
-        /// The logging format for JSON.
+        /// The logging format for JSON. See `Json` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualGatewaySpecLoggingAccessLogFileFormatJson> Jsons;
         /// <summary>

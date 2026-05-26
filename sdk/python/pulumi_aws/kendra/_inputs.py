@@ -104,15 +104,15 @@ __all__ = [
 ]
 
 class DataSourceConfigurationArgsDict(TypedDict):
-    s3_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationS3ConfigurationArgs']]]
+    s3_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationS3ConfigurationArgsDict']]]
     """
     A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
     """
-    template_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationTemplateConfigurationArgs']]]
+    template_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationTemplateConfigurationArgsDict']]]
     """
     A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
     """
-    web_crawler_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationWebCrawlerConfigurationArgs']]]
+    web_crawler_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationWebCrawlerConfigurationArgsDict']]]
     """
     A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
     """
@@ -185,11 +185,11 @@ class DataSourceConfigurationS3ConfigurationArgsDict(TypedDict):
     """
     The name of the bucket that contains the documents.
     """
-    access_control_list_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs']]]
+    access_control_list_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgsDict']]]
     """
     A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
     """
-    documents_metadata_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs']]]
+    documents_metadata_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgsDict']]]
     """
     A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
     """
@@ -399,7 +399,7 @@ class DataSourceConfigurationWebCrawlerConfigurationArgsDict(TypedDict):
     """
     A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
     """
-    authentication_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs']]]
+    authentication_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgsDict']]]
     """
     A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
     """
@@ -419,7 +419,7 @@ class DataSourceConfigurationWebCrawlerConfigurationArgsDict(TypedDict):
     """
     The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
     """
-    proxy_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs']]]
+    proxy_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgsDict']]]
     """
     Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
     """
@@ -583,7 +583,7 @@ class DataSourceConfigurationWebCrawlerConfigurationArgs:
 
 
 class DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgsDict(TypedDict):
-    basic_authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs']]]]]
+    basic_authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgsDict']]]]]
     """
     The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
     """
@@ -745,11 +745,11 @@ class DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs:
 
 
 class DataSourceConfigurationWebCrawlerConfigurationUrlsArgsDict(TypedDict):
-    seed_url_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs']]]
+    seed_url_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgsDict']]]
     """
     A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
     """
-    site_maps_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs']]]
+    site_maps_configuration: NotRequired[pulumi.Input[Optional['DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgsDict']]]
     """
     A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
     """
@@ -879,15 +879,15 @@ class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArg
 
 
 class DataSourceCustomDocumentEnrichmentConfigurationArgsDict(TypedDict):
-    inline_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs']]]]]
+    inline_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgsDict']]]]]
     """
     Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
     """
-    post_extraction_hook_configuration: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs']]]
+    post_extraction_hook_configuration: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgsDict']]]
     """
     A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
     """
-    pre_extraction_hook_configuration: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs']]]
+    pre_extraction_hook_configuration: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgsDict']]]
     """
     Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
     """
@@ -968,7 +968,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationArgs:
 
 
 class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgsDict(TypedDict):
-    condition: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs']]]
+    condition: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgsDict']]]
     """
     Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
     """
@@ -976,7 +976,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgsDict
     """
     `TRUE` to delete content if the condition used for the target attribute is met.
     """
-    target: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs']]]
+    target: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgsDict']]]
     """
     Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
     """
@@ -1045,7 +1045,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditio
     """
     The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
     """
-    condition_on_value: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs']]]
+    condition_on_value: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgsDict']]]
     """
     The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
     """
@@ -1190,7 +1190,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetAr
     """
     The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
     """
-    target_document_attribute_value: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs']]]
+    target_document_attribute_value: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgsDict']]]
     """
     The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
     """
@@ -1345,7 +1345,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
     """
     Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
     """
-    invocation_condition: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs']]]
+    invocation_condition: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgsDict']]]
     """
     A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
     """
@@ -1412,7 +1412,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
     """
     The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
     """
-    condition_on_value: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs']]]
+    condition_on_value: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgsDict']]]
     """
     The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
     """
@@ -1561,7 +1561,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
     """
     Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
     """
-    invocation_condition: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs']]]
+    invocation_condition: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgsDict']]]
     """
     A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
     """
@@ -1628,7 +1628,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
     """
     The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
     """
-    condition_on_value: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs']]]
+    condition_on_value: NotRequired[pulumi.Input[Optional['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgsDict']]]
     """
     The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
     """
@@ -1769,11 +1769,11 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
 
 
 class ExperienceConfigurationArgsDict(TypedDict):
-    content_source_configuration: NotRequired[pulumi.Input[Optional['ExperienceConfigurationContentSourceConfigurationArgs']]]
+    content_source_configuration: NotRequired[pulumi.Input[Optional['ExperienceConfigurationContentSourceConfigurationArgsDict']]]
     """
     The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
     """
-    user_identity_configuration: NotRequired[pulumi.Input[Optional['ExperienceConfigurationUserIdentityConfigurationArgs']]]
+    user_identity_configuration: NotRequired[pulumi.Input[Optional['ExperienceConfigurationUserIdentityConfigurationArgsDict']]]
     """
     The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
     """
@@ -2074,11 +2074,11 @@ class IndexDocumentMetadataConfigurationUpdateArgsDict(TypedDict):
     """
     The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
     """
-    relevance: NotRequired[pulumi.Input[Optional['IndexDocumentMetadataConfigurationUpdateRelevanceArgs']]]
+    relevance: NotRequired[pulumi.Input[Optional['IndexDocumentMetadataConfigurationUpdateRelevanceArgsDict']]]
     """
     A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
     """
-    search: NotRequired[pulumi.Input[Optional['IndexDocumentMetadataConfigurationUpdateSearchArgs']]]
+    search: NotRequired[pulumi.Input[Optional['IndexDocumentMetadataConfigurationUpdateSearchArgsDict']]]
     """
     A block that provides information about how the field is used during a search. Documented below. Detailed below
     """
@@ -2351,11 +2351,11 @@ class IndexDocumentMetadataConfigurationUpdateSearchArgs:
 
 
 class IndexIndexStatisticArgsDict(TypedDict):
-    faq_statistics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexIndexStatisticFaqStatisticArgs']]]]]
+    faq_statistics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexIndexStatisticFaqStatisticArgsDict']]]]]
     """
     A block that specifies the number of question and answer topics in the index. Detailed below.
     """
-    text_document_statistics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexIndexStatisticTextDocumentStatisticArgs']]]]]
+    text_document_statistics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexIndexStatisticTextDocumentStatisticArgsDict']]]]]
     """
     A block that specifies the number of text documents indexed. Detailed below.
     """
@@ -2535,11 +2535,11 @@ class IndexUserGroupResolutionConfigurationArgs:
 
 
 class IndexUserTokenConfigurationsArgsDict(TypedDict):
-    json_token_type_configuration: NotRequired[pulumi.Input[Optional['IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs']]]
+    json_token_type_configuration: NotRequired[pulumi.Input[Optional['IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgsDict']]]
     """
     A block that specifies the information about the JSON token type configuration. Detailed below.
     """
-    jwt_token_type_configuration: NotRequired[pulumi.Input[Optional['IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs']]]
+    jwt_token_type_configuration: NotRequired[pulumi.Input[Optional['IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgsDict']]]
     """
     A block that specifies the information about the JWT token type configuration. Detailed below.
     """

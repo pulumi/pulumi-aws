@@ -34,6 +34,10 @@ public final class GetCertificateAuthorityResult {
      * 
      */
     private String id;
+    /**
+     * @return Level of security of the key storage endpoint of the certificate authority.
+     * 
+     */
     private String keyStorageSecurityStandard;
     /**
      * @return Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
@@ -47,7 +51,7 @@ public final class GetCertificateAuthorityResult {
     private String notBefore;
     private String region;
     /**
-     * @return Nested attribute containing revocation configuration.
+     * @return Nested attribute containing revocation configuration. See `revocationConfiguration` below.
      * 
      */
     private List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations;
@@ -109,6 +113,10 @@ public final class GetCertificateAuthorityResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Level of security of the key storage endpoint of the certificate authority.
+     * 
+     */
     public String keyStorageSecurityStandard() {
         return this.keyStorageSecurityStandard;
     }
@@ -130,7 +138,7 @@ public final class GetCertificateAuthorityResult {
         return this.region;
     }
     /**
-     * @return Nested attribute containing revocation configuration.
+     * @return Nested attribute containing revocation configuration. See `revocationConfiguration` below.
      * 
      */
     public List<GetCertificateAuthorityRevocationConfiguration> revocationConfigurations() {

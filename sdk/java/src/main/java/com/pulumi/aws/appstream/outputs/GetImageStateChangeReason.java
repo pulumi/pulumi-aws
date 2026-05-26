@@ -10,13 +10,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetImageStateChangeReason {
+    /**
+     * @return State change reason code.
+     * 
+     */
     private String code;
+    /**
+     * @return State change reason message.
+     * 
+     */
     private String message;
 
     private GetImageStateChangeReason() {}
+    /**
+     * @return State change reason code.
+     * 
+     */
     public String code() {
         return this.code;
     }
+    /**
+     * @return State change reason message.
+     * 
+     */
     public String message() {
         return this.message;
     }

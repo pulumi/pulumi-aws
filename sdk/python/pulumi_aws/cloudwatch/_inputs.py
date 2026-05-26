@@ -258,7 +258,7 @@ class AlarmMuteRuleMuteTargetsArgs:
 
 
 class AlarmMuteRuleRuleArgsDict(TypedDict):
-    schedule: NotRequired[pulumi.Input[Optional['AlarmMuteRuleRuleScheduleArgs']]]
+    schedule: NotRequired[pulumi.Input[Optional['AlarmMuteRuleRuleScheduleArgsDict']]]
     """
     Schedule for the mute rule. See `schedule` block below for details.
     """
@@ -498,23 +498,23 @@ class EventBusLogConfigArgs:
 
 
 class EventConnectionAuthParametersArgsDict(TypedDict):
-    api_key: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersApiKeyArgs']]]
+    api_key: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersApiKeyArgsDict']]]
     """
     Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
     """
-    basic: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersBasicArgs']]]
+    basic: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersBasicArgsDict']]]
     """
     Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
     """
-    connectivity_parameters: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersConnectivityParametersArgs']]]
+    connectivity_parameters: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersConnectivityParametersArgsDict']]]
     """
     Parameters used for `oauth` with private API. Documented below.
     """
-    invocation_http_parameters: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersInvocationHttpParametersArgs']]]
+    invocation_http_parameters: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersInvocationHttpParametersArgsDict']]]
     """
     Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
     """
-    oauth: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersOauthArgs']]]
+    oauth: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersOauthArgsDict']]]
     """
     Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
     """
@@ -770,15 +770,15 @@ class EventConnectionAuthParametersConnectivityParametersResourceParametersArgs:
 
 
 class EventConnectionAuthParametersInvocationHttpParametersArgsDict(TypedDict):
-    bodies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersBodyArgs']]]]]
+    bodies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersBodyArgsDict']]]]]
     """
     Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersHeaderArgsDict']]]]]
     """
     Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
     """
-    query_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs']]]]]
+    query_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgsDict']]]]]
     """
     Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
     """
@@ -1058,7 +1058,7 @@ class EventConnectionAuthParametersOauthArgsDict(TypedDict):
     """
     OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
     """
-    client_parameters: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersOauthClientParametersArgs']]]
+    client_parameters: NotRequired[pulumi.Input[Optional['EventConnectionAuthParametersOauthClientParametersArgsDict']]]
     """
     Contains the client parameters for OAuth authorization. Contains the following two parameters.
     """
@@ -1179,15 +1179,15 @@ class EventConnectionAuthParametersOauthClientParametersArgs:
 
 
 class EventConnectionAuthParametersOauthOauthHttpParametersArgsDict(TypedDict):
-    bodies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs']]]]]
+    bodies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgsDict']]]]]
     """
     Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgsDict']]]]]
     """
     Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
     """
-    query_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs']]]]]
+    query_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgsDict']]]]]
     """
     Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
     """
@@ -1929,7 +1929,7 @@ class EventTargetEcsTargetArgsDict(TypedDict):
     """
     The ARN of the task definition to use if the event target is an Amazon ECS cluster.
     """
-    capacity_provider_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventTargetEcsTargetCapacityProviderStrategyArgs']]]]]
+    capacity_provider_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventTargetEcsTargetCapacityProviderStrategyArgsDict']]]]]
     """
     The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
     """
@@ -1949,15 +1949,15 @@ class EventTargetEcsTargetArgsDict(TypedDict):
     """
     Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
     """
-    network_configuration: NotRequired[pulumi.Input[Optional['EventTargetEcsTargetNetworkConfigurationArgs']]]
+    network_configuration: NotRequired[pulumi.Input[Optional['EventTargetEcsTargetNetworkConfigurationArgsDict']]]
     """
     Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
     """
-    ordered_placement_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventTargetEcsTargetOrderedPlacementStrategyArgs']]]]]
+    ordered_placement_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventTargetEcsTargetOrderedPlacementStrategyArgsDict']]]]]
     """
     An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
     """
-    placement_constraints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgs']]]]]
+    placement_constraints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgsDict']]]]]
     """
     An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
     """
@@ -2810,7 +2810,7 @@ class EventTargetRunCommandTargetArgs:
 
 
 class EventTargetSagemakerPipelineTargetArgsDict(TypedDict):
-    pipeline_parameter_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventTargetSagemakerPipelineTargetPipelineParameterListArgs']]]]]
+    pipeline_parameter_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventTargetSagemakerPipelineTargetPipelineParameterListArgsDict']]]]]
     """
     List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
     """
@@ -2964,7 +2964,7 @@ class InternetMonitorHealthEventsConfigArgs:
 
 
 class InternetMonitorInternetMeasurementsLogDeliveryArgsDict(TypedDict):
-    s3_config: NotRequired[pulumi.Input[Optional['InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs']]]
+    s3_config: NotRequired[pulumi.Input[Optional['InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgsDict']]]
 
 @pulumi.input_type
 class InternetMonitorInternetMeasurementsLogDeliveryArgs:
@@ -3231,95 +3231,95 @@ class LogMetricFilterMetricTransformationArgs:
 
 
 class LogTransformerTransformerConfigArgsDict(TypedDict):
-    add_keys: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigAddKeysArgs']]]
+    add_keys: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigAddKeysArgsDict']]]
     """
     Adds new key-value pairs to the log event. See `add_keys` below for details.
     """
-    copy_value: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigCopyValueArgs']]]
+    copy_value: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigCopyValueArgsDict']]]
     """
     Copies values within a log event. See `copy_value` below for details.
     """
-    csvs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigCsvArgs']]]]]
+    csvs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigCsvArgsDict']]]]]
     """
     Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
     """
-    date_time_converters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigDateTimeConverterArgs']]]]]
+    date_time_converters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigDateTimeConverterArgsDict']]]]]
     """
     Converts a datetime string into a format that you specify. See `date_time_converter` below for details.
     """
-    delete_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigDeleteKeyArgs']]]]]
+    delete_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigDeleteKeyArgsDict']]]]]
     """
     Deletes entry from a log event. See `delete_keys` below for details.
     """
-    grok: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigGrokArgs']]]
+    grok: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigGrokArgsDict']]]
     """
     Parses and structures unstructured data by using pattern matching. See `grok` below for details.
     """
-    list_to_maps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigListToMapArgs']]]]]
+    list_to_maps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigListToMapArgsDict']]]]]
     """
     Converts list of objects that contain key fields into a map of target keys. See `list_to_map` below for details.
     """
-    lower_case_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigLowerCaseStringArgs']]]]]
+    lower_case_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigLowerCaseStringArgsDict']]]]]
     """
     Converts a string to lowercase. See `lower_case_string` below for details.
     """
-    move_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyArgs']]]]]
+    move_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyArgsDict']]]]]
     """
     Moves a key from one field to another. See `move_keys` below for details.
     """
-    parse_cloudfront: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigParseCloudfrontArgs']]]
+    parse_cloudfront: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigParseCloudfrontArgsDict']]]
     """
     Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parse_cloudfront` below for details.
     """
-    parse_jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigParseJsonArgs']]]]]
+    parse_jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigParseJsonArgsDict']]]]]
     """
     Parses log events that are in JSON format. See `parse_json` below for details.
     """
-    parse_key_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigParseKeyValueArgs']]]]]
+    parse_key_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigParseKeyValueArgsDict']]]]]
     """
     Parses a specified field in the original log event into key-value pairs. See `parse_key_value` below for details.
     """
-    parse_postgres: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigParsePostgresArgs']]]
+    parse_postgres: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigParsePostgresArgsDict']]]
     """
     Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parse_postgres` below for details.
     """
-    parse_route53: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigParseRoute53Args']]]
+    parse_route53: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigParseRoute53ArgsDict']]]
     """
     Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parse_route53` below for details.
     """
-    parse_to_ocsf: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigParseToOcsfArgs']]]
+    parse_to_ocsf: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigParseToOcsfArgsDict']]]
     """
     Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parse_to_ocsf` below for details.
     """
-    parse_vpc: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigParseVpcArgs']]]
+    parse_vpc: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigParseVpcArgsDict']]]
     """
     Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parse_vpc` below for details.
     """
-    parse_waf: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigParseWafArgs']]]
+    parse_waf: NotRequired[pulumi.Input[Optional['LogTransformerTransformerConfigParseWafArgsDict']]]
     """
     Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parse_waf` below for details.
     """
-    rename_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyArgs']]]]]
+    rename_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyArgsDict']]]]]
     """
     Renames keys in a log event. See `rename_keys` below for details.
     """
-    split_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringArgs']]]]]
+    split_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringArgsDict']]]]]
     """
     Splits a field into an array of strings using a delimiting character. See `split_string` below for details.
     """
-    substitute_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringArgs']]]]]
+    substitute_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringArgsDict']]]]]
     """
     Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substitute_string` below for details.
     """
-    trim_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigTrimStringArgs']]]]]
+    trim_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigTrimStringArgsDict']]]]]
     """
     Removes leading and trailing whitespace from a string. See `trim_string` below for details.
     """
-    type_converters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterArgs']]]]]
+    type_converters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterArgsDict']]]]]
     """
     Converts a value type associated with the specified key to the specified type. See `type_converter` below for details.
     """
-    upper_case_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigUpperCaseStringArgs']]]]]
+    upper_case_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LogTransformerTransformerConfigUpperCaseStringArgsDict']]]]]
     """
     Converts a string to uppercase. See `upper_case_string` below for details.
     """
@@ -5368,7 +5368,7 @@ class MetricAlarmMetricQueryArgsDict(TypedDict):
     """
     A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
     """
-    metric: NotRequired[pulumi.Input[Optional['MetricAlarmMetricQueryMetricArgs']]]
+    metric: NotRequired[pulumi.Input[Optional['MetricAlarmMetricQueryMetricArgsDict']]]
     """
     The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
     """

@@ -88,15 +88,39 @@ export interface GetControlArgs {
  * A collection of values returned by getControl.
  */
 export interface GetControlResult {
+    /**
+     * Recommended actions to carry out if the control isn't fulfilled.
+     */
     readonly actionPlanInstructions: string;
+    /**
+     * Title of the action plan for remediating the control.
+     */
     readonly actionPlanTitle: string;
+    /**
+     * ARN of the control.
+     */
     readonly arn: string;
+    /**
+     * Data mapping sources for the control.
+     */
     readonly controlMappingSources: outputs.auditmanager.GetControlControlMappingSource[];
+    /**
+     * Description of the control.
+     */
     readonly description: string;
+    /**
+     * Unique identifier for the control.
+     */
     readonly id: string;
     readonly name: string;
     readonly region: string;
+    /**
+     * Map of tags assigned to the control.
+     */
     readonly tags: {[key: string]: string};
+    /**
+     * Steps to follow to determine if the control is satisfied.
+     */
     readonly testingInformation: string;
     readonly type: string;
 }

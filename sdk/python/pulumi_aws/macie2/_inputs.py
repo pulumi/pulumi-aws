@@ -145,15 +145,15 @@ class ClassificationExportConfigurationS3DestinationArgs:
 
 
 class ClassificationJobS3JobDefinitionArgsDict(TypedDict):
-    bucket_criteria: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaArgs']]]
+    bucket_criteria: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaArgsDict']]]
     """
     The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
     """
-    bucket_definitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketDefinitionArgs']]]]]
+    bucket_definitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketDefinitionArgsDict']]]]]
     """
     An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
     """
-    scoping: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingArgs']]]
+    scoping: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingArgsDict']]]
     """
     The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
     """
@@ -214,11 +214,11 @@ class ClassificationJobS3JobDefinitionArgs:
 
 
 class ClassificationJobS3JobDefinitionBucketCriteriaArgsDict(TypedDict):
-    excludes: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs']]]
+    excludes: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgsDict']]]
     """
     The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
     """
-    includes: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs']]]
+    includes: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgsDict']]]
     """
     The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
     """
@@ -263,7 +263,7 @@ class ClassificationJobS3JobDefinitionBucketCriteriaArgs:
 
 
 class ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgsDict(TypedDict):
-    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs']]]]]
+    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgsDict']]]]]
     """
     An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
     """
@@ -292,11 +292,11 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs:
 
 
 class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgsDict(TypedDict):
-    simple_criterion: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs']]]
+    simple_criterion: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgsDict']]]
     """
     A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
     """
-    tag_criterion: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs']]]
+    tag_criterion: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgsDict']]]
     """
     A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
     """
@@ -414,7 +414,7 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgsD
     """
     The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
     """
-    tag_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgs']]]]]
+    tag_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgsDict']]]]]
     """
     The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
     """
@@ -508,7 +508,7 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagVa
 
 
 class ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgsDict(TypedDict):
-    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs']]]]]
+    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgsDict']]]]]
     """
     An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
     """
@@ -537,11 +537,11 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs:
 
 
 class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgsDict(TypedDict):
-    simple_criterion: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs']]]
+    simple_criterion: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgsDict']]]
     """
     A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
     """
-    tag_criterion: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs']]]
+    tag_criterion: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgsDict']]]
     """
     A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
     """
@@ -659,7 +659,7 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgsD
     """
     The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
     """
-    tag_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs']]]]]
+    tag_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgsDict']]]]]
     """
     The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
     """
@@ -800,11 +800,11 @@ class ClassificationJobS3JobDefinitionBucketDefinitionArgs:
 
 
 class ClassificationJobS3JobDefinitionScopingArgsDict(TypedDict):
-    excludes: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingExcludesArgs']]]
+    excludes: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingExcludesArgsDict']]]
     """
     The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
     """
-    includes: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingIncludesArgs']]]
+    includes: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingIncludesArgsDict']]]
     """
     The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
     """
@@ -849,7 +849,7 @@ class ClassificationJobS3JobDefinitionScopingArgs:
 
 
 class ClassificationJobS3JobDefinitionScopingExcludesArgsDict(TypedDict):
-    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesAndArgs']]]]]
+    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesAndArgsDict']]]]]
     """
     An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
     """
@@ -878,11 +878,11 @@ class ClassificationJobS3JobDefinitionScopingExcludesArgs:
 
 
 class ClassificationJobS3JobDefinitionScopingExcludesAndArgsDict(TypedDict):
-    simple_scope_term: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs']]]
+    simple_scope_term: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgsDict']]]
     """
     A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
     """
-    tag_scope_term: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs']]]
+    tag_scope_term: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgsDict']]]
     """
     A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
     """
@@ -1004,7 +1004,7 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgsDict(Typ
     """
     The tag key to use in the condition. The only valid value is `TAG`.
     """
-    tag_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs']]]]]
+    tag_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgsDict']]]]]
     """
     The tag keys or tag key and value pairs to use in the condition.
     """
@@ -1134,7 +1134,7 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs
 
 
 class ClassificationJobS3JobDefinitionScopingIncludesArgsDict(TypedDict):
-    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesAndArgs']]]]]
+    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesAndArgsDict']]]]]
     """
     An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
     """
@@ -1163,11 +1163,11 @@ class ClassificationJobS3JobDefinitionScopingIncludesArgs:
 
 
 class ClassificationJobS3JobDefinitionScopingIncludesAndArgsDict(TypedDict):
-    simple_scope_term: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs']]]
+    simple_scope_term: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgsDict']]]
     """
     A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
     """
-    tag_scope_term: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs']]]
+    tag_scope_term: NotRequired[pulumi.Input[Optional['ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgsDict']]]
     """
     A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
     """
@@ -1289,7 +1289,7 @@ class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgsDict(Typ
     """
     The tag key to use in the condition. The only valid value is `TAG`.
     """
-    tag_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs']]]]]
+    tag_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgsDict']]]]]
     """
     The tag keys or tag key and value pairs to use in the condition.
     """

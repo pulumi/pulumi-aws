@@ -25,10 +25,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EncryptionConfig{}
 	case "aws:xray/group:Group":
 		r = &Group{}
+	case "aws:xray/indexingRule:IndexingRule":
+		r = &IndexingRule{}
 	case "aws:xray/resourcePolicy:ResourcePolicy":
 		r = &ResourcePolicy{}
 	case "aws:xray/samplingRule:SamplingRule":
 		r = &SamplingRule{}
+	case "aws:xray/traceSegmentDestination:TraceSegmentDestination":
+		r = &TraceSegmentDestination{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -54,12 +58,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"xray/indexingRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"xray/resourcePolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"xray/samplingRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"xray/traceSegmentDestination",
 		&module{version},
 	)
 }

@@ -156,6 +156,9 @@ namespace Pulumi.Aws.ApiGateway
     [OutputType]
     public sealed class GetKeyResult
     {
+        /// <summary>
+        /// ARN of the API Key.
+        /// </summary>
         public readonly string Arn;
         /// <summary>
         /// Date and time when the API Key was created.

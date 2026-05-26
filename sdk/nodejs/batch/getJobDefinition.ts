@@ -56,7 +56,7 @@ export interface GetJobDefinitionArgs {
      */
     arn?: string;
     /**
-     * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+     * Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      */
     name?: string;
     /**
@@ -64,11 +64,11 @@ export interface GetJobDefinitionArgs {
      */
     region?: string;
     /**
-     * The revision of the job definition.
+     * Revision of the job definition.
      */
     revision?: number;
     /**
-     * The status of the job definition.
+     * Status of the job definition.
      */
     status?: string;
 }
@@ -78,45 +78,51 @@ export interface GetJobDefinitionArgs {
  */
 export interface GetJobDefinitionResult {
     readonly arn?: string;
+    /**
+     * ARN prefix of the job definition.
+     */
     readonly arnPrefix: string;
     /**
-     * The orchestration type of the compute environment.
+     * Orchestration type of the compute environment.
      */
     readonly containerOrchestrationType: string;
     /**
-     * An object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
+     * Object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
      */
     readonly eksProperties: outputs.batch.GetJobDefinitionEksProperty[];
     /**
-     * The ARN
+     * ARN
      */
     readonly id: string;
     /**
-     * The name of the volume.
+     * Name of the volume.
      */
     readonly name?: string;
     /**
-     * An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
+     * Object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
      */
     readonly nodeProperties: outputs.batch.GetJobDefinitionNodeProperty[];
     readonly region: string;
     /**
-     * The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
+     * Retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
      */
     readonly retryStrategies: outputs.batch.GetJobDefinitionRetryStrategy[];
     readonly revision?: number;
     /**
-     * The scheduling priority for jobs that are submitted with this job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+     * Scheduling priority for jobs that are submitted with this job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
      */
     readonly schedulingPriority: number;
     readonly status?: string;
+    /**
+     * Map of tags assigned to the resource.
+     */
     readonly tags: {[key: string]: string};
     /**
-     * The timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
+     * Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
      */
     readonly timeouts: outputs.batch.GetJobDefinitionTimeout[];
     /**
-     * The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
+     * Type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
      */
     readonly type: string;
 }
@@ -169,7 +175,7 @@ export interface GetJobDefinitionOutputArgs {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+     * Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -177,11 +183,11 @@ export interface GetJobDefinitionOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The revision of the job definition.
+     * Revision of the job definition.
      */
     revision?: pulumi.Input<number | undefined>;
     /**
-     * The status of the job definition.
+     * Status of the job definition.
      */
     status?: pulumi.Input<string | undefined>;
 }

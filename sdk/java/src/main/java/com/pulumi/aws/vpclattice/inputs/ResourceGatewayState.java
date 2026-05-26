@@ -95,6 +95,21 @@ public final class ResourceGatewayState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+     * 
+     */
+    @Import(name="resourceConfigDnsResolution")
+    private @Nullable Output<String> resourceConfigDnsResolution;
+
+    /**
+     * @return Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+     * 
+     */
+    public Optional<Output<String>> resourceConfigDnsResolution() {
+        return Optional.ofNullable(this.resourceConfigDnsResolution);
+    }
+
+    /**
      * Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
      * 
      */
@@ -203,6 +218,7 @@ public final class ResourceGatewayState extends com.pulumi.resources.ResourceArg
         this.ipv4AddressesPerEni = $.ipv4AddressesPerEni;
         this.name = $.name;
         this.region = $.region;
+        this.resourceConfigDnsResolution = $.resourceConfigDnsResolution;
         this.securityGroupIds = $.securityGroupIds;
         this.status = $.status;
         this.subnetIds = $.subnetIds;
@@ -333,6 +349,27 @@ public final class ResourceGatewayState extends com.pulumi.resources.ResourceArg
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param resourceConfigDnsResolution Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceConfigDnsResolution(@Nullable Output<String> resourceConfigDnsResolution) {
+            $.resourceConfigDnsResolution = resourceConfigDnsResolution;
+            return this;
+        }
+
+        /**
+         * @param resourceConfigDnsResolution Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceConfigDnsResolution(String resourceConfigDnsResolution) {
+            return resourceConfigDnsResolution(Output.of(resourceConfigDnsResolution));
         }
 
         /**

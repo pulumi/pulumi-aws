@@ -128,11 +128,11 @@ class DeploymentConfigMinimumHealthyHostsArgs:
 
 
 class DeploymentConfigTrafficRoutingConfigArgsDict(TypedDict):
-    time_based_canary: NotRequired[pulumi.Input[Optional['DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs']]]
+    time_based_canary: NotRequired[pulumi.Input[Optional['DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgsDict']]]
     """
     The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
     """
-    time_based_linear: NotRequired[pulumi.Input[Optional['DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs']]]
+    time_based_linear: NotRequired[pulumi.Input[Optional['DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgsDict']]]
     """
     The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
     """
@@ -299,7 +299,7 @@ class DeploymentConfigZonalConfigArgsDict(TypedDict):
     """
     The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don't specify a value for `first_zone_monitor_duration_in_seconds`, then CodeDeploy uses the `monitor_duration_in_seconds` value for the first Availability Zone.
     """
-    minimum_healthy_hosts_per_zone: NotRequired[pulumi.Input[Optional['DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs']]]
+    minimum_healthy_hosts_per_zone: NotRequired[pulumi.Input[Optional['DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgsDict']]]
     """
     The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don't specify a value under `minimum_healthy_hosts_per_zone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
     """
@@ -537,15 +537,15 @@ class DeploymentGroupAutoRollbackConfigurationArgs:
 
 
 class DeploymentGroupBlueGreenDeploymentConfigArgsDict(TypedDict):
-    deployment_ready_option: NotRequired[pulumi.Input[Optional['DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs']]]
+    deployment_ready_option: NotRequired[pulumi.Input[Optional['DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgsDict']]]
     """
     Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
     """
-    green_fleet_provisioning_option: NotRequired[pulumi.Input[Optional['DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs']]]
+    green_fleet_provisioning_option: NotRequired[pulumi.Input[Optional['DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgsDict']]]
     """
     Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
     """
-    terminate_blue_instances_on_deployment_success: NotRequired[pulumi.Input[Optional['DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs']]]
+    terminate_blue_instances_on_deployment_success: NotRequired[pulumi.Input[Optional['DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgsDict']]]
     """
     Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
 
@@ -887,7 +887,7 @@ class DeploymentGroupEc2TagFilterArgs:
 
 
 class DeploymentGroupEc2TagSetArgsDict(TypedDict):
-    ec2_tag_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEc2TagSetEc2TagFilterArgs']]]]]
+    ec2_tag_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupEc2TagSetEc2TagFilterArgsDict']]]]]
     """
     Tag filters associated with the deployment group. See the AWS docs for details.
     """
@@ -1038,15 +1038,15 @@ class DeploymentGroupEcsServiceArgs:
 
 
 class DeploymentGroupLoadBalancerInfoArgsDict(TypedDict):
-    elb_infos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupLoadBalancerInfoElbInfoArgs']]]]]
+    elb_infos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupLoadBalancerInfoElbInfoArgsDict']]]]]
     """
     The Classic Elastic Load Balancer to use in a deployment. Conflicts with `target_group_info` and `target_group_pair_info`.
     """
-    target_group_infos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs']]]]]
+    target_group_infos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentGroupLoadBalancerInfoTargetGroupInfoArgsDict']]]]]
     """
     The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elb_info` and `target_group_pair_info`.
     """
-    target_group_pair_info: NotRequired[pulumi.Input[Optional['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs']]]
+    target_group_pair_info: NotRequired[pulumi.Input[Optional['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgsDict']]]
     """
     The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elb_info` and `target_group_info`.
     """
@@ -1173,7 +1173,7 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgsDict(TypedDict):
     """
     Configuration blocks for a target group within a target group pair (documented below).
     """
-    test_traffic_route: NotRequired[pulumi.Input[Optional['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs']]]
+    test_traffic_route: NotRequired[pulumi.Input[Optional['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgsDict']]]
     """
     Configuration block for the test traffic route (documented below).
     """

@@ -14,9 +14,12 @@ namespace Pulumi.Aws.Acmpca.Outputs
     public sealed class GetCertificateAuthorityRevocationConfigurationResult
     {
         /// <summary>
-        /// Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+        /// Nested attribute containing configuration of the certificate revocation list (CRL). See `CrlConfiguration` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult> CrlConfigurations;
+        /// <summary>
+        /// Nested attribute containing configuration of the Online Certificate Status Protocol (OCSP). See `OcspConfiguration` below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult> OcspConfigurations;
 
         [OutputConstructor]

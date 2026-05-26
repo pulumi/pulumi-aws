@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint {
     /**
-     * @return The absolute file path in the container where the tmpfs volume is mounted.
+     * @return Absolute file path in the container where the tmpfs volume is mounted.
      * 
      */
     private String containerPath;
@@ -22,14 +22,14 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPo
      */
     private Boolean readOnly;
     /**
-     * @return The name of the volume to mount.
+     * @return Name of the volume to mount.
      * 
      */
     private String sourceVolume;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPoint() {}
     /**
-     * @return The absolute file path in the container where the tmpfs volume is mounted.
+     * @return Absolute file path in the container where the tmpfs volume is mounted.
      * 
      */
     public String containerPath() {
@@ -43,7 +43,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPo
         return this.readOnly;
     }
     /**
-     * @return The name of the volume to mount.
+     * @return Name of the volume to mount.
      * 
      */
     public String sourceVolume() {

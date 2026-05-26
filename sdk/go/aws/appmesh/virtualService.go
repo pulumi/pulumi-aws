@@ -110,7 +110,7 @@ type VirtualService struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
-	// Virtual service specification to apply.
+	// Virtual service specification to apply. See `spec` Block for details.
 	Spec VirtualServiceSpecOutput `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -170,7 +170,7 @@ type virtualServiceState struct {
 	Region *string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
-	// Virtual service specification to apply.
+	// Virtual service specification to apply. See `spec` Block for details.
 	Spec *VirtualServiceSpec `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -195,7 +195,7 @@ type VirtualServiceState struct {
 	Region pulumi.StringPtrInput
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
-	// Virtual service specification to apply.
+	// Virtual service specification to apply. See `spec` Block for details.
 	Spec VirtualServiceSpecPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -216,7 +216,7 @@ type virtualServiceArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Virtual service specification to apply.
+	// Virtual service specification to apply. See `spec` Block for details.
 	Spec VirtualServiceSpec `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -232,7 +232,7 @@ type VirtualServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Virtual service specification to apply.
+	// Virtual service specification to apply. See `spec` Block for details.
 	Spec VirtualServiceSpecInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -365,7 +365,7 @@ func (o VirtualServiceOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualService) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Virtual service specification to apply.
+// Virtual service specification to apply. See `spec` Block for details.
 func (o VirtualServiceOutput) Spec() VirtualServiceSpecOutput {
 	return o.ApplyT(func(v *VirtualService) VirtualServiceSpecOutput { return v.Spec }).(VirtualServiceSpecOutput)
 }

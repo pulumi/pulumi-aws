@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const example = pulumi.all([exampleBucket.arn, exampleBucket.arn]).apply(([exampleBucketArn, exampleBucketArn1]) => aws.iam.getPolicyDocumentOutput({
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             effect: "Allow",
@@ -87,8 +87,8 @@ import * as utilities from "../utilities";
  *             effect: "Allow",
  *             actions: ["s3:*"],
  *             resources: [
- *                 exampleBucketArn,
- *                 `${exampleBucketArn1}/*`,
+ *                 exampleBucket.arn,
+ *                 pulumi.interpolate`${exampleBucket.arn}/*`,
  *             ],
  *         },
  *         {
@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  *             resources: ["arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string"],
  *         },
  *     ],
- * }));
+ * });
  * const exampleRolePolicy = new aws.iam.RolePolicy("example", {
  *     role: exampleRole.name,
  *     policy: example.apply(example => example.json),

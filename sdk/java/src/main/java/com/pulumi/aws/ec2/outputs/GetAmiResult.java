@@ -30,7 +30,7 @@ public final class GetAmiResult {
      */
     private String arn;
     /**
-     * @return Set of objects with block device mappings of the AMI.
+     * @return Set of objects with block device mappings of the AMI. See `blockDeviceMappings` below.
      * 
      */
     private List<GetAmiBlockDeviceMapping> blockDeviceMappings;
@@ -50,8 +50,7 @@ public final class GetAmiResult {
      */
     private String deprecationTime;
     /**
-     * @return Description of the AMI that was provided during image
-     * creation.
+     * @return Description of the AMI that was provided during image creation.
      * 
      */
     private String description;
@@ -83,8 +82,7 @@ public final class GetAmiResult {
      */
     private String imageLocation;
     /**
-     * @return AWS account alias (for example, `amazon`, `self`) or
-     * the AWS account ID of the AMI owner.
+     * @return AWS account alias (for example, `amazon`, `self`) or the AWS account ID of the AMI owner.
      * 
      */
     private String imageOwnerAlias;
@@ -100,19 +98,18 @@ public final class GetAmiResult {
     private String imdsSupport;
     private @Nullable Boolean includeDeprecated;
     /**
-     * @return Kernel associated with the image, if any. Only applicable
-     * for machine images.
+     * @return Kernel associated with the image, if any. Only applicable for machine images.
      * 
      */
     private String kernelId;
     /**
-     * @return Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+     * @return Date and time, in ISO 8601 date-time format, when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
      * 
      */
     private String lastLaunchedTime;
     private @Nullable Boolean mostRecent;
     /**
-     * @return Name of the AMI that was provided during image creation.
+     * @return Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
      * 
      */
     private String name;
@@ -134,9 +131,7 @@ public final class GetAmiResult {
      */
     private String platformDetails;
     /**
-     * @return Any product codes associated with the AMI.
-     * * `product_codes.#.product_code_id` - The product code.
-     * * `product_codes.#.product_code_type` - The type of product code.
+     * @return Any product codes associated with the AMI. See `productCodes` below.
      * 
      */
     private List<GetAmiProductCode> productCodes;
@@ -146,8 +141,7 @@ public final class GetAmiResult {
      */
     private Boolean public_;
     /**
-     * @return RAM disk associated with the image, if any. Only applicable
-     * for machine images.
+     * @return RAM disk associated with the image, if any. Only applicable for machine images.
      * 
      */
     private String ramdiskId;
@@ -163,8 +157,7 @@ public final class GetAmiResult {
      */
     private String rootDeviceType;
     /**
-     * @return Snapshot id associated with the root device, if any
-     * (only applies to `ebs` root devices).
+     * @return Snapshot id associated with the root device, if any (only applies to `ebs` root devices).
      * 
      */
     private String rootSnapshotId;
@@ -174,20 +167,17 @@ public final class GetAmiResult {
      */
     private String sriovNetSupport;
     /**
-     * @return Current state of the AMI. If the state is `available`, the image
-     * is successfully registered and can be used to launch an instance.
+     * @return Current state of the AMI. If the state is `available`, the image is successfully registered and can be used to launch an instance.
      * 
      */
     private String state;
     /**
-     * @return Describes a state change. Fields are `UNSET` if not available.
+     * @return Describes a state change. Fields are `UNSET` if not available. See `stateReason` below.
      * 
      */
     private Map<String,String> stateReason;
     /**
      * @return Any tags assigned to the image.
-     * * `tags.#.key` - Key name of the tag.
-     * * `tags.#.value` - Value of the tag.
      * 
      */
     private Map<String,String> tags;
@@ -196,10 +186,6 @@ public final class GetAmiResult {
      * 
      */
     private String tpmSupport;
-    /**
-     * @return (Optional) Base64 representation of the non-volatile UEFI variable store.
-     * 
-     */
     private @Nullable String uefiData;
     /**
      * @return Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
@@ -207,8 +193,7 @@ public final class GetAmiResult {
      */
     private String usageOperation;
     /**
-     * @return Type of virtualization of the AMI (ie: `hvm` or
-     * `paravirtual`).
+     * @return Type of virtualization of the AMI (ie: `hvm` or `paravirtual`).
      * 
      */
     private String virtualizationType;
@@ -232,7 +217,7 @@ public final class GetAmiResult {
         return this.arn;
     }
     /**
-     * @return Set of objects with block device mappings of the AMI.
+     * @return Set of objects with block device mappings of the AMI. See `blockDeviceMappings` below.
      * 
      */
     public List<GetAmiBlockDeviceMapping> blockDeviceMappings() {
@@ -260,8 +245,7 @@ public final class GetAmiResult {
         return this.deprecationTime;
     }
     /**
-     * @return Description of the AMI that was provided during image
-     * creation.
+     * @return Description of the AMI that was provided during image creation.
      * 
      */
     public String description() {
@@ -309,8 +293,7 @@ public final class GetAmiResult {
         return this.imageLocation;
     }
     /**
-     * @return AWS account alias (for example, `amazon`, `self`) or
-     * the AWS account ID of the AMI owner.
+     * @return AWS account alias (for example, `amazon`, `self`) or the AWS account ID of the AMI owner.
      * 
      */
     public String imageOwnerAlias() {
@@ -334,15 +317,14 @@ public final class GetAmiResult {
         return Optional.ofNullable(this.includeDeprecated);
     }
     /**
-     * @return Kernel associated with the image, if any. Only applicable
-     * for machine images.
+     * @return Kernel associated with the image, if any. Only applicable for machine images.
      * 
      */
     public String kernelId() {
         return this.kernelId;
     }
     /**
-     * @return Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+     * @return Date and time, in ISO 8601 date-time format, when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
      * 
      */
     public String lastLaunchedTime() {
@@ -352,7 +334,7 @@ public final class GetAmiResult {
         return Optional.ofNullable(this.mostRecent);
     }
     /**
-     * @return Name of the AMI that was provided during image creation.
+     * @return Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
      * 
      */
     public String name() {
@@ -386,9 +368,7 @@ public final class GetAmiResult {
         return this.platformDetails;
     }
     /**
-     * @return Any product codes associated with the AMI.
-     * * `product_codes.#.product_code_id` - The product code.
-     * * `product_codes.#.product_code_type` - The type of product code.
+     * @return Any product codes associated with the AMI. See `productCodes` below.
      * 
      */
     public List<GetAmiProductCode> productCodes() {
@@ -402,8 +382,7 @@ public final class GetAmiResult {
         return this.public_;
     }
     /**
-     * @return RAM disk associated with the image, if any. Only applicable
-     * for machine images.
+     * @return RAM disk associated with the image, if any. Only applicable for machine images.
      * 
      */
     public String ramdiskId() {
@@ -427,8 +406,7 @@ public final class GetAmiResult {
         return this.rootDeviceType;
     }
     /**
-     * @return Snapshot id associated with the root device, if any
-     * (only applies to `ebs` root devices).
+     * @return Snapshot id associated with the root device, if any (only applies to `ebs` root devices).
      * 
      */
     public String rootSnapshotId() {
@@ -442,15 +420,14 @@ public final class GetAmiResult {
         return this.sriovNetSupport;
     }
     /**
-     * @return Current state of the AMI. If the state is `available`, the image
-     * is successfully registered and can be used to launch an instance.
+     * @return Current state of the AMI. If the state is `available`, the image is successfully registered and can be used to launch an instance.
      * 
      */
     public String state() {
         return this.state;
     }
     /**
-     * @return Describes a state change. Fields are `UNSET` if not available.
+     * @return Describes a state change. Fields are `UNSET` if not available. See `stateReason` below.
      * 
      */
     public Map<String,String> stateReason() {
@@ -458,8 +435,6 @@ public final class GetAmiResult {
     }
     /**
      * @return Any tags assigned to the image.
-     * * `tags.#.key` - Key name of the tag.
-     * * `tags.#.value` - Value of the tag.
      * 
      */
     public Map<String,String> tags() {
@@ -472,10 +447,6 @@ public final class GetAmiResult {
     public String tpmSupport() {
         return this.tpmSupport;
     }
-    /**
-     * @return (Optional) Base64 representation of the non-volatile UEFI variable store.
-     * 
-     */
     public Optional<String> uefiData() {
         return Optional.ofNullable(this.uefiData);
     }
@@ -487,8 +458,7 @@ public final class GetAmiResult {
         return this.usageOperation;
     }
     /**
-     * @return Type of virtualization of the AMI (ie: `hvm` or
-     * `paravirtual`).
+     * @return Type of virtualization of the AMI (ie: `hvm` or `paravirtual`).
      * 
      */
     public String virtualizationType() {

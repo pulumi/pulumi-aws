@@ -300,19 +300,19 @@ class InstanceStorageConfigStorageConfigArgsDict(TypedDict):
     """
     A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
     """
-    kinesis_firehose_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs']]]
+    kinesis_firehose_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgsDict']]]
     """
     A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
     """
-    kinesis_stream_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs']]]
+    kinesis_stream_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisStreamConfigArgsDict']]]
     """
     A block that specifies the configuration of the Kinesis data stream. Documented below.
     """
-    kinesis_video_stream_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs']]]
+    kinesis_video_stream_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgsDict']]]
     """
     A block that specifies the configuration of the Kinesis video stream. Documented below.
     """
-    s3_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigS3ConfigArgs']]]
+    s3_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigS3ConfigArgsDict']]]
     """
     A block that specifies the configuration of S3 Bucket. Documented below.
     """
@@ -581,7 +581,7 @@ class InstanceStorageConfigStorageConfigS3ConfigArgsDict(TypedDict):
     """
     The S3 bucket prefix.
     """
-    encryption_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs']]]
+    encryption_config: NotRequired[pulumi.Input[Optional['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgsDict']]]
     """
     The encryption configuration. Documented below.
     """
@@ -809,15 +809,15 @@ class QuickConnectQuickConnectConfigArgsDict(TypedDict):
     """
     Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
     """
-    phone_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]]]
+    phone_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgsDict']]]]]
     """
     Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
     """
-    queue_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]]]
+    queue_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgsDict']]]]]
     """
     Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
     """
-    user_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]]]
+    user_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgsDict']]]]]
     """
     Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
     """
@@ -1023,7 +1023,7 @@ class RoutingProfileMediaConcurrencyArgsDict(TypedDict):
     """
     Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
     """
-    cross_channel_behavior: NotRequired[pulumi.Input[Optional['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']]]
+    cross_channel_behavior: NotRequired[pulumi.Input[Optional['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgsDict']]]
     """
     Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
     """
@@ -1235,23 +1235,23 @@ class RoutingProfileQueueConfigArgs:
 
 
 class UserHierarchyGroupHierarchyPathArgsDict(TypedDict):
-    level_fives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]]]
+    level_fives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgsDict']]]]]
     """
     A block that defines the details of level five. The level block is documented below.
     """
-    level_fours: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]]]]
+    level_fours: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgsDict']]]]]
     """
     A block that defines the details of level four. The level block is documented below.
     """
-    level_ones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]]]]
+    level_ones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgsDict']]]]]
     """
     A block that defines the details of level one. The level block is documented below.
     """
-    level_threes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]]]]
+    level_threes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgsDict']]]]]
     """
     A block that defines the details of level three. The level block is documented below.
     """
-    level_twos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]]]]
+    level_twos: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgsDict']]]]]
     """
     A block that defines the details of level two. The level block is documented below.
     """
@@ -1689,25 +1689,25 @@ class UserHierarchyGroupHierarchyPathLevelTwoArgs:
 
 
 class UserHierarchyStructureHierarchyStructureArgsDict(TypedDict):
-    level_five: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelFiveArgs']]]
+    level_five: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelFiveArgsDict']]]
     """
     A block that defines the details of level five. The level block is documented below.
 
     Each level block supports the following arguments:
     """
-    level_four: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelFourArgs']]]
+    level_four: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelFourArgsDict']]]
     """
     A block that defines the details of level four. The level block is documented below.
     """
-    level_one: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelOneArgs']]]
+    level_one: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelOneArgsDict']]]
     """
     A block that defines the details of level one. The level block is documented below.
     """
-    level_three: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelThreeArgs']]]
+    level_three: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelThreeArgsDict']]]
     """
     A block that defines the details of level three. The level block is documented below.
     """
-    level_two: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelTwoArgs']]]
+    level_two: NotRequired[pulumi.Input[Optional['UserHierarchyStructureHierarchyStructureLevelTwoArgsDict']]]
     """
     A block that defines the details of level two. The level block is documented below.
     """

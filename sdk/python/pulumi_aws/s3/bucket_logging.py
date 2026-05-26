@@ -298,19 +298,19 @@ class BucketLogging(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         logging = aws.s3.Bucket("logging", bucket="access-logging-bucket")
-        logging_bucket_policy = logging.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
+        logging_bucket_policy = aws.iam.get_policy_document_output(statements=[{
             "principals": [{
                 "identifiers": ["logging.s3.amazonaws.com"],
                 "type": "Service",
             }],
             "actions": ["s3:PutObject"],
-            "resources": [f"{arn}/*"],
+            "resources": [logging.arn.apply(lambda arn: f"{arn}/*")],
             "conditions": [{
                 "test": "StringEquals",
                 "variable": "aws:SourceAccount",
                 "values": [current.account_id],
             }],
-        }]))
+        }])
         logging_bucket_policy2 = aws.s3.BucketPolicy("logging",
             bucket=logging.bucket,
             policy=logging_bucket_policy.json)
@@ -413,19 +413,19 @@ class BucketLogging(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         logging = aws.s3.Bucket("logging", bucket="access-logging-bucket")
-        logging_bucket_policy = logging.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[{
+        logging_bucket_policy = aws.iam.get_policy_document_output(statements=[{
             "principals": [{
                 "identifiers": ["logging.s3.amazonaws.com"],
                 "type": "Service",
             }],
             "actions": ["s3:PutObject"],
-            "resources": [f"{arn}/*"],
+            "resources": [logging.arn.apply(lambda arn: f"{arn}/*")],
             "conditions": [{
                 "test": "StringEquals",
                 "variable": "aws:SourceAccount",
                 "values": [current.account_id],
             }],
-        }]))
+        }])
         logging_bucket_policy2 = aws.s3.BucketPolicy("logging",
             bucket=logging.bucket,
             policy=logging_bucket_policy.json)

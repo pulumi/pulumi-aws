@@ -20,14 +20,14 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
     public static final VirtualNodeSpecListenerConnectionPoolArgs Empty = new VirtualNodeSpecListenerConnectionPoolArgs();
 
     /**
-     * Connection pool information for gRPC listeners.
+     * Connection pool information for gRPC listeners. See `grpc` Block for details.
      * 
      */
     @Import(name="grpc")
     private @Nullable Output<VirtualNodeSpecListenerConnectionPoolGrpcArgs> grpc;
 
     /**
-     * @return Connection pool information for gRPC listeners.
+     * @return Connection pool information for gRPC listeners. See `grpc` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerConnectionPoolGrpcArgs>> grpc() {
@@ -35,14 +35,14 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
     }
 
     /**
-     * Connection pool information for HTTP2 listeners.
+     * Connection pool information for HTTP2 listeners. See `http2` Block for details.
      * 
      */
     @Import(name="http2s")
     private @Nullable Output<List<VirtualNodeSpecListenerConnectionPoolHttp2Args>> http2s;
 
     /**
-     * @return Connection pool information for HTTP2 listeners.
+     * @return Connection pool information for HTTP2 listeners. See `http2` Block for details.
      * 
      */
     public Optional<Output<List<VirtualNodeSpecListenerConnectionPoolHttp2Args>>> http2s() {
@@ -50,14 +50,14 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
     }
 
     /**
-     * Connection pool information for HTTP listeners.
+     * Connection pool information for HTTP listeners. See `http` Block for details.
      * 
      */
     @Import(name="https")
     private @Nullable Output<List<VirtualNodeSpecListenerConnectionPoolHttpArgs>> https;
 
     /**
-     * @return Connection pool information for HTTP listeners.
+     * @return Connection pool information for HTTP listeners. See `http` Block for details.
      * 
      */
     public Optional<Output<List<VirtualNodeSpecListenerConnectionPoolHttpArgs>>> https() {
@@ -65,14 +65,14 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
     }
 
     /**
-     * Connection pool information for TCP listeners.
+     * Connection pool information for TCP listeners. See `tcp` Block for details.
      * 
      */
     @Import(name="tcps")
     private @Nullable Output<List<VirtualNodeSpecListenerConnectionPoolTcpArgs>> tcps;
 
     /**
-     * @return Connection pool information for TCP listeners.
+     * @return Connection pool information for TCP listeners. See `tcp` Block for details.
      * 
      */
     public Optional<Output<List<VirtualNodeSpecListenerConnectionPoolTcpArgs>>> tcps() {
@@ -107,7 +107,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
         }
 
         /**
-         * @param grpc Connection pool information for gRPC listeners.
+         * @param grpc Connection pool information for gRPC listeners. See `grpc` Block for details.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
         }
 
         /**
-         * @param grpc Connection pool information for gRPC listeners.
+         * @param grpc Connection pool information for gRPC listeners. See `grpc` Block for details.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
         }
 
         /**
-         * @param http2s Connection pool information for HTTP2 listeners.
+         * @param http2s Connection pool information for HTTP2 listeners. See `http2` Block for details.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
         }
 
         /**
-         * @param http2s Connection pool information for HTTP2 listeners.
+         * @param http2s Connection pool information for HTTP2 listeners. See `http2` Block for details.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
         }
 
         /**
-         * @param http2s Connection pool information for HTTP2 listeners.
+         * @param http2s Connection pool information for HTTP2 listeners. See `http2` Block for details.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
         }
 
         /**
-         * @param https Connection pool information for HTTP listeners.
+         * @param https Connection pool information for HTTP listeners. See `http` Block for details.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
         }
 
         /**
-         * @param https Connection pool information for HTTP listeners.
+         * @param https Connection pool information for HTTP listeners. See `http` Block for details.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
         }
 
         /**
-         * @param https Connection pool information for HTTP listeners.
+         * @param https Connection pool information for HTTP listeners. See `http` Block for details.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
         }
 
         /**
-         * @param tcps Connection pool information for TCP listeners.
+         * @param tcps Connection pool information for TCP listeners. See `tcp` Block for details.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
         }
 
         /**
-         * @param tcps Connection pool information for TCP listeners.
+         * @param tcps Connection pool information for TCP listeners. See `tcp` Block for details.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class VirtualNodeSpecListenerConnectionPoolArgs extends com.pulumi.
         }
 
         /**
-         * @param tcps Connection pool information for TCP listeners.
+         * @param tcps Connection pool information for TCP listeners. See `tcp` Block for details.
          * 
          * @return builder
          * 

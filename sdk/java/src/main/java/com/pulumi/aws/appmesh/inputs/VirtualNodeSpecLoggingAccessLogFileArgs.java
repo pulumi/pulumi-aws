@@ -18,14 +18,14 @@ public final class VirtualNodeSpecLoggingAccessLogFileArgs extends com.pulumi.re
     public static final VirtualNodeSpecLoggingAccessLogFileArgs Empty = new VirtualNodeSpecLoggingAccessLogFileArgs();
 
     /**
-     * The specified format for the logs.
+     * The specified format for the logs. See `format` Block for details.
      * 
      */
     @Import(name="format")
     private @Nullable Output<VirtualNodeSpecLoggingAccessLogFileFormatArgs> format;
 
     /**
-     * @return The specified format for the logs.
+     * @return The specified format for the logs. See `format` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecLoggingAccessLogFileFormatArgs>> format() {
@@ -73,7 +73,7 @@ public final class VirtualNodeSpecLoggingAccessLogFileArgs extends com.pulumi.re
         }
 
         /**
-         * @param format The specified format for the logs.
+         * @param format The specified format for the logs. See `format` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class VirtualNodeSpecLoggingAccessLogFileArgs extends com.pulumi.re
         }
 
         /**
-         * @param format The specified format for the logs.
+         * @param format The specified format for the logs. See `format` Block for details.
          * 
          * @return builder
          * 

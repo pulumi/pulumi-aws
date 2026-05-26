@@ -170,6 +170,9 @@ namespace Pulumi.Aws.Acmpca
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Level of security of the key storage endpoint of the certificate authority.
+        /// </summary>
         public readonly string KeyStorageSecurityStandard;
         /// <summary>
         /// Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
@@ -181,7 +184,7 @@ namespace Pulumi.Aws.Acmpca
         public readonly string NotBefore;
         public readonly string Region;
         /// <summary>
-        /// Nested attribute containing revocation configuration.
+        /// Nested attribute containing revocation configuration. See `RevocationConfiguration` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationResult> RevocationConfigurations;
         /// <summary>

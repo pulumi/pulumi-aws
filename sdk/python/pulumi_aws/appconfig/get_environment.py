@@ -118,8 +118,7 @@ class GetEnvironmentResult:
     @pulumi.getter
     def state(self) -> _builtins.str:
         """
-        State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-        or `ROLLED_BACK`.
+        State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
         """
         return pulumi.get(self, "state")
 

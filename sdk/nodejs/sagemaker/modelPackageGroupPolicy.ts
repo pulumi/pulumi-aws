@@ -18,25 +18,25 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getCallerIdentity({});
  * const exampleModelPackageGroup = new aws.sagemaker.ModelPackageGroup("example", {modelPackageGroupName: "example"});
- * const example = pulumi.all([exampleModelPackageGroup.arn, current]).apply(([arn, current]) => aws.iam.getPolicyDocumentOutput({
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         sid: "AddPermModelPackageGroup",
  *         actions: [
  *             "sagemaker:DescribeModelPackage",
  *             "sagemaker:ListModelPackages",
  *         ],
- *         resources: [arn],
+ *         resources: [exampleModelPackageGroup.arn],
  *         principals: [{
- *             identifiers: [current.accountId],
+ *             identifiers: [current.then(current => current.accountId)],
  *             type: "AWS",
  *         }],
  *     }],
- * }));
+ * });
  * const exampleModelPackageGroupPolicy = new aws.sagemaker.ModelPackageGroupPolicy("example", {
  *     modelPackageGroupName: exampleModelPackageGroup.modelPackageGroupName,
- *     resourcePolicy: pulumi.jsonStringify(example.apply(example => std.jsondecodeOutput({
- *         input: example.json,
- *     })).apply(invoke => invoke.result)),
+ *     resourcePolicy: pulumi.jsonStringify(std.jsondecodeOutput({
+ *         input: example.apply(example => example.json),
+ *     }).apply(invoke => invoke.result)),
  * });
  * ```
  *

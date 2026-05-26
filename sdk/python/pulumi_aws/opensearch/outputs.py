@@ -64,6 +64,7 @@ __all__ = [
     'ServerlessVpcEndpointTimeouts',
     'VpcEndpointVpcOptions',
     'GetDomainAdvancedSecurityOptionResult',
+    'GetDomainAdvancedSecurityOptionJwtOptionResult',
     'GetDomainAutoTuneOptionResult',
     'GetDomainAutoTuneOptionMaintenanceScheduleResult',
     'GetDomainAutoTuneOptionMaintenanceScheduleDurationResult',
@@ -2722,18 +2723,25 @@ class GetDomainAdvancedSecurityOptionResult(dict):
     def __init__(__self__, *,
                  anonymous_auth_enabled: _builtins.bool,
                  enabled: _builtins.bool,
-                 internal_user_database_enabled: _builtins.bool):
+                 internal_user_database_enabled: _builtins.bool,
+                 jwt_options: Sequence['outputs.GetDomainAdvancedSecurityOptionJwtOptionResult']):
         """
+        :param _builtins.bool anonymous_auth_enabled: Whether Anonymous auth is enabled.
         :param _builtins.bool enabled: Enabled disabled toggle for off-peak update window
         :param _builtins.bool internal_user_database_enabled: Whether the internal user database is enabled.
+        :param Sequence['GetDomainAdvancedSecurityOptionJwtOptionArgs'] jwt_options: Block for JWT authentication.
         """
         pulumi.set(__self__, "anonymous_auth_enabled", anonymous_auth_enabled)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "internal_user_database_enabled", internal_user_database_enabled)
+        pulumi.set(__self__, "jwt_options", jwt_options)
 
     @_builtins.property
     @pulumi.getter(name="anonymousAuthEnabled")
     def anonymous_auth_enabled(self) -> _builtins.bool:
+        """
+        Whether Anonymous auth is enabled.
+        """
         return pulumi.get(self, "anonymous_auth_enabled")
 
     @_builtins.property
@@ -2751,6 +2759,65 @@ class GetDomainAdvancedSecurityOptionResult(dict):
         Whether the internal user database is enabled.
         """
         return pulumi.get(self, "internal_user_database_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="jwtOptions")
+    def jwt_options(self) -> Sequence['outputs.GetDomainAdvancedSecurityOptionJwtOptionResult']:
+        """
+        Block for JWT authentication.
+        """
+        return pulumi.get(self, "jwt_options")
+
+
+@pulumi.output_type
+class GetDomainAdvancedSecurityOptionJwtOptionResult(dict):
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 public_key: _builtins.str,
+                 roles_key: _builtins.str,
+                 subject_key: _builtins.str):
+        """
+        :param _builtins.bool enabled: Enabled disabled toggle for off-peak update window
+        :param _builtins.str public_key: PEM-encoded public key used to verify JWT signatures.
+        :param _builtins.str roles_key: Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
+        :param _builtins.str subject_key: Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "public_key", public_key)
+        pulumi.set(__self__, "roles_key", roles_key)
+        pulumi.set(__self__, "subject_key", subject_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Enabled disabled toggle for off-peak update window
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> _builtins.str:
+        """
+        PEM-encoded public key used to verify JWT signatures.
+        """
+        return pulumi.get(self, "public_key")
+
+    @_builtins.property
+    @pulumi.getter(name="rolesKey")
+    def roles_key(self) -> _builtins.str:
+        """
+        Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
+        """
+        return pulumi.get(self, "roles_key")
+
+    @_builtins.property
+    @pulumi.getter(name="subjectKey")
+    def subject_key(self) -> _builtins.str:
+        """
+        Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
+        """
+        return pulumi.get(self, "subject_key")
 
 
 @pulumi.output_type

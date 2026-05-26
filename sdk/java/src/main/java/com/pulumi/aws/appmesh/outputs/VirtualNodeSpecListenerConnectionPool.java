@@ -16,50 +16,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VirtualNodeSpecListenerConnectionPool {
     /**
-     * @return Connection pool information for gRPC listeners.
+     * @return Connection pool information for gRPC listeners. See `grpc` Block for details.
      * 
      */
     private @Nullable VirtualNodeSpecListenerConnectionPoolGrpc grpc;
     /**
-     * @return Connection pool information for HTTP2 listeners.
+     * @return Connection pool information for HTTP2 listeners. See `http2` Block for details.
      * 
      */
     private @Nullable List<VirtualNodeSpecListenerConnectionPoolHttp2> http2s;
     /**
-     * @return Connection pool information for HTTP listeners.
+     * @return Connection pool information for HTTP listeners. See `http` Block for details.
      * 
      */
     private @Nullable List<VirtualNodeSpecListenerConnectionPoolHttp> https;
     /**
-     * @return Connection pool information for TCP listeners.
+     * @return Connection pool information for TCP listeners. See `tcp` Block for details.
      * 
      */
     private @Nullable List<VirtualNodeSpecListenerConnectionPoolTcp> tcps;
 
     private VirtualNodeSpecListenerConnectionPool() {}
     /**
-     * @return Connection pool information for gRPC listeners.
+     * @return Connection pool information for gRPC listeners. See `grpc` Block for details.
      * 
      */
     public Optional<VirtualNodeSpecListenerConnectionPoolGrpc> grpc() {
         return Optional.ofNullable(this.grpc);
     }
     /**
-     * @return Connection pool information for HTTP2 listeners.
+     * @return Connection pool information for HTTP2 listeners. See `http2` Block for details.
      * 
      */
     public List<VirtualNodeSpecListenerConnectionPoolHttp2> http2s() {
         return this.http2s == null ? List.of() : this.http2s;
     }
     /**
-     * @return Connection pool information for HTTP listeners.
+     * @return Connection pool information for HTTP listeners. See `http` Block for details.
      * 
      */
     public List<VirtualNodeSpecListenerConnectionPoolHttp> https() {
         return this.https == null ? List.of() : this.https;
     }
     /**
-     * @return Connection pool information for TCP listeners.
+     * @return Connection pool information for TCP listeners. See `tcp` Block for details.
      * 
      */
     public List<VirtualNodeSpecListenerConnectionPoolTcp> tcps() {

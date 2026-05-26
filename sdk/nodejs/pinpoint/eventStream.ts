@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * > **NOTE:** This resource is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. After that date, this resource will no longer be available. For SMS/Voice event delivery, use `aws.pinpoint.Smsvoicev2ConfigurationSet` with an event destination.
+ *
  * Provides a Pinpoint Event Stream resource.
  *
  * ## Example Usage
@@ -89,10 +91,14 @@ export class EventStream extends pulumi.CustomResource {
 
     /**
      * The application ID.
+     *
+     * @deprecated application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
      */
     declare public readonly applicationId: pulumi.Output<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     *
+     * @deprecated destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
      */
     declare public readonly destinationStreamArn: pulumi.Output<string>;
     /**
@@ -101,6 +107,8 @@ export class EventStream extends pulumi.CustomResource {
     declare public readonly region: pulumi.Output<string>;
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+     *
+     * @deprecated role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
      */
     declare public readonly roleArn: pulumi.Output<string>;
 
@@ -148,10 +156,14 @@ export class EventStream extends pulumi.CustomResource {
 export interface EventStreamState {
     /**
      * The application ID.
+     *
+     * @deprecated application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
      */
     applicationId?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     *
+     * @deprecated destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
      */
     destinationStreamArn?: pulumi.Input<string | undefined>;
     /**
@@ -160,6 +172,8 @@ export interface EventStreamState {
     region?: pulumi.Input<string | undefined>;
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+     *
+     * @deprecated role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
      */
     roleArn?: pulumi.Input<string | undefined>;
 }
@@ -170,10 +184,14 @@ export interface EventStreamState {
 export interface EventStreamArgs {
     /**
      * The application ID.
+     *
+     * @deprecated application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
      */
     applicationId: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     *
+     * @deprecated destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
      */
     destinationStreamArn: pulumi.Input<string>;
     /**
@@ -182,6 +200,8 @@ export interface EventStreamArgs {
     region?: pulumi.Input<string | undefined>;
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+     *
+     * @deprecated role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
      */
     roleArn: pulumi.Input<string>;
 }

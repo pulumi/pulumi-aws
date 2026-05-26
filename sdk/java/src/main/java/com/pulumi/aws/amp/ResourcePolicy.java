@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
  *             .build());
  * 
- *         final var example = exampleWorkspace.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -72,13 +72,13 @@ import javax.annotation.Nullable;
  *                     "aps:GetSeries",
  *                     "aps:GetLabels",
  *                     "aps:GetMetricMetadata")
- *                 .resources(_arn)
+ *                 .resources(exampleWorkspace.arn())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var exampleResourcePolicy = new ResourcePolicy("exampleResourcePolicy", ResourcePolicyArgs.builder()
  *             .workspaceId(exampleWorkspace.id())
- *             .policyDocument(example.json())
+ *             .policyDocument(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *     }

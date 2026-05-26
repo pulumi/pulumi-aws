@@ -18,14 +18,14 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
     public static final VirtualGatewaySpecLoggingAccessLogFileFormatArgs Empty = new VirtualGatewaySpecLoggingAccessLogFileFormatArgs();
 
     /**
-     * The logging format for JSON.
+     * The logging format for JSON. See `json` Block for details.
      * 
      */
     @Import(name="jsons")
     private @Nullable Output<List<VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs>> jsons;
 
     /**
-     * @return The logging format for JSON.
+     * @return The logging format for JSON. See `json` Block for details.
      * 
      */
     public Optional<Output<List<VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs>>> jsons() {
@@ -73,7 +73,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
         }
 
         /**
-         * @param jsons The logging format for JSON.
+         * @param jsons The logging format for JSON. See `json` Block for details.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
         }
 
         /**
-         * @param jsons The logging format for JSON.
+         * @param jsons The logging format for JSON. See `json` Block for details.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class VirtualGatewaySpecLoggingAccessLogFileFormatArgs extends com.
         }
 
         /**
-         * @param jsons The logging format for JSON.
+         * @param jsons The logging format for JSON. See `json` Block for details.
          * 
          * @return builder
          * 

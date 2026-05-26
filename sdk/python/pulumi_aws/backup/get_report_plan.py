@@ -113,7 +113,7 @@ class GetReportPlanResult:
     @pulumi.getter(name="reportDeliveryChannels")
     def report_delivery_channels(self) -> Sequence['outputs.GetReportPlanReportDeliveryChannelResult']:
         """
-        An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+        Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
         """
         return pulumi.get(self, "report_delivery_channels")
 
@@ -121,7 +121,7 @@ class GetReportPlanResult:
     @pulumi.getter(name="reportSettings")
     def report_settings(self) -> Sequence['outputs.GetReportPlanReportSettingResult']:
         """
-        An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+        Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
         """
         return pulumi.get(self, "report_settings")
 

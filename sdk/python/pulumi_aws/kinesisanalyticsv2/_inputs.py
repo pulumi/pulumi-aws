@@ -110,31 +110,31 @@ class ApplicationApplicationConfigurationArgsDict(TypedDict):
     """
     The code location and type parameters for the application.
     """
-    application_encryption_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs']]]
+    application_encryption_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict']]]
     """
     The encryption configuration for the application. This can be used to encrypt data at rest in the application.
     """
-    application_snapshot_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs']]]
+    application_snapshot_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgsDict']]]
     """
     Describes whether snapshots are enabled for a Flink-based application.
     """
-    environment_properties: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationEnvironmentPropertiesArgs']]]
+    environment_properties: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationEnvironmentPropertiesArgsDict']]]
     """
     Describes execution properties for a Flink-based application.
     """
-    flink_application_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs']]]
+    flink_application_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgsDict']]]
     """
     The configuration of a Flink-based application.
     """
-    run_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationRunConfigurationArgs']]]
+    run_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationRunConfigurationArgsDict']]]
     """
     Describes the starting properties for a Flink-based application.
     """
-    sql_application_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationArgs']]]
+    sql_application_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationArgsDict']]]
     """
     The configuration of a SQL-based application.
     """
-    vpc_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationVpcConfigurationArgs']]]
+    vpc_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationVpcConfigurationArgsDict']]]
     """
     The VPC configuration of a Flink-based application.
     """
@@ -278,7 +278,7 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationArgsDict(Ty
     """
     Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
     """
-    code_content: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs']]]
+    code_content: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgsDict']]]
     """
     The location and type of the application code.
     """
@@ -322,7 +322,7 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationArgs:
 
 
 class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgsDict(TypedDict):
-    s3_content_location: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs']]]
+    s3_content_location: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgsDict']]]
     """
     Information about the Amazon S3 bucket containing the application code.
     """
@@ -589,15 +589,15 @@ class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs:
 
 
 class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgsDict(TypedDict):
-    checkpoint_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs']]]
+    checkpoint_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgsDict']]]
     """
     Describes an application's checkpointing configuration.
     """
-    monitoring_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs']]]
+    monitoring_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgsDict']]]
     """
     Describes configuration parameters for CloudWatch logging for an application.
     """
-    parallelism_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs']]]
+    parallelism_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgsDict']]]
     """
     Describes parameters for how an application executes multiple tasks simultaneously.
     """
@@ -911,11 +911,11 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelis
 
 
 class ApplicationApplicationConfigurationRunConfigurationArgsDict(TypedDict):
-    application_restore_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs']]]
+    application_restore_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgsDict']]]
     """
     The restore behavior of a restarting application.
     """
-    flink_run_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs']]]
+    flink_run_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgsDict']]]
     """
     The starting parameters for a Flink-based Kinesis Data Analytics application.
     """
@@ -1038,15 +1038,15 @@ class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationAr
 
 
 class ApplicationApplicationConfigurationSqlApplicationConfigurationArgsDict(TypedDict):
-    input: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs']]]
+    input: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgsDict']]]
     """
     The input stream used by the application.
     """
-    outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs']]]]]
+    outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgsDict']]]]]
     """
     The destination streams used by the application.
     """
-    reference_data_source: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs']]]
+    reference_data_source: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgsDict']]]
     """
     The reference data source used by the application.
     """
@@ -1117,24 +1117,24 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgsDic
     """
     in_app_stream_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     input_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    input_parallelism: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs']]]
+    input_parallelism: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgsDict']]]
     """
     Describes the number of in-application streams to create.
     """
-    input_processing_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs']]]
+    input_processing_configuration: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgsDict']]]
     """
     The input processing configuration for the input.
     An input processor transforms records as they are received from the stream, before the application's SQL code executes.
     """
-    input_starting_position_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs']]]]]
+    input_starting_position_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgsDict']]]]]
     """
     The point at which the application starts processing records from the streaming source.
     """
-    kinesis_firehose_input: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs']]]
+    kinesis_firehose_input: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgsDict']]]
     """
     If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
     """
-    kinesis_streams_input: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs']]]
+    kinesis_streams_input: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgsDict']]]
     """
     If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
     """
@@ -1549,11 +1549,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 
 
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgsDict(TypedDict):
-    csv_mapping_parameters: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs']]]
+    csv_mapping_parameters: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict']]]
     """
     Provides additional mapping information when the record format uses delimiters (for example, CSV).
     """
-    json_mapping_parameters: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs']]]
+    json_mapping_parameters: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict']]]
     """
     Provides additional mapping information when JSON is the record format on the streaming source.
     """
@@ -1766,15 +1766,15 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgsDi
     """
     The name of the in-application stream.
     """
-    kinesis_firehose_output: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs']]]
+    kinesis_firehose_output: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgsDict']]]
     """
     Identifies a Kinesis Data Firehose delivery stream as the destination.
     """
-    kinesis_streams_output: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs']]]
+    kinesis_streams_output: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgsDict']]]
     """
     Identifies a Kinesis data stream as the destination.
     """
-    lambda_output: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs']]]
+    lambda_output: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgsDict']]]
     """
     Identifies a Lambda function as the destination.
     """
@@ -2250,11 +2250,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 
 
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgsDict(TypedDict):
-    csv_mapping_parameters: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs']]]
+    csv_mapping_parameters: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict']]]
     """
     Provides additional mapping information when the record format uses delimiters (for example, CSV).
     """
-    json_mapping_parameters: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs']]]
+    json_mapping_parameters: NotRequired[pulumi.Input[Optional['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict']]]
     """
     Provides additional mapping information when JSON is the record format on the streaming source.
     """

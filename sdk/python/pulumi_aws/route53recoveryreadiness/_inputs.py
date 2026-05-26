@@ -29,7 +29,7 @@ __all__ = [
 
 class ResourceSetResourceArgsDict(TypedDict):
     component_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    dns_target_resource: NotRequired[pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceArgs']]]
+    dns_target_resource: NotRequired[pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceArgsDict']]]
     """
     Component for DNS/Routing Control Readiness Checks.
     """
@@ -126,7 +126,7 @@ class ResourceSetResourceDnsTargetResourceArgsDict(TypedDict):
     """
     Type of DNS Record of target resource.
     """
-    target_resource: NotRequired[pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceArgs']]]
+    target_resource: NotRequired[pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceArgsDict']]]
     """
     Target resource the R53 record specified with the above params points to.
     """
@@ -218,11 +218,11 @@ class ResourceSetResourceDnsTargetResourceArgs:
 
 
 class ResourceSetResourceDnsTargetResourceTargetResourceArgsDict(TypedDict):
-    nlb_resource: NotRequired[pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs']]]
+    nlb_resource: NotRequired[pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgsDict']]]
     """
     NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
     """
-    r53_resource: NotRequired[pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs']]]
+    r53_resource: NotRequired[pulumi.Input[Optional['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgsDict']]]
     """
     Route53 resource a DNS Target Resource record points to.
     """

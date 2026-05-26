@@ -62,7 +62,7 @@ __all__ = [
 ]
 
 class LifecyclePolicyPolicyDetailsArgsDict(TypedDict):
-    action: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsActionArgs']]]
+    action: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsActionArgsDict']]]
     """
     The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
     """
@@ -71,11 +71,11 @@ class LifecyclePolicyPolicyDetailsArgsDict(TypedDict):
     """
     How often the policy should run and create snapshots or AMIs. valid values range from `1` to `7`. Default value is `1`.
     """
-    event_source: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsEventSourceArgs']]]
+    event_source: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsEventSourceArgsDict']]]
     """
     The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
     """
-    exclusions: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsExclusionsArgs']]]
+    exclusions: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsExclusionsArgsDict']]]
     """
     Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs.  See the `exclusions` configuration block.
     """
@@ -83,7 +83,7 @@ class LifecyclePolicyPolicyDetailsArgsDict(TypedDict):
     """
     snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state. Default value is `false`.
     """
-    parameters: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsParametersArgs']]]
+    parameters: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsParametersArgsDict']]]
     policy_language: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of policy to create. `SIMPLIFIED` To create a default policy. `STANDARD` To create a custom policy.
@@ -108,7 +108,7 @@ class LifecyclePolicyPolicyDetailsArgsDict(TypedDict):
     """
     Specifies how long the policy should retain snapshots or AMIs before deleting them. valid values range from `2` to `14`. Default value is `7`.
     """
-    schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]]]
+    schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgsDict']]]]]
     """
     See the `schedule` configuration block.
     """
@@ -408,7 +408,7 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgsDict(TypedDict):
     The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
     """
     target: pulumi.Input[_builtins.str]
-    retain_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs']]]
+    retain_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgsDict']]]
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs:
@@ -750,21 +750,21 @@ class LifecyclePolicyPolicyDetailsScheduleArgsDict(TypedDict):
     """
     name: pulumi.Input[_builtins.str]
     retain_rule: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArgsDict']
-    archive_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgs']]]
+    archive_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleArchiveRuleArgsDict']]]
     """
     Specifies a snapshot archiving rule for a schedule. See `archive_rule` block.
     """
     copy_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    cross_region_copy_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs']]]]]
+    cross_region_copy_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgsDict']]]]]
     """
     See the `cross_region_copy_rule` block. Max of 3 per schedule.
     """
-    deprecate_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs']]]
-    fast_restore_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs']]]
+    deprecate_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgsDict']]]
+    fast_restore_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgsDict']]]
     """
     See the `fast_restore_rule` block. Max of 1 per schedule.
     """
-    share_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleShareRuleArgs']]]
+    share_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleShareRuleArgsDict']]]
     """
     See the `share_rule` block. Max of 1 per schedule.
     """
@@ -1054,7 +1054,7 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgsDict(TypedDict):
     """
     Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
     """
-    scripts: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgs']]]
+    scripts: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleCreateRuleScriptsArgsDict']]]
     """
     Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. Valid only when `resource_type` is INSTANCE. See the `scripts` configuration block.
     """
@@ -1290,8 +1290,8 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgsDict(TypedDict)
     encrypted: pulumi.Input[_builtins.bool]
     cmk_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     copy_tags: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    deprecate_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs']]]
-    retain_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs']]]
+    deprecate_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgsDict']]]
+    retain_rule: NotRequired[pulumi.Input[Optional['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgsDict']]]
     target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     target_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """

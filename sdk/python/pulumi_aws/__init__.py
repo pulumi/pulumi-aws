@@ -2208,6 +2208,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/agentcoreHarness",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreHarness:AgentcoreHarness": "AgentcoreHarness"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/agentcoreMemory",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -9336,6 +9344,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "observabilityadmin/telemetryRuleForOrganization",
+  "fqn": "pulumi_aws.observabilityadmin",
+  "classes": {
+   "aws:observabilityadmin/telemetryRuleForOrganization:TelemetryRuleForOrganization": "TelemetryRuleForOrganization"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "odb/cloudAutonomousVmCluster",
   "fqn": "pulumi_aws.odb",
   "classes": {
@@ -11928,6 +11944,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "securityhub/automationRuleV2",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/automationRuleV2:AutomationRuleV2": "AutomationRuleV2"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "securityhub/configurationPolicy",
   "fqn": "pulumi_aws.securityhub",
   "classes": {
@@ -14040,6 +14064,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "xray/indexingRule",
+  "fqn": "pulumi_aws.xray",
+  "classes": {
+   "aws:xray/indexingRule:IndexingRule": "IndexingRule"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "xray/resourcePolicy",
   "fqn": "pulumi_aws.xray",
   "classes": {
@@ -14052,6 +14084,14 @@ _utilities.register(
   "fqn": "pulumi_aws.xray",
   "classes": {
    "aws:xray/samplingRule:SamplingRule": "SamplingRule"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "xray/traceSegmentDestination",
+  "fqn": "pulumi_aws.xray",
+  "classes": {
+   "aws:xray/traceSegmentDestination:TraceSegmentDestination": "TraceSegmentDestination"
   }
  }
 ]

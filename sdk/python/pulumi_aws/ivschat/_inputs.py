@@ -28,15 +28,15 @@ __all__ = [
 ]
 
 class LoggingConfigurationDestinationConfigurationArgsDict(TypedDict):
-    cloudwatch_logs: NotRequired[pulumi.Input[Optional['LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs']]]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['LoggingConfigurationDestinationConfigurationCloudwatchLogsArgsDict']]]
     """
     An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
     """
-    firehose: NotRequired[pulumi.Input[Optional['LoggingConfigurationDestinationConfigurationFirehoseArgs']]]
+    firehose: NotRequired[pulumi.Input[Optional['LoggingConfigurationDestinationConfigurationFirehoseArgsDict']]]
     """
     An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
     """
-    s3: NotRequired[pulumi.Input[Optional['LoggingConfigurationDestinationConfigurationS3Args']]]
+    s3: NotRequired[pulumi.Input[Optional['LoggingConfigurationDestinationConfigurationS3ArgsDict']]]
     """
     An Amazon S3 destination configuration where chat activity will be logged.
     """

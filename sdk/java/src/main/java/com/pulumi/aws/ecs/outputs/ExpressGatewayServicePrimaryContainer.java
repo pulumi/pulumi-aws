@@ -25,7 +25,7 @@ public final class ExpressGatewayServicePrimaryContainer {
      */
     private @Nullable List<String> commands;
     /**
-     * @return Port on which the container listens for connections.
+     * @return Port on which the container listens for connections. Defaults to `80`.
      * 
      */
     private @Nullable Integer containerPort;
@@ -50,7 +50,7 @@ public final class ExpressGatewayServicePrimaryContainer {
         return this.commands == null ? List.of() : this.commands;
     }
     /**
-     * @return Port on which the container listens for connections.
+     * @return Port on which the container listens for connections. Defaults to `80`.
      * 
      */
     public Optional<Integer> containerPort() {

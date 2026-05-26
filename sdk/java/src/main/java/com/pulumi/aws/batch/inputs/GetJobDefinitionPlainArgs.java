@@ -31,14 +31,14 @@ public final class GetJobDefinitionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+     * Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      * 
      */
     @Import(name="name")
     private @Nullable String name;
 
     /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+     * @return Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      * 
      */
     public Optional<String> name() {
@@ -61,14 +61,14 @@ public final class GetJobDefinitionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The revision of the job definition.
+     * Revision of the job definition.
      * 
      */
     @Import(name="revision")
     private @Nullable Integer revision;
 
     /**
-     * @return The revision of the job definition.
+     * @return Revision of the job definition.
      * 
      */
     public Optional<Integer> revision() {
@@ -76,14 +76,14 @@ public final class GetJobDefinitionPlainArgs extends com.pulumi.resources.Invoke
     }
 
     /**
-     * The status of the job definition.
+     * Status of the job definition.
      * 
      */
     @Import(name="status")
     private @Nullable String status;
 
     /**
-     * @return The status of the job definition.
+     * @return Status of the job definition.
      * 
      */
     public Optional<String> status() {
@@ -130,7 +130,7 @@ public final class GetJobDefinitionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param name The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+         * @param name Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class GetJobDefinitionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param revision The revision of the job definition.
+         * @param revision Revision of the job definition.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class GetJobDefinitionPlainArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param status The status of the job definition.
+         * @param status Status of the job definition.
          * 
          * @return builder
          * 

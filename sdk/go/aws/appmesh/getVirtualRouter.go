@@ -52,7 +52,8 @@ func LookupVirtualRouter(ctx *pulumi.Context, args *LookupVirtualRouterArgs, opt
 // A collection of arguments for invoking getVirtualRouter.
 type LookupVirtualRouterArgs struct {
 	// Name of the mesh in which the virtual router exists
-	MeshName  string  `pulumi:"meshName"`
+	MeshName string `pulumi:"meshName"`
+	// AWS account ID of the service mesh's owner.
 	MeshOwner *string `pulumi:"meshOwner"`
 	// Name of the virtual router.
 	Name string `pulumi:"name"`
@@ -96,7 +97,8 @@ func LookupVirtualRouterOutput(ctx *pulumi.Context, args LookupVirtualRouterOutp
 // A collection of arguments for invoking getVirtualRouter.
 type LookupVirtualRouterOutputArgs struct {
 	// Name of the mesh in which the virtual router exists
-	MeshName  pulumi.StringInput    `pulumi:"meshName"`
+	MeshName pulumi.StringInput `pulumi:"meshName"`
+	// AWS account ID of the service mesh's owner.
 	MeshOwner pulumi.StringPtrInput `pulumi:"meshOwner"`
 	// Name of the virtual router.
 	Name pulumi.StringInput `pulumi:"name"`

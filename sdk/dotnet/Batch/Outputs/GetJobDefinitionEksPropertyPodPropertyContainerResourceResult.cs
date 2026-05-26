@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionEksPropertyPodPropertyContainerResourceResult
     {
         /// <summary>
-        /// The type and quantity of the resources to reserve for the container.
+        /// Type and quantity of the resources to reserve for the container.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Limits;
         /// <summary>
-        /// The type and quantity of the resources to request for the container.
+        /// Type and quantity of the resources to request for the container.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Requests;
 

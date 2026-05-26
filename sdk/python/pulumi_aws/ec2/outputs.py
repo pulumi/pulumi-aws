@@ -20235,7 +20235,7 @@ class GetAmiBlockDeviceMappingResult(dict):
                  virtual_name: _builtins.str):
         """
         :param _builtins.str device_name: Physical name of the device.
-        :param Mapping[str, _builtins.str] ebs: Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volume_size"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
+        :param Mapping[str, _builtins.str] ebs: Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volume_size"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`). See `ebs` below.
         :param _builtins.str no_device: Suppresses the specified device included in the block device mapping of the AMI.
         :param _builtins.str virtual_name: Virtual device name (for instance stores).
         """
@@ -20256,7 +20256,7 @@ class GetAmiBlockDeviceMappingResult(dict):
     @pulumi.getter
     def ebs(self) -> Mapping[str, _builtins.str]:
         """
-        Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volume_size"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
+        Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volume_size"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`). See `ebs` below.
         """
         return pulumi.get(self, "ebs")
 
@@ -20283,7 +20283,8 @@ class GetAmiFilterResult(dict):
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the AMI that was provided during image creation.
+        :param _builtins.str name: Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
@@ -20292,13 +20293,16 @@ class GetAmiFilterResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the AMI that was provided during image creation.
+        Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of values that are accepted for the given filter.
+        """
         return pulumi.get(self, "values")
 
 
@@ -20307,17 +20311,27 @@ class GetAmiIdsFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of values that are accepted for the given filter.
+        """
         return pulumi.get(self, "values")
 
 
@@ -20326,17 +20340,27 @@ class GetAmiProductCodeResult(dict):
     def __init__(__self__, *,
                  product_code_id: _builtins.str,
                  product_code_type: _builtins.str):
+        """
+        :param _builtins.str product_code_id: The product code.
+        :param _builtins.str product_code_type: The type of product code.
+        """
         pulumi.set(__self__, "product_code_id", product_code_id)
         pulumi.set(__self__, "product_code_type", product_code_type)
 
     @_builtins.property
     @pulumi.getter(name="productCodeId")
     def product_code_id(self) -> _builtins.str:
+        """
+        The product code.
+        """
         return pulumi.get(self, "product_code_id")
 
     @_builtins.property
     @pulumi.getter(name="productCodeType")
     def product_code_type(self) -> _builtins.str:
+        """
+        The type of product code.
+        """
         return pulumi.get(self, "product_code_type")
 
 

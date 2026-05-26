@@ -888,6 +888,106 @@ func (o VolumeCopyTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type VolumeFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// VolumeFilterInput is an input type that accepts VolumeFilterArgs and VolumeFilterOutput values.
+// You can construct a concrete instance of `VolumeFilterInput` via:
+//
+//	VolumeFilterArgs{...}
+type VolumeFilterInput interface {
+	pulumi.Input
+
+	ToVolumeFilterOutput() VolumeFilterOutput
+	ToVolumeFilterOutputWithContext(context.Context) VolumeFilterOutput
+}
+
+type VolumeFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (VolumeFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeFilter)(nil)).Elem()
+}
+
+func (i VolumeFilterArgs) ToVolumeFilterOutput() VolumeFilterOutput {
+	return i.ToVolumeFilterOutputWithContext(context.Background())
+}
+
+func (i VolumeFilterArgs) ToVolumeFilterOutputWithContext(ctx context.Context) VolumeFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeFilterOutput)
+}
+
+// VolumeFilterArrayInput is an input type that accepts VolumeFilterArray and VolumeFilterArrayOutput values.
+// You can construct a concrete instance of `VolumeFilterArrayInput` via:
+//
+//	VolumeFilterArray{ VolumeFilterArgs{...} }
+type VolumeFilterArrayInput interface {
+	pulumi.Input
+
+	ToVolumeFilterArrayOutput() VolumeFilterArrayOutput
+	ToVolumeFilterArrayOutputWithContext(context.Context) VolumeFilterArrayOutput
+}
+
+type VolumeFilterArray []VolumeFilterInput
+
+func (VolumeFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeFilter)(nil)).Elem()
+}
+
+func (i VolumeFilterArray) ToVolumeFilterArrayOutput() VolumeFilterArrayOutput {
+	return i.ToVolumeFilterArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeFilterArray) ToVolumeFilterArrayOutputWithContext(ctx context.Context) VolumeFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeFilterArrayOutput)
+}
+
+type VolumeFilterOutput struct{ *pulumi.OutputState }
+
+func (VolumeFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeFilter)(nil)).Elem()
+}
+
+func (o VolumeFilterOutput) ToVolumeFilterOutput() VolumeFilterOutput {
+	return o
+}
+
+func (o VolumeFilterOutput) ToVolumeFilterOutputWithContext(ctx context.Context) VolumeFilterOutput {
+	return o
+}
+
+func (o VolumeFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o VolumeFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type VolumeFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeFilter)(nil)).Elem()
+}
+
+func (o VolumeFilterArrayOutput) ToVolumeFilterArrayOutput() VolumeFilterArrayOutput {
+	return o
+}
+
+func (o VolumeFilterArrayOutput) ToVolumeFilterArrayOutputWithContext(ctx context.Context) VolumeFilterArrayOutput {
+	return o
+}
+
+func (o VolumeFilterArrayOutput) Index(i pulumi.IntInput) VolumeFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeFilter {
+		return vs[0].([]VolumeFilter)[vs[1].(int)]
+	}).(VolumeFilterOutput)
+}
+
 type GetEbsVolumesFilter struct {
 	// Name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
@@ -1404,6 +1504,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportDiskContainerUserBucketPtrInput)(nil)).Elem(), SnapshotImportDiskContainerUserBucketArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCopyTimeoutsInput)(nil)).Elem(), VolumeCopyTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCopyTimeoutsPtrInput)(nil)).Elem(), VolumeCopyTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeFilterInput)(nil)).Elem(), VolumeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeFilterArrayInput)(nil)).Elem(), VolumeFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEbsVolumesFilterInput)(nil)).Elem(), GetEbsVolumesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEbsVolumesFilterArrayInput)(nil)).Elem(), GetEbsVolumesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotFilterInput)(nil)).Elem(), GetSnapshotFilterArgs{})
@@ -1422,6 +1524,8 @@ func init() {
 	pulumi.RegisterOutputType(SnapshotImportDiskContainerUserBucketPtrOutput{})
 	pulumi.RegisterOutputType(VolumeCopyTimeoutsOutput{})
 	pulumi.RegisterOutputType(VolumeCopyTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(VolumeFilterOutput{})
+	pulumi.RegisterOutputType(VolumeFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetEbsVolumesFilterOutput{})
 	pulumi.RegisterOutputType(GetEbsVolumesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotFilterOutput{})

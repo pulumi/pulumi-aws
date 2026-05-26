@@ -17,6 +17,9 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// List of instance reuse policy objects.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupWarmPoolInstanceReusePolicyResult> InstanceReusePolicies;
+        /// <summary>
+        /// Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
+        /// </summary>
         public readonly int MaxGroupPreparedCapacity;
         /// <summary>
         /// Minimum number of instances to maintain in the warm pool.

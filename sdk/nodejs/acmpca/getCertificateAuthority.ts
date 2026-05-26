@@ -69,6 +69,9 @@ export interface GetCertificateAuthorityResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Level of security of the key storage endpoint of the certificate authority.
+     */
     readonly keyStorageSecurityStandard: string;
     /**
      * Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
@@ -80,7 +83,7 @@ export interface GetCertificateAuthorityResult {
     readonly notBefore: string;
     readonly region: string;
     /**
-     * Nested attribute containing revocation configuration.
+     * Nested attribute containing revocation configuration. See `revocationConfiguration` below.
      */
     readonly revocationConfigurations: outputs.acmpca.GetCertificateAuthorityRevocationConfiguration[];
     /**

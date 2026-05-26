@@ -303,11 +303,11 @@ class TableSchemaDefinitionArgsDict(TypedDict):
     """
     The columns that are part of the partition key of the table .
     """
-    clustering_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]]]
+    clustering_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgsDict']]]]]
     """
     The columns that are part of the clustering key of the table.
     """
-    static_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]]]
+    static_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgsDict']]]]]
     """
     The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
     """

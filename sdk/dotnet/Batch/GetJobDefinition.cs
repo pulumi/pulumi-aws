@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Batch
         public string? Arn { get; set; }
 
         /// <summary>
-        /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+        /// Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
@@ -169,13 +169,13 @@ namespace Pulumi.Aws.Batch
         public string? Region { get; set; }
 
         /// <summary>
-        /// The revision of the job definition.
+        /// Revision of the job definition.
         /// </summary>
         [Input("revision")]
         public int? Revision { get; set; }
 
         /// <summary>
-        /// The status of the job definition.
+        /// Status of the job definition.
         /// </summary>
         [Input("status")]
         public string? Status { get; set; }
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+        /// Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -207,13 +207,13 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The revision of the job definition.
+        /// Revision of the job definition.
         /// </summary>
         [Input("revision")]
         public Input<int>? Revision { get; set; }
 
         /// <summary>
-        /// The status of the job definition.
+        /// Status of the job definition.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -229,45 +229,51 @@ namespace Pulumi.Aws.Batch
     public sealed class GetJobDefinitionResult
     {
         public readonly string? Arn;
+        /// <summary>
+        /// ARN prefix of the job definition.
+        /// </summary>
         public readonly string ArnPrefix;
         /// <summary>
-        /// The orchestration type of the compute environment.
+        /// Orchestration type of the compute environment.
         /// </summary>
         public readonly string ContainerOrchestrationType;
         /// <summary>
-        /// An object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
+        /// Object with various properties that are specific to Amazon EKS based jobs. This must not be specified for Amazon ECS based job definitions.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionEksPropertyResult> EksProperties;
         /// <summary>
-        /// The ARN
+        /// ARN
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the volume.
+        /// Name of the volume.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// An object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
+        /// Object with various properties specific to multi-node parallel jobs. If you specify node properties for a job, it becomes a multi-node parallel job. For more information, see Multi-node Parallel Jobs in the AWS Batch User Guide. If the job definition's type parameter is container, then you must specify either containerProperties or nodeProperties.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyResult> NodeProperties;
         public readonly string Region;
         /// <summary>
-        /// The retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
+        /// Retry strategy to use for failed jobs that are submitted with this job definition. Any retry strategy that's specified during a SubmitJob operation overrides the retry strategy defined here. If a job is terminated due to a timeout, it isn't retried.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionRetryStrategyResult> RetryStrategies;
         public readonly int? Revision;
         /// <summary>
-        /// The scheduling priority for jobs that are submitted with this job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
+        /// Scheduling priority for jobs that are submitted with this job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
         /// </summary>
         public readonly int SchedulingPriority;
         public readonly string? Status;
+        /// <summary>
+        /// Map of tags assigned to the resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
+        /// Timeout configuration for jobs that are submitted with this job definition, after which AWS Batch terminates your jobs if they have not finished. If a job is terminated due to a timeout, it isn't retried. The minimum value for the timeout is 60 seconds.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionTimeoutResult> Timeouts;
         /// <summary>
-        /// The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
+        /// Type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
         /// </summary>
         public readonly string Type;
 

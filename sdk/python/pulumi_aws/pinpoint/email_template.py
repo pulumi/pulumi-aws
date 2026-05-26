@@ -32,7 +32,13 @@ class EmailTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]] email_templates: Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        if template_name is not None:
+            warnings.warn("""template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""template_name is deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
         pulumi.set(__self__, "template_name", template_name)
+        if email_templates is not None:
+            warnings.warn("""email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""email_templates is deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
         if email_templates is not None:
             pulumi.set(__self__, "email_templates", email_templates)
         if region is not None:
@@ -42,6 +48,7 @@ class EmailTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="templateName")
+    @_utilities.deprecated("""template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def template_name(self) -> pulumi.Input[_builtins.str]:
         """
         name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
@@ -54,6 +61,7 @@ class EmailTemplateArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailTemplates")
+    @_utilities.deprecated("""email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def email_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]]:
         """
         Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
@@ -106,6 +114,9 @@ class _EmailTemplateState:
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if email_templates is not None:
+            warnings.warn("""email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""email_templates is deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
+        if email_templates is not None:
             pulumi.set(__self__, "email_templates", email_templates)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -113,6 +124,9 @@ class _EmailTemplateState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if template_name is not None:
+            warnings.warn("""template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""", DeprecationWarning)
+            pulumi.log.warn("""template_name is deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
         if template_name is not None:
             pulumi.set(__self__, "template_name", template_name)
 
@@ -130,6 +144,7 @@ class _EmailTemplateState:
 
     @_builtins.property
     @pulumi.getter(name="emailTemplates")
+    @_utilities.deprecated("""email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def email_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateArgs']]]]:
         """
         Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
@@ -172,6 +187,7 @@ class _EmailTemplateState:
 
     @_builtins.property
     @pulumi.getter(name="templateName")
+    @_utilities.deprecated("""template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def template_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
@@ -195,6 +211,8 @@ class EmailTemplate(pulumi.CustomResource):
                  template_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
+        > **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `ses.Template` or `sesv2.EmailIdentity` and related SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+
         Provides a Pinpoint Email Template resource
 
         ## Example Usage
@@ -237,6 +255,8 @@ class EmailTemplate(pulumi.CustomResource):
                  args: EmailTemplateArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `ses.Template` or `sesv2.EmailIdentity` and related SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+
         Provides a Pinpoint Email Template resource
 
         ## Example Usage
@@ -352,6 +372,7 @@ class EmailTemplate(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="emailTemplates")
+    @_utilities.deprecated("""email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def email_templates(self) -> pulumi.Output[Optional[Sequence['outputs.EmailTemplateEmailTemplate']]]:
         """
         Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
@@ -378,6 +399,7 @@ class EmailTemplate(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="templateName")
+    @_utilities.deprecated("""template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.""")
     def template_name(self) -> pulumi.Output[_builtins.str]:
         """
         name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.

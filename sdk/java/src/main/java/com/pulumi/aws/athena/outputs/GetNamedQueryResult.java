@@ -28,6 +28,10 @@ public final class GetNamedQueryResult {
      */
     private String id;
     private String name;
+    /**
+     * @return Text of the query itself.
+     * 
+     */
     private String querystring;
     private String region;
     private @Nullable String workgroup;
@@ -57,6 +61,10 @@ public final class GetNamedQueryResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return Text of the query itself.
+     * 
+     */
     public String querystring() {
         return this.querystring;
     }

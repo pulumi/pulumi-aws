@@ -62,7 +62,7 @@ class ExperimentTemplateActionArgsDict(TypedDict):
     """
     Description of the action.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentTemplateActionParameterArgsDict']]]]]
     """
     Parameter(s) for the action, if applicable. See below.
     """
@@ -70,7 +70,7 @@ class ExperimentTemplateActionArgsDict(TypedDict):
     """
     Set of action names that must complete before this action can be executed.
     """
-    target: NotRequired[pulumi.Input[Optional['ExperimentTemplateActionTargetArgs']]]
+    target: NotRequired[pulumi.Input[Optional['ExperimentTemplateActionTargetArgsDict']]]
     """
     Action's target, if applicable. See below.
     """
@@ -326,11 +326,11 @@ class ExperimentTemplateExperimentOptionsArgs:
 
 
 class ExperimentTemplateExperimentReportConfigurationArgsDict(TypedDict):
-    data_sources: NotRequired[pulumi.Input[Optional['ExperimentTemplateExperimentReportConfigurationDataSourcesArgs']]]
+    data_sources: NotRequired[pulumi.Input[Optional['ExperimentTemplateExperimentReportConfigurationDataSourcesArgsDict']]]
     """
     The data sources for the experiment report. See below.
     """
-    outputs: NotRequired[pulumi.Input[Optional['ExperimentTemplateExperimentReportConfigurationOutputsArgs']]]
+    outputs: NotRequired[pulumi.Input[Optional['ExperimentTemplateExperimentReportConfigurationOutputsArgsDict']]]
     """
     The outputs for the experiment report. See below.
     """
@@ -415,7 +415,7 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
 
 
 class ExperimentTemplateExperimentReportConfigurationDataSourcesArgsDict(TypedDict):
-    cloudwatch_dashboards: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs']]]]]
+    cloudwatch_dashboards: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgsDict']]]]]
     """
     The data sources for the experiment report. See below.
     """
@@ -473,7 +473,7 @@ class ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashbo
 
 
 class ExperimentTemplateExperimentReportConfigurationOutputsArgsDict(TypedDict):
-    s3_configuration: NotRequired[pulumi.Input[Optional['ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs']]]
+    s3_configuration: NotRequired[pulumi.Input[Optional['ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgsDict']]]
     """
     The data sources for the experiment report. See below.
     """
@@ -554,11 +554,11 @@ class ExperimentTemplateLogConfigurationArgsDict(TypedDict):
     """
     The schema version. See [documentation](https://docs.aws.amazon.com/fis/latest/userguide/monitoring-logging.html#experiment-log-schema) for the list of schema versions.
     """
-    cloudwatch_logs_configuration: NotRequired[pulumi.Input[Optional['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs']]]
+    cloudwatch_logs_configuration: NotRequired[pulumi.Input[Optional['ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgsDict']]]
     """
     The configuration for experiment logging to Amazon CloudWatch Logs. See below.
     """
-    s3_configuration: NotRequired[pulumi.Input[Optional['ExperimentTemplateLogConfigurationS3ConfigurationArgs']]]
+    s3_configuration: NotRequired[pulumi.Input[Optional['ExperimentTemplateLogConfigurationS3ConfigurationArgsDict']]]
     """
     The configuration for experiment logging to Amazon S3. See below.
     """
@@ -754,7 +754,7 @@ class ExperimentTemplateTargetArgsDict(TypedDict):
     """
     Scopes the identified resources. Valid values are `ALL` (all identified resources), `COUNT(n)` (randomly select `n` of the identified resources), `PERCENT(n)` (randomly select `n` percent of the identified resources).
     """
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentTemplateTargetFilterArgsDict']]]]]
     """
     Filter(s) for the target. Filters can be used to select resources based on specific attributes returned by the respective describe action of the resource type. For more information, see [Targets for AWS FIS](https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters). See below.
     """
@@ -768,7 +768,7 @@ class ExperimentTemplateTargetArgsDict(TypedDict):
     """
     Set of ARNs of the resources to target with an action. Conflicts with `resource_tag`.
     """
-    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgs']]]]]
+    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExperimentTemplateTargetResourceTagArgsDict']]]]]
     """
     Tag(s) the resources need to have to be considered a valid target for an action. Conflicts with `resource_arns`. See below.
     """

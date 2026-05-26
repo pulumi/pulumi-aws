@@ -72,7 +72,8 @@ type LookupConfigurationProfileResult struct {
 	// Description of the Configuration Profile.
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// KMS key identifier for encrypting the configuration data.
 	KmsKeyIdentifier string `pulumi:"kmsKeyIdentifier"`
 	// Location URI of the Configuration Profile.
 	LocationUri string `pulumi:"locationUri"`
@@ -152,6 +153,7 @@ func (o LookupConfigurationProfileResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// KMS key identifier for encrypting the configuration data.
 func (o LookupConfigurationProfileResultOutput) KmsKeyIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileResult) string { return v.KmsKeyIdentifier }).(pulumi.StringOutput)
 }

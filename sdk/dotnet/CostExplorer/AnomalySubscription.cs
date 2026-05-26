@@ -202,7 +202,7 @@ namespace Pulumi.Aws.CostExplorer
     ///         PolicyId = "__default_policy_ID",
     ///         Statements = new[]
     ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
     ///                 Sid = "AWSAnomalyDetectionSNSPublishingPermissions",
     ///                 Actions = new[]
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.CostExplorer
     ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
     ///                         Type = "Service",
     ///                         Identifiers = new[]
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.CostExplorer
     ///                     costAnomalyUpdates.Arn,
     ///                 },
     ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
     ///                 Sid = "__default_statement_ID",
     ///                 Actions = new[]
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.CostExplorer
     ///                 },
     ///                 Conditions = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
     ///                     {
     ///                         Test = "StringEquals",
     ///                         Variable = "AWS:SourceOwner",
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.CostExplorer
     ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
     ///                     {
     ///                         Type = "AWS",
     ///                         Identifiers = new[]

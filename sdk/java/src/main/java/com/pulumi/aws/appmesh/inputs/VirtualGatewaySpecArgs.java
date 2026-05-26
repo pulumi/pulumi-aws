@@ -20,14 +20,14 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
     public static final VirtualGatewaySpecArgs Empty = new VirtualGatewaySpecArgs();
 
     /**
-     * Defaults for backends.
+     * Defaults for backends. See `backendDefaults` Block for details.
      * 
      */
     @Import(name="backendDefaults")
     private @Nullable Output<VirtualGatewaySpecBackendDefaultsArgs> backendDefaults;
 
     /**
-     * @return Defaults for backends.
+     * @return Defaults for backends. See `backendDefaults` Block for details.
      * 
      */
     public Optional<Output<VirtualGatewaySpecBackendDefaultsArgs>> backendDefaults() {
@@ -35,14 +35,14 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+     * Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener. See `listener` Block for details.
      * 
      */
     @Import(name="listeners", required=true)
     private Output<List<VirtualGatewaySpecListenerArgs>> listeners;
 
     /**
-     * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+     * @return Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener. See `listener` Block for details.
      * 
      */
     public Output<List<VirtualGatewaySpecListenerArgs>> listeners() {
@@ -50,14 +50,14 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Inbound and outbound access logging information for the virtual gateway.
+     * Inbound and outbound access logging information for the virtual gateway. See `logging` Block for details.
      * 
      */
     @Import(name="logging")
     private @Nullable Output<VirtualGatewaySpecLoggingArgs> logging;
 
     /**
-     * @return Inbound and outbound access logging information for the virtual gateway.
+     * @return Inbound and outbound access logging information for the virtual gateway. See `logging` Block for details.
      * 
      */
     public Optional<Output<VirtualGatewaySpecLoggingArgs>> logging() {
@@ -91,7 +91,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param backendDefaults Defaults for backends.
+         * @param backendDefaults Defaults for backends. See `backendDefaults` Block for details.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param backendDefaults Defaults for backends.
+         * @param backendDefaults Defaults for backends. See `backendDefaults` Block for details.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param listeners Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+         * @param listeners Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener. See `listener` Block for details.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param listeners Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+         * @param listeners Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener. See `listener` Block for details.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param listeners Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+         * @param listeners Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener. See `listener` Block for details.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logging Inbound and outbound access logging information for the virtual gateway.
+         * @param logging Inbound and outbound access logging information for the virtual gateway. See `logging` Block for details.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class VirtualGatewaySpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param logging Inbound and outbound access logging information for the virtual gateway.
+         * @param logging Inbound and outbound access logging information for the virtual gateway. See `logging` Block for details.
          * 
          * @return builder
          * 

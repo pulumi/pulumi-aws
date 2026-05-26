@@ -176,7 +176,7 @@ class PolicyStatementArgsDict(TypedDict):
     """
     Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
     """
-    not_principal: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]]]
+    not_principal: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AWSPrincipalArgsDict', 'ServicePrincipalArgsDict', 'FederatedPrincipalArgsDict']]]]
     """
     Indicate the account, user, role, or federated user to which this policy does not apply.
     """
@@ -184,7 +184,7 @@ class PolicyStatementArgsDict(TypedDict):
     """
     A list of resources that are specifically excluded by this policy.
     """
-    principal: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AWSPrincipalArgs', 'ServicePrincipalArgs', 'FederatedPrincipalArgs']]]]
+    principal: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AWSPrincipalArgsDict', 'ServicePrincipalArgsDict', 'FederatedPrincipalArgsDict']]]]
     """
     Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that user or role.
     """

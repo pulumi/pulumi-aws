@@ -18,14 +18,22 @@ public final class EventStreamState extends com.pulumi.resources.ResourceArgs {
     /**
      * The application ID.
      * 
+     * @deprecated
+     * application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * 
      */
+    @Deprecated /* application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
     /**
      * @return The application ID.
      * 
+     * @deprecated
+     * application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * 
      */
+    @Deprecated /* application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
     public Optional<Output<String>> applicationId() {
         return Optional.ofNullable(this.applicationId);
     }
@@ -33,14 +41,22 @@ public final class EventStreamState extends com.pulumi.resources.ResourceArgs {
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
+     * @deprecated
+     * destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * 
      */
+    @Deprecated /* destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
     @Import(name="destinationStreamArn")
     private @Nullable Output<String> destinationStreamArn;
 
     /**
      * @return The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
+     * @deprecated
+     * destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * 
      */
+    @Deprecated /* destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
     public Optional<Output<String>> destinationStreamArn() {
         return Optional.ofNullable(this.destinationStreamArn);
     }
@@ -63,14 +79,22 @@ public final class EventStreamState extends com.pulumi.resources.ResourceArgs {
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      * 
+     * @deprecated
+     * role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * 
      */
+    @Deprecated /* role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
      * @return The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      * 
+     * @deprecated
+     * role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * 
      */
+    @Deprecated /* role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
@@ -107,7 +131,11 @@ public final class EventStreamState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+         * 
          */
+        @Deprecated /* application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
         public Builder applicationId(@Nullable Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
@@ -118,7 +146,11 @@ public final class EventStreamState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+         * 
          */
+        @Deprecated /* application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
@@ -128,7 +160,11 @@ public final class EventStreamState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+         * 
          */
+        @Deprecated /* destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
         public Builder destinationStreamArn(@Nullable Output<String> destinationStreamArn) {
             $.destinationStreamArn = destinationStreamArn;
             return this;
@@ -139,7 +175,11 @@ public final class EventStreamState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+         * 
          */
+        @Deprecated /* destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
         public Builder destinationStreamArn(String destinationStreamArn) {
             return destinationStreamArn(Output.of(destinationStreamArn));
         }
@@ -170,7 +210,11 @@ public final class EventStreamState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+         * 
          */
+        @Deprecated /* role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
@@ -181,7 +225,11 @@ public final class EventStreamState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+         * 
          */
+        @Deprecated /* role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

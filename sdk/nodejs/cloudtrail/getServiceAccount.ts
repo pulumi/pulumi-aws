@@ -21,30 +21,30 @@ import * as utilities from "../utilities";
  *     bucket: "tf-cloudtrail-logging-test-bucket",
  *     forceDestroy: true,
  * });
- * const allowCloudtrailLogging = pulumi.all([main, bucket.arn, main, bucket.arn]).apply(([main, bucketArn, main1, bucketArn1]) => aws.iam.getPolicyDocumentOutput({
+ * const allowCloudtrailLogging = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             sid: "Put bucket policy needed for trails",
  *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
- *                 identifiers: [main.arn],
+ *                 identifiers: [main.then(main => main.arn)],
  *             }],
  *             actions: ["s3:PutObject"],
- *             resources: [`${bucketArn}/*`],
+ *             resources: [pulumi.interpolate`${bucket.arn}/*`],
  *         },
  *         {
  *             sid: "Get bucket policy needed for trails",
  *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
- *                 identifiers: [main1.arn],
+ *                 identifiers: [main.then(main => main.arn)],
  *             }],
  *             actions: ["s3:GetBucketAcl"],
- *             resources: [bucketArn1],
+ *             resources: [bucket.arn],
  *         },
  *     ],
- * }));
+ * });
  * const allowCloudtrailLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_cloudtrail_logging", {
  *     bucket: bucket.id,
  *     policy: allowCloudtrailLogging.apply(allowCloudtrailLogging => allowCloudtrailLogging.json),
@@ -100,30 +100,30 @@ export interface GetServiceAccountResult {
  *     bucket: "tf-cloudtrail-logging-test-bucket",
  *     forceDestroy: true,
  * });
- * const allowCloudtrailLogging = pulumi.all([main, bucket.arn, main, bucket.arn]).apply(([main, bucketArn, main1, bucketArn1]) => aws.iam.getPolicyDocumentOutput({
+ * const allowCloudtrailLogging = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             sid: "Put bucket policy needed for trails",
  *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
- *                 identifiers: [main.arn],
+ *                 identifiers: [main.then(main => main.arn)],
  *             }],
  *             actions: ["s3:PutObject"],
- *             resources: [`${bucketArn}/*`],
+ *             resources: [pulumi.interpolate`${bucket.arn}/*`],
  *         },
  *         {
  *             sid: "Get bucket policy needed for trails",
  *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
- *                 identifiers: [main1.arn],
+ *                 identifiers: [main.then(main => main.arn)],
  *             }],
  *             actions: ["s3:GetBucketAcl"],
- *             resources: [bucketArn1],
+ *             resources: [bucket.arn],
  *         },
  *     ],
- * }));
+ * });
  * const allowCloudtrailLoggingBucketPolicy = new aws.s3.BucketPolicy("allow_cloudtrail_logging", {
  *     bucket: bucket.id,
  *     policy: allowCloudtrailLogging.apply(allowCloudtrailLogging => allowCloudtrailLogging.json),

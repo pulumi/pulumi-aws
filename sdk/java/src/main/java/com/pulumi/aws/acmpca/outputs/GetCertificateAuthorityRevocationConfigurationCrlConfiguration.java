@@ -23,7 +23,7 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
      */
     private String customPath;
     /**
-     * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
      * 
      */
     private Boolean enabled;
@@ -59,7 +59,7 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
         return this.customPath;
     }
     /**
-     * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
      * 
      */
     public Boolean enabled() {

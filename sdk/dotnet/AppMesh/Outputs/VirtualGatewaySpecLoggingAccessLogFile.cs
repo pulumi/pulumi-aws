@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualGatewaySpecLoggingAccessLogFile
     {
         /// <summary>
-        /// The specified format for the logs.
+        /// The specified format for the logs. See `Format` Block for details.
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecLoggingAccessLogFileFormat? Format;
         /// <summary>

@@ -63,9 +63,17 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.port);
     }
 
+    /**
+     * Header value sent by the client must begin with the specified characters.
+     * 
+     */
     @Import(name="prefix")
     private @Nullable Output<String> prefix;
 
+    /**
+     * @return Header value sent by the client must begin with the specified characters.
+     * 
+     */
     public Optional<Output<String>> prefix() {
         return Optional.ofNullable(this.prefix);
     }
@@ -186,11 +194,23 @@ public final class RouteSpecGrpcRouteMatchArgs extends com.pulumi.resources.Reso
             return port(Output.of(port));
         }
 
+        /**
+         * @param prefix Header value sent by the client must begin with the specified characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
+        /**
+         * @param prefix Header value sent by the client must begin with the specified characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder prefix(String prefix) {
             return prefix(Output.of(prefix));
         }

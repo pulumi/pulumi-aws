@@ -40,76 +40,73 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// cfg := config.New(ctx, "")
-// regionNumber := map[string]interface{}{
-// "ap-northeast-1": 5,
-// "eu-central-1": 4,
-// "us-east-1": 1,
-// "us-west-1": 2,
-// "us-west-2": 3,
-// };
-// if param := cfg.GetObject("regionNumber"); param != nil {
-// regionNumber = param
-// }
-// azNumber := map[string]interface{}{
-// "a": 1,
-// "b": 2,
-// "c": 3,
-// "d": 4,
-// "e": 5,
-// "f": 6,
-// };
-// if param := cfg.GetObject("azNumber"); param != nil {
-// azNumber = param
-// }
-// // Retrieve the AZ where we want to create network resources
-// // This must be in the region selected on the AWS provider.
-// example, err := aws.GetAvailabilityZone(ctx, &aws.GetAvailabilityZoneArgs{
-// Name: pulumi.StringRef("eu-central-1a"),
-// }, nil);
-// if err != nil {
-// return err
-// }
-// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
-// Input: "10.0.0.0/8",
-// Newbits: 4,
-// Netnum: regionNumber[example.Region],
-// }, nil)
-// if err != nil {
-// return err
-// }
-// // Create a VPC for the region associated with the AZ
-// exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-// CidrBlock: pulumi.String(invokeCidrsubnet.Result),
-// })
-// if err != nil {
-// return err
-// }
-// invokeCidrsubnet1, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
-// Input: cidrBlock,
-// Newbits: 4,
-// Netnum: pulumi.Int(azNumber[example.NameSuffix]),
-// }, nil)
-// if err != nil {
-// return err
-// }
-// // Create a subnet for the AZ within the regional VPC
-// _, err = ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-// VpcId: exampleVpc.ID(),
-// CidrBlock: pulumi.String(exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
-// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-// val := invoke.Result
-// return &val, nil
-// }).(pulumi.StringPtrOutput)),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			cfg := config.New(ctx, "")
+//			regionNumber := map[string]interface{}{
+//				"ap-northeast-1": 5,
+//				"eu-central-1":   4,
+//				"us-east-1":      1,
+//				"us-west-1":      2,
+//				"us-west-2":      3,
+//			}
+//			if param := cfg.GetObject("regionNumber"); param != nil {
+//				regionNumber = param
+//			}
+//			azNumber := map[string]interface{}{
+//				"a": 1,
+//				"b": 2,
+//				"c": 3,
+//				"d": 4,
+//				"e": 5,
+//				"f": 6,
+//			}
+//			if param := cfg.GetObject("azNumber"); param != nil {
+//				azNumber = param
+//			}
+//			// Retrieve the AZ where we want to create network resources
+//			// This must be in the region selected on the AWS provider.
+//			example, err := aws.GetAvailabilityZone(ctx, &aws.GetAvailabilityZoneArgs{
+//				Name: pulumi.StringRef("eu-central-1a"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+//				Input:   "10.0.0.0/8",
+//				Newbits: 4,
+//				Netnum:  regionNumber[example.Region],
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// Create a VPC for the region associated with the AZ
+//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String(invokeCidrsubnet.Result),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Create a subnet for the AZ within the regional VPC
+//			_, err = ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
+//				VpcId: exampleVpc.ID(),
+//				CidrBlock: pulumi.String(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+//					Input:   exampleVpc.CidrBlock,
+//					Newbits: pulumi.Int(4),
+//					Netnum:  pulumi.Int(azNumber[example.NameSuffix]),
+//				}, nil).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+//					val := invoke.Result
+//					return &val, nil
+//				}).(pulumi.StringPtrOutput)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetAvailabilityZone(ctx *pulumi.Context, args *GetAvailabilityZoneArgs, opts ...pulumi.InvokeOption) (*GetAvailabilityZoneResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
@@ -134,10 +131,6 @@ type GetAvailabilityZoneArgs struct {
 	// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
 	State *string `pulumi:"state"`
 	// Zone ID of the availability zone to select.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// availability zones. The given filters must match exactly one availability
-	// zone whose data will be exported as attributes.
 	ZoneId *string `pulumi:"zoneId"`
 }
 
@@ -145,18 +138,16 @@ type GetAvailabilityZoneArgs struct {
 type GetAvailabilityZoneResult struct {
 	AllAvailabilityZones *bool                       `pulumi:"allAvailabilityZones"`
 	Filters              []GetAvailabilityZoneFilter `pulumi:"filters"`
-	// The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+	// Long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
 	GroupLongName string `pulumi:"groupLongName"`
-	// The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
+	// Name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
 	GroupName string `pulumi:"groupName"`
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	// Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
-	// For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
-	// For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
+	// Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region. For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone. For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
 	NameSuffix string `pulumi:"nameSuffix"`
-	// The name of the location from which the address is advertised.
+	// Name of the location from which the address is advertised.
 	NetworkBorderGroup string `pulumi:"networkBorderGroup"`
 	// For Availability Zones, this always has the value of `opt-in-not-required`. For Local Zones, this is the opt in status. The possible values are `opted-in` and `not-opted-in`.
 	OptInStatus string `pulumi:"optInStatus"`
@@ -193,10 +184,6 @@ type GetAvailabilityZoneOutputArgs struct {
 	// Specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
 	State pulumi.StringPtrInput `pulumi:"state"`
 	// Zone ID of the availability zone to select.
-	//
-	// The arguments of this data source act as filters for querying the available
-	// availability zones. The given filters must match exactly one availability
-	// zone whose data will be exported as attributes.
 	ZoneId pulumi.StringPtrInput `pulumi:"zoneId"`
 }
 
@@ -227,12 +214,12 @@ func (o GetAvailabilityZoneResultOutput) Filters() GetAvailabilityZoneFilterArra
 	return o.ApplyT(func(v GetAvailabilityZoneResult) []GetAvailabilityZoneFilter { return v.Filters }).(GetAvailabilityZoneFilterArrayOutput)
 }
 
-// The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+// Long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
 func (o GetAvailabilityZoneResultOutput) GroupLongName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.GroupLongName }).(pulumi.StringOutput)
 }
 
-// The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
+// Name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
 func (o GetAvailabilityZoneResultOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.GroupName }).(pulumi.StringOutput)
 }
@@ -246,14 +233,12 @@ func (o GetAvailabilityZoneResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
-// For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
-// For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
+// Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region. For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone. For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
 func (o GetAvailabilityZoneResultOutput) NameSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.NameSuffix }).(pulumi.StringOutput)
 }
 
-// The name of the location from which the address is advertised.
+// Name of the location from which the address is advertised.
 func (o GetAvailabilityZoneResultOutput) NetworkBorderGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAvailabilityZoneResult) string { return v.NetworkBorderGroup }).(pulumi.StringOutput)
 }

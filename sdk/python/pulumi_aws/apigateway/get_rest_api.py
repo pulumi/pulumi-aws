@@ -104,7 +104,7 @@ class GetRestApiResult:
     @pulumi.getter(name="endpointConfigurations")
     def endpoint_configurations(self) -> Sequence['outputs.GetRestApiEndpointConfigurationResult']:
         """
-        The endpoint configuration of this RestApi showing the endpoint types of the API.
+        The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
         """
         return pulumi.get(self, "endpoint_configurations")
 

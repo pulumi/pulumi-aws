@@ -78,43 +78,27 @@ func LookupAmi(ctx *pulumi.Context, args *LookupAmiArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getAmi.
 type LookupAmiArgs struct {
-	// If true, allow unsafe filter values. With unsafe
-	// filters and `mostRecent` set to `true`, a third party may introduce a new image which
-	// will be returned by this data source. Consider filtering by owner or image ID rather
-	// than setting this argument.
+	// If true, allow unsafe filter values. With unsafe filters and `mostRecent` set to `true`, a third party may introduce a new image which will be returned by this data source. Consider filtering by owner or image ID rather than setting this argument.
 	AllowUnsafeFilter *bool `pulumi:"allowUnsafeFilter"`
-	// Limit search to users with *explicit* launch permission on
-	// the image. Valid items are the numeric account ID or `self`.
+	// Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
 	ExecutableUsers []string `pulumi:"executableUsers"`
-	// One or more name/value pairs to filter off of. There are
-	// several valid keys, for a full reference, check out
-	// [describe-images in the AWS CLI reference][1].
+	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
 	Filters []GetAmiFilter `pulumi:"filters"`
 	// If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
 	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
-	// If more than one result is returned, use the most
-	// recent AMI.
+	// If more than one result is returned, use the most recent AMI.
 	MostRecent *bool `pulumi:"mostRecent"`
-	// Regex string to apply to the AMI list returned
-	// by AWS. This allows more advanced filtering not supported from the AWS API. This
-	// filtering is done locally on what AWS returns, and could have a performance
-	// impact if the result is large. Combine this with other
-	// options to narrow down the list AWS returns.
-	//
-	// > **NOTE:** If more or less than a single match is returned by the search,
-	// this call will fail. Ensure that your search is specific enough to return
-	// a single AMI ID only, or use `mostRecent` to choose the most recent one. If
-	// you want to match multiple AMIs, use the `ec2.getAmiIds` data source instead.
+	// Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
 	NameRegex *string `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners []string `pulumi:"owners"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Any tags assigned to the image.
-	// * `tags.#.key` - Key name of the tag.
-	// * `tags.#.value` - Value of the tag.
 	Tags map[string]string `pulumi:"tags"`
-	// (Optional) Base64 representation of the non-volatile UEFI variable store.
+	// Base64 representation of the non-volatile UEFI variable store.
+	//
+	// > **NOTE:** If more or less than a single match is returned by the search, this call will fail. Ensure that your search is specific enough to return a single AMI ID only, or use `mostRecent` to choose the most recent one. If you want to match multiple AMIs, use the `ec2.getAmiIds` data source instead.
 	UefiData *string `pulumi:"uefiData"`
 }
 
@@ -125,7 +109,7 @@ type LookupAmiResult struct {
 	Architecture string `pulumi:"architecture"`
 	// ARN of the AMI.
 	Arn string `pulumi:"arn"`
-	// Set of objects with block device mappings of the AMI.
+	// Set of objects with block device mappings of the AMI. See `blockDeviceMappings` below.
 	BlockDeviceMappings []GetAmiBlockDeviceMapping `pulumi:"blockDeviceMappings"`
 	// Boot mode of the image.
 	BootMode string `pulumi:"bootMode"`
@@ -133,8 +117,7 @@ type LookupAmiResult struct {
 	CreationDate string `pulumi:"creationDate"`
 	// Date and time when the image will be deprecated.
 	DeprecationTime string `pulumi:"deprecationTime"`
-	// Description of the AMI that was provided during image
-	// creation.
+	// Description of the AMI that was provided during image creation.
 	Description string `pulumi:"description"`
 	// Whether enhanced networking with ENA is enabled.
 	EnaSupport      bool           `pulumi:"enaSupport"`
@@ -148,21 +131,19 @@ type LookupAmiResult struct {
 	ImageId string `pulumi:"imageId"`
 	// Location of the AMI.
 	ImageLocation string `pulumi:"imageLocation"`
-	// AWS account alias (for example, `amazon`, `self`) or
-	// the AWS account ID of the AMI owner.
+	// AWS account alias (for example, `amazon`, `self`) or the AWS account ID of the AMI owner.
 	ImageOwnerAlias string `pulumi:"imageOwnerAlias"`
 	// Type of image.
 	ImageType string `pulumi:"imageType"`
 	// Instance Metadata Service (IMDS) support mode for the image. Set to `v2.0` if instances ran from this image enforce IMDSv2.
 	ImdsSupport       string `pulumi:"imdsSupport"`
 	IncludeDeprecated *bool  `pulumi:"includeDeprecated"`
-	// Kernel associated with the image, if any. Only applicable
-	// for machine images.
+	// Kernel associated with the image, if any. Only applicable for machine images.
 	KernelId string `pulumi:"kernelId"`
-	// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+	// Date and time, in ISO 8601 date-time format, when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
 	LastLaunchedTime string `pulumi:"lastLaunchedTime"`
 	MostRecent       *bool  `pulumi:"mostRecent"`
-	// Name of the AMI that was provided during image creation.
+	// Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
 	Name      string  `pulumi:"name"`
 	NameRegex *string `pulumi:"nameRegex"`
 	// AWS account ID of the image owner.
@@ -172,42 +153,33 @@ type LookupAmiResult struct {
 	Platform string `pulumi:"platform"`
 	// Platform details associated with the billing code of the AMI.
 	PlatformDetails string `pulumi:"platformDetails"`
-	// Any product codes associated with the AMI.
-	// * `product_codes.#.product_code_id` - The product code.
-	// * `product_codes.#.product_code_type` - The type of product code.
+	// Any product codes associated with the AMI. See `productCodes` below.
 	ProductCodes []GetAmiProductCode `pulumi:"productCodes"`
 	// `true` if the image has public launch permissions.
 	Public bool `pulumi:"public"`
-	// RAM disk associated with the image, if any. Only applicable
-	// for machine images.
+	// RAM disk associated with the image, if any. Only applicable for machine images.
 	RamdiskId string `pulumi:"ramdiskId"`
 	Region    string `pulumi:"region"`
 	// Device name of the root device.
 	RootDeviceName string `pulumi:"rootDeviceName"`
 	// Type of root device (ie: `ebs` or `instance-store`).
 	RootDeviceType string `pulumi:"rootDeviceType"`
-	// Snapshot id associated with the root device, if any
-	// (only applies to `ebs` root devices).
+	// Snapshot id associated with the root device, if any (only applies to `ebs` root devices).
 	RootSnapshotId string `pulumi:"rootSnapshotId"`
 	// Whether enhanced networking is enabled.
 	SriovNetSupport string `pulumi:"sriovNetSupport"`
-	// Current state of the AMI. If the state is `available`, the image
-	// is successfully registered and can be used to launch an instance.
+	// Current state of the AMI. If the state is `available`, the image is successfully registered and can be used to launch an instance.
 	State string `pulumi:"state"`
-	// Describes a state change. Fields are `UNSET` if not available.
+	// Describes a state change. Fields are `UNSET` if not available. See `stateReason` below.
 	StateReason map[string]string `pulumi:"stateReason"`
 	// Any tags assigned to the image.
-	// * `tags.#.key` - Key name of the tag.
-	// * `tags.#.value` - Value of the tag.
 	Tags map[string]string `pulumi:"tags"`
 	// If the image is configured for NitroTPM support, the value is `v2.0`.
-	TpmSupport string `pulumi:"tpmSupport"`
-	// (Optional) Base64 representation of the non-volatile UEFI variable store.
-	UefiData *string `pulumi:"uefiData"`
+	TpmSupport string  `pulumi:"tpmSupport"`
+	UefiData   *string `pulumi:"uefiData"`
 	// Operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
 	UsageOperation string `pulumi:"usageOperation"`
-	// Type of virtualization of the AMI (ie: `hvm` or
-	// `paravirtual`).
+	// Type of virtualization of the AMI (ie: `hvm` or `paravirtual`).
 	VirtualizationType string `pulumi:"virtualizationType"`
 }
 
@@ -222,43 +194,27 @@ func LookupAmiOutput(ctx *pulumi.Context, args LookupAmiOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getAmi.
 type LookupAmiOutputArgs struct {
-	// If true, allow unsafe filter values. With unsafe
-	// filters and `mostRecent` set to `true`, a third party may introduce a new image which
-	// will be returned by this data source. Consider filtering by owner or image ID rather
-	// than setting this argument.
+	// If true, allow unsafe filter values. With unsafe filters and `mostRecent` set to `true`, a third party may introduce a new image which will be returned by this data source. Consider filtering by owner or image ID rather than setting this argument.
 	AllowUnsafeFilter pulumi.BoolPtrInput `pulumi:"allowUnsafeFilter"`
-	// Limit search to users with *explicit* launch permission on
-	// the image. Valid items are the numeric account ID or `self`.
+	// Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
 	ExecutableUsers pulumi.StringArrayInput `pulumi:"executableUsers"`
-	// One or more name/value pairs to filter off of. There are
-	// several valid keys, for a full reference, check out
-	// [describe-images in the AWS CLI reference][1].
+	// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` below.
 	Filters GetAmiFilterArrayInput `pulumi:"filters"`
 	// If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
 	IncludeDeprecated pulumi.BoolPtrInput `pulumi:"includeDeprecated"`
-	// If more than one result is returned, use the most
-	// recent AMI.
+	// If more than one result is returned, use the most recent AMI.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
-	// Regex string to apply to the AMI list returned
-	// by AWS. This allows more advanced filtering not supported from the AWS API. This
-	// filtering is done locally on what AWS returns, and could have a performance
-	// impact if the result is large. Combine this with other
-	// options to narrow down the list AWS returns.
-	//
-	// > **NOTE:** If more or less than a single match is returned by the search,
-	// this call will fail. Ensure that your search is specific enough to return
-	// a single AMI ID only, or use `mostRecent` to choose the most recent one. If
-	// you want to match multiple AMIs, use the `ec2.getAmiIds` data source instead.
+	// Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 	// Any tags assigned to the image.
-	// * `tags.#.key` - Key name of the tag.
-	// * `tags.#.value` - Value of the tag.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// (Optional) Base64 representation of the non-volatile UEFI variable store.
+	// Base64 representation of the non-volatile UEFI variable store.
+	//
+	// > **NOTE:** If more or less than a single match is returned by the search, this call will fail. Ensure that your search is specific enough to return a single AMI ID only, or use `mostRecent` to choose the most recent one. If you want to match multiple AMIs, use the `ec2.getAmiIds` data source instead.
 	UefiData pulumi.StringPtrInput `pulumi:"uefiData"`
 }
 
@@ -295,7 +251,7 @@ func (o LookupAmiResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Set of objects with block device mappings of the AMI.
+// Set of objects with block device mappings of the AMI. See `blockDeviceMappings` below.
 func (o LookupAmiResultOutput) BlockDeviceMappings() GetAmiBlockDeviceMappingArrayOutput {
 	return o.ApplyT(func(v LookupAmiResult) []GetAmiBlockDeviceMapping { return v.BlockDeviceMappings }).(GetAmiBlockDeviceMappingArrayOutput)
 }
@@ -315,8 +271,7 @@ func (o LookupAmiResultOutput) DeprecationTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.DeprecationTime }).(pulumi.StringOutput)
 }
 
-// Description of the AMI that was provided during image
-// creation.
+// Description of the AMI that was provided during image creation.
 func (o LookupAmiResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.Description }).(pulumi.StringOutput)
 }
@@ -354,8 +309,7 @@ func (o LookupAmiResultOutput) ImageLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.ImageLocation }).(pulumi.StringOutput)
 }
 
-// AWS account alias (for example, `amazon`, `self`) or
-// the AWS account ID of the AMI owner.
+// AWS account alias (for example, `amazon`, `self`) or the AWS account ID of the AMI owner.
 func (o LookupAmiResultOutput) ImageOwnerAlias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.ImageOwnerAlias }).(pulumi.StringOutput)
 }
@@ -374,13 +328,12 @@ func (o LookupAmiResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAmiResult) *bool { return v.IncludeDeprecated }).(pulumi.BoolPtrOutput)
 }
 
-// Kernel associated with the image, if any. Only applicable
-// for machine images.
+// Kernel associated with the image, if any. Only applicable for machine images.
 func (o LookupAmiResultOutput) KernelId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.KernelId }).(pulumi.StringOutput)
 }
 
-// Date and time, in ISO 8601 date-time format , when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
+// Date and time, in ISO 8601 date-time format, when the AMI was last used to launch an EC2 instance. When the AMI is used to launch an instance, there is a 24-hour delay before that usage is reported. For more information, see the following [AWS document](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-last-launched-time.html).
 func (o LookupAmiResultOutput) LastLaunchedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.LastLaunchedTime }).(pulumi.StringOutput)
 }
@@ -389,7 +342,7 @@ func (o LookupAmiResultOutput) MostRecent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupAmiResult) *bool { return v.MostRecent }).(pulumi.BoolPtrOutput)
 }
 
-// Name of the AMI that was provided during image creation.
+// Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
 func (o LookupAmiResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -417,9 +370,7 @@ func (o LookupAmiResultOutput) PlatformDetails() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.PlatformDetails }).(pulumi.StringOutput)
 }
 
-// Any product codes associated with the AMI.
-// * `product_codes.#.product_code_id` - The product code.
-// * `product_codes.#.product_code_type` - The type of product code.
+// Any product codes associated with the AMI. See `productCodes` below.
 func (o LookupAmiResultOutput) ProductCodes() GetAmiProductCodeArrayOutput {
 	return o.ApplyT(func(v LookupAmiResult) []GetAmiProductCode { return v.ProductCodes }).(GetAmiProductCodeArrayOutput)
 }
@@ -429,8 +380,7 @@ func (o LookupAmiResultOutput) Public() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupAmiResult) bool { return v.Public }).(pulumi.BoolOutput)
 }
 
-// RAM disk associated with the image, if any. Only applicable
-// for machine images.
+// RAM disk associated with the image, if any. Only applicable for machine images.
 func (o LookupAmiResultOutput) RamdiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.RamdiskId }).(pulumi.StringOutput)
 }
@@ -449,8 +399,7 @@ func (o LookupAmiResultOutput) RootDeviceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.RootDeviceType }).(pulumi.StringOutput)
 }
 
-// Snapshot id associated with the root device, if any
-// (only applies to `ebs` root devices).
+// Snapshot id associated with the root device, if any (only applies to `ebs` root devices).
 func (o LookupAmiResultOutput) RootSnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.RootSnapshotId }).(pulumi.StringOutput)
 }
@@ -460,20 +409,17 @@ func (o LookupAmiResultOutput) SriovNetSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.SriovNetSupport }).(pulumi.StringOutput)
 }
 
-// Current state of the AMI. If the state is `available`, the image
-// is successfully registered and can be used to launch an instance.
+// Current state of the AMI. If the state is `available`, the image is successfully registered and can be used to launch an instance.
 func (o LookupAmiResultOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-// Describes a state change. Fields are `UNSET` if not available.
+// Describes a state change. Fields are `UNSET` if not available. See `stateReason` below.
 func (o LookupAmiResultOutput) StateReason() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAmiResult) map[string]string { return v.StateReason }).(pulumi.StringMapOutput)
 }
 
 // Any tags assigned to the image.
-// * `tags.#.key` - Key name of the tag.
-// * `tags.#.value` - Value of the tag.
 func (o LookupAmiResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAmiResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -483,7 +429,6 @@ func (o LookupAmiResultOutput) TpmSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.TpmSupport }).(pulumi.StringOutput)
 }
 
-// (Optional) Base64 representation of the non-volatile UEFI variable store.
 func (o LookupAmiResultOutput) UefiData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAmiResult) *string { return v.UefiData }).(pulumi.StringPtrOutput)
 }
@@ -493,8 +438,7 @@ func (o LookupAmiResultOutput) UsageOperation() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.UsageOperation }).(pulumi.StringOutput)
 }
 
-// Type of virtualization of the AMI (ie: `hvm` or
-// `paravirtual`).
+// Type of virtualization of the AMI (ie: `hvm` or `paravirtual`).
 func (o LookupAmiResultOutput) VirtualizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAmiResult) string { return v.VirtualizationType }).(pulumi.StringOutput)
 }

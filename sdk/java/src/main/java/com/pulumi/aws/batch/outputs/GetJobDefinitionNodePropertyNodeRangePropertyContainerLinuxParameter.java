@@ -25,12 +25,12 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxPa
      */
     private Boolean initProcessEnabled;
     /**
-     * @return The total amount of swap memory (in MiB) a container can use.
+     * @return Total amount of swap memory (in MiB) a container can use.
      * 
      */
     private Integer maxSwap;
     /**
-     * @return The value for the size (in MiB) of the `/dev/shm` volume.
+     * @return Value for the size (in MiB) of the `/dev/shm` volume.
      * 
      */
     private Integer sharedMemorySize;
@@ -40,7 +40,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxPa
      */
     private Integer swappiness;
     /**
-     * @return The container path, mount options, and size (in MiB) of the tmpfs mount.
+     * @return Container path, mount options, and size (in MiB) of the tmpfs mount.
      * 
      */
     private List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf> tmpfs;
@@ -61,14 +61,14 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxPa
         return this.initProcessEnabled;
     }
     /**
-     * @return The total amount of swap memory (in MiB) a container can use.
+     * @return Total amount of swap memory (in MiB) a container can use.
      * 
      */
     public Integer maxSwap() {
         return this.maxSwap;
     }
     /**
-     * @return The value for the size (in MiB) of the `/dev/shm` volume.
+     * @return Value for the size (in MiB) of the `/dev/shm` volume.
      * 
      */
     public Integer sharedMemorySize() {
@@ -82,7 +82,7 @@ public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxPa
         return this.swappiness;
     }
     /**
-     * @return The container path, mount options, and size (in MiB) of the tmpfs mount.
+     * @return Container path, mount options, and size (in MiB) of the tmpfs mount.
      * 
      */
     public List<GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterTmpf> tmpfs() {

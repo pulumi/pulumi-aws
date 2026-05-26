@@ -18,7 +18,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// Virtual service gateway route target.
+        /// Virtual service gateway route target. See `VirtualService` Block for details.
         /// </summary>
         public readonly Outputs.GatewayRouteSpecHttpRouteActionTargetVirtualService VirtualService;
 

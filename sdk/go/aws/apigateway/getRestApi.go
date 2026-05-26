@@ -71,7 +71,7 @@ type LookupRestApiResult struct {
 	BinaryMediaTypes []string `pulumi:"binaryMediaTypes"`
 	// Description of the REST API.
 	Description string `pulumi:"description"`
-	// The endpoint configuration of this RestApi showing the endpoint types of the API.
+	// The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
 	EndpointConfigurations []GetRestApiEndpointConfiguration `pulumi:"endpointConfigurations"`
 	// Execution ARN part to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn string `pulumi:"executionArn"`
@@ -147,7 +147,7 @@ func (o LookupRestApiResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRestApiResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The endpoint configuration of this RestApi showing the endpoint types of the API.
+// The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
 func (o LookupRestApiResultOutput) EndpointConfigurations() GetRestApiEndpointConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupRestApiResult) []GetRestApiEndpointConfiguration { return v.EndpointConfigurations }).(GetRestApiEndpointConfigurationArrayOutput)
 }

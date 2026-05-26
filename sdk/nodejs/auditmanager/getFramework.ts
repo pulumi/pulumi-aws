@@ -37,6 +37,9 @@ export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getFramework.
  */
 export interface GetFrameworkArgs {
+    /**
+     * Type of framework. Valid values are `Custom` and `Standard`.
+     */
     frameworkType: string;
     /**
      * Name of the framework.
@@ -52,14 +55,32 @@ export interface GetFrameworkArgs {
  * A collection of values returned by getFramework.
  */
 export interface GetFrameworkResult {
+    /**
+     * ARN of the framework.
+     */
     readonly arn: string;
+    /**
+     * Compliance type that the framework supports.
+     */
     readonly complianceType: string;
+    /**
+     * Control sets associated with the framework.
+     */
     readonly controlSets: outputs.auditmanager.GetFrameworkControlSet[];
+    /**
+     * Description of the framework.
+     */
     readonly description: string;
     readonly frameworkType: string;
+    /**
+     * Unique identifier for the framework.
+     */
     readonly id: string;
     readonly name: string;
     readonly region: string;
+    /**
+     * Map of tags assigned to the framework.
+     */
     readonly tags: {[key: string]: string};
 }
 /**
@@ -92,6 +113,9 @@ export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getFramework.
  */
 export interface GetFrameworkOutputArgs {
+    /**
+     * Type of framework. Valid values are `Custom` and `Standard`.
+     */
     frameworkType: pulumi.Input<string>;
     /**
      * Name of the framework.

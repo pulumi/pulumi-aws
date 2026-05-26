@@ -30,19 +30,19 @@ __all__ = [
 ]
 
 class ResiliencyPolicyPolicyArgsDict(TypedDict):
-    az: NotRequired[pulumi.Input[Optional['ResiliencyPolicyPolicyAzArgs']]]
+    az: NotRequired[pulumi.Input[Optional['ResiliencyPolicyPolicyAzArgsDict']]]
     """
     Specifies Availability Zone failure policy. See `policy.az`
     """
-    hardware: NotRequired[pulumi.Input[Optional['ResiliencyPolicyPolicyHardwareArgs']]]
+    hardware: NotRequired[pulumi.Input[Optional['ResiliencyPolicyPolicyHardwareArgsDict']]]
     """
     Specifies Infrastructure failure policy. See `policy.hardware`
     """
-    region: NotRequired[pulumi.Input[Optional['ResiliencyPolicyPolicyRegionArgs']]]
+    region: NotRequired[pulumi.Input[Optional['ResiliencyPolicyPolicyRegionArgsDict']]]
     """
     Specifies Region failure policy. `policy.region`
     """
-    software: NotRequired[pulumi.Input[Optional['ResiliencyPolicyPolicySoftwareArgs']]]
+    software: NotRequired[pulumi.Input[Optional['ResiliencyPolicyPolicySoftwareArgsDict']]]
     """
     Specifies Application failure policy. See `policy.software`
 

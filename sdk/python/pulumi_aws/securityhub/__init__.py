@@ -11,6 +11,7 @@ from .account_v2 import *
 from .action_target import *
 from .aggregator_v2 import *
 from .automation_rule import *
+from .automation_rule_v2 import *
 from .configuration_policy import *
 from .configuration_policy_association import *
 from .connector_v2 import *

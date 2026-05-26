@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecListenerConnectionPoolGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Connection pool information for gRPC listeners.
+        /// Connection pool information for gRPC listeners. See `Grpc` Block for details.
         /// </summary>
         [Input("grpc")]
         public Input<Inputs.VirtualNodeSpecListenerConnectionPoolGrpcGetArgs>? Grpc { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttp2GetArgs>? _http2s;
 
         /// <summary>
-        /// Connection pool information for HTTP2 listeners.
+        /// Connection pool information for HTTP2 listeners. See `Http2` Block for details.
         /// </summary>
         public InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttp2GetArgs> Http2s
         {
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttpGetArgs>? _https;
 
         /// <summary>
-        /// Connection pool information for HTTP listeners.
+        /// Connection pool information for HTTP listeners. See `Http` Block for details.
         /// </summary>
         public InputList<Inputs.VirtualNodeSpecListenerConnectionPoolHttpGetArgs> Https
         {
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.VirtualNodeSpecListenerConnectionPoolTcpGetArgs>? _tcps;
 
         /// <summary>
-        /// Connection pool information for TCP listeners.
+        /// Connection pool information for TCP listeners. See `Tcp` Block for details.
         /// </summary>
         public InputList<Inputs.VirtualNodeSpecListenerConnectionPoolTcpGetArgs> Tcps
         {

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualNodeSpecLoggingAccessLogFileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The specified format for the logs.
+        /// The specified format for the logs. See `Format` Block for details.
         /// </summary>
         [Input("format")]
         public Input<Inputs.VirtualNodeSpecLoggingAccessLogFileFormatGetArgs>? Format { get; set; }

@@ -18,12 +18,12 @@ public final class GetAvailabilityZoneResult {
     private @Nullable Boolean allAvailabilityZones;
     private @Nullable List<GetAvailabilityZoneFilter> filters;
     /**
-     * @return The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+     * @return Long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
      * 
      */
     private String groupLongName;
     /**
-     * @return The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
+     * @return Name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
      * 
      */
     private String groupName;
@@ -34,14 +34,12 @@ public final class GetAvailabilityZoneResult {
     private String id;
     private String name;
     /**
-     * @return Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
-     * For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
-     * For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
+     * @return Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region. For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone. For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
      * 
      */
     private String nameSuffix;
     /**
-     * @return The name of the location from which the address is advertised.
+     * @return Name of the location from which the address is advertised.
      * 
      */
     private String networkBorderGroup;
@@ -77,14 +75,14 @@ public final class GetAvailabilityZoneResult {
         return this.filters == null ? List.of() : this.filters;
     }
     /**
-     * @return The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+     * @return Long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
      * 
      */
     public String groupLongName() {
         return this.groupLongName;
     }
     /**
-     * @return The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
+     * @return Name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
      * 
      */
     public String groupName() {
@@ -101,16 +99,14 @@ public final class GetAvailabilityZoneResult {
         return this.name;
     }
     /**
-     * @return Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
-     * For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
-     * For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
+     * @return Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region. For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone. For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
      * 
      */
     public String nameSuffix() {
         return this.nameSuffix;
     }
     /**
-     * @return The name of the location from which the address is advertised.
+     * @return Name of the location from which the address is advertised.
      * 
      */
     public String networkBorderGroup() {

@@ -28,7 +28,7 @@ class GetLocalGatewayVirtualInterfaceResult:
     """
     A collection of values returned by getLocalGatewayVirtualInterface.
     """
-    def __init__(__self__, filters=None, id=None, local_address=None, local_bgp_asn=None, local_gateway_id=None, local_gateway_virtual_interface_ids=None, peer_address=None, peer_bgp_asn=None, region=None, tags=None, vlan=None):
+    def __init__(__self__, filters=None, id=None, local_address=None, local_bgp_asn=None, local_gateway_id=None, local_gateway_virtual_interface_group_id=None, local_gateway_virtual_interface_ids=None, outpost_lag_id=None, peer_address=None, peer_bgp_asn=None, region=None, tags=None, vlan=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -44,9 +44,15 @@ class GetLocalGatewayVirtualInterfaceResult:
         if local_gateway_id and not isinstance(local_gateway_id, str):
             raise TypeError("Expected argument 'local_gateway_id' to be a str")
         pulumi.set(__self__, "local_gateway_id", local_gateway_id)
+        if local_gateway_virtual_interface_group_id and not isinstance(local_gateway_virtual_interface_group_id, str):
+            raise TypeError("Expected argument 'local_gateway_virtual_interface_group_id' to be a str")
+        pulumi.set(__self__, "local_gateway_virtual_interface_group_id", local_gateway_virtual_interface_group_id)
         if local_gateway_virtual_interface_ids and not isinstance(local_gateway_virtual_interface_ids, list):
             raise TypeError("Expected argument 'local_gateway_virtual_interface_ids' to be a list")
         pulumi.set(__self__, "local_gateway_virtual_interface_ids", local_gateway_virtual_interface_ids)
+        if outpost_lag_id and not isinstance(outpost_lag_id, str):
+            raise TypeError("Expected argument 'outpost_lag_id' to be a str")
+        pulumi.set(__self__, "outpost_lag_id", outpost_lag_id)
         if peer_address and not isinstance(peer_address, str):
             raise TypeError("Expected argument 'peer_address' to be a str")
         pulumi.set(__self__, "peer_address", peer_address)
@@ -98,9 +104,25 @@ class GetLocalGatewayVirtualInterfaceResult:
         return pulumi.get(self, "local_gateway_id")
 
     @_builtins.property
+    @pulumi.getter(name="localGatewayVirtualInterfaceGroupId")
+    def local_gateway_virtual_interface_group_id(self) -> _builtins.str:
+        """
+        Identifier of the EC2 Local Gateway Virtual Interface Group.
+        """
+        return pulumi.get(self, "local_gateway_virtual_interface_group_id")
+
+    @_builtins.property
     @pulumi.getter(name="localGatewayVirtualInterfaceIds")
     def local_gateway_virtual_interface_ids(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "local_gateway_virtual_interface_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="outpostLagId")
+    def outpost_lag_id(self) -> _builtins.str:
+        """
+        Identifier of the Outpost LAG.
+        """
+        return pulumi.get(self, "outpost_lag_id")
 
     @_builtins.property
     @pulumi.getter(name="peerAddress")
@@ -148,7 +170,9 @@ class AwaitableGetLocalGatewayVirtualInterfaceResult(GetLocalGatewayVirtualInter
             local_address=self.local_address,
             local_bgp_asn=self.local_bgp_asn,
             local_gateway_id=self.local_gateway_id,
+            local_gateway_virtual_interface_group_id=self.local_gateway_virtual_interface_group_id,
             local_gateway_virtual_interface_ids=self.local_gateway_virtual_interface_ids,
+            outpost_lag_id=self.outpost_lag_id,
             peer_address=self.peer_address,
             peer_bgp_asn=self.peer_bgp_asn,
             region=self.region,
@@ -193,7 +217,9 @@ def get_local_gateway_virtual_interface(filters: Optional[Sequence[Union['GetLoc
         local_address=pulumi.get(__ret__, 'local_address'),
         local_bgp_asn=pulumi.get(__ret__, 'local_bgp_asn'),
         local_gateway_id=pulumi.get(__ret__, 'local_gateway_id'),
+        local_gateway_virtual_interface_group_id=pulumi.get(__ret__, 'local_gateway_virtual_interface_group_id'),
         local_gateway_virtual_interface_ids=pulumi.get(__ret__, 'local_gateway_virtual_interface_ids'),
+        outpost_lag_id=pulumi.get(__ret__, 'outpost_lag_id'),
         peer_address=pulumi.get(__ret__, 'peer_address'),
         peer_bgp_asn=pulumi.get(__ret__, 'peer_bgp_asn'),
         region=pulumi.get(__ret__, 'region'),
@@ -235,7 +261,9 @@ def get_local_gateway_virtual_interface_output(filters: pulumi.Input[Optional[Op
         local_address=pulumi.get(__response__, 'local_address'),
         local_bgp_asn=pulumi.get(__response__, 'local_bgp_asn'),
         local_gateway_id=pulumi.get(__response__, 'local_gateway_id'),
+        local_gateway_virtual_interface_group_id=pulumi.get(__response__, 'local_gateway_virtual_interface_group_id'),
         local_gateway_virtual_interface_ids=pulumi.get(__response__, 'local_gateway_virtual_interface_ids'),
+        outpost_lag_id=pulumi.get(__response__, 'outpost_lag_id'),
         peer_address=pulumi.get(__response__, 'peer_address'),
         peer_bgp_asn=pulumi.get(__response__, 'peer_bgp_asn'),
         region=pulumi.get(__response__, 'region'),

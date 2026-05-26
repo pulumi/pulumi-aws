@@ -79,18 +79,14 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-     * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-     * are returned.
+     * List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`, `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state are returned.
      * 
      */
     @Import(name="statuses")
     private @Nullable Output<List<String>> statuses;
 
     /**
-     * @return List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-     * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-     * are returned.
+     * @return List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`, `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state are returned.
      * 
      */
     public Optional<Output<List<String>>> statuses() {
@@ -252,9 +248,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param statuses List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-         * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-         * are returned.
+         * @param statuses List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`, `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state are returned.
          * 
          * @return builder
          * 
@@ -265,9 +259,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param statuses List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-         * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-         * are returned.
+         * @param statuses List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`, `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state are returned.
          * 
          * @return builder
          * 
@@ -277,9 +269,7 @@ public final class GetCertificateArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param statuses List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
-         * `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
-         * are returned.
+         * @param statuses List of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`, `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state are returned.
          * 
          * @return builder
          * 

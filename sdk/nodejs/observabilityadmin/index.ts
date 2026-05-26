@@ -35,6 +35,11 @@ export type TelemetryRule = import("./telemetryRule").TelemetryRule;
 export const TelemetryRule: typeof import("./telemetryRule").TelemetryRule = null as any;
 utilities.lazyLoad(exports, ["TelemetryRule"], () => require("./telemetryRule"));
 
+export { TelemetryRuleForOrganizationArgs, TelemetryRuleForOrganizationState } from "./telemetryRuleForOrganization";
+export type TelemetryRuleForOrganization = import("./telemetryRuleForOrganization").TelemetryRuleForOrganization;
+export const TelemetryRuleForOrganization: typeof import("./telemetryRuleForOrganization").TelemetryRuleForOrganization = null as any;
+utilities.lazyLoad(exports, ["TelemetryRuleForOrganization"], () => require("./telemetryRuleForOrganization"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -52,6 +57,8 @@ const _module = {
                 return new TelemetryPipeline(name, <any>undefined, { urn })
             case "aws:observabilityadmin/telemetryRule:TelemetryRule":
                 return new TelemetryRule(name, <any>undefined, { urn })
+            case "aws:observabilityadmin/telemetryRuleForOrganization:TelemetryRuleForOrganization":
+                return new TelemetryRuleForOrganization(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -63,3 +70,4 @@ pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryEvalua
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryEvaluationForOrganization", _module)
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryPipeline", _module)
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryRule", _module)
+pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryRuleForOrganization", _module)

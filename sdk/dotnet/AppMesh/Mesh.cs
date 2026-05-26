@@ -111,7 +111,7 @@ namespace Pulumi.Aws.AppMesh
         public Output<string> ResourceOwner { get; private set; } = null!;
 
         /// <summary>
-        /// Service mesh specification to apply.
+        /// Service mesh specification to apply. See `Spec` Block for details.
         /// </summary>
         [Output("spec")]
         public Output<Outputs.MeshSpec?> Spec { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Service mesh specification to apply.
+        /// Service mesh specification to apply. See `Spec` Block for details.
         /// </summary>
         [Input("spec")]
         public Input<Inputs.MeshSpecArgs>? Spec { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.AppMesh
         public Input<string>? ResourceOwner { get; set; }
 
         /// <summary>
-        /// Service mesh specification to apply.
+        /// Service mesh specification to apply. See `Spec` Block for details.
         /// </summary>
         [Input("spec")]
         public Input<Inputs.MeshSpecGetArgs>? Spec { get; set; }

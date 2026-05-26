@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement {
     /**
-     * @return The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
+     * @return Type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
      * 
      */
     private String type;
     /**
-     * @return The quantity of the specified resource to reserve for the container.
+     * @return Quantity of the specified resource to reserve for the container.
      * 
      */
     private String value;
 
     private GetJobDefinitionNodePropertyNodeRangePropertyContainerResourceRequirement() {}
     /**
-     * @return The type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
+     * @return Type of resource to assign to a container. The supported resources include `GPU`, `MEMORY`, and `VCPU`.
      * 
      */
     public String type() {
         return this.type;
     }
     /**
-     * @return The quantity of the specified resource to reserve for the container.
+     * @return Quantity of the specified resource to reserve for the container.
      * 
      */
     public String value() {

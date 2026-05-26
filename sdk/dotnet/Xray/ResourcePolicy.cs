@@ -36,10 +36,21 @@ namespace Pulumi.Aws.Xray
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import X-Ray Resource Policy using the `PolicyName`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `PolicyName` (String) Resource policy name.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import X-Ray Resource Policies using `PolicyName`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example resource_policy-name
+    /// $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example example-policy
     /// ```
     /// </summary>
     [AwsResourceType("aws:xray/resourcePolicy:ResourcePolicy")]
@@ -66,7 +77,7 @@ namespace Pulumi.Aws.Xray
         public Output<string> PolicyDocument { get; private set; } = null!;
 
         /// <summary>
-        /// name of the resource policy. Must be unique within a specific Amazon Web Services account.
+        /// Name of the resource policy. Must be unique within a specific Amazon Web Services account.
         /// </summary>
         [Output("policyName")]
         public Output<string> PolicyName { get; private set; } = null!;
@@ -144,7 +155,7 @@ namespace Pulumi.Aws.Xray
         public Input<string> PolicyDocument { get; set; } = null!;
 
         /// <summary>
-        /// name of the resource policy. Must be unique within a specific Amazon Web Services account.
+        /// Name of the resource policy. Must be unique within a specific Amazon Web Services account.
         /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;
@@ -190,7 +201,7 @@ namespace Pulumi.Aws.Xray
         public Input<string>? PolicyDocument { get; set; }
 
         /// <summary>
-        /// name of the resource policy. Must be unique within a specific Amazon Web Services account.
+        /// Name of the resource policy. Must be unique within a specific Amazon Web Services account.
         /// </summary>
         [Input("policyName")]
         public Input<string>? PolicyName { get; set; }

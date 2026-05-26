@@ -328,11 +328,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(_cidrBlock)
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(azNumber[example.nameSuffix()])
-     *                 .build())).applyValue(_invoke -> _invoke.result()))
+     *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -424,11 +424,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(_cidrBlock)
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(azNumber[example.nameSuffix()])
-     *                 .build())).applyValue(_invoke -> _invoke.result()))
+     *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -520,11 +520,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(_cidrBlock)
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(azNumber[example.nameSuffix()])
-     *                 .build())).applyValue(_invoke -> _invoke.result()))
+     *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -616,11 +616,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(_cidrBlock)
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(azNumber[example.nameSuffix()])
-     *                 .build())).applyValue(_invoke -> _invoke.result()))
+     *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -712,11 +712,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(_cidrBlock)
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(azNumber[example.nameSuffix()])
-     *                 .build())).applyValue(_invoke -> _invoke.result()))
+     *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -808,11 +808,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(_cidrBlock)
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(azNumber[example.nameSuffix()])
-     *                 .build())).applyValue(_invoke -> _invoke.result()))
+     *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -904,11 +904,11 @@ public final class AwsFunctions {
      *         // Create a subnet for the AZ within the regional VPC
      *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
      *             .vpcId(exampleVpc.id())
-     *             .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
-     *                 .input(_cidrBlock)
+     *             .cidrBlock(StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+     *                 .input(exampleVpc.cidrBlock())
      *                 .newbits(4)
      *                 .netnum(azNumber[example.nameSuffix()])
-     *                 .build())).applyValue(_invoke -> _invoke.result()))
+     *                 .build()).applyValue(_invoke -> _invoke.result()))
      *             .build());
      * 
      *     }
@@ -1933,37 +1933,33 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
-     *             var billingLogsArn = values.t1;
-     *             var billingLogsArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions(                        
-     *                             "s3:GetBucketAcl",
-     *                             "s3:GetBucketPolicy")
-     *                         .resources(billingLogsArn)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", billingLogsArn1))
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions(                    
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build())
+     *             .build());
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.json())
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -2022,37 +2018,33 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
-     *             var billingLogsArn = values.t1;
-     *             var billingLogsArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions(                        
-     *                             "s3:GetBucketAcl",
-     *                             "s3:GetBucketPolicy")
-     *                         .resources(billingLogsArn)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", billingLogsArn1))
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions(                    
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build())
+     *             .build());
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.json())
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -2111,37 +2103,33 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
-     *             var billingLogsArn = values.t1;
-     *             var billingLogsArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions(                        
-     *                             "s3:GetBucketAcl",
-     *                             "s3:GetBucketPolicy")
-     *                         .resources(billingLogsArn)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", billingLogsArn1))
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions(                    
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build())
+     *             .build());
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.json())
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -2200,37 +2188,33 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
-     *             var billingLogsArn = values.t1;
-     *             var billingLogsArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions(                        
-     *                             "s3:GetBucketAcl",
-     *                             "s3:GetBucketPolicy")
-     *                         .resources(billingLogsArn)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", billingLogsArn1))
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions(                    
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build())
+     *             .build());
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.json())
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -2289,37 +2273,33 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
-     *             var billingLogsArn = values.t1;
-     *             var billingLogsArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions(                        
-     *                             "s3:GetBucketAcl",
-     *                             "s3:GetBucketPolicy")
-     *                         .resources(billingLogsArn)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", billingLogsArn1))
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions(                    
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build())
+     *             .build());
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.json())
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -2378,37 +2358,33 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
-     *             var billingLogsArn = values.t1;
-     *             var billingLogsArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions(                        
-     *                             "s3:GetBucketAcl",
-     *                             "s3:GetBucketPolicy")
-     *                         .resources(billingLogsArn)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", billingLogsArn1))
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions(                    
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build())
+     *             .build());
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.json())
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }
@@ -2467,37 +2443,33 @@ public final class AwsFunctions {
      *             .acl("private")
      *             .build());
      * 
-     *         final var allowBillingLogging = Output.tuple(billingLogs.arn(), billingLogs.arn()).applyValue(values -> {
-     *             var billingLogsArn = values.t1;
-     *             var billingLogsArn1 = values.t2;
-     *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *                 .statements(                
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions(                        
-     *                             "s3:GetBucketAcl",
-     *                             "s3:GetBucketPolicy")
-     *                         .resources(billingLogsArn)
-     *                         .build(),
-     *                     GetPolicyDocumentStatementArgs.builder()
-     *                         .effect("Allow")
-     *                         .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
-     *                             .type("AWS")
-     *                             .identifiers(main.arn())
-     *                             .build())
-     *                         .actions("s3:PutObject")
-     *                         .resources(String.format("%s/*", billingLogsArn1))
+     *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(            
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
      *                         .build())
-     *                 .build());
-     *         });
+     *                     .actions(                    
+     *                         "s3:GetBucketAcl",
+     *                         "s3:GetBucketPolicy")
+     *                     .resources(billingLogs.arn())
+     *                     .build(),
+     *                 GetPolicyDocumentStatementArgs.builder()
+     *                     .effect("Allow")
+     *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+     *                         .type("AWS")
+     *                         .identifiers(main.arn())
+     *                         .build())
+     *                     .actions("s3:PutObject")
+     *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
+     *                     .build())
+     *             .build());
      * 
      *         var allowBillingLoggingBucketPolicy = new BucketPolicy("allowBillingLoggingBucketPolicy", BucketPolicyArgs.builder()
      *             .bucket(billingLogs.id())
-     *             .policy(allowBillingLogging.json())
+     *             .policy(allowBillingLogging.applyValue(_allowBillingLogging -> _allowBillingLogging.json()))
      *             .build());
      * 
      *     }

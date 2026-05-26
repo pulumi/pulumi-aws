@@ -13,34 +13,90 @@ import java.util.Objects;
 
 @CustomType
 public final class GetControlResult {
+    /**
+     * @return Recommended actions to carry out if the control isn&#39;t fulfilled.
+     * 
+     */
     private String actionPlanInstructions;
+    /**
+     * @return Title of the action plan for remediating the control.
+     * 
+     */
     private String actionPlanTitle;
+    /**
+     * @return ARN of the control.
+     * 
+     */
     private String arn;
+    /**
+     * @return Data mapping sources for the control.
+     * 
+     */
     private List<GetControlControlMappingSource> controlMappingSources;
+    /**
+     * @return Description of the control.
+     * 
+     */
     private String description;
+    /**
+     * @return Unique identifier for the control.
+     * 
+     */
     private String id;
     private String name;
     private String region;
+    /**
+     * @return Map of tags assigned to the control.
+     * 
+     */
     private Map<String,String> tags;
+    /**
+     * @return Steps to follow to determine if the control is satisfied.
+     * 
+     */
     private String testingInformation;
     private String type;
 
     private GetControlResult() {}
+    /**
+     * @return Recommended actions to carry out if the control isn&#39;t fulfilled.
+     * 
+     */
     public String actionPlanInstructions() {
         return this.actionPlanInstructions;
     }
+    /**
+     * @return Title of the action plan for remediating the control.
+     * 
+     */
     public String actionPlanTitle() {
         return this.actionPlanTitle;
     }
+    /**
+     * @return ARN of the control.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Data mapping sources for the control.
+     * 
+     */
     public List<GetControlControlMappingSource> controlMappingSources() {
         return this.controlMappingSources;
     }
+    /**
+     * @return Description of the control.
+     * 
+     */
     public String description() {
         return this.description;
     }
+    /**
+     * @return Unique identifier for the control.
+     * 
+     */
     public String id() {
         return this.id;
     }
@@ -50,9 +106,17 @@ public final class GetControlResult {
     public String region() {
         return this.region;
     }
+    /**
+     * @return Map of tags assigned to the control.
+     * 
+     */
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return Steps to follow to determine if the control is satisfied.
+     * 
+     */
     public String testingInformation() {
         return this.testingInformation;
     }

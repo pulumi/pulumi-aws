@@ -1019,7 +1019,7 @@ public final class OrganizationsFunctions {
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -1034,13 +1034,13 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(_arn)
+     *                 .resources(snsTopic.arn())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.json())
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -1127,7 +1127,7 @@ public final class OrganizationsFunctions {
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -1142,13 +1142,13 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(_arn)
+     *                 .resources(snsTopic.arn())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.json())
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -1235,7 +1235,7 @@ public final class OrganizationsFunctions {
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -1250,13 +1250,13 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(_arn)
+     *                 .resources(snsTopic.arn())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.json())
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -1343,7 +1343,7 @@ public final class OrganizationsFunctions {
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -1358,13 +1358,13 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(_arn)
+     *                 .resources(snsTopic.arn())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.json())
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -1451,7 +1451,7 @@ public final class OrganizationsFunctions {
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -1466,13 +1466,13 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(_arn)
+     *                 .resources(snsTopic.arn())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.json())
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -1559,7 +1559,7 @@ public final class OrganizationsFunctions {
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -1574,13 +1574,13 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(_arn)
+     *                 .resources(snsTopic.arn())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.json())
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }
@@ -1667,7 +1667,7 @@ public final class OrganizationsFunctions {
      *             .name("my-sns-topic")
      *             .build());
      * 
-     *         final var snsTopicPolicy = snsTopic.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *         final var snsTopicPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .effect("Allow")
      *                 .actions(                
@@ -1682,13 +1682,13 @@ public final class OrganizationsFunctions {
      *                     .type("AWS")
      *                     .identifiers("*")
      *                     .build())
-     *                 .resources(_arn)
+     *                 .resources(snsTopic.arn())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var snsTopicPolicyTopicPolicy = new TopicPolicy("snsTopicPolicyTopicPolicy", TopicPolicyArgs.builder()
      *             .arn(snsTopic.arn())
-     *             .policy(snsTopicPolicy.json())
+     *             .policy(snsTopicPolicy.applyValue(_snsTopicPolicy -> _snsTopicPolicy.json()))
      *             .build());
      * 
      *     }

@@ -12,20 +12,28 @@ import java.util.Objects;
 @CustomType
 public final class GetAmiFilter {
     /**
-     * @return Name of the AMI that was provided during image creation.
+     * @return Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
      * 
      */
     private String name;
+    /**
+     * @return Set of values that are accepted for the given filter.
+     * 
+     */
     private List<String> values;
 
     private GetAmiFilter() {}
     /**
-     * @return Name of the AMI that was provided during image creation.
+     * @return Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Set of values that are accepted for the given filter.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }

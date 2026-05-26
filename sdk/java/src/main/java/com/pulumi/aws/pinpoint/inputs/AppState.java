@@ -52,14 +52,22 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     /**
      * Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
      * 
+     * @deprecated
+     * campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * 
      */
+    @Deprecated /* campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     @Import(name="campaignHook")
     private @Nullable Output<AppCampaignHookArgs> campaignHook;
 
     /**
      * @return Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
      * 
+     * @deprecated
+     * campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * 
      */
+    @Deprecated /* campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     public Optional<Output<AppCampaignHookArgs>> campaignHook() {
         return Optional.ofNullable(this.campaignHook);
     }
@@ -67,14 +75,22 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     /**
      * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
      * 
+     * @deprecated
+     * limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * 
      */
+    @Deprecated /* limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     @Import(name="limits")
     private @Nullable Output<AppLimitsArgs> limits;
 
     /**
      * @return The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
      * 
+     * @deprecated
+     * limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * 
      */
+    @Deprecated /* limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     public Optional<Output<AppLimitsArgs>> limits() {
         return Optional.ofNullable(this.limits);
     }
@@ -112,14 +128,22 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     /**
      * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
      * 
+     * @deprecated
+     * quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * 
      */
+    @Deprecated /* quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     @Import(name="quietTime")
     private @Nullable Output<AppQuietTimeArgs> quietTime;
 
     /**
      * @return The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
      * 
+     * @deprecated
+     * quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * 
      */
+    @Deprecated /* quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     public Optional<Output<AppQuietTimeArgs>> quietTime() {
         return Optional.ofNullable(this.quietTime);
     }
@@ -249,7 +273,11 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * 
          */
+        @Deprecated /* campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
         public Builder campaignHook(@Nullable Output<AppCampaignHookArgs> campaignHook) {
             $.campaignHook = campaignHook;
             return this;
@@ -260,7 +288,11 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * 
          */
+        @Deprecated /* campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
         public Builder campaignHook(AppCampaignHookArgs campaignHook) {
             return campaignHook(Output.of(campaignHook));
         }
@@ -270,7 +302,11 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * 
          */
+        @Deprecated /* limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
         public Builder limits(@Nullable Output<AppLimitsArgs> limits) {
             $.limits = limits;
             return this;
@@ -281,7 +317,11 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * 
          */
+        @Deprecated /* limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
         public Builder limits(AppLimitsArgs limits) {
             return limits(Output.of(limits));
         }
@@ -333,7 +373,11 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * 
          */
+        @Deprecated /* quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
         public Builder quietTime(@Nullable Output<AppQuietTimeArgs> quietTime) {
             $.quietTime = quietTime;
             return this;
@@ -344,7 +388,11 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * 
          */
+        @Deprecated /* quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
         public Builder quietTime(AppQuietTimeArgs quietTime) {
             return quietTime(Output.of(quietTime));
         }

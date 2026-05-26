@@ -2301,6 +2301,345 @@ func (o TelemetryPipelineTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TelemetryRuleForOrganizationRule struct {
+	// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+	ResourceType *string `pulumi:"resourceType"`
+	// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+	//
+	// > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+	TelemetryType string `pulumi:"telemetryType"`
+}
+
+// TelemetryRuleForOrganizationRuleInput is an input type that accepts TelemetryRuleForOrganizationRuleArgs and TelemetryRuleForOrganizationRuleOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleInput` via:
+//
+//	TelemetryRuleForOrganizationRuleArgs{...}
+type TelemetryRuleForOrganizationRuleInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleOutput() TelemetryRuleForOrganizationRuleOutput
+	ToTelemetryRuleForOrganizationRuleOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleOutput
+}
+
+type TelemetryRuleForOrganizationRuleArgs struct {
+	// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
+	// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+	//
+	// > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+	TelemetryType pulumi.StringInput `pulumi:"telemetryType"`
+}
+
+func (TelemetryRuleForOrganizationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRule)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleArgs) ToTelemetryRuleForOrganizationRuleOutput() TelemetryRuleForOrganizationRuleOutput {
+	return i.ToTelemetryRuleForOrganizationRuleOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleArgs) ToTelemetryRuleForOrganizationRuleOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleOutput)
+}
+
+func (i TelemetryRuleForOrganizationRuleArgs) ToTelemetryRuleForOrganizationRulePtrOutput() TelemetryRuleForOrganizationRulePtrOutput {
+	return i.ToTelemetryRuleForOrganizationRulePtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleArgs) ToTelemetryRuleForOrganizationRulePtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleOutput).ToTelemetryRuleForOrganizationRulePtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationRulePtrInput is an input type that accepts TelemetryRuleForOrganizationRuleArgs, TelemetryRuleForOrganizationRulePtr and TelemetryRuleForOrganizationRulePtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRulePtrInput` via:
+//
+//	        TelemetryRuleForOrganizationRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationRulePtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRulePtrOutput() TelemetryRuleForOrganizationRulePtrOutput
+	ToTelemetryRuleForOrganizationRulePtrOutputWithContext(context.Context) TelemetryRuleForOrganizationRulePtrOutput
+}
+
+type telemetryRuleForOrganizationRulePtrType TelemetryRuleForOrganizationRuleArgs
+
+func TelemetryRuleForOrganizationRulePtr(v *TelemetryRuleForOrganizationRuleArgs) TelemetryRuleForOrganizationRulePtrInput {
+	return (*telemetryRuleForOrganizationRulePtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRule)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationRulePtrType) ToTelemetryRuleForOrganizationRulePtrOutput() TelemetryRuleForOrganizationRulePtrOutput {
+	return i.ToTelemetryRuleForOrganizationRulePtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationRulePtrType) ToTelemetryRuleForOrganizationRulePtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRulePtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRule)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleOutput) ToTelemetryRuleForOrganizationRuleOutput() TelemetryRuleForOrganizationRuleOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleOutput) ToTelemetryRuleForOrganizationRuleOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleOutput) ToTelemetryRuleForOrganizationRulePtrOutput() TelemetryRuleForOrganizationRulePtrOutput {
+	return o.ToTelemetryRuleForOrganizationRulePtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationRuleOutput) ToTelemetryRuleForOrganizationRulePtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationRule) *TelemetryRuleForOrganizationRule {
+		return &v
+	}).(TelemetryRuleForOrganizationRulePtrOutput)
+}
+
+// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+func (o TelemetryRuleForOrganizationRuleOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRule) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
+}
+
+// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+//
+// > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+func (o TelemetryRuleForOrganizationRuleOutput) TelemetryType() pulumi.StringOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRule) string { return v.TelemetryType }).(pulumi.StringOutput)
+}
+
+type TelemetryRuleForOrganizationRulePtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRule)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRulePtrOutput) ToTelemetryRuleForOrganizationRulePtrOutput() TelemetryRuleForOrganizationRulePtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRulePtrOutput) ToTelemetryRuleForOrganizationRulePtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRulePtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRulePtrOutput) Elem() TelemetryRuleForOrganizationRuleOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRule) TelemetryRuleForOrganizationRule {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationRule
+		return ret
+	}).(TelemetryRuleForOrganizationRuleOutput)
+}
+
+// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+func (o TelemetryRuleForOrganizationRulePtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+//
+// > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+func (o TelemetryRuleForOrganizationRulePtrOutput) TelemetryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TelemetryType
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// TelemetryRuleForOrganizationTimeoutsInput is an input type that accepts TelemetryRuleForOrganizationTimeoutsArgs and TelemetryRuleForOrganizationTimeoutsOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationTimeoutsInput` via:
+//
+//	TelemetryRuleForOrganizationTimeoutsArgs{...}
+type TelemetryRuleForOrganizationTimeoutsInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationTimeoutsOutput() TelemetryRuleForOrganizationTimeoutsOutput
+	ToTelemetryRuleForOrganizationTimeoutsOutputWithContext(context.Context) TelemetryRuleForOrganizationTimeoutsOutput
+}
+
+type TelemetryRuleForOrganizationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (TelemetryRuleForOrganizationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationTimeouts)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationTimeoutsArgs) ToTelemetryRuleForOrganizationTimeoutsOutput() TelemetryRuleForOrganizationTimeoutsOutput {
+	return i.ToTelemetryRuleForOrganizationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationTimeoutsArgs) ToTelemetryRuleForOrganizationTimeoutsOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationTimeoutsOutput)
+}
+
+func (i TelemetryRuleForOrganizationTimeoutsArgs) ToTelemetryRuleForOrganizationTimeoutsPtrOutput() TelemetryRuleForOrganizationTimeoutsPtrOutput {
+	return i.ToTelemetryRuleForOrganizationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationTimeoutsArgs) ToTelemetryRuleForOrganizationTimeoutsPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationTimeoutsOutput).ToTelemetryRuleForOrganizationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationTimeoutsPtrInput is an input type that accepts TelemetryRuleForOrganizationTimeoutsArgs, TelemetryRuleForOrganizationTimeoutsPtr and TelemetryRuleForOrganizationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationTimeoutsPtrInput` via:
+//
+//	        TelemetryRuleForOrganizationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationTimeoutsPtrOutput() TelemetryRuleForOrganizationTimeoutsPtrOutput
+	ToTelemetryRuleForOrganizationTimeoutsPtrOutputWithContext(context.Context) TelemetryRuleForOrganizationTimeoutsPtrOutput
+}
+
+type telemetryRuleForOrganizationTimeoutsPtrType TelemetryRuleForOrganizationTimeoutsArgs
+
+func TelemetryRuleForOrganizationTimeoutsPtr(v *TelemetryRuleForOrganizationTimeoutsArgs) TelemetryRuleForOrganizationTimeoutsPtrInput {
+	return (*telemetryRuleForOrganizationTimeoutsPtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationTimeouts)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationTimeoutsPtrType) ToTelemetryRuleForOrganizationTimeoutsPtrOutput() TelemetryRuleForOrganizationTimeoutsPtrOutput {
+	return i.ToTelemetryRuleForOrganizationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationTimeoutsPtrType) ToTelemetryRuleForOrganizationTimeoutsPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationTimeoutsPtrOutput)
+}
+
+type TelemetryRuleForOrganizationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationTimeouts)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationTimeoutsOutput) ToTelemetryRuleForOrganizationTimeoutsOutput() TelemetryRuleForOrganizationTimeoutsOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationTimeoutsOutput) ToTelemetryRuleForOrganizationTimeoutsOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationTimeoutsOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationTimeoutsOutput) ToTelemetryRuleForOrganizationTimeoutsPtrOutput() TelemetryRuleForOrganizationTimeoutsPtrOutput {
+	return o.ToTelemetryRuleForOrganizationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationTimeoutsOutput) ToTelemetryRuleForOrganizationTimeoutsPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationTimeouts) *TelemetryRuleForOrganizationTimeouts {
+		return &v
+	}).(TelemetryRuleForOrganizationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TelemetryRuleForOrganizationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TelemetryRuleForOrganizationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TelemetryRuleForOrganizationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationTimeouts)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationTimeoutsPtrOutput) ToTelemetryRuleForOrganizationTimeoutsPtrOutput() TelemetryRuleForOrganizationTimeoutsPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationTimeoutsPtrOutput) ToTelemetryRuleForOrganizationTimeoutsPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationTimeoutsPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationTimeoutsPtrOutput) Elem() TelemetryRuleForOrganizationTimeoutsOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationTimeouts) TelemetryRuleForOrganizationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationTimeouts
+		return ret
+	}).(TelemetryRuleForOrganizationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TelemetryRuleForOrganizationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o TelemetryRuleForOrganizationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o TelemetryRuleForOrganizationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type TelemetryRuleRule struct {
 	// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
 	//
@@ -2669,6 +3008,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryPipelineConfigurationPtrInput)(nil)).Elem(), TelemetryPipelineConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryPipelineTimeoutsInput)(nil)).Elem(), TelemetryPipelineTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryPipelineTimeoutsPtrInput)(nil)).Elem(), TelemetryPipelineTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRulePtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationTimeoutsInput)(nil)).Elem(), TelemetryRuleForOrganizationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationTimeoutsPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleInput)(nil)).Elem(), TelemetryRuleRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRulePtrInput)(nil)).Elem(), TelemetryRuleRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleTimeoutsInput)(nil)).Elem(), TelemetryRuleTimeoutsArgs{})
@@ -2701,6 +3044,10 @@ func init() {
 	pulumi.RegisterOutputType(TelemetryPipelineConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryPipelineTimeoutsOutput{})
 	pulumi.RegisterOutputType(TelemetryPipelineTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRulePtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationTimeoutsOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleRuleOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleRulePtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleTimeoutsOutput{})

@@ -27,6 +27,7 @@ class ResourceGatewayArgs:
                  ipv4_addresses_per_eni: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_config_dns_resolution: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['ResourceGatewayTimeoutsArgs']] = None):
@@ -41,6 +42,7 @@ class ResourceGatewayArgs:
         :param pulumi.Input[_builtins.int] ipv4_addresses_per_eni: The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
         :param pulumi.Input[_builtins.str] name: Name of the resource gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] resource_config_dns_resolution: Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -54,6 +56,8 @@ class ResourceGatewayArgs:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if resource_config_dns_resolution is not None:
+            pulumi.set(__self__, "resource_config_dns_resolution", resource_config_dns_resolution)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if tags is not None:
@@ -136,6 +140,18 @@ class ResourceGatewayArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceConfigDnsResolution")
+    def resource_config_dns_resolution(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+        """
+        return pulumi.get(self, "resource_config_dns_resolution")
+
+    @resource_config_dns_resolution.setter
+    def resource_config_dns_resolution(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_config_dns_resolution", value)
+
+    @_builtins.property
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -177,6 +193,7 @@ class _ResourceGatewayState:
                  ipv4_addresses_per_eni: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_config_dns_resolution: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -192,6 +209,7 @@ class _ResourceGatewayState:
         :param pulumi.Input[_builtins.int] ipv4_addresses_per_eni: The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
         :param pulumi.Input[_builtins.str] name: Name of the resource gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] resource_config_dns_resolution: Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
         :param pulumi.Input[_builtins.str] status: Status of the resource gateway.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of the VPC subnets in which to create the resource gateway.
@@ -211,6 +229,8 @@ class _ResourceGatewayState:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if resource_config_dns_resolution is not None:
+            pulumi.set(__self__, "resource_config_dns_resolution", resource_config_dns_resolution)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
         if status is not None:
@@ -285,6 +305,18 @@ class _ResourceGatewayState:
     @region.setter
     def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigDnsResolution")
+    def resource_config_dns_resolution(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+        """
+        return pulumi.get(self, "resource_config_dns_resolution")
+
+    @resource_config_dns_resolution.setter
+    def resource_config_dns_resolution(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_config_dns_resolution", value)
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
@@ -380,6 +412,7 @@ class ResourceGateway(pulumi.CustomResource):
                  ipv4_addresses_per_eni: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_config_dns_resolution: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -450,6 +483,7 @@ class ResourceGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] ipv4_addresses_per_eni: The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
         :param pulumi.Input[_builtins.str] name: Name of the resource gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] resource_config_dns_resolution: Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of the VPC subnets in which to create the resource gateway.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -540,6 +574,7 @@ class ResourceGateway(pulumi.CustomResource):
                  ipv4_addresses_per_eni: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_config_dns_resolution: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -558,6 +593,7 @@ class ResourceGateway(pulumi.CustomResource):
             __props__.__dict__["ipv4_addresses_per_eni"] = ipv4_addresses_per_eni
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
+            __props__.__dict__["resource_config_dns_resolution"] = resource_config_dns_resolution
             __props__.__dict__["security_group_ids"] = security_group_ids
             if subnet_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_ids'")
@@ -585,6 +621,7 @@ class ResourceGateway(pulumi.CustomResource):
             ipv4_addresses_per_eni: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_config_dns_resolution: pulumi.Input[Optional[_builtins.str]] = None,
             security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
             subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -604,6 +641,7 @@ class ResourceGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] ipv4_addresses_per_eni: The number of IPv4 addresses per ENI for your resource. This argument is only applicable to `IPV4` and `DUALSTACK` IP address types. Defaults to `16`.
         :param pulumi.Input[_builtins.str] name: Name of the resource gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] resource_config_dns_resolution: Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Security group IDs associated with the resource gateway. The security groups must be in the same VPC.
         :param pulumi.Input[_builtins.str] status: Status of the resource gateway.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: IDs of the VPC subnets in which to create the resource gateway.
@@ -622,6 +660,7 @@ class ResourceGateway(pulumi.CustomResource):
         __props__.__dict__["ipv4_addresses_per_eni"] = ipv4_addresses_per_eni
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
+        __props__.__dict__["resource_config_dns_resolution"] = resource_config_dns_resolution
         __props__.__dict__["security_group_ids"] = security_group_ids
         __props__.__dict__["status"] = status
         __props__.__dict__["subnet_ids"] = subnet_ids
@@ -670,6 +709,14 @@ class ResourceGateway(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigDnsResolution")
+    def resource_config_dns_resolution(self) -> pulumi.Output[_builtins.str]:
+        """
+        Indicates how DNS is resolved for resource configurations associated to this resource gateway. Valid values are `IN_VPC` and `PUBLIC`. Defaults to `PUBLIC`. Changing this value will trigger a resource replacement.
+        """
+        return pulumi.get(self, "resource_config_dns_resolution")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")

@@ -13,25 +13,25 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecGrpcRouteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action to take if a match is determined.
+        /// Action to take if a match is determined. See `Action` Block for details.
         /// </summary>
         [Input("action", required: true)]
         public Input<Inputs.RouteSpecGrpcRouteActionGetArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// Criteria for determining an gRPC request match.
+        /// Criteria for determining an gRPC request match. See `Match` Block for details.
         /// </summary>
         [Input("match")]
         public Input<Inputs.RouteSpecGrpcRouteMatchGetArgs>? Match { get; set; }
 
         /// <summary>
-        /// Retry policy.
+        /// Retry policy. See `RetryPolicy` Block for details.
         /// </summary>
         [Input("retryPolicy")]
         public Input<Inputs.RouteSpecGrpcRouteRetryPolicyGetArgs>? RetryPolicy { get; set; }
 
         /// <summary>
-        /// Types of timeouts.
+        /// Types of timeouts. See `Timeout` Block for details.
         /// </summary>
         [Input("timeout")]
         public Input<Inputs.RouteSpecGrpcRouteTimeoutGetArgs>? Timeout { get; set; }

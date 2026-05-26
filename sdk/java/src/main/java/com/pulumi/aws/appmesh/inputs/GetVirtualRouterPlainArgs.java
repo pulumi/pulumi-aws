@@ -31,9 +31,17 @@ public final class GetVirtualRouterPlainArgs extends com.pulumi.resources.Invoke
         return this.meshName;
     }
 
+    /**
+     * AWS account ID of the service mesh&#39;s owner.
+     * 
+     */
     @Import(name="meshOwner")
     private @Nullable String meshOwner;
 
+    /**
+     * @return AWS account ID of the service mesh&#39;s owner.
+     * 
+     */
     public Optional<String> meshOwner() {
         return Optional.ofNullable(this.meshOwner);
     }
@@ -122,6 +130,12 @@ public final class GetVirtualRouterPlainArgs extends com.pulumi.resources.Invoke
             return this;
         }
 
+        /**
+         * @param meshOwner AWS account ID of the service mesh&#39;s owner.
+         * 
+         * @return builder
+         * 
+         */
         public Builder meshOwner(@Nullable String meshOwner) {
             $.meshOwner = meshOwner;
             return this;

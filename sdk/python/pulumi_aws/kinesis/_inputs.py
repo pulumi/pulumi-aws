@@ -339,27 +339,27 @@ class AnalyticsApplicationInputsArgsDict(TypedDict):
     """
     The ARN of the Kinesis Analytics Application.
     """
-    kinesis_firehose: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsKinesisFirehoseArgs']]]
+    kinesis_firehose: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsKinesisFirehoseArgsDict']]]
     """
     The Kinesis Firehose configuration for the streaming source. Conflicts with `kinesis_stream`.
     See Kinesis Firehose below for more details.
     """
-    kinesis_stream: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsKinesisStreamArgs']]]
+    kinesis_stream: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsKinesisStreamArgsDict']]]
     """
     The Kinesis Stream configuration for the streaming source. Conflicts with `kinesis_firehose`.
     See Kinesis Stream below for more details.
     """
-    parallelism: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsParallelismArgs']]]
+    parallelism: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsParallelismArgsDict']]]
     """
     The number of Parallel in-application streams to create.
     See Parallelism below for more details.
     """
-    processing_configuration: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsProcessingConfigurationArgs']]]
+    processing_configuration: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsProcessingConfigurationArgsDict']]]
     """
     The Processing Configuration to transform records as they are received from the stream.
     See Processing Configuration below for more details.
     """
-    starting_position_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalyticsApplicationInputsStartingPositionConfigurationArgs']]]]]
+    starting_position_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AnalyticsApplicationInputsStartingPositionConfigurationArgsDict']]]]]
     """
     The point at which the application starts processing records from the streaming source.
     See Starting Position Configuration below for more details.
@@ -860,7 +860,7 @@ class AnalyticsApplicationInputsSchemaRecordColumnArgs:
 
 
 class AnalyticsApplicationInputsSchemaRecordFormatArgsDict(TypedDict):
-    mapping_parameters: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs']]]
+    mapping_parameters: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgsDict']]]
     """
     The Mapping Information for the record format.
     See Mapping Parameters below for more details.
@@ -912,12 +912,12 @@ class AnalyticsApplicationInputsSchemaRecordFormatArgs:
 
 
 class AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgsDict(TypedDict):
-    csv: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs']]]
+    csv: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgsDict']]]
     """
     Mapping information when the record format uses delimiters.
     See CSV Mapping Parameters below for more details.
     """
-    json: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs']]]
+    json: NotRequired[pulumi.Input[Optional['AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgsDict']]]
     """
     Mapping information when JSON is the record format on the streaming source.
     See JSON Mapping Parameters below for more details.
@@ -1083,17 +1083,17 @@ class AnalyticsApplicationOutputArgsDict(TypedDict):
     """
     The ARN of the Kinesis Analytics Application.
     """
-    kinesis_firehose: NotRequired[pulumi.Input[Optional['AnalyticsApplicationOutputKinesisFirehoseArgs']]]
+    kinesis_firehose: NotRequired[pulumi.Input[Optional['AnalyticsApplicationOutputKinesisFirehoseArgsDict']]]
     """
     The Kinesis Firehose configuration for the destination stream. Conflicts with `kinesis_stream`.
     See Kinesis Firehose below for more details.
     """
-    kinesis_stream: NotRequired[pulumi.Input[Optional['AnalyticsApplicationOutputKinesisStreamArgs']]]
+    kinesis_stream: NotRequired[pulumi.Input[Optional['AnalyticsApplicationOutputKinesisStreamArgsDict']]]
     """
     The Kinesis Stream configuration for the destination stream. Conflicts with `kinesis_firehose`.
     See Kinesis Stream below for more details.
     """
-    lambda_: NotRequired[pulumi.Input[Optional['AnalyticsApplicationOutputLambdaArgs']]]
+    lambda_: NotRequired[pulumi.Input[Optional['AnalyticsApplicationOutputLambdaArgsDict']]]
     """
     The Lambda function destination. See Lambda below for more details.
     """
@@ -1665,7 +1665,7 @@ class AnalyticsApplicationReferenceDataSourcesSchemaRecordColumnArgs:
 
 
 class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgsDict(TypedDict):
-    mapping_parameters: NotRequired[pulumi.Input[Optional['AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgs']]]
+    mapping_parameters: NotRequired[pulumi.Input[Optional['AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgsDict']]]
     """
     The Mapping Information for the record format.
     See Mapping Parameters below for more details.
@@ -1717,12 +1717,12 @@ class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatArgs:
 
 
 class AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersArgsDict(TypedDict):
-    csv: NotRequired[pulumi.Input[Optional['AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgs']]]
+    csv: NotRequired[pulumi.Input[Optional['AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersCsvArgsDict']]]
     """
     Mapping information when the record format uses delimiters.
     See CSV Mapping Parameters below for more details.
     """
-    json: NotRequired[pulumi.Input[Optional['AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgs']]]
+    json: NotRequired[pulumi.Input[Optional['AnalyticsApplicationReferenceDataSourcesSchemaRecordFormatMappingParametersJsonArgsDict']]]
     """
     Mapping information when JSON is the record format on the streaming source.
     See JSON Mapping Parameters below for more details.
@@ -1867,7 +1867,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationArgsDict(TypedDict):
     """
     Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -1883,7 +1883,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationArgsDict(TypedDict):
     """
     The Elasticsearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
     """
-    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs']]]
+    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgsDict']]]
     """
     The data processing configuration.  See `processing_configuration` block below for details.
     """
@@ -1899,7 +1899,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationArgsDict(TypedDict):
     """
     The Elasticsearch type name with maximum length of 100 characters.
     """
-    vpc_config: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs']]]
+    vpc_config: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgsDict']]]
     """
     The VPC configuration for the delivery stream to connect to Elastic Search associated with the VPC. See `vpc_config` block below for details.
     """
@@ -2206,7 +2206,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArg
     """
     Enables or disables data processing.
     """
-    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs']]]]]
+    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgsDict']]]]]
     """
     Specifies the data processors as multiple blocks. See `processors` block below for details.
     """
@@ -2255,7 +2255,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
     """
     The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgsDict']]]]]
     """
     Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
     """
@@ -2369,7 +2369,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgsDict(Ty
     Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
     We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -2700,7 +2700,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict(TypedDict):
     role_arn: pulumi.Input[_builtins.str]
     buffering_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     buffering_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgsDict']]]
     compression_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -2709,11 +2709,11 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict(TypedDict):
     """
     The time zone you prefer. Valid values are `UTC` or a non-3-letter IANA time zones (for example, `America/Los_Angeles`). Default value is `UTC`.
     """
-    data_format_conversion_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs']]]
+    data_format_conversion_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgsDict']]]
     """
     Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. See `data_format_conversion_configuration` block below for details.
     """
-    dynamic_partitioning_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs']]]
+    dynamic_partitioning_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgsDict']]]
     """
     The configuration for dynamic partitioning. Required when using [dynamic partitioning](https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html). See `dynamic_partitioning_configuration` block below for details.
     """
@@ -2734,11 +2734,11 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgsDict(TypedDict):
     """
     The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered S3 files. You can specify an extra prefix to be added in front of the time format prefix. Note that if the prefix ends with a slash, it appears as a folder in the S3 bucket
     """
-    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs']]]
+    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgsDict']]]
     """
     The data processing configuration.  See `processing_configuration` block below for details.
     """
-    s3_backup_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgs']]]
+    s3_backup_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgsDict']]]
     """
     The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
     """
@@ -3178,11 +3178,11 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
 
 
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerArgsDict(TypedDict):
-    hive_json_ser_de: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgs']]]
+    hive_json_ser_de: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeArgsDict']]]
     """
     Specifies the native Hive / HCatalog JsonSerDe. More details below. See `hive_json_ser_de` block below for details.
     """
-    open_x_json_ser_de: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgs']]]
+    open_x_json_ser_de: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeArgsDict']]]
     """
     Specifies the OpenX SerDe. See `open_x_json_ser_de` block below for details.
     """
@@ -3353,11 +3353,11 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
 
 
 class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerArgsDict(TypedDict):
-    orc_ser_de: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs']]]
+    orc_ser_de: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgsDict']]]
     """
     Specifies converting data to the ORC format before storing it in Amazon S3. For more information, see [Apache ORC](https://orc.apache.org/docs/). See `orc_ser_de` block below for details.
     """
-    parquet_ser_de: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs']]]
+    parquet_ser_de: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgsDict']]]
     """
     Specifies converting data to the Parquet format before storing it in Amazon S3. For more information, see [Apache Parquet](https://parquet.apache.org/docs/). More details below.
     """
@@ -3925,7 +3925,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgsDi
     """
     Enables or disables data processing.
     """
-    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs']]]]]
+    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgsDict']]]]]
     """
     Specifies the data processors as multiple blocks. See `processors` block below for details.
     """
@@ -3974,7 +3974,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
     """
     The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgsDict']]]]]
     """
     Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
     """
@@ -4078,7 +4078,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationArgsDict
     role_arn: pulumi.Input[_builtins.str]
     buffering_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     buffering_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamExtendedS3ConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgsDict']]]
     compression_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -4322,7 +4322,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict(TypedDict):
     """
     Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -4330,11 +4330,11 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict(TypedDict):
     """
     The HTTP endpoint name.
     """
-    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs']]]
+    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgsDict']]]
     """
     The data processing configuration.  See `processing_configuration` block below for details.
     """
-    request_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs']]]
+    request_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgsDict']]]
     """
     The request configuration.  See `request_configuration` block below for details.
     """
@@ -4350,7 +4350,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationArgsDict(TypedDict):
     """
     Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDataOnly` and `AllData`.  Default value is `FailedDataOnly`.
     """
-    secrets_manager_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgs']]]
+    secrets_manager_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationSecretsManagerConfigurationArgsDict']]]
     """
     The Secret Manager Configuration. See `secrets_manager_configuration` block below for details.
     """
@@ -4642,7 +4642,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationArgs
     """
     Enables or disables data processing.
     """
-    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs']]]]]
+    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgsDict']]]]]
     """
     Specifies the data processors as multiple blocks. See `processors` block below for details.
     """
@@ -4691,7 +4691,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
     """
     The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgsDict']]]]]
     """
     Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
     """
@@ -4788,7 +4788,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
 
 
 class FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgsDict(TypedDict):
-    common_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs']]]]]
+    common_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgsDict']]]]]
     """
     Describes the metadata sent to the HTTP endpoint destination. See `common_attributes` block below for details.
     """
@@ -4901,7 +4901,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgsDict(Typ
     Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
     We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -5236,15 +5236,15 @@ class FirehoseDeliveryStreamIcebergConfigurationArgsDict(TypedDict):
     """
     Buffer incoming data to the specified size, in MBs between 1 and 128, before delivering it to the destination. The default value is 5.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamIcebergConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
-    destination_table_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs']]]]]
+    destination_table_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgsDict']]]]]
     """
     Destination table configurations which Firehose uses to deliver data to Apache Iceberg Tables. Firehose will write data with insert if table specific configuration is not provided. See `destination_table_configuration` block below for details.
     """
-    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs']]]
+    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgsDict']]]
     """
     The data processing configuration.  See `processing_configuration` block below for details.
     """
@@ -5587,7 +5587,7 @@ class FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgsDict(
     """
     Enables or disables data processing.
     """
-    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs']]]]]
+    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgsDict']]]]]
     """
     Specifies the data processors as multiple blocks. See `processors` block below for details.
     """
@@ -5636,7 +5636,7 @@ class FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessor
     """
     The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgsDict']]]]]
     """
     Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
     """
@@ -5750,7 +5750,7 @@ class FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgsDict(TypedDic
     Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
     We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -6195,7 +6195,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationArgsDict(TypedDict):
     """
     Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -6203,7 +6203,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationArgsDict(TypedDict):
     """
     The endpoint to use when communicating with the cluster. Conflicts with `domain_arn`.
     """
-    document_id_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgs']]]
+    document_id_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationDocumentIdOptionsArgsDict']]]
     """
     The method for setting up document ID. See [`document_id_options` block] below for details.
     """
@@ -6215,7 +6215,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationArgsDict(TypedDict):
     """
     The OpenSearch index rotation period.  Index rotation appends a timestamp to the IndexName to facilitate expiration of old data.  Valid values are `NoRotation`, `OneHour`, `OneDay`, `OneWeek`, and `OneMonth`.  The default value is `OneDay`.
     """
-    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs']]]
+    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgsDict']]]
     """
     The data processing configuration. See `processing_configuration` block below for details.
     """
@@ -6231,7 +6231,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationArgsDict(TypedDict):
     """
     The Elasticsearch type name with maximum length of 100 characters. Types are deprecated in OpenSearch_1.1. TypeName must be empty.
     """
-    vpc_config: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgs']]]
+    vpc_config: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationVpcConfigArgsDict']]]
     """
     The VPC configuration for the delivery stream to connect to OpenSearch associated with the VPC. See `vpc_config` block below for details.
     """
@@ -6582,7 +6582,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgsDi
     """
     Enables or disables data processing.
     """
-    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs']]]]]
+    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgsDict']]]]]
     """
     Specifies the data processors as multiple blocks. See `processors` block below for details.
     """
@@ -6631,7 +6631,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProces
     """
     The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgsDict']]]]]
     """
     Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
     """
@@ -6745,7 +6745,7 @@ class FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgsDict(Typed
     Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
     We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -7093,11 +7093,11 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict(TypedDict)
     """
     Buffer incoming data to the specified size, in MBs between 1 to 100, before delivering it to the destination.  The default value is 5MB.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
-    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs']]]
+    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgsDict']]]
     """
     The data processing configuration.  See `processing_configuration` block below for details.
     """
@@ -7109,7 +7109,7 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationArgsDict(TypedDict)
     """
     Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
     """
-    vpc_config: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgs']]]
+    vpc_config: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationVpcConfigArgsDict']]]
     """
     The VPC configuration for the delivery stream to connect to OpenSearch Serverless associated with the VPC. See `vpc_config` block below for details.
     """
@@ -7367,7 +7367,7 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigura
     """
     Enables or disables data processing.
     """
-    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs']]]]]
+    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgsDict']]]]]
     """
     Specifies the data processors as multiple blocks. See `processors` block below for details.
     """
@@ -7416,7 +7416,7 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigura
     """
     The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgsDict']]]]]
     """
     Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
     """
@@ -7530,7 +7530,7 @@ class FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs
     Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
     We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -7870,7 +7870,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgsDict(TypedDict):
     """
     The S3 Configuration. See s3_configuration below for details.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -7886,7 +7886,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgsDict(TypedDict):
     """
     The password for the username above. This value is required if `secrets_manager_configuration` is not provided.
     """
-    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgs']]]
+    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgsDict']]]
     """
     The data processing configuration.  See `processing_configuration` block below for details.
     """
@@ -7894,7 +7894,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgsDict(TypedDict):
     """
     The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
     """
-    s3_backup_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs']]]
+    s3_backup_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgsDict']]]
     """
     The configuration for backup in Amazon S3. Required if `s3_backup_mode` is `Enabled`. Supports the same fields as `s3_configuration` object.
     `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `username` and `password` are not provided.
@@ -7903,7 +7903,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationArgsDict(TypedDict):
     """
     The Amazon S3 backup mode.  Valid values are `Disabled` and `Enabled`.  Default value is `Disabled`.
     """
-    secrets_manager_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgs']]]
+    secrets_manager_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationArgsDict']]]
     username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The username that the firehose delivery stream will assume. It is strongly recommended that the username and password provided is used exclusively for Amazon Kinesis Firehose purposes, and that the permissions for the account are restricted for Amazon Redshift INSERT permissions. This value is required if `secrets_manager_configuration` is not provided.
@@ -8208,7 +8208,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationArgsDict
     """
     Enables or disables data processing.
     """
-    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs']]]]]
+    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgsDict']]]]]
     """
     Specifies the data processors as multiple blocks. See `processors` block below for details.
     """
@@ -8257,7 +8257,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
     """
     The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgsDict']]]]]
     """
     Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
     """
@@ -8361,7 +8361,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgsDict(T
     role_arn: pulumi.Input[_builtins.str]
     buffering_interval: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     buffering_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationCloudwatchLoggingOptionsArgsDict']]]
     compression_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The compression format. If no value is specified, the default is `UNCOMPRESSED`. Other supported values are `GZIP`, `ZIP`, `Snappy`, & `HADOOP_SNAPPY`.
@@ -8602,7 +8602,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgsDict(TypedDi
     Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
     We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -9017,7 +9017,7 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgsDict(TypedDict):
     """
     Buffer incoming data to the specified size, in MBs between 1 to 128, before delivering it to the destination.  The default value is 1MB.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -9041,7 +9041,7 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgsDict(TypedDict):
     """
     The private key for authentication. This value is required if `secrets_manager_configuration` is not provided.
     """
-    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgs']]]
+    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgsDict']]]
     """
     The processing configuration. See `processing_configuration` block below for details.
     """
@@ -9053,15 +9053,15 @@ class FirehoseDeliveryStreamSnowflakeConfigurationArgsDict(TypedDict):
     """
     The S3 backup mode.
     """
-    secrets_manager_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgs']]]
+    secrets_manager_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationSecretsManagerConfigurationArgsDict']]]
     """
     The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `user` and `private_key` are not provided.
     """
-    snowflake_role_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgs']]]
+    snowflake_role_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeRoleConfigurationArgsDict']]]
     """
     The configuration for Snowflake role.
     """
-    snowflake_vpc_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgs']]]
+    snowflake_vpc_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationSnowflakeVpcConfigurationArgsDict']]]
     """
     The VPC configuration for Snowflake.
     """
@@ -9481,7 +9481,7 @@ class FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationArgsDic
     """
     Enables or disables data processing.
     """
-    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgs']]]]]
+    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorArgsDict']]]]]
     """
     Specifies the data processors as multiple blocks. See `processors` block below for details.
     """
@@ -9530,7 +9530,7 @@ class FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcess
     """
     The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamSnowflakeConfigurationProcessingConfigurationProcessorParameterArgsDict']]]]]
     """
     Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
     """
@@ -9644,7 +9644,7 @@ class FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationArgsDict(TypedD
     Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
     We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSnowflakeConfigurationS3ConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -10051,7 +10051,7 @@ class FirehoseDeliveryStreamSplunkConfigurationArgsDict(TypedDict):
     """
     Buffer incoming data to the specified size, in MBs between 1 to 5, before delivering it to the destination.  The default value is 5MB.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """
@@ -10067,7 +10067,7 @@ class FirehoseDeliveryStreamSplunkConfigurationArgsDict(TypedDict):
     """
     The GUID that you obtain from your Splunk cluster when you create a new HEC endpoint. This value is required if `secrets_manager_configuration` is not provided.
     """
-    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs']]]
+    processing_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgsDict']]]
     """
     The data processing configuration.  See `processing_configuration` block below for details.
     """
@@ -10080,7 +10080,7 @@ class FirehoseDeliveryStreamSplunkConfigurationArgsDict(TypedDict):
     Defines how documents should be delivered to Amazon S3.  Valid values are `FailedEventsOnly` and `AllEvents`.  Default value is `FailedEventsOnly`.
     `secrets_manager_configuration` - (Optional) The Secrets Manager configuration. See `secrets_manager_configuration` block below for details. This value is required if `hec_token` is not provided.
     """
-    secrets_manager_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgs']]]
+    secrets_manager_configuration: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfigurationArgsDict']]]
 
 @pulumi.input_type
 class FirehoseDeliveryStreamSplunkConfigurationArgs:
@@ -10351,7 +10351,7 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgsDict(T
     """
     Enables or disables data processing.
     """
-    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs']]]]]
+    processors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgsDict']]]]]
     """
     Specifies the data processors as multiple blocks. See `processors` block below for details.
     """
@@ -10400,7 +10400,7 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorA
     """
     The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`, `Decompression`, `CloudWatchLogProcessing`. Validation is done against [AWS SDK constants](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/firehose/types#ProcessorType); so values not explicitly listed may also work.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgsDict']]]]]
     """
     Specifies the processor parameters as multiple blocks. See `parameters` block below for details.
     """
@@ -10514,7 +10514,7 @@ class FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationArgsDict(TypedDict
     Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
     We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.
     """
-    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgs']]]
+    cloudwatch_logging_options: NotRequired[pulumi.Input[Optional['FirehoseDeliveryStreamSplunkConfigurationS3ConfigurationCloudwatchLoggingOptionsArgsDict']]]
     """
     The CloudWatch Logging Options for the delivery stream. See `cloudwatch_logging_options` block below for details.
     """

@@ -205,46 +205,40 @@ import javax.annotation.Nullable;
  *             .bucket("example-event-bus-logs")
  *             .build());
  * 
- *         final var bucket = Output.tuple(exampleBucket.arn(), infoLogs.arn(), errorLogs.arn(), traceLogs.arn()).applyValue(values -> {
- *             var exampleBucketArn = values.t1;
- *             var infoLogsArn = values.t2;
- *             var errorLogsArn = values.t3;
- *             var traceLogsArn = values.t4;
- *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *                 .statements(GetPolicyDocumentStatementArgs.builder()
- *                     .effect("Allow")
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers("delivery.logs.amazonaws.com")
- *                         .build())
- *                     .actions("s3:PutObject")
- *                     .resources(String.format("%s/AWSLogs/%s/EventBusLogs/*", exampleBucketArn,current.accountId()))
- *                     .conditions(                    
- *                         GetPolicyDocumentStatementConditionArgs.builder()
- *                             .test("StringEquals")
- *                             .variable("s3:x-amz-acl")
- *                             .values("bucket-owner-full-control")
- *                             .build(),
- *                         GetPolicyDocumentStatementConditionArgs.builder()
- *                             .test("StringEquals")
- *                             .variable("aws:SourceAccount")
- *                             .values(current.accountId())
- *                             .build(),
- *                         GetPolicyDocumentStatementConditionArgs.builder()
- *                             .test("ArnLike")
- *                             .variable("aws:SourceArn")
- *                             .values(                            
- *                                 infoLogsArn,
- *                                 errorLogsArn,
- *                                 traceLogsArn)
- *                             .build())
+ *         final var bucket = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect("Allow")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("delivery.logs.amazonaws.com")
  *                     .build())
- *                 .build());
- *         });
+ *                 .actions("s3:PutObject")
+ *                 .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/AWSLogs/%s/EventBusLogs/*", _arn,current.accountId())))
+ *                 .conditions(                
+ *                     GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("StringEquals")
+ *                         .variable("s3:x-amz-acl")
+ *                         .values("bucket-owner-full-control")
+ *                         .build(),
+ *                     GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("StringEquals")
+ *                         .variable("aws:SourceAccount")
+ *                         .values(current.accountId())
+ *                         .build(),
+ *                     GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("ArnLike")
+ *                         .variable("aws:SourceArn")
+ *                         .values(                        
+ *                             infoLogs.arn(),
+ *                             errorLogs.arn(),
+ *                             traceLogs.arn())
+ *                         .build())
+ *                 .build())
+ *             .build());
  * 
  *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
  *             .bucket(exampleBucket.bucket())
- *             .policy(bucket.json())
+ *             .policy(bucket.applyValue(_bucket -> _bucket.json()))
  *             .build());
  * 
  *         var s3 = new LogDeliveryDestination("s3", LogDeliveryDestinationArgs.builder()
@@ -278,42 +272,36 @@ import javax.annotation.Nullable;
  *             .name(example.name().applyValue(_name -> String.format("/aws/vendedlogs/events/event-bus/%s", _name)))
  *             .build());
  * 
- *         final var cwlogs = Output.tuple(eventBusLogs.arn(), infoLogs.arn(), errorLogs.arn(), traceLogs.arn()).applyValue(values -> {
- *             var eventBusLogsArn = values.t1;
- *             var infoLogsArn = values.t2;
- *             var errorLogsArn = values.t3;
- *             var traceLogsArn = values.t4;
- *             return IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *                 .statements(GetPolicyDocumentStatementArgs.builder()
- *                     .effect("Allow")
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("Service")
- *                         .identifiers("delivery.logs.amazonaws.com")
- *                         .build())
- *                     .actions(                    
- *                         "logs:CreateLogStream",
- *                         "logs:PutLogEvents")
- *                     .resources(String.format("%s:log-stream:*", eventBusLogsArn))
- *                     .conditions(                    
- *                         GetPolicyDocumentStatementConditionArgs.builder()
- *                             .test("StringEquals")
- *                             .variable("aws:SourceAccount")
- *                             .values(current.accountId())
- *                             .build(),
- *                         GetPolicyDocumentStatementConditionArgs.builder()
- *                             .test("ArnLike")
- *                             .variable("aws:SourceArn")
- *                             .values(                            
- *                                 infoLogsArn,
- *                                 errorLogsArn,
- *                                 traceLogsArn)
- *                             .build())
+ *         final var cwlogs = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect("Allow")
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("delivery.logs.amazonaws.com")
  *                     .build())
- *                 .build());
- *         });
+ *                 .actions(                
+ *                     "logs:CreateLogStream",
+ *                     "logs:PutLogEvents")
+ *                 .resources(eventBusLogs.arn().applyValue(_arn -> String.format("%s:log-stream:*", _arn)))
+ *                 .conditions(                
+ *                     GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("StringEquals")
+ *                         .variable("aws:SourceAccount")
+ *                         .values(current.accountId())
+ *                         .build(),
+ *                     GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("ArnLike")
+ *                         .variable("aws:SourceArn")
+ *                         .values(                        
+ *                             infoLogs.arn(),
+ *                             errorLogs.arn(),
+ *                             traceLogs.arn())
+ *                         .build())
+ *                 .build())
+ *             .build());
  * 
  *         var exampleLogResourcePolicy = new LogResourcePolicy("exampleLogResourcePolicy", LogResourcePolicyArgs.builder()
- *             .policyDocument(cwlogs.json())
+ *             .policyDocument(cwlogs.applyValue(_cwlogs -> _cwlogs.json()))
  *             .policyName(example.name().applyValue(_name -> String.format("AWSLogDeliveryWrite-%s", _name)))
  *             .build());
  * 

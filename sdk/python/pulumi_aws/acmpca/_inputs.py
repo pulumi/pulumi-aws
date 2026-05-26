@@ -365,11 +365,11 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
 
 
 class CertificateAuthorityRevocationConfigurationArgsDict(TypedDict):
-    crl_configuration: NotRequired[pulumi.Input[Optional['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']]]
+    crl_configuration: NotRequired[pulumi.Input[Optional['CertificateAuthorityRevocationConfigurationCrlConfigurationArgsDict']]]
     """
     Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
     """
-    ocsp_configuration: NotRequired[pulumi.Input[Optional['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']]]
+    ocsp_configuration: NotRequired[pulumi.Input[Optional['CertificateAuthorityRevocationConfigurationOcspConfigurationArgsDict']]]
     """
     Nested argument containing configuration of
     the custom OCSP responder endpoint. Defined below.

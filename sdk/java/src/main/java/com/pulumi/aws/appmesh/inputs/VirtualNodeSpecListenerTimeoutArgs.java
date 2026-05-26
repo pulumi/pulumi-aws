@@ -19,14 +19,14 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
     public static final VirtualNodeSpecListenerTimeoutArgs Empty = new VirtualNodeSpecListenerTimeoutArgs();
 
     /**
-     * Timeouts for gRPC listeners.
+     * Timeouts for gRPC listeners. See `grpc` Block for details.
      * 
      */
     @Import(name="grpc")
     private @Nullable Output<VirtualNodeSpecListenerTimeoutGrpcArgs> grpc;
 
     /**
-     * @return Timeouts for gRPC listeners.
+     * @return Timeouts for gRPC listeners. See `grpc` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTimeoutGrpcArgs>> grpc() {
@@ -34,14 +34,14 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
     }
 
     /**
-     * Timeouts for HTTP listeners.
+     * Timeouts for HTTP listeners. See `http` Block for details.
      * 
      */
     @Import(name="http")
     private @Nullable Output<VirtualNodeSpecListenerTimeoutHttpArgs> http;
 
     /**
-     * @return Timeouts for HTTP listeners.
+     * @return Timeouts for HTTP listeners. See `http` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTimeoutHttpArgs>> http() {
@@ -49,14 +49,14 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
     }
 
     /**
-     * Timeouts for HTTP2 listeners.
+     * Timeouts for HTTP2 listeners. See `http2` Block for details.
      * 
      */
     @Import(name="http2")
     private @Nullable Output<VirtualNodeSpecListenerTimeoutHttp2Args> http2;
 
     /**
-     * @return Timeouts for HTTP2 listeners.
+     * @return Timeouts for HTTP2 listeners. See `http2` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTimeoutHttp2Args>> http2() {
@@ -64,14 +64,14 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
     }
 
     /**
-     * Timeouts for TCP listeners.
+     * Timeouts for TCP listeners. See `tcp` Block for details.
      * 
      */
     @Import(name="tcp")
     private @Nullable Output<VirtualNodeSpecListenerTimeoutTcpArgs> tcp;
 
     /**
-     * @return Timeouts for TCP listeners.
+     * @return Timeouts for TCP listeners. See `tcp` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTimeoutTcpArgs>> tcp() {
@@ -106,7 +106,7 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param grpc Timeouts for gRPC listeners.
+         * @param grpc Timeouts for gRPC listeners. See `grpc` Block for details.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param grpc Timeouts for gRPC listeners.
+         * @param grpc Timeouts for gRPC listeners. See `grpc` Block for details.
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param http Timeouts for HTTP listeners.
+         * @param http Timeouts for HTTP listeners. See `http` Block for details.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param http Timeouts for HTTP listeners.
+         * @param http Timeouts for HTTP listeners. See `http` Block for details.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param http2 Timeouts for HTTP2 listeners.
+         * @param http2 Timeouts for HTTP2 listeners. See `http2` Block for details.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param http2 Timeouts for HTTP2 listeners.
+         * @param http2 Timeouts for HTTP2 listeners. See `http2` Block for details.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param tcp Timeouts for TCP listeners.
+         * @param tcp Timeouts for TCP listeners. See `tcp` Block for details.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class VirtualNodeSpecListenerTimeoutArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param tcp Timeouts for TCP listeners.
+         * @param tcp Timeouts for TCP listeners. See `tcp` Block for details.
          * 
          * @return builder
          * 

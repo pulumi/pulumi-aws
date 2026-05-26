@@ -13,32 +13,31 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class RouteSpecGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// GRPC routing information for the route.
+        /// GRPC routing information for the route. See `GrpcRoute` Block for details.
         /// </summary>
         [Input("grpcRoute")]
         public Input<Inputs.RouteSpecGrpcRouteGetArgs>? GrpcRoute { get; set; }
 
         /// <summary>
-        /// HTTP/2 routing information for the route.
+        /// HTTP/2 routing information for the route. See `Http2Route` Block for details.
         /// </summary>
         [Input("http2Route")]
         public Input<Inputs.RouteSpecHttp2RouteGetArgs>? Http2Route { get; set; }
 
         /// <summary>
-        /// HTTP routing information for the route.
+        /// HTTP routing information for the route. See `HttpRoute` Block for details.
         /// </summary>
         [Input("httpRoute")]
         public Input<Inputs.RouteSpecHttpRouteGetArgs>? HttpRoute { get; set; }
 
         /// <summary>
-        /// Priority for the route, between `0` and `1000`.
-        /// Routes are matched based on the specified value, where `0` is the highest priority.
+        /// Priority for the route, between `0` and `1000`. Routes are matched based on the specified value, where `0` is the highest priority.
         /// </summary>
         [Input("priority")]
         public Input<int>? Priority { get; set; }
 
         /// <summary>
-        /// TCP routing information for the route.
+        /// TCP routing information for the route. See `TcpRoute` Block for details.
         /// </summary>
         [Input("tcpRoute")]
         public Input<Inputs.RouteSpecTcpRouteGetArgs>? TcpRoute { get; set; }

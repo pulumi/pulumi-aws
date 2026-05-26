@@ -60,11 +60,11 @@ import * as utilities from "./utilities";
  * // Create a subnet for the AZ within the regional VPC
  * const exampleSubnet = new aws.ec2.Subnet("example", {
  *     vpcId: exampleVpc.id,
- *     cidrBlock: pulumi.all([exampleVpc.cidrBlock, example]).apply(([cidrBlock, example]) => std.cidrsubnetOutput({
- *         input: cidrBlock,
+ *     cidrBlock: std.cidrsubnetOutput({
+ *         input: exampleVpc.cidrBlock,
  *         newbits: 4,
- *         netnum: Number(azNumber[example.nameSuffix]),
- *     })).apply(invoke => invoke.result),
+ *         netnum: output(example.then(example => azNumber[example.nameSuffix])).apply(x =>Number(x)),
+ *     }).apply(invoke => invoke.result),
  * });
  * ```
  */
@@ -107,10 +107,6 @@ export interface GetAvailabilityZoneArgs {
     state?: string;
     /**
      * Zone ID of the availability zone to select.
-     *
-     * The arguments of this data source act as filters for querying the available
-     * availability zones. The given filters must match exactly one availability
-     * zone whose data will be exported as attributes.
      */
     zoneId?: string;
 }
@@ -122,11 +118,11 @@ export interface GetAvailabilityZoneResult {
     readonly allAvailabilityZones?: boolean;
     readonly filters?: outputs.GetAvailabilityZoneFilter[];
     /**
-     * The long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
+     * Long name of the Availability Zone group, Local Zone group, or Wavelength Zone group.
      */
     readonly groupLongName: string;
     /**
-     * The name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
+     * Name of the zone group. For example: `us-east-1-zg-1`, `us-west-2-lax-1`, or `us-east-1-wl1-bos-wlz-1`.
      */
     readonly groupName: string;
     /**
@@ -135,13 +131,11 @@ export interface GetAvailabilityZoneResult {
     readonly id: string;
     readonly name: string;
     /**
-     * Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region.
-     * For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone.
-     * For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
+     * Part of the AZ name that appears after the region name, uniquely identifying the AZ within its region. For Availability Zones this is usually a single letter, for example `a` for the `us-west-2a` zone. For Local and Wavelength Zones this is a longer string, for example `wl1-sfo-wlz-1` for the `us-west-2-wl1-sfo-wlz-1` zone.
      */
     readonly nameSuffix: string;
     /**
-     * The name of the location from which the address is advertised.
+     * Name of the location from which the address is advertised.
      */
     readonly networkBorderGroup: string;
     /**
@@ -217,11 +211,11 @@ export interface GetAvailabilityZoneResult {
  * // Create a subnet for the AZ within the regional VPC
  * const exampleSubnet = new aws.ec2.Subnet("example", {
  *     vpcId: exampleVpc.id,
- *     cidrBlock: pulumi.all([exampleVpc.cidrBlock, example]).apply(([cidrBlock, example]) => std.cidrsubnetOutput({
- *         input: cidrBlock,
+ *     cidrBlock: std.cidrsubnetOutput({
+ *         input: exampleVpc.cidrBlock,
  *         newbits: 4,
- *         netnum: Number(azNumber[example.nameSuffix]),
- *     })).apply(invoke => invoke.result),
+ *         netnum: output(example.then(example => azNumber[example.nameSuffix])).apply(x =>Number(x)),
+ *     }).apply(invoke => invoke.result),
  * });
  * ```
  */
@@ -264,10 +258,6 @@ export interface GetAvailabilityZoneOutputArgs {
     state?: pulumi.Input<string | undefined>;
     /**
      * Zone ID of the availability zone to select.
-     *
-     * The arguments of this data source act as filters for querying the available
-     * availability zones. The given filters must match exactly one availability
-     * zone whose data will be exported as attributes.
      */
     zoneId?: pulumi.Input<string | undefined>;
 }

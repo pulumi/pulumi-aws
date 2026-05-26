@@ -154,10 +154,7 @@ type GetAvailabilityZonesArgs struct {
 	Filters []GetAvailabilityZonesFilter `pulumi:"filters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Allows to filter list of Availability Zones based on their
-	// current state. Can be either `"available"`, `"information"`, `"impaired"` or
-	// `"unavailable"`. By default the list includes a complete set of Availability Zones
-	// to which the underlying AWS account has access, regardless of their state.
+	// Allows to filter list of Availability Zones based on their current state. Can be either `"available"`, `"information"`, `"impaired"` or `"unavailable"`. By default the list includes a complete set of Availability Zones to which the underlying AWS account has access, regardless of their state.
 	State *string `pulumi:"state"`
 }
 
@@ -167,7 +164,7 @@ type GetAvailabilityZonesResult struct {
 	ExcludeNames         []string                     `pulumi:"excludeNames"`
 	ExcludeZoneIds       []string                     `pulumi:"excludeZoneIds"`
 	Filters              []GetAvailabilityZonesFilter `pulumi:"filters"`
-	// A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+	// Set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
 	GroupNames []string `pulumi:"groupNames"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -200,10 +197,7 @@ type GetAvailabilityZonesOutputArgs struct {
 	Filters GetAvailabilityZonesFilterArrayInput `pulumi:"filters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Allows to filter list of Availability Zones based on their
-	// current state. Can be either `"available"`, `"information"`, `"impaired"` or
-	// `"unavailable"`. By default the list includes a complete set of Availability Zones
-	// to which the underlying AWS account has access, regardless of their state.
+	// Allows to filter list of Availability Zones based on their current state. Can be either `"available"`, `"information"`, `"impaired"` or `"unavailable"`. By default the list includes a complete set of Availability Zones to which the underlying AWS account has access, regardless of their state.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 
@@ -242,7 +236,7 @@ func (o GetAvailabilityZonesResultOutput) Filters() GetAvailabilityZonesFilterAr
 	return o.ApplyT(func(v GetAvailabilityZonesResult) []GetAvailabilityZonesFilter { return v.Filters }).(GetAvailabilityZonesFilterArrayOutput)
 }
 
-// A set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
+// Set of the Availability Zone Group names. For Availability Zones, this is the same value as the Region name. For Local Zones, the name of the associated group, for example `us-west-2-lax-1`.
 func (o GetAvailabilityZonesResultOutput) GroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAvailabilityZonesResult) []string { return v.GroupNames }).(pulumi.StringArrayOutput)
 }

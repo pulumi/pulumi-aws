@@ -137,13 +137,16 @@ namespace Pulumi.Aws.AutoScaling
         /// One or more Availability Zones for the group.
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
+        /// <summary>
+        /// Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        /// </summary>
         public readonly int DefaultCooldown;
         /// <summary>
         /// Desired size of the group.
         /// </summary>
         public readonly int DesiredCapacity;
         /// <summary>
-        /// The unit of measurement for the value returned for `DesiredCapacity`.
+        /// Unit of measurement for the value returned for `DesiredCapacity`.
         /// </summary>
         public readonly string DesiredCapacityType;
         /// <summary>
@@ -151,7 +154,7 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly ImmutableArray<string> EnabledMetrics;
         /// <summary>
-        /// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
+        /// Amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
         /// </summary>
         public readonly int HealthCheckGracePeriod;
         /// <summary>
@@ -167,7 +170,7 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupInstanceMaintenancePolicyResult> InstanceMaintenancePolicies;
         /// <summary>
-        /// The name of the associated launch configuration.
+        /// Name of the associated launch configuration.
         /// </summary>
         public readonly string LaunchConfiguration;
         /// <summary>
@@ -198,6 +201,9 @@ namespace Pulumi.Aws.AutoScaling
         /// Name of the Auto Scaling Group.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
+        /// </summary>
         public readonly bool NewInstancesProtectedFromScaleIn;
         /// <summary>
         /// Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
@@ -229,7 +235,7 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly ImmutableArray<string> TargetGroupArns;
         /// <summary>
-        /// The termination policies for the group.
+        /// Termination policies for the group.
         /// </summary>
         public readonly ImmutableArray<string> TerminationPolicies;
         /// <summary>

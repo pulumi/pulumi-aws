@@ -329,7 +329,7 @@ class RecorderRecordingGroupArgsDict(TypedDict):
     """
     Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
     """
-    exclusion_by_resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArgs']]]]]
+    exclusion_by_resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArgsDict']]]]]
     """
     An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
     """
@@ -337,7 +337,7 @@ class RecorderRecordingGroupArgsDict(TypedDict):
     """
     Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
     """
-    recording_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArgs']]]]]
+    recording_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArgsDict']]]]]
     """
     Recording Strategy. Detailed below.
     """
@@ -487,7 +487,7 @@ class RecorderRecordingModeArgsDict(TypedDict):
     """
     Default recording frequency. `CONTINUOUS` or `DAILY`.
     """
-    recording_mode_override: NotRequired[pulumi.Input[Optional['RecorderRecordingModeRecordingModeOverrideArgs']]]
+    recording_mode_override: NotRequired[pulumi.Input[Optional['RecorderRecordingModeRecordingModeOverrideArgsDict']]]
     """
     Recording mode overrides. Detailed below.
     """
@@ -599,7 +599,7 @@ class RecorderRecordingModeRecordingModeOverrideArgs:
 
 
 class RemediationConfigurationExecutionControlsArgsDict(TypedDict):
-    ssm_controls: NotRequired[pulumi.Input[Optional['RemediationConfigurationExecutionControlsSsmControlsArgs']]]
+    ssm_controls: NotRequired[pulumi.Input[Optional['RemediationConfigurationExecutionControlsSsmControlsArgsDict']]]
     """
     Configuration block for SSM controls. See below.
     """
@@ -887,11 +887,11 @@ class RuleSourceArgsDict(TypedDict):
     """
     Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `lambda.Permission` resource.
     """
-    custom_policy_details: NotRequired[pulumi.Input[Optional['RuleSourceCustomPolicyDetailsArgs']]]
+    custom_policy_details: NotRequired[pulumi.Input[Optional['RuleSourceCustomPolicyDetailsArgsDict']]]
     """
     Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
     """
-    source_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleSourceSourceDetailArgs']]]]]
+    source_details: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleSourceSourceDetailArgsDict']]]]]
     """
     Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
     """

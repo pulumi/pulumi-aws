@@ -460,6 +460,10 @@ export class Distribution extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+     */
+    declare public readonly cacheTagConfig: pulumi.Output<outputs.cloudfront.DistributionCacheTagConfig | undefined>;
+    /**
      * Internal value used by CloudFront to allow future updates to the distribution configuration.
      */
     declare public /*out*/ readonly callerReference: pulumi.Output<string>;
@@ -608,6 +612,7 @@ export class Distribution extends pulumi.CustomResource {
             resourceInputs["aliases"] = state?.aliases;
             resourceInputs["anycastIpListId"] = state?.anycastIpListId;
             resourceInputs["arn"] = state?.arn;
+            resourceInputs["cacheTagConfig"] = state?.cacheTagConfig;
             resourceInputs["callerReference"] = state?.callerReference;
             resourceInputs["comment"] = state?.comment;
             resourceInputs["connectionFunctionAssociation"] = state?.connectionFunctionAssociation;
@@ -660,6 +665,7 @@ export class Distribution extends pulumi.CustomResource {
             }
             resourceInputs["aliases"] = args?.aliases;
             resourceInputs["anycastIpListId"] = args?.anycastIpListId;
+            resourceInputs["cacheTagConfig"] = args?.cacheTagConfig;
             resourceInputs["comment"] = args?.comment;
             resourceInputs["connectionFunctionAssociation"] = args?.connectionFunctionAssociation;
             resourceInputs["continuousDeploymentPolicyId"] = args?.continuousDeploymentPolicyId;
@@ -716,6 +722,10 @@ export interface DistributionState {
      * ARN for the distribution. For example: `arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5`, where `123456789012` is your AWS account ID.
      */
     arn?: pulumi.Input<string | undefined>;
+    /**
+     * Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+     */
+    cacheTagConfig?: pulumi.Input<inputs.cloudfront.DistributionCacheTagConfig | undefined>;
     /**
      * Internal value used by CloudFront to allow future updates to the distribution configuration.
      */
@@ -862,6 +872,10 @@ export interface DistributionArgs {
      * ID of the Anycast static IP list that is associated with the distribution.
      */
     anycastIpListId?: pulumi.Input<string | undefined>;
+    /**
+     * Cache tag configuration block for cache tag extraction from origin responses (maximum one). See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/invalidation-by-tags.html) for more information about cache tags.
+     */
+    cacheTagConfig?: pulumi.Input<inputs.cloudfront.DistributionCacheTagConfig | undefined>;
     /**
      * Any comments you want to include about the distribution.
      */

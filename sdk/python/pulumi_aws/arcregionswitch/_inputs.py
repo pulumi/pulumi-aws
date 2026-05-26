@@ -325,7 +325,7 @@ class PlanTriggerArgsDict(TypedDict):
     """
     Target region for the trigger.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanTriggerConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanTriggerConditionArgsDict']]]]]
     """
     List of conditions that must be met. See Conditions below.
     """
@@ -470,7 +470,7 @@ class PlanWorkflowArgsDict(TypedDict):
     """
     Action to perform. Valid values: `activate`, `deactivate`.
     """
-    steps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepArgs']]]]]
+    steps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepArgsDict']]]]]
     """
     List of steps in the workflow. See Step below.
     """
@@ -562,11 +562,11 @@ class PlanWorkflowStepArgsDict(TypedDict):
     """
     Name of the step.
     """
-    arc_routing_control_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigArgs']]]]]
+    arc_routing_control_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigArgsDict']]]]]
     """
     Configuration for ARC routing control. See ARC Routing Control Config below.
     """
-    custom_action_lambda_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigArgs']]]]]
+    custom_action_lambda_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigArgsDict']]]]]
     """
     Configuration for Lambda function execution. See Custom Action Lambda Config below.
     """
@@ -574,36 +574,36 @@ class PlanWorkflowStepArgsDict(TypedDict):
     """
     Description of the step.
     """
-    document_db_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepDocumentDbConfigArgs']]]]]
+    document_db_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepDocumentDbConfigArgsDict']]]]]
     """
     Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
     """
-    ec2_asg_capacity_increase_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs']]]]]
+    ec2_asg_capacity_increase_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgsDict']]]]]
     """
     Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
     """
-    ecs_capacity_increase_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEcsCapacityIncreaseConfigArgs']]]]]
+    ecs_capacity_increase_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEcsCapacityIncreaseConfigArgsDict']]]]]
     """
     Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
     """
-    eks_resource_scaling_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigArgs']]]]]
+    eks_resource_scaling_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigArgsDict']]]]]
     """
     Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
     """
-    execution_approval_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepExecutionApprovalConfigArgs']]]]]
+    execution_approval_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepExecutionApprovalConfigArgsDict']]]]]
     """
     Configuration for manual approval steps. See Execution Approval Config below.
     """
-    global_aurora_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepGlobalAuroraConfigArgs']]]]]
+    global_aurora_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepGlobalAuroraConfigArgsDict']]]]]
     """
     Configuration for Aurora Global Database operations. See Global Aurora Config below.
     """
-    parallel_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigArgs']]]]]
+    parallel_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigArgsDict']]]]]
     """
     Configuration for parallel execution of multiple steps. See Parallel Config below.
     """
-    region_switch_plan_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRegionSwitchPlanConfigArgs']]]]]
-    route53_health_check_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRoute53HealthCheckConfigArgs']]]]]
+    region_switch_plan_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRegionSwitchPlanConfigArgsDict']]]]]
+    route53_health_check_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRoute53HealthCheckConfigArgsDict']]]]]
     """
     Configuration for Route53 health check operations. See Route53 Health Check Config below.
     """
@@ -842,7 +842,7 @@ class PlanWorkflowStepArcRoutingControlConfigArgsDict(TypedDict):
     """
     External ID for cross-account role assumption.
     """
-    region_and_routing_controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgs']]]]]
+    region_and_routing_controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgsDict']]]]]
     """
     List of regions and their routing controls. See Region and Routing Controls below.
     """
@@ -927,7 +927,7 @@ class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgsDict(Typ
     """
     AWS region.
     """
-    routing_controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgs']]]]]
+    routing_controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgsDict']]]]]
     """
     List of routing controls. See Routing Control below.
     """
@@ -1026,7 +1026,7 @@ class PlanWorkflowStepCustomActionLambdaConfigArgsDict(TypedDict):
     """
     Retry interval in minutes.
     """
-    lambdas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigLambdaArgs']]]]]
+    lambdas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigLambdaArgsDict']]]]]
     """
     Lambda function configuration. See Lambda below.
     """
@@ -1034,7 +1034,7 @@ class PlanWorkflowStepCustomActionLambdaConfigArgsDict(TypedDict):
     """
     Timeout in minutes.
     """
-    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigUngracefulArgs']]]]]
+    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigUngracefulArgsDict']]]]]
     """
     Ungraceful behavior configuration. See Ungraceful below.
     """
@@ -1227,7 +1227,7 @@ class PlanWorkflowStepDocumentDbConfigArgsDict(TypedDict):
     cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepDocumentDbConfigUngracefulArgs']]]]]
+    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepDocumentDbConfigUngracefulArgsDict']]]]]
 
 @pulumi.input_type
 class PlanWorkflowStepDocumentDbConfigArgs:
@@ -1339,7 +1339,7 @@ class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgsDict(TypedDict):
     """
     Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
     """
-    asgs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgs']]]]]
+    asgs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgsDict']]]]]
     """
     Auto Scaling group configuration. See ASG below.
     """
@@ -1351,7 +1351,7 @@ class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgsDict(TypedDict):
     """
     Timeout in minutes.
     """
-    ungraceful: NotRequired[pulumi.Input[Optional['PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgs']]]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgsDict']]]
     """
     Ungraceful behavior configuration. See Ungraceful below.
     """
@@ -1543,7 +1543,7 @@ class PlanWorkflowStepEcsCapacityIncreaseConfigArgsDict(TypedDict):
     """
     Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `containerInsightsMaxInLast24Hours`.
     """
-    services: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgs']]]]]
+    services: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgsDict']]]]]
     """
     ECS service configuration. See ECS Service below.
     """
@@ -1555,7 +1555,7 @@ class PlanWorkflowStepEcsCapacityIncreaseConfigArgsDict(TypedDict):
     """
     Timeout in minutes.
     """
-    ungraceful: NotRequired[pulumi.Input[Optional['PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgs']]]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgsDict']]]
     """
     Ungraceful behavior configuration. See Ungraceful Capacity below.
     """
@@ -1749,15 +1749,15 @@ class PlanWorkflowStepEksResourceScalingConfigArgsDict(TypedDict):
     """
     Target capacity percentage.
     """
-    eks_clusters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigEksClusterArgs']]]]]
+    eks_clusters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigEksClusterArgsDict']]]]]
     """
     List of EKS clusters. See EKS Clusters below.
     """
-    kubernetes_resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArgs']]]]]
+    kubernetes_resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArgsDict']]]]]
     """
     Kubernetes resource type. See Kubernetes Resource Type below.
     """
-    scaling_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigScalingResourceArgs']]]]]
+    scaling_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigScalingResourceArgsDict']]]]]
     """
     List of scaling resources. See Scaling Resources below.
     """
@@ -1765,7 +1765,7 @@ class PlanWorkflowStepEksResourceScalingConfigArgsDict(TypedDict):
     """
     Timeout in minutes.
     """
-    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigUngracefulArgs']]]]]
+    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigUngracefulArgsDict']]]]]
     """
     Ungraceful behavior configuration. See Ungraceful Capacity below.
     """
@@ -2007,7 +2007,7 @@ class PlanWorkflowStepEksResourceScalingConfigScalingResourceArgsDict(TypedDict)
     """
     Kubernetes namespace.
     """
-    resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgs']]]]]
+    resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgsDict']]]]]
     """
     Set of resources to scale. See Resources below.
     """
@@ -2237,7 +2237,7 @@ class PlanWorkflowStepGlobalAuroraConfigArgsDict(TypedDict):
     """
     Timeout in minutes.
     """
-    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepGlobalAuroraConfigUngracefulArgs']]]]]
+    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepGlobalAuroraConfigUngracefulArgsDict']]]]]
     """
     Ungraceful behavior configuration. See Ungraceful Aurora below.
     """
@@ -2378,7 +2378,7 @@ class PlanWorkflowStepGlobalAuroraConfigUngracefulArgs:
 
 
 class PlanWorkflowStepParallelConfigArgsDict(TypedDict):
-    steps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArgs']]]]]
+    steps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArgsDict']]]]]
     """
     List of steps to execute in parallel. Uses the same schema as Step but without `parallel_config` to prevent infinite nesting.
     """
@@ -2415,11 +2415,11 @@ class PlanWorkflowStepParallelConfigStepArgsDict(TypedDict):
     """
     Name of the step.
     """
-    arc_routing_control_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs']]]]]
+    arc_routing_control_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgsDict']]]]]
     """
     Configuration for ARC routing control. See ARC Routing Control Config below.
     """
-    custom_action_lambda_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgs']]]]]
+    custom_action_lambda_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgsDict']]]]]
     """
     Configuration for Lambda function execution. See Custom Action Lambda Config below.
     """
@@ -2427,32 +2427,32 @@ class PlanWorkflowStepParallelConfigStepArgsDict(TypedDict):
     """
     Description of the step.
     """
-    document_db_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs']]]]]
+    document_db_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepDocumentDbConfigArgsDict']]]]]
     """
     Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
     """
-    ec2_asg_capacity_increase_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs']]]]]
+    ec2_asg_capacity_increase_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgsDict']]]]]
     """
     Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
     """
-    ecs_capacity_increase_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs']]]]]
+    ecs_capacity_increase_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgsDict']]]]]
     """
     Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
     """
-    eks_resource_scaling_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgs']]]]]
+    eks_resource_scaling_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgsDict']]]]]
     """
     Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
     """
-    execution_approval_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArgs']]]]]
+    execution_approval_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArgsDict']]]]]
     """
     Configuration for manual approval steps. See Execution Approval Config below.
     """
-    global_aurora_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgs']]]]]
+    global_aurora_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgsDict']]]]]
     """
     Configuration for Aurora Global Database operations. See Global Aurora Config below.
     """
-    region_switch_plan_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgs']]]]]
-    route53_health_check_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs']]]]]
+    region_switch_plan_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgsDict']]]]]
+    route53_health_check_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgsDict']]]]]
     """
     Configuration for Route53 health check operations. See Route53 Health Check Config below.
     """
@@ -2675,7 +2675,7 @@ class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgsDict(TypedDic
     """
     External ID for cross-account role assumption.
     """
-    region_and_routing_controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgs']]]]]
+    region_and_routing_controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgsDict']]]]]
     """
     List of regions and their routing controls. See Region and Routing Controls below.
     """
@@ -2760,7 +2760,7 @@ class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingC
     """
     AWS region.
     """
-    routing_controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgs']]]]]
+    routing_controls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgsDict']]]]]
     """
     List of routing controls. See Routing Control below.
     """
@@ -2859,7 +2859,7 @@ class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgsDict(TypedDi
     """
     Retry interval in minutes.
     """
-    lambdas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArgs']]]]]
+    lambdas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArgsDict']]]]]
     """
     Lambda function configuration. See Lambda below.
     """
@@ -2867,7 +2867,7 @@ class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgsDict(TypedDi
     """
     Timeout in minutes.
     """
-    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgs']]]]]
+    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgsDict']]]]]
     """
     Ungraceful behavior configuration. See Ungraceful below.
     """
@@ -3060,7 +3060,7 @@ class PlanWorkflowStepParallelConfigStepDocumentDbConfigArgsDict(TypedDict):
     cross_account_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     timeout_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgs']]]]]
+    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgsDict']]]]]
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs:
@@ -3172,7 +3172,7 @@ class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgsDict(Typ
     """
     Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
     """
-    asgs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgs']]]]]
+    asgs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgsDict']]]]]
     """
     Auto Scaling group configuration. See ASG below.
     """
@@ -3184,7 +3184,7 @@ class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgsDict(Typ
     """
     Timeout in minutes.
     """
-    ungraceful: NotRequired[pulumi.Input[Optional['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulArgs']]]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulArgsDict']]]
     """
     Ungraceful behavior configuration. See Ungraceful below.
     """
@@ -3376,7 +3376,7 @@ class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgsDict(TypedD
     """
     Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `containerInsightsMaxInLast24Hours`.
     """
-    services: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs']]]]]
+    services: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgsDict']]]]]
     """
     ECS service configuration. See ECS Service below.
     """
@@ -3388,7 +3388,7 @@ class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgsDict(TypedD
     """
     Timeout in minutes.
     """
-    ungraceful: NotRequired[pulumi.Input[Optional['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulArgs']]]
+    ungraceful: NotRequired[pulumi.Input[Optional['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulArgsDict']]]
     """
     Ungraceful behavior configuration. See Ungraceful Capacity below.
     """
@@ -3582,15 +3582,15 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgsDict(TypedDi
     """
     Target capacity percentage.
     """
-    eks_clusters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgs']]]]]
+    eks_clusters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgsDict']]]]]
     """
     List of EKS clusters. See EKS Clusters below.
     """
-    kubernetes_resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArgs']]]]]
+    kubernetes_resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArgsDict']]]]]
     """
     Kubernetes resource type. See Kubernetes Resource Type below.
     """
-    scaling_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgs']]]]]
+    scaling_resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgsDict']]]]]
     """
     List of scaling resources. See Scaling Resources below.
     """
@@ -3598,7 +3598,7 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgsDict(TypedDi
     """
     Timeout in minutes.
     """
-    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgs']]]]]
+    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgsDict']]]]]
     """
     Ungraceful behavior configuration. See Ungraceful Capacity below.
     """
@@ -3840,7 +3840,7 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceA
     """
     Kubernetes namespace.
     """
-    resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArgs']]]]]
+    resources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArgsDict']]]]]
     """
     Set of resources to scale. See Resources below.
     """
@@ -4070,7 +4070,7 @@ class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgsDict(TypedDict):
     """
     Timeout in minutes.
     """
-    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgs']]]]]
+    ungracefuls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgsDict']]]]]
     """
     Ungraceful behavior configuration. See Ungraceful Aurora below.
     """
@@ -4295,7 +4295,7 @@ class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgsDict(TypedDi
     """
     External ID for cross-account role assumption.
     """
-    record_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgs']]]]]
+    record_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgsDict']]]]]
     """
     Configuration block for record sets. See Record Set below.
     """
@@ -4537,7 +4537,7 @@ class PlanWorkflowStepRoute53HealthCheckConfigArgsDict(TypedDict):
     """
     External ID for cross-account role assumption.
     """
-    record_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgs']]]]]
+    record_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgsDict']]]]]
     """
     Configuration block for record sets. See Record Set below.
     """

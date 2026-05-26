@@ -1695,11 +1695,11 @@ class GetReportPlanReportSettingResult(dict):
                  regions: Sequence[_builtins.str],
                  report_template: _builtins.str):
         """
-        :param Sequence[_builtins.str] accounts: (Optional) Specifies the list of accounts a report covers.
+        :param Sequence[_builtins.str] accounts: List of accounts a report covers.
         :param Sequence[_builtins.str] framework_arns: ARNs of the frameworks a report covers.
-        :param _builtins.int number_of_frameworks: Specifies the number of frameworks a report covers.
-        :param Sequence[_builtins.str] organization_units: (Optional) Specifies the list of Organizational Units a report covers.
-        :param Sequence[_builtins.str] regions: (Optional) Specifies the list of regions a report covers.
+        :param _builtins.int number_of_frameworks: Number of frameworks a report covers.
+        :param Sequence[_builtins.str] organization_units: List of Organizational Units a report covers.
+        :param Sequence[_builtins.str] regions: List of regions a report covers.
         :param _builtins.str report_template: Identifies the report template for the report. Reports are built using a report template.
         """
         pulumi.set(__self__, "accounts", accounts)
@@ -1713,7 +1713,7 @@ class GetReportPlanReportSettingResult(dict):
     @pulumi.getter
     def accounts(self) -> Sequence[_builtins.str]:
         """
-        (Optional) Specifies the list of accounts a report covers.
+        List of accounts a report covers.
         """
         return pulumi.get(self, "accounts")
 
@@ -1729,7 +1729,7 @@ class GetReportPlanReportSettingResult(dict):
     @pulumi.getter(name="numberOfFrameworks")
     def number_of_frameworks(self) -> _builtins.int:
         """
-        Specifies the number of frameworks a report covers.
+        Number of frameworks a report covers.
         """
         return pulumi.get(self, "number_of_frameworks")
 
@@ -1737,7 +1737,7 @@ class GetReportPlanReportSettingResult(dict):
     @pulumi.getter(name="organizationUnits")
     def organization_units(self) -> Sequence[_builtins.str]:
         """
-        (Optional) Specifies the list of Organizational Units a report covers.
+        List of Organizational Units a report covers.
         """
         return pulumi.get(self, "organization_units")
 
@@ -1745,7 +1745,7 @@ class GetReportPlanReportSettingResult(dict):
     @pulumi.getter
     def regions(self) -> Sequence[_builtins.str]:
         """
-        (Optional) Specifies the list of regions a report covers.
+        List of regions a report covers.
         """
         return pulumi.get(self, "regions")
 

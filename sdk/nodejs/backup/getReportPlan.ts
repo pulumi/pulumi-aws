@@ -75,11 +75,11 @@ export interface GetReportPlanResult {
     readonly name: string;
     readonly region: string;
     /**
-     * An object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
+     * Object that contains information about where and how to deliver your reports, specifically your Amazon S3 bucket name, S3 key prefix, and the formats of your reports. Detailed below.
      */
     readonly reportDeliveryChannels: outputs.backup.GetReportPlanReportDeliveryChannel[];
     /**
-     * An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
+     * Object that identifies the report template for the report. Reports are built using a report template. Detailed below.
      */
     readonly reportSettings: outputs.backup.GetReportPlanReportSetting[];
     /**

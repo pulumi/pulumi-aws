@@ -46,8 +46,7 @@ export interface GetApisArgs {
      */
     region?: string;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired APIs.
+     * Map of tags, each pair of which must exactly match a pair on the desired APIs.
      */
     tags?: {[key: string]: string};
 }
@@ -111,8 +110,7 @@ export interface GetApisOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired APIs.
+     * Map of tags, each pair of which must exactly match a pair on the desired APIs.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

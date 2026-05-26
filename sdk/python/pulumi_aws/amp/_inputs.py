@@ -291,7 +291,7 @@ class ResourcePolicyTimeoutsArgs:
 
 
 class ScraperDestinationArgsDict(TypedDict):
-    amp: NotRequired[pulumi.Input[Optional['ScraperDestinationAmpArgs']]]
+    amp: NotRequired[pulumi.Input[Optional['ScraperDestinationAmpArgsDict']]]
     """
     Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
     """
@@ -397,11 +397,11 @@ class ScraperRoleConfigurationArgs:
 
 
 class ScraperSourceArgsDict(TypedDict):
-    eks: NotRequired[pulumi.Input[Optional['ScraperSourceEksArgs']]]
+    eks: NotRequired[pulumi.Input[Optional['ScraperSourceEksArgsDict']]]
     """
     Configuration block for an EKS cluster source. See `eks`.
     """
-    vpc: NotRequired[pulumi.Input[Optional['ScraperSourceVpcArgs']]]
+    vpc: NotRequired[pulumi.Input[Optional['ScraperSourceVpcArgsDict']]]
     """
     Configuration block for a VPC source. See `vpc`.
 

@@ -138,14 +138,14 @@ public final class VirtualRouterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Virtual router specification to apply.
+     * Virtual router specification to apply. See `spec` Block for details.
      * 
      */
     @Import(name="spec")
     private @Nullable Output<VirtualRouterSpecArgs> spec;
 
     /**
-     * @return Virtual router specification to apply.
+     * @return Virtual router specification to apply. See `spec` Block for details.
      * 
      */
     public Optional<Output<VirtualRouterSpecArgs>> spec() {
@@ -385,7 +385,7 @@ public final class VirtualRouterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param spec Virtual router specification to apply.
+         * @param spec Virtual router specification to apply. See `spec` Block for details.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class VirtualRouterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param spec Virtual router specification to apply.
+         * @param spec Virtual router specification to apply. See `spec` Block for details.
          * 
          * @return builder
          * 

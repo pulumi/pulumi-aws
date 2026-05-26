@@ -13,13 +13,17 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class GetAmiFilterInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the AMI that was provided during image creation.
+        /// Name of the filter. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         [Input("values", required: true)]
         private InputList<string>? _values;
+
+        /// <summary>
+        /// Set of values that are accepted for the given filter.
+        /// </summary>
         public InputList<string> Values
         {
             get => _values ?? (_values = new InputList<string>());

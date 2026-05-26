@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *     regionName: replica.then(replica => replica.region),
  * }]});
  * const test = new aws.dynamodb.Tag("test", {
- *     resourceArn: pulumi.all([example.arn, current, replica]).apply(([arn, current, replica]) => std.replaceOutput({
- *         text: arn,
- *         search: current.region,
- *         replace: replica.region,
- *     })).apply(invoke => invoke.result),
+ *     resourceArn: std.replaceOutput({
+ *         text: example.arn,
+ *         search: current.then(current => current.region),
+ *         replace: replica.then(replica => replica.region),
+ *     }).apply(invoke => invoke.result),
  *     key: "testkey",
  *     value: "testvalue",
  * });

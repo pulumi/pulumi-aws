@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * > **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `aws.ses.Template` or `aws.sesv2.EmailIdentity` and related SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+ *
  * Provides a Pinpoint Email Template resource
  *
  * ## Example Usage
@@ -71,6 +73,8 @@ export class EmailTemplate extends pulumi.CustomResource {
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+     *
+     * @deprecated email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     declare public readonly emailTemplates: pulumi.Output<outputs.pinpoint.EmailTemplateEmailTemplate[] | undefined>;
     /**
@@ -81,6 +85,8 @@ export class EmailTemplate extends pulumi.CustomResource {
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+     *
+     * @deprecated template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     declare public readonly templateName: pulumi.Output<string>;
 
@@ -130,6 +136,8 @@ export interface EmailTemplateState {
     arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+     *
+     * @deprecated email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     emailTemplates?: pulumi.Input<pulumi.Input<inputs.pinpoint.EmailTemplateEmailTemplate>[] | undefined>;
     /**
@@ -140,6 +148,8 @@ export interface EmailTemplateState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+     *
+     * @deprecated template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     templateName?: pulumi.Input<string | undefined>;
 }
@@ -150,6 +160,8 @@ export interface EmailTemplateState {
 export interface EmailTemplateArgs {
     /**
      * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+     *
+     * @deprecated email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     emailTemplates?: pulumi.Input<pulumi.Input<inputs.pinpoint.EmailTemplateEmailTemplate>[] | undefined>;
     /**
@@ -159,6 +171,8 @@ export interface EmailTemplateArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+     *
+     * @deprecated template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      */
     templateName: pulumi.Input<string>;
 }

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.AppStream.Outputs
     [OutputType]
     public sealed class GetImageStateChangeReasonResult
     {
+        /// <summary>
+        /// State change reason code.
+        /// </summary>
         public readonly string Code;
+        /// <summary>
+        /// State change reason message.
+        /// </summary>
         public readonly string Message;
 
         [OutputConstructor]

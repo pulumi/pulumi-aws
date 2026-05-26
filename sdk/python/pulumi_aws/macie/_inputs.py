@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 class FindingsFilterFindingCriteriaArgsDict(TypedDict):
-    criterions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgs']]]]]
+    criterions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgsDict']]]]]
     """
     A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
     """

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Backup.Outputs
     public sealed class GetReportPlanReportSettingResult
     {
         /// <summary>
-        /// (Optional) Specifies the list of accounts a report covers.
+        /// List of accounts a report covers.
         /// </summary>
         public readonly ImmutableArray<string> Accounts;
         /// <summary>
@@ -22,15 +22,15 @@ namespace Pulumi.Aws.Backup.Outputs
         /// </summary>
         public readonly ImmutableArray<string> FrameworkArns;
         /// <summary>
-        /// Specifies the number of frameworks a report covers.
+        /// Number of frameworks a report covers.
         /// </summary>
         public readonly int NumberOfFrameworks;
         /// <summary>
-        /// (Optional) Specifies the list of Organizational Units a report covers.
+        /// List of Organizational Units a report covers.
         /// </summary>
         public readonly ImmutableArray<string> OrganizationUnits;
         /// <summary>
-        /// (Optional) Specifies the list of regions a report covers.
+        /// List of regions a report covers.
         /// </summary>
         public readonly ImmutableArray<string> Regions;
         /// <summary>

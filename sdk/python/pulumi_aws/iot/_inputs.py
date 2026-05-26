@@ -404,11 +404,11 @@ class IndexingConfigurationThingGroupIndexingConfigurationArgsDict(TypedDict):
     """
     Thing group indexing mode. Valid values: `OFF`, `ON`.
     """
-    custom_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs']]]]]
+    custom_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgsDict']]]]]
     """
     A list of thing group fields to index. This list cannot contain any managed fields. See below.
     """
-    managed_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs']]]]]
+    managed_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgsDict']]]]]
     """
     Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
     """
@@ -570,7 +570,7 @@ class IndexingConfigurationThingIndexingConfigurationArgsDict(TypedDict):
     """
     Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
     """
-    custom_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs']]]]]
+    custom_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgsDict']]]]]
     """
     Contains custom field names and their data type. See below.
     """
@@ -578,11 +578,11 @@ class IndexingConfigurationThingIndexingConfigurationArgsDict(TypedDict):
     """
     Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
     """
-    filter: NotRequired[pulumi.Input[Optional['IndexingConfigurationThingIndexingConfigurationFilterArgs']]]
+    filter: NotRequired[pulumi.Input[Optional['IndexingConfigurationThingIndexingConfigurationFilterArgsDict']]]
     """
     Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
     """
-    managed_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs']]]]]
+    managed_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgsDict']]]]]
     """
     Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
     """
@@ -894,7 +894,7 @@ class ThingGroupMetadataArgsDict(TypedDict):
     """
     The name of the parent Thing Group.
     """
-    root_to_parent_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgs']]]]]
+    root_to_parent_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgsDict']]]]]
 
 @pulumi.input_type
 class ThingGroupMetadataArgs:
@@ -977,7 +977,7 @@ class ThingGroupMetadataRootToParentGroupArgs:
 
 
 class ThingGroupPropertiesArgsDict(TypedDict):
-    attribute_payload: NotRequired[pulumi.Input[Optional['ThingGroupPropertiesAttributePayloadArgs']]]
+    attribute_payload: NotRequired[pulumi.Input[Optional['ThingGroupPropertiesAttributePayloadArgsDict']]]
     """
     The Thing Group attributes. Defined below.
     """
@@ -1675,7 +1675,7 @@ class TopicRuleDynamodbv2ArgsDict(TypedDict):
     """
     The ARN of the IAM role that grants access to the DynamoDB table.
     """
-    put_item: NotRequired[pulumi.Input[Optional['TopicRuleDynamodbv2PutItemArgs']]]
+    put_item: NotRequired[pulumi.Input[Optional['TopicRuleDynamodbv2PutItemArgsDict']]]
     """
     Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
     """
@@ -1851,25 +1851,25 @@ class TopicRuleElasticsearchArgs:
 
 
 class TopicRuleErrorActionArgsDict(TypedDict):
-    cloudwatch_alarm: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionCloudwatchAlarmArgs']]]
-    cloudwatch_logs: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionCloudwatchLogsArgs']]]
-    cloudwatch_metric: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionCloudwatchMetricArgs']]]
-    dynamodb: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionDynamodbArgs']]]
-    dynamodbv2: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionDynamodbv2Args']]]
-    elasticsearch: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionElasticsearchArgs']]]
-    firehose: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionFirehoseArgs']]]
-    http: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionHttpArgs']]]
-    iot_analytics: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionIotAnalyticsArgs']]]
-    iot_events: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionIotEventsArgs']]]
-    kafka: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionKafkaArgs']]]
-    kinesis: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionKinesisArgs']]]
-    lambda_: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionLambdaArgs']]]
-    republish: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionRepublishArgs']]]
-    s3: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionS3Args']]]
-    sns: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionSnsArgs']]]
-    sqs: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionSqsArgs']]]
-    step_functions: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionStepFunctionsArgs']]]
-    timestream: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionTimestreamArgs']]]
+    cloudwatch_alarm: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionCloudwatchAlarmArgsDict']]]
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionCloudwatchLogsArgsDict']]]
+    cloudwatch_metric: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionCloudwatchMetricArgsDict']]]
+    dynamodb: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionDynamodbArgsDict']]]
+    dynamodbv2: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionDynamodbv2ArgsDict']]]
+    elasticsearch: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionElasticsearchArgsDict']]]
+    firehose: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionFirehoseArgsDict']]]
+    http: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionHttpArgsDict']]]
+    iot_analytics: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionIotAnalyticsArgsDict']]]
+    iot_events: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionIotEventsArgsDict']]]
+    kafka: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionKafkaArgsDict']]]
+    kinesis: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionKinesisArgsDict']]]
+    lambda_: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionLambdaArgsDict']]]
+    republish: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionRepublishArgsDict']]]
+    s3: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionS3ArgsDict']]]
+    sns: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionSnsArgsDict']]]
+    sqs: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionSqsArgsDict']]]
+    step_functions: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionStepFunctionsArgsDict']]]
+    timestream: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionTimestreamArgsDict']]]
 
 @pulumi.input_type
 class TopicRuleErrorActionArgs:
@@ -2590,7 +2590,7 @@ class TopicRuleErrorActionDynamodbv2ArgsDict(TypedDict):
     """
     The ARN of the IAM role that grants access to the DynamoDB table.
     """
-    put_item: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionDynamodbv2PutItemArgs']]]
+    put_item: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionDynamodbv2PutItemArgsDict']]]
     """
     Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
     """
@@ -2861,7 +2861,7 @@ class TopicRuleErrorActionHttpArgsDict(TypedDict):
     """
     The HTTPS URL used to verify ownership of `url`.
     """
-    http_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]]]]
+    http_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgsDict']]]]]
     """
     Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
     """
@@ -3134,7 +3134,7 @@ class TopicRuleErrorActionKafkaArgsDict(TypedDict):
     """
     The Kafka topic for messages to be sent to the Kafka broker.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgsDict']]]]]
     """
     The list of Kafka headers that you specify. Nested arguments below.
     """
@@ -3759,7 +3759,7 @@ class TopicRuleErrorActionTimestreamArgsDict(TypedDict):
     """
     The name of the database table into which to write the measure records.
     """
-    timestamp: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionTimestreamTimestampArgs']]]
+    timestamp: NotRequired[pulumi.Input[Optional['TopicRuleErrorActionTimestreamTimestampArgsDict']]]
     """
     Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
     """
@@ -4037,7 +4037,7 @@ class TopicRuleHttpArgsDict(TypedDict):
     """
     The HTTPS URL used to verify ownership of `url`.
     """
-    http_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]]]]
+    http_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgsDict']]]]]
     """
     Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
     """
@@ -4310,7 +4310,7 @@ class TopicRuleKafkaArgsDict(TypedDict):
     """
     The Kafka topic for messages to be sent to the Kafka broker.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgsDict']]]]]
     """
     The list of Kafka headers that you specify. Nested arguments below.
     """
@@ -4935,7 +4935,7 @@ class TopicRuleTimestreamArgsDict(TypedDict):
     """
     The name of the database table into which to write the measure records.
     """
-    timestamp: NotRequired[pulumi.Input[Optional['TopicRuleTimestreamTimestampArgs']]]
+    timestamp: NotRequired[pulumi.Input[Optional['TopicRuleTimestreamTimestampArgsDict']]]
     """
     Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
     """

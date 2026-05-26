@@ -109,8 +109,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired APIs.
+        /// Map of tags, each pair of which must exactly match a pair on the desired APIs.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -148,8 +147,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired APIs.
+        /// Map of tags, each pair of which must exactly match a pair on the desired APIs.
         /// </summary>
         public InputMap<string> Tags
         {

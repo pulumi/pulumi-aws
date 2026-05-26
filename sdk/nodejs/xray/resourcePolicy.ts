@@ -24,10 +24,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import X-Ray Resource Policy using the `policyName`. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `policyName` (String) Resource policy name.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import X-Ray Resource Policies using `policyName`. For example:
  *
  * ```sh
- * $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example resource_policy-name
+ * $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example example-policy
  * ```
  */
 export class ResourcePolicy extends pulumi.CustomResource {
@@ -73,7 +84,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
      */
     declare public readonly policyDocument: pulumi.Output<string>;
     /**
-     * name of the resource policy. Must be unique within a specific Amazon Web Services account.
+     * Name of the resource policy. Must be unique within a specific Amazon Web Services account.
      */
     declare public readonly policyName: pulumi.Output<string>;
     /**
@@ -143,7 +154,7 @@ export interface ResourcePolicyState {
      */
     policyDocument?: pulumi.Input<string | undefined>;
     /**
-     * name of the resource policy. Must be unique within a specific Amazon Web Services account.
+     * Name of the resource policy. Must be unique within a specific Amazon Web Services account.
      */
     policyName?: pulumi.Input<string | undefined>;
     /**
@@ -171,7 +182,7 @@ export interface ResourcePolicyArgs {
      */
     policyDocument: pulumi.Input<string>;
     /**
-     * name of the resource policy. Must be unique within a specific Amazon Web Services account.
+     * Name of the resource policy. Must be unique within a specific Amazon Web Services account.
      */
     policyName: pulumi.Input<string>;
     /**

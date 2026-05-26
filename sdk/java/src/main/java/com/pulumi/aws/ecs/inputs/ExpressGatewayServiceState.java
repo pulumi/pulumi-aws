@@ -39,14 +39,14 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+     * Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
      * 
      */
     @Import(name="cpu")
     private @Nullable Output<String> cpu;
 
     /**
-     * @return Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+     * @return Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
      * 
      */
     public Optional<Output<String>> cpu() {
@@ -92,14 +92,14 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Path for health check requests. Defaults to `/ping`.
+     * Path for health check requests. Defaults to `/`.
      * 
      */
     @Import(name="healthCheckPath")
     private @Nullable Output<String> healthCheckPath;
 
     /**
-     * @return Path for health check requests. Defaults to `/ping`.
+     * @return Path for health check requests. Defaults to `/`.
      * 
      */
     public Optional<Output<String>> healthCheckPath() {
@@ -141,14 +141,14 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+     * Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
      * 
      */
     @Import(name="memory")
     private @Nullable Output<String> memory;
 
     /**
-     * @return Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+     * @return Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
      * 
      */
     public Optional<Output<String>> memory() {
@@ -368,7 +368,7 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param cpu Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+         * @param cpu Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param cpu Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096.
+         * @param cpu Number of CPU units used by the task. Valid values are powers of 2 between 256 and 4096. Defaults to `1024`.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param healthCheckPath Path for health check requests. Defaults to `/ping`.
+         * @param healthCheckPath Path for health check requests. Defaults to `/`.
          * 
          * @return builder
          * 
@@ -450,7 +450,7 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param healthCheckPath Path for health check requests. Defaults to `/ping`.
+         * @param healthCheckPath Path for health check requests. Defaults to `/`.
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param memory Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+         * @param memory Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
          * 
          * @return builder
          * 
@@ -527,7 +527,7 @@ public final class ExpressGatewayServiceState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param memory Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192.
+         * @param memory Amount of memory (in MiB) used by the task. Valid values are between 512 and 8192. Defaults to `2048`.
          * 
          * @return builder
          * 

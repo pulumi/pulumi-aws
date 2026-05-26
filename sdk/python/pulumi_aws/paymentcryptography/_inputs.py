@@ -36,7 +36,7 @@ class KeyKeyAttributeArgsDict(TypedDict):
     """
     Cryptographic usage of an AWS Payment Cryptography key as defined in section A.5.2 of the TR-31 spec.
     """
-    key_modes_of_uses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgs']]]]]
+    key_modes_of_uses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KeyKeyAttributeKeyModesOfUseArgsDict']]]]]
     """
     List of cryptographic operations that you can perform using the key.
     """

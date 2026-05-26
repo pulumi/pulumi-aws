@@ -84,8 +84,7 @@ export interface GetEnvironmentResult {
     readonly name: string;
     readonly region: string;
     /**
-     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
-     * or `ROLLED_BACK`.
+     * State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK` or `ROLLED_BACK`.
      */
     readonly state: string;
     /**

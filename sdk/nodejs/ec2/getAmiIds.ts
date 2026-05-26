@@ -43,27 +43,19 @@ export function getAmiIds(args: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetAmiIdsArgs {
     /**
-     * Limit search to users with *explicit* launch
-     * permission on  the image. Valid items are the numeric account ID or `self`.
+     * Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
      */
     executableUsers?: string[];
     /**
-     * One or more name/value pairs to filter off of. There
-     * are several valid keys, for a full reference, check out
-     * [describe-images in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` Block below.
      */
     filters?: inputs.ec2.GetAmiIdsFilter[];
     /**
-     * If true, all deprecated AMIs are included in the response.
-     * If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+     * If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
      */
     includeDeprecated?: boolean;
     /**
-     * Regex string to apply to the AMI list returned
-     * by AWS. This allows more advanced filtering not supported from the AWS API.
-     * This filtering is done locally on what AWS returns, and could have a performance
-     * impact if the result is large. Combine this with other
-     * options to narrow down the list AWS returns.
+     * Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
      */
     nameRegex?: string;
     /**
@@ -75,8 +67,7 @@ export interface GetAmiIdsArgs {
      */
     region?: string;
     /**
-     * Used to sort AMIs by creation time.
-     * If no value is specified, the default value is `false`.
+     * Used to sort AMIs by creation time. If no value is specified, the default value is `false`.
      */
     sortAscending?: boolean;
 }
@@ -92,7 +83,7 @@ export interface GetAmiIdsResult {
      */
     readonly id: string;
     /**
-     * is set to the list of AMI IDs, sorted by creation time according to `sortAscending`.
+     * List of AMI IDs, sorted by creation time according to `sortAscending`.
      */
     readonly ids: string[];
     readonly includeDeprecated?: boolean;
@@ -137,27 +128,19 @@ export function getAmiIdsOutput(args: GetAmiIdsOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetAmiIdsOutputArgs {
     /**
-     * Limit search to users with *explicit* launch
-     * permission on  the image. Valid items are the numeric account ID or `self`.
+     * Limit search to users with *explicit* launch permission on the image. Valid items are the numeric account ID or `self`.
      */
     executableUsers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * One or more name/value pairs to filter off of. There
-     * are several valid keys, for a full reference, check out
-     * [describe-images in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. For a full reference, check out [describe-images in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). See `filter` Block below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetAmiIdsFilterArgs>[] | undefined>;
     /**
-     * If true, all deprecated AMIs are included in the response.
-     * If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
+     * If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is `false`.
      */
     includeDeprecated?: pulumi.Input<boolean | undefined>;
     /**
-     * Regex string to apply to the AMI list returned
-     * by AWS. This allows more advanced filtering not supported from the AWS API.
-     * This filtering is done locally on what AWS returns, and could have a performance
-     * impact if the result is large. Combine this with other
-     * options to narrow down the list AWS returns.
+     * Regex string to apply to the AMI list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
      */
     nameRegex?: pulumi.Input<string | undefined>;
     /**
@@ -169,8 +152,7 @@ export interface GetAmiIdsOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Used to sort AMIs by creation time.
-     * If no value is specified, the default value is `false`.
+     * Used to sort AMIs by creation time. If no value is specified, the default value is `false`.
      */
     sortAscending?: pulumi.Input<boolean | undefined>;
 }

@@ -196,14 +196,14 @@ public class VirtualRouter extends com.pulumi.resources.CustomResource {
         return this.resourceOwner;
     }
     /**
-     * Virtual router specification to apply.
+     * Virtual router specification to apply. See `spec` Block for details.
      * 
      */
     @Export(name="spec", refs={VirtualRouterSpec.class}, tree="[0]")
     private Output<VirtualRouterSpec> spec;
 
     /**
-     * @return Virtual router specification to apply.
+     * @return Virtual router specification to apply. See `spec` Block for details.
      * 
      */
     public Output<VirtualRouterSpec> spec() {

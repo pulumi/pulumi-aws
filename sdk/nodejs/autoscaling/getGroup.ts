@@ -55,13 +55,16 @@ export interface GetGroupResult {
      * One or more Availability Zones for the group.
      */
     readonly availabilityZones: string[];
+    /**
+     * Amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+     */
     readonly defaultCooldown: number;
     /**
      * Desired size of the group.
      */
     readonly desiredCapacity: number;
     /**
-     * The unit of measurement for the value returned for `desiredCapacity`.
+     * Unit of measurement for the value returned for `desiredCapacity`.
      */
     readonly desiredCapacityType: string;
     /**
@@ -69,7 +72,7 @@ export interface GetGroupResult {
      */
     readonly enabledMetrics: string[];
     /**
-     * The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
+     * Amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
      */
     readonly healthCheckGracePeriod: number;
     /**
@@ -85,7 +88,7 @@ export interface GetGroupResult {
      */
     readonly instanceMaintenancePolicies: outputs.autoscaling.GetGroupInstanceMaintenancePolicy[];
     /**
-     * The name of the associated launch configuration.
+     * Name of the associated launch configuration.
      */
     readonly launchConfiguration: string;
     /**
@@ -116,6 +119,9 @@ export interface GetGroupResult {
      * Name of the Auto Scaling Group.
      */
     readonly name: string;
+    /**
+     * Whether newly launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
+     */
     readonly newInstancesProtectedFromScaleIn: boolean;
     /**
      * Name of the placement group into which to launch your instances, if any. For more information, see Placement Groups (http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html) in the Amazon Elastic Compute Cloud User Guide.
@@ -147,7 +153,7 @@ export interface GetGroupResult {
      */
     readonly targetGroupArns: string[];
     /**
-     * The termination policies for the group.
+     * Termination policies for the group.
      */
     readonly terminationPolicies: string[];
     /**

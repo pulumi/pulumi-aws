@@ -70,25 +70,25 @@ import javax.annotation.Nullable;
  *             .bucket("access-logging-bucket")
  *             .build());
  * 
- *         final var loggingBucketPolicy = logging.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var loggingBucketPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers("logging.s3.amazonaws.com")
  *                     .type("Service")
  *                     .build())
  *                 .actions("s3:PutObject")
- *                 .resources(String.format("%s/*", _arn))
+ *                 .resources(logging.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("StringEquals")
  *                     .variable("aws:SourceAccount")
  *                     .values(current.accountId())
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var loggingBucketPolicy2 = new BucketPolicy("loggingBucketPolicy2", BucketPolicyArgs.builder()
  *             .bucket(logging.bucket())
- *             .policy(loggingBucketPolicy.json())
+ *             .policy(loggingBucketPolicy.applyValue(_loggingBucketPolicy -> _loggingBucketPolicy.json()))
  *             .build());
  * 
  *         var example = new Bucket("example", BucketArgs.builder()

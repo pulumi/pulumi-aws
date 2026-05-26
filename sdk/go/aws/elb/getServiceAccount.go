@@ -51,29 +51,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			allowElbLogging := elbLogs.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-//						{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//								{
-//									Type: "AWS",
-//									Identifiers: pulumi.StringArray{
-//										main.Arn,
-//									},
+//			allowElbLogging := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String(main.Arn),
 //								},
 //							},
-//							Actions: []string{
-//								"s3:PutObject",
-//							},
-//							Resources: []string{
-//								fmt.Sprintf("%v/AWSLogs/*", arn),
-//							},
 //						},
-//					}),
-//				}, nil))), nil
-//			}).(iam.GetPolicyDocumentResultOutput)
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:PutObject"),
+//						},
+//						Resources: pulumi.StringArray{
+//							elbLogs.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/AWSLogs/*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "allow_elb_logging", &s3.BucketPolicyArgs{
 //				Bucket: elbLogs.ID(),
 //				Policy: pulumi.String(allowElbLogging.ApplyT(func(allowElbLogging iam.GetPolicyDocumentResult) (*string, error) {

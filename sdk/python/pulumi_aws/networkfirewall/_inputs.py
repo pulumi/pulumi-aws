@@ -236,11 +236,11 @@ class FirewallEncryptionConfigurationArgs:
 
 
 class FirewallFirewallStatusArgsDict(TypedDict):
-    sync_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateArgs']]]]]
+    sync_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateArgsDict']]]]]
     """
     Set of subnets configured for use by the firewall.
     """
-    transit_gateway_attachment_sync_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgs']]]]]
+    transit_gateway_attachment_sync_states: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallFirewallStatusTransitGatewayAttachmentSyncStateArgsDict']]]]]
     """
     Set of transit gateway configured for use by the firewall.
     """
@@ -285,7 +285,7 @@ class FirewallFirewallStatusArgs:
 
 
 class FirewallFirewallStatusSyncStateArgsDict(TypedDict):
-    attachments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateAttachmentArgs']]]]]
+    attachments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallFirewallStatusSyncStateAttachmentArgsDict']]]]]
     """
     Nested list describing the attachment status of the firewall's association with a single VPC subnet.
     """
@@ -474,7 +474,7 @@ class FirewallPolicyFirewallPolicyArgsDict(TypedDict):
     """
     Boolean indicating whether to prevent TCP and TLS packets from reaching destination servers until TLS Inspection has evaluated Server Name Indication (SNI) rules. If `true`, `tls_inspection_configuration_arn` is required. Default value: `false`.
     """
-    policy_variables: NotRequired[pulumi.Input[Optional['FirewallPolicyFirewallPolicyPolicyVariablesArgs']]]
+    policy_variables: NotRequired[pulumi.Input[Optional['FirewallPolicyFirewallPolicyPolicyVariablesArgsDict']]]
     """
     . Contains variables that you can use to override default Suricata settings in your firewall policy. See Rule Variables for details.
     """
@@ -482,19 +482,19 @@ class FirewallPolicyFirewallPolicyArgsDict(TypedDict):
     """
     Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. Value values: `aws:drop_strict`, `aws:drop_established`, `aws:drop_established_app_layer`, `aws:alert_strict`, `aws:alert_established, `aws:alert_established_app_layer`. For more information, see [Strict evaluation order](https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html#suricata-strict-rule-evaluation-order.html) in the AWS Network Firewall Developer Guide.
     """
-    stateful_engine_options: NotRequired[pulumi.Input[Optional['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs']]]
+    stateful_engine_options: NotRequired[pulumi.Input[Optional['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgsDict']]]
     """
     A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
     """
-    stateful_rule_group_references: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs']]]]]
+    stateful_rule_group_references: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgsDict']]]]]
     """
     Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
     """
-    stateless_custom_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionArgs']]]]]
+    stateless_custom_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionArgsDict']]]]]
     """
     Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`. See Stateless Custom Action below for details.
     """
-    stateless_rule_group_references: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs']]]]]
+    stateless_rule_group_references: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgsDict']]]]]
     """
     Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
     """
@@ -673,7 +673,7 @@ class FirewallPolicyFirewallPolicyArgs:
 
 
 class FirewallPolicyFirewallPolicyPolicyVariablesArgsDict(TypedDict):
-    rule_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs']]]]]
+    rule_variables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgsDict']]]]]
 
 @pulumi.input_type
 class FirewallPolicyFirewallPolicyPolicyVariablesArgs:
@@ -768,7 +768,7 @@ class FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs:
 
 
 class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgsDict(TypedDict):
-    flow_timeouts: NotRequired[pulumi.Input[Optional['FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs']]]
+    flow_timeouts: NotRequired[pulumi.Input[Optional['FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgsDict']]]
     """
     Amount of time that can pass without any traffic sent through the firewall before the firewall determines that the connection is idle.
     """
@@ -876,7 +876,7 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgsDict(TypedDict):
 
     For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
     """
-    override: NotRequired[pulumi.Input[Optional['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs']]]
+    override: NotRequired[pulumi.Input[Optional['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgsDict']]]
     """
     Configuration block for override values
     """
@@ -1419,15 +1419,15 @@ class RuleGroupRuleGroupArgsDict(TypedDict):
     """
     A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
     """
-    reference_sets: NotRequired[pulumi.Input[Optional['RuleGroupRuleGroupReferenceSetsArgs']]]
+    reference_sets: NotRequired[pulumi.Input[Optional['RuleGroupRuleGroupReferenceSetsArgsDict']]]
     """
     A configuration block that defines the IP Set References for the rule group. See Reference Sets below for details. Please notes that there can only be a maximum of 5 `reference_sets` in a `rule_group`. See the [AWS documentation](https://docs.aws.amazon.com/network-firewall/latest/developerguide/rule-groups-ip-set-references.html#rule-groups-ip-set-reference-limits) for details.
     """
-    rule_variables: NotRequired[pulumi.Input[Optional['RuleGroupRuleGroupRuleVariablesArgs']]]
+    rule_variables: NotRequired[pulumi.Input[Optional['RuleGroupRuleGroupRuleVariablesArgsDict']]]
     """
     A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
     """
-    stateful_rule_options: NotRequired[pulumi.Input[Optional['RuleGroupRuleGroupStatefulRuleOptionsArgs']]]
+    stateful_rule_options: NotRequired[pulumi.Input[Optional['RuleGroupRuleGroupStatefulRuleOptionsArgsDict']]]
     """
     A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
     """
@@ -1503,7 +1503,7 @@ class RuleGroupRuleGroupArgs:
 
 
 class RuleGroupRuleGroupReferenceSetsArgsDict(TypedDict):
-    ip_set_references: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs']]]]]
+    ip_set_references: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupReferenceSetsIpSetReferenceArgsDict']]]]]
 
 @pulumi.input_type
 class RuleGroupRuleGroupReferenceSetsArgs:
@@ -1591,11 +1591,11 @@ class RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs:
 
 
 class RuleGroupRuleGroupRuleVariablesArgsDict(TypedDict):
-    ip_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRuleVariablesIpSetArgs']]]]]
+    ip_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRuleVariablesIpSetArgsDict']]]]]
     """
     Set of configuration blocks that define IP address information. See IP Sets below for details.
     """
-    port_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRuleVariablesPortSetArgs']]]]]
+    port_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRuleVariablesPortSetArgsDict']]]]]
     """
     Set of configuration blocks that define port range information. See Port Sets below for details.
     """
@@ -1790,7 +1790,7 @@ class RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs:
 
 
 class RuleGroupRuleGroupRulesSourceArgsDict(TypedDict):
-    rules_source_list: NotRequired[pulumi.Input[Optional['RuleGroupRuleGroupRulesSourceRulesSourceListArgs']]]
+    rules_source_list: NotRequired[pulumi.Input[Optional['RuleGroupRuleGroupRulesSourceRulesSourceListArgsDict']]]
     """
     A configuration block containing **stateful** inspection criteria for a domain list rule group. See Rules Source List below for details.
     """
@@ -1798,11 +1798,11 @@ class RuleGroupRuleGroupRulesSourceArgsDict(TypedDict):
     """
     Stateful inspection criteria, provided in Suricata compatible rules. These rules contain the inspection criteria and the action to take for traffic that matches the criteria, so this type of rule group doesn’t have a separate action setting.
     """
-    stateful_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleArgs']]]]]
+    stateful_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatefulRuleArgsDict']]]]]
     """
     Set of configuration blocks containing **stateful** inspection criteria for 5-tuple rules to be used together in a rule group. See Stateful Rule below for details.
     """
-    stateless_rules_and_custom_actions: NotRequired[pulumi.Input[Optional['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgs']]]
+    stateless_rules_and_custom_actions: NotRequired[pulumi.Input[Optional['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgsDict']]]
     """
     A configuration block containing **stateless** inspection criteria for a stateless rule group. See Stateless Rules and Custom Actions below for details.
     """
@@ -2189,7 +2189,7 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsArgsDict(TypedD
     """
     Set of configuration blocks containing the stateless rules for use in the stateless rule group. See Stateless Rule below for details.
     """
-    custom_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgs']]]]]
+    custom_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsCustomActionArgsDict']]]]]
     """
     Set of configuration blocks containing custom action definitions that are available for use by the set of `stateless rule`. See Custom Action below for details.
     """
@@ -2458,11 +2458,11 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
 
 
 class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesArgsDict(TypedDict):
-    destination_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs']]]]]
+    destination_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgsDict']]]]]
     """
     Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Port below for details.
     """
-    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs']]]]]
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgsDict']]]]]
     """
     Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
     """
@@ -2470,15 +2470,15 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     """
     Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
     """
-    source_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs']]]]]
+    source_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgsDict']]]]]
     """
     Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
     """
-    sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs']]]]]
+    sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgsDict']]]]]
     """
     Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
     """
-    tcp_flags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs']]]]]
+    tcp_flags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgsDict']]]]]
     """
     Set of configuration blocks containing the TCP flags and masks to inspect for. If not specified, this matches with any settings.
     """
@@ -3143,11 +3143,11 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     """
     ARN of the imported certificate authority (CA) certificate within Certificate Manager (ACM) to use for outbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html) for limitations on CA certificates.
     """
-    check_certificate_revocation_status: NotRequired[pulumi.Input[Optional['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgs']]]
+    check_certificate_revocation_status: NotRequired[pulumi.Input[Optional['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusArgsDict']]]
     """
     Check Certificate Revocation Status block. Detailed below.
     """
-    server_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgs']]]]]
+    server_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificateArgsDict']]]]]
     """
     Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
     """
@@ -3264,15 +3264,15 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     """
     Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
     """
-    destination_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs']]]]]
+    destination_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgsDict']]]]]
     """
     Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
     """
-    source_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs']]]]]
+    source_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgsDict']]]]]
     """
     Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
     """
-    sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs']]]]]
+    sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgsDict']]]]]
     """
     Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
     """

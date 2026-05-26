@@ -32,68 +32,64 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// exampleModelPackageGroup, err := sagemaker.NewModelPackageGroup(ctx, "example", &sagemaker.ModelPackageGroupArgs{
-// ModelPackageGroupName: pulumi.String("example"),
-// })
-// if err != nil {
-// return err
-// }
-// example := exampleModelPackageGroup.Arn.ApplyT(func(arn string) (iam.GetPolicyDocumentResult, error) {
-// return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-// {
-// Sid: pulumi.StringRef(pulumi.String(pulumi.StringRef("AddPermModelPackageGroup"))),
-// Actions: []string{
-// "sagemaker:DescribeModelPackage",
-// "sagemaker:ListModelPackages",
-// },
-// Resources: []string{
-// arn,
-// },
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Identifiers: pulumi.StringArray{
-// current.AccountId,
-// },
-// Type: "AWS",
-// },
-// },
-// },
-// }),
-// }, nil))), nil
-// }).(iam.GetPolicyDocumentResultOutput)
-// invokeJsondecode, err := std.Jsondecode(ctx, &std.JsondecodeArgs{
-// Input: example.Json,
-// }, nil)
-// if err != nil {
-// return err
-// }
-// _, err = sagemaker.NewModelPackageGroupPolicy(ctx, "example", &sagemaker.ModelPackageGroupPolicyArgs{
-// ModelPackageGroupName: exampleModelPackageGroup.ModelPackageGroupName,
-// ResourcePolicy: example.ApplyT(func(example iam.GetPolicyDocumentResult) (std.JsondecodeResult, error) {
-// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.JsondecodeResultOutput).ApplyT(func(invoke std.JsondecodeResult) (pulumi.String, error) {
-// var _zero pulumi.String
-// tmpJSON0, err := json.Marshal(invoke.Result)
-// if err != nil {
-// return _zero, err
-// }
-// json0 := string(tmpJSON0)
-// return pulumi.String(json0), nil
-// }).(pulumi.StringOutput),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleModelPackageGroup, err := sagemaker.NewModelPackageGroup(ctx, "example", &sagemaker.ModelPackageGroupArgs{
+//				ModelPackageGroupName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid: pulumi.String("AddPermModelPackageGroup"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sagemaker:DescribeModelPackage"),
+//							pulumi.String("sagemaker:ListModelPackages"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleModelPackageGroup.Arn,
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String(current.AccountId),
+//								},
+//								Type: pulumi.String("AWS"),
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			_, err = sagemaker.NewModelPackageGroupPolicy(ctx, "example", &sagemaker.ModelPackageGroupPolicyArgs{
+//				ModelPackageGroupName: exampleModelPackageGroup.ModelPackageGroupName,
+//				ResourcePolicy: std.JsondecodeOutput(ctx, std.JsondecodeOutputArgs{
+//					Input: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//						return &example.Json, nil
+//					}).(pulumi.StringPtrOutput),
+//				}, nil).ApplyT(func(invoke std.JsondecodeResult) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(invoke.Result)
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return pulumi.String(json0), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import

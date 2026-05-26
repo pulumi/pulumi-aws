@@ -603,6 +603,7 @@ class GetFrameworkControlSetResult(dict):
                  id: _builtins.str,
                  name: _builtins.str):
         """
+        :param _builtins.str id: Unique identifier for the framework.
         :param _builtins.str name: Name of the framework.
         """
         pulumi.set(__self__, "controls", controls)
@@ -617,6 +618,9 @@ class GetFrameworkControlSetResult(dict):
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        Unique identifier for the framework.
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -632,11 +636,17 @@ class GetFrameworkControlSetResult(dict):
 class GetFrameworkControlSetControlResult(dict):
     def __init__(__self__, *,
                  id: _builtins.str):
+        """
+        :param _builtins.str id: Unique identifier for the framework.
+        """
         pulumi.set(__self__, "id", id)
 
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        Unique identifier for the framework.
+        """
         return pulumi.get(self, "id")
 
 

@@ -130,187 +130,187 @@ __all__ = [
 ]
 
 class FilterFilterCriteriaArgsDict(TypedDict):
-    aws_account_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaAwsAccountIdArgs']]]]]
+    aws_account_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaAwsAccountIdArgsDict']]]]]
     """
     (Optional) The AWS account ID in which the finding was generated. Documented below.
     """
-    code_repository_project_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProjectNameArgs']]]]]
+    code_repository_project_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProjectNameArgsDict']]]]]
     """
     (Optional) The project name in a code repository. Documented below.
     """
-    code_repository_provider_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProviderTypeArgs']]]]]
+    code_repository_provider_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaCodeRepositoryProviderTypeArgsDict']]]]]
     """
     (Optional) The repository provider type (such as GitHub, GitLab, etc.) Documented below.
     """
-    code_vulnerability_detector_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorNameArgs']]]]]
+    code_vulnerability_detector_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorNameArgsDict']]]]]
     """
     (Optional) The ID of the component. Documented below.
     """
-    code_vulnerability_detector_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorTagArgs']]]]]
+    code_vulnerability_detector_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityDetectorTagArgsDict']]]]]
     """
     (Optional) The ID of the component. Documented below.
     """
-    code_vulnerability_file_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityFilePathArgs']]]]]
+    code_vulnerability_file_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaCodeVulnerabilityFilePathArgsDict']]]]]
     """
     (Optional) The ID of the component. Documented below.
     """
-    component_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaComponentIdArgs']]]]]
+    component_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaComponentIdArgsDict']]]]]
     """
     (Optional) The ID of the component. Documented below.
     """
-    component_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaComponentTypeArgs']]]]]
+    component_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaComponentTypeArgsDict']]]]]
     """
     (Optional) The type of the component. Documented below.
     """
-    ec2_instance_image_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceImageIdArgs']]]]]
+    ec2_instance_image_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceImageIdArgsDict']]]]]
     """
     (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
     """
-    ec2_instance_subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceSubnetIdArgs']]]]]
+    ec2_instance_subnet_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceSubnetIdArgsDict']]]]]
     """
     (Optional) The ID of the subnet. Documented below.
     """
-    ec2_instance_vpc_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceVpcIdArgs']]]]]
+    ec2_instance_vpc_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEc2InstanceVpcIdArgsDict']]]]]
     """
     (Optional) The ID of the VPC. Documented below.
     """
-    ecr_image_architectures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageArchitectureArgs']]]]]
+    ecr_image_architectures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageArchitectureArgsDict']]]]]
     """
     (Optional) The architecture of the ECR image. Documented below.
     """
-    ecr_image_hashes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageHashArgs']]]]]
+    ecr_image_hashes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageHashArgsDict']]]]]
     """
     (Optional) The SHA256 hash of the ECR image. Documented below.
     """
-    ecr_image_in_use_counts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageInUseCountArgs']]]]]
+    ecr_image_in_use_counts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageInUseCountArgsDict']]]]]
     """
     (Optional)  The number of the ECR images in use. Documented below.
     """
-    ecr_image_last_in_use_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageLastInUseAtArgs']]]]]
+    ecr_image_last_in_use_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageLastInUseAtArgsDict']]]]]
     """
     (Optional) The date range when an ECR image was last used in an ECS cluster task or EKS cluster pod. Documented below.
     """
-    ecr_image_pushed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImagePushedAtArgs']]]]]
+    ecr_image_pushed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImagePushedAtArgsDict']]]]]
     """
     (Optional) The date range when the image was pushed. Documented below.
     """
-    ecr_image_registries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRegistryArgs']]]]]
+    ecr_image_registries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRegistryArgsDict']]]]]
     """
     (Optional) The registry of the ECR image. Documented below.
     """
-    ecr_image_repository_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRepositoryNameArgs']]]]]
+    ecr_image_repository_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageRepositoryNameArgsDict']]]]]
     """
     (Optional) The name of the ECR repository. Documented below.
     """
-    ecr_image_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageTagArgs']]]]]
+    ecr_image_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEcrImageTagArgsDict']]]]]
     """
     (Optional) The tags associated with the ECR image. Documented below.
     """
-    epss_scores: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEpssScoreArgs']]]]]
+    epss_scores: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaEpssScoreArgsDict']]]]]
     """
     (Optional) EPSS (Exploit Prediction Scoring System) Score of the finding. Documented below.
     """
-    exploit_availables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaExploitAvailableArgs']]]]]
+    exploit_availables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaExploitAvailableArgsDict']]]]]
     """
     (Optional) Availability of exploits. Documented below.
     """
-    finding_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaFindingArnArgs']]]]]
+    finding_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaFindingArnArgsDict']]]]]
     """
     (Optional) The ARN of the finding. Documented below.
     """
-    finding_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaFindingStatusArgs']]]]]
+    finding_statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaFindingStatusArgsDict']]]]]
     """
     (Optional) The status of the finding. Documented below.
     """
-    finding_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaFindingTypeArgs']]]]]
+    finding_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaFindingTypeArgsDict']]]]]
     """
     (Optional) The type of the finding. Documented below.
     """
-    first_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaFirstObservedAtArgs']]]]]
+    first_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaFirstObservedAtArgsDict']]]]]
     """
     (Optional) When the finding was first observed. Documented below.
     """
-    fix_availables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaFixAvailableArgs']]]]]
+    fix_availables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaFixAvailableArgsDict']]]]]
     """
     (Optional) Availability of the fix. Documented below.
     """
-    inspector_scores: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaInspectorScoreArgs']]]]]
+    inspector_scores: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaInspectorScoreArgsDict']]]]]
     """
     (Optional) The Inspector score given to the finding. Documented below.
     """
-    lambda_function_execution_role_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgs']]]]]
+    lambda_function_execution_role_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionExecutionRoleArnArgsDict']]]]]
     """
     (Optional) Lambda execution role ARN. Documented below.
     """
-    lambda_function_last_modified_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionLastModifiedAtArgs']]]]]
+    lambda_function_last_modified_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionLastModifiedAtArgsDict']]]]]
     """
     (Optional) Last modified timestamp of the lambda function. Documented below.
     """
-    lambda_function_layers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionLayerArgs']]]]]
+    lambda_function_layers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionLayerArgsDict']]]]]
     """
     (Optional) Lambda function layers. Documented below.
     """
-    lambda_function_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionNameArgs']]]]]
+    lambda_function_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionNameArgsDict']]]]]
     """
     (Optional) Lambda function name. Documented below.
     """
-    lambda_function_runtimes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionRuntimeArgs']]]]]
+    lambda_function_runtimes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaLambdaFunctionRuntimeArgsDict']]]]]
     """
     (Optional) Lambda function runtime. Documented below.
     """
-    last_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaLastObservedAtArgs']]]]]
+    last_observed_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaLastObservedAtArgsDict']]]]]
     """
     (Optional) When the finding was last observed. Documented below.
     """
-    network_protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaNetworkProtocolArgs']]]]]
+    network_protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaNetworkProtocolArgsDict']]]]]
     """
     (Optional) The network protocol of the finding. Documented below.
     """
-    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaPortRangeArgs']]]]]
+    port_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaPortRangeArgsDict']]]]]
     """
     (Optional) The port range of the finding. Documented below.
     """
-    related_vulnerabilities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaRelatedVulnerabilityArgs']]]]]
+    related_vulnerabilities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaRelatedVulnerabilityArgsDict']]]]]
     """
     (Optional) Related vulnerabilities. Documented below.
     """
-    resource_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaResourceIdArgs']]]]]
+    resource_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaResourceIdArgsDict']]]]]
     """
     (Optional) The ID of the resource. Documented below.
     """
-    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaResourceTagArgs']]]]]
+    resource_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaResourceTagArgsDict']]]]]
     """
     (Optional) The tags of the resource. Documented below.
     """
-    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaResourceTypeArgs']]]]]
+    resource_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaResourceTypeArgsDict']]]]]
     """
     (Optional) The type of the resource. Documented below.
     """
-    severities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaSeverityArgs']]]]]
+    severities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaSeverityArgsDict']]]]]
     """
     (Optional) The severity of the finding. Documented below.
     """
-    titles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaTitleArgs']]]]]
+    titles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaTitleArgsDict']]]]]
     """
     (Optional) The title of the finding. Documented below.
     """
-    updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaUpdatedAtArgs']]]]]
+    updated_ats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaUpdatedAtArgsDict']]]]]
     """
     (Optional) When the finding was last updated. Documented below.
     """
-    vendor_severities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaVendorSeverityArgs']]]]]
+    vendor_severities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaVendorSeverityArgsDict']]]]]
     """
     (Optional) The severity as reported by the vendor. Documented below.
     """
-    vulnerability_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaVulnerabilityIdArgs']]]]]
+    vulnerability_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaVulnerabilityIdArgsDict']]]]]
     """
     (Optional) The ID of the vulnerability. Documented below.
     """
-    vulnerability_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaVulnerabilitySourceArgs']]]]]
+    vulnerability_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaVulnerabilitySourceArgsDict']]]]]
     """
     (Optional) The source of the vulnerability. Documented below.
     """
-    vulnerable_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaVulnerablePackageArgs']]]]]
+    vulnerable_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaVulnerablePackageArgsDict']]]]]
     """
     (Optional) Details about vulnerable packages. Documented below.
     """
@@ -3205,35 +3205,35 @@ class FilterFilterCriteriaVulnerabilitySourceArgs:
 
 
 class FilterFilterCriteriaVulnerablePackageArgsDict(TypedDict):
-    architecture: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageArchitectureArgs']]]
+    architecture: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageArchitectureArgsDict']]]
     """
     (Optional) The architecture of the package. Documented below.
     """
-    epoches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaVulnerablePackageEpochArgs']]]]]
+    epoches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilterFilterCriteriaVulnerablePackageEpochArgsDict']]]]]
     """
     (Optional) The epoch of the package. Documented below.
     """
-    file_path: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageFilePathArgs']]]
+    file_path: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageFilePathArgsDict']]]
     """
     (Optional) The name of the package. Documented below.
     """
-    name: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageNameArgs']]]
+    name: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageNameArgsDict']]]
     """
     Name of the filter.
     """
-    release: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageReleaseArgs']]]
+    release: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageReleaseArgsDict']]]
     """
     (Optional) The release of the package. Documented below.
     """
-    source_lambda_layer_arn: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgs']]]
+    source_lambda_layer_arn: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageSourceLambdaLayerArnArgsDict']]]
     """
     (Optional) The ARN of the package's source lambda layer. Documented below.
     """
-    source_layer_hash: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageSourceLayerHashArgs']]]
+    source_layer_hash: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageSourceLayerHashArgsDict']]]
     """
     (Optional) The source layer hash of the package. Documented below.
     """
-    version: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageVersionArgs']]]
+    version: NotRequired[pulumi.Input[Optional['FilterFilterCriteriaVulnerablePackageVersionArgsDict']]]
     """
     (Optional) The version of the package. Documented below.
     """

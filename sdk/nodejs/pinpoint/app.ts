@@ -10,6 +10,8 @@ import * as utilities from "../utilities";
 /**
  * Provides a Pinpoint App resource.
  *
+ * > **NOTE:** The `campaignHook`, `limits`, and `quietTime` attributes are deprecated. Amazon Pinpoint engagement features, including the Settings API that backs these attributes, are being discontinued on October 30, 2026. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -74,10 +76,14 @@ export class App extends pulumi.CustomResource {
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
      * Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
+     *
+     * @deprecated campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      */
     declare public readonly campaignHook: pulumi.Output<outputs.pinpoint.AppCampaignHook | undefined>;
     /**
      * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+     *
+     * @deprecated limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      */
     declare public readonly limits: pulumi.Output<outputs.pinpoint.AppLimits | undefined>;
     /**
@@ -90,6 +96,8 @@ export class App extends pulumi.CustomResource {
     declare public readonly namePrefix: pulumi.Output<string>;
     /**
      * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
+     *
+     * @deprecated quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      */
     declare public readonly quietTime: pulumi.Output<outputs.pinpoint.AppQuietTime | undefined>;
     /**
@@ -160,10 +168,14 @@ export interface AppState {
     arn?: pulumi.Input<string | undefined>;
     /**
      * Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
+     *
+     * @deprecated campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      */
     campaignHook?: pulumi.Input<inputs.pinpoint.AppCampaignHook | undefined>;
     /**
      * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+     *
+     * @deprecated limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      */
     limits?: pulumi.Input<inputs.pinpoint.AppLimits | undefined>;
     /**
@@ -176,6 +188,8 @@ export interface AppState {
     namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
+     *
+     * @deprecated quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      */
     quietTime?: pulumi.Input<inputs.pinpoint.AppQuietTime | undefined>;
     /**
@@ -198,10 +212,14 @@ export interface AppState {
 export interface AppArgs {
     /**
      * Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
+     *
+     * @deprecated campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      */
     campaignHook?: pulumi.Input<inputs.pinpoint.AppCampaignHook | undefined>;
     /**
      * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+     *
+     * @deprecated limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      */
     limits?: pulumi.Input<inputs.pinpoint.AppLimits | undefined>;
     /**
@@ -214,6 +232,8 @@ export interface AppArgs {
     namePrefix?: pulumi.Input<string | undefined>;
     /**
      * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
+     *
+     * @deprecated quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      */
     quietTime?: pulumi.Input<inputs.pinpoint.AppQuietTime | undefined>;
     /**

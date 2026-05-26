@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Commands;
         /// <summary>
-        /// Port on which the container listens for connections.
+        /// Port on which the container listens for connections. Defaults to `80`.
         /// </summary>
         public readonly int? ContainerPort;
         public readonly ImmutableArray<Outputs.ExpressGatewayServicePrimaryContainerEnvironment> Environments;

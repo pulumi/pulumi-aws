@@ -15,7 +15,6 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     {
         /// <summary>
         /// List of instance requirements objects.
-        /// * `AcceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult> InstanceRequirements;
         /// <summary>

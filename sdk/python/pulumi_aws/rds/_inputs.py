@@ -1299,7 +1299,7 @@ class OptionGroupOptionArgsDict(TypedDict):
     """
     List of DB Security Groups for which the option is enabled.
     """
-    option_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]]]
+    option_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgsDict']]]]]
     """
     The option settings to apply. See `option_settings` Block below for more details.
     """

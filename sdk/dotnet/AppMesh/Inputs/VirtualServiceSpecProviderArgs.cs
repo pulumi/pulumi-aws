@@ -13,13 +13,13 @@ namespace Pulumi.Aws.AppMesh.Inputs
     public sealed class VirtualServiceSpecProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Virtual node associated with a virtual service.
+        /// Virtual node associated with a virtual service. See `VirtualNode` Block for details.
         /// </summary>
         [Input("virtualNode")]
         public Input<Inputs.VirtualServiceSpecProviderVirtualNodeArgs>? VirtualNode { get; set; }
 
         /// <summary>
-        /// Virtual router associated with a virtual service.
+        /// Virtual router associated with a virtual service. See `VirtualRouter` Block for details.
         /// </summary>
         [Input("virtualRouter")]
         public Input<Inputs.VirtualServiceSpecProviderVirtualRouterArgs>? VirtualRouter { get; set; }

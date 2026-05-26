@@ -16,14 +16,14 @@ public final class VirtualServiceSpecArgs extends com.pulumi.resources.ResourceA
     public static final VirtualServiceSpecArgs Empty = new VirtualServiceSpecArgs();
 
     /**
-     * App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
+     * App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router. See `provider` Block for details.
      * 
      */
     @Import(name="provider")
     private @Nullable Output<VirtualServiceSpecProviderArgs> provider;
 
     /**
-     * @return App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
+     * @return App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router. See `provider` Block for details.
      * 
      */
     public Optional<Output<VirtualServiceSpecProviderArgs>> provider() {
@@ -55,7 +55,7 @@ public final class VirtualServiceSpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param provider App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
+         * @param provider App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router. See `provider` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class VirtualServiceSpecArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param provider App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
+         * @param provider App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router. See `provider` Block for details.
          * 
          * @return builder
          * 

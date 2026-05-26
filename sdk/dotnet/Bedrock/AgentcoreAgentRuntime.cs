@@ -278,6 +278,12 @@ namespace Pulumi.Aws.Bedrock
         public Output<ImmutableDictionary<string, string>?> EnvironmentVariables { get; private set; } = null!;
 
         /// <summary>
+        /// List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `FilesystemConfiguration` below.
+        /// </summary>
+        [Output("filesystemConfigurations")]
+        public Output<ImmutableArray<Outputs.AgentcoreAgentRuntimeFilesystemConfiguration>> FilesystemConfigurations { get; private set; } = null!;
+
+        /// <summary>
         /// Runtime session and resource lifecycle configuration for the agent runtime. See `LifecycleConfiguration` below.
         /// </summary>
         [Output("lifecycleConfigurations")]
@@ -418,6 +424,18 @@ namespace Pulumi.Aws.Bedrock
             set => _environmentVariables = value;
         }
 
+        [Input("filesystemConfigurations")]
+        private InputList<Inputs.AgentcoreAgentRuntimeFilesystemConfigurationArgs>? _filesystemConfigurations;
+
+        /// <summary>
+        /// List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `FilesystemConfiguration` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreAgentRuntimeFilesystemConfigurationArgs> FilesystemConfigurations
+        {
+            get => _filesystemConfigurations ?? (_filesystemConfigurations = new InputList<Inputs.AgentcoreAgentRuntimeFilesystemConfigurationArgs>());
+            set => _filesystemConfigurations = value;
+        }
+
         [Input("lifecycleConfigurations")]
         private InputList<Inputs.AgentcoreAgentRuntimeLifecycleConfigurationArgs>? _lifecycleConfigurations;
 
@@ -537,6 +555,18 @@ namespace Pulumi.Aws.Bedrock
         {
             get => _environmentVariables ?? (_environmentVariables = new InputMap<string>());
             set => _environmentVariables = value;
+        }
+
+        [Input("filesystemConfigurations")]
+        private InputList<Inputs.AgentcoreAgentRuntimeFilesystemConfigurationGetArgs>? _filesystemConfigurations;
+
+        /// <summary>
+        /// List of filesystems to mount into the agent runtime. Up to 5 entries are supported. Each entry is one of session storage, Amazon S3 Files access point, or Amazon EFS access point. See `FilesystemConfiguration` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreAgentRuntimeFilesystemConfigurationGetArgs> FilesystemConfigurations
+        {
+            get => _filesystemConfigurations ?? (_filesystemConfigurations = new InputList<Inputs.AgentcoreAgentRuntimeFilesystemConfigurationGetArgs>());
+            set => _filesystemConfigurations = value;
         }
 
         [Input("lifecycleConfigurations")]

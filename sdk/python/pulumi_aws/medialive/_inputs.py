@@ -392,15 +392,15 @@ class ChannelDestinationArgsDict(TypedDict):
     """
     User-specified id. Ths is used in an output group or an output.
     """
-    media_package_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArgs']]]]]
+    media_package_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelDestinationMediaPackageSettingArgsDict']]]]]
     """
     Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
     """
-    multiplex_settings: NotRequired[pulumi.Input[Optional['ChannelDestinationMultiplexSettingsArgs']]]
+    multiplex_settings: NotRequired[pulumi.Input[Optional['ChannelDestinationMultiplexSettingsArgsDict']]]
     """
     Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
     """
-    settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelDestinationSettingArgs']]]]]
+    settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelDestinationSettingArgsDict']]]]]
     """
     Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
     """
@@ -648,31 +648,31 @@ class ChannelEncoderSettingsArgsDict(TypedDict):
     """
     Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
     """
-    audio_descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArgs']]]]]
+    audio_descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionArgsDict']]]]]
     """
     Audio descriptions for the channel. See Audio Descriptions for more details.
     """
-    avail_blanking: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAvailBlankingArgs']]]
+    avail_blanking: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAvailBlankingArgsDict']]]
     """
     Settings for ad avail blanking. See Avail Blanking for more details.
     """
-    caption_descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArgs']]]]]
+    caption_descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsCaptionDescriptionArgsDict']]]]]
     """
     Caption Descriptions. See Caption Descriptions for more details.
     """
-    global_configuration: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationArgs']]]
+    global_configuration: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationArgsDict']]]
     """
     Configuration settings that apply to the event as a whole. See Global Configuration for more details.
     """
-    motion_graphics_configuration: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsMotionGraphicsConfigurationArgs']]]
+    motion_graphics_configuration: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsMotionGraphicsConfigurationArgsDict']]]
     """
     Settings for motion graphics. See Motion Graphics Configuration for more details.
     """
-    nielsen_configuration: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsNielsenConfigurationArgs']]]
+    nielsen_configuration: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsNielsenConfigurationArgsDict']]]
     """
     Nielsen configuration settings. See Nielsen Configuration for more details.
     """
-    video_descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgs']]]]]
+    video_descriptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsVideoDescriptionArgsDict']]]]]
     """
     Video Descriptions. See Video Descriptions for more details.
     """
@@ -835,7 +835,7 @@ class ChannelEncoderSettingsAudioDescriptionArgsDict(TypedDict):
     """
     The name of this audio description.
     """
-    audio_normalization_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs']]]
+    audio_normalization_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgsDict']]]
     """
     Advanced audio normalization settings. See Audio Normalization Settings for more details.
     """
@@ -847,17 +847,17 @@ class ChannelEncoderSettingsAudioDescriptionArgsDict(TypedDict):
     """
     Determined how audio type is determined.
     """
-    audio_watermark_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs']]]
+    audio_watermark_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgsDict']]]
     """
     Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
     """
-    codec_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs']]]
+    codec_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsArgsDict']]]
     """
     Audio codec settings. See Audio Codec Settings for more details.
     """
     language_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     language_code_control: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    remix_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionRemixSettingsArgs']]]
+    remix_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionRemixSettingsArgsDict']]]
     stream_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Stream name RTMP destinations (URLs of type rtmp://)
@@ -1102,7 +1102,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs:
 
 
 class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgsDict(TypedDict):
-    nielsen_watermarks_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgs']]]
+    nielsen_watermarks_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs:
@@ -1122,7 +1122,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs:
 
 
 class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsArgsDict(TypedDict):
-    nielsen_cbet_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs']]]
+    nielsen_cbet_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgsDict']]]
     """
     Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
     """
@@ -1130,7 +1130,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
     """
     Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
     """
-    nielsen_naes_ii_nw_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs']]]]]
+    nielsen_naes_ii_nw_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgsDict']]]]]
     """
     Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
     """
@@ -1290,25 +1290,25 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
 
 
 class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgsDict(TypedDict):
-    aac_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs']]]
+    aac_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgsDict']]]
     """
     Aac Settings. See AAC Settings for more details.
     """
-    ac3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs']]]
+    ac3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgsDict']]]
     """
     Ac3 Settings. See AC3 Settings for more details.
     """
-    eac3_atmos_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs']]]
+    eac3_atmos_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgsDict']]]
     """
     Eac3 Atmos Settings. See EAC3 Atmos Settings
     """
-    eac3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs']]]
+    eac3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgsDict']]]
     """
     Eac3 Settings. See EAC3 Settings
     """
-    mp2_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgs']]]
-    pass_through_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgs']]]
-    wav_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgs']]]
+    mp2_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2SettingsArgsDict']]]
+    pass_through_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettingsArgsDict']]]
+    wav_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs:
@@ -2456,7 +2456,7 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChan
 
 
 class ChannelEncoderSettingsAvailBlankingArgsDict(TypedDict):
-    avail_blanking_image: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs']]]
+    avail_blanking_image: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgsDict']]]
     """
     Blanking image to be used. See Avail Blanking Image for more details.
     """
@@ -2585,7 +2585,7 @@ class ChannelEncoderSettingsCaptionDescriptionArgsDict(TypedDict):
     """
     Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
     """
-    destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs']]]
+    destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgsDict']]]
     """
     Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
     """
@@ -2700,55 +2700,55 @@ class ChannelEncoderSettingsCaptionDescriptionArgs:
 
 
 class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgsDict(TypedDict):
-    arib_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs']]]
+    arib_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgsDict']]]
     """
     ARIB Destination Settings.
     """
-    burn_in_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs']]]
+    burn_in_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgsDict']]]
     """
     Burn In Destination Settings. See Burn In Destination Settings for more details.
     """
-    dvb_sub_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs']]]
+    dvb_sub_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgsDict']]]
     """
     DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
     """
-    ebu_tt_d_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs']]]
+    ebu_tt_d_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgsDict']]]
     """
     EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
     """
-    embedded_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs']]]
+    embedded_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgsDict']]]
     """
     Embedded Destination Settings.
     """
-    embedded_plus_scte20_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs']]]
+    embedded_plus_scte20_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgsDict']]]
     """
     Embedded Plus SCTE20 Destination Settings.
     """
-    rtmp_caption_info_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs']]]
+    rtmp_caption_info_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgsDict']]]
     """
     RTMP Caption Info Destination Settings.
     """
-    scte20_plus_embedded_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs']]]
+    scte20_plus_embedded_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgsDict']]]
     """
     SCTE20 Plus Embedded Destination Settings.
     """
-    scte27_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs']]]
+    scte27_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgsDict']]]
     """
     SCTE27 Destination Settings.
     """
-    smpte_tt_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs']]]
+    smpte_tt_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgsDict']]]
     """
     SMPTE TT Destination Settings.
     """
-    teletext_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs']]]
+    teletext_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgsDict']]]
     """
     Teletext Destination Settings.
     """
-    ttml_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs']]]
+    ttml_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgsDict']]]
     """
     TTML Destination Settings. See TTML Destination Settings for more details.
     """
-    webvtt_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs']]]
+    webvtt_destination_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgsDict']]]
     """
     WebVTT Destination Settings. See WebVTT Destination Settings for more details.
     """
@@ -2998,7 +2998,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
     """
     Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
     """
-    font: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs']]]
+    font: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgsDict']]]
     """
     External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
     """
@@ -3405,7 +3405,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
     """
     Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
     """
-    font: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs']]]
+    font: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgsDict']]]
     """
     External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
     """
@@ -4026,7 +4026,7 @@ class ChannelEncoderSettingsGlobalConfigurationArgsDict(TypedDict):
     """
     Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
     """
-    input_loss_behavior: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs']]]
+    input_loss_behavior: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgsDict']]]
     """
     Settings for system actions when input is lost. See Input Loss Behavior for more details.
     """
@@ -4149,7 +4149,7 @@ class ChannelEncoderSettingsGlobalConfigurationArgs:
 class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgsDict(TypedDict):
     black_frame_msec: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     input_loss_image_color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    input_loss_image_slate: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgs']]]
+    input_loss_image_slate: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlateArgsDict']]]
     input_loss_image_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     repeat_frame_msec: NotRequired[pulumi.Input[Optional[_builtins.int]]]
 
@@ -4312,7 +4312,7 @@ class ChannelEncoderSettingsMotionGraphicsConfigurationArgs:
 
 
 class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgsDict(TypedDict):
-    html_motion_graphics_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs']]]
+    html_motion_graphics_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgsDict']]]
     """
     Html Motion Graphics Settings.
     """
@@ -4574,23 +4574,23 @@ class ChannelEncoderSettingsOutputGroupOutputArgs:
 
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgsDict(TypedDict):
-    archive_group_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs']]]]]
+    archive_group_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgsDict']]]]]
     """
     Archive group settings. See Archive Group Settings for more details.
     """
-    frame_capture_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs']]]
-    hls_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgs']]]
-    media_package_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs']]]
+    frame_capture_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgsDict']]]
+    hls_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgsDict']]]
+    media_package_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgsDict']]]
     """
     Media package group settings. See Media Package Group Settings for more details.
     """
-    ms_smooth_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgs']]]
-    multiplex_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgs']]]
-    rtmp_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs']]]
+    ms_smooth_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsArgsDict']]]
+    multiplex_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettingsArgsDict']]]
+    rtmp_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgsDict']]]
     """
     RTMP group settings. See RTMP Group Settings for more details.
     """
-    udp_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs']]]
+    udp_group_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs:
@@ -4712,7 +4712,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArg
     """
     A director and base filename where archive files should be written. See Destination for more details.
     """
-    archive_cdn_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs']]]
+    archive_cdn_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgsDict']]]
     """
     Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
     """
@@ -4776,7 +4776,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArg
 
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgsDict(TypedDict):
-    archive_s3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs']]]
+    archive_s3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgsDict']]]
     """
     Archive S3 Settings. See Archive S3 Settings for more details.
     """
@@ -4863,7 +4863,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDes
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgsDict(TypedDict):
     destination: pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgsDict']
-    frame_capture_cdn_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs']]]
+    frame_capture_cdn_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsArgs:
@@ -4922,7 +4922,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
 
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgsDict(TypedDict):
-    frame_capture_s3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgs']]]
+    frame_capture_s3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3SettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsArgs:
@@ -4980,7 +4980,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgsDi
     base_url_content1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     base_url_manifest: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     base_url_manifest1: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    caption_language_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgs']]]]]
+    caption_language_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMappingArgsDict']]]]]
     caption_language_setting: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     client_cache: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     codec_specification: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -4988,7 +4988,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgsDi
     directory_structure: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     discontinuity_tags: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     encryption_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    hls_cdn_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs']]]]]
+    hls_cdn_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgsDict']]]]]
     hls_id3_segment_tagging: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     iframe_only_playlists: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     incomplete_segment_behavior: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -4999,7 +4999,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsArgsDi
     keep_segments: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     key_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     key_format_versions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    key_provider_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs']]]
+    key_provider_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgsDict']]]
     manifest_compression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     manifest_duration_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     min_segment_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
@@ -5619,11 +5619,11 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestin
 
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgsDict(TypedDict):
-    hls_akamai_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgs']]]
-    hls_basic_put_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgs']]]
-    hls_media_store_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgs']]]
-    hls_s3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgs']]]
-    hls_webdav_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgs']]]
+    hls_akamai_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettingsArgsDict']]]
+    hls_basic_put_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettingsArgsDict']]]
+    hls_media_store_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettingsArgsDict']]]
+    hls_s3_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3SettingsArgsDict']]]
+    hls_webdav_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingArgs:
@@ -6113,7 +6113,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgsDict(TypedDict):
-    static_key_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs']]]]]
+    static_key_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgsDict']]]]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsArgs:
@@ -6134,7 +6134,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
 
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgsDict(TypedDict):
     static_key_value: pulumi.Input[_builtins.str]
-    key_provider_server: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgs']]]
+    key_provider_server: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServerArgsDict']]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingArgs:
@@ -6797,26 +6797,26 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettingsArgs:
 
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgsDict(TypedDict):
-    archive_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs']]]
+    archive_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgsDict']]]
     """
     Archive output settings. See Archive Output Settings for more details.
     """
-    frame_capture_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgs']]]
-    hls_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs']]]
-    media_package_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs']]]
+    frame_capture_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettingsArgsDict']]]
+    hls_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgsDict']]]
+    media_package_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgsDict']]]
     """
     Media package output settings. This can be set as an empty block.
     """
-    ms_smooth_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgs']]]
-    multiplex_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs']]]
+    ms_smooth_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettingsArgsDict']]]
+    multiplex_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgsDict']]]
     """
     Multiplex output settings. See Multiplex Output Settings for more details.
     """
-    rtmp_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs']]]
+    rtmp_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgsDict']]]
     """
     RTMP output settings. See RTMP Output Settings for more details.
     """
-    udp_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs']]]
+    udp_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgsDict']]]
     """
     UDP output settings. See UDP Output Settings for more details.
     """
@@ -6945,7 +6945,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs:
 
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgsDict(TypedDict):
-    container_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs']]]
+    container_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgsDict']]]
     """
     Settings specific to the container type of the file. See Container Settings for more details.
     """
@@ -7014,11 +7014,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgsDict(TypedDict):
-    m2ts_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs']]]
+    m2ts_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgsDict']]]
     """
     M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
     """
-    raw_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs']]]
+    raw_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgsDict']]]
     """
     Raw Settings. This can be set as an empty block.
     """
@@ -7074,10 +7074,10 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
     bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     buffer_model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     cc_descriptor: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    dvb_nit_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs']]]
-    dvb_sdt_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs']]]
+    dvb_nit_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgsDict']]]
+    dvb_sdt_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgsDict']]]
     dvb_sub_pids: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    dvb_tdt_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs']]]
+    dvb_tdt_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgsDict']]]
     dvb_teletext_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     ebif: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     ebp_audio_interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -7918,10 +7918,10 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsArgs
 
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgsDict(TypedDict):
-    audio_only_hls_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgs']]]
-    fmp4_hls_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgs']]]
-    frame_capture_hls_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgs']]]
-    standard_hls_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgs']]]
+    audio_only_hls_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgsDict']]]
+    fmp4_hls_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettingsArgsDict']]]
+    frame_capture_hls_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettingsArgsDict']]]
+    standard_hls_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsArgs:
@@ -7978,7 +7978,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsArgsDict(TypedDict):
     audio_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    audio_only_image: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgs']]]
+    audio_only_image: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImageArgsDict']]]
     audio_track_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     segment_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -8640,7 +8640,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs
     """
     UDP output buffering in milliseconds.
     """
-    fec_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgs']]]
+    fec_output_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs:
@@ -8708,7 +8708,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs
 
 
 class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgsDict(TypedDict):
-    m2ts_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs']]]
+    m2ts_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgsDict']]]
     """
     M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
     """
@@ -8748,10 +8748,10 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     bitrate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     buffer_model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     cc_descriptor: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    dvb_nit_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgs']]]
-    dvb_sdt_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgs']]]
+    dvb_nit_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettingsArgsDict']]]
+    dvb_sdt_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettingsArgsDict']]]
     dvb_sub_pids: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    dvb_tdt_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgs']]]
+    dvb_tdt_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettingsArgsDict']]]
     dvb_teletext_pid: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     ebif: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     ebp_audio_interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -9636,7 +9636,7 @@ class ChannelEncoderSettingsVideoDescriptionArgsDict(TypedDict):
     """
     The name of the video description.
     """
-    codec_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs']]]
+    codec_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsArgsDict']]]
     """
     The video codec settings. See Video Codec Settings for more details.
     """
@@ -9780,15 +9780,15 @@ class ChannelEncoderSettingsVideoDescriptionArgs:
 
 
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgsDict(TypedDict):
-    frame_capture_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs']]]
+    frame_capture_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgsDict']]]
     """
     Frame capture settings. See Frame Capture Settings for more details.
     """
-    h264_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs']]]
+    h264_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgsDict']]]
     """
     H264 settings. See H264 Settings for more details.
     """
-    h265_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs']]]
+    h265_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs:
@@ -9916,7 +9916,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgsDict(Ty
     """
     Entropy encoding mode.
     """
-    filter_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs']]]
+    filter_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgsDict']]]
     """
     Filters to apply to an encode. See H264 Filter Settings for more details.
     """
@@ -10686,7 +10686,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs:
 
 
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgsDict(TypedDict):
-    temporal_filter_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs']]]
+    temporal_filter_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs:
@@ -10787,11 +10787,11 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgsDict(Ty
     """
     Includes color space metadata in the output.
     """
-    color_space_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs']]]
+    color_space_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgsDict']]]
     """
     Define the color metadata for the output. H265 Color Space Settings for more details.
     """
-    filter_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs']]]
+    filter_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgsDict']]]
     """
     Filters to apply to an encode. See H265 Filter Settings for more details.
     """
@@ -10888,7 +10888,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgsDict(Ty
     """
     Sets the width of tiles.
     """
-    timecode_burnin_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs']]]
+    timecode_burnin_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgsDict']]]
     """
     Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
     """
@@ -11494,23 +11494,23 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsArgs:
 
 
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgsDict(TypedDict):
-    color_space_passthrough_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs']]]
+    color_space_passthrough_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgsDict']]]
     """
     Sets the colorspace metadata to be passed through.
     """
-    dolby_vision81_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs']]]
+    dolby_vision81_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgsDict']]]
     """
     Set the colorspace to Dolby Vision81.
     """
-    hdr10_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs']]]
+    hdr10_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgsDict']]]
     """
     Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
     """
-    rec601_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs']]]
+    rec601_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgsDict']]]
     """
     Set the colorspace to Rec. 601.
     """
-    rec709_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs']]]
+    rec709_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgsDict']]]
     """
     Set the colorspace to Rec. 709.
     """
@@ -11688,7 +11688,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
 
 
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgsDict(TypedDict):
-    temporal_filter_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs']]]
+    temporal_filter_settings: NotRequired[pulumi.Input[Optional['ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs:
@@ -11834,11 +11834,11 @@ class ChannelInputAttachmentArgsDict(TypedDict):
     """
     The ID of the input.
     """
-    automatic_input_failover_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsArgs']]]
+    automatic_input_failover_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsArgsDict']]]
     """
     User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
     """
-    input_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsArgs']]]
+    input_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsArgsDict']]]
     """
     Settings of an input. See Input Settings for more details.
     """
@@ -11921,7 +11921,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsArgsDict(TypedDict):
     """
     This clear time defines the requirement a recovered input must meet to be considered healthy. The input must have no failover conditions for this length of time. Enter a time in milliseconds. This value is particularly important if the input\\_preference for the failover pair is set to PRIMARY\\_INPUT\\_PREFERRED, because after this time, MediaLive will switch back to the primary input.
     """
-    failover_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs']]]]]
+    failover_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgsDict']]]]]
     """
     A list of failover conditions. If any of these conditions occur, MediaLive will perform a failover to the other input. See Failover Condition Block for more details.
     """
@@ -12001,7 +12001,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsArgs:
 
 
 class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgsDict(TypedDict):
-    failover_condition_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs']]]
+    failover_condition_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgsDict']]]
     """
     Failover condition type-specific settings. See Failover Condition Settings for more details.
     """
@@ -12030,15 +12030,15 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionArgs:
 
 
 class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgsDict(TypedDict):
-    audio_silence_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs']]]
+    audio_silence_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgsDict']]]
     """
     MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
     """
-    input_loss_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs']]]
+    input_loss_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgsDict']]]
     """
     MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
     """
-    video_black_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs']]]
+    video_black_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgsDict']]]
     """
     MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
     """
@@ -12218,11 +12218,11 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 
 
 class ChannelInputAttachmentInputSettingsArgsDict(TypedDict):
-    audio_selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArgs']]]]]
+    audio_selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsAudioSelectorArgsDict']]]]]
     """
     Used to select the audio stream to decode for inputs that have multiple. See Audio Selectors for more details.
     """
-    caption_selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgs']]]]]
+    caption_selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ChannelInputAttachmentInputSettingsCaptionSelectorArgsDict']]]]]
     """
     Used to select the caption input to use for inputs that have multiple available. See Caption Selectors for more details.
     """
@@ -12242,7 +12242,7 @@ class ChannelInputAttachmentInputSettingsArgsDict(TypedDict):
     """
     Turns on the filter for the input.
     """
-    network_input_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs']]]
+    network_input_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsNetworkInputSettingsArgsDict']]]
     """
     Input settings. See Network Input Settings for more details.
     """
@@ -12258,7 +12258,7 @@ class ChannelInputAttachmentInputSettingsArgsDict(TypedDict):
     """
     Loop input if it is a file.
     """
-    video_selector: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsVideoSelectorArgs']]]
+    video_selector: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsVideoSelectorArgsDict']]]
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsArgs:
@@ -12446,7 +12446,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgsDict(TypedDict):
 
     The following arguments are optional:
     """
-    selector_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs']]]
+    selector_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
@@ -12487,19 +12487,19 @@ class ChannelInputAttachmentInputSettingsAudioSelectorArgs:
 
 
 class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgsDict(TypedDict):
-    audio_hls_rendition_selection: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs']]]
+    audio_hls_rendition_selection: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgsDict']]]
     """
     Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
     """
-    audio_language_selection: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs']]]
+    audio_language_selection: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgsDict']]]
     """
     Audio Language Selection. See Audio Language Selection for more details.
     """
-    audio_pid_selection: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs']]]
+    audio_pid_selection: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgsDict']]]
     """
     Audio Pid Selection. See Audio PID Selection for more details.
     """
-    audio_track_selection: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs']]]
+    audio_track_selection: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgsDict']]]
     """
     Audio Track Selection. See Audio Track Selection for more details.
     """
@@ -12703,7 +12703,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
     """
     Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
     """
-    dolby_e_decode: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs']]]
+    dolby_e_decode: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgsDict']]]
     """
     Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
     """
@@ -12810,7 +12810,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgsDict(TypedDict):
     The following arguments are optional:
     """
     language_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    selector_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs']]]
+    selector_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgsDict']]]
 
 @pulumi.input_type
 class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
@@ -12863,31 +12863,31 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorArgs:
 
 
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgsDict(TypedDict):
-    ancillary_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs']]]
+    ancillary_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgsDict']]]
     """
     Ancillary Source Settings. See Ancillary Source Settings for more details.
     """
-    arib_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs']]]
+    arib_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgsDict']]]
     """
     ARIB Source Settings.
     """
-    dvb_sub_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs']]]
+    dvb_sub_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgsDict']]]
     """
     DVB Sub Source Settings. See DVB Sub Source Settings for more details.
     """
-    embedded_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs']]]
+    embedded_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgsDict']]]
     """
     Embedded Source Settings. See Embedded Source Settings for more details.
     """
-    scte20_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs']]]
+    scte20_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgsDict']]]
     """
     SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
     """
-    scte27_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs']]]
+    scte27_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgsDict']]]
     """
     SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
     """
-    teletext_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs']]]
+    teletext_source_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgsDict']]]
     """
     Teletext Source Settings. See Teletext Source Settings for more details.
     """
@@ -13234,7 +13234,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27So
 
 
 class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgsDict(TypedDict):
-    output_rectangle: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs']]]
+    output_rectangle: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgsDict']]]
     """
     Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
     """
@@ -13354,7 +13354,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
 
 
 class ChannelInputAttachmentInputSettingsNetworkInputSettingsArgsDict(TypedDict):
-    hls_input_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs']]]
+    hls_input_settings: NotRequired[pulumi.Input[Optional['ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgsDict']]]
     """
     Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
     """
@@ -14042,11 +14042,11 @@ class MultiplexProgramMultiplexProgramSettingsArgsDict(TypedDict):
     """
     Unique program number.
     """
-    service_descriptor: NotRequired[pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs']]]
+    service_descriptor: NotRequired[pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgsDict']]]
     """
     Service Descriptor. See Service Descriptor for more details.
     """
-    video_settings: NotRequired[pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs']]]
+    video_settings: NotRequired[pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsVideoSettingsArgsDict']]]
     """
     Video settings. See Video Settings for more details.
     """
@@ -14172,7 +14172,7 @@ class MultiplexProgramMultiplexProgramSettingsVideoSettingsArgsDict(TypedDict):
     """
     Constant bitrate value.
     """
-    statmux_settings: NotRequired[pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs']]]
+    statmux_settings: NotRequired[pulumi.Input[Optional['MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgsDict']]]
     """
     Statmux settings. See Statmux Settings for more details.
     """

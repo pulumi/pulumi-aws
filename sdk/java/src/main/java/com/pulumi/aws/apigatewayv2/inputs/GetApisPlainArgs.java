@@ -61,16 +61,14 @@ public final class GetApisPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired APIs.
+     * Map of tags, each pair of which must exactly match a pair on the desired APIs.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Map of tags, each pair of which must exactly match
-     * a pair on the desired APIs.
+     * @return Map of tags, each pair of which must exactly match a pair on the desired APIs.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -138,8 +136,7 @@ public final class GetApisPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Map of tags, each pair of which must exactly match
-         * a pair on the desired APIs.
+         * @param tags Map of tags, each pair of which must exactly match a pair on the desired APIs.
          * 
          * @return builder
          * 

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualServiceSpec
     {
         /// <summary>
-        /// App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
+        /// App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router. See `Provider` Block for details.
         /// </summary>
         public readonly Outputs.VirtualServiceSpecProvider? Provider;
 

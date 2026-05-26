@@ -77,6 +77,9 @@ export interface GetVirtualGatewayResult {
      */
     readonly lastUpdatedDate: string;
     readonly meshName: string;
+    /**
+     * AWS account ID of the service mesh's owner.
+     */
     readonly meshOwner: string;
     readonly name: string;
     readonly region: string;

@@ -399,15 +399,15 @@ class DataLakeConfigurationArgsDict(TypedDict):
     """
     The AWS Regions where Security Lake is automatically enabled.
     """
-    encryption_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgs']]]]]
+    encryption_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeConfigurationEncryptionConfigurationArgsDict']]]]]
     """
     Provides encryption details of Amazon Security Lake object.
     """
-    lifecycle_configuration: NotRequired[pulumi.Input[Optional['DataLakeConfigurationLifecycleConfigurationArgs']]]
+    lifecycle_configuration: NotRequired[pulumi.Input[Optional['DataLakeConfigurationLifecycleConfigurationArgsDict']]]
     """
     Provides lifecycle details of Amazon Security Lake object.
     """
-    replication_configuration: NotRequired[pulumi.Input[Optional['DataLakeConfigurationReplicationConfigurationArgs']]]
+    replication_configuration: NotRequired[pulumi.Input[Optional['DataLakeConfigurationReplicationConfigurationArgsDict']]]
     """
     Provides replication details of Amazon Security Lake object.
     """
@@ -511,11 +511,11 @@ class DataLakeConfigurationEncryptionConfigurationArgs:
 
 
 class DataLakeConfigurationLifecycleConfigurationArgsDict(TypedDict):
-    expiration: NotRequired[pulumi.Input[Optional['DataLakeConfigurationLifecycleConfigurationExpirationArgs']]]
+    expiration: NotRequired[pulumi.Input[Optional['DataLakeConfigurationLifecycleConfigurationExpirationArgsDict']]]
     """
     Provides data expiration details of Amazon Security Lake object.
     """
-    transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeConfigurationLifecycleConfigurationTransitionArgs']]]]]
+    transitions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataLakeConfigurationLifecycleConfigurationTransitionArgsDict']]]]]
     """
     Provides data storage transition details of Amazon Security Lake object.
     """
@@ -756,11 +756,11 @@ class DataLakeTimeoutsArgs:
 
 
 class SubscriberNotificationConfigurationArgsDict(TypedDict):
-    https_notification_configuration: NotRequired[pulumi.Input[Optional['SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs']]]
+    https_notification_configuration: NotRequired[pulumi.Input[Optional['SubscriberNotificationConfigurationHttpsNotificationConfigurationArgsDict']]]
     """
     The configurations for HTTPS subscriber notification.
     """
-    sqs_notification_configuration: NotRequired[pulumi.Input[Optional['SubscriberNotificationConfigurationSqsNotificationConfigurationArgs']]]
+    sqs_notification_configuration: NotRequired[pulumi.Input[Optional['SubscriberNotificationConfigurationSqsNotificationConfigurationArgsDict']]]
     """
     The configurations for SQS subscriber notification.
     There are no parameters within `sqs_notification_configuration`.
@@ -933,11 +933,11 @@ class SubscriberNotificationConfigurationSqsNotificationConfigurationArgs:
 
 
 class SubscriberSourceArgsDict(TypedDict):
-    aws_log_source_resource: NotRequired[pulumi.Input[Optional['SubscriberSourceAwsLogSourceResourceArgs']]]
+    aws_log_source_resource: NotRequired[pulumi.Input[Optional['SubscriberSourceAwsLogSourceResourceArgsDict']]]
     """
     Amazon Security Lake supports log and event collection for natively supported AWS services. See `aws_log_source_resource` Block below.
     """
-    custom_log_source_resource: NotRequired[pulumi.Input[Optional['SubscriberSourceCustomLogSourceResourceArgs']]]
+    custom_log_source_resource: NotRequired[pulumi.Input[Optional['SubscriberSourceCustomLogSourceResourceArgsDict']]]
     """
     Amazon Security Lake supports custom source types. See `custom_log_source_resource` Block below.
     """
@@ -1034,11 +1034,11 @@ class SubscriberSourceCustomLogSourceResourceArgsDict(TypedDict):
     """
     The name for a third-party custom source. This must be a Regionally unique value.
     """
-    attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]]]]
+    attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgsDict']]]]]
     """
     The attributes of the third-party custom source. See `attributes` Block below.
     """
-    providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgs']]]]]
+    providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgsDict']]]]]
     """
     The details of the log provider for the third-party custom source. See `provider` Block below.
     """

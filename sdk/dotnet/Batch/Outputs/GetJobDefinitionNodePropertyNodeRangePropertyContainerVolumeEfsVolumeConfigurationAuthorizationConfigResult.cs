@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionNodePropertyNodeRangePropertyContainerVolumeEfsVolumeConfigurationAuthorizationConfigResult
     {
         /// <summary>
-        /// The Amazon EFS access point ID to use.
+        /// Amazon EFS access point ID to use.
         /// </summary>
         public readonly string AccessPointId;
         /// <summary>

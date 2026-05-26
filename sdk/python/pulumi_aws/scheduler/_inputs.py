@@ -104,15 +104,15 @@ class ScheduleTargetArgsDict(TypedDict):
 
     The following arguments are optional:
     """
-    dead_letter_config: NotRequired[pulumi.Input[Optional['ScheduleTargetDeadLetterConfigArgs']]]
+    dead_letter_config: NotRequired[pulumi.Input[Optional['ScheduleTargetDeadLetterConfigArgsDict']]]
     """
     Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
     """
-    ecs_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetEcsParametersArgs']]]
+    ecs_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetEcsParametersArgsDict']]]
     """
     Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
     """
-    eventbridge_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetEventbridgeParametersArgs']]]
+    eventbridge_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetEventbridgeParametersArgsDict']]]
     """
     Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
     """
@@ -120,19 +120,19 @@ class ScheduleTargetArgsDict(TypedDict):
     """
     Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
     """
-    kinesis_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetKinesisParametersArgs']]]
+    kinesis_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetKinesisParametersArgsDict']]]
     """
     Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
     """
-    retry_policy: NotRequired[pulumi.Input[Optional['ScheduleTargetRetryPolicyArgs']]]
+    retry_policy: NotRequired[pulumi.Input[Optional['ScheduleTargetRetryPolicyArgsDict']]]
     """
     Information about the retry policy settings. Detailed below.
     """
-    sagemaker_pipeline_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetSagemakerPipelineParametersArgs']]]
+    sagemaker_pipeline_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetSagemakerPipelineParametersArgsDict']]]
     """
     Templated target type for the Amazon SageMaker AI [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
     """
-    sqs_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetSqsParametersArgs']]]
+    sqs_parameters: NotRequired[pulumi.Input[Optional['ScheduleTargetSqsParametersArgsDict']]]
     """
     The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
     """
@@ -341,7 +341,7 @@ class ScheduleTargetEcsParametersArgsDict(TypedDict):
 
     The following arguments are optional:
     """
-    capacity_provider_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersCapacityProviderStrategyArgs']]]]]
+    capacity_provider_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersCapacityProviderStrategyArgsDict']]]]]
     """
     Up to `6` capacity provider strategies to use for the task. Detailed below.
     """
@@ -361,15 +361,15 @@ class ScheduleTargetEcsParametersArgsDict(TypedDict):
     """
     Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. One of: `EC2`, `FARGATE`, `EXTERNAL`.
     """
-    network_configuration: NotRequired[pulumi.Input[Optional['ScheduleTargetEcsParametersNetworkConfigurationArgs']]]
+    network_configuration: NotRequired[pulumi.Input[Optional['ScheduleTargetEcsParametersNetworkConfigurationArgsDict']]]
     """
     Configures the networking associated with the task. Detailed below.
     """
-    placement_constraints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementConstraintArgs']]]]]
+    placement_constraints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementConstraintArgsDict']]]]]
     """
     A set of up to 10 placement constraints to use for the task. Detailed below.
     """
-    placement_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementStrategyArgs']]]]]
+    placement_strategies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetEcsParametersPlacementStrategyArgsDict']]]]]
     """
     A set of up to 5 placement strategies. Detailed below.
     """
@@ -985,7 +985,7 @@ class ScheduleTargetRetryPolicyArgs:
 
 
 class ScheduleTargetSagemakerPipelineParametersArgsDict(TypedDict):
-    pipeline_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs']]]]]
+    pipeline_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgsDict']]]]]
     """
     Set of up to 200 parameter names and values to use when executing the SageMaker AI Model Building Pipeline. Detailed below.
     """

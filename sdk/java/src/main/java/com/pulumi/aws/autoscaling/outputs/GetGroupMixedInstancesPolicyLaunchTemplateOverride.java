@@ -15,7 +15,6 @@ import java.util.Objects;
 public final class GetGroupMixedInstancesPolicyLaunchTemplateOverride {
     /**
      * @return List of instance requirements objects.
-     * * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
      * 
      */
     private List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement> instanceRequirements;
@@ -38,7 +37,6 @@ public final class GetGroupMixedInstancesPolicyLaunchTemplateOverride {
     private GetGroupMixedInstancesPolicyLaunchTemplateOverride() {}
     /**
      * @return List of instance requirements objects.
-     * * `acceleratorCount - List of objects describing the minimum and maximum number of accelerators for an instance type.
      * 
      */
     public List<GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirement> instanceRequirements() {

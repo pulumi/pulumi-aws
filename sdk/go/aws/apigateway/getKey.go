@@ -61,6 +61,7 @@ type GetKeyArgs struct {
 
 // A collection of values returned by getKey.
 type GetKeyResult struct {
+	// ARN of the API Key.
 	Arn string `pulumi:"arn"`
 	// Date and time when the API Key was created.
 	CreatedDate string `pulumi:"createdDate"`
@@ -121,6 +122,7 @@ func (o GetKeyResultOutput) ToGetKeyResultOutputWithContext(ctx context.Context)
 	return o
 }
 
+// ARN of the API Key.
 func (o GetKeyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetKeyResult) string { return v.Arn }).(pulumi.StringOutput)
 }

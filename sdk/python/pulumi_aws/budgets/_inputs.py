@@ -193,15 +193,15 @@ class BudgetActionActionThresholdArgs:
 
 
 class BudgetActionDefinitionArgsDict(TypedDict):
-    iam_action_definition: NotRequired[pulumi.Input[Optional['BudgetActionDefinitionIamActionDefinitionArgs']]]
+    iam_action_definition: NotRequired[pulumi.Input[Optional['BudgetActionDefinitionIamActionDefinitionArgsDict']]]
     """
     The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
     """
-    scp_action_definition: NotRequired[pulumi.Input[Optional['BudgetActionDefinitionScpActionDefinitionArgs']]]
+    scp_action_definition: NotRequired[pulumi.Input[Optional['BudgetActionDefinitionScpActionDefinitionArgsDict']]]
     """
     The service control policies (SCPs) action definition details. See SCP Action Definition.
     """
-    ssm_action_definition: NotRequired[pulumi.Input[Optional['BudgetActionDefinitionSsmActionDefinitionArgs']]]
+    ssm_action_definition: NotRequired[pulumi.Input[Optional['BudgetActionDefinitionSsmActionDefinitionArgsDict']]]
     """
     The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
     """
@@ -514,7 +514,7 @@ class BudgetAutoAdjustDataArgsDict(TypedDict):
     """
     (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
     """
-    historical_options: NotRequired[pulumi.Input[Optional['BudgetAutoAdjustDataHistoricalOptionsArgs']]]
+    historical_options: NotRequired[pulumi.Input[Optional['BudgetAutoAdjustDataHistoricalOptionsArgsDict']]]
     """
     (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
     """
@@ -902,27 +902,27 @@ class BudgetCostTypesArgs:
 
 
 class BudgetFilterExpressionArgsDict(TypedDict):
-    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndArgs']]]]]
+    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndArgsDict']]]]]
     """
     (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
     """
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    not_: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotArgs']]]
+    not_: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotArgsDict']]]
     """
     (Optional) A single filter expression to negate. Must contain exactly one root.
     """
-    ors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrArgs']]]]]
+    ors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrArgsDict']]]]]
     """
     (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -1031,27 +1031,27 @@ class BudgetFilterExpressionArgs:
 
 
 class BudgetFilterExpressionAndArgsDict(TypedDict):
-    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndAndArgs']]]]]
+    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndAndArgsDict']]]]]
     """
     (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
     """
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    not_: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndNotArgs']]]
+    not_: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndNotArgsDict']]]
     """
     (Optional) A single filter expression to negate. Must contain exactly one root.
     """
-    ors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndOrArgs']]]]]
+    ors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionAndOrArgsDict']]]]]
     """
     (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -1160,15 +1160,15 @@ class BudgetFilterExpressionAndArgs:
 
 
 class BudgetFilterExpressionAndAndArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndAndCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndAndCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndAndDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndAndDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndAndTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndAndTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -1570,15 +1570,15 @@ class BudgetFilterExpressionAndDimensionsArgs:
 
 
 class BudgetFilterExpressionAndNotArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndNotCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndNotCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndNotDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndNotDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndNotTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndNotTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -1844,15 +1844,15 @@ class BudgetFilterExpressionAndNotTagsArgs:
 
 
 class BudgetFilterExpressionAndOrArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndOrCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndOrCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndOrDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndOrDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndOrTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionAndOrTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -2323,27 +2323,27 @@ class BudgetFilterExpressionDimensionsArgs:
 
 
 class BudgetFilterExpressionNotArgsDict(TypedDict):
-    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionNotAndArgs']]]]]
+    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionNotAndArgsDict']]]]]
     """
     (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
     """
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    not_: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotNotArgs']]]
+    not_: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotNotArgsDict']]]
     """
     (Optional) A single filter expression to negate. Must contain exactly one root.
     """
-    ors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionNotOrArgs']]]]]
+    ors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionNotOrArgsDict']]]]]
     """
     (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -2452,15 +2452,15 @@ class BudgetFilterExpressionNotArgs:
 
 
 class BudgetFilterExpressionNotAndArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotAndCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotAndCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotAndDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotAndDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotAndTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotAndTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -2862,15 +2862,15 @@ class BudgetFilterExpressionNotDimensionsArgs:
 
 
 class BudgetFilterExpressionNotNotArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotNotCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotNotCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotNotDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotNotDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotNotTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotNotTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -3136,15 +3136,15 @@ class BudgetFilterExpressionNotNotTagsArgs:
 
 
 class BudgetFilterExpressionNotOrArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotOrCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotOrCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotOrDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotOrDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotOrTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionNotOrTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -3479,27 +3479,27 @@ class BudgetFilterExpressionNotTagsArgs:
 
 
 class BudgetFilterExpressionOrArgsDict(TypedDict):
-    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrAndArgs']]]]]
+    ands: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrAndArgsDict']]]]]
     """
     (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
     """
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    not_: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrNotArgs']]]
+    not_: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrNotArgsDict']]]
     """
     (Optional) A single filter expression to negate. Must contain exactly one root.
     """
-    ors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrOrArgs']]]]]
+    ors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetFilterExpressionOrOrArgsDict']]]]]
     """
     (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -3608,15 +3608,15 @@ class BudgetFilterExpressionOrArgs:
 
 
 class BudgetFilterExpressionOrAndArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrAndCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrAndCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrAndDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrAndDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrAndTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrAndTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -4018,15 +4018,15 @@ class BudgetFilterExpressionOrDimensionsArgs:
 
 
 class BudgetFilterExpressionOrNotArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrNotCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrNotCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrNotDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrNotDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrNotTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrNotTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """
@@ -4292,15 +4292,15 @@ class BudgetFilterExpressionOrNotTagsArgs:
 
 
 class BudgetFilterExpressionOrOrArgsDict(TypedDict):
-    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrOrCostCategoriesArgs']]]
+    cost_categories: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrOrCostCategoriesArgsDict']]]
     """
     (Optional) A Cost Category Filter block.
     """
-    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrOrDimensionsArgs']]]
+    dimensions: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrOrDimensionsArgsDict']]]
     """
     (Optional) A Dimension Filter block.
     """
-    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrOrTagsArgs']]]
+    tags: NotRequired[pulumi.Input[Optional['BudgetFilterExpressionOrOrTagsArgsDict']]]
     """
     Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
     """

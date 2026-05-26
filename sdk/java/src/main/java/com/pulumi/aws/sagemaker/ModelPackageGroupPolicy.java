@@ -58,24 +58,24 @@ import javax.annotation.Nullable;
  *             .modelPackageGroupName("example")
  *             .build());
  * 
- *         final var example = exampleModelPackageGroup.arn().applyValue(_arn -> IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid("AddPermModelPackageGroup")
  *                 .actions(                
  *                     "sagemaker:DescribeModelPackage",
  *                     "sagemaker:ListModelPackages")
- *                 .resources(_arn)
+ *                 .resources(exampleModelPackageGroup.arn())
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers(current.accountId())
  *                     .type("AWS")
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var exampleModelPackageGroupPolicy = new ModelPackageGroupPolicy("exampleModelPackageGroupPolicy", ModelPackageGroupPolicyArgs.builder()
  *             .modelPackageGroupName(exampleModelPackageGroup.modelPackageGroupName())
  *             .resourcePolicy(StdFunctions.jsondecode(JsondecodeArgs.builder()
- *                 .input(example.json())
+ *                 .input(example.applyValue(_example -> _example.json()))
  *                 .build()).applyValue(_invoke -> serializeJson(
  *                 _invoke.result())))
  *             .build());

@@ -56,8 +56,7 @@ type GetApisArgs struct {
 	ProtocolType *string `pulumi:"protocolType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired APIs.
+	// Map of tags, each pair of which must exactly match a pair on the desired APIs.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -90,8 +89,7 @@ type GetApisOutputArgs struct {
 	ProtocolType pulumi.StringPtrInput `pulumi:"protocolType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Map of tags, each pair of which must exactly match
-	// a pair on the desired APIs.
+	// Map of tags, each pair of which must exactly match a pair on the desired APIs.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 

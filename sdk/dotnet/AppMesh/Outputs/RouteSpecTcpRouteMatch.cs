@@ -13,6 +13,9 @@ namespace Pulumi.Aws.AppMesh.Outputs
     [OutputType]
     public sealed class RouteSpecTcpRouteMatch
     {
+        /// <summary>
+        /// The port number to match from the request.
+        /// </summary>
         public readonly int? Port;
 
         [OutputConstructor]

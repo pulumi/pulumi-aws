@@ -14,6 +14,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **NOTE:** This resource is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. After that date, this resource will no longer be available. For SMS/Voice event delivery, use `aws.pinpoint.Smsvoicev2ConfigurationSet` with an event destination.
+ * 
  * Provides a Pinpoint Event Stream resource.
  * 
  * ## Example Usage
@@ -112,7 +114,11 @@ public class EventStream extends com.pulumi.resources.CustomResource {
     /**
      * The application ID.
      * 
+     * @deprecated
+     * application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * 
      */
+    @Deprecated /* application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
@@ -126,7 +132,11 @@ public class EventStream extends com.pulumi.resources.CustomResource {
     /**
      * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
+     * @deprecated
+     * destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * 
      */
+    @Deprecated /* destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
     @Export(name="destinationStreamArn", refs={String.class}, tree="[0]")
     private Output<String> destinationStreamArn;
 
@@ -154,7 +164,11 @@ public class EventStream extends com.pulumi.resources.CustomResource {
     /**
      * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
      * 
+     * @deprecated
+     * role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * 
      */
+    @Deprecated /* role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 

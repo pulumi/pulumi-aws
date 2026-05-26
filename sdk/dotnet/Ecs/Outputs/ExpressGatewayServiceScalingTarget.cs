@@ -22,11 +22,11 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly int AutoScalingTargetValue;
         /// <summary>
-        /// Maximum number of tasks to run.
+        /// Maximum number of tasks to run. Defaults to `20`.
         /// </summary>
         public readonly int MaxTaskCount;
         /// <summary>
-        /// Minimum number of tasks to run.
+        /// Minimum number of tasks to run. Defaults to `1`.
         /// </summary>
         public readonly int MinTaskCount;
 

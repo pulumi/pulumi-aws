@@ -96,7 +96,7 @@ type Mesh struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
-	// Service mesh specification to apply.
+	// Service mesh specification to apply. See `spec` Block for details.
 	Spec MeshSpecPtrOutput `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -148,7 +148,7 @@ type meshState struct {
 	Region *string `pulumi:"region"`
 	// Resource owner's AWS account ID.
 	ResourceOwner *string `pulumi:"resourceOwner"`
-	// Service mesh specification to apply.
+	// Service mesh specification to apply. See `spec` Block for details.
 	Spec *MeshSpec `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -171,7 +171,7 @@ type MeshState struct {
 	Region pulumi.StringPtrInput
 	// Resource owner's AWS account ID.
 	ResourceOwner pulumi.StringPtrInput
-	// Service mesh specification to apply.
+	// Service mesh specification to apply. See `spec` Block for details.
 	Spec MeshSpecPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -188,7 +188,7 @@ type meshArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Service mesh specification to apply.
+	// Service mesh specification to apply. See `spec` Block for details.
 	Spec *MeshSpec `pulumi:"spec"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -200,7 +200,7 @@ type MeshArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Service mesh specification to apply.
+	// Service mesh specification to apply. See `spec` Block for details.
 	Spec MeshSpecPtrInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -328,7 +328,7 @@ func (o MeshOutput) ResourceOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *Mesh) pulumi.StringOutput { return v.ResourceOwner }).(pulumi.StringOutput)
 }
 
-// Service mesh specification to apply.
+// Service mesh specification to apply. See `spec` Block for details.
 func (o MeshOutput) Spec() MeshSpecPtrOutput {
 	return o.ApplyT(func(v *Mesh) MeshSpecPtrOutput { return v.Spec }).(MeshSpecPtrOutput)
 }

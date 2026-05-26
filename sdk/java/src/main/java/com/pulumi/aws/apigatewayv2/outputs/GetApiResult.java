@@ -21,8 +21,7 @@ public final class GetApiResult {
     private String apiEndpoint;
     private String apiId;
     /**
-     * @return An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-     * Applicable for WebSocket APIs.
+     * @return An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
      * 
      */
     private String apiKeySelectionExpression;
@@ -32,8 +31,7 @@ public final class GetApiResult {
      */
     private String arn;
     /**
-     * @return Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
-     * Applicable for HTTP APIs.
+     * @return Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See below.
      * 
      */
     private List<GetApiCorsConfiguration> corsConfigurations;
@@ -48,9 +46,7 @@ public final class GetApiResult {
      */
     private Boolean disableExecuteApiEndpoint;
     /**
-     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `sourceArn` attribute
-     * or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `sourceArn` attribute or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
     private String executionArn;
@@ -59,6 +55,10 @@ public final class GetApiResult {
      * 
      */
     private String id;
+    /**
+     * @return The IP address types that can invoke an API.
+     * 
+     */
     private String ipAddressType;
     /**
      * @return Name of the API.
@@ -99,8 +99,7 @@ public final class GetApiResult {
         return this.apiId;
     }
     /**
-     * @return An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions).
-     * Applicable for WebSocket APIs.
+     * @return An [API key selection expression](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-apikey-selection-expressions). Applicable for WebSocket APIs.
      * 
      */
     public String apiKeySelectionExpression() {
@@ -114,8 +113,7 @@ public final class GetApiResult {
         return this.arn;
     }
     /**
-     * @return Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html).
-     * Applicable for HTTP APIs.
+     * @return Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs. See below.
      * 
      */
     public List<GetApiCorsConfiguration> corsConfigurations() {
@@ -136,9 +134,7 @@ public final class GetApiResult {
         return this.disableExecuteApiEndpoint;
     }
     /**
-     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `sourceArn` attribute
-     * or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
-     * See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
+     * @return ARN prefix to be used in an `aws.lambda.Permission`&#39;s `sourceArn` attribute or in an `aws.iam.Policy` to authorize access to the [`{@literal @}connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html). See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
      * 
      */
     public String executionArn() {
@@ -151,6 +147,10 @@ public final class GetApiResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The IP address types that can invoke an API.
+     * 
+     */
     public String ipAddressType() {
         return this.ipAddressType;
     }

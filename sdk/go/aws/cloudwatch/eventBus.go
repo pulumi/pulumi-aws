@@ -174,58 +174,54 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			bucket := pulumi.All(exampleBucket.Arn, infoLogs.Arn, errorLogs.Arn, traceLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-//				exampleBucketArn := _args[0].(string)
-//				infoLogsArn := _args[1].(string)
-//				errorLogsArn := _args[2].(string)
-//				traceLogsArn := _args[3].(string)
-//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-//						{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//								{
-//									Type: "Service",
-//									Identifiers: []string{
-//										"delivery.logs.amazonaws.com",
-//									},
-//								},
-//							},
-//							Actions: []string{
-//								"s3:PutObject",
-//							},
-//							Resources: []string{
-//								fmt.Sprintf("%v/AWSLogs/%v/EventBusLogs/*", exampleBucketArn, current.AccountId),
-//							},
-//							Conditions: []iam.GetPolicyDocumentStatementCondition{
-//								{
-//									Test:     "StringEquals",
-//									Variable: "s3:x-amz-acl",
-//									Values: []string{
-//										"bucket-owner-full-control",
-//									},
-//								},
-//								{
-//									Test:     "StringEquals",
-//									Variable: "aws:SourceAccount",
-//									Values: pulumi.StringArray{
-//										current.AccountId,
-//									},
-//								},
-//								{
-//									Test:     "ArnLike",
-//									Variable: "aws:SourceArn",
-//									Values: []string{
-//										infoLogsArn,
-//										errorLogsArn,
-//										traceLogsArn,
-//									},
+//			bucket := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("delivery.logs.amazonaws.com"),
 //								},
 //							},
 //						},
-//					}),
-//				}, nil))), nil
-//			}).(iam.GetPolicyDocumentResultOutput)
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:PutObject"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/AWSLogs/%v/EventBusLogs/*", arn, current.AccountId), nil
+//							}).(pulumi.StringOutput),
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("s3:x-amz-acl"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("bucket-owner-full-control"),
+//								},
+//							},
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("aws:SourceAccount"),
+//								Values: pulumi.StringArray{
+//									pulumi.String(current.AccountId),
+//								},
+//							},
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("ArnLike"),
+//								Variable: pulumi.String("aws:SourceArn"),
+//								Values: pulumi.StringArray{
+//									infoLogs.Arn,
+//									errorLogs.Arn,
+//									traceLogs.Arn,
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 //				Bucket: exampleBucket.Bucket,
 //				Policy: pulumi.String(bucket.ApplyT(func(bucket iam.GetPolicyDocumentResult) (*string, error) {
@@ -280,52 +276,48 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			cwlogs := pulumi.All(eventBusLogs.Arn, infoLogs.Arn, errorLogs.Arn, traceLogs.Arn).ApplyT(func(_args []interface{}) (iam.GetPolicyDocumentResult, error) {
-//				eventBusLogsArn := _args[0].(string)
-//				infoLogsArn := _args[1].(string)
-//				errorLogsArn := _args[2].(string)
-//				traceLogsArn := _args[3].(string)
-//				return iam.GetPolicyDocumentResult(interface{}(iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//					Statements: []iam.GetPolicyDocumentStatement([]iam.GetPolicyDocumentStatement{
-//						{
-//							Effect: pulumi.StringRef(pulumi.String(pulumi.StringRef("Allow"))),
-//							Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//								{
-//									Type: "Service",
-//									Identifiers: []string{
-//										"delivery.logs.amazonaws.com",
-//									},
-//								},
-//							},
-//							Actions: []string{
-//								"logs:CreateLogStream",
-//								"logs:PutLogEvents",
-//							},
-//							Resources: []string{
-//								fmt.Sprintf("%v:log-stream:*", eventBusLogsArn),
-//							},
-//							Conditions: []iam.GetPolicyDocumentStatementCondition{
-//								{
-//									Test:     "StringEquals",
-//									Variable: "aws:SourceAccount",
-//									Values: pulumi.StringArray{
-//										current.AccountId,
-//									},
-//								},
-//								{
-//									Test:     "ArnLike",
-//									Variable: "aws:SourceArn",
-//									Values: []string{
-//										infoLogsArn,
-//										errorLogsArn,
-//										traceLogsArn,
-//									},
+//			cwlogs := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("delivery.logs.amazonaws.com"),
 //								},
 //							},
 //						},
-//					}),
-//				}, nil))), nil
-//			}).(iam.GetPolicyDocumentResultOutput)
+//						Actions: pulumi.StringArray{
+//							pulumi.String("logs:CreateLogStream"),
+//							pulumi.String("logs:PutLogEvents"),
+//						},
+//						Resources: pulumi.StringArray{
+//							eventBusLogs.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v:log-stream:*", arn), nil
+//							}).(pulumi.StringOutput),
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("aws:SourceAccount"),
+//								Values: pulumi.StringArray{
+//									pulumi.String(current.AccountId),
+//								},
+//							},
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("ArnLike"),
+//								Variable: pulumi.String("aws:SourceArn"),
+//								Values: pulumi.StringArray{
+//									infoLogs.Arn,
+//									errorLogs.Arn,
+//									traceLogs.Arn,
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
 //				PolicyDocument: pulumi.String(cwlogs.ApplyT(func(cwlogs iam.GetPolicyDocumentResult) (*string, error) {
 //					return &cwlogs.Json, nil

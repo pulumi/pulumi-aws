@@ -44,7 +44,7 @@ __all__ = [
 ]
 
 class ApplicationPortalOptionsArgsDict(TypedDict):
-    sign_in_options: NotRequired[pulumi.Input[Optional['ApplicationPortalOptionsSignInOptionsArgs']]]
+    sign_in_options: NotRequired[pulumi.Input[Optional['ApplicationPortalOptionsSignInOptionsArgsDict']]]
     """
     Sign-in options for the access portal. See `sign_in_options` below.
     """
@@ -419,7 +419,7 @@ class ManagedPolicyAttachmentsExclusiveTimeoutsArgs:
 
 
 class PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict(TypedDict):
-    customer_managed_policy_reference: NotRequired[pulumi.Input[Optional['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']]]
+    customer_managed_policy_reference: NotRequired[pulumi.Input[Optional['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgsDict']]]
     """
     Specifies the name and path of a customer managed policy. See below.
     """

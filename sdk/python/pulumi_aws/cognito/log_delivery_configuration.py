@@ -179,7 +179,9 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example", name="example")
+        example = aws.cognito.UserPool("example",
+            name="example",
+            user_pool_tier="PLUS")
         example_log_group = aws.cloudwatch.LogGroup("example", name="example")
         example_bucket = aws.s3.Bucket("example",
             bucket="example-bucket",
@@ -236,7 +238,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
                 },
                 {
                     "event_source": "userAuthEvents",
-                    "log_level": "ERROR",
+                    "log_level": "INFO",
                     "firehose_configuration": {
                         "stream_arn": example_firehose_delivery_stream.arn,
                     },
@@ -250,15 +252,17 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example", name="example")
+        example = aws.cognito.UserPool("example",
+            name="example",
+            user_pool_tier="PLUS")
         example_bucket = aws.s3.Bucket("example",
             bucket="example-bucket",
             force_destroy=True)
         example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
             user_pool_id=example.id,
             log_configurations=[{
-                "event_source": "userNotification",
-                "log_level": "ERROR",
+                "event_source": "userAuthEvents",
+                "log_level": "INFO",
                 "s3_configuration": {
                     "bucket_arn": example_bucket.arn,
                 },
@@ -330,7 +334,9 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example", name="example")
+        example = aws.cognito.UserPool("example",
+            name="example",
+            user_pool_tier="PLUS")
         example_log_group = aws.cloudwatch.LogGroup("example", name="example")
         example_bucket = aws.s3.Bucket("example",
             bucket="example-bucket",
@@ -387,7 +393,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
                 },
                 {
                     "event_source": "userAuthEvents",
-                    "log_level": "ERROR",
+                    "log_level": "INFO",
                     "firehose_configuration": {
                         "stream_arn": example_firehose_delivery_stream.arn,
                     },
@@ -401,15 +407,17 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cognito.UserPool("example", name="example")
+        example = aws.cognito.UserPool("example",
+            name="example",
+            user_pool_tier="PLUS")
         example_bucket = aws.s3.Bucket("example",
             bucket="example-bucket",
             force_destroy=True)
         example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
             user_pool_id=example.id,
             log_configurations=[{
-                "event_source": "userNotification",
-                "log_level": "ERROR",
+                "event_source": "userAuthEvents",
+                "log_level": "INFO",
                 "s3_configuration": {
                     "bucket_arn": example_bucket.arn,
                 },

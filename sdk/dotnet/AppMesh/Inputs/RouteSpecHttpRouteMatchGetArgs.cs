@@ -16,7 +16,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.RouteSpecHttpRouteMatchHeaderGetArgs>? _headers;
 
         /// <summary>
-        /// Client request headers to match on.
+        /// Client request headers to match on. See `Header` Block for details.
         /// </summary>
         public InputList<Inputs.RouteSpecHttpRouteMatchHeaderGetArgs> Headers
         {
@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<string>? Method { get; set; }
 
         /// <summary>
-        /// Client request path to match on.
+        /// Client request path to match on. See `Path` Block for details.
         /// </summary>
         [Input("path")]
         public Input<Inputs.RouteSpecHttpRouteMatchPathGetArgs>? Path { get; set; }
@@ -43,8 +43,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// Path with which to match requests.
-        /// This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+        /// Header value sent by the client must begin with the specified characters.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
@@ -53,7 +52,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         private InputList<Inputs.RouteSpecHttpRouteMatchQueryParameterGetArgs>? _queryParameters;
 
         /// <summary>
-        /// Client request query parameters to match on.
+        /// Client request query parameters to match on. See `QueryParameter` Block for details.
         /// </summary>
         public InputList<Inputs.RouteSpecHttpRouteMatchQueryParameterGetArgs> QueryParameters
         {

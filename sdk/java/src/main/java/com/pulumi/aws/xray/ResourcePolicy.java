@@ -57,10 +57,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import X-Ray Resource Policy using the `policyName`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `policyName` (String) Resource policy name.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import X-Ray Resource Policies using `policyName`. For example:
  * 
  * ```sh
- * $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example resource_policy-name
+ * $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example example-policy
  * ```
  * 
  */
@@ -113,14 +124,14 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
         return this.policyDocument;
     }
     /**
-     * name of the resource policy. Must be unique within a specific Amazon Web Services account.
+     * Name of the resource policy. Must be unique within a specific Amazon Web Services account.
      * 
      */
     @Export(name="policyName", refs={String.class}, tree="[0]")
     private Output<String> policyName;
 
     /**
-     * @return name of the resource policy. Must be unique within a specific Amazon Web Services account.
+     * @return Name of the resource policy. Must be unique within a specific Amazon Web Services account.
      * 
      */
     public Output<String> policyName() {

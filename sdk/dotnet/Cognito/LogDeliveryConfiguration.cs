@@ -68,6 +68,7 @@ namespace Pulumi.Aws.Cognito
     ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
     ///         Name = "example",
+    ///         UserPoolTier = "PLUS",
     ///     });
     /// 
     ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
@@ -161,7 +162,7 @@ namespace Pulumi.Aws.Cognito
     ///             new Aws.Cognito.Inputs.LogDeliveryConfigurationLogConfigurationArgs
     ///             {
     ///                 EventSource = "userAuthEvents",
-    ///                 LogLevel = "ERROR",
+    ///                 LogLevel = "INFO",
     ///                 FirehoseConfiguration = new Aws.Cognito.Inputs.LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs
     ///                 {
     ///                     StreamArn = exampleFirehoseDeliveryStream.Arn,
@@ -186,6 +187,7 @@ namespace Pulumi.Aws.Cognito
     ///     var example = new Aws.Cognito.UserPool("example", new()
     ///     {
     ///         Name = "example",
+    ///         UserPoolTier = "PLUS",
     ///     });
     /// 
     ///     var exampleBucket = new Aws.S3.Bucket("example", new()
@@ -201,8 +203,8 @@ namespace Pulumi.Aws.Cognito
     ///         {
     ///             new Aws.Cognito.Inputs.LogDeliveryConfigurationLogConfigurationArgs
     ///             {
-    ///                 EventSource = "userNotification",
-    ///                 LogLevel = "ERROR",
+    ///                 EventSource = "userAuthEvents",
+    ///                 LogLevel = "INFO",
     ///                 S3Configuration = new Aws.Cognito.Inputs.LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs
     ///                 {
     ///                     BucketArn = exampleBucket.Arn,

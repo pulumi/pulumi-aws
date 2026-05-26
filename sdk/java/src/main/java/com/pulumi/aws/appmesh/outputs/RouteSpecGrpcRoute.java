@@ -16,50 +16,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RouteSpecGrpcRoute {
     /**
-     * @return Action to take if a match is determined.
+     * @return Action to take if a match is determined. See `action` Block for details.
      * 
      */
     private RouteSpecGrpcRouteAction action;
     /**
-     * @return Criteria for determining an gRPC request match.
+     * @return Criteria for determining an gRPC request match. See `match` Block for details.
      * 
      */
     private @Nullable RouteSpecGrpcRouteMatch match;
     /**
-     * @return Retry policy.
+     * @return Retry policy. See `retryPolicy` Block for details.
      * 
      */
     private @Nullable RouteSpecGrpcRouteRetryPolicy retryPolicy;
     /**
-     * @return Types of timeouts.
+     * @return Types of timeouts. See `timeout` Block for details.
      * 
      */
     private @Nullable RouteSpecGrpcRouteTimeout timeout;
 
     private RouteSpecGrpcRoute() {}
     /**
-     * @return Action to take if a match is determined.
+     * @return Action to take if a match is determined. See `action` Block for details.
      * 
      */
     public RouteSpecGrpcRouteAction action() {
         return this.action;
     }
     /**
-     * @return Criteria for determining an gRPC request match.
+     * @return Criteria for determining an gRPC request match. See `match` Block for details.
      * 
      */
     public Optional<RouteSpecGrpcRouteMatch> match() {
         return Optional.ofNullable(this.match);
     }
     /**
-     * @return Retry policy.
+     * @return Retry policy. See `retryPolicy` Block for details.
      * 
      */
     public Optional<RouteSpecGrpcRouteRetryPolicy> retryPolicy() {
         return Optional.ofNullable(this.retryPolicy);
     }
     /**
-     * @return Types of timeouts.
+     * @return Types of timeouts. See `timeout` Block for details.
      * 
      */
     public Optional<RouteSpecGrpcRouteTimeout> timeout() {

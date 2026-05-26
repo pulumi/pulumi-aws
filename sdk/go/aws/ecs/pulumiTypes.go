@@ -4586,7 +4586,7 @@ type ExpressGatewayServicePrimaryContainer struct {
 	AwsLogsConfigurations []ExpressGatewayServicePrimaryContainerAwsLogsConfiguration `pulumi:"awsLogsConfigurations"`
 	// Command to run in the container. Overrides the default command from the Docker image.
 	Commands []string `pulumi:"commands"`
-	// Port on which the container listens for connections.
+	// Port on which the container listens for connections. Defaults to `80`.
 	ContainerPort *int                                               `pulumi:"containerPort"`
 	Environments  []ExpressGatewayServicePrimaryContainerEnvironment `pulumi:"environments"`
 	// Docker image to use for the container.
@@ -4610,7 +4610,7 @@ type ExpressGatewayServicePrimaryContainerArgs struct {
 	AwsLogsConfigurations ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArrayInput `pulumi:"awsLogsConfigurations"`
 	// Command to run in the container. Overrides the default command from the Docker image.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// Port on which the container listens for connections.
+	// Port on which the container listens for connections. Defaults to `80`.
 	ContainerPort pulumi.IntPtrInput                                         `pulumi:"containerPort"`
 	Environments  ExpressGatewayServicePrimaryContainerEnvironmentArrayInput `pulumi:"environments"`
 	// Docker image to use for the container.
@@ -4707,7 +4707,7 @@ func (o ExpressGatewayServicePrimaryContainerOutput) Commands() pulumi.StringArr
 	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// Port on which the container listens for connections.
+// Port on which the container listens for connections. Defaults to `80`.
 func (o ExpressGatewayServicePrimaryContainerOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ExpressGatewayServicePrimaryContainer) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
 }
@@ -4778,7 +4778,7 @@ func (o ExpressGatewayServicePrimaryContainerPtrOutput) Commands() pulumi.String
 	}).(pulumi.StringArrayOutput)
 }
 
-// Port on which the container listens for connections.
+// Port on which the container listens for connections. Defaults to `80`.
 func (o ExpressGatewayServicePrimaryContainerPtrOutput) ContainerPort() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ExpressGatewayServicePrimaryContainer) *int {
 		if v == nil {
@@ -5284,9 +5284,9 @@ type ExpressGatewayServiceScalingTarget struct {
 	AutoScalingMetric string `pulumi:"autoScalingMetric"`
 	// Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
 	AutoScalingTargetValue int `pulumi:"autoScalingTargetValue"`
-	// Maximum number of tasks to run.
+	// Maximum number of tasks to run. Defaults to `20`.
 	MaxTaskCount int `pulumi:"maxTaskCount"`
-	// Minimum number of tasks to run.
+	// Minimum number of tasks to run. Defaults to `1`.
 	MinTaskCount int `pulumi:"minTaskCount"`
 }
 
@@ -5306,9 +5306,9 @@ type ExpressGatewayServiceScalingTargetArgs struct {
 	AutoScalingMetric pulumi.StringInput `pulumi:"autoScalingMetric"`
 	// Target value for the auto-scaling metric (as a percentage). Defaults to `60`.
 	AutoScalingTargetValue pulumi.IntInput `pulumi:"autoScalingTargetValue"`
-	// Maximum number of tasks to run.
+	// Maximum number of tasks to run. Defaults to `20`.
 	MaxTaskCount pulumi.IntInput `pulumi:"maxTaskCount"`
-	// Minimum number of tasks to run.
+	// Minimum number of tasks to run. Defaults to `1`.
 	MinTaskCount pulumi.IntInput `pulumi:"minTaskCount"`
 }
 
@@ -5373,12 +5373,12 @@ func (o ExpressGatewayServiceScalingTargetOutput) AutoScalingTargetValue() pulum
 	return o.ApplyT(func(v ExpressGatewayServiceScalingTarget) int { return v.AutoScalingTargetValue }).(pulumi.IntOutput)
 }
 
-// Maximum number of tasks to run.
+// Maximum number of tasks to run. Defaults to `20`.
 func (o ExpressGatewayServiceScalingTargetOutput) MaxTaskCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ExpressGatewayServiceScalingTarget) int { return v.MaxTaskCount }).(pulumi.IntOutput)
 }
 
-// Minimum number of tasks to run.
+// Minimum number of tasks to run. Defaults to `1`.
 func (o ExpressGatewayServiceScalingTargetOutput) MinTaskCount() pulumi.IntOutput {
 	return o.ApplyT(func(v ExpressGatewayServiceScalingTarget) int { return v.MinTaskCount }).(pulumi.IntOutput)
 }

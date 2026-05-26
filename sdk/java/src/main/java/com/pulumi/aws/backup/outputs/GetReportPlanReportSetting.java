@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetReportPlanReportSetting {
     /**
-     * @return (Optional) Specifies the list of accounts a report covers.
+     * @return List of accounts a report covers.
      * 
      */
     private List<String> accounts;
@@ -23,17 +23,17 @@ public final class GetReportPlanReportSetting {
      */
     private List<String> frameworkArns;
     /**
-     * @return Specifies the number of frameworks a report covers.
+     * @return Number of frameworks a report covers.
      * 
      */
     private Integer numberOfFrameworks;
     /**
-     * @return (Optional) Specifies the list of Organizational Units a report covers.
+     * @return List of Organizational Units a report covers.
      * 
      */
     private List<String> organizationUnits;
     /**
-     * @return (Optional) Specifies the list of regions a report covers.
+     * @return List of regions a report covers.
      * 
      */
     private List<String> regions;
@@ -45,7 +45,7 @@ public final class GetReportPlanReportSetting {
 
     private GetReportPlanReportSetting() {}
     /**
-     * @return (Optional) Specifies the list of accounts a report covers.
+     * @return List of accounts a report covers.
      * 
      */
     public List<String> accounts() {
@@ -59,21 +59,21 @@ public final class GetReportPlanReportSetting {
         return this.frameworkArns;
     }
     /**
-     * @return Specifies the number of frameworks a report covers.
+     * @return Number of frameworks a report covers.
      * 
      */
     public Integer numberOfFrameworks() {
         return this.numberOfFrameworks;
     }
     /**
-     * @return (Optional) Specifies the list of Organizational Units a report covers.
+     * @return List of Organizational Units a report covers.
      * 
      */
     public List<String> organizationUnits() {
         return this.organizationUnits;
     }
     /**
-     * @return (Optional) Specifies the list of regions a report covers.
+     * @return List of regions a report covers.
      * 
      */
     public List<String> regions() {

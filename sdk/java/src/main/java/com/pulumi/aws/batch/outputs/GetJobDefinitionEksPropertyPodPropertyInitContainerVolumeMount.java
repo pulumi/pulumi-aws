@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount {
     /**
-     * @return The path on the container where the volume is mounted.
+     * @return Path on the container where the volume is mounted.
      * 
      */
     private String mountPath;
     /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+     * @return Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      * 
      */
     private String name;
@@ -29,14 +29,14 @@ public final class GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMoun
 
     private GetJobDefinitionEksPropertyPodPropertyInitContainerVolumeMount() {}
     /**
-     * @return The path on the container where the volume is mounted.
+     * @return Path on the container where the volume is mounted.
      * 
      */
     public String mountPath() {
         return this.mountPath;
     }
     /**
-     * @return The name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
+     * @return Name of the job definition to register. It can be up to 128 letters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).
      * 
      */
     public String name() {
