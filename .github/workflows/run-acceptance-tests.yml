@@ -103,7 +103,7 @@ jobs:
     - license_check
     runs-on: ubuntu-latest
     steps:
-    - uses: guibranco/github-status-action-v2@f6952298057800f771cdce8e7918d5b88333eb89 # v1.2.3
+    - uses: guibranco/github-status-action-v2@77639353504055053524efa7a3719aaf0b731ce9 # v1.2.4
       with:
         authToken: ${{ secrets.GITHUB_TOKEN }}
         # Write an explicit status check called "Sentinel" which will only pass if this code really runs.
