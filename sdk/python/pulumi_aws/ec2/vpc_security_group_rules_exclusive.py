@@ -175,7 +175,7 @@ class VpcSecurityGroupRulesExclusive(pulumi.CustomResource):
 
         This resource manages the complete set of ingress and egress rules assigned to a security group. It provides exclusive control by removing any rules not explicitly defined in the configuration.
 
-        !> This resource takes exclusive ownership over ingress and egress rules assigned to a security group. This includes removal of rules which are not explicitly configured. To prevent persistent drift, ensure any `vpc.SecurityGroupIngressRule` and `vpc.SecurityGroupEgressRule` resources managed alongside this resource are included in the `ingress_rule_ids` and `egress_rule_ids` arguments.
+        > This resource takes exclusive ownership over ingress and egress rules assigned to a security group. This includes removal of rules which are not explicitly configured. To prevent persistent drift, ensure any `vpc.SecurityGroupIngressRule` and `vpc.SecurityGroupEgressRule` resources managed alongside this resource are included in the `ingress_rule_ids` and `egress_rule_ids` arguments.
 
         > Destruction of this resource means Terraform will no longer manage reconciliation of the configured security group rules. It **will not** revoke the configured rules from the security group.
 
@@ -252,7 +252,7 @@ class VpcSecurityGroupRulesExclusive(pulumi.CustomResource):
 
         This resource manages the complete set of ingress and egress rules assigned to a security group. It provides exclusive control by removing any rules not explicitly defined in the configuration.
 
-        !> This resource takes exclusive ownership over ingress and egress rules assigned to a security group. This includes removal of rules which are not explicitly configured. To prevent persistent drift, ensure any `vpc.SecurityGroupIngressRule` and `vpc.SecurityGroupEgressRule` resources managed alongside this resource are included in the `ingress_rule_ids` and `egress_rule_ids` arguments.
+        > This resource takes exclusive ownership over ingress and egress rules assigned to a security group. This includes removal of rules which are not explicitly configured. To prevent persistent drift, ensure any `vpc.SecurityGroupIngressRule` and `vpc.SecurityGroupEgressRule` resources managed alongside this resource are included in the `ingress_rule_ids` and `egress_rule_ids` arguments.
 
         > Destruction of this resource means Terraform will no longer manage reconciliation of the configured security group rules. It **will not** revoke the configured rules from the security group.
 

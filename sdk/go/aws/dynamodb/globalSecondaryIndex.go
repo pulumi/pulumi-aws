@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **WARNING:** Do not combine `dynamodb.GlobalSecondaryIndex` resources in conjunction with `globalSecondaryIndex` on `dynamodb.Table`. Doing so may cause conflicts, perpertual differences, and Global Secondary Indexes being overwritten.
+// > **WARNING:** Do not combine `dynamodb.GlobalSecondaryIndex` resources in conjunction with `globalSecondaryIndex` on `dynamodb.Table`. Doing so may cause conflicts, perpertual differences, and Global Secondary Indexes being overwritten.
 //
 // ## Example Usage
 //

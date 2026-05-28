@@ -16,7 +16,7 @@ import (
 //
 // > **NOTE:** Avoid using the `ec2.SecurityGroupRule` resource, as it struggles with managing multiple CIDR blocks, and, due to the historical lack of unique IDs, tags and descriptions. To avoid these problems, use the current best practice of the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources with one CIDR block per rule.
 //
-// !> **WARNING:** You should not use the `ec2.SecurityGroupRule` resource in conjunction with `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources or with an `ec2.SecurityGroup` resource that has in-line rules. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
+// > **WARNING:** You should not use the `ec2.SecurityGroupRule` resource in conjunction with `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources or with an `ec2.SecurityGroup` resource that has in-line rules. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
 //
 // > **NOTE:** Setting `protocol = "all"` or `protocol = -1` with `fromPort` and `toPort` will result in the EC2 API creating a security group rule with all ports open. This API behavior cannot be controlled by this provider and may generate warnings in the future.
 //

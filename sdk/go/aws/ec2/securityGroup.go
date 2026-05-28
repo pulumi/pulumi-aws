@@ -15,7 +15,7 @@ import (
 //
 // > **NOTE:** Avoid using the `ingress` and `egress` arguments of the `ec2.SecurityGroup` resource to configure in-line rules, as they struggle with managing multiple CIDR blocks, and, due to the historical lack of unique IDs, tags and descriptions. To avoid these problems, use the current best practice of the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources with one CIDR block per rule.
 //
-// !> **WARNING:** You should not use the `ec2.SecurityGroup` resource with _in-line rules_ (using the `ingress` and `egress` arguments of `ec2.SecurityGroup`) in conjunction with the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources or the `ec2.SecurityGroupRule` resource. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
+// > **WARNING:** You should not use the `ec2.SecurityGroup` resource with _in-line rules_ (using the `ingress` and `egress` arguments of `ec2.SecurityGroup`) in conjunction with the `vpc.SecurityGroupEgressRule` and `vpc.SecurityGroupIngressRule` resources or the `ec2.SecurityGroupRule` resource. Doing so may cause rule conflicts, perpetual differences, and result in rules being overwritten.
 //
 // > **NOTE:** Referencing Security Groups across VPC peering has certain restrictions. More information is available in the [VPC Peering User Guide](https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html).
 //

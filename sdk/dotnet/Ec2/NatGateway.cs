@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a resource to create a VPC NAT Gateway.
     /// 
-    /// !&gt; **WARNING:** You should not use the `aws.ec2.NatGateway` resource that has `SecondaryAllocationIds` in conjunction with an `aws.ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
+    /// &gt; **WARNING:** You should not use the `aws.ec2.NatGateway` resource that has `SecondaryAllocationIds` in conjunction with an `aws.ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
     /// 
     /// ## Example Usage
     /// 

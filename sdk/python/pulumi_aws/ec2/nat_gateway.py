@@ -582,7 +582,7 @@ class NatGateway(pulumi.CustomResource):
         """
         Provides a resource to create a VPC NAT Gateway.
 
-        !> **WARNING:** You should not use the `ec2.NatGateway` resource that has `secondary_allocation_ids` in conjunction with an `ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
+        > **WARNING:** You should not use the `ec2.NatGateway` resource that has `secondary_allocation_ids` in conjunction with an `ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
 
         ## Example Usage
 
@@ -726,7 +726,7 @@ class NatGateway(pulumi.CustomResource):
         """
         Provides a resource to create a VPC NAT Gateway.
 
-        !> **WARNING:** You should not use the `ec2.NatGateway` resource that has `secondary_allocation_ids` in conjunction with an `ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
+        > **WARNING:** You should not use the `ec2.NatGateway` resource that has `secondary_allocation_ids` in conjunction with an `ec2.NatGatewayEipAssociation` resource. Doing so may cause perpetual differences, and result in associations being overwritten.
 
         ## Example Usage
 

@@ -110,7 +110,7 @@ class RolePoliciesExclusive(pulumi.CustomResource):
 
         Resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity & Access Management) role.
 
-        !> This resource takes exclusive ownership over inline policies assigned to a role. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicy` resources managed alongside this resource are included in the `policy_names` argument.
+        > This resource takes exclusive ownership over inline policies assigned to a role. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicy` resources managed alongside this resource are included in the `policy_names` argument.
 
         > Destruction of this resource means Pulumi will no longer manage reconciliation of the configured inline policy assignments. It __will not__ delete the configured policies from the role.
 
@@ -167,7 +167,7 @@ class RolePoliciesExclusive(pulumi.CustomResource):
 
         Resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity & Access Management) role.
 
-        !> This resource takes exclusive ownership over inline policies assigned to a role. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicy` resources managed alongside this resource are included in the `policy_names` argument.
+        > This resource takes exclusive ownership over inline policies assigned to a role. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.RolePolicy` resources managed alongside this resource are included in the `policy_names` argument.
 
         > Destruction of this resource means Pulumi will no longer manage reconciliation of the configured inline policy assignments. It __will not__ delete the configured policies from the role.
 

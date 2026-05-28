@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * Resource for maintaining exclusive management of principal and resource associations for an AWS RAM (Resource Access Manager) Resource Share.
  * 
- * !&gt; This resource takes exclusive ownership over principal and resource associations for a resource share. This includes removal of principals and resources which are not explicitly configured.
+ * &gt; This resource takes exclusive ownership over principal and resource associations for a resource share. This includes removal of principals and resources which are not explicitly configured.
  * 
  * &gt; Destruction of this resource will disassociate all configured principals and resources from the resource share.
  * 

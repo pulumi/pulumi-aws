@@ -108,7 +108,7 @@ class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
         """
         Resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity & Access Management) group.
 
-        !> This resource takes exclusive ownership over managed IAM policies attached to a group. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.GroupPolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
+        > This resource takes exclusive ownership over managed IAM policies attached to a group. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.GroupPolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
 
         > Destruction of this resource means Terraform will no longer manage reconciliation of the configured policy attachments. It **will not** detach the configured policies from the group.
 
@@ -163,7 +163,7 @@ class GroupPolicyAttachmentsExclusive(pulumi.CustomResource):
         """
         Resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity & Access Management) group.
 
-        !> This resource takes exclusive ownership over managed IAM policies attached to a group. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.GroupPolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
+        > This resource takes exclusive ownership over managed IAM policies attached to a group. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.GroupPolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
 
         > Destruction of this resource means Terraform will no longer manage reconciliation of the configured policy attachments. It **will not** detach the configured policies from the group.
 

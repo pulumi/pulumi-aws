@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Resource for maintaining exclusive management of resource record sets defined in an AWS Route53 hosted zone.
  * 
- * !&gt; This resource takes exclusive ownership over resource record sets defined in a hosted zone. This includes removal of record sets which are not explicitly configured. To prevent persistent drift, ensure any `aws.route53.Record` resources managed alongside this resource have an equivalent `resourceRecordSet` argument.
+ * &gt; This resource takes exclusive ownership over resource record sets defined in a hosted zone. This includes removal of record sets which are not explicitly configured. To prevent persistent drift, ensure any `aws.route53.Record` resources managed alongside this resource have an equivalent `resourceRecordSet` argument.
  * 
  * &gt; Destruction of this resource means Terraform will no longer manage reconciliation of the configured resource record sets. It __will not__ delete the configured record sets from the hosted zone.
  * 
