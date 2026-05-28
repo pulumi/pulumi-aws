@@ -51,6 +51,7 @@ jobs:
           - ec2
           - docdb
           - redshiftserverless
+          - apigateway
         include:
           - service: sqs
             tests: TestAccSQSQueue
@@ -60,6 +61,8 @@ jobs:
             tests: TestAccDocDBCluster_basic
           - service: redshiftserverless
             tests: TestAccRedshiftServerlessNamespace_basic
+          - service: apigateway
+            tests: TestAccAPIGatewayRestAPI_(Policy_|body)
           # TODO[pulumi/pulumi-aws#5388] route53resolver tests flaky
           # - service: route53resolver
           #   tests: TestAccRoute53Resolver

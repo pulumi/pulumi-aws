@@ -1,0 +1,56 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: corymhall <43035978+corymhall@users.noreply.github.com>
+Date: Thu, 28 May 2026 15:19:16 -0400
+Subject: [PATCH] Fix REST API body policy updates
+
+
+diff --git a/internal/service/apigateway/rest_api.go b/internal/service/apigateway/rest_api.go
+index 54c59696ecd..a8f75496570 100644
+--- a/internal/service/apigateway/rest_api.go
++++ b/internal/service/apigateway/rest_api.go
+@@ -747,7 +747,10 @@ func resourceRestAPIWithBodyUpdateOperations(d *schema.ResourceData, output *api
+ 		})
+ 	}
+ 
+-	if v, ok := d.GetOk(names.AttrPolicy); ok {
++	// Only re-apply policy after OpenAPI import when policy was configured
++	// explicitly. For Optional+Computed policy, GetOk can be true for a
++	// value that was read from the prior API state.
++	if v, ok := d.GetOk(names.AttrPolicy); ok && resourceRestAPIPolicyConfigured(d) {
+ 		if equivalent, err := awspolicy.PoliciesAreEquivalent(v.(string), aws.ToString(output.Policy)); err != nil || !equivalent {
+ 			policy, _ := structure.NormalizeJsonString(v.(string)) // validation covers error
+ 
+@@ -762,6 +765,15 @@ func resourceRestAPIWithBodyUpdateOperations(d *schema.ResourceData, output *api
+ 	return operations
+ }
+ 
++func resourceRestAPIPolicyConfigured(d *schema.ResourceData) bool {
++	rawConfig := d.GetRawConfig()
++	if rawConfig.IsNull() || !rawConfig.Type().IsObjectType() || !rawConfig.Type().HasAttribute(names.AttrPolicy) {
++		return false
++	}
++
++	return !rawConfig.GetAttr(names.AttrPolicy).IsNull()
++}
++
+ // escapeJSONPointer escapes string per RFC 6901
+ // so it can be used as path in JSON patch operations
+ func escapeJSONPointer(path string) string {
+diff --git a/internal/service/apigateway/rest_api_test.go b/internal/service/apigateway/rest_api_test.go
+index c9b5817fa95..98218a1066d 100644
+--- a/internal/service/apigateway/rest_api_test.go
++++ b/internal/service/apigateway/rest_api_test.go
+@@ -1482,6 +1482,13 @@ func TestAccAPIGatewayRestAPI_Policy_setByBody(t *testing.T) {
+ 					resource.TestMatchResourceAttr(resourceName, names.AttrPolicy, regexache.MustCompile(`"Allow"`)),
+ 				),
+ 			},
++			{
++				Config: testAccRestAPIConfig_policySetByBody(rName, "Deny"),
++				Check: resource.ComposeAggregateTestCheckFunc(
++					testAccCheckRESTAPIExists(ctx, t, resourceName, &conf),
++					resource.TestMatchResourceAttr(resourceName, names.AttrPolicy, regexache.MustCompile(`"Deny"`)),
++				),
++			},
+ 			{
+ 				ResourceName:            resourceName,
+ 				ImportState:             true,

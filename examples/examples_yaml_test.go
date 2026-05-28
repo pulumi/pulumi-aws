@@ -78,6 +78,32 @@ func TestApiGatewayResourceResponseUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "apigateway-resource-response"), nil)
 }
 
+func TestApiGatewayRestApiBodyPolicyUpdate(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
+
+	cwd := getCwd(t)
+	workdir := t.TempDir()
+	require.NoError(t, os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"),
+		[]byte(testApiGatewayRestApiBodyPolicyProgram("Allow")), 0o600))
+
+	pt := pulumitest.NewPulumiTest(t, workdir,
+		opttest.SkipInstall(),
+		opttest.TestInPlace(),
+		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+	)
+	pt.SetConfig(t, "aws:region", "us-east-1")
+	pt.Up(t)
+
+	require.NoError(t, os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"),
+		[]byte(testApiGatewayRestApiBodyPolicyProgram("Deny")), 0o600))
+
+	result := pt.Up(t)
+	policy, ok := result.Outputs["policy"].Value.(string)
+	require.True(t, ok)
+	require.Contains(t, policy, `"Effect":"Deny"`)
+}
+
 func TestCloudwatchEventRuleUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "cloudwatch-eventrule"), nil)
 }
@@ -878,6 +904,53 @@ outputs:
 			}
 		}
 	}
+}
+
+func testApiGatewayRestApiBodyPolicyProgram(effect string) string {
+	return fmt.Sprintf(`name: apigateway-restapi-body-policy
+runtime: yaml
+resources:
+  api:
+    type: aws:apigateway:RestApi
+    properties:
+      name: apigateway-restapi-body-policy-${pulumi.stack}
+      endpointConfiguration:
+        types: REGIONAL
+      body:
+        fn::toJSON:
+          swagger: "2.0"
+          info:
+            title: test
+            version: "2017-04-20T04:08:08Z"
+          schemes:
+            - https
+          paths:
+            /test:
+              get:
+                responses:
+                  "200":
+                    description: OK
+                x-amazon-apigateway-integration:
+                  httpMethod: GET
+                  type: HTTP
+                  responses:
+                    default:
+                      statusCode: 200
+                  uri: https://api.example.com/
+          x-amazon-apigateway-policy:
+            Version: "2012-10-17"
+            Statement:
+              - Action: execute-api:Invoke
+                Condition:
+                  IpAddress:
+                    aws:SourceIp: 123.123.123.123/32
+                Effect: %s
+                Principal:
+                  AWS: "*"
+                Resource: "*"
+outputs:
+  policy: ${api.policy}
+`, effect)
 }
 
 func TestSecurityGroupPreviewWarning(t *testing.T) {
