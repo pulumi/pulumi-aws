@@ -11173,6 +11173,8 @@ func (o DataSourceParametersAmazonElasticsearchPtrOutput) Domain() pulumi.String
 }
 
 type DataSourceParametersAthena struct {
+	// Use the `roleArn` to override an account-wide role for a specific athena data source.
+	RoleArn *string `pulumi:"roleArn"`
 	// The work-group to which to connect.
 	WorkGroup *string `pulumi:"workGroup"`
 }
@@ -11189,6 +11191,8 @@ type DataSourceParametersAthenaInput interface {
 }
 
 type DataSourceParametersAthenaArgs struct {
+	// Use the `roleArn` to override an account-wide role for a specific athena data source.
+	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// The work-group to which to connect.
 	WorkGroup pulumi.StringPtrInput `pulumi:"workGroup"`
 }
@@ -11270,6 +11274,11 @@ func (o DataSourceParametersAthenaOutput) ToDataSourceParametersAthenaPtrOutputW
 	}).(DataSourceParametersAthenaPtrOutput)
 }
 
+// Use the `roleArn` to override an account-wide role for a specific athena data source.
+func (o DataSourceParametersAthenaOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceParametersAthena) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
 // The work-group to which to connect.
 func (o DataSourceParametersAthenaOutput) WorkGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceParametersAthena) *string { return v.WorkGroup }).(pulumi.StringPtrOutput)
@@ -11297,6 +11306,16 @@ func (o DataSourceParametersAthenaPtrOutput) Elem() DataSourceParametersAthenaOu
 		var ret DataSourceParametersAthena
 		return ret
 	}).(DataSourceParametersAthenaOutput)
+}
+
+// Use the `roleArn` to override an account-wide role for a specific athena data source.
+func (o DataSourceParametersAthenaPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceParametersAthena) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The work-group to which to connect.

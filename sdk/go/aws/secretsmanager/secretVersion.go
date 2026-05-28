@@ -135,11 +135,16 @@ import (
 type SecretVersion struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the secret.
+	// (**Deprecated**) The ARN of the secret.
+	// Use `secretArn` instead.
+	//
+	// Deprecated: arn is deprecated. Use secretArn instead.
 	Arn               pulumi.StringOutput `pulumi:"arn"`
 	HasSecretStringWo pulumi.BoolOutput   `pulumi:"hasSecretStringWo"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// The ARN of the secret.
+	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary pulumi.StringPtrOutput `pulumi:"secretBinary"`
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
@@ -207,11 +212,16 @@ func GetSecretVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecretVersion resources.
 type secretVersionState struct {
-	// The ARN of the secret.
+	// (**Deprecated**) The ARN of the secret.
+	// Use `secretArn` instead.
+	//
+	// Deprecated: arn is deprecated. Use secretArn instead.
 	Arn               *string `pulumi:"arn"`
 	HasSecretStringWo *bool   `pulumi:"hasSecretStringWo"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// The ARN of the secret.
+	SecretArn *string `pulumi:"secretArn"`
 	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary *string `pulumi:"secretBinary"`
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
@@ -232,11 +242,16 @@ type secretVersionState struct {
 }
 
 type SecretVersionState struct {
-	// The ARN of the secret.
+	// (**Deprecated**) The ARN of the secret.
+	// Use `secretArn` instead.
+	//
+	// Deprecated: arn is deprecated. Use secretArn instead.
 	Arn               pulumi.StringPtrInput
 	HasSecretStringWo pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// The ARN of the secret.
+	SecretArn pulumi.StringPtrInput
 	// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary pulumi.StringPtrInput
 	// Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
@@ -388,7 +403,10 @@ func (o SecretVersionOutput) ToSecretVersionOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The ARN of the secret.
+// (**Deprecated**) The ARN of the secret.
+// Use `secretArn` instead.
+//
+// Deprecated: arn is deprecated. Use secretArn instead.
 func (o SecretVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -400,6 +418,11 @@ func (o SecretVersionOutput) HasSecretStringWo() pulumi.BoolOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o SecretVersionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// The ARN of the secret.
+func (o SecretVersionOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *SecretVersion) pulumi.StringOutput { return v.SecretArn }).(pulumi.StringOutput)
 }
 
 // Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.

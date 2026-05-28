@@ -16,8 +16,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const hogeBucket = new aws.s3.Bucket("hoge", {bucket: "tf-test-bucket-1234"});
- * const hoge = aws.iam.getPolicyDocument({
+ * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
+ * const exampleResourceDataSync = new aws.ssm.ResourceDataSync("example", {
+ *     name: "example",
+ *     s3Destination: {
+ *         bucketName: exampleBucket.bucket,
+ *         region: exampleBucket.region,
+ *     },
+ * });
+ * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
  *             sid: "SSMBucketPermissionsCheck",
@@ -27,7 +34,7 @@ import * as utilities from "../utilities";
  *                 identifiers: ["ssm.amazonaws.com"],
  *             }],
  *             actions: ["s3:GetBucketAcl"],
- *             resources: ["arn:aws:s3:::tf-test-bucket-1234"],
+ *             resources: [exampleBucket.arn],
  *         },
  *         {
  *             sid: "SSMBucketDelivery",
@@ -37,7 +44,7 @@ import * as utilities from "../utilities";
  *                 identifiers: ["ssm.amazonaws.com"],
  *             }],
  *             actions: ["s3:PutObject"],
- *             resources: ["arn:aws:s3:::tf-test-bucket-1234/*"],
+ *             resources: [pulumi.interpolate`${exampleBucket.arn}/*`],
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "s3:x-amz-acl",
@@ -46,18 +53,18 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const hogeBucketPolicy = new aws.s3.BucketPolicy("hoge", {
- *     bucket: hogeBucket.id,
- *     policy: hoge.then(hoge => hoge.json),
- * });
- * const foo = new aws.ssm.ResourceDataSync("foo", {
- *     name: "foo",
- *     s3Destination: {
- *         bucketName: hogeBucket.bucket,
- *         region: hogeBucket.region,
- *     },
+ * const exampleBucketPolicy = new aws.s3.BucketPolicy("example", {
+ *     bucket: exampleBucket.bucket,
+ *     policy: example.apply(example => example.json),
  * });
  * ```
+ *
+ * ## destinationDataSharing
+ *
+ * `destinationDataSharing` supports the following:
+ *
+ * * `destinationDataSharingType` - (Optional) Data sharing type.
+ *   Only `Organization` is supported.
  *
  * ## Import
  *

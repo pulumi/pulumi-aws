@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
+ * Provides an End User Messaging ADM (Amazon Device Messaging) Channel resource.
  * 
  * &gt; **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
  * ## Example Usage
@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
+ * Using `pulumi import`, import End User Messaging ADM Channel using the `application-id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
@@ -71,14 +71,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:pinpoint/admChannel:AdmChannel")
 public class AdmChannel extends com.pulumi.resources.CustomResource {
     /**
-     * The application ID.
+     * Application ID.
      * 
      */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      */
     public Output<String> applicationId() {
@@ -113,14 +113,14 @@ public class AdmChannel extends com.pulumi.resources.CustomResource {
         return this.clientSecret;
     }
     /**
-     * Specifies whether to enable the channel. Defaults to `true`.
+     * Whether to enable the channel. Defaults to `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Specifies whether to enable the channel. Defaults to `true`.
+     * @return Whether to enable the channel. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

@@ -150,7 +150,7 @@ import (
 //
 // ```
 //
-// ### Pinpoint Destination
+// ### End User Messaging Destination
 //
 // ```go
 // package main

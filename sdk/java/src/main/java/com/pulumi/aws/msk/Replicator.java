@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.msk.ReplicatorArgs;
 import com.pulumi.aws.msk.inputs.ReplicatorState;
 import com.pulumi.aws.msk.outputs.ReplicatorKafkaCluster;
+import com.pulumi.aws.msk.outputs.ReplicatorLogDelivery;
 import com.pulumi.aws.msk.outputs.ReplicatorReplicationInfoList;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -156,6 +157,20 @@ public class Replicator extends com.pulumi.resources.CustomResource {
      */
     public Output<List<ReplicatorKafkaCluster>> kafkaClusters() {
         return this.kafkaClusters;
+    }
+    /**
+     * Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     * 
+     */
+    @Export(name="logDelivery", refs={ReplicatorLogDelivery.class}, tree="[0]")
+    private Output</* @Nullable */ ReplicatorLogDelivery> logDelivery;
+
+    /**
+     * @return Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     * 
+     */
+    public Output<Optional<ReplicatorLogDelivery>> logDelivery() {
+        return Codegen.optional(this.logDelivery);
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

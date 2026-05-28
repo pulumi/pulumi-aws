@@ -105,6 +105,21 @@ export type AgentcoreOauth2CredentialProvider = import("./agentcoreOauth2Credent
 export const AgentcoreOauth2CredentialProvider: typeof import("./agentcoreOauth2CredentialProvider").AgentcoreOauth2CredentialProvider = null as any;
 utilities.lazyLoad(exports, ["AgentcoreOauth2CredentialProvider"], () => require("./agentcoreOauth2CredentialProvider"));
 
+export { AgentcoreOnlineEvaluationConfigArgs, AgentcoreOnlineEvaluationConfigState } from "./agentcoreOnlineEvaluationConfig";
+export type AgentcoreOnlineEvaluationConfig = import("./agentcoreOnlineEvaluationConfig").AgentcoreOnlineEvaluationConfig;
+export const AgentcoreOnlineEvaluationConfig: typeof import("./agentcoreOnlineEvaluationConfig").AgentcoreOnlineEvaluationConfig = null as any;
+utilities.lazyLoad(exports, ["AgentcoreOnlineEvaluationConfig"], () => require("./agentcoreOnlineEvaluationConfig"));
+
+export { AgentcorePolicyEngineArgs, AgentcorePolicyEngineState } from "./agentcorePolicyEngine";
+export type AgentcorePolicyEngine = import("./agentcorePolicyEngine").AgentcorePolicyEngine;
+export const AgentcorePolicyEngine: typeof import("./agentcorePolicyEngine").AgentcorePolicyEngine = null as any;
+utilities.lazyLoad(exports, ["AgentcorePolicyEngine"], () => require("./agentcorePolicyEngine"));
+
+export { AgentcoreResourcePolicyArgs, AgentcoreResourcePolicyState } from "./agentcoreResourcePolicy";
+export type AgentcoreResourcePolicy = import("./agentcoreResourcePolicy").AgentcoreResourcePolicy;
+export const AgentcoreResourcePolicy: typeof import("./agentcoreResourcePolicy").AgentcoreResourcePolicy = null as any;
+utilities.lazyLoad(exports, ["AgentcoreResourcePolicy"], () => require("./agentcoreResourcePolicy"));
+
 export { AgentcoreTokenVaultCmkArgs, AgentcoreTokenVaultCmkState } from "./agentcoreTokenVaultCmk";
 export type AgentcoreTokenVaultCmk = import("./agentcoreTokenVaultCmk").AgentcoreTokenVaultCmk;
 export const AgentcoreTokenVaultCmk: typeof import("./agentcoreTokenVaultCmk").AgentcoreTokenVaultCmk = null as any;
@@ -210,6 +225,12 @@ const _module = {
                 return new AgentcoreMemoryStrategy(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider":
                 return new AgentcoreOauth2CredentialProvider(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreOnlineEvaluationConfig:AgentcoreOnlineEvaluationConfig":
+                return new AgentcoreOnlineEvaluationConfig(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcorePolicyEngine:AgentcorePolicyEngine":
+                return new AgentcorePolicyEngine(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy":
+                return new AgentcoreResourcePolicy(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk":
                 return new AgentcoreTokenVaultCmk(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreWorkloadIdentity:AgentcoreWorkloadIdentity":
@@ -249,6 +270,9 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreHarness", _module
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreMemory", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreMemoryStrategy", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreOauth2CredentialProvider", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreOnlineEvaluationConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcorePolicyEngine", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreResourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreTokenVaultCmk", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreWorkloadIdentity", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/customModel", _module)

@@ -2240,6 +2240,30 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/agentcoreOnlineEvaluationConfig",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreOnlineEvaluationConfig:AgentcoreOnlineEvaluationConfig": "AgentcoreOnlineEvaluationConfig"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcorePolicyEngine",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcorePolicyEngine:AgentcorePolicyEngine": "AgentcorePolicyEngine"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreResourcePolicy",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy": "AgentcoreResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/agentcoreTokenVaultCmk",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -11420,6 +11444,14 @@ _utilities.register(
   "fqn": "pulumi_aws.s3control",
   "classes": {
    "aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy": "MultiRegionAccessPointPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/multiRegionAccessPointRoutes",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/multiRegionAccessPointRoutes:MultiRegionAccessPointRoutes": "MultiRegionAccessPointRoutes"
   }
  },
  {

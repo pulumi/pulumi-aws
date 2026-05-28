@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MultiRegionAccessPoint{}
 	case "aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy":
 		r = &MultiRegionAccessPointPolicy{}
+	case "aws:s3control/multiRegionAccessPointRoutes:MultiRegionAccessPointRoutes":
+		r = &MultiRegionAccessPointRoutes{}
 	case "aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint":
 		r = &ObjectLambdaAccessPoint{}
 	case "aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy":
@@ -115,6 +117,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3control/multiRegionAccessPointPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3control/multiRegionAccessPointRoutes",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

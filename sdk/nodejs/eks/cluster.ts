@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *         authenticationMode: "API",
  *     },
  *     roleArn: cluster.arn,
- *     version: "1.31",
+ *     version: "1.35",
  *     vpcConfig: {
  *         subnetIds: [
  *             az1.id,
@@ -120,7 +120,7 @@ import * as utilities from "../utilities";
  *         authenticationMode: "API",
  *     },
  *     roleArn: cluster.arn,
- *     version: "1.31",
+ *     version: "1.35",
  *     bootstrapSelfManagedAddons: false,
  *     computeConfig: {
  *         enabled: true,
@@ -197,7 +197,7 @@ import * as utilities from "../utilities";
  *         authenticationMode: "API",
  *     },
  *     roleArn: cluster.arn,
- *     version: "1.31",
+ *     version: "1.35",
  *     remoteNetworkConfig: {
  *         remoteNodeNetworks: {
  *             cidrs: ["172.16.0.0/18"],
@@ -260,7 +260,7 @@ import * as utilities from "../utilities";
  *         authenticationMode: "CONFIG_MAP",
  *     },
  *     roleArn: cluster.arn,
- *     version: "1.31",
+ *     version: "1.35",
  *     vpcConfig: {
  *         endpointPrivateAccess: true,
  *         endpointPublicAccess: false,

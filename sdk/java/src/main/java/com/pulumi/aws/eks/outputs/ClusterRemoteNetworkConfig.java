@@ -6,7 +6,6 @@ package com.pulumi.aws.eks.outputs;
 import com.pulumi.aws.eks.outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks;
 import com.pulumi.aws.eks.outputs.ClusterRemoteNetworkConfigRemotePodNetworks;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,7 +16,7 @@ public final class ClusterRemoteNetworkConfig {
      * @return Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
      * 
      */
-    private ClusterRemoteNetworkConfigRemoteNodeNetworks remoteNodeNetworks;
+    private @Nullable ClusterRemoteNetworkConfigRemoteNodeNetworks remoteNodeNetworks;
     /**
      * @return Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
      * 
@@ -29,8 +28,8 @@ public final class ClusterRemoteNetworkConfig {
      * @return Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
      * 
      */
-    public ClusterRemoteNetworkConfigRemoteNodeNetworks remoteNodeNetworks() {
-        return this.remoteNodeNetworks;
+    public Optional<ClusterRemoteNetworkConfigRemoteNodeNetworks> remoteNodeNetworks() {
+        return Optional.ofNullable(this.remoteNodeNetworks);
     }
     /**
      * @return Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
@@ -49,7 +48,7 @@ public final class ClusterRemoteNetworkConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private ClusterRemoteNetworkConfigRemoteNodeNetworks remoteNodeNetworks;
+        private @Nullable ClusterRemoteNetworkConfigRemoteNodeNetworks remoteNodeNetworks;
         private @Nullable ClusterRemoteNetworkConfigRemotePodNetworks remotePodNetworks;
         public Builder() {}
         public Builder(ClusterRemoteNetworkConfig defaults) {
@@ -59,10 +58,8 @@ public final class ClusterRemoteNetworkConfig {
         }
 
         @CustomType.Setter
-        public Builder remoteNodeNetworks(ClusterRemoteNetworkConfigRemoteNodeNetworks remoteNodeNetworks) {
-            if (remoteNodeNetworks == null) {
-              throw new MissingRequiredPropertyException("ClusterRemoteNetworkConfig", "remoteNodeNetworks");
-            }
+        public Builder remoteNodeNetworks(@Nullable ClusterRemoteNetworkConfigRemoteNodeNetworks remoteNodeNetworks) {
+
             this.remoteNodeNetworks = remoteNodeNetworks;
             return this;
         }

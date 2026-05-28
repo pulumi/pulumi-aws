@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint
 {
     /// <summary>
-    /// &gt; **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `aws.ses.DomainIdentity`, `aws.sesv2.EmailIdentity`, and related SES/SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+    /// &gt; **NOTE:** This resource is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `aws.ses.DomainIdentity`, `aws.sesv2.EmailIdentity`, and related SES/SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
     /// 
-    /// Provides a Pinpoint Email Channel resource.
+    /// Provides an End User Messaging Email Channel resource.
     /// 
     /// ## Example Usage
     /// 
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:
+    /// Using `pulumi import`, import End User Messaging Email Channel using the `application-id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
@@ -111,13 +111,13 @@ namespace Pulumi.Aws.Pinpoint
     public partial class EmailChannel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+        /// ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         /// </summary>
         [Output("configurationSet")]
         public Output<string?> ConfigurationSet { get; private set; } = null!;
@@ -129,25 +129,25 @@ namespace Pulumi.Aws.Pinpoint
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+        /// Email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         /// </summary>
         [Output("fromAddress")]
         public Output<string> FromAddress { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of an identity verified with SES.
+        /// ARN of an identity verified with SES.
         /// </summary>
         [Output("identity")]
         public Output<string> Identity { get; private set; } = null!;
 
         /// <summary>
-        /// Messages per second that can be sent.
+        /// (**Deprecated**) Messages per second that can be sent.
         /// </summary>
         [Output("messagesPerSecond")]
         public Output<int> MessagesPerSecond { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        /// ARN of an IAM role for AWS End User Messaging to use to send email from your campaigns or journeys through Amazon SES.
         /// </summary>
         [Output("orchestrationSendingRoleArn")]
         public Output<string?> OrchestrationSendingRoleArn { get; private set; } = null!;
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+        /// ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
@@ -211,13 +211,13 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class EmailChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+        /// ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         /// </summary>
         [Input("configurationSet")]
         public Input<string>? ConfigurationSet { get; set; }
@@ -229,19 +229,19 @@ namespace Pulumi.Aws.Pinpoint
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+        /// Email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         /// </summary>
         [Input("fromAddress", required: true)]
         public Input<string> FromAddress { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of an identity verified with SES.
+        /// ARN of an identity verified with SES.
         /// </summary>
         [Input("identity", required: true)]
         public Input<string> Identity { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        /// ARN of an IAM role for AWS End User Messaging to use to send email from your campaigns or journeys through Amazon SES.
         /// </summary>
         [Input("orchestrationSendingRoleArn")]
         public Input<string>? OrchestrationSendingRoleArn { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+        /// ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
@@ -267,13 +267,13 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class EmailChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
-        /// The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+        /// ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
         /// </summary>
         [Input("configurationSet")]
         public Input<string>? ConfigurationSet { get; set; }
@@ -285,25 +285,25 @@ namespace Pulumi.Aws.Pinpoint
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+        /// Email address used to send emails from. You can use email only (`user@example.com`) or friendly address (`User &lt;user@example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
         /// </summary>
         [Input("fromAddress")]
         public Input<string>? FromAddress { get; set; }
 
         /// <summary>
-        /// The ARN of an identity verified with SES.
+        /// ARN of an identity verified with SES.
         /// </summary>
         [Input("identity")]
         public Input<string>? Identity { get; set; }
 
         /// <summary>
-        /// Messages per second that can be sent.
+        /// (**Deprecated**) Messages per second that can be sent.
         /// </summary>
         [Input("messagesPerSecond")]
         public Input<int>? MessagesPerSecond { get; set; }
 
         /// <summary>
-        /// The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+        /// ARN of an IAM role for AWS End User Messaging to use to send email from your campaigns or journeys through Amazon SES.
         /// </summary>
         [Input("orchestrationSendingRoleArn")]
         public Input<string>? OrchestrationSendingRoleArn { get; set; }
@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
+        /// ARN of an IAM Role used to submit events to Mobile Analytics' event ingestion service.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

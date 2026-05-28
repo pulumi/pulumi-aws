@@ -5,12 +5,12 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Pinpoint GCM Channel resource.
+ * Provides an End User Messaging GCM Channel resource.
  *
  * > **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
  * ## Import
  *
- * Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
+ * Using `pulumi import`, import End User Messaging GCM Channel using the `application-id`. For example:
  *
  * ```sh
  * $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
@@ -45,13 +45,16 @@ export class GcmChannel extends pulumi.CustomResource {
     }
 
     /**
-     * Platform credential API key from Google.
+     * Platform credential API key from Google. Conflicts with `serviceJson`.
      */
     declare public readonly apiKey: pulumi.Output<string | undefined>;
     /**
-     * The application ID.
+     * Application ID.
      */
     declare public readonly applicationId: pulumi.Output<string>;
+    /**
+     * Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
+     */
     declare public readonly defaultAuthenticationMethod: pulumi.Output<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
@@ -61,6 +64,9 @@ export class GcmChannel extends pulumi.CustomResource {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
+    /**
+     * Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
+     */
     declare public readonly serviceJson: pulumi.Output<string | undefined>;
 
     /**
@@ -106,13 +112,16 @@ export class GcmChannel extends pulumi.CustomResource {
  */
 export interface GcmChannelState {
     /**
-     * Platform credential API key from Google.
+     * Platform credential API key from Google. Conflicts with `serviceJson`.
      */
     apiKey?: pulumi.Input<string | undefined>;
     /**
-     * The application ID.
+     * Application ID.
      */
     applicationId?: pulumi.Input<string | undefined>;
+    /**
+     * Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
+     */
     defaultAuthenticationMethod?: pulumi.Input<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
@@ -122,6 +131,9 @@ export interface GcmChannelState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
+     */
     serviceJson?: pulumi.Input<string | undefined>;
 }
 
@@ -130,13 +142,16 @@ export interface GcmChannelState {
  */
 export interface GcmChannelArgs {
     /**
-     * Platform credential API key from Google.
+     * Platform credential API key from Google. Conflicts with `serviceJson`.
      */
     apiKey?: pulumi.Input<string | undefined>;
     /**
-     * The application ID.
+     * Application ID.
      */
     applicationId: pulumi.Input<string>;
+    /**
+     * Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
+     */
     defaultAuthenticationMethod?: pulumi.Input<string | undefined>;
     /**
      * Whether the channel is enabled or disabled. Defaults to `true`.
@@ -146,5 +161,8 @@ export interface GcmChannelArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
+     */
     serviceJson?: pulumi.Input<string | undefined>;
 }

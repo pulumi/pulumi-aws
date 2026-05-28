@@ -68,7 +68,10 @@ func GetPartition(ctx *pulumi.Context, args *GetPartitionArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getPartition.
 type GetPartitionArgs struct {
-	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	// (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	// Use `partition` instead.
+	//
+	// Deprecated: Use 'partition' instead. This attribute will be removed in a future version of the provider.
 	Id *string `pulumi:"id"`
 }
 
@@ -76,7 +79,10 @@ type GetPartitionArgs struct {
 type GetPartitionResult struct {
 	// Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
 	DnsSuffix string `pulumi:"dnsSuffix"`
-	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	// (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	// Use `partition` instead.
+	//
+	// Deprecated: Use 'partition' instead. This attribute will be removed in a future version of the provider.
 	Id string `pulumi:"id"`
 	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
 	Partition string `pulumi:"partition"`
@@ -95,7 +101,10 @@ func GetPartitionOutput(ctx *pulumi.Context, args GetPartitionOutputArgs, opts .
 
 // A collection of arguments for invoking getPartition.
 type GetPartitionOutputArgs struct {
-	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	// (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	// Use `partition` instead.
+	//
+	// Deprecated: Use 'partition' instead. This attribute will be removed in a future version of the provider.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -123,7 +132,10 @@ func (o GetPartitionResultOutput) DnsSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPartitionResult) string { return v.DnsSuffix }).(pulumi.StringOutput)
 }
 
-// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+// (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+// Use `partition` instead.
+//
+// Deprecated: Use 'partition' instead. This attribute will be removed in a future version of the provider.
 func (o GetPartitionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPartitionResult) string { return v.Id }).(pulumi.StringOutput)
 }

@@ -108,6 +108,8 @@ type Replicator struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayOutput `pulumi:"kafkaClusters"`
+	// Configuration block for delivering replicator logs to customer destinations. Detailed below.
+	LogDelivery ReplicatorLogDeliveryPtrOutput `pulumi:"logDelivery"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
@@ -171,6 +173,8 @@ type replicatorState struct {
 	Description *string `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters []ReplicatorKafkaCluster `pulumi:"kafkaClusters"`
+	// Configuration block for delivering replicator logs to customer destinations. Detailed below.
+	LogDelivery *ReplicatorLogDelivery `pulumi:"logDelivery"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
@@ -193,6 +197,8 @@ type ReplicatorState struct {
 	Description pulumi.StringPtrInput
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayInput
+	// Configuration block for delivering replicator logs to customer destinations. Detailed below.
+	LogDelivery ReplicatorLogDeliveryPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
@@ -216,6 +222,8 @@ type replicatorArgs struct {
 	Description *string `pulumi:"description"`
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters []ReplicatorKafkaCluster `pulumi:"kafkaClusters"`
+	// Configuration block for delivering replicator logs to customer destinations. Detailed below.
+	LogDelivery *ReplicatorLogDelivery `pulumi:"logDelivery"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
@@ -234,6 +242,8 @@ type ReplicatorArgs struct {
 	Description pulumi.StringPtrInput
 	// A list of Kafka clusters which are targets of the replicator.
 	KafkaClusters ReplicatorKafkaClusterArrayInput
+	// Configuration block for delivering replicator logs to customer destinations. Detailed below.
+	LogDelivery ReplicatorLogDeliveryPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
@@ -350,6 +360,11 @@ func (o ReplicatorOutput) Description() pulumi.StringPtrOutput {
 // A list of Kafka clusters which are targets of the replicator.
 func (o ReplicatorOutput) KafkaClusters() ReplicatorKafkaClusterArrayOutput {
 	return o.ApplyT(func(v *Replicator) ReplicatorKafkaClusterArrayOutput { return v.KafkaClusters }).(ReplicatorKafkaClusterArrayOutput)
+}
+
+// Configuration block for delivering replicator logs to customer destinations. Detailed below.
+func (o ReplicatorOutput) LogDelivery() ReplicatorLogDeliveryPtrOutput {
+	return o.ApplyT(func(v *Replicator) ReplicatorLogDeliveryPtrOutput { return v.LogDelivery }).(ReplicatorLogDeliveryPtrOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

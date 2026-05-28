@@ -26,7 +26,7 @@ class GetRouteResult:
     """
     A collection of values returned by getRoute.
     """
-    def __init__(__self__, carrier_gateway_id=None, core_network_arn=None, destination_cidr_block=None, destination_ipv6_cidr_block=None, destination_prefix_list_id=None, egress_only_gateway_id=None, gateway_id=None, id=None, instance_id=None, local_gateway_id=None, nat_gateway_id=None, network_interface_id=None, region=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None):
+    def __init__(__self__, carrier_gateway_id=None, core_network_arn=None, destination_cidr_block=None, destination_ipv6_cidr_block=None, destination_prefix_list_id=None, egress_only_gateway_id=None, gateway_id=None, id=None, instance_id=None, local_gateway_id=None, nat_gateway_id=None, network_interface_id=None, odb_network_arn=None, region=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None):
         if carrier_gateway_id and not isinstance(carrier_gateway_id, str):
             raise TypeError("Expected argument 'carrier_gateway_id' to be a str")
         pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
@@ -63,6 +63,9 @@ class GetRouteResult:
         if network_interface_id and not isinstance(network_interface_id, str):
             raise TypeError("Expected argument 'network_interface_id' to be a str")
         pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if odb_network_arn and not isinstance(odb_network_arn, str):
+            raise TypeError("Expected argument 'odb_network_arn' to be a str")
+        pulumi.set(__self__, "odb_network_arn", odb_network_arn)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -140,6 +143,11 @@ class GetRouteResult:
         return pulumi.get(self, "network_interface_id")
 
     @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> _builtins.str:
+        return pulumi.get(self, "odb_network_arn")
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
@@ -178,6 +186,7 @@ class AwaitableGetRouteResult(GetRouteResult):
             local_gateway_id=self.local_gateway_id,
             nat_gateway_id=self.nat_gateway_id,
             network_interface_id=self.network_interface_id,
+            odb_network_arn=self.odb_network_arn,
             region=self.region,
             route_table_id=self.route_table_id,
             transit_gateway_id=self.transit_gateway_id,
@@ -195,6 +204,7 @@ def get_route(carrier_gateway_id: Optional[_builtins.str] = None,
               local_gateway_id: Optional[_builtins.str] = None,
               nat_gateway_id: Optional[_builtins.str] = None,
               network_interface_id: Optional[_builtins.str] = None,
+              odb_network_arn: Optional[_builtins.str] = None,
               region: Optional[_builtins.str] = None,
               route_table_id: Optional[_builtins.str] = None,
               transit_gateway_id: Optional[_builtins.str] = None,
@@ -233,6 +243,7 @@ def get_route(carrier_gateway_id: Optional[_builtins.str] = None,
     :param _builtins.str local_gateway_id: Local Gateway ID of the Route belonging to the Route Table.
     :param _builtins.str nat_gateway_id: NAT Gateway ID of the Route belonging to the Route Table.
     :param _builtins.str network_interface_id: Network Interface ID of the Route belonging to the Route Table.
+    :param _builtins.str odb_network_arn: ODB network ARN of the Route belonging to the Route Table.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str route_table_id: ID of the specific Route Table containing the Route entry.
     :param _builtins.str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
@@ -252,6 +263,7 @@ def get_route(carrier_gateway_id: Optional[_builtins.str] = None,
     __args__['localGatewayId'] = local_gateway_id
     __args__['natGatewayId'] = nat_gateway_id
     __args__['networkInterfaceId'] = network_interface_id
+    __args__['odbNetworkArn'] = odb_network_arn
     __args__['region'] = region
     __args__['routeTableId'] = route_table_id
     __args__['transitGatewayId'] = transit_gateway_id
@@ -272,6 +284,7 @@ def get_route(carrier_gateway_id: Optional[_builtins.str] = None,
         local_gateway_id=pulumi.get(__ret__, 'local_gateway_id'),
         nat_gateway_id=pulumi.get(__ret__, 'nat_gateway_id'),
         network_interface_id=pulumi.get(__ret__, 'network_interface_id'),
+        odb_network_arn=pulumi.get(__ret__, 'odb_network_arn'),
         region=pulumi.get(__ret__, 'region'),
         route_table_id=pulumi.get(__ret__, 'route_table_id'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'),
@@ -287,6 +300,7 @@ def get_route_output(carrier_gateway_id: pulumi.Input[Optional[Optional[_builtin
                      local_gateway_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      nat_gateway_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      network_interface_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     odb_network_arn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                      transit_gateway_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -325,6 +339,7 @@ def get_route_output(carrier_gateway_id: pulumi.Input[Optional[Optional[_builtin
     :param _builtins.str local_gateway_id: Local Gateway ID of the Route belonging to the Route Table.
     :param _builtins.str nat_gateway_id: NAT Gateway ID of the Route belonging to the Route Table.
     :param _builtins.str network_interface_id: Network Interface ID of the Route belonging to the Route Table.
+    :param _builtins.str odb_network_arn: ODB network ARN of the Route belonging to the Route Table.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str route_table_id: ID of the specific Route Table containing the Route entry.
     :param _builtins.str transit_gateway_id: EC2 Transit Gateway ID of the Route belonging to the Route Table.
@@ -344,6 +359,7 @@ def get_route_output(carrier_gateway_id: pulumi.Input[Optional[Optional[_builtin
     __args__['localGatewayId'] = local_gateway_id
     __args__['natGatewayId'] = nat_gateway_id
     __args__['networkInterfaceId'] = network_interface_id
+    __args__['odbNetworkArn'] = odb_network_arn
     __args__['region'] = region
     __args__['routeTableId'] = route_table_id
     __args__['transitGatewayId'] = transit_gateway_id
@@ -363,6 +379,7 @@ def get_route_output(carrier_gateway_id: pulumi.Input[Optional[Optional[_builtin
         local_gateway_id=pulumi.get(__response__, 'local_gateway_id'),
         nat_gateway_id=pulumi.get(__response__, 'nat_gateway_id'),
         network_interface_id=pulumi.get(__response__, 'network_interface_id'),
+        odb_network_arn=pulumi.get(__response__, 'odb_network_arn'),
         region=pulumi.get(__response__, 'region'),
         route_table_id=pulumi.get(__response__, 'route_table_id'),
         transit_gateway_id=pulumi.get(__response__, 'transit_gateway_id'),

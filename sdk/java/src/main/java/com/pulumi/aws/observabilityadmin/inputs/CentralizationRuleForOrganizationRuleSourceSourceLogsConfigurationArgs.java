@@ -16,9 +16,17 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
 
     public static final CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs Empty = new CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs();
 
+    /**
+     * Criteria for selecting data sources. Uses the same filter expression format as `logGroupSelectionCriteria`, but operates on Data Source Name and Data Source Type operands. When both `logGroupSelectionCriteria` and `dataSourceSelectionCriteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
+     * 
+     */
     @Import(name="dataSourceSelectionCriteria")
     private @Nullable Output<String> dataSourceSelectionCriteria;
 
+    /**
+     * @return Criteria for selecting data sources. Uses the same filter expression format as `logGroupSelectionCriteria`, but operates on Data Source Name and Data Source Type operands. When both `logGroupSelectionCriteria` and `dataSourceSelectionCriteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
+     * 
+     */
     public Optional<Output<String>> dataSourceSelectionCriteria() {
         return Optional.ofNullable(this.dataSourceSelectionCriteria);
     }
@@ -79,11 +87,23 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
             $ = new CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dataSourceSelectionCriteria Criteria for selecting data sources. Uses the same filter expression format as `logGroupSelectionCriteria`, but operates on Data Source Name and Data Source Type operands. When both `logGroupSelectionCriteria` and `dataSourceSelectionCriteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSourceSelectionCriteria(@Nullable Output<String> dataSourceSelectionCriteria) {
             $.dataSourceSelectionCriteria = dataSourceSelectionCriteria;
             return this;
         }
 
+        /**
+         * @param dataSourceSelectionCriteria Criteria for selecting data sources. Uses the same filter expression format as `logGroupSelectionCriteria`, but operates on Data Source Name and Data Source Type operands. When both `logGroupSelectionCriteria` and `dataSourceSelectionCriteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataSourceSelectionCriteria(String dataSourceSelectionCriteria) {
             return dataSourceSelectionCriteria(Output.of(dataSourceSelectionCriteria));
         }

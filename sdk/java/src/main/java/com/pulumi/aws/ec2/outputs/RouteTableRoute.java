@@ -64,6 +64,11 @@ public final class RouteTableRoute {
      */
     private @Nullable String networkInterfaceId;
     /**
+     * @return The Amazon Resource Name (ARN) of an ODB network.
+     * 
+     */
+    private @Nullable String odbNetworkArn;
+    /**
      * @return Identifier of an EC2 Transit Gateway.
      * 
      */
@@ -155,6 +160,13 @@ public final class RouteTableRoute {
         return Optional.ofNullable(this.networkInterfaceId);
     }
     /**
+     * @return The Amazon Resource Name (ARN) of an ODB network.
+     * 
+     */
+    public Optional<String> odbNetworkArn() {
+        return Optional.ofNullable(this.odbNetworkArn);
+    }
+    /**
      * @return Identifier of an EC2 Transit Gateway.
      * 
      */
@@ -197,6 +209,7 @@ public final class RouteTableRoute {
         private @Nullable String localGatewayId;
         private @Nullable String natGatewayId;
         private @Nullable String networkInterfaceId;
+        private @Nullable String odbNetworkArn;
         private @Nullable String transitGatewayId;
         private @Nullable String vpcEndpointId;
         private @Nullable String vpcPeeringConnectionId;
@@ -213,6 +226,7 @@ public final class RouteTableRoute {
     	      this.localGatewayId = defaults.localGatewayId;
     	      this.natGatewayId = defaults.natGatewayId;
     	      this.networkInterfaceId = defaults.networkInterfaceId;
+    	      this.odbNetworkArn = defaults.odbNetworkArn;
     	      this.transitGatewayId = defaults.transitGatewayId;
     	      this.vpcEndpointId = defaults.vpcEndpointId;
     	      this.vpcPeeringConnectionId = defaults.vpcPeeringConnectionId;
@@ -279,6 +293,12 @@ public final class RouteTableRoute {
             return this;
         }
         @CustomType.Setter
+        public Builder odbNetworkArn(@Nullable String odbNetworkArn) {
+
+            this.odbNetworkArn = odbNetworkArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder transitGatewayId(@Nullable String transitGatewayId) {
 
             this.transitGatewayId = transitGatewayId;
@@ -308,6 +328,7 @@ public final class RouteTableRoute {
             _resultValue.localGatewayId = localGatewayId;
             _resultValue.natGatewayId = natGatewayId;
             _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.odbNetworkArn = odbNetworkArn;
             _resultValue.transitGatewayId = transitGatewayId;
             _resultValue.vpcEndpointId = vpcEndpointId;
             _resultValue.vpcPeeringConnectionId = vpcPeeringConnectionId;

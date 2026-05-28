@@ -50,6 +50,7 @@ __all__ = [
     'QuicksetupConfigurationManagerStatusSummary',
     'QuicksetupConfigurationManagerTimeouts',
     'ResourceDataSyncS3Destination',
+    'ResourceDataSyncS3DestinationDestinationDataSharing',
     'GetContactsRotationRecurrenceResult',
     'GetContactsRotationRecurrenceDailySettingResult',
     'GetContactsRotationRecurrenceMonthlySettingResult',
@@ -1765,6 +1766,8 @@ class ResourceDataSyncS3Destination(dict):
         suggest = None
         if key == "bucketName":
             suggest = "bucket_name"
+        elif key == "destinationDataSharing":
+            suggest = "destination_data_sharing"
         elif key == "kmsKeyArn":
             suggest = "kms_key_arn"
         elif key == "syncFormat":
@@ -1784,18 +1787,23 @@ class ResourceDataSyncS3Destination(dict):
     def __init__(__self__, *,
                  bucket_name: _builtins.str,
                  region: _builtins.str,
+                 destination_data_sharing: Optional['outputs.ResourceDataSyncS3DestinationDestinationDataSharing'] = None,
                  kms_key_arn: Optional[_builtins.str] = None,
                  prefix: Optional[_builtins.str] = None,
                  sync_format: Optional[_builtins.str] = None):
         """
         :param _builtins.str bucket_name: Name of S3 bucket where the aggregated data is stored.
         :param _builtins.str region: Region with the bucket targeted by the Resource Data Sync.
+        :param 'ResourceDataSyncS3DestinationDestinationDataSharingArgs' destination_data_sharing: Enables destination data sharing.
+               See `destination_data_sharing` below.
         :param _builtins.str kms_key_arn: ARN of an encryption key for a destination in Amazon S3.
         :param _builtins.str prefix: Prefix for the bucket.
         :param _builtins.str sync_format: A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "region", region)
+        if destination_data_sharing is not None:
+            pulumi.set(__self__, "destination_data_sharing", destination_data_sharing)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if prefix is not None:
@@ -1820,6 +1828,15 @@ class ResourceDataSyncS3Destination(dict):
         return pulumi.get(self, "region")
 
     @_builtins.property
+    @pulumi.getter(name="destinationDataSharing")
+    def destination_data_sharing(self) -> Optional['outputs.ResourceDataSyncS3DestinationDestinationDataSharing']:
+        """
+        Enables destination data sharing.
+        See `destination_data_sharing` below.
+        """
+        return pulumi.get(self, "destination_data_sharing")
+
+    @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[_builtins.str]:
         """
@@ -1842,6 +1859,36 @@ class ResourceDataSyncS3Destination(dict):
         A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
         """
         return pulumi.get(self, "sync_format")
+
+
+@pulumi.output_type
+class ResourceDataSyncS3DestinationDestinationDataSharing(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationDataSharingType":
+            suggest = "destination_data_sharing_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceDataSyncS3DestinationDestinationDataSharing. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceDataSyncS3DestinationDestinationDataSharing.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceDataSyncS3DestinationDestinationDataSharing.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_data_sharing_type: Optional[_builtins.str] = None):
+        if destination_data_sharing_type is not None:
+            pulumi.set(__self__, "destination_data_sharing_type", destination_data_sharing_type)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationDataSharingType")
+    def destination_data_sharing_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "destination_data_sharing_type")
 
 
 @pulumi.output_type

@@ -224,7 +224,8 @@ namespace Pulumi.Aws.SecretsManager
     {
         /// <summary>
         /// If true, all deprecated secret versions are included in the response.
-        /// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `False`.
+        /// If false, no deprecated secret versions are included in the response.
+        /// If no value is specified, the default value is `False`.
         /// </summary>
         [Input("includeDeprecated")]
         public bool? IncludeDeprecated { get; set; }
@@ -251,7 +252,8 @@ namespace Pulumi.Aws.SecretsManager
     {
         /// <summary>
         /// If true, all deprecated secret versions are included in the response.
-        /// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `False`.
+        /// If false, no deprecated secret versions are included in the response.
+        /// If no value is specified, the default value is `False`.
         /// </summary>
         [Input("includeDeprecated")]
         public Input<bool>? IncludeDeprecated { get; set; }
@@ -279,7 +281,8 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretVersionsResult
     {
         /// <summary>
-        /// ARN of the secret.
+        /// (**Deprecated**) The ARN of the secret.
+        /// Use `SecretArn` instead.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -287,9 +290,21 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly string Id;
         public readonly bool? IncludeDeprecated;
+        /// <summary>
+        /// (**Deprecated**) Name of the secret.
+        /// Use `SecretName` instead.
+        /// </summary>
         public readonly string Name;
         public readonly string Region;
+        /// <summary>
+        /// The ARN of the secret.
+        /// </summary>
+        public readonly string SecretArn;
         public readonly string SecretId;
+        /// <summary>
+        /// Name of the secret.
+        /// </summary>
+        public readonly string SecretName;
         /// <summary>
         /// List of the versions of the secret. Attributes are specified below.
         /// </summary>
@@ -307,7 +322,11 @@ namespace Pulumi.Aws.SecretsManager
 
             string region,
 
+            string secretArn,
+
             string secretId,
+
+            string secretName,
 
             ImmutableArray<Outputs.GetSecretVersionsVersionResult> versions)
         {
@@ -316,7 +335,9 @@ namespace Pulumi.Aws.SecretsManager
             IncludeDeprecated = includeDeprecated;
             Name = name;
             Region = region;
+            SecretArn = secretArn;
             SecretId = secretId;
+            SecretName = secretName;
             Versions = versions;
         }
     }

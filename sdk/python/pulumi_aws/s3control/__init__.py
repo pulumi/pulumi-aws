@@ -20,6 +20,7 @@ from .get_multi_region_access_point import *
 from .get_multi_region_access_points import *
 from .multi_region_access_point import *
 from .multi_region_access_point_policy import *
+from .multi_region_access_point_routes import *
 from .object_lambda_access_point import *
 from .object_lambda_access_point_policy import *
 from .storage_lens_configuration import *

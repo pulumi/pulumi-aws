@@ -26,7 +26,7 @@ class GetServerResult:
     """
     A collection of values returned by getServer.
     """
-    def __init__(__self__, arn=None, certificate=None, domain=None, endpoint=None, endpoint_type=None, id=None, identity_provider_type=None, invocation_role=None, logging_role=None, protocols=None, region=None, security_policy_name=None, server_id=None, structured_log_destinations=None, tags=None, url=None):
+    def __init__(__self__, arn=None, certificate=None, domain=None, endpoint=None, endpoint_type=None, id=None, identity_provider_type=None, invocation_role=None, ip_address_type=None, logging_role=None, protocols=None, region=None, security_policy_name=None, server_id=None, structured_log_destinations=None, tags=None, url=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,6 +51,9 @@ class GetServerResult:
         if invocation_role and not isinstance(invocation_role, str):
             raise TypeError("Expected argument 'invocation_role' to be a str")
         pulumi.set(__self__, "invocation_role", invocation_role)
+        if ip_address_type and not isinstance(ip_address_type, str):
+            raise TypeError("Expected argument 'ip_address_type' to be a str")
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
         if logging_role and not isinstance(logging_role, str):
             raise TypeError("Expected argument 'logging_role' to be a str")
         pulumi.set(__self__, "logging_role", logging_role)
@@ -141,6 +144,14 @@ class GetServerResult:
         return pulumi.get(self, "invocation_role")
 
     @_builtins.property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> _builtins.str:
+        """
+        Type of IP addresses for the AWS Transfer Family endpoint.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @_builtins.property
     @pulumi.getter(name="loggingRole")
     def logging_role(self) -> _builtins.str:
         """
@@ -213,6 +224,7 @@ class AwaitableGetServerResult(GetServerResult):
             id=self.id,
             identity_provider_type=self.identity_provider_type,
             invocation_role=self.invocation_role,
+            ip_address_type=self.ip_address_type,
             logging_role=self.logging_role,
             protocols=self.protocols,
             region=self.region,
@@ -261,6 +273,7 @@ def get_server(region: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         identity_provider_type=pulumi.get(__ret__, 'identity_provider_type'),
         invocation_role=pulumi.get(__ret__, 'invocation_role'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         logging_role=pulumi.get(__ret__, 'logging_role'),
         protocols=pulumi.get(__ret__, 'protocols'),
         region=pulumi.get(__ret__, 'region'),
@@ -306,6 +319,7 @@ def get_server_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = 
         id=pulumi.get(__response__, 'id'),
         identity_provider_type=pulumi.get(__response__, 'identity_provider_type'),
         invocation_role=pulumi.get(__response__, 'invocation_role'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
         logging_role=pulumi.get(__response__, 'logging_role'),
         protocols=pulumi.get(__response__, 'protocols'),
         region=pulumi.get(__response__, 'region'),

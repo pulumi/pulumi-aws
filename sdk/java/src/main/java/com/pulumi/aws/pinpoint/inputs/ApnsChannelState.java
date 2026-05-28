@@ -17,14 +17,14 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
     public static final ApnsChannelState Empty = new ApnsChannelState();
 
     /**
-     * The application ID.
+     * Application ID.
      * 
      */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      */
     public Optional<Output<String>> applicationId() {
@@ -32,14 +32,14 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
+     * ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app. Required if using Key credentials.
      * 
      */
     @Import(name="bundleId")
     private @Nullable Output<String> bundleId;
 
     /**
-     * @return The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
+     * @return ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app. Required if using Key credentials.
      * 
      */
     public Optional<Output<String>> bundleId() {
@@ -47,14 +47,14 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The pem encoded TLS Certificate from Apple.
+     * Pem encoded TLS Certificate from Apple. Required if using Certificate credentials.
      * 
      */
     @Import(name="certificate")
     private @Nullable Output<String> certificate;
 
     /**
-     * @return The pem encoded TLS Certificate from Apple.
+     * @return Pem encoded TLS Certificate from Apple. Required if using Certificate credentials.
      * 
      */
     public Optional<Output<String>> certificate() {
@@ -62,28 +62,14 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default authentication method used for APNs.
-     * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-     * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-     * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
-     * 
-     * One of the following sets of credentials is also required.
-     * 
-     * If you choose to use __Certificate credentials__ you will have to provide:
+     * Default authentication method used for APNs. __NOTE__: AWS End User Messaging uses this default for every APNs push notification that you send using the console. You can override the default when you send a message programmatically using the AWS End User Messaging API, the AWS CLI, or an AWS SDK. If your default authentication type fails, AWS End User Messaging doesn&#39;t attempt to use the other authentication type.
      * 
      */
     @Import(name="defaultAuthenticationMethod")
     private @Nullable Output<String> defaultAuthenticationMethod;
 
     /**
-     * @return The default authentication method used for APNs.
-     * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-     * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-     * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
-     * 
-     * One of the following sets of credentials is also required.
-     * 
-     * If you choose to use __Certificate credentials__ you will have to provide:
+     * @return Default authentication method used for APNs. __NOTE__: AWS End User Messaging uses this default for every APNs push notification that you send using the console. You can override the default when you send a message programmatically using the AWS End User Messaging API, the AWS CLI, or an AWS SDK. If your default authentication type fails, AWS End User Messaging doesn&#39;t attempt to use the other authentication type.
      * 
      */
     public Optional<Output<String>> defaultAuthenticationMethod() {
@@ -106,18 +92,14 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Certificate Private Key file (ie. `.key` file).
-     * 
-     * If you choose to use __Key credentials__ you will have to provide:
+     * Certificate Private Key file (ie. `.key` file). Required if using Certificate credentials.
      * 
      */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
     /**
-     * @return The Certificate Private Key file (ie. `.key` file).
-     * 
-     * If you choose to use __Key credentials__ you will have to provide:
+     * @return Certificate Private Key file (ie. `.key` file). Required if using Certificate credentials.
      * 
      */
     public Optional<Output<String>> privateKey() {
@@ -140,14 +122,14 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+     * ID assigned to your Apple developer account team. This value is provided on the Membership page. Required if using Key credentials.
      * 
      */
     @Import(name="teamId")
     private @Nullable Output<String> teamId;
 
     /**
-     * @return The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+     * @return ID assigned to your Apple developer account team. This value is provided on the Membership page. Required if using Key credentials.
      * 
      */
     public Optional<Output<String>> teamId() {
@@ -155,14 +137,14 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
+     * `.p8` file that you download from your Apple developer account when you create an authentication key. Required if using Key credentials.
      * 
      */
     @Import(name="tokenKey")
     private @Nullable Output<String> tokenKey;
 
     /**
-     * @return The `.p8` file that you download from your Apple developer account when you create an authentication key.
+     * @return `.p8` file that you download from your Apple developer account when you create an authentication key. Required if using Key credentials.
      * 
      */
     public Optional<Output<String>> tokenKey() {
@@ -170,14 +152,14 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
+     * ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section. Required if using Key credentials.
      * 
      */
     @Import(name="tokenKeyId")
     private @Nullable Output<String> tokenKeyId;
 
     /**
-     * @return The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
+     * @return ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section. Required if using Key credentials.
      * 
      */
     public Optional<Output<String>> tokenKeyId() {
@@ -218,7 +200,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
@@ -229,7 +211,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
@@ -239,7 +221,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleId The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
+         * @param bundleId ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app. Required if using Key credentials.
          * 
          * @return builder
          * 
@@ -250,7 +232,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bundleId The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
+         * @param bundleId ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app. Required if using Key credentials.
          * 
          * @return builder
          * 
@@ -260,7 +242,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate The pem encoded TLS Certificate from Apple.
+         * @param certificate Pem encoded TLS Certificate from Apple. Required if using Certificate credentials.
          * 
          * @return builder
          * 
@@ -271,7 +253,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificate The pem encoded TLS Certificate from Apple.
+         * @param certificate Pem encoded TLS Certificate from Apple. Required if using Certificate credentials.
          * 
          * @return builder
          * 
@@ -281,14 +263,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAuthenticationMethod The default authentication method used for APNs.
-         * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-         * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-         * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
-         * 
-         * One of the following sets of credentials is also required.
-         * 
-         * If you choose to use __Certificate credentials__ you will have to provide:
+         * @param defaultAuthenticationMethod Default authentication method used for APNs. __NOTE__: AWS End User Messaging uses this default for every APNs push notification that you send using the console. You can override the default when you send a message programmatically using the AWS End User Messaging API, the AWS CLI, or an AWS SDK. If your default authentication type fails, AWS End User Messaging doesn&#39;t attempt to use the other authentication type.
          * 
          * @return builder
          * 
@@ -299,14 +274,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultAuthenticationMethod The default authentication method used for APNs.
-         * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-         * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-         * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
-         * 
-         * One of the following sets of credentials is also required.
-         * 
-         * If you choose to use __Certificate credentials__ you will have to provide:
+         * @param defaultAuthenticationMethod Default authentication method used for APNs. __NOTE__: AWS End User Messaging uses this default for every APNs push notification that you send using the console. You can override the default when you send a message programmatically using the AWS End User Messaging API, the AWS CLI, or an AWS SDK. If your default authentication type fails, AWS End User Messaging doesn&#39;t attempt to use the other authentication type.
          * 
          * @return builder
          * 
@@ -337,9 +305,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey The Certificate Private Key file (ie. `.key` file).
-         * 
-         * If you choose to use __Key credentials__ you will have to provide:
+         * @param privateKey Certificate Private Key file (ie. `.key` file). Required if using Certificate credentials.
          * 
          * @return builder
          * 
@@ -350,9 +316,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey The Certificate Private Key file (ie. `.key` file).
-         * 
-         * If you choose to use __Key credentials__ you will have to provide:
+         * @param privateKey Certificate Private Key file (ie. `.key` file). Required if using Certificate credentials.
          * 
          * @return builder
          * 
@@ -383,7 +347,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamId The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+         * @param teamId ID assigned to your Apple developer account team. This value is provided on the Membership page. Required if using Key credentials.
          * 
          * @return builder
          * 
@@ -394,7 +358,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param teamId The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+         * @param teamId ID assigned to your Apple developer account team. This value is provided on the Membership page. Required if using Key credentials.
          * 
          * @return builder
          * 
@@ -404,7 +368,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenKey The `.p8` file that you download from your Apple developer account when you create an authentication key.
+         * @param tokenKey `.p8` file that you download from your Apple developer account when you create an authentication key. Required if using Key credentials.
          * 
          * @return builder
          * 
@@ -415,7 +379,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenKey The `.p8` file that you download from your Apple developer account when you create an authentication key.
+         * @param tokenKey `.p8` file that you download from your Apple developer account when you create an authentication key. Required if using Key credentials.
          * 
          * @return builder
          * 
@@ -425,7 +389,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenKeyId The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
+         * @param tokenKeyId ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section. Required if using Key credentials.
          * 
          * @return builder
          * 
@@ -436,7 +400,7 @@ public final class ApnsChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tokenKeyId The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
+         * @param tokenKeyId ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section. Required if using Key credentials.
          * 
          * @return builder
          * 

@@ -37,7 +37,7 @@ public final class GetUserPoolClientResult {
      */
     private List<String> allowedOauthScopes;
     /**
-     * @return (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+     * @return (Optional) Configuration block for AWS End User Messaging analytics for collecting metrics for this user pool. Detailed below.
      * 
      */
     private List<GetUserPoolClientAnalyticsConfiguration> analyticsConfigurations;
@@ -157,7 +157,7 @@ public final class GetUserPoolClientResult {
         return this.allowedOauthScopes;
     }
     /**
-     * @return (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+     * @return (Optional) Configuration block for AWS End User Messaging analytics for collecting metrics for this user pool. Detailed below.
      * 
      */
     public List<GetUserPoolClientAnalyticsConfiguration> analyticsConfigurations() {

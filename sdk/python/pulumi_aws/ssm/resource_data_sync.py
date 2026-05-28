@@ -150,8 +150,14 @@ class ResourceDataSync(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket = aws.s3.Bucket("hoge", bucket="tf-test-bucket-1234")
-        hoge = aws.iam.get_policy_document(statements=[
+        example_bucket = aws.s3.Bucket("example", bucket="example")
+        example_resource_data_sync = aws.ssm.ResourceDataSync("example",
+            name="example",
+            s3_destination={
+                "bucket_name": example_bucket.bucket,
+                "region": example_bucket.region,
+            })
+        example = aws.iam.get_policy_document_output(statements=[
             {
                 "sid": "SSMBucketPermissionsCheck",
                 "effect": "Allow",
@@ -160,7 +166,7 @@ class ResourceDataSync(pulumi.CustomResource):
                     "identifiers": ["ssm.amazonaws.com"],
                 }],
                 "actions": ["s3:GetBucketAcl"],
-                "resources": ["arn:aws:s3:::tf-test-bucket-1234"],
+                "resources": [example_bucket.arn],
             },
             {
                 "sid": "SSMBucketDelivery",
@@ -170,7 +176,7 @@ class ResourceDataSync(pulumi.CustomResource):
                     "identifiers": ["ssm.amazonaws.com"],
                 }],
                 "actions": ["s3:PutObject"],
-                "resources": ["arn:aws:s3:::tf-test-bucket-1234/*"],
+                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "s3:x-amz-acl",
@@ -178,16 +184,17 @@ class ResourceDataSync(pulumi.CustomResource):
                 }],
             },
         ])
-        hoge_bucket_policy = aws.s3.BucketPolicy("hoge",
-            bucket=hoge_bucket.id,
-            policy=hoge.json)
-        foo = aws.ssm.ResourceDataSync("foo",
-            name="foo",
-            s3_destination={
-                "bucket_name": hoge_bucket.bucket,
-                "region": hoge_bucket.region,
-            })
+        example_bucket_policy = aws.s3.BucketPolicy("example",
+            bucket=example_bucket.bucket,
+            policy=example.json)
         ```
+
+        ## destination_data_sharing
+
+        `destination_data_sharing` supports the following:
+
+        * `destination_data_sharing_type` - (Optional) Data sharing type.
+          Only `Organization` is supported.
 
         ## Import
 
@@ -219,8 +226,14 @@ class ResourceDataSync(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        hoge_bucket = aws.s3.Bucket("hoge", bucket="tf-test-bucket-1234")
-        hoge = aws.iam.get_policy_document(statements=[
+        example_bucket = aws.s3.Bucket("example", bucket="example")
+        example_resource_data_sync = aws.ssm.ResourceDataSync("example",
+            name="example",
+            s3_destination={
+                "bucket_name": example_bucket.bucket,
+                "region": example_bucket.region,
+            })
+        example = aws.iam.get_policy_document_output(statements=[
             {
                 "sid": "SSMBucketPermissionsCheck",
                 "effect": "Allow",
@@ -229,7 +242,7 @@ class ResourceDataSync(pulumi.CustomResource):
                     "identifiers": ["ssm.amazonaws.com"],
                 }],
                 "actions": ["s3:GetBucketAcl"],
-                "resources": ["arn:aws:s3:::tf-test-bucket-1234"],
+                "resources": [example_bucket.arn],
             },
             {
                 "sid": "SSMBucketDelivery",
@@ -239,7 +252,7 @@ class ResourceDataSync(pulumi.CustomResource):
                     "identifiers": ["ssm.amazonaws.com"],
                 }],
                 "actions": ["s3:PutObject"],
-                "resources": ["arn:aws:s3:::tf-test-bucket-1234/*"],
+                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "s3:x-amz-acl",
@@ -247,16 +260,17 @@ class ResourceDataSync(pulumi.CustomResource):
                 }],
             },
         ])
-        hoge_bucket_policy = aws.s3.BucketPolicy("hoge",
-            bucket=hoge_bucket.id,
-            policy=hoge.json)
-        foo = aws.ssm.ResourceDataSync("foo",
-            name="foo",
-            s3_destination={
-                "bucket_name": hoge_bucket.bucket,
-                "region": hoge_bucket.region,
-            })
+        example_bucket_policy = aws.s3.BucketPolicy("example",
+            bucket=example_bucket.bucket,
+            policy=example.json)
         ```
+
+        ## destination_data_sharing
+
+        `destination_data_sharing` supports the following:
+
+        * `destination_data_sharing_type` - (Optional) Data sharing type.
+          Only `Organization` is supported.
 
         ## Import
 

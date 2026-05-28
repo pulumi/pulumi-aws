@@ -513,14 +513,14 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableStatistics);
     }
     /**
-     * Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+     * Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
      * 
      */
     @Export(name="encodingType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> encodingType;
 
     /**
-     * @return Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+     * @return Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
      * 
      */
     public Output<Optional<String>> encodingType() {

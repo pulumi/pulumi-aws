@@ -17,12 +17,12 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Pinpoint GCM Channel resource.
+ * Provides an End User Messaging GCM Channel resource.
  * 
  * &gt; **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
  * ## Import
  * 
- * Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
+ * Using `pulumi import`, import End User Messaging GCM Channel using the `application-id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
@@ -32,36 +32,44 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:pinpoint/gcmChannel:GcmChannel")
 public class GcmChannel extends com.pulumi.resources.CustomResource {
     /**
-     * Platform credential API key from Google.
+     * Platform credential API key from Google. Conflicts with `serviceJson`.
      * 
      */
     @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
-     * @return Platform credential API key from Google.
+     * @return Platform credential API key from Google. Conflicts with `serviceJson`.
      * 
      */
     public Output<Optional<String>> apiKey() {
         return Codegen.optional(this.apiKey);
     }
     /**
-     * The application ID.
+     * Application ID.
      * 
      */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      */
     public Output<String> applicationId() {
         return this.applicationId;
     }
+    /**
+     * Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
+     * 
+     */
     @Export(name="defaultAuthenticationMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultAuthenticationMethod;
 
+    /**
+     * @return Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
+     * 
+     */
     public Output<Optional<String>> defaultAuthenticationMethod() {
         return Codegen.optional(this.defaultAuthenticationMethod);
     }
@@ -93,9 +101,17 @@ public class GcmChannel extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
+     * 
+     */
     @Export(name="serviceJson", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceJson;
 
+    /**
+     * @return Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
+     * 
+     */
     public Output<Optional<String>> serviceJson() {
         return Codegen.optional(this.serviceJson);
     }

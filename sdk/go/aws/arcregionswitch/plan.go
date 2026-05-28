@@ -247,6 +247,12 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) Amazon Resource Name (ARN) of the ARC Region Switch Plan.
+//
 // Using `pulumi import`, import Application Recovery Controller Region Switch Plan using the `arn`. For example:
 //
 // ```sh
@@ -277,6 +283,8 @@ type Plan struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of AWS regions involved in the plan.
 	Regions pulumi.StringArrayOutput `pulumi:"regions"`
+	// Configuration for automated execution reports. See Report Configuration below.
+	ReportConfigurations PlanReportConfigurationArrayOutput `pulumi:"reportConfigurations"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -351,6 +359,8 @@ type planState struct {
 	Region *string `pulumi:"region"`
 	// List of AWS regions involved in the plan.
 	Regions []string `pulumi:"regions"`
+	// Configuration for automated execution reports. See Report Configuration below.
+	ReportConfigurations []PlanReportConfiguration `pulumi:"reportConfigurations"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -387,6 +397,8 @@ type PlanState struct {
 	Region pulumi.StringPtrInput
 	// List of AWS regions involved in the plan.
 	Regions pulumi.StringArrayInput
+	// Configuration for automated execution reports. See Report Configuration below.
+	ReportConfigurations PlanReportConfigurationArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -425,6 +437,8 @@ type planArgs struct {
 	Region *string `pulumi:"region"`
 	// List of AWS regions involved in the plan.
 	Regions []string `pulumi:"regions"`
+	// Configuration for automated execution reports. See Report Configuration below.
+	ReportConfigurations []PlanReportConfiguration `pulumi:"reportConfigurations"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *PlanTimeouts     `pulumi:"timeouts"`
@@ -458,6 +472,8 @@ type PlanArgs struct {
 	Region pulumi.StringPtrInput
 	// List of AWS regions involved in the plan.
 	Regions pulumi.StringArrayInput
+	// Configuration for automated execution reports. See Report Configuration below.
+	ReportConfigurations PlanReportConfigurationArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts PlanTimeoutsPtrInput
@@ -606,6 +622,11 @@ func (o PlanOutput) Region() pulumi.StringOutput {
 // List of AWS regions involved in the plan.
 func (o PlanOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringArrayOutput { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+// Configuration for automated execution reports. See Report Configuration below.
+func (o PlanOutput) ReportConfigurations() PlanReportConfigurationArrayOutput {
+	return o.ApplyT(func(v *Plan) PlanReportConfigurationArrayOutput { return v.ReportConfigurations }).(PlanReportConfigurationArrayOutput)
 }
 
 // Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

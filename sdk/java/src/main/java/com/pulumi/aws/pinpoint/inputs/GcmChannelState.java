@@ -17,14 +17,14 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
     public static final GcmChannelState Empty = new GcmChannelState();
 
     /**
-     * Platform credential API key from Google.
+     * Platform credential API key from Google. Conflicts with `serviceJson`.
      * 
      */
     @Import(name="apiKey")
     private @Nullable Output<String> apiKey;
 
     /**
-     * @return Platform credential API key from Google.
+     * @return Platform credential API key from Google. Conflicts with `serviceJson`.
      * 
      */
     public Optional<Output<String>> apiKey() {
@@ -32,23 +32,31 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The application ID.
+     * Application ID.
      * 
      */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      */
     public Optional<Output<String>> applicationId() {
         return Optional.ofNullable(this.applicationId);
     }
 
+    /**
+     * Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
+     * 
+     */
     @Import(name="defaultAuthenticationMethod")
     private @Nullable Output<String> defaultAuthenticationMethod;
 
+    /**
+     * @return Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
+     * 
+     */
     public Optional<Output<String>> defaultAuthenticationMethod() {
         return Optional.ofNullable(this.defaultAuthenticationMethod);
     }
@@ -83,9 +91,17 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
+     * 
+     */
     @Import(name="serviceJson")
     private @Nullable Output<String> serviceJson;
 
+    /**
+     * @return Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
+     * 
+     */
     public Optional<Output<String>> serviceJson() {
         return Optional.ofNullable(this.serviceJson);
     }
@@ -120,7 +136,7 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiKey Platform credential API key from Google.
+         * @param apiKey Platform credential API key from Google. Conflicts with `serviceJson`.
          * 
          * @return builder
          * 
@@ -131,7 +147,7 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param apiKey Platform credential API key from Google.
+         * @param apiKey Platform credential API key from Google. Conflicts with `serviceJson`.
          * 
          * @return builder
          * 
@@ -141,7 +157,7 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
@@ -152,7 +168,7 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
@@ -161,11 +177,23 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
             return applicationId(Output.of(applicationId));
         }
 
+        /**
+         * @param defaultAuthenticationMethod Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultAuthenticationMethod(@Nullable Output<String> defaultAuthenticationMethod) {
             $.defaultAuthenticationMethod = defaultAuthenticationMethod;
             return this;
         }
 
+        /**
+         * @param defaultAuthenticationMethod Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultAuthenticationMethod(String defaultAuthenticationMethod) {
             return defaultAuthenticationMethod(Output.of(defaultAuthenticationMethod));
         }
@@ -212,11 +240,23 @@ public final class GcmChannelState extends com.pulumi.resources.ResourceArgs {
             return region(Output.of(region));
         }
 
+        /**
+         * @param serviceJson Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceJson(@Nullable Output<String> serviceJson) {
             $.serviceJson = serviceJson;
             return this;
         }
 
+        /**
+         * @param serviceJson Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder serviceJson(String serviceJson) {
             return serviceJson(Output.of(serviceJson));
         }

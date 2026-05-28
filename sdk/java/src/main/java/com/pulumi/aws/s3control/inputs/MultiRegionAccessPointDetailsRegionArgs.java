@@ -16,16 +16,32 @@ public final class MultiRegionAccessPointDetailsRegionArgs extends com.pulumi.re
 
     public static final MultiRegionAccessPointDetailsRegionArgs Empty = new MultiRegionAccessPointDetailsRegionArgs();
 
+    /**
+     * The name of the associated bucket for the Region.
+     * 
+     */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
+    /**
+     * @return The name of the associated bucket for the Region.
+     * 
+     */
     public Output<String> bucket() {
         return this.bucket;
     }
 
+    /**
+     * The AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
+     * 
+     */
     @Import(name="bucketAccountId")
     private @Nullable Output<String> bucketAccountId;
 
+    /**
+     * @return The AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
+     * 
+     */
     public Optional<Output<String>> bucketAccountId() {
         return Optional.ofNullable(this.bucketAccountId);
     }
@@ -71,20 +87,44 @@ public final class MultiRegionAccessPointDetailsRegionArgs extends com.pulumi.re
             $ = new MultiRegionAccessPointDetailsRegionArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param bucket The name of the associated bucket for the Region.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
         }
 
+        /**
+         * @param bucket The name of the associated bucket for the Region.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }
 
+        /**
+         * @param bucketAccountId The AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketAccountId(@Nullable Output<String> bucketAccountId) {
             $.bucketAccountId = bucketAccountId;
             return this;
         }
 
+        /**
+         * @param bucketAccountId The AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
+         * 
+         * @return builder
+         * 
+         */
         public Builder bucketAccountId(String bucketAccountId) {
             return bucketAccountId(Output.of(bucketAccountId));
         }

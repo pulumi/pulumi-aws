@@ -99,14 +99,14 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
     }
 
     /**
-     * An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
+     * An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
      * 
      */
     @Import(name="pinpointDestination")
     private @Nullable Output<ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs> pinpointDestination;
 
     /**
-     * @return An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
+     * @return An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
      * 
      */
     public Optional<Output<ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs>> pinpointDestination() {
@@ -274,7 +274,7 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         /**
-         * @param pinpointDestination An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
+         * @param pinpointDestination An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class ConfigurationSetEventDestinationEventDestinationArgs extends 
         }
 
         /**
-         * @param pinpointDestination An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
+         * @param pinpointDestination An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
          * 
          * @return builder
          * 

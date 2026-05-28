@@ -30,6 +30,7 @@ class RouteArgs:
                  local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -52,6 +53,7 @@ class RouteArgs:
         :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The Amazon Resource Name (ARN) of an ODB network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: Identifier of a VPC Endpoint.
@@ -80,6 +82,8 @@ class RouteArgs:
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if odb_network_arn is not None:
+            pulumi.set(__self__, "odb_network_arn", odb_network_arn)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if transit_gateway_id is not None:
@@ -226,6 +230,18 @@ class RouteArgs:
         pulumi.set(self, "network_interface_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of an ODB network.
+        """
+        return pulumi.get(self, "odb_network_arn")
+
+    @odb_network_arn.setter
+    def odb_network_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "odb_network_arn", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -291,6 +307,7 @@ class _RouteState:
                  local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  origin: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -315,6 +332,7 @@ class _RouteState:
         :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The Amazon Resource Name (ARN) of an ODB network.
         :param pulumi.Input[_builtins.str] origin: How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table.
@@ -351,6 +369,8 @@ class _RouteState:
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if odb_network_arn is not None:
+            pulumi.set(__self__, "odb_network_arn", odb_network_arn)
         if origin is not None:
             pulumi.set(__self__, "origin", origin)
         if region is not None:
@@ -513,6 +533,18 @@ class _RouteState:
         pulumi.set(self, "network_interface_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of an ODB network.
+        """
+        return pulumi.get(self, "odb_network_arn")
+
+    @odb_network_arn.setter
+    def odb_network_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "odb_network_arn", value)
+
+    @_builtins.property
     @pulumi.getter
     def origin(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -617,6 +649,7 @@ class Route(pulumi.CustomResource):
                  local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -715,6 +748,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The Amazon Resource Name (ARN) of an ODB network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table.
                
@@ -834,6 +868,7 @@ class Route(pulumi.CustomResource):
                  local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -858,6 +893,7 @@ class Route(pulumi.CustomResource):
             __props__.__dict__["local_gateway_id"] = local_gateway_id
             __props__.__dict__["nat_gateway_id"] = nat_gateway_id
             __props__.__dict__["network_interface_id"] = network_interface_id
+            __props__.__dict__["odb_network_arn"] = odb_network_arn
             __props__.__dict__["region"] = region
             if route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_id'")
@@ -891,6 +927,7 @@ class Route(pulumi.CustomResource):
             local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
             nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
             network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+            odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
             origin: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -919,6 +956,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The Amazon Resource Name (ARN) of an ODB network.
         :param pulumi.Input[_builtins.str] origin: How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] route_table_id: The ID of the routing table.
@@ -947,6 +985,7 @@ class Route(pulumi.CustomResource):
         __props__.__dict__["local_gateway_id"] = local_gateway_id
         __props__.__dict__["nat_gateway_id"] = nat_gateway_id
         __props__.__dict__["network_interface_id"] = network_interface_id
+        __props__.__dict__["odb_network_arn"] = odb_network_arn
         __props__.__dict__["origin"] = origin
         __props__.__dict__["region"] = region
         __props__.__dict__["route_table_id"] = route_table_id
@@ -1053,6 +1092,14 @@ class Route(pulumi.CustomResource):
         Identifier of an EC2 network interface.
         """
         return pulumi.get(self, "network_interface_id")
+
+    @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of an ODB network.
+        """
+        return pulumi.get(self, "odb_network_arn")
 
     @_builtins.property
     @pulumi.getter

@@ -103,7 +103,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         }
 
         /// <summary>
-        /// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+        /// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
         /// </summary>
         [Input("executionBlockType", required: true)]
         public Input<string> ExecutionBlockType { get; set; } = null!;
@@ -136,6 +136,30 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         {
             get => _parallelConfigs ?? (_parallelConfigs = new InputList<Inputs.PlanWorkflowStepParallelConfigArgs>());
             set => _parallelConfigs = value;
+        }
+
+        [Input("rdsCreateCrossRegionReadReplicaConfigs")]
+        private InputList<Inputs.PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs>? _rdsCreateCrossRegionReadReplicaConfigs;
+
+        /// <summary>
+        /// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+        /// </summary>
+        public InputList<Inputs.PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs> RdsCreateCrossRegionReadReplicaConfigs
+        {
+            get => _rdsCreateCrossRegionReadReplicaConfigs ?? (_rdsCreateCrossRegionReadReplicaConfigs = new InputList<Inputs.PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs>());
+            set => _rdsCreateCrossRegionReadReplicaConfigs = value;
+        }
+
+        [Input("rdsPromoteReadReplicaConfigs")]
+        private InputList<Inputs.PlanWorkflowStepRdsPromoteReadReplicaConfigArgs>? _rdsPromoteReadReplicaConfigs;
+
+        /// <summary>
+        /// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+        /// </summary>
+        public InputList<Inputs.PlanWorkflowStepRdsPromoteReadReplicaConfigArgs> RdsPromoteReadReplicaConfigs
+        {
+            get => _rdsPromoteReadReplicaConfigs ?? (_rdsPromoteReadReplicaConfigs = new InputList<Inputs.PlanWorkflowStepRdsPromoteReadReplicaConfigArgs>());
+            set => _rdsPromoteReadReplicaConfigs = value;
         }
 
         [Input("regionSwitchPlanConfigs")]

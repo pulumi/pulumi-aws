@@ -27,9 +27,9 @@ class Smsvoicev2ConfigurationSetArgs:
         """
         The set of arguments for constructing a Smsvoicev2ConfigurationSet resource.
 
-        :param pulumi.Input[_builtins.str] default_message_type: The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
-        :param pulumi.Input[_builtins.str] default_sender_id: The default sender ID to use for this configuration set.
-        :param pulumi.Input[_builtins.str] name: The name of the configuration set.
+        :param pulumi.Input[_builtins.str] default_message_type: Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
+        :param pulumi.Input[_builtins.str] default_sender_id: Default sender ID to use for this configuration set.
+        :param pulumi.Input[_builtins.str] name: Name of the configuration set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -48,7 +48,7 @@ class Smsvoicev2ConfigurationSetArgs:
     @pulumi.getter(name="defaultMessageType")
     def default_message_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+        Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
         """
         return pulumi.get(self, "default_message_type")
 
@@ -60,7 +60,7 @@ class Smsvoicev2ConfigurationSetArgs:
     @pulumi.getter(name="defaultSenderId")
     def default_sender_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default sender ID to use for this configuration set.
+        Default sender ID to use for this configuration set.
         """
         return pulumi.get(self, "default_sender_id")
 
@@ -72,7 +72,7 @@ class Smsvoicev2ConfigurationSetArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the configuration set.
+        Name of the configuration set.
         """
         return pulumi.get(self, "name")
 
@@ -119,12 +119,12 @@ class _Smsvoicev2ConfigurationSetState:
         Input properties used for looking up and filtering Smsvoicev2ConfigurationSet resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the configuration set.
-        :param pulumi.Input[_builtins.str] default_message_type: The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
-        :param pulumi.Input[_builtins.str] default_sender_id: The default sender ID to use for this configuration set.
-        :param pulumi.Input[_builtins.str] name: The name of the configuration set.
+        :param pulumi.Input[_builtins.str] default_message_type: Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
+        :param pulumi.Input[_builtins.str] default_sender_id: Default sender ID to use for this configuration set.
+        :param pulumi.Input[_builtins.str] name: Name of the configuration set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -157,7 +157,7 @@ class _Smsvoicev2ConfigurationSetState:
     @pulumi.getter(name="defaultMessageType")
     def default_message_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+        Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
         """
         return pulumi.get(self, "default_message_type")
 
@@ -169,7 +169,7 @@ class _Smsvoicev2ConfigurationSetState:
     @pulumi.getter(name="defaultSenderId")
     def default_sender_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default sender ID to use for this configuration set.
+        Default sender ID to use for this configuration set.
         """
         return pulumi.get(self, "default_sender_id")
 
@@ -181,7 +181,7 @@ class _Smsvoicev2ConfigurationSetState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the configuration set.
+        Name of the configuration set.
         """
         return pulumi.get(self, "name")
 
@@ -217,7 +217,7 @@ class _Smsvoicev2ConfigurationSetState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -264,9 +264,9 @@ class Smsvoicev2ConfigurationSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] default_message_type: The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
-        :param pulumi.Input[_builtins.str] default_sender_id: The default sender ID to use for this configuration set.
-        :param pulumi.Input[_builtins.str] name: The name of the configuration set.
+        :param pulumi.Input[_builtins.str] default_message_type: Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
+        :param pulumi.Input[_builtins.str] default_sender_id: Default sender ID to use for this configuration set.
+        :param pulumi.Input[_builtins.str] name: Name of the configuration set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -361,12 +361,12 @@ class Smsvoicev2ConfigurationSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the configuration set.
-        :param pulumi.Input[_builtins.str] default_message_type: The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
-        :param pulumi.Input[_builtins.str] default_sender_id: The default sender ID to use for this configuration set.
-        :param pulumi.Input[_builtins.str] name: The name of the configuration set.
+        :param pulumi.Input[_builtins.str] default_message_type: Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
+        :param pulumi.Input[_builtins.str] default_sender_id: Default sender ID to use for this configuration set.
+        :param pulumi.Input[_builtins.str] name: Name of the configuration set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -393,7 +393,7 @@ class Smsvoicev2ConfigurationSet(pulumi.CustomResource):
     @pulumi.getter(name="defaultMessageType")
     def default_message_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+        Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
         """
         return pulumi.get(self, "default_message_type")
 
@@ -401,7 +401,7 @@ class Smsvoicev2ConfigurationSet(pulumi.CustomResource):
     @pulumi.getter(name="defaultSenderId")
     def default_sender_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The default sender ID to use for this configuration set.
+        Default sender ID to use for this configuration set.
         """
         return pulumi.get(self, "default_sender_id")
 
@@ -409,7 +409,7 @@ class Smsvoicev2ConfigurationSet(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the configuration set.
+        Name of the configuration set.
         """
         return pulumi.get(self, "name")
 
@@ -433,7 +433,7 @@ class Smsvoicev2ConfigurationSet(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

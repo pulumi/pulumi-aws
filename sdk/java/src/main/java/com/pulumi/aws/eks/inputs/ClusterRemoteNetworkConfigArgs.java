@@ -7,7 +7,6 @@ import com.pulumi.aws.eks.inputs.ClusterRemoteNetworkConfigRemoteNodeNetworksArg
 import com.pulumi.aws.eks.inputs.ClusterRemoteNetworkConfigRemotePodNetworksArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,15 +20,15 @@ public final class ClusterRemoteNetworkConfigArgs extends com.pulumi.resources.R
      * Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
      * 
      */
-    @Import(name="remoteNodeNetworks", required=true)
-    private Output<ClusterRemoteNetworkConfigRemoteNodeNetworksArgs> remoteNodeNetworks;
+    @Import(name="remoteNodeNetworks")
+    private @Nullable Output<ClusterRemoteNetworkConfigRemoteNodeNetworksArgs> remoteNodeNetworks;
 
     /**
      * @return Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
      * 
      */
-    public Output<ClusterRemoteNetworkConfigRemoteNodeNetworksArgs> remoteNodeNetworks() {
-        return this.remoteNodeNetworks;
+    public Optional<Output<ClusterRemoteNetworkConfigRemoteNodeNetworksArgs>> remoteNodeNetworks() {
+        return Optional.ofNullable(this.remoteNodeNetworks);
     }
 
     /**
@@ -78,7 +77,7 @@ public final class ClusterRemoteNetworkConfigArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder remoteNodeNetworks(Output<ClusterRemoteNetworkConfigRemoteNodeNetworksArgs> remoteNodeNetworks) {
+        public Builder remoteNodeNetworks(@Nullable Output<ClusterRemoteNetworkConfigRemoteNodeNetworksArgs> remoteNodeNetworks) {
             $.remoteNodeNetworks = remoteNodeNetworks;
             return this;
         }
@@ -115,9 +114,6 @@ public final class ClusterRemoteNetworkConfigArgs extends com.pulumi.resources.R
         }
 
         public ClusterRemoteNetworkConfigArgs build() {
-            if ($.remoteNodeNetworks == null) {
-                throw new MissingRequiredPropertyException("ClusterRemoteNetworkConfigArgs", "remoteNodeNetworks");
-            }
             return $;
         }
     }

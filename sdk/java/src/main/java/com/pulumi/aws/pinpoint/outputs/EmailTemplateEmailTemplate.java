@@ -18,15 +18,23 @@ public final class EmailTemplateEmailTemplate {
      * 
      */
     private @Nullable String defaultSubstitutions;
+    /**
+     * @return Custom description of the message template.
+     * 
+     */
     private @Nullable String description;
+    /**
+     * @return List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+     * 
+     */
     private @Nullable List<EmailTemplateEmailTemplateHeader> headers;
     /**
-     * @return The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+     * @return Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
      * 
      */
     private @Nullable String htmlPart;
     /**
-     * @return The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+     * @return Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
      * 
      */
     private @Nullable String recommenderId;
@@ -49,21 +57,29 @@ public final class EmailTemplateEmailTemplate {
     public Optional<String> defaultSubstitutions() {
         return Optional.ofNullable(this.defaultSubstitutions);
     }
+    /**
+     * @return Custom description of the message template.
+     * 
+     */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
     }
+    /**
+     * @return List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+     * 
+     */
     public List<EmailTemplateEmailTemplateHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
     /**
-     * @return The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+     * @return Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
      * 
      */
     public Optional<String> htmlPart() {
         return Optional.ofNullable(this.htmlPart);
     }
     /**
-     * @return The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+     * @return Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
      * 
      */
     public Optional<String> recommenderId() {

@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ssm"
@@ -30,77 +32,78 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			hogeBucket, err := s3.NewBucket(ctx, "hoge", &s3.BucketArgs{
-//				Bucket: pulumi.String("tf-test-bucket-1234"),
+//			exampleBucket, err := s3.NewBucket(ctx, "example", &s3.BucketArgs{
+//				Bucket: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			hoge, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-//				Statements: []iam.GetPolicyDocumentStatement{
-//					{
-//						Sid:    pulumi.StringRef("SSMBucketPermissionsCheck"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"ssm.amazonaws.com",
+//			_, err = ssm.NewResourceDataSync(ctx, "example", &ssm.ResourceDataSyncArgs{
+//				Name: pulumi.String("example"),
+//				S3Destination: &ssm.ResourceDataSyncS3DestinationArgs{
+//					BucketName: exampleBucket.Bucket,
+//					Region:     exampleBucket.Region,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid:    pulumi.String("SSMBucketPermissionsCheck"),
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("ssm.amazonaws.com"),
 //								},
 //							},
 //						},
-//						Actions: []string{
-//							"s3:GetBucketAcl",
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:GetBucketAcl"),
 //						},
-//						Resources: []string{
-//							"arn:aws:s3:::tf-test-bucket-1234",
+//						Resources: pulumi.StringArray{
+//							exampleBucket.Arn,
 //						},
 //					},
-//					{
-//						Sid:    pulumi.StringRef("SSMBucketDelivery"),
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"ssm.amazonaws.com",
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Sid:    pulumi.String("SSMBucketDelivery"),
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("Service"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("ssm.amazonaws.com"),
 //								},
 //							},
 //						},
-//						Actions: []string{
-//							"s3:PutObject",
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:PutObject"),
 //						},
-//						Resources: []string{
-//							"arn:aws:s3:::tf-test-bucket-1234/*",
+//						Resources: pulumi.StringArray{
+//							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
+//								return fmt.Sprintf("%v/*", arn), nil
+//							}).(pulumi.StringOutput),
 //						},
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test:     "StringEquals",
-//								Variable: "s3:x-amz-acl",
-//								Values: []string{
-//									"bucket-owner-full-control",
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("StringEquals"),
+//								Variable: pulumi.String("s3:x-amz-acl"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("bucket-owner-full-control"),
 //								},
 //							},
 //						},
 //					},
 //				},
 //			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = s3.NewBucketPolicy(ctx, "hoge", &s3.BucketPolicyArgs{
-//				Bucket: hogeBucket.ID(),
-//				Policy: pulumi.String(pulumi.String(hoge.Json)),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssm.NewResourceDataSync(ctx, "foo", &ssm.ResourceDataSyncArgs{
-//				Name: pulumi.String("foo"),
-//				S3Destination: &ssm.ResourceDataSyncS3DestinationArgs{
-//					BucketName: hogeBucket.Bucket,
-//					Region:     hogeBucket.Region,
-//				},
+//			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
+//				Bucket: exampleBucket.Bucket,
+//				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
+//					return &example.Json, nil
+//				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
 //				return err
@@ -110,6 +113,13 @@ import (
 //	}
 //
 // ```
+//
+// ## destinationDataSharing
+//
+// `destinationDataSharing` supports the following:
+//
+//   - `destinationDataSharingType` - (Optional) Data sharing type.
+//     Only `Organization` is supported.
 //
 // ## Import
 //

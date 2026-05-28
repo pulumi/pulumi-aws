@@ -922,7 +922,7 @@ class Cluster(pulumi.CustomResource):
                 "authentication_mode": "API",
             },
             role_arn=cluster.arn,
-            version="1.31",
+            version="1.35",
             vpc_config={
                 "subnet_ids": [
                     az1["id"],
@@ -990,7 +990,7 @@ class Cluster(pulumi.CustomResource):
                 "authentication_mode": "API",
             },
             role_arn=cluster.arn,
-            version="1.31",
+            version="1.35",
             bootstrap_self_managed_addons=False,
             compute_config={
                 "enabled": True,
@@ -1062,7 +1062,7 @@ class Cluster(pulumi.CustomResource):
                 "authentication_mode": "API",
             },
             role_arn=cluster.arn,
-            version="1.31",
+            version="1.35",
             remote_network_config={
                 "remote_node_networks": {
                     "cidrs": ["172.16.0.0/18"],
@@ -1120,7 +1120,7 @@ class Cluster(pulumi.CustomResource):
                 "authentication_mode": "CONFIG_MAP",
             },
             role_arn=cluster.arn,
-            version="1.31",
+            version="1.35",
             vpc_config={
                 "endpoint_private_access": True,
                 "endpoint_public_access": False,
@@ -1224,7 +1224,7 @@ class Cluster(pulumi.CustomResource):
                 "authentication_mode": "API",
             },
             role_arn=cluster.arn,
-            version="1.31",
+            version="1.35",
             vpc_config={
                 "subnet_ids": [
                     az1["id"],
@@ -1292,7 +1292,7 @@ class Cluster(pulumi.CustomResource):
                 "authentication_mode": "API",
             },
             role_arn=cluster.arn,
-            version="1.31",
+            version="1.35",
             bootstrap_self_managed_addons=False,
             compute_config={
                 "enabled": True,
@@ -1364,7 +1364,7 @@ class Cluster(pulumi.CustomResource):
                 "authentication_mode": "API",
             },
             role_arn=cluster.arn,
-            version="1.31",
+            version="1.35",
             remote_network_config={
                 "remote_node_networks": {
                     "cidrs": ["172.16.0.0/18"],
@@ -1422,7 +1422,7 @@ class Cluster(pulumi.CustomResource):
                 "authentication_mode": "CONFIG_MAP",
             },
             role_arn=cluster.arn,
-            version="1.31",
+            version="1.35",
             vpc_config={
                 "endpoint_private_access": True,
                 "endpoint_public_access": False,

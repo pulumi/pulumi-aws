@@ -17,14 +17,14 @@ public final class Smsvoicev2OptOutListArgs extends com.pulumi.resources.Resourc
     public static final Smsvoicev2OptOutListArgs Empty = new Smsvoicev2OptOutListArgs();
 
     /**
-     * The name of the opt-out list.
+     * Name of the opt-out list.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the opt-out list.
+     * @return Name of the opt-out list.
      * 
      */
     public Optional<Output<String>> name() {
@@ -88,7 +88,7 @@ public final class Smsvoicev2OptOutListArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the opt-out list.
+         * @param name Name of the opt-out list.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class Smsvoicev2OptOutListArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name The name of the opt-out list.
+         * @param name Name of the opt-out list.
          * 
          * @return builder
          * 

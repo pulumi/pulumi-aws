@@ -97,98 +97,98 @@ public class Smsvoicev2PhoneNumber extends com.pulumi.resources.CustomResource {
         return this.deletionProtectionEnabled;
     }
     /**
-     * The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+     * Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      * 
      */
     @Export(name="isoCountryCode", refs={String.class}, tree="[0]")
     private Output<String> isoCountryCode;
 
     /**
-     * @return The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+     * @return Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      * 
      */
     public Output<String> isoCountryCode() {
         return this.isoCountryCode;
     }
     /**
-     * The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+     * Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
      * 
      */
     @Export(name="messageType", refs={String.class}, tree="[0]")
     private Output<String> messageType;
 
     /**
-     * @return The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+     * @return Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
      * 
      */
     public Output<String> messageType() {
         return this.messageType;
     }
     /**
-     * The monthly price, in US dollars, to lease the phone number.
+     * Monthly price, in US dollars, to lease the phone number.
      * 
      */
     @Export(name="monthlyLeasingPrice", refs={String.class}, tree="[0]")
     private Output<String> monthlyLeasingPrice;
 
     /**
-     * @return The monthly price, in US dollars, to lease the phone number.
+     * @return Monthly price, in US dollars, to lease the phone number.
      * 
      */
     public Output<String> monthlyLeasingPrice() {
         return this.monthlyLeasingPrice;
     }
     /**
-     * Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+     * Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
      * 
      */
     @Export(name="numberCapabilities", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> numberCapabilities;
 
     /**
-     * @return Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+     * @return Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
      * 
      */
     public Output<List<String>> numberCapabilities() {
         return this.numberCapabilities;
     }
     /**
-     * The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+     * Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      * 
      */
     @Export(name="numberType", refs={String.class}, tree="[0]")
     private Output<String> numberType;
 
     /**
-     * @return The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+     * @return Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      * 
      */
     public Output<String> numberType() {
         return this.numberType;
     }
     /**
-     * The name of the opt-out list to associate with the phone number.
+     * Name of the opt-out list to associate with the phone number.
      * 
      */
     @Export(name="optOutListName", refs={String.class}, tree="[0]")
     private Output<String> optOutListName;
 
     /**
-     * @return The name of the opt-out list to associate with the phone number.
+     * @return Name of the opt-out list to associate with the phone number.
      * 
      */
     public Output<String> optOutListName() {
         return this.optOutListName;
     }
     /**
-     * The new phone number that was requested.
+     * New phone number that was requested.
      * 
      */
     @Export(name="phoneNumber", refs={String.class}, tree="[0]")
     private Output<String> phoneNumber;
 
     /**
-     * @return The new phone number that was requested.
+     * @return New phone number that was requested.
      * 
      */
     public Output<String> phoneNumber() {
@@ -236,21 +236,29 @@ public class Smsvoicev2PhoneNumber extends com.pulumi.resources.CustomResource {
     public Output<Boolean> selfManagedOptOutsEnabled() {
         return this.selfManagedOptOutsEnabled;
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

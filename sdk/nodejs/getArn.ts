@@ -34,6 +34,9 @@ export interface GetArnArgs {
      * ARN to parse.
      */
     arn: string;
+    /**
+     * @deprecated Use 'arn' instead. This attribute will be removed in a future version of the provider.
+     */
     id?: string;
 }
 
@@ -46,17 +49,22 @@ export interface GetArnResult {
      */
     readonly account: string;
     readonly arn: string;
+    /**
+     * @deprecated Use 'arn' instead. This attribute will be removed in a future version of the provider.
+     */
     readonly id: string;
     /**
      * Partition that the resource is in.
      */
     readonly partition: string;
     /**
-     * Region the resource resides in. Note that the ARNs for some resources do not include a Region, so this component might be omitted.
+     * Region the resource resides in.
+     * Note that the ARNs for some resources do not include a Region, so this component might be omitted.
      */
     readonly region: string;
     /**
-     * Content of this part of the ARN varies by service. It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
+     * Content of this part of the ARN varies by service.
+     * It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
      */
     readonly resource: string;
     /**
@@ -94,5 +102,8 @@ export interface GetArnOutputArgs {
      * ARN to parse.
      */
     arn: pulumi.Input<string>;
+    /**
+     * @deprecated Use 'arn' instead. This attribute will be removed in a future version of the provider.
+     */
     id?: pulumi.Input<string | undefined>;
 }

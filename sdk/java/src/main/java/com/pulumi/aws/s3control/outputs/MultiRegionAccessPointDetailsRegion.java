@@ -12,7 +12,15 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MultiRegionAccessPointDetailsRegion {
+    /**
+     * @return The name of the associated bucket for the Region.
+     * 
+     */
     private String bucket;
+    /**
+     * @return The AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
+     * 
+     */
     private @Nullable String bucketAccountId;
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -21,9 +29,17 @@ public final class MultiRegionAccessPointDetailsRegion {
     private @Nullable String region;
 
     private MultiRegionAccessPointDetailsRegion() {}
+    /**
+     * @return The name of the associated bucket for the Region.
+     * 
+     */
     public String bucket() {
         return this.bucket;
     }
+    /**
+     * @return The AWS account ID that owns the Amazon S3 bucket that&#39;s associated with this Multi-Region Access Point.
+     * 
+     */
     public Optional<String> bucketAccountId() {
         return Optional.ofNullable(this.bucketAccountId);
     }

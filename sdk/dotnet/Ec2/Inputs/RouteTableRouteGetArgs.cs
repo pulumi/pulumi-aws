@@ -75,6 +75,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of an ODB network.
+        /// </summary>
+        [Input("odbNetworkArn")]
+        public Input<string>? OdbNetworkArn { get; set; }
+
+        /// <summary>
         /// Identifier of an EC2 Transit Gateway.
         /// </summary>
         [Input("transitGatewayId")]

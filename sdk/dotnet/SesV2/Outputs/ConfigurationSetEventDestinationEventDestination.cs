@@ -34,7 +34,7 @@ namespace Pulumi.Aws.SesV2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> MatchingEventTypes;
         /// <summary>
-        /// An object that defines an Amazon Pinpoint project destination for email events. See `PinpointDestination` Block for details.
+        /// An object that defines an AWS End User Messaging project destination for email events. See `PinpointDestination` Block for details.
         /// </summary>
         public readonly Outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination? PinpointDestination;
         /// <summary>

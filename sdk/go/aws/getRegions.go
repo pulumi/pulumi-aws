@@ -114,7 +114,9 @@ type GetRegionsArgs struct {
 	AllRegions *bool `pulumi:"allRegions"`
 	// Configuration block(s) to use as filters. Detailed below.
 	Filters []GetRegionsFilter `pulumi:"filters"`
-	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	// (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Id *string `pulumi:"id"`
 }
 
@@ -122,7 +124,9 @@ type GetRegionsArgs struct {
 type GetRegionsResult struct {
 	AllRegions *bool              `pulumi:"allRegions"`
 	Filters    []GetRegionsFilter `pulumi:"filters"`
-	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	// (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Id string `pulumi:"id"`
 	// Names of regions that meets the criteria.
 	Names []string `pulumi:"names"`
@@ -143,7 +147,9 @@ type GetRegionsOutputArgs struct {
 	AllRegions pulumi.BoolPtrInput `pulumi:"allRegions"`
 	// Configuration block(s) to use as filters. Detailed below.
 	Filters GetRegionsFilterArrayInput `pulumi:"filters"`
-	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	// (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -174,7 +180,9 @@ func (o GetRegionsResultOutput) Filters() GetRegionsFilterArrayOutput {
 	return o.ApplyT(func(v GetRegionsResult) []GetRegionsFilter { return v.Filters }).(GetRegionsFilterArrayOutput)
 }
 
-// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+// (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+//
+// Deprecated: This attribute will be removed in a future version of the provider.
 func (o GetRegionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegionsResult) string { return v.Id }).(pulumi.StringOutput)
 }

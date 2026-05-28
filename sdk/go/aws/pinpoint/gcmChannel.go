@@ -12,12 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Pinpoint GCM Channel resource.
+// Provides an End User Messaging GCM Channel resource.
 //
 // > **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
 // ## Import
 //
-// Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
+// Using `pulumi import`, import End User Messaging GCM Channel using the `application-id`. For example:
 //
 // ```sh
 // $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
@@ -25,15 +25,17 @@ import (
 type GcmChannel struct {
 	pulumi.CustomResourceState
 
-	// Platform credential API key from Google.
+	// Platform credential API key from Google. Conflicts with `serviceJson`.
 	ApiKey pulumi.StringPtrOutput `pulumi:"apiKey"`
-	// The application ID.
-	ApplicationId               pulumi.StringOutput    `pulumi:"applicationId"`
+	// Application ID.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
 	DefaultAuthenticationMethod pulumi.StringPtrOutput `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      pulumi.StringOutput    `pulumi:"region"`
+	Region pulumi.StringOutput `pulumi:"region"`
+	// Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
 	ServiceJson pulumi.StringPtrOutput `pulumi:"serviceJson"`
 }
 
@@ -81,28 +83,32 @@ func GetGcmChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GcmChannel resources.
 type gcmChannelState struct {
-	// Platform credential API key from Google.
+	// Platform credential API key from Google. Conflicts with `serviceJson`.
 	ApiKey *string `pulumi:"apiKey"`
-	// The application ID.
-	ApplicationId               *string `pulumi:"applicationId"`
+	// Application ID.
+	ApplicationId *string `pulumi:"applicationId"`
+	// Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
 	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      *string `pulumi:"region"`
+	Region *string `pulumi:"region"`
+	// Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
 	ServiceJson *string `pulumi:"serviceJson"`
 }
 
 type GcmChannelState struct {
-	// Platform credential API key from Google.
+	// Platform credential API key from Google. Conflicts with `serviceJson`.
 	ApiKey pulumi.StringPtrInput
-	// The application ID.
-	ApplicationId               pulumi.StringPtrInput
+	// Application ID.
+	ApplicationId pulumi.StringPtrInput
+	// Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
 	DefaultAuthenticationMethod pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
 	ServiceJson pulumi.StringPtrInput
 }
 
@@ -111,29 +117,33 @@ func (GcmChannelState) ElementType() reflect.Type {
 }
 
 type gcmChannelArgs struct {
-	// Platform credential API key from Google.
+	// Platform credential API key from Google. Conflicts with `serviceJson`.
 	ApiKey *string `pulumi:"apiKey"`
-	// The application ID.
-	ApplicationId               string  `pulumi:"applicationId"`
+	// Application ID.
+	ApplicationId string `pulumi:"applicationId"`
+	// Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
 	DefaultAuthenticationMethod *string `pulumi:"defaultAuthenticationMethod"`
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      *string `pulumi:"region"`
+	Region *string `pulumi:"region"`
+	// Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
 	ServiceJson *string `pulumi:"serviceJson"`
 }
 
 // The set of arguments for constructing a GcmChannel resource.
 type GcmChannelArgs struct {
-	// Platform credential API key from Google.
+	// Platform credential API key from Google. Conflicts with `serviceJson`.
 	ApiKey pulumi.StringPtrInput
-	// The application ID.
-	ApplicationId               pulumi.StringInput
+	// Application ID.
+	ApplicationId pulumi.StringInput
+	// Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
 	DefaultAuthenticationMethod pulumi.StringPtrInput
 	// Whether the channel is enabled or disabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
 	ServiceJson pulumi.StringPtrInput
 }
 
@@ -224,16 +234,17 @@ func (o GcmChannelOutput) ToGcmChannelOutputWithContext(ctx context.Context) Gcm
 	return o
 }
 
-// Platform credential API key from Google.
+// Platform credential API key from Google. Conflicts with `serviceJson`.
 func (o GcmChannelOutput) ApiKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GcmChannel) pulumi.StringPtrOutput { return v.ApiKey }).(pulumi.StringPtrOutput)
 }
 
-// The application ID.
+// Application ID.
 func (o GcmChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GcmChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
 func (o GcmChannelOutput) DefaultAuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GcmChannel) pulumi.StringPtrOutput { return v.DefaultAuthenticationMethod }).(pulumi.StringPtrOutput)
 }
@@ -248,6 +259,7 @@ func (o GcmChannelOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *GcmChannel) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+// Service Account JSON from Google to use with the GCM API. Conflicts with `apiKey`.
 func (o GcmChannelOutput) ServiceJson() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GcmChannel) pulumi.StringPtrOutput { return v.ServiceJson }).(pulumi.StringPtrOutput)
 }

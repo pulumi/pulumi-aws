@@ -16,14 +16,14 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
     public static final AppLimitsArgs Empty = new AppLimitsArgs();
 
     /**
-     * The maximum number of messages that the campaign can send daily.
+     * Maximum number of messages that the campaign can send daily.
      * 
      */
     @Import(name="daily")
     private @Nullable Output<Integer> daily;
 
     /**
-     * @return The maximum number of messages that the campaign can send daily.
+     * @return Maximum number of messages that the campaign can send daily.
      * 
      */
     public Optional<Output<Integer>> daily() {
@@ -31,14 +31,14 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+     * Length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. Minimum value is 60.
      * 
      */
     @Import(name="maximumDuration")
     private @Nullable Output<Integer> maximumDuration;
 
     /**
-     * @return The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+     * @return Length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. Minimum value is 60.
      * 
      */
     public Optional<Output<Integer>> maximumDuration() {
@@ -46,14 +46,14 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+     * Number of messages that the campaign can send per second. Minimum value is 50, and the maximum is 20000.
      * 
      */
     @Import(name="messagesPerSecond")
     private @Nullable Output<Integer> messagesPerSecond;
 
     /**
-     * @return The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+     * @return Number of messages that the campaign can send per second. Minimum value is 50, and the maximum is 20000.
      * 
      */
     public Optional<Output<Integer>> messagesPerSecond() {
@@ -61,14 +61,14 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The maximum total number of messages that the campaign can send.
+     * Maximum total number of messages that the campaign can send.
      * 
      */
     @Import(name="total")
     private @Nullable Output<Integer> total;
 
     /**
-     * @return The maximum total number of messages that the campaign can send.
+     * @return Maximum total number of messages that the campaign can send.
      * 
      */
     public Optional<Output<Integer>> total() {
@@ -103,7 +103,7 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param daily The maximum number of messages that the campaign can send daily.
+         * @param daily Maximum number of messages that the campaign can send daily.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param daily The maximum number of messages that the campaign can send daily.
+         * @param daily Maximum number of messages that the campaign can send daily.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maximumDuration The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+         * @param maximumDuration Length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. Minimum value is 60.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maximumDuration The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+         * @param maximumDuration Length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. Minimum value is 60.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param messagesPerSecond The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+         * @param messagesPerSecond Number of messages that the campaign can send per second. Minimum value is 50, and the maximum is 20000.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param messagesPerSecond The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+         * @param messagesPerSecond Number of messages that the campaign can send per second. Minimum value is 50, and the maximum is 20000.
          * 
          * @return builder
          * 
@@ -166,7 +166,7 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param total The maximum total number of messages that the campaign can send.
+         * @param total Maximum total number of messages that the campaign can send.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class AppLimitsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param total The maximum total number of messages that the campaign can send.
+         * @param total Maximum total number of messages that the campaign can send.
          * 
          * @return builder
          * 

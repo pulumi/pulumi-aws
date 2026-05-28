@@ -18,7 +18,8 @@ public final class GetSecretVersionsPlainArgs extends com.pulumi.resources.Invok
 
     /**
      * If true, all deprecated secret versions are included in the response.
-     * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+     * If false, no deprecated secret versions are included in the response.
+     * If no value is specified, the default value is `false`.
      * 
      */
     @Import(name="includeDeprecated")
@@ -26,7 +27,8 @@ public final class GetSecretVersionsPlainArgs extends com.pulumi.resources.Invok
 
     /**
      * @return If true, all deprecated secret versions are included in the response.
-     * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+     * If false, no deprecated secret versions are included in the response.
+     * If no value is specified, the default value is `false`.
      * 
      */
     public Optional<Boolean> includeDeprecated() {
@@ -91,7 +93,8 @@ public final class GetSecretVersionsPlainArgs extends com.pulumi.resources.Invok
 
         /**
          * @param includeDeprecated If true, all deprecated secret versions are included in the response.
-         * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+         * If false, no deprecated secret versions are included in the response.
+         * If no value is specified, the default value is `false`.
          * 
          * @return builder
          * 

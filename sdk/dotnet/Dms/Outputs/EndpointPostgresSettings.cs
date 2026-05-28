@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly bool? MapJsonbAsClob;
         /// <summary>
-        /// Optional When true, DMS migrates LONG values as VARCHAR.
+        /// Specifies how DMS maps LONG VARCHAR values. Valid values are `Wstring`, `Clob`, and `Nclob`.
         /// </summary>
         public readonly string? MapLongVarcharAs;
         /// <summary>

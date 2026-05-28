@@ -213,14 +213,14 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Optional When true, DMS migrates LONG values as VARCHAR.
+     * Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
      * 
      */
     @Import(name="mapLongVarcharAs")
     private @Nullable Output<String> mapLongVarcharAs;
 
     /**
-     * @return Optional When true, DMS migrates LONG values as VARCHAR.
+     * @return Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
      * 
      */
     public Optional<Output<String>> mapLongVarcharAs() {
@@ -602,7 +602,7 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param mapLongVarcharAs Optional When true, DMS migrates LONG values as VARCHAR.
+         * @param mapLongVarcharAs Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class EndpointPostgresSettingsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param mapLongVarcharAs Optional When true, DMS migrates LONG values as VARCHAR.
+         * @param mapLongVarcharAs Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
          * 
          * @return builder
          * 

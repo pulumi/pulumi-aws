@@ -30,16 +30,24 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Region&#39;s name (e.g. `us-east-1`).
+     * (**Deprecated**) Region&#39;s name (e.g. `us-east-1`).
+     * 
+     * @deprecated
+     * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return Region&#39;s name (e.g. `us-east-1`).
+     * @return (**Deprecated**) Region&#39;s name (e.g. `us-east-1`).
+     * 
+     * @deprecated
+     * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -121,11 +129,15 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Region&#39;s name (e.g. `us-east-1`).
+         * @param id (**Deprecated**) Region&#39;s name (e.g. `us-east-1`).
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
+         * 
          */
+        @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;

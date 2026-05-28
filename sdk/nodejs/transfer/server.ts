@@ -221,6 +221,10 @@ export class Server extends pulumi.CustomResource {
      */
     declare public readonly invocationRole: pulumi.Output<string | undefined>;
     /**
+     * Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
+     */
+    declare public readonly ipAddressType: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     declare public readonly loggingRole: pulumi.Output<string | undefined>;
@@ -327,6 +331,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["hostKeyFingerprint"] = state?.hostKeyFingerprint;
             resourceInputs["identityProviderType"] = state?.identityProviderType;
             resourceInputs["invocationRole"] = state?.invocationRole;
+            resourceInputs["ipAddressType"] = state?.ipAddressType;
             resourceInputs["loggingRole"] = state?.loggingRole;
             resourceInputs["postAuthenticationLoginBanner"] = state?.postAuthenticationLoginBanner;
             resourceInputs["preAuthenticationLoginBanner"] = state?.preAuthenticationLoginBanner;
@@ -353,6 +358,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["hostKey"] = args?.hostKey ? pulumi.secret(args.hostKey) : undefined;
             resourceInputs["identityProviderType"] = args?.identityProviderType;
             resourceInputs["invocationRole"] = args?.invocationRole;
+            resourceInputs["ipAddressType"] = args?.ipAddressType;
             resourceInputs["loggingRole"] = args?.loggingRole;
             resourceInputs["postAuthenticationLoginBanner"] = args?.postAuthenticationLoginBanner ? pulumi.secret(args.postAuthenticationLoginBanner) : undefined;
             resourceInputs["preAuthenticationLoginBanner"] = args?.preAuthenticationLoginBanner ? pulumi.secret(args.preAuthenticationLoginBanner) : undefined;
@@ -434,6 +440,10 @@ export interface ServerState {
      * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      */
     invocationRole?: pulumi.Input<string | undefined>;
+    /**
+     * Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
+     */
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
@@ -560,6 +570,10 @@ export interface ServerArgs {
      * Amazon Resource Name (ARN) of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
      */
     invocationRole?: pulumi.Input<string | undefined>;
+    /**
+     * Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
+     */
+    ipAddressType?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */

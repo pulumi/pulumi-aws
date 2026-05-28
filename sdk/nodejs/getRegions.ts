@@ -70,7 +70,9 @@ export interface GetRegionsArgs {
      */
     filters?: inputs.GetRegionsFilter[];
     /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     *
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     id?: string;
 }
@@ -82,7 +84,9 @@ export interface GetRegionsResult {
     readonly allRegions?: boolean;
     readonly filters?: outputs.GetRegionsFilter[];
     /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     *
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     readonly id: string;
     /**
@@ -153,7 +157,9 @@ export interface GetRegionsOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.GetRegionsFilterArgs>[] | undefined>;
     /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     *
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     id?: pulumi.Input<string | undefined>;
 }

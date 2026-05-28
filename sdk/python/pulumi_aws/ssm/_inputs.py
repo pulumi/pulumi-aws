@@ -82,6 +82,8 @@ __all__ = [
     'QuicksetupConfigurationManagerTimeoutsArgsDict',
     'ResourceDataSyncS3DestinationArgs',
     'ResourceDataSyncS3DestinationArgsDict',
+    'ResourceDataSyncS3DestinationDestinationDataSharingArgs',
+    'ResourceDataSyncS3DestinationDestinationDataSharingArgsDict',
     'GetInstancesFilterArgs',
     'GetInstancesFilterArgsDict',
     'GetMaintenanceWindowsFilterArgs',
@@ -2168,6 +2170,11 @@ class ResourceDataSyncS3DestinationArgsDict(TypedDict):
     """
     Region with the bucket targeted by the Resource Data Sync.
     """
+    destination_data_sharing: NotRequired[pulumi.Input[Optional['ResourceDataSyncS3DestinationDestinationDataSharingArgsDict']]]
+    """
+    Enables destination data sharing.
+    See `destination_data_sharing` below.
+    """
     kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ARN of an encryption key for a destination in Amazon S3.
@@ -2186,18 +2193,23 @@ class ResourceDataSyncS3DestinationArgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[_builtins.str],
                  region: pulumi.Input[_builtins.str],
+                 destination_data_sharing: pulumi.Input[Optional['ResourceDataSyncS3DestinationDestinationDataSharingArgs']] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  sync_format: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket_name: Name of S3 bucket where the aggregated data is stored.
         :param pulumi.Input[_builtins.str] region: Region with the bucket targeted by the Resource Data Sync.
+        :param pulumi.Input['ResourceDataSyncS3DestinationDestinationDataSharingArgs'] destination_data_sharing: Enables destination data sharing.
+               See `destination_data_sharing` below.
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of an encryption key for a destination in Amazon S3.
         :param pulumi.Input[_builtins.str] prefix: Prefix for the bucket.
         :param pulumi.Input[_builtins.str] sync_format: A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "region", region)
+        if destination_data_sharing is not None:
+            pulumi.set(__self__, "destination_data_sharing", destination_data_sharing)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if prefix is not None:
@@ -2228,6 +2240,19 @@ class ResourceDataSyncS3DestinationArgs:
     @region.setter
     def region(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationDataSharing")
+    def destination_data_sharing(self) -> pulumi.Input[Optional['ResourceDataSyncS3DestinationDestinationDataSharingArgs']]:
+        """
+        Enables destination data sharing.
+        See `destination_data_sharing` below.
+        """
+        return pulumi.get(self, "destination_data_sharing")
+
+    @destination_data_sharing.setter
+    def destination_data_sharing(self, value: pulumi.Input[Optional['ResourceDataSyncS3DestinationDestinationDataSharingArgs']]):
+        pulumi.set(self, "destination_data_sharing", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
@@ -2264,6 +2289,26 @@ class ResourceDataSyncS3DestinationArgs:
     @sync_format.setter
     def sync_format(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sync_format", value)
+
+
+class ResourceDataSyncS3DestinationDestinationDataSharingArgsDict(TypedDict):
+    destination_data_sharing_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ResourceDataSyncS3DestinationDestinationDataSharingArgs:
+    def __init__(__self__, *,
+                 destination_data_sharing_type: pulumi.Input[Optional[_builtins.str]] = None):
+        if destination_data_sharing_type is not None:
+            pulumi.set(__self__, "destination_data_sharing_type", destination_data_sharing_type)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationDataSharingType")
+    def destination_data_sharing_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "destination_data_sharing_type")
+
+    @destination_data_sharing_type.setter
+    def destination_data_sharing_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination_data_sharing_type", value)
 
 
 class GetInstancesFilterArgsDict(TypedDict):

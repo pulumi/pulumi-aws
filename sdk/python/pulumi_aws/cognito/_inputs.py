@@ -662,11 +662,11 @@ class ManagedLoginBrandingAssetArgs:
 class ManagedUserPoolClientAnalyticsConfigurationArgsDict(TypedDict):
     application_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
+    Application ARN for an AWS End User Messaging application. It conflicts with `external_id` and `role_arn`.
     """
     application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Unique identifier for an Amazon Pinpoint application.
+    Unique identifier for an AWS End User Messaging application.
     """
     external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -674,11 +674,11 @@ class ManagedUserPoolClientAnalyticsConfigurationArgsDict(TypedDict):
     """
     role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
+    ARN of an IAM role that authorizes Amazon Cognito to publish events to AWS End User Messaging analytics. It conflicts with `application_arn`.
     """
     user_data_shared: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+    If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to AWS End User Messaging analytics.
     """
 
 @pulumi.input_type
@@ -690,11 +690,11 @@ class ManagedUserPoolClientAnalyticsConfigurationArgs:
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  user_data_shared: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] application_arn: Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
-        :param pulumi.Input[_builtins.str] application_id: Unique identifier for an Amazon Pinpoint application.
+        :param pulumi.Input[_builtins.str] application_arn: Application ARN for an AWS End User Messaging application. It conflicts with `external_id` and `role_arn`.
+        :param pulumi.Input[_builtins.str] application_id: Unique identifier for an AWS End User Messaging application.
         :param pulumi.Input[_builtins.str] external_id: ID for the Analytics Configuration and conflicts with `application_arn`.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
-        :param pulumi.Input[_builtins.bool] user_data_shared: If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to AWS End User Messaging analytics. It conflicts with `application_arn`.
+        :param pulumi.Input[_builtins.bool] user_data_shared: If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to AWS End User Messaging analytics.
         """
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
@@ -711,7 +711,7 @@ class ManagedUserPoolClientAnalyticsConfigurationArgs:
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Application ARN for an Amazon Pinpoint application. It conflicts with `external_id` and `role_arn`.
+        Application ARN for an AWS End User Messaging application. It conflicts with `external_id` and `role_arn`.
         """
         return pulumi.get(self, "application_arn")
 
@@ -723,7 +723,7 @@ class ManagedUserPoolClientAnalyticsConfigurationArgs:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Unique identifier for an Amazon Pinpoint application.
+        Unique identifier for an AWS End User Messaging application.
         """
         return pulumi.get(self, "application_id")
 
@@ -747,7 +747,7 @@ class ManagedUserPoolClientAnalyticsConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `application_arn`.
+        ARN of an IAM role that authorizes Amazon Cognito to publish events to AWS End User Messaging analytics. It conflicts with `application_arn`.
         """
         return pulumi.get(self, "role_arn")
 
@@ -759,7 +759,7 @@ class ManagedUserPoolClientAnalyticsConfigurationArgs:
     @pulumi.getter(name="userDataShared")
     def user_data_shared(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        If `user_data_shared` is set to `true`, Amazon Cognito will include user data in the events it publishes to AWS End User Messaging analytics.
         """
         return pulumi.get(self, "user_data_shared")
 
@@ -1829,11 +1829,11 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
 class UserPoolClientAnalyticsConfigurationArgsDict(TypedDict):
     application_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+    Application ARN for an AWS End User Messaging application. Conflicts with `external_id` and `role_arn`.
     """
     application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Application ID for an Amazon Pinpoint application.
+    Application ID for an AWS End User Messaging application.
     """
     external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1841,11 +1841,11 @@ class UserPoolClientAnalyticsConfigurationArgsDict(TypedDict):
     """
     role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+    ARN of an IAM role that authorizes Amazon Cognito to publish events to AWS End User Messaging analytics. Conflicts with `application_arn`.
     """
     user_data_shared: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+    If set to `true`, Amazon Cognito will include user data in the events it publishes to AWS End User Messaging analytics.
     """
 
 @pulumi.input_type
@@ -1857,11 +1857,11 @@ class UserPoolClientAnalyticsConfigurationArgs:
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  user_data_shared: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] application_arn: Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
-        :param pulumi.Input[_builtins.str] application_id: Application ID for an Amazon Pinpoint application.
+        :param pulumi.Input[_builtins.str] application_arn: Application ARN for an AWS End User Messaging application. Conflicts with `external_id` and `role_arn`.
+        :param pulumi.Input[_builtins.str] application_id: Application ID for an AWS End User Messaging application.
         :param pulumi.Input[_builtins.str] external_id: ID for the Analytics Configuration. Conflicts with `application_arn`.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
-        :param pulumi.Input[_builtins.bool] user_data_shared: If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that authorizes Amazon Cognito to publish events to AWS End User Messaging analytics. Conflicts with `application_arn`.
+        :param pulumi.Input[_builtins.bool] user_data_shared: If set to `true`, Amazon Cognito will include user data in the events it publishes to AWS End User Messaging analytics.
         """
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
@@ -1878,7 +1878,7 @@ class UserPoolClientAnalyticsConfigurationArgs:
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Application ARN for an Amazon Pinpoint application. Conflicts with `external_id` and `role_arn`.
+        Application ARN for an AWS End User Messaging application. Conflicts with `external_id` and `role_arn`.
         """
         return pulumi.get(self, "application_arn")
 
@@ -1890,7 +1890,7 @@ class UserPoolClientAnalyticsConfigurationArgs:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Application ID for an Amazon Pinpoint application.
+        Application ID for an AWS End User Messaging application.
         """
         return pulumi.get(self, "application_id")
 
@@ -1914,7 +1914,7 @@ class UserPoolClientAnalyticsConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `application_arn`.
+        ARN of an IAM role that authorizes Amazon Cognito to publish events to AWS End User Messaging analytics. Conflicts with `application_arn`.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1926,7 +1926,7 @@ class UserPoolClientAnalyticsConfigurationArgs:
     @pulumi.getter(name="userDataShared")
     def user_data_shared(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        If set to `true`, Amazon Cognito will include user data in the events it publishes to AWS End User Messaging analytics.
         """
         return pulumi.get(self, "user_data_shared")
 

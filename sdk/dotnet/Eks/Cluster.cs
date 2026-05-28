@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Eks
     ///             AuthenticationMode = "API",
     ///         },
     ///         RoleArn = cluster.Arn,
-    ///         Version = "1.31",
+    ///         Version = "1.35",
     ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {
     ///             SubnetIds = new[]
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Eks
     ///             AuthenticationMode = "API",
     ///         },
     ///         RoleArn = cluster.Arn,
-    ///         Version = "1.31",
+    ///         Version = "1.35",
     ///         BootstrapSelfManagedAddons = false,
     ///         ComputeConfig = new Aws.Eks.Inputs.ClusterComputeConfigArgs
     ///         {
@@ -298,7 +298,7 @@ namespace Pulumi.Aws.Eks
     ///             AuthenticationMode = "API",
     ///         },
     ///         RoleArn = cluster.Arn,
-    ///         Version = "1.31",
+    ///         Version = "1.35",
     ///         RemoteNetworkConfig = new Aws.Eks.Inputs.ClusterRemoteNetworkConfigArgs
     ///         {
     ///             RemoteNodeNetworks = new Aws.Eks.Inputs.ClusterRemoteNetworkConfigRemoteNodeNetworksArgs
@@ -399,7 +399,7 @@ namespace Pulumi.Aws.Eks
     ///             AuthenticationMode = "CONFIG_MAP",
     ///         },
     ///         RoleArn = cluster.Arn,
-    ///         Version = "1.31",
+    ///         Version = "1.35",
     ///         VpcConfig = new Aws.Eks.Inputs.ClusterVpcConfigArgs
     ///         {
     ///             EndpointPrivateAccess = true,

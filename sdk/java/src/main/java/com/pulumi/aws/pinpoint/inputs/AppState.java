@@ -20,14 +20,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     public static final AppState Empty = new AppState();
 
     /**
-     * The Application ID of the Pinpoint App.
+     * Application ID of the End User Messaging App.
      * 
      */
     @Import(name="applicationId")
     private @Nullable Output<String> applicationId;
 
     /**
-     * @return The Application ID of the Pinpoint App.
+     * @return Application ID of the End User Messaging App.
      * 
      */
     public Optional<Output<String>> applicationId() {
@@ -35,14 +35,32 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the PinPoint Application
+     * Amazon Resource Name (ARN) of the PinPoint Application.
+     * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
+     * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
+     * * `campaign_hook[0].web_url` - Web URL to call for hook.
+     * * `limits[0].daily` - Maximum number of messages that the campaign can send daily.
+     * * `limits[0].maximum_duration` - Length of time (in seconds) that the campaign can run before it ends and message deliveries stop.
+     * * `limits[0].messages_per_second` - Number of messages that the campaign can send per second.
+     * * `limits[0].total` - Maximum total number of messages that the campaign can send.
+     * * `quiet_time[0].end` - Default end time for quiet time in ISO 8601 format.
+     * * `quiet_time[0].start` - Default start time for quiet time in ISO 8601 format.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the PinPoint Application
+     * @return Amazon Resource Name (ARN) of the PinPoint Application.
+     * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
+     * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
+     * * `campaign_hook[0].web_url` - Web URL to call for hook.
+     * * `limits[0].daily` - Maximum number of messages that the campaign can send daily.
+     * * `limits[0].maximum_duration` - Length of time (in seconds) that the campaign can run before it ends and message deliveries stop.
+     * * `limits[0].messages_per_second` - Number of messages that the campaign can send per second.
+     * * `limits[0].total` - Maximum total number of messages that the campaign can send.
+     * * `quiet_time[0].end` - Default end time for quiet time in ISO 8601 format.
+     * * `quiet_time[0].start` - Default start time for quiet time in ISO 8601 format.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -50,60 +68,60 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
+     * Settings for invoking an AWS Lambda function that customizes a segment for a campaign. See below.
      * 
      * @deprecated
-     * campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated /* campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     @Import(name="campaignHook")
     private @Nullable Output<AppCampaignHookArgs> campaignHook;
 
     /**
-     * @return Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
+     * @return Settings for invoking an AWS Lambda function that customizes a segment for a campaign. See below.
      * 
      * @deprecated
-     * campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated /* campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     public Optional<Output<AppCampaignHookArgs>> campaignHook() {
         return Optional.ofNullable(this.campaignHook);
     }
 
     /**
-     * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+     * Default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own. See below.
      * 
      * @deprecated
-     * limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated /* limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     @Import(name="limits")
     private @Nullable Output<AppLimitsArgs> limits;
 
     /**
-     * @return The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+     * @return Default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own. See below.
      * 
      * @deprecated
-     * limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated /* limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     public Optional<Output<AppLimitsArgs>> limits() {
         return Optional.ofNullable(this.limits);
     }
 
     /**
-     * The application name. By default generated by Pulumi
+     * Application name. By default generated by Terraform.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The application name. By default generated by Pulumi
+     * @return Application name. By default generated by Terraform.
      * 
      */
     public Optional<Output<String>> name() {
@@ -111,14 +129,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the Pinpoint application. Conflicts with `name`
+     * Name of the End User Messaging application. Conflicts with `name`.
      * 
      */
     @Import(name="namePrefix")
     private @Nullable Output<String> namePrefix;
 
     /**
-     * @return The name of the Pinpoint application. Conflicts with `name`
+     * @return Name of the End User Messaging application. Conflicts with `name`.
      * 
      */
     public Optional<Output<String>> namePrefix() {
@@ -126,24 +144,24 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
+     * Default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own. See below.
      * 
      * @deprecated
-     * quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated /* quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     @Import(name="quietTime")
     private @Nullable Output<AppQuietTimeArgs> quietTime;
 
     /**
-     * @return The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
+     * @return Default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own. See below.
      * 
      * @deprecated
-     * quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated /* quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     public Optional<Output<AppQuietTimeArgs>> quietTime() {
         return Optional.ofNullable(this.quietTime);
     }
@@ -179,14 +197,14 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -227,7 +245,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The Application ID of the Pinpoint App.
+         * @param applicationId Application ID of the End User Messaging App.
          * 
          * @return builder
          * 
@@ -238,7 +256,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The Application ID of the Pinpoint App.
+         * @param applicationId Application ID of the End User Messaging App.
          * 
          * @return builder
          * 
@@ -248,7 +266,16 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the PinPoint Application
+         * @param arn Amazon Resource Name (ARN) of the PinPoint Application.
+         * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
+         * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
+         * * `campaign_hook[0].web_url` - Web URL to call for hook.
+         * * `limits[0].daily` - Maximum number of messages that the campaign can send daily.
+         * * `limits[0].maximum_duration` - Length of time (in seconds) that the campaign can run before it ends and message deliveries stop.
+         * * `limits[0].messages_per_second` - Number of messages that the campaign can send per second.
+         * * `limits[0].total` - Maximum total number of messages that the campaign can send.
+         * * `quiet_time[0].end` - Default end time for quiet time in ISO 8601 format.
+         * * `quiet_time[0].start` - Default start time for quiet time in ISO 8601 format.
          * 
          * @return builder
          * 
@@ -259,7 +286,16 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the PinPoint Application
+         * @param arn Amazon Resource Name (ARN) of the PinPoint Application.
+         * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
+         * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
+         * * `campaign_hook[0].web_url` - Web URL to call for hook.
+         * * `limits[0].daily` - Maximum number of messages that the campaign can send daily.
+         * * `limits[0].maximum_duration` - Length of time (in seconds) that the campaign can run before it ends and message deliveries stop.
+         * * `limits[0].messages_per_second` - Number of messages that the campaign can send per second.
+         * * `limits[0].total` - Maximum total number of messages that the campaign can send.
+         * * `quiet_time[0].end` - Default end time for quiet time in ISO 8601 format.
+         * * `quiet_time[0].start` - Default start time for quiet time in ISO 8601 format.
          * 
          * @return builder
          * 
@@ -269,65 +305,65 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param campaignHook Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
+         * @param campaignHook Settings for invoking an AWS Lambda function that customizes a segment for a campaign. See below.
          * 
          * @return builder
          * 
          * @deprecated
-         * campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
          * 
          */
-        @Deprecated /* campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+        @Deprecated /* campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
         public Builder campaignHook(@Nullable Output<AppCampaignHookArgs> campaignHook) {
             $.campaignHook = campaignHook;
             return this;
         }
 
         /**
-         * @param campaignHook Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
+         * @param campaignHook Settings for invoking an AWS Lambda function that customizes a segment for a campaign. See below.
          * 
          * @return builder
          * 
          * @deprecated
-         * campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
          * 
          */
-        @Deprecated /* campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+        @Deprecated /* campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
         public Builder campaignHook(AppCampaignHookArgs campaignHook) {
             return campaignHook(Output.of(campaignHook));
         }
 
         /**
-         * @param limits The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+         * @param limits Default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own. See below.
          * 
          * @return builder
          * 
          * @deprecated
-         * limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
          * 
          */
-        @Deprecated /* limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+        @Deprecated /* limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
         public Builder limits(@Nullable Output<AppLimitsArgs> limits) {
             $.limits = limits;
             return this;
         }
 
         /**
-         * @param limits The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+         * @param limits Default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own. See below.
          * 
          * @return builder
          * 
          * @deprecated
-         * limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
          * 
          */
-        @Deprecated /* limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+        @Deprecated /* limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
         public Builder limits(AppLimitsArgs limits) {
             return limits(Output.of(limits));
         }
 
         /**
-         * @param name The application name. By default generated by Pulumi
+         * @param name Application name. By default generated by Terraform.
          * 
          * @return builder
          * 
@@ -338,7 +374,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The application name. By default generated by Pulumi
+         * @param name Application name. By default generated by Terraform.
          * 
          * @return builder
          * 
@@ -348,7 +384,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix The name of the Pinpoint application. Conflicts with `name`
+         * @param namePrefix Name of the End User Messaging application. Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -359,7 +395,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namePrefix The name of the Pinpoint application. Conflicts with `name`
+         * @param namePrefix Name of the End User Messaging application. Conflicts with `name`.
          * 
          * @return builder
          * 
@@ -369,30 +405,30 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quietTime The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
+         * @param quietTime Default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own. See below.
          * 
          * @return builder
          * 
          * @deprecated
-         * quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
          * 
          */
-        @Deprecated /* quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+        @Deprecated /* quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
         public Builder quietTime(@Nullable Output<AppQuietTimeArgs> quietTime) {
             $.quietTime = quietTime;
             return this;
         }
 
         /**
-         * @param quietTime The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
+         * @param quietTime Default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own. See below.
          * 
          * @return builder
          * 
          * @deprecated
-         * quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+         * quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
          * 
          */
-        @Deprecated /* quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+        @Deprecated /* quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
         public Builder quietTime(AppQuietTimeArgs quietTime) {
             return quietTime(Output.of(quietTime));
         }
@@ -440,7 +476,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -451,7 +487,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

@@ -15,16 +15,26 @@ public final class GetPartitionPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetPartitionPlainArgs Empty = new GetPartitionPlainArgs();
 
     /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * Use `partition` instead.
+     * 
+     * @deprecated
+     * Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* Use 'partition' instead. This attribute will be removed in a future version of the provider. */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * Use `partition` instead.
+     * 
+     * @deprecated
+     * Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* Use 'partition' instead. This attribute will be removed in a future version of the provider. */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -54,11 +64,16 @@ public final class GetPartitionPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param id Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+         * @param id (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+         * Use `partition` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.
+         * 
          */
+        @Deprecated /* Use 'partition' instead. This attribute will be removed in a future version of the provider. */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;

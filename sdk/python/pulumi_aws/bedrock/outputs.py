@@ -352,6 +352,18 @@ __all__ = [
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata',
+    'AgentcoreOnlineEvaluationConfigDataSourceConfig',
+    'AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs',
+    'AgentcoreOnlineEvaluationConfigEvaluator',
+    'AgentcoreOnlineEvaluationConfigOutputConfig',
+    'AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig',
+    'AgentcoreOnlineEvaluationConfigRule',
+    'AgentcoreOnlineEvaluationConfigRuleFilter',
+    'AgentcoreOnlineEvaluationConfigRuleFilterValue',
+    'AgentcoreOnlineEvaluationConfigRuleSamplingConfig',
+    'AgentcoreOnlineEvaluationConfigRuleSessionConfig',
+    'AgentcoreOnlineEvaluationConfigTimeouts',
+    'AgentcorePolicyEngineTimeouts',
     'AgentcoreTokenVaultCmkKmsConfiguration',
     'CustomModelOutputDataConfig',
     'CustomModelTimeouts',
@@ -17043,6 +17055,516 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
         OAuth2 token endpoint URL.
         """
         return pulumi.get(self, "token_endpoint")
+
+
+@pulumi.output_type
+class AgentcoreOnlineEvaluationConfigDataSourceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogs":
+            suggest = "cloudwatch_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOnlineEvaluationConfigDataSourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOnlineEvaluationConfigDataSourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOnlineEvaluationConfigDataSourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_logs: Optional['outputs.AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs'] = None):
+        """
+        :param 'AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs' cloudwatch_logs: CloudWatch logs configuration for reading agent traces. See `cloudwatch_logs` Block below.
+        """
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> Optional['outputs.AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs']:
+        """
+        CloudWatch logs configuration for reading agent traces. See `cloudwatch_logs` Block below.
+        """
+        return pulumi.get(self, "cloudwatch_logs")
+
+
+@pulumi.output_type
+class AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupNames":
+            suggest = "log_group_names"
+        elif key == "serviceNames":
+            suggest = "service_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_names: Sequence[_builtins.str],
+                 service_names: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] log_group_names: List of CloudWatch log group names to monitor for agent traces. Maximum 5.
+        :param Sequence[_builtins.str] service_names: List of service names to filter traces within the specified log groups.
+        """
+        pulumi.set(__self__, "log_group_names", log_group_names)
+        pulumi.set(__self__, "service_names", service_names)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupNames")
+    def log_group_names(self) -> Sequence[_builtins.str]:
+        """
+        List of CloudWatch log group names to monitor for agent traces. Maximum 5.
+        """
+        return pulumi.get(self, "log_group_names")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNames")
+    def service_names(self) -> Sequence[_builtins.str]:
+        """
+        List of service names to filter traces within the specified log groups.
+        """
+        return pulumi.get(self, "service_names")
+
+
+@pulumi.output_type
+class AgentcoreOnlineEvaluationConfigEvaluator(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "evaluatorId":
+            suggest = "evaluator_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOnlineEvaluationConfigEvaluator. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOnlineEvaluationConfigEvaluator.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOnlineEvaluationConfigEvaluator.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 evaluator_id: _builtins.str):
+        """
+        :param _builtins.str evaluator_id: Unique identifier of the evaluator. Can reference builtin evaluators (e.g., `Builtin.Helpfulness`, `Builtin.GoalSuccessRate`) or custom evaluator IDs.
+        """
+        pulumi.set(__self__, "evaluator_id", evaluator_id)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluatorId")
+    def evaluator_id(self) -> _builtins.str:
+        """
+        Unique identifier of the evaluator. Can reference builtin evaluators (e.g., `Builtin.Helpfulness`, `Builtin.GoalSuccessRate`) or custom evaluator IDs.
+        """
+        return pulumi.get(self, "evaluator_id")
+
+
+@pulumi.output_type
+class AgentcoreOnlineEvaluationConfigOutputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchConfigs":
+            suggest = "cloudwatch_configs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOnlineEvaluationConfigOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOnlineEvaluationConfigOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOnlineEvaluationConfigOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_configs: Sequence['outputs.AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig']):
+        """
+        :param Sequence['AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs'] cloudwatch_configs: CloudWatch configuration for evaluation results. See `cloudwatch_config` Block below.
+        """
+        pulumi.set(__self__, "cloudwatch_configs", cloudwatch_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchConfigs")
+    def cloudwatch_configs(self) -> Sequence['outputs.AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig']:
+        """
+        CloudWatch configuration for evaluation results. See `cloudwatch_config` Block below.
+        """
+        return pulumi.get(self, "cloudwatch_configs")
+
+
+@pulumi.output_type
+class AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_group_name: _builtins.str):
+        """
+        :param _builtins.str log_group_name: Name of the CloudWatch log group where evaluation results are written.
+        """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> _builtins.str:
+        """
+        Name of the CloudWatch log group where evaluation results are written.
+        """
+        return pulumi.get(self, "log_group_name")
+
+
+@pulumi.output_type
+class AgentcoreOnlineEvaluationConfigRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samplingConfig":
+            suggest = "sampling_config"
+        elif key == "sessionConfig":
+            suggest = "session_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOnlineEvaluationConfigRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOnlineEvaluationConfigRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOnlineEvaluationConfigRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sampling_config: 'outputs.AgentcoreOnlineEvaluationConfigRuleSamplingConfig',
+                 filters: Optional[Sequence['outputs.AgentcoreOnlineEvaluationConfigRuleFilter']] = None,
+                 session_config: Optional['outputs.AgentcoreOnlineEvaluationConfigRuleSessionConfig'] = None):
+        """
+        :param 'AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs' sampling_config: Sampling configuration determining what percentage of agent traces to evaluate. See `sampling_config` Block below.
+        :param Sequence['AgentcoreOnlineEvaluationConfigRuleFilterArgs'] filters: List of filters determining which agent traces to evaluate. Maximum 5. See `filter` Block below.
+        :param 'AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs' session_config: Session configuration defining timeout settings for detecting when agent sessions are complete. See `session_config` Block below.
+        """
+        pulumi.set(__self__, "sampling_config", sampling_config)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if session_config is not None:
+            pulumi.set(__self__, "session_config", session_config)
+
+    @_builtins.property
+    @pulumi.getter(name="samplingConfig")
+    def sampling_config(self) -> 'outputs.AgentcoreOnlineEvaluationConfigRuleSamplingConfig':
+        """
+        Sampling configuration determining what percentage of agent traces to evaluate. See `sampling_config` Block below.
+        """
+        return pulumi.get(self, "sampling_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence['outputs.AgentcoreOnlineEvaluationConfigRuleFilter']]:
+        """
+        List of filters determining which agent traces to evaluate. Maximum 5. See `filter` Block below.
+        """
+        return pulumi.get(self, "filters")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionConfig")
+    def session_config(self) -> Optional['outputs.AgentcoreOnlineEvaluationConfigRuleSessionConfig']:
+        """
+        Session configuration defining timeout settings for detecting when agent sessions are complete. See `session_config` Block below.
+        """
+        return pulumi.get(self, "session_config")
+
+
+@pulumi.output_type
+class AgentcoreOnlineEvaluationConfigRuleFilter(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 operator: _builtins.str,
+                 value: 'outputs.AgentcoreOnlineEvaluationConfigRuleFilterValue'):
+        """
+        :param _builtins.str key: Key or field name to filter on within the agent trace data.
+        :param _builtins.str operator: Comparison operator. Valid values: `Equals`, `NotEquals`, `GreaterThan`, `LessThan`, `GreaterThanOrEqual`, `LessThanOrEqual`, `Contains`, `NotContains`.
+        :param 'AgentcoreOnlineEvaluationConfigRuleFilterValueArgs' value: Value to compare against. See `value` Block below.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Key or field name to filter on within the agent trace data.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> _builtins.str:
+        """
+        Comparison operator. Valid values: `Equals`, `NotEquals`, `GreaterThan`, `LessThan`, `GreaterThanOrEqual`, `LessThanOrEqual`, `Contains`, `NotContains`.
+        """
+        return pulumi.get(self, "operator")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> 'outputs.AgentcoreOnlineEvaluationConfigRuleFilterValue':
+        """
+        Value to compare against. See `value` Block below.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class AgentcoreOnlineEvaluationConfigRuleFilterValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "booleanValue":
+            suggest = "boolean_value"
+        elif key == "doubleValue":
+            suggest = "double_value"
+        elif key == "stringValue":
+            suggest = "string_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOnlineEvaluationConfigRuleFilterValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOnlineEvaluationConfigRuleFilterValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOnlineEvaluationConfigRuleFilterValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 boolean_value: Optional[_builtins.bool] = None,
+                 double_value: Optional[_builtins.float] = None,
+                 string_value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool boolean_value: Boolean value for true/false filtering.
+        :param _builtins.float double_value: Numeric value for numerical filtering.
+        :param _builtins.str string_value: String value for text-based filtering.
+        """
+        if boolean_value is not None:
+            pulumi.set(__self__, "boolean_value", boolean_value)
+        if double_value is not None:
+            pulumi.set(__self__, "double_value", double_value)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
+
+    @_builtins.property
+    @pulumi.getter(name="booleanValue")
+    def boolean_value(self) -> Optional[_builtins.bool]:
+        """
+        Boolean value for true/false filtering.
+        """
+        return pulumi.get(self, "boolean_value")
+
+    @_builtins.property
+    @pulumi.getter(name="doubleValue")
+    def double_value(self) -> Optional[_builtins.float]:
+        """
+        Numeric value for numerical filtering.
+        """
+        return pulumi.get(self, "double_value")
+
+    @_builtins.property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> Optional[_builtins.str]:
+        """
+        String value for text-based filtering.
+        """
+        return pulumi.get(self, "string_value")
+
+
+@pulumi.output_type
+class AgentcoreOnlineEvaluationConfigRuleSamplingConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samplingPercentage":
+            suggest = "sampling_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOnlineEvaluationConfigRuleSamplingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOnlineEvaluationConfigRuleSamplingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOnlineEvaluationConfigRuleSamplingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sampling_percentage: _builtins.float):
+        """
+        :param _builtins.float sampling_percentage: Percentage of agent traces to sample for evaluation, from 0.01 to 100.
+        """
+        pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+
+    @_builtins.property
+    @pulumi.getter(name="samplingPercentage")
+    def sampling_percentage(self) -> _builtins.float:
+        """
+        Percentage of agent traces to sample for evaluation, from 0.01 to 100.
+        """
+        return pulumi.get(self, "sampling_percentage")
+
+
+@pulumi.output_type
+class AgentcoreOnlineEvaluationConfigRuleSessionConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sessionTimeoutMinutes":
+            suggest = "session_timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreOnlineEvaluationConfigRuleSessionConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreOnlineEvaluationConfigRuleSessionConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreOnlineEvaluationConfigRuleSessionConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 session_timeout_minutes: _builtins.int):
+        """
+        :param _builtins.int session_timeout_minutes: Minutes of inactivity after which a session is considered complete. Between 1 and 60.
+        """
+        pulumi.set(__self__, "session_timeout_minutes", session_timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionTimeoutMinutes")
+    def session_timeout_minutes(self) -> _builtins.int:
+        """
+        Minutes of inactivity after which a session is considered complete. Between 1 and 60.
+        """
+        return pulumi.get(self, "session_timeout_minutes")
+
+
+@pulumi.output_type
+class AgentcoreOnlineEvaluationConfigTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class AgentcorePolicyEngineTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

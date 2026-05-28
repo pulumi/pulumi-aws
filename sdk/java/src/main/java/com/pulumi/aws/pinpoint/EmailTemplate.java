@@ -18,9 +18,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `aws.ses.Template` or `aws.sesv2.EmailIdentity` and related SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+ * &gt; **NOTE:** This resource is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `aws.ses.Template` or `aws.sesv2.EmailIdentity` and related SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
  * 
- * Provides a Pinpoint Email Template resource
+ * Provides an End User Messaging Email Template resource
  * 
  * ## Example Usage
  * 
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Pinpoint Email Template using the `templateName`. For example:
+ * Using `pulumi import`, import End User Messaging Email Template using the `templateName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:pinpoint/emailTemplate:EmailTemplate reset template_name
@@ -90,18 +90,18 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+     * Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
      * 
      * @deprecated
-     * email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Export(name="emailTemplates", refs={List.class,EmailTemplateEmailTemplate.class}, tree="[0,1]")
     private Output</* @Nullable */ List<EmailTemplateEmailTemplate>> emailTemplates;
 
     /**
-     * @return Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+     * @return Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
      * 
      */
     public Output<Optional<List<EmailTemplateEmailTemplate>>> emailTemplates() {
@@ -121,31 +121,47 @@ public class EmailTemplate extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+     * Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      * 
      * @deprecated
-     * template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Export(name="templateName", refs={String.class}, tree="[0]")
     private Output<String> templateName;
 
     /**
-     * @return name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+     * @return Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      * 
      */
     public Output<String> templateName() {

@@ -36,14 +36,14 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+     * Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      * 
      */
     @Import(name="isoCountryCode", required=true)
     private Output<String> isoCountryCode;
 
     /**
-     * @return The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+     * @return Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      * 
      */
     public Output<String> isoCountryCode() {
@@ -51,14 +51,14 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+     * Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
      * 
      */
     @Import(name="messageType", required=true)
     private Output<String> messageType;
 
     /**
-     * @return The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+     * @return Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
      * 
      */
     public Output<String> messageType() {
@@ -66,14 +66,14 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+     * Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
      * 
      */
     @Import(name="numberCapabilities", required=true)
     private Output<List<String>> numberCapabilities;
 
     /**
-     * @return Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+     * @return Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
      * 
      */
     public Output<List<String>> numberCapabilities() {
@@ -81,14 +81,14 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+     * Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      * 
      */
     @Import(name="numberType", required=true)
     private Output<String> numberType;
 
     /**
-     * @return The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+     * @return Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      * 
      */
     public Output<String> numberType() {
@@ -96,14 +96,14 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the opt-out list to associate with the phone number.
+     * Name of the opt-out list to associate with the phone number.
      * 
      */
     @Import(name="optOutListName")
     private @Nullable Output<String> optOutListName;
 
     /**
-     * @return The name of the opt-out list to associate with the phone number.
+     * @return Name of the opt-out list to associate with the phone number.
      * 
      */
     public Optional<Output<String>> optOutListName() {
@@ -155,9 +155,17 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.selfManagedOptOutsEnabled);
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -273,7 +281,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param isoCountryCode The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+         * @param isoCountryCode Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
          * 
          * @return builder
          * 
@@ -284,7 +292,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param isoCountryCode The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+         * @param isoCountryCode Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
          * 
          * @return builder
          * 
@@ -294,7 +302,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param messageType The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+         * @param messageType Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
          * 
          * @return builder
          * 
@@ -305,7 +313,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param messageType The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+         * @param messageType Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
          * 
          * @return builder
          * 
@@ -315,7 +323,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param numberCapabilities Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+         * @param numberCapabilities Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
          * 
          * @return builder
          * 
@@ -326,7 +334,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param numberCapabilities Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+         * @param numberCapabilities Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
          * 
          * @return builder
          * 
@@ -336,7 +344,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param numberCapabilities Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+         * @param numberCapabilities Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
          * 
          * @return builder
          * 
@@ -346,7 +354,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param numberType The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+         * @param numberType Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
          * 
          * @return builder
          * 
@@ -357,7 +365,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param numberType The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+         * @param numberType Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
          * 
          * @return builder
          * 
@@ -367,7 +375,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param optOutListName The name of the opt-out list to associate with the phone number.
+         * @param optOutListName Name of the opt-out list to associate with the phone number.
          * 
          * @return builder
          * 
@@ -378,7 +386,7 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param optOutListName The name of the opt-out list to associate with the phone number.
+         * @param optOutListName Name of the opt-out list to associate with the phone number.
          * 
          * @return builder
          * 
@@ -450,11 +458,23 @@ public final class Smsvoicev2PhoneNumberArgs extends com.pulumi.resources.Resour
             return selfManagedOptOutsEnabled(Output.of(selfManagedOptOutsEnabled));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }

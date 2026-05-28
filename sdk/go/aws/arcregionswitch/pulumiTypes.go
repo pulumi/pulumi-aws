@@ -146,6 +146,308 @@ func (o PlanAssociatedAlarmArrayOutput) Index(i pulumi.IntInput) PlanAssociatedA
 	}).(PlanAssociatedAlarmOutput)
 }
 
+type PlanReportConfiguration struct {
+	// Output destination for the report. See Report Output below.
+	ReportOutputs []PlanReportConfigurationReportOutput `pulumi:"reportOutputs"`
+}
+
+// PlanReportConfigurationInput is an input type that accepts PlanReportConfigurationArgs and PlanReportConfigurationOutput values.
+// You can construct a concrete instance of `PlanReportConfigurationInput` via:
+//
+//	PlanReportConfigurationArgs{...}
+type PlanReportConfigurationInput interface {
+	pulumi.Input
+
+	ToPlanReportConfigurationOutput() PlanReportConfigurationOutput
+	ToPlanReportConfigurationOutputWithContext(context.Context) PlanReportConfigurationOutput
+}
+
+type PlanReportConfigurationArgs struct {
+	// Output destination for the report. See Report Output below.
+	ReportOutputs PlanReportConfigurationReportOutputArrayInput `pulumi:"reportOutputs"`
+}
+
+func (PlanReportConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanReportConfiguration)(nil)).Elem()
+}
+
+func (i PlanReportConfigurationArgs) ToPlanReportConfigurationOutput() PlanReportConfigurationOutput {
+	return i.ToPlanReportConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlanReportConfigurationArgs) ToPlanReportConfigurationOutputWithContext(ctx context.Context) PlanReportConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanReportConfigurationOutput)
+}
+
+// PlanReportConfigurationArrayInput is an input type that accepts PlanReportConfigurationArray and PlanReportConfigurationArrayOutput values.
+// You can construct a concrete instance of `PlanReportConfigurationArrayInput` via:
+//
+//	PlanReportConfigurationArray{ PlanReportConfigurationArgs{...} }
+type PlanReportConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToPlanReportConfigurationArrayOutput() PlanReportConfigurationArrayOutput
+	ToPlanReportConfigurationArrayOutputWithContext(context.Context) PlanReportConfigurationArrayOutput
+}
+
+type PlanReportConfigurationArray []PlanReportConfigurationInput
+
+func (PlanReportConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanReportConfiguration)(nil)).Elem()
+}
+
+func (i PlanReportConfigurationArray) ToPlanReportConfigurationArrayOutput() PlanReportConfigurationArrayOutput {
+	return i.ToPlanReportConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i PlanReportConfigurationArray) ToPlanReportConfigurationArrayOutputWithContext(ctx context.Context) PlanReportConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanReportConfigurationArrayOutput)
+}
+
+type PlanReportConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlanReportConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanReportConfiguration)(nil)).Elem()
+}
+
+func (o PlanReportConfigurationOutput) ToPlanReportConfigurationOutput() PlanReportConfigurationOutput {
+	return o
+}
+
+func (o PlanReportConfigurationOutput) ToPlanReportConfigurationOutputWithContext(ctx context.Context) PlanReportConfigurationOutput {
+	return o
+}
+
+// Output destination for the report. See Report Output below.
+func (o PlanReportConfigurationOutput) ReportOutputs() PlanReportConfigurationReportOutputArrayOutput {
+	return o.ApplyT(func(v PlanReportConfiguration) []PlanReportConfigurationReportOutput { return v.ReportOutputs }).(PlanReportConfigurationReportOutputArrayOutput)
+}
+
+type PlanReportConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanReportConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanReportConfiguration)(nil)).Elem()
+}
+
+func (o PlanReportConfigurationArrayOutput) ToPlanReportConfigurationArrayOutput() PlanReportConfigurationArrayOutput {
+	return o
+}
+
+func (o PlanReportConfigurationArrayOutput) ToPlanReportConfigurationArrayOutputWithContext(ctx context.Context) PlanReportConfigurationArrayOutput {
+	return o
+}
+
+func (o PlanReportConfigurationArrayOutput) Index(i pulumi.IntInput) PlanReportConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanReportConfiguration {
+		return vs[0].([]PlanReportConfiguration)[vs[1].(int)]
+	}).(PlanReportConfigurationOutput)
+}
+
+type PlanReportConfigurationReportOutput struct {
+	// S3 output configuration. See S3 Configuration below.
+	S3Configurations []PlanReportConfigurationReportOutputS3Configuration `pulumi:"s3Configurations"`
+}
+
+// PlanReportConfigurationReportOutputInput is an input type that accepts PlanReportConfigurationReportOutputArgs and PlanReportConfigurationReportOutputOutput values.
+// You can construct a concrete instance of `PlanReportConfigurationReportOutputInput` via:
+//
+//	PlanReportConfigurationReportOutputArgs{...}
+type PlanReportConfigurationReportOutputInput interface {
+	pulumi.Input
+
+	ToPlanReportConfigurationReportOutputOutput() PlanReportConfigurationReportOutputOutput
+	ToPlanReportConfigurationReportOutputOutputWithContext(context.Context) PlanReportConfigurationReportOutputOutput
+}
+
+type PlanReportConfigurationReportOutputArgs struct {
+	// S3 output configuration. See S3 Configuration below.
+	S3Configurations PlanReportConfigurationReportOutputS3ConfigurationArrayInput `pulumi:"s3Configurations"`
+}
+
+func (PlanReportConfigurationReportOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanReportConfigurationReportOutput)(nil)).Elem()
+}
+
+func (i PlanReportConfigurationReportOutputArgs) ToPlanReportConfigurationReportOutputOutput() PlanReportConfigurationReportOutputOutput {
+	return i.ToPlanReportConfigurationReportOutputOutputWithContext(context.Background())
+}
+
+func (i PlanReportConfigurationReportOutputArgs) ToPlanReportConfigurationReportOutputOutputWithContext(ctx context.Context) PlanReportConfigurationReportOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanReportConfigurationReportOutputOutput)
+}
+
+// PlanReportConfigurationReportOutputArrayInput is an input type that accepts PlanReportConfigurationReportOutputArray and PlanReportConfigurationReportOutputArrayOutput values.
+// You can construct a concrete instance of `PlanReportConfigurationReportOutputArrayInput` via:
+//
+//	PlanReportConfigurationReportOutputArray{ PlanReportConfigurationReportOutputArgs{...} }
+type PlanReportConfigurationReportOutputArrayInput interface {
+	pulumi.Input
+
+	ToPlanReportConfigurationReportOutputArrayOutput() PlanReportConfigurationReportOutputArrayOutput
+	ToPlanReportConfigurationReportOutputArrayOutputWithContext(context.Context) PlanReportConfigurationReportOutputArrayOutput
+}
+
+type PlanReportConfigurationReportOutputArray []PlanReportConfigurationReportOutputInput
+
+func (PlanReportConfigurationReportOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanReportConfigurationReportOutput)(nil)).Elem()
+}
+
+func (i PlanReportConfigurationReportOutputArray) ToPlanReportConfigurationReportOutputArrayOutput() PlanReportConfigurationReportOutputArrayOutput {
+	return i.ToPlanReportConfigurationReportOutputArrayOutputWithContext(context.Background())
+}
+
+func (i PlanReportConfigurationReportOutputArray) ToPlanReportConfigurationReportOutputArrayOutputWithContext(ctx context.Context) PlanReportConfigurationReportOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanReportConfigurationReportOutputArrayOutput)
+}
+
+type PlanReportConfigurationReportOutputOutput struct{ *pulumi.OutputState }
+
+func (PlanReportConfigurationReportOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanReportConfigurationReportOutput)(nil)).Elem()
+}
+
+func (o PlanReportConfigurationReportOutputOutput) ToPlanReportConfigurationReportOutputOutput() PlanReportConfigurationReportOutputOutput {
+	return o
+}
+
+func (o PlanReportConfigurationReportOutputOutput) ToPlanReportConfigurationReportOutputOutputWithContext(ctx context.Context) PlanReportConfigurationReportOutputOutput {
+	return o
+}
+
+// S3 output configuration. See S3 Configuration below.
+func (o PlanReportConfigurationReportOutputOutput) S3Configurations() PlanReportConfigurationReportOutputS3ConfigurationArrayOutput {
+	return o.ApplyT(func(v PlanReportConfigurationReportOutput) []PlanReportConfigurationReportOutputS3Configuration {
+		return v.S3Configurations
+	}).(PlanReportConfigurationReportOutputS3ConfigurationArrayOutput)
+}
+
+type PlanReportConfigurationReportOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanReportConfigurationReportOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanReportConfigurationReportOutput)(nil)).Elem()
+}
+
+func (o PlanReportConfigurationReportOutputArrayOutput) ToPlanReportConfigurationReportOutputArrayOutput() PlanReportConfigurationReportOutputArrayOutput {
+	return o
+}
+
+func (o PlanReportConfigurationReportOutputArrayOutput) ToPlanReportConfigurationReportOutputArrayOutputWithContext(ctx context.Context) PlanReportConfigurationReportOutputArrayOutput {
+	return o
+}
+
+func (o PlanReportConfigurationReportOutputArrayOutput) Index(i pulumi.IntInput) PlanReportConfigurationReportOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanReportConfigurationReportOutput {
+		return vs[0].([]PlanReportConfigurationReportOutput)[vs[1].(int)]
+	}).(PlanReportConfigurationReportOutputOutput)
+}
+
+type PlanReportConfigurationReportOutputS3Configuration struct {
+	// Account ID of the S3 bucket owner.
+	BucketOwner string `pulumi:"bucketOwner"`
+	// S3 bucket path where reports will be stored.
+	BucketPath string `pulumi:"bucketPath"`
+}
+
+// PlanReportConfigurationReportOutputS3ConfigurationInput is an input type that accepts PlanReportConfigurationReportOutputS3ConfigurationArgs and PlanReportConfigurationReportOutputS3ConfigurationOutput values.
+// You can construct a concrete instance of `PlanReportConfigurationReportOutputS3ConfigurationInput` via:
+//
+//	PlanReportConfigurationReportOutputS3ConfigurationArgs{...}
+type PlanReportConfigurationReportOutputS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToPlanReportConfigurationReportOutputS3ConfigurationOutput() PlanReportConfigurationReportOutputS3ConfigurationOutput
+	ToPlanReportConfigurationReportOutputS3ConfigurationOutputWithContext(context.Context) PlanReportConfigurationReportOutputS3ConfigurationOutput
+}
+
+type PlanReportConfigurationReportOutputS3ConfigurationArgs struct {
+	// Account ID of the S3 bucket owner.
+	BucketOwner pulumi.StringInput `pulumi:"bucketOwner"`
+	// S3 bucket path where reports will be stored.
+	BucketPath pulumi.StringInput `pulumi:"bucketPath"`
+}
+
+func (PlanReportConfigurationReportOutputS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanReportConfigurationReportOutputS3Configuration)(nil)).Elem()
+}
+
+func (i PlanReportConfigurationReportOutputS3ConfigurationArgs) ToPlanReportConfigurationReportOutputS3ConfigurationOutput() PlanReportConfigurationReportOutputS3ConfigurationOutput {
+	return i.ToPlanReportConfigurationReportOutputS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlanReportConfigurationReportOutputS3ConfigurationArgs) ToPlanReportConfigurationReportOutputS3ConfigurationOutputWithContext(ctx context.Context) PlanReportConfigurationReportOutputS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanReportConfigurationReportOutputS3ConfigurationOutput)
+}
+
+// PlanReportConfigurationReportOutputS3ConfigurationArrayInput is an input type that accepts PlanReportConfigurationReportOutputS3ConfigurationArray and PlanReportConfigurationReportOutputS3ConfigurationArrayOutput values.
+// You can construct a concrete instance of `PlanReportConfigurationReportOutputS3ConfigurationArrayInput` via:
+//
+//	PlanReportConfigurationReportOutputS3ConfigurationArray{ PlanReportConfigurationReportOutputS3ConfigurationArgs{...} }
+type PlanReportConfigurationReportOutputS3ConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToPlanReportConfigurationReportOutputS3ConfigurationArrayOutput() PlanReportConfigurationReportOutputS3ConfigurationArrayOutput
+	ToPlanReportConfigurationReportOutputS3ConfigurationArrayOutputWithContext(context.Context) PlanReportConfigurationReportOutputS3ConfigurationArrayOutput
+}
+
+type PlanReportConfigurationReportOutputS3ConfigurationArray []PlanReportConfigurationReportOutputS3ConfigurationInput
+
+func (PlanReportConfigurationReportOutputS3ConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanReportConfigurationReportOutputS3Configuration)(nil)).Elem()
+}
+
+func (i PlanReportConfigurationReportOutputS3ConfigurationArray) ToPlanReportConfigurationReportOutputS3ConfigurationArrayOutput() PlanReportConfigurationReportOutputS3ConfigurationArrayOutput {
+	return i.ToPlanReportConfigurationReportOutputS3ConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i PlanReportConfigurationReportOutputS3ConfigurationArray) ToPlanReportConfigurationReportOutputS3ConfigurationArrayOutputWithContext(ctx context.Context) PlanReportConfigurationReportOutputS3ConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanReportConfigurationReportOutputS3ConfigurationArrayOutput)
+}
+
+type PlanReportConfigurationReportOutputS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlanReportConfigurationReportOutputS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanReportConfigurationReportOutputS3Configuration)(nil)).Elem()
+}
+
+func (o PlanReportConfigurationReportOutputS3ConfigurationOutput) ToPlanReportConfigurationReportOutputS3ConfigurationOutput() PlanReportConfigurationReportOutputS3ConfigurationOutput {
+	return o
+}
+
+func (o PlanReportConfigurationReportOutputS3ConfigurationOutput) ToPlanReportConfigurationReportOutputS3ConfigurationOutputWithContext(ctx context.Context) PlanReportConfigurationReportOutputS3ConfigurationOutput {
+	return o
+}
+
+// Account ID of the S3 bucket owner.
+func (o PlanReportConfigurationReportOutputS3ConfigurationOutput) BucketOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanReportConfigurationReportOutputS3Configuration) string { return v.BucketOwner }).(pulumi.StringOutput)
+}
+
+// S3 bucket path where reports will be stored.
+func (o PlanReportConfigurationReportOutputS3ConfigurationOutput) BucketPath() pulumi.StringOutput {
+	return o.ApplyT(func(v PlanReportConfigurationReportOutputS3Configuration) string { return v.BucketPath }).(pulumi.StringOutput)
+}
+
+type PlanReportConfigurationReportOutputS3ConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanReportConfigurationReportOutputS3ConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanReportConfigurationReportOutputS3Configuration)(nil)).Elem()
+}
+
+func (o PlanReportConfigurationReportOutputS3ConfigurationArrayOutput) ToPlanReportConfigurationReportOutputS3ConfigurationArrayOutput() PlanReportConfigurationReportOutputS3ConfigurationArrayOutput {
+	return o
+}
+
+func (o PlanReportConfigurationReportOutputS3ConfigurationArrayOutput) ToPlanReportConfigurationReportOutputS3ConfigurationArrayOutputWithContext(ctx context.Context) PlanReportConfigurationReportOutputS3ConfigurationArrayOutput {
+	return o
+}
+
+func (o PlanReportConfigurationReportOutputS3ConfigurationArrayOutput) Index(i pulumi.IntInput) PlanReportConfigurationReportOutputS3ConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanReportConfigurationReportOutputS3Configuration {
+		return vs[0].([]PlanReportConfigurationReportOutputS3Configuration)[vs[1].(int)]
+	}).(PlanReportConfigurationReportOutputS3ConfigurationOutput)
+}
+
 type PlanTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -701,15 +1003,19 @@ type PlanWorkflowStep struct {
 	EksResourceScalingConfigs []PlanWorkflowStepEksResourceScalingConfig `pulumi:"eksResourceScalingConfigs"`
 	// Configuration for manual approval steps. See Execution Approval Config below.
 	ExecutionApprovalConfigs []PlanWorkflowStepExecutionApprovalConfig `pulumi:"executionApprovalConfigs"`
-	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
 	ExecutionBlockType string `pulumi:"executionBlockType"`
 	// Configuration for Aurora Global Database operations. See Global Aurora Config below.
 	GlobalAuroraConfigs []PlanWorkflowStepGlobalAuroraConfig `pulumi:"globalAuroraConfigs"`
 	// Name of the step.
 	Name string `pulumi:"name"`
 	// Configuration for parallel execution of multiple steps. See Parallel Config below.
-	ParallelConfigs         []PlanWorkflowStepParallelConfig         `pulumi:"parallelConfigs"`
-	RegionSwitchPlanConfigs []PlanWorkflowStepRegionSwitchPlanConfig `pulumi:"regionSwitchPlanConfigs"`
+	ParallelConfigs []PlanWorkflowStepParallelConfig `pulumi:"parallelConfigs"`
+	// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+	RdsCreateCrossRegionReadReplicaConfigs []PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig `pulumi:"rdsCreateCrossRegionReadReplicaConfigs"`
+	// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+	RdsPromoteReadReplicaConfigs []PlanWorkflowStepRdsPromoteReadReplicaConfig `pulumi:"rdsPromoteReadReplicaConfigs"`
+	RegionSwitchPlanConfigs      []PlanWorkflowStepRegionSwitchPlanConfig      `pulumi:"regionSwitchPlanConfigs"`
 	// Configuration for Route53 health check operations. See Route53 Health Check Config below.
 	Route53HealthCheckConfigs []PlanWorkflowStepRoute53HealthCheckConfig `pulumi:"route53HealthCheckConfigs"`
 }
@@ -742,15 +1048,19 @@ type PlanWorkflowStepArgs struct {
 	EksResourceScalingConfigs PlanWorkflowStepEksResourceScalingConfigArrayInput `pulumi:"eksResourceScalingConfigs"`
 	// Configuration for manual approval steps. See Execution Approval Config below.
 	ExecutionApprovalConfigs PlanWorkflowStepExecutionApprovalConfigArrayInput `pulumi:"executionApprovalConfigs"`
-	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
 	ExecutionBlockType pulumi.StringInput `pulumi:"executionBlockType"`
 	// Configuration for Aurora Global Database operations. See Global Aurora Config below.
 	GlobalAuroraConfigs PlanWorkflowStepGlobalAuroraConfigArrayInput `pulumi:"globalAuroraConfigs"`
 	// Name of the step.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Configuration for parallel execution of multiple steps. See Parallel Config below.
-	ParallelConfigs         PlanWorkflowStepParallelConfigArrayInput         `pulumi:"parallelConfigs"`
-	RegionSwitchPlanConfigs PlanWorkflowStepRegionSwitchPlanConfigArrayInput `pulumi:"regionSwitchPlanConfigs"`
+	ParallelConfigs PlanWorkflowStepParallelConfigArrayInput `pulumi:"parallelConfigs"`
+	// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+	RdsCreateCrossRegionReadReplicaConfigs PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayInput `pulumi:"rdsCreateCrossRegionReadReplicaConfigs"`
+	// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+	RdsPromoteReadReplicaConfigs PlanWorkflowStepRdsPromoteReadReplicaConfigArrayInput `pulumi:"rdsPromoteReadReplicaConfigs"`
+	RegionSwitchPlanConfigs      PlanWorkflowStepRegionSwitchPlanConfigArrayInput      `pulumi:"regionSwitchPlanConfigs"`
 	// Configuration for Route53 health check operations. See Route53 Health Check Config below.
 	Route53HealthCheckConfigs PlanWorkflowStepRoute53HealthCheckConfigArrayInput `pulumi:"route53HealthCheckConfigs"`
 }
@@ -854,7 +1164,7 @@ func (o PlanWorkflowStepOutput) ExecutionApprovalConfigs() PlanWorkflowStepExecu
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepExecutionApprovalConfig { return v.ExecutionApprovalConfigs }).(PlanWorkflowStepExecutionApprovalConfigArrayOutput)
 }
 
-// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
 func (o PlanWorkflowStepOutput) ExecutionBlockType() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) string { return v.ExecutionBlockType }).(pulumi.StringOutput)
 }
@@ -872,6 +1182,20 @@ func (o PlanWorkflowStepOutput) Name() pulumi.StringOutput {
 // Configuration for parallel execution of multiple steps. See Parallel Config below.
 func (o PlanWorkflowStepOutput) ParallelConfigs() PlanWorkflowStepParallelConfigArrayOutput {
 	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepParallelConfig { return v.ParallelConfigs }).(PlanWorkflowStepParallelConfigArrayOutput)
+}
+
+// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+func (o PlanWorkflowStepOutput) RdsCreateCrossRegionReadReplicaConfigs() PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig {
+		return v.RdsCreateCrossRegionReadReplicaConfigs
+	}).(PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput)
+}
+
+// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+func (o PlanWorkflowStepOutput) RdsPromoteReadReplicaConfigs() PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStep) []PlanWorkflowStepRdsPromoteReadReplicaConfig {
+		return v.RdsPromoteReadReplicaConfigs
+	}).(PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput)
 }
 
 func (o PlanWorkflowStepOutput) RegionSwitchPlanConfigs() PlanWorkflowStepRegionSwitchPlanConfigArrayOutput {
@@ -3778,13 +4102,17 @@ type PlanWorkflowStepParallelConfigStep struct {
 	EksResourceScalingConfigs []PlanWorkflowStepParallelConfigStepEksResourceScalingConfig `pulumi:"eksResourceScalingConfigs"`
 	// Configuration for manual approval steps. See Execution Approval Config below.
 	ExecutionApprovalConfigs []PlanWorkflowStepParallelConfigStepExecutionApprovalConfig `pulumi:"executionApprovalConfigs"`
-	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
 	ExecutionBlockType string `pulumi:"executionBlockType"`
 	// Configuration for Aurora Global Database operations. See Global Aurora Config below.
 	GlobalAuroraConfigs []PlanWorkflowStepParallelConfigStepGlobalAuroraConfig `pulumi:"globalAuroraConfigs"`
 	// Name of the step.
-	Name                    string                                                     `pulumi:"name"`
-	RegionSwitchPlanConfigs []PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig `pulumi:"regionSwitchPlanConfigs"`
+	Name string `pulumi:"name"`
+	// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+	RdsCreateCrossRegionReadReplicaConfigs []PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig `pulumi:"rdsCreateCrossRegionReadReplicaConfigs"`
+	// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+	RdsPromoteReadReplicaConfigs []PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig `pulumi:"rdsPromoteReadReplicaConfigs"`
+	RegionSwitchPlanConfigs      []PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig      `pulumi:"regionSwitchPlanConfigs"`
 	// Configuration for Route53 health check operations. See Route53 Health Check Config below.
 	Route53HealthCheckConfigs []PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig `pulumi:"route53HealthCheckConfigs"`
 }
@@ -3817,13 +4145,17 @@ type PlanWorkflowStepParallelConfigStepArgs struct {
 	EksResourceScalingConfigs PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArrayInput `pulumi:"eksResourceScalingConfigs"`
 	// Configuration for manual approval steps. See Execution Approval Config below.
 	ExecutionApprovalConfigs PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArrayInput `pulumi:"executionApprovalConfigs"`
-	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+	// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
 	ExecutionBlockType pulumi.StringInput `pulumi:"executionBlockType"`
 	// Configuration for Aurora Global Database operations. See Global Aurora Config below.
 	GlobalAuroraConfigs PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArrayInput `pulumi:"globalAuroraConfigs"`
 	// Name of the step.
-	Name                    pulumi.StringInput                                                 `pulumi:"name"`
-	RegionSwitchPlanConfigs PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArrayInput `pulumi:"regionSwitchPlanConfigs"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+	RdsCreateCrossRegionReadReplicaConfigs PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayInput `pulumi:"rdsCreateCrossRegionReadReplicaConfigs"`
+	// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+	RdsPromoteReadReplicaConfigs PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayInput `pulumi:"rdsPromoteReadReplicaConfigs"`
+	RegionSwitchPlanConfigs      PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArrayInput      `pulumi:"regionSwitchPlanConfigs"`
 	// Configuration for Route53 health check operations. See Route53 Health Check Config below.
 	Route53HealthCheckConfigs PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArrayInput `pulumi:"route53HealthCheckConfigs"`
 }
@@ -3933,7 +4265,7 @@ func (o PlanWorkflowStepParallelConfigStepOutput) ExecutionApprovalConfigs() Pla
 	}).(PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArrayOutput)
 }
 
-// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
 func (o PlanWorkflowStepParallelConfigStepOutput) ExecutionBlockType() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) string { return v.ExecutionBlockType }).(pulumi.StringOutput)
 }
@@ -3948,6 +4280,20 @@ func (o PlanWorkflowStepParallelConfigStepOutput) GlobalAuroraConfigs() PlanWork
 // Name of the step.
 func (o PlanWorkflowStepParallelConfigStepOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+func (o PlanWorkflowStepParallelConfigStepOutput) RdsCreateCrossRegionReadReplicaConfigs() PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig {
+		return v.RdsCreateCrossRegionReadReplicaConfigs
+	}).(PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput)
+}
+
+// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+func (o PlanWorkflowStepParallelConfigStepOutput) RdsPromoteReadReplicaConfigs() PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStep) []PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig {
+		return v.RdsPromoteReadReplicaConfigs
+	}).(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput)
 }
 
 func (o PlanWorkflowStepParallelConfigStepOutput) RegionSwitchPlanConfigs() PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArrayOutput {
@@ -6786,6 +7132,266 @@ func (o PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArrayOutpu
 	}).(PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulOutput)
 }
 
+type PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// Map of source DB instance identifiers to target DB instance ARNs.
+	DbInstanceArnMap map[string]string `pulumi:"dbInstanceArnMap"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+}
+
+// PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigInput is an input type that accepts PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs and PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs{...}
+type PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput() PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput
+	ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput
+}
+
+type PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// Map of source DB instance identifiers to target DB instance ARNs.
+	DbInstanceArnMap pulumi.StringMapInput `pulumi:"dbInstanceArnMap"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs) ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput() PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs) ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput)
+}
+
+// PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayInput is an input type that accepts PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArray and PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArray{ PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs{...} }
+type PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput() PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput
+	ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput
+}
+
+type PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArray []PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigInput
+
+func (PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArray) ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput() PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArray) ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput) ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput() PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput) ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput {
+	return o
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig) *string {
+		return v.CrossAccountRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Map of source DB instance identifiers to target DB instance ARNs.
+func (o PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput) DbInstanceArnMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig) map[string]string {
+		return v.DbInstanceArnMap
+	}).(pulumi.StringMapOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig) *string {
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig) *int {
+		return v.TimeoutMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput) ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput() PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput) ToPlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig {
+		return vs[0].([]PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig)[vs[1].(int)]
+	}).(PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// Map of source DB instance identifiers to target DB instance ARNs.
+	DbInstanceArnMap map[string]string `pulumi:"dbInstanceArnMap"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+}
+
+// PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigInput is an input type that accepts PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs and PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs{...}
+type PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput() PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput
+	ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput
+}
+
+type PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// Map of source DB instance identifiers to target DB instance ARNs.
+	DbInstanceArnMap pulumi.StringMapInput `pulumi:"dbInstanceArnMap"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs) ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput() PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs) ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput)
+}
+
+// PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayInput is an input type that accepts PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArray and PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayInput` via:
+//
+//	PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArray{ PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs{...} }
+type PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput() PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput
+	ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutputWithContext(context.Context) PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput
+}
+
+type PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArray []PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigInput
+
+func (PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArray) ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput() PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput {
+	return i.ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArray) ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput) ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput() PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput) ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput {
+	return o
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig) *string {
+		return v.CrossAccountRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// Map of source DB instance identifiers to target DB instance ARNs.
+func (o PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput) DbInstanceArnMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig) map[string]string {
+		return v.DbInstanceArnMap
+	}).(pulumi.StringMapOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+type PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput) ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput() PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput) ToPlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig {
+		return vs[0].([]PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig)[vs[1].(int)]
+	}).(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput)
+}
+
 type PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig struct {
 	// ARN of the nested region switch plan.
 	Arn string `pulumi:"arn"`
@@ -7151,6 +7757,256 @@ func (o PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArray
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSet {
 		return vs[0].([]PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSet)[vs[1].(int)]
 	}).(PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetOutput)
+}
+
+type PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// Map of source DB instance identifiers to target DB instance ARNs.
+	DbInstanceArnMap map[string]string `pulumi:"dbInstanceArnMap"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+}
+
+// PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigInput is an input type that accepts PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs and PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigInput` via:
+//
+//	PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs{...}
+type PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput() PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput
+	ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutputWithContext(context.Context) PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput
+}
+
+type PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// Map of source DB instance identifiers to target DB instance ARNs.
+	DbInstanceArnMap pulumi.StringMapInput `pulumi:"dbInstanceArnMap"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs) ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput() PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput {
+	return i.ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs) ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutputWithContext(ctx context.Context) PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput)
+}
+
+// PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayInput is an input type that accepts PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArray and PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayInput` via:
+//
+//	PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArray{ PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs{...} }
+type PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput() PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput
+	ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutputWithContext(context.Context) PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput
+}
+
+type PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArray []PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigInput
+
+func (PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArray) ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput() PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput {
+	return i.ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArray) ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput)
+}
+
+type PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput) ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput() PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput) ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutputWithContext(ctx context.Context) PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput {
+	return o
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+// Map of source DB instance identifiers to target DB instance ARNs.
+func (o PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput) DbInstanceArnMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig) map[string]string {
+		return v.DbInstanceArnMap
+	}).(pulumi.StringMapOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+type PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput) ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput() PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput) ToPlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig {
+		return vs[0].([]PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig)[vs[1].(int)]
+	}).(PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput)
+}
+
+type PlanWorkflowStepRdsPromoteReadReplicaConfig struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole *string `pulumi:"crossAccountRole"`
+	// Map of source DB instance identifiers to target DB instance ARNs.
+	DbInstanceArnMap map[string]string `pulumi:"dbInstanceArnMap"`
+	// External ID for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// Timeout in minutes.
+	TimeoutMinutes *int `pulumi:"timeoutMinutes"`
+}
+
+// PlanWorkflowStepRdsPromoteReadReplicaConfigInput is an input type that accepts PlanWorkflowStepRdsPromoteReadReplicaConfigArgs and PlanWorkflowStepRdsPromoteReadReplicaConfigOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepRdsPromoteReadReplicaConfigInput` via:
+//
+//	PlanWorkflowStepRdsPromoteReadReplicaConfigArgs{...}
+type PlanWorkflowStepRdsPromoteReadReplicaConfigInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepRdsPromoteReadReplicaConfigOutput() PlanWorkflowStepRdsPromoteReadReplicaConfigOutput
+	ToPlanWorkflowStepRdsPromoteReadReplicaConfigOutputWithContext(context.Context) PlanWorkflowStepRdsPromoteReadReplicaConfigOutput
+}
+
+type PlanWorkflowStepRdsPromoteReadReplicaConfigArgs struct {
+	// ARN of the cross-account role to assume.
+	CrossAccountRole pulumi.StringPtrInput `pulumi:"crossAccountRole"`
+	// Map of source DB instance identifiers to target DB instance ARNs.
+	DbInstanceArnMap pulumi.StringMapInput `pulumi:"dbInstanceArnMap"`
+	// External ID for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// Timeout in minutes.
+	TimeoutMinutes pulumi.IntPtrInput `pulumi:"timeoutMinutes"`
+}
+
+func (PlanWorkflowStepRdsPromoteReadReplicaConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepRdsPromoteReadReplicaConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepRdsPromoteReadReplicaConfigArgs) ToPlanWorkflowStepRdsPromoteReadReplicaConfigOutput() PlanWorkflowStepRdsPromoteReadReplicaConfigOutput {
+	return i.ToPlanWorkflowStepRdsPromoteReadReplicaConfigOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepRdsPromoteReadReplicaConfigArgs) ToPlanWorkflowStepRdsPromoteReadReplicaConfigOutputWithContext(ctx context.Context) PlanWorkflowStepRdsPromoteReadReplicaConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepRdsPromoteReadReplicaConfigOutput)
+}
+
+// PlanWorkflowStepRdsPromoteReadReplicaConfigArrayInput is an input type that accepts PlanWorkflowStepRdsPromoteReadReplicaConfigArray and PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput values.
+// You can construct a concrete instance of `PlanWorkflowStepRdsPromoteReadReplicaConfigArrayInput` via:
+//
+//	PlanWorkflowStepRdsPromoteReadReplicaConfigArray{ PlanWorkflowStepRdsPromoteReadReplicaConfigArgs{...} }
+type PlanWorkflowStepRdsPromoteReadReplicaConfigArrayInput interface {
+	pulumi.Input
+
+	ToPlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput() PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput
+	ToPlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutputWithContext(context.Context) PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput
+}
+
+type PlanWorkflowStepRdsPromoteReadReplicaConfigArray []PlanWorkflowStepRdsPromoteReadReplicaConfigInput
+
+func (PlanWorkflowStepRdsPromoteReadReplicaConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepRdsPromoteReadReplicaConfig)(nil)).Elem()
+}
+
+func (i PlanWorkflowStepRdsPromoteReadReplicaConfigArray) ToPlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput() PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput {
+	return i.ToPlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutputWithContext(context.Background())
+}
+
+func (i PlanWorkflowStepRdsPromoteReadReplicaConfigArray) ToPlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput)
+}
+
+type PlanWorkflowStepRdsPromoteReadReplicaConfigOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepRdsPromoteReadReplicaConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanWorkflowStepRdsPromoteReadReplicaConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepRdsPromoteReadReplicaConfigOutput) ToPlanWorkflowStepRdsPromoteReadReplicaConfigOutput() PlanWorkflowStepRdsPromoteReadReplicaConfigOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsPromoteReadReplicaConfigOutput) ToPlanWorkflowStepRdsPromoteReadReplicaConfigOutputWithContext(ctx context.Context) PlanWorkflowStepRdsPromoteReadReplicaConfigOutput {
+	return o
+}
+
+// ARN of the cross-account role to assume.
+func (o PlanWorkflowStepRdsPromoteReadReplicaConfigOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsPromoteReadReplicaConfig) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+// Map of source DB instance identifiers to target DB instance ARNs.
+func (o PlanWorkflowStepRdsPromoteReadReplicaConfigOutput) DbInstanceArnMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsPromoteReadReplicaConfig) map[string]string { return v.DbInstanceArnMap }).(pulumi.StringMapOutput)
+}
+
+// External ID for cross-account role assumption.
+func (o PlanWorkflowStepRdsPromoteReadReplicaConfigOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsPromoteReadReplicaConfig) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// Timeout in minutes.
+func (o PlanWorkflowStepRdsPromoteReadReplicaConfigOutput) TimeoutMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PlanWorkflowStepRdsPromoteReadReplicaConfig) *int { return v.TimeoutMinutes }).(pulumi.IntPtrOutput)
+}
+
+type PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PlanWorkflowStepRdsPromoteReadReplicaConfig)(nil)).Elem()
+}
+
+func (o PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput) ToPlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput() PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput) ToPlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutputWithContext(ctx context.Context) PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput {
+	return o
+}
+
+func (o PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput) Index(i pulumi.IntInput) PlanWorkflowStepRdsPromoteReadReplicaConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PlanWorkflowStepRdsPromoteReadReplicaConfig {
+		return vs[0].([]PlanWorkflowStepRdsPromoteReadReplicaConfig)[vs[1].(int)]
+	}).(PlanWorkflowStepRdsPromoteReadReplicaConfigOutput)
 }
 
 type PlanWorkflowStepRegionSwitchPlanConfig struct {
@@ -7654,6 +8510,12 @@ func (o GetRoute53HealthChecksHealthCheckArrayOutput) Index(i pulumi.IntInput) G
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAssociatedAlarmInput)(nil)).Elem(), PlanAssociatedAlarmArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanAssociatedAlarmArrayInput)(nil)).Elem(), PlanAssociatedAlarmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportConfigurationInput)(nil)).Elem(), PlanReportConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportConfigurationArrayInput)(nil)).Elem(), PlanReportConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportConfigurationReportOutputInput)(nil)).Elem(), PlanReportConfigurationReportOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportConfigurationReportOutputArrayInput)(nil)).Elem(), PlanReportConfigurationReportOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportConfigurationReportOutputS3ConfigurationInput)(nil)).Elem(), PlanReportConfigurationReportOutputS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportConfigurationReportOutputS3ConfigurationArrayInput)(nil)).Elem(), PlanReportConfigurationReportOutputS3ConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanTimeoutsInput)(nil)).Elem(), PlanTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanTimeoutsPtrInput)(nil)).Elem(), PlanTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanTriggerInput)(nil)).Elem(), PlanTriggerArgs{})
@@ -7760,12 +8622,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArrayInput)(nil)).Elem(), PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigInput)(nil)).Elem(), PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayInput)(nil)).Elem(), PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRdsPromoteReadReplicaConfigInput)(nil)).Elem(), PlanWorkflowStepRdsPromoteReadReplicaConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRdsPromoteReadReplicaConfigArrayInput)(nil)).Elem(), PlanWorkflowStepRdsPromoteReadReplicaConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRegionSwitchPlanConfigInput)(nil)).Elem(), PlanWorkflowStepRegionSwitchPlanConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRegionSwitchPlanConfigArrayInput)(nil)).Elem(), PlanWorkflowStepRegionSwitchPlanConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanWorkflowStepRoute53HealthCheckConfigInput)(nil)).Elem(), PlanWorkflowStepRoute53HealthCheckConfigArgs{})
@@ -7776,6 +8646,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRoute53HealthChecksHealthCheckArrayInput)(nil)).Elem(), GetRoute53HealthChecksHealthCheckArray{})
 	pulumi.RegisterOutputType(PlanAssociatedAlarmOutput{})
 	pulumi.RegisterOutputType(PlanAssociatedAlarmArrayOutput{})
+	pulumi.RegisterOutputType(PlanReportConfigurationOutput{})
+	pulumi.RegisterOutputType(PlanReportConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(PlanReportConfigurationReportOutputOutput{})
+	pulumi.RegisterOutputType(PlanReportConfigurationReportOutputArrayOutput{})
+	pulumi.RegisterOutputType(PlanReportConfigurationReportOutputS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(PlanReportConfigurationReportOutputS3ConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(PlanTimeoutsOutput{})
 	pulumi.RegisterOutputType(PlanTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(PlanTriggerOutput{})
@@ -7882,12 +8758,20 @@ func init() {
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfigArrayOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepRdsPromoteReadReplicaConfigOutput{})
+	pulumi.RegisterOutputType(PlanWorkflowStepRdsPromoteReadReplicaConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepRegionSwitchPlanConfigOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepRegionSwitchPlanConfigArrayOutput{})
 	pulumi.RegisterOutputType(PlanWorkflowStepRoute53HealthCheckConfigOutput{})

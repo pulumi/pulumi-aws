@@ -395,14 +395,14 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+     * Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
      * 
      */
     @Import(name="encodingType")
     private @Nullable Output<String> encodingType;
 
     /**
-     * @return Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+     * @return Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
      * 
      */
     public Optional<Output<String>> encodingType() {
@@ -1356,7 +1356,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encodingType Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+         * @param encodingType Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
          * 
          * @return builder
          * 
@@ -1367,7 +1367,7 @@ public final class S3EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encodingType Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+         * @param encodingType Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
          * 
          * @return builder
          * 

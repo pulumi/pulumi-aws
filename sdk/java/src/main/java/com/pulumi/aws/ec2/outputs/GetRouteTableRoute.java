@@ -66,6 +66,11 @@ public final class GetRouteTableRoute {
      */
     private String networkInterfaceId;
     /**
+     * @return ARN of the ODB network.
+     * 
+     */
+    private String odbNetworkArn;
+    /**
      * @return EC2 Transit Gateway ID.
      * 
      */
@@ -160,6 +165,13 @@ public final class GetRouteTableRoute {
         return this.networkInterfaceId;
     }
     /**
+     * @return ARN of the ODB network.
+     * 
+     */
+    public String odbNetworkArn() {
+        return this.odbNetworkArn;
+    }
+    /**
      * @return EC2 Transit Gateway ID.
      * 
      */
@@ -201,6 +213,7 @@ public final class GetRouteTableRoute {
         private String localGatewayId;
         private String natGatewayId;
         private String networkInterfaceId;
+        private String odbNetworkArn;
         private String transitGatewayId;
         private String vpcEndpointId;
         private String vpcPeeringConnectionId;
@@ -218,6 +231,7 @@ public final class GetRouteTableRoute {
     	      this.localGatewayId = defaults.localGatewayId;
     	      this.natGatewayId = defaults.natGatewayId;
     	      this.networkInterfaceId = defaults.networkInterfaceId;
+    	      this.odbNetworkArn = defaults.odbNetworkArn;
     	      this.transitGatewayId = defaults.transitGatewayId;
     	      this.vpcEndpointId = defaults.vpcEndpointId;
     	      this.vpcPeeringConnectionId = defaults.vpcPeeringConnectionId;
@@ -312,6 +326,14 @@ public final class GetRouteTableRoute {
             return this;
         }
         @CustomType.Setter
+        public Builder odbNetworkArn(String odbNetworkArn) {
+            if (odbNetworkArn == null) {
+              throw new MissingRequiredPropertyException("GetRouteTableRoute", "odbNetworkArn");
+            }
+            this.odbNetworkArn = odbNetworkArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder transitGatewayId(String transitGatewayId) {
             if (transitGatewayId == null) {
               throw new MissingRequiredPropertyException("GetRouteTableRoute", "transitGatewayId");
@@ -348,6 +370,7 @@ public final class GetRouteTableRoute {
             _resultValue.localGatewayId = localGatewayId;
             _resultValue.natGatewayId = natGatewayId;
             _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.odbNetworkArn = odbNetworkArn;
             _resultValue.transitGatewayId = transitGatewayId;
             _resultValue.vpcEndpointId = vpcEndpointId;
             _resultValue.vpcPeeringConnectionId = vpcPeeringConnectionId;

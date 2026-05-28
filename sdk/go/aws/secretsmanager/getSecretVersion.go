@@ -118,13 +118,18 @@ type LookupSecretVersionArgs struct {
 
 // A collection of values returned by getSecretVersion.
 type LookupSecretVersionResult struct {
-	// ARN of the secret.
+	// (**Deprecated**) The ARN of the secret.
+	// Use `secretArn` instead.
+	//
+	// Deprecated: arn is deprecated. Use secretArn instead.
 	Arn string `pulumi:"arn"`
 	// Created date of the secret in UTC.
 	CreatedDate string `pulumi:"createdDate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
+	// The ARN of the secret.
+	SecretArn string `pulumi:"secretArn"`
 	// Decrypted part of the protected secret information that was originally provided as a binary.
 	SecretBinary string `pulumi:"secretBinary"`
 	SecretId     string `pulumi:"secretId"`
@@ -176,7 +181,10 @@ func (o LookupSecretVersionResultOutput) ToLookupSecretVersionResultOutputWithCo
 	return o
 }
 
-// ARN of the secret.
+// (**Deprecated**) The ARN of the secret.
+// Use `secretArn` instead.
+//
+// Deprecated: arn is deprecated. Use secretArn instead.
 func (o LookupSecretVersionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -193,6 +201,11 @@ func (o LookupSecretVersionResultOutput) Id() pulumi.StringOutput {
 
 func (o LookupSecretVersionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// The ARN of the secret.
+func (o LookupSecretVersionResultOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
 // Decrypted part of the protected secret information that was originally provided as a binary.

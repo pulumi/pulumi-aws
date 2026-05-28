@@ -171,7 +171,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Pinpoint Destination
+ * ### End User Messaging Destination
  * 
  * <pre>
  * {@code

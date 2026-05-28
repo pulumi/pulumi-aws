@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Pinpoint Baidu Channel resource.
+// Provides an End User Messaging Baidu Channel resource.
 //
 // > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
 // ## Example Usage
@@ -49,7 +49,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
+// Using `pulumi import`, import End User Messaging Baidu Channel using the `application-id`. For example:
 //
 // ```sh
 // $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
@@ -59,9 +59,9 @@ type BaiduChannel struct {
 
 	// Platform credential API key from Baidu.
 	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
-	// The application ID.
+	// Application ID.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
-	// Specifies whether to enable the channel. Defaults to `true`.
+	// Whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -121,9 +121,9 @@ func GetBaiduChannel(ctx *pulumi.Context,
 type baiduChannelState struct {
 	// Platform credential API key from Baidu.
 	ApiKey *string `pulumi:"apiKey"`
-	// The application ID.
+	// Application ID.
 	ApplicationId *string `pulumi:"applicationId"`
-	// Specifies whether to enable the channel. Defaults to `true`.
+	// Whether to enable the channel. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -134,9 +134,9 @@ type baiduChannelState struct {
 type BaiduChannelState struct {
 	// Platform credential API key from Baidu.
 	ApiKey pulumi.StringPtrInput
-	// The application ID.
+	// Application ID.
 	ApplicationId pulumi.StringPtrInput
-	// Specifies whether to enable the channel. Defaults to `true`.
+	// Whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -151,9 +151,9 @@ func (BaiduChannelState) ElementType() reflect.Type {
 type baiduChannelArgs struct {
 	// Platform credential API key from Baidu.
 	ApiKey string `pulumi:"apiKey"`
-	// The application ID.
+	// Application ID.
 	ApplicationId string `pulumi:"applicationId"`
-	// Specifies whether to enable the channel. Defaults to `true`.
+	// Whether to enable the channel. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -165,9 +165,9 @@ type baiduChannelArgs struct {
 type BaiduChannelArgs struct {
 	// Platform credential API key from Baidu.
 	ApiKey pulumi.StringInput
-	// The application ID.
+	// Application ID.
 	ApplicationId pulumi.StringInput
-	// Specifies whether to enable the channel. Defaults to `true`.
+	// Whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -267,12 +267,12 @@ func (o BaiduChannelOutput) ApiKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *BaiduChannel) pulumi.StringOutput { return v.ApiKey }).(pulumi.StringOutput)
 }
 
-// The application ID.
+// Application ID.
 func (o BaiduChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BaiduChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
-// Specifies whether to enable the channel. Defaults to `true`.
+// Whether to enable the channel. Defaults to `true`.
 func (o BaiduChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BaiduChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

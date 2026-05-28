@@ -1189,6 +1189,7 @@ func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) SourceLogsConfigur
 }
 
 type CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration struct {
+	// Criteria for selecting data sources. Uses the same filter expression format as `logGroupSelectionCriteria`, but operates on Data Source Name and Data Source Type operands. When both `logGroupSelectionCriteria` and `dataSourceSelectionCriteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
 	DataSourceSelectionCriteria *string `pulumi:"dataSourceSelectionCriteria"`
 	// Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
 	EncryptedLogGroupStrategy string `pulumi:"encryptedLogGroupStrategy"`
@@ -1208,6 +1209,7 @@ type CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationInput int
 }
 
 type CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs struct {
+	// Criteria for selecting data sources. Uses the same filter expression format as `logGroupSelectionCriteria`, but operates on Data Source Name and Data Source Type operands. When both `logGroupSelectionCriteria` and `dataSourceSelectionCriteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
 	DataSourceSelectionCriteria pulumi.StringPtrInput `pulumi:"dataSourceSelectionCriteria"`
 	// Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
 	EncryptedLogGroupStrategy pulumi.StringInput `pulumi:"encryptedLogGroupStrategy"`
@@ -1292,6 +1294,7 @@ func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput
 	}).(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput)
 }
 
+// Criteria for selecting data sources. Uses the same filter expression format as `logGroupSelectionCriteria`, but operates on Data Source Name and Data Source Type operands. When both `logGroupSelectionCriteria` and `dataSourceSelectionCriteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
 func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput) DataSourceSelectionCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration) *string {
 		return v.DataSourceSelectionCriteria
@@ -1336,6 +1339,7 @@ func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOut
 	}).(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput)
 }
 
+// Criteria for selecting data sources. Uses the same filter expression format as `logGroupSelectionCriteria`, but operates on Data Source Name and Data Source Type operands. When both `logGroupSelectionCriteria` and `dataSourceSelectionCriteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
 func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput) DataSourceSelectionCriteria() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration) *string {
 		if v == nil {

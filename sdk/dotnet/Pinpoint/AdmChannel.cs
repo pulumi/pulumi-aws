@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint
 {
     /// <summary>
-    /// Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
+    /// Provides an End User Messaging ADM (Amazon Device Messaging) Channel resource.
     /// 
     /// &gt; **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
     /// ## Example Usage
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
+    /// Using `pulumi import`, import End User Messaging ADM Channel using the `application-id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Pinpoint
     public partial class AdmChannel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> ClientSecret { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to enable the channel. Defaults to `True`.
+        /// Whether to enable the channel. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class AdmChannelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Pinpoint
         }
 
         /// <summary>
-        /// Specifies whether to enable the channel. Defaults to `True`.
+        /// Whether to enable the channel. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class AdmChannelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Pinpoint
         }
 
         /// <summary>
-        /// Specifies whether to enable the channel. Defaults to `True`.
+        /// Whether to enable the channel. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

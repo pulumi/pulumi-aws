@@ -238,7 +238,9 @@ class SmsChannel(pulumi.CustomResource):
                  short_code: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Use the `pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
+        Use the `pinpoint.SmsChannel` resource to manage End User Messaging SMS Channels.
+
+        > **NOTE:** AWS has feature frozen the SMS channel of End User Messaging.
 
         ## Example Usage
 
@@ -252,7 +254,7 @@ class SmsChannel(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
+        Using `pulumi import`, import the End User Messaging SMS Channel using the `application_id`. For example:
 
         ```sh
         $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
@@ -274,7 +276,9 @@ class SmsChannel(pulumi.CustomResource):
                  args: SmsChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Use the `pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
+        Use the `pinpoint.SmsChannel` resource to manage End User Messaging SMS Channels.
+
+        > **NOTE:** AWS has feature frozen the SMS channel of End User Messaging.
 
         ## Example Usage
 
@@ -288,7 +292,7 @@ class SmsChannel(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
+        Using `pulumi import`, import the End User Messaging SMS Channel using the `application_id`. For example:
 
         ```sh
         $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id

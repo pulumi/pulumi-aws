@@ -131,7 +131,7 @@ namespace Pulumi.Aws.SesV2
     /// });
     /// ```
     /// 
-    /// ### Pinpoint Destination
+    /// ### End User Messaging Destination
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

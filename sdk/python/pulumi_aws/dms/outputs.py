@@ -1480,7 +1480,7 @@ class EndpointPostgresSettings(dict):
         :param _builtins.str heartbeat_schema: Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
         :param _builtins.bool map_boolean_as_boolean: You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
         :param _builtins.bool map_jsonb_as_clob: Optional When true, DMS migrates JSONB values as CLOB.
-        :param _builtins.str map_long_varchar_as: Optional When true, DMS migrates LONG values as VARCHAR.
+        :param _builtins.str map_long_varchar_as: Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
         :param _builtins.int max_file_size: Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
         :param _builtins.str plugin_name: Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
         :param _builtins.str service_access_role_arn: Specifies the IAM role to use to authenticate the connection.
@@ -1631,7 +1631,7 @@ class EndpointPostgresSettings(dict):
     @pulumi.getter(name="mapLongVarcharAs")
     def map_long_varchar_as(self) -> Optional[_builtins.str]:
         """
-        Optional When true, DMS migrates LONG values as VARCHAR.
+        Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
         """
         return pulumi.get(self, "map_long_varchar_as")
 

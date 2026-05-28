@@ -26,6 +26,9 @@ from .agentcore_harness import *
 from .agentcore_memory import *
 from .agentcore_memory_strategy import *
 from .agentcore_oauth2_credential_provider import *
+from .agentcore_online_evaluation_config import *
+from .agentcore_policy_engine import *
+from .agentcore_resource_policy import *
 from .agentcore_token_vault_cmk import *
 from .agentcore_workload_identity import *
 from .custom_model import *

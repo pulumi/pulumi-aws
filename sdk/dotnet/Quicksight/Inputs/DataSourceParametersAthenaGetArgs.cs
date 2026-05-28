@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Quicksight.Inputs
     public sealed class DataSourceParametersAthenaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Use the `RoleArn` to override an account-wide role for a specific athena data source.
+        /// </summary>
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
+
+        /// <summary>
         /// The work-group to which to connect.
         /// </summary>
         [Input("workGroup")]

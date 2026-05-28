@@ -107,7 +107,8 @@ namespace Pulumi.Aws.SecretsManager
     public partial class SecretVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the secret.
+        /// (**Deprecated**) The ARN of the secret.
+        /// Use `SecretArn` instead.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -120,6 +121,12 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the secret.
+        /// </summary>
+        [Output("secretArn")]
+        public Output<string> SecretArn { get; private set; } = null!;
 
         /// <summary>
         /// Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `SecretString` or `SecretStringWo` is not set. Needs to be encoded to base64.
@@ -308,7 +315,8 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class SecretVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the secret.
+        /// (**Deprecated**) The ARN of the secret.
+        /// Use `SecretArn` instead.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -321,6 +329,12 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// The ARN of the secret.
+        /// </summary>
+        [Input("secretArn")]
+        public Input<string>? SecretArn { get; set; }
 
         [Input("secretBinary")]
         private Input<string>? _secretBinary;

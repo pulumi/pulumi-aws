@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.arcregionswitch.PlanArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanState;
 import com.pulumi.aws.arcregionswitch.outputs.PlanAssociatedAlarm;
+import com.pulumi.aws.arcregionswitch.outputs.PlanReportConfiguration;
 import com.pulumi.aws.arcregionswitch.outputs.PlanTimeouts;
 import com.pulumi.aws.arcregionswitch.outputs.PlanTrigger;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflow;
@@ -227,6 +228,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) Amazon Resource Name (ARN) of the ARC Region Switch Plan.
+ * 
  * Using `pulumi import`, import Application Recovery Controller Region Switch Plan using the `arn`. For example:
  * 
  * ```sh
@@ -379,6 +386,20 @@ public class Plan extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> regions() {
         return this.regions;
+    }
+    /**
+     * Configuration for automated execution reports. See Report Configuration below.
+     * 
+     */
+    @Export(name="reportConfigurations", refs={List.class,PlanReportConfiguration.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<PlanReportConfiguration>> reportConfigurations;
+
+    /**
+     * @return Configuration for automated execution reports. See Report Configuration below.
+     * 
+     */
+    public Output<Optional<List<PlanReportConfiguration>>> reportConfigurations() {
+        return Codegen.optional(this.reportConfigurations);
     }
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

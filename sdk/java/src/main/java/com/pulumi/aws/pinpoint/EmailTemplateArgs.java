@@ -20,24 +20,24 @@ public final class EmailTemplateArgs extends com.pulumi.resources.ResourceArgs {
     public static final EmailTemplateArgs Empty = new EmailTemplateArgs();
 
     /**
-     * Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+     * Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
      * 
      * @deprecated
-     * email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Import(name="emailTemplates")
     private @Nullable Output<List<EmailTemplateEmailTemplateArgs>> emailTemplates;
 
     /**
-     * @return Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+     * @return Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
      * 
      * @deprecated
-     * email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     public Optional<Output<List<EmailTemplateEmailTemplateArgs>>> emailTemplates() {
         return Optional.ofNullable(this.emailTemplates);
     }
@@ -57,32 +57,40 @@ public final class EmailTemplateArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
-     * name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+     * Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      * 
      * @deprecated
-     * template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Import(name="templateName", required=true)
     private Output<String> templateName;
 
     /**
-     * @return name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+     * @return Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
      * 
      * @deprecated
-     * template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     public Output<String> templateName() {
         return this.templateName;
     }
@@ -115,44 +123,44 @@ public final class EmailTemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailTemplates Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+         * @param emailTemplates Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
          * 
          * @return builder
          * 
          * @deprecated
-         * email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder emailTemplates(@Nullable Output<List<EmailTemplateEmailTemplateArgs>> emailTemplates) {
             $.emailTemplates = emailTemplates;
             return this;
         }
 
         /**
-         * @param emailTemplates Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+         * @param emailTemplates Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
          * 
          * @return builder
          * 
          * @deprecated
-         * email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder emailTemplates(List<EmailTemplateEmailTemplateArgs> emailTemplates) {
             return emailTemplates(Output.of(emailTemplates));
         }
 
         /**
-         * @param emailTemplates Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+         * @param emailTemplates Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
          * 
          * @return builder
          * 
          * @deprecated
-         * email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder emailTemplates(EmailTemplateEmailTemplateArgs... emailTemplates) {
             return emailTemplates(List.of(emailTemplates));
         }
@@ -178,40 +186,52 @@ public final class EmailTemplateArgs extends com.pulumi.resources.ResourceArgs {
             return region(Output.of(region));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
         /**
-         * @param templateName name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+         * @param templateName Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
          * 
          * @return builder
          * 
          * @deprecated
-         * template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder templateName(Output<String> templateName) {
             $.templateName = templateName;
             return this;
         }
 
         /**
-         * @param templateName name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+         * @param templateName Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
          * 
          * @return builder
          * 
          * @deprecated
-         * template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder templateName(String templateName) {
             return templateName(Output.of(templateName));
         }

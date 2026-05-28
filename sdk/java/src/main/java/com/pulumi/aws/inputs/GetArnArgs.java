@@ -31,9 +31,21 @@ public final class GetArnArgs extends com.pulumi.resources.InvokeArgs {
         return this.arn;
     }
 
+    /**
+     * @deprecated
+     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
     @Import(name="id")
     private @Nullable Output<String> id;
 
+    /**
+     * @deprecated
+     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
@@ -84,11 +96,27 @@ public final class GetArnArgs extends com.pulumi.resources.InvokeArgs {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+         * 
+         */
+        @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+         * 
+         */
+        @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
         public Builder id(String id) {
             return id(Output.of(id));
         }

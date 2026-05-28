@@ -18,6 +18,8 @@ namespace Pulumi.Aws.Acm
     /// imported certificates, issued by another certificate authority;
     /// and private certificates, issued using an ACM Private Certificate Authority.
     /// 
+    /// &gt; **Note:** Write-Only argument `PrivateKeyWo` is available to use in place of `PrivateKey`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+    /// 
     /// ## Amazon-Issued Certificates
     /// 
     /// For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.
@@ -117,6 +119,53 @@ namespace Pulumi.Aws.Acm
     ///     var cert = new Aws.Acm.Certificate("cert", new()
     ///     {
     ///         PrivateKey = example.PrivateKeyPem,
+    ///         CertificateBody = exampleSelfSignedCert.CertPem,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Existing Certificate Body Import With Write-Only Private Key
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Tls = Pulumi.Tls;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Tls.PrivateKey("example", new()
+    ///     {
+    ///         Algorithm = "RSA",
+    ///     });
+    /// 
+    ///     var exampleSelfSignedCert = new Tls.SelfSignedCert("example", new()
+    ///     {
+    ///         KeyAlgorithm = "RSA",
+    ///         PrivateKeyPem = example.PrivateKeyPem,
+    ///         Subject = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "commonName", "example.com" },
+    ///                 { "organization", "ACME Examples, Inc" },
+    ///             },
+    ///         },
+    ///         ValidityPeriodHours = 12,
+    ///         AllowedUses = new[]
+    ///         {
+    ///             "key_encipherment",
+    ///             "digital_signature",
+    ///             "server_auth",
+    ///         },
+    ///     });
+    /// 
+    ///     var cert = new Aws.Acm.Certificate("cert", new()
+    ///     {
+    ///         PrivateKeyWo = example.PrivateKeyPem,
+    ///         PrivateKeyWoVersion = 1,
     ///         CertificateBody = exampleSelfSignedCert.CertPem,
     ///     });
     /// 
@@ -242,6 +291,15 @@ namespace Pulumi.Aws.Acm
         public Output<string?> PrivateKey { get; private set; } = null!;
 
         /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// </summary>
+        [Output("privateKeyWo")]
+        public Output<string?> PrivateKeyWo { get; private set; } = null!;
+
+        [Output("privateKeyWoVersion")]
+        public Output<int?> PrivateKeyWoVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// * Creating an Amazon issued certificate
         /// </summary>
@@ -325,6 +383,7 @@ namespace Pulumi.Aws.Acm
                 AdditionalSecretOutputs =
                 {
                     "privateKey",
+                    "privateKeyWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -384,6 +443,25 @@ namespace Pulumi.Aws.Acm
                 _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("privateKeyWo")]
+        private Input<string>? _privateKeyWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// </summary>
+        public Input<string>? PrivateKeyWo
+        {
+            get => _privateKeyWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKeyWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("privateKeyWoVersion")]
+        public Input<int>? PrivateKeyWoVersion { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -504,6 +582,25 @@ namespace Pulumi.Aws.Acm
                 _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("privateKeyWo")]
+        private Input<string>? _privateKeyWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// </summary>
+        public Input<string>? PrivateKeyWo
+        {
+            get => _privateKeyWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKeyWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("privateKeyWoVersion")]
+        public Input<int>? PrivateKeyWoVersion { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

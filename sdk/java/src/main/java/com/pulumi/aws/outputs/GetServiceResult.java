@@ -12,6 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetServiceResult {
     private String dnsName;
+    /**
+     * @deprecated
+     * Use &#39;reverse_dns_name&#39; instead. This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* Use 'reverse_dns_name' instead. This attribute will be removed in a future version of the provider. */
     private String id;
     private String partition;
     private String region;
@@ -28,6 +34,12 @@ public final class GetServiceResult {
     public String dnsName() {
         return this.dnsName;
     }
+    /**
+     * @deprecated
+     * Use &#39;reverse_dns_name&#39; instead. This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* Use 'reverse_dns_name' instead. This attribute will be removed in a future version of the provider. */
     public String id() {
         return this.id;
     }

@@ -19,16 +19,26 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
     public static final SecretVersionState Empty = new SecretVersionState();
 
     /**
-     * The ARN of the secret.
+     * (**Deprecated**) The ARN of the secret.
+     * Use `secretArn` instead.
+     * 
+     * @deprecated
+     * arn is deprecated. Use secretArn instead.
      * 
      */
+    @Deprecated /* arn is deprecated. Use secretArn instead. */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the secret.
+     * @return (**Deprecated**) The ARN of the secret.
+     * Use `secretArn` instead.
+     * 
+     * @deprecated
+     * arn is deprecated. Use secretArn instead.
      * 
      */
+    @Deprecated /* arn is deprecated. Use secretArn instead. */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -53,6 +63,21 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * The ARN of the secret.
+     * 
+     */
+    @Import(name="secretArn")
+    private @Nullable Output<String> secretArn;
+
+    /**
+     * @return The ARN of the secret.
+     * 
+     */
+    public Optional<Output<String>> secretArn() {
+        return Optional.ofNullable(this.secretArn);
     }
 
     /**
@@ -172,6 +197,7 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
         this.arn = $.arn;
         this.hasSecretStringWo = $.hasSecretStringWo;
         this.region = $.region;
+        this.secretArn = $.secretArn;
         this.secretBinary = $.secretBinary;
         this.secretId = $.secretId;
         this.secretString = $.secretString;
@@ -200,22 +226,32 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The ARN of the secret.
+         * @param arn (**Deprecated**) The ARN of the secret.
+         * Use `secretArn` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * arn is deprecated. Use secretArn instead.
+         * 
          */
+        @Deprecated /* arn is deprecated. Use secretArn instead. */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
         /**
-         * @param arn The ARN of the secret.
+         * @param arn (**Deprecated**) The ARN of the secret.
+         * Use `secretArn` instead.
          * 
          * @return builder
          * 
+         * @deprecated
+         * arn is deprecated. Use secretArn instead.
+         * 
          */
+        @Deprecated /* arn is deprecated. Use secretArn instead. */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }
@@ -248,6 +284,27 @@ public final class SecretVersionState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param secretArn The ARN of the secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretArn(@Nullable Output<String> secretArn) {
+            $.secretArn = secretArn;
+            return this;
+        }
+
+        /**
+         * @param secretArn The ARN of the secret.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secretArn(String secretArn) {
+            return secretArn(Output.of(secretArn));
         }
 
         /**

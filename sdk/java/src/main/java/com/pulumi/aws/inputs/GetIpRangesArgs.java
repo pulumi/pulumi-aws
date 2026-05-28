@@ -17,9 +17,21 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetIpRangesArgs Empty = new GetIpRangesArgs();
 
+    /**
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     @Import(name="id")
     private @Nullable Output<String> id;
 
+    /**
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     public Optional<Output<String>> id() {
         return Optional.ofNullable(this.id);
     }
@@ -114,11 +126,27 @@ public final class GetIpRangesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetIpRangesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This attribute will be removed in a future version of the provider.
+         * 
+         */
+        @Deprecated /* This attribute will be removed in a future version of the provider. */
         public Builder id(@Nullable Output<String> id) {
             $.id = id;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This attribute will be removed in a future version of the provider.
+         * 
+         */
+        @Deprecated /* This attribute will be removed in a future version of the provider. */
         public Builder id(String id) {
             return id(Output.of(id));
         }

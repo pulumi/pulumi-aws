@@ -13,10 +13,18 @@ namespace Pulumi.Aws.S3Control.Outputs
     [OutputType]
     public sealed class MultiRegionAccessPointDetails
     {
+        /// <summary>
+        /// The name of the Multi-Region Access Point.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+        /// </summary>
         public readonly Outputs.MultiRegionAccessPointDetailsPublicAccessBlock? PublicAccessBlock;
         /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        /// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+        /// 
+        /// For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
         /// </summary>
         public readonly ImmutableArray<Outputs.MultiRegionAccessPointDetailsRegion> Regions;
 

@@ -53,17 +53,17 @@ type Smsvoicev2ConfigurationSet struct {
 
 	// ARN of the configuration set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+	// Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
 	DefaultMessageType pulumi.StringPtrOutput `pulumi:"defaultMessageType"`
-	// The default sender ID to use for this configuration set.
+	// Default sender ID to use for this configuration set.
 	DefaultSenderId pulumi.StringPtrOutput `pulumi:"defaultSenderId"`
-	// The name of the configuration set.
+	// Name of the configuration set.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -99,34 +99,34 @@ func GetSmsvoicev2ConfigurationSet(ctx *pulumi.Context,
 type smsvoicev2ConfigurationSetState struct {
 	// ARN of the configuration set.
 	Arn *string `pulumi:"arn"`
-	// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+	// Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
 	DefaultMessageType *string `pulumi:"defaultMessageType"`
-	// The default sender ID to use for this configuration set.
+	// Default sender ID to use for this configuration set.
 	DefaultSenderId *string `pulumi:"defaultSenderId"`
-	// The name of the configuration set.
+	// Name of the configuration set.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type Smsvoicev2ConfigurationSetState struct {
 	// ARN of the configuration set.
 	Arn pulumi.StringPtrInput
-	// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+	// Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
 	DefaultMessageType pulumi.StringPtrInput
-	// The default sender ID to use for this configuration set.
+	// Default sender ID to use for this configuration set.
 	DefaultSenderId pulumi.StringPtrInput
-	// The name of the configuration set.
+	// Name of the configuration set.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -135,11 +135,11 @@ func (Smsvoicev2ConfigurationSetState) ElementType() reflect.Type {
 }
 
 type smsvoicev2ConfigurationSetArgs struct {
-	// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+	// Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
 	DefaultMessageType *string `pulumi:"defaultMessageType"`
-	// The default sender ID to use for this configuration set.
+	// Default sender ID to use for this configuration set.
 	DefaultSenderId *string `pulumi:"defaultSenderId"`
-	// The name of the configuration set.
+	// Name of the configuration set.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -149,11 +149,11 @@ type smsvoicev2ConfigurationSetArgs struct {
 
 // The set of arguments for constructing a Smsvoicev2ConfigurationSet resource.
 type Smsvoicev2ConfigurationSetArgs struct {
-	// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+	// Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
 	DefaultMessageType pulumi.StringPtrInput
-	// The default sender ID to use for this configuration set.
+	// Default sender ID to use for this configuration set.
 	DefaultSenderId pulumi.StringPtrInput
-	// The name of the configuration set.
+	// Name of the configuration set.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -253,17 +253,17 @@ func (o Smsvoicev2ConfigurationSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2ConfigurationSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+// Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
 func (o Smsvoicev2ConfigurationSetOutput) DefaultMessageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Smsvoicev2ConfigurationSet) pulumi.StringPtrOutput { return v.DefaultMessageType }).(pulumi.StringPtrOutput)
 }
 
-// The default sender ID to use for this configuration set.
+// Default sender ID to use for this configuration set.
 func (o Smsvoicev2ConfigurationSetOutput) DefaultSenderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Smsvoicev2ConfigurationSet) pulumi.StringPtrOutput { return v.DefaultSenderId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the configuration set.
+// Name of the configuration set.
 func (o Smsvoicev2ConfigurationSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Smsvoicev2ConfigurationSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -278,7 +278,7 @@ func (o Smsvoicev2ConfigurationSetOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Smsvoicev2ConfigurationSet) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o Smsvoicev2ConfigurationSetOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Smsvoicev2ConfigurationSet) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -50,19 +50,19 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+        /// Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
         /// </summary>
         [Output("defaultMessageType")]
         public Output<string?> DefaultMessageType { get; private set; } = null!;
 
         /// <summary>
-        /// The default sender ID to use for this configuration set.
+        /// Default sender ID to use for this configuration set.
         /// </summary>
         [Output("defaultSenderId")]
         public Output<string?> DefaultSenderId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the configuration set.
+        /// Name of the configuration set.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -132,19 +132,19 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class Smsvoicev2ConfigurationSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+        /// Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
         /// </summary>
         [Input("defaultMessageType")]
         public Input<string>? DefaultMessageType { get; set; }
 
         /// <summary>
-        /// The default sender ID to use for this configuration set.
+        /// Default sender ID to use for this configuration set.
         /// </summary>
         [Input("defaultSenderId")]
         public Input<string>? DefaultSenderId { get; set; }
 
         /// <summary>
-        /// The name of the configuration set.
+        /// Name of the configuration set.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -182,19 +182,19 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+        /// Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
         /// </summary>
         [Input("defaultMessageType")]
         public Input<string>? DefaultMessageType { get; set; }
 
         /// <summary>
-        /// The default sender ID to use for this configuration set.
+        /// Default sender ID to use for this configuration set.
         /// </summary>
         [Input("defaultSenderId")]
         public Input<string>? DefaultSenderId { get; set; }
 
         /// <summary>
-        /// The name of the configuration set.
+        /// Name of the configuration set.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Pinpoint
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

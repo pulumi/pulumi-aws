@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Cognito
         public Output<ImmutableArray<string>> AllowedOauthScopes { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        /// Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
         /// </summary>
         [Output("analyticsConfiguration")]
         public Output<Outputs.ManagedUserPoolClientAnalyticsConfiguration?> AnalyticsConfiguration { get; private set; } = null!;
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        /// Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
         /// </summary>
         [Input("analyticsConfiguration")]
         public Input<Inputs.ManagedUserPoolClientAnalyticsConfigurationArgs>? AnalyticsConfiguration { get; set; }
@@ -497,7 +497,7 @@ namespace Pulumi.Aws.Cognito
         }
 
         /// <summary>
-        /// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        /// Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
         /// </summary>
         [Input("analyticsConfiguration")]
         public Input<Inputs.ManagedUserPoolClientAnalyticsConfigurationGetArgs>? AnalyticsConfiguration { get; set; }

@@ -45,7 +45,7 @@ public final class ConfigurationSetEventDestinationEventDestination {
      */
     private List<String> matchingEventTypes;
     /**
-     * @return An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
+     * @return An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
      * 
      */
     private @Nullable ConfigurationSetEventDestinationEventDestinationPinpointDestination pinpointDestination;
@@ -92,7 +92,7 @@ public final class ConfigurationSetEventDestinationEventDestination {
         return this.matchingEventTypes;
     }
     /**
-     * @return An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
+     * @return An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
      * 
      */
     public Optional<ConfigurationSetEventDestinationEventDestinationPinpointDestination> pinpointDestination() {

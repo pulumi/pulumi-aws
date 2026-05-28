@@ -26,6 +26,7 @@ public final class GetRouteResult {
     private String localGatewayId;
     private String natGatewayId;
     private String networkInterfaceId;
+    private String odbNetworkArn;
     private String region;
     private String routeTableId;
     private String transitGatewayId;
@@ -72,6 +73,9 @@ public final class GetRouteResult {
     public String networkInterfaceId() {
         return this.networkInterfaceId;
     }
+    public String odbNetworkArn() {
+        return this.odbNetworkArn;
+    }
     public String region() {
         return this.region;
     }
@@ -106,6 +110,7 @@ public final class GetRouteResult {
         private String localGatewayId;
         private String natGatewayId;
         private String networkInterfaceId;
+        private String odbNetworkArn;
         private String region;
         private String routeTableId;
         private String transitGatewayId;
@@ -125,6 +130,7 @@ public final class GetRouteResult {
     	      this.localGatewayId = defaults.localGatewayId;
     	      this.natGatewayId = defaults.natGatewayId;
     	      this.networkInterfaceId = defaults.networkInterfaceId;
+    	      this.odbNetworkArn = defaults.odbNetworkArn;
     	      this.region = defaults.region;
     	      this.routeTableId = defaults.routeTableId;
     	      this.transitGatewayId = defaults.transitGatewayId;
@@ -228,6 +234,14 @@ public final class GetRouteResult {
             return this;
         }
         @CustomType.Setter
+        public Builder odbNetworkArn(String odbNetworkArn) {
+            if (odbNetworkArn == null) {
+              throw new MissingRequiredPropertyException("GetRouteResult", "odbNetworkArn");
+            }
+            this.odbNetworkArn = odbNetworkArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("GetRouteResult", "region");
@@ -273,6 +287,7 @@ public final class GetRouteResult {
             _resultValue.localGatewayId = localGatewayId;
             _resultValue.natGatewayId = natGatewayId;
             _resultValue.networkInterfaceId = networkInterfaceId;
+            _resultValue.odbNetworkArn = odbNetworkArn;
             _resultValue.region = region;
             _resultValue.routeTableId = routeTableId;
             _resultValue.transitGatewayId = transitGatewayId;

@@ -18,6 +18,11 @@ namespace Pulumi.Aws.Ssm.Outputs
         /// </summary>
         public readonly string BucketName;
         /// <summary>
+        /// Enables destination data sharing.
+        /// See `DestinationDataSharing` below.
+        /// </summary>
+        public readonly Outputs.ResourceDataSyncS3DestinationDestinationDataSharing? DestinationDataSharing;
+        /// <summary>
         /// ARN of an encryption key for a destination in Amazon S3.
         /// </summary>
         public readonly string? KmsKeyArn;
@@ -38,6 +43,8 @@ namespace Pulumi.Aws.Ssm.Outputs
         private ResourceDataSyncS3Destination(
             string bucketName,
 
+            Outputs.ResourceDataSyncS3DestinationDestinationDataSharing? destinationDataSharing,
+
             string? kmsKeyArn,
 
             string? prefix,
@@ -47,6 +54,7 @@ namespace Pulumi.Aws.Ssm.Outputs
             string? syncFormat)
         {
             BucketName = bucketName;
+            DestinationDataSharing = destinationDataSharing;
             KmsKeyArn = kmsKeyArn;
             Prefix = prefix;
             Region = region;

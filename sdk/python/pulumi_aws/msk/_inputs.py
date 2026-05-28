@@ -71,6 +71,16 @@ __all__ = [
     'ReplicatorKafkaClusterAmazonMskClusterArgsDict',
     'ReplicatorKafkaClusterVpcConfigArgs',
     'ReplicatorKafkaClusterVpcConfigArgsDict',
+    'ReplicatorLogDeliveryArgs',
+    'ReplicatorLogDeliveryArgsDict',
+    'ReplicatorLogDeliveryReplicatorLogDeliveryArgs',
+    'ReplicatorLogDeliveryReplicatorLogDeliveryArgsDict',
+    'ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs',
+    'ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgsDict',
+    'ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs',
+    'ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgsDict',
+    'ReplicatorLogDeliveryReplicatorLogDeliveryS3Args',
+    'ReplicatorLogDeliveryReplicatorLogDeliveryS3ArgsDict',
     'ReplicatorReplicationInfoListArgs',
     'ReplicatorReplicationInfoListArgsDict',
     'ReplicatorReplicationInfoListConsumerGroupReplicationArgs',
@@ -1352,6 +1362,268 @@ class ReplicatorKafkaClusterVpcConfigArgs:
     @security_groups_ids.setter
     def security_groups_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_groups_ids", value)
+
+
+class ReplicatorLogDeliveryArgsDict(TypedDict):
+    replicator_log_delivery: NotRequired[pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryArgsDict']]]
+    """
+    Configuration block for replicator log delivery. Detailed below.
+    """
+
+@pulumi.input_type
+class ReplicatorLogDeliveryArgs:
+    def __init__(__self__, *,
+                 replicator_log_delivery: pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryArgs']] = None):
+        """
+        :param pulumi.Input['ReplicatorLogDeliveryReplicatorLogDeliveryArgs'] replicator_log_delivery: Configuration block for replicator log delivery. Detailed below.
+        """
+        if replicator_log_delivery is not None:
+            pulumi.set(__self__, "replicator_log_delivery", replicator_log_delivery)
+
+    @_builtins.property
+    @pulumi.getter(name="replicatorLogDelivery")
+    def replicator_log_delivery(self) -> pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryArgs']]:
+        """
+        Configuration block for replicator log delivery. Detailed below.
+        """
+        return pulumi.get(self, "replicator_log_delivery")
+
+    @replicator_log_delivery.setter
+    def replicator_log_delivery(self, value: pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryArgs']]):
+        pulumi.set(self, "replicator_log_delivery", value)
+
+
+class ReplicatorLogDeliveryReplicatorLogDeliveryArgsDict(TypedDict):
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgsDict']]]
+    """
+    Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+    """
+    firehose: NotRequired[pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgsDict']]]
+    """
+    Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+    """
+    s3: NotRequired[pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryS3ArgsDict']]]
+    """
+    Configuration block for replicator log delivery to Amazon S3. Detailed below.
+    """
+
+@pulumi.input_type
+class ReplicatorLogDeliveryReplicatorLogDeliveryArgs:
+    def __init__(__self__, *,
+                 cloudwatch_logs: pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs']] = None,
+                 firehose: pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs']] = None,
+                 s3: pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryS3Args']] = None):
+        """
+        :param pulumi.Input['ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs'] cloudwatch_logs: Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+        :param pulumi.Input['ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs'] firehose: Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+        :param pulumi.Input['ReplicatorLogDeliveryReplicatorLogDeliveryS3Args'] s3: Configuration block for replicator log delivery to Amazon S3. Detailed below.
+        """
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+        if firehose is not None:
+            pulumi.set(__self__, "firehose", firehose)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs']]:
+        """
+        Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+        """
+        return pulumi.get(self, "cloudwatch_logs")
+
+    @cloudwatch_logs.setter
+    def cloudwatch_logs(self, value: pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs']]):
+        pulumi.set(self, "cloudwatch_logs", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def firehose(self) -> pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs']]:
+        """
+        Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+        """
+        return pulumi.get(self, "firehose")
+
+    @firehose.setter
+    def firehose(self, value: pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs']]):
+        pulumi.set(self, "firehose", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryS3Args']]:
+        """
+        Configuration block for replicator log delivery to Amazon S3. Detailed below.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input[Optional['ReplicatorLogDeliveryReplicatorLogDeliveryS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+class ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Boolean whether to enable log delivery to CloudWatch Logs.
+    """
+    log_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of CloudWatch Logs log group. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+    """
+
+@pulumi.input_type
+class ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 log_group: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Boolean whether to enable log delivery to CloudWatch Logs.
+        :param pulumi.Input[_builtins.str] log_group: Name of CloudWatch Logs log group. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Boolean whether to enable log delivery to CloudWatch Logs.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of CloudWatch Logs log group. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+        """
+        return pulumi.get(self, "log_group")
+
+    @log_group.setter
+    def log_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_group", value)
+
+
+class ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Boolean whether to enable log delivery to Firehose.
+    """
+    delivery_stream: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the Firehose delivery stream. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+    """
+
+@pulumi.input_type
+class ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 delivery_stream: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Boolean whether to enable log delivery to Firehose.
+        :param pulumi.Input[_builtins.str] delivery_stream: Name of the Firehose delivery stream. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if delivery_stream is not None:
+            pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Boolean whether to enable log delivery to Firehose.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Firehose delivery stream. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+        """
+        return pulumi.get(self, "delivery_stream")
+
+    @delivery_stream.setter
+    def delivery_stream(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delivery_stream", value)
+
+
+class ReplicatorLogDeliveryReplicatorLogDeliveryS3ArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Boolean whether to enable log delivery to S3.
+    """
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the S3 bucket. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+    """
+    prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Prefix to use when storing replicator logs in S3. If `enabled` is `false`, this value must not be set.
+    """
+
+@pulumi.input_type
+class ReplicatorLogDeliveryReplicatorLogDeliveryS3Args:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool],
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Boolean whether to enable log delivery to S3.
+        :param pulumi.Input[_builtins.str] bucket: Name of the S3 bucket. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+        :param pulumi.Input[_builtins.str] prefix: Prefix to use when storing replicator logs in S3. If `enabled` is `false`, this value must not be set.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Boolean whether to enable log delivery to S3.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the S3 bucket. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Prefix to use when storing replicator logs in S3. If `enabled` is `false`, this value must not be set.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "prefix", value)
 
 
 class ReplicatorReplicationInfoListArgsDict(TypedDict):

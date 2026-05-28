@@ -369,14 +369,14 @@ public class UserPoolClient extends com.pulumi.resources.CustomResource {
         return this.allowedOauthScopes;
     }
     /**
-     * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+     * Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
      * 
      */
     @Export(name="analyticsConfiguration", refs={UserPoolClientAnalyticsConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ UserPoolClientAnalyticsConfiguration> analyticsConfiguration;
 
     /**
-     * @return Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+     * @return Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
      * 
      */
     public Output<Optional<UserPoolClientAnalyticsConfiguration>> analyticsConfiguration() {

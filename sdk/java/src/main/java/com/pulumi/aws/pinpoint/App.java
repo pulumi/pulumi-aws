@@ -19,9 +19,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Pinpoint App resource.
+ * Provides an End User Messaging App resource.
  * 
- * &gt; **NOTE:** The `campaignHook`, `limits`, and `quietTime` attributes are deprecated. Amazon Pinpoint engagement features, including the Settings API that backs these attributes, are being discontinued on October 30, 2026. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+ * &gt; **NOTE:** The `campaignHook`, `limits`, and `quietTime` attributes are deprecated. AWS End User Messaging engagement features, including the Settings API that backs these attributes, are being discontinued on October 30, 2026. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
  * 
  * ## Example Usage
  * 
@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Pinpoint App using the `application-id`. For example:
+ * Using `pulumi import`, import End User Messaging App using the `application-id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:pinpoint/app:App name application-id
@@ -77,110 +77,128 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:pinpoint/app:App")
 public class App extends com.pulumi.resources.CustomResource {
     /**
-     * The Application ID of the Pinpoint App.
+     * Application ID of the End User Messaging App.
      * 
      */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
-     * @return The Application ID of the Pinpoint App.
+     * @return Application ID of the End User Messaging App.
      * 
      */
     public Output<String> applicationId() {
         return this.applicationId;
     }
     /**
-     * Amazon Resource Name (ARN) of the PinPoint Application
+     * Amazon Resource Name (ARN) of the PinPoint Application.
+     * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
+     * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
+     * * `campaign_hook[0].web_url` - Web URL to call for hook.
+     * * `limits[0].daily` - Maximum number of messages that the campaign can send daily.
+     * * `limits[0].maximum_duration` - Length of time (in seconds) that the campaign can run before it ends and message deliveries stop.
+     * * `limits[0].messages_per_second` - Number of messages that the campaign can send per second.
+     * * `limits[0].total` - Maximum total number of messages that the campaign can send.
+     * * `quiet_time[0].end` - Default end time for quiet time in ISO 8601 format.
+     * * `quiet_time[0].start` - Default start time for quiet time in ISO 8601 format.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the PinPoint Application
+     * @return Amazon Resource Name (ARN) of the PinPoint Application.
+     * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
+     * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
+     * * `campaign_hook[0].web_url` - Web URL to call for hook.
+     * * `limits[0].daily` - Maximum number of messages that the campaign can send daily.
+     * * `limits[0].maximum_duration` - Length of time (in seconds) that the campaign can run before it ends and message deliveries stop.
+     * * `limits[0].messages_per_second` - Number of messages that the campaign can send per second.
+     * * `limits[0].total` - Maximum total number of messages that the campaign can send.
+     * * `quiet_time[0].end` - Default end time for quiet time in ISO 8601 format.
+     * * `quiet_time[0].start` - Default start time for quiet time in ISO 8601 format.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
+     * Settings for invoking an AWS Lambda function that customizes a segment for a campaign. See below.
      * 
      * @deprecated
-     * campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* campaign_hook is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated /* campaign_hook is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     @Export(name="campaignHook", refs={AppCampaignHook.class}, tree="[0]")
     private Output</* @Nullable */ AppCampaignHook> campaignHook;
 
     /**
-     * @return Specifies settings for invoking an AWS Lambda function that customizes a segment for a campaign
+     * @return Settings for invoking an AWS Lambda function that customizes a segment for a campaign. See below.
      * 
      */
     public Output<Optional<AppCampaignHook>> campaignHook() {
         return Codegen.optional(this.campaignHook);
     }
     /**
-     * The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+     * Default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own. See below.
      * 
      * @deprecated
-     * limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* limits is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated /* limits is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     @Export(name="limits", refs={AppLimits.class}, tree="[0]")
     private Output</* @Nullable */ AppLimits> limits;
 
     /**
-     * @return The default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own
+     * @return Default campaign limits for the app. These limits apply to each campaign for the app, unless the campaign overrides the default with limits of its own. See below.
      * 
      */
     public Output<Optional<AppLimits>> limits() {
         return Codegen.optional(this.limits);
     }
     /**
-     * The application name. By default generated by Pulumi
+     * Application name. By default generated by Terraform.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The application name. By default generated by Pulumi
+     * @return Application name. By default generated by Terraform.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The name of the Pinpoint application. Conflicts with `name`
+     * Name of the End User Messaging application. Conflicts with `name`.
      * 
      */
     @Export(name="namePrefix", refs={String.class}, tree="[0]")
     private Output<String> namePrefix;
 
     /**
-     * @return The name of the Pinpoint application. Conflicts with `name`
+     * @return Name of the End User Messaging application. Conflicts with `name`.
      * 
      */
     public Output<String> namePrefix() {
         return this.namePrefix;
     }
     /**
-     * The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
+     * Default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own. See below.
      * 
      * @deprecated
-     * quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
+     * quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details.
      * 
      */
-    @Deprecated /* quiet_time is deprecated. Amazon Pinpoint engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
+    @Deprecated /* quiet_time is deprecated. AWS End User Messaging engagement features are being discontinued on October 30, 2026. See the AWS End User Messaging migration guide for details. */
     @Export(name="quietTime", refs={AppQuietTime.class}, tree="[0]")
     private Output</* @Nullable */ AppQuietTime> quietTime;
 
     /**
-     * @return The default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own
+     * @return Default quiet time for the app. Each campaign for this app sends no messages during this time unless the campaign overrides the default with a quiet time of its own. See below.
      * 
      */
     public Output<Optional<AppQuietTime>> quietTime() {
@@ -215,14 +233,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

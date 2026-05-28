@@ -37,6 +37,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) Name of the Multi-Region Access Point.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import Multi-Region Access Points using the `accountId` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
  *
  * ```sh
@@ -76,7 +87,7 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * The alias for the Multi-Region Access Point.
+     * Alias for the Multi-Region Access Point.
      */
     declare public /*out*/ readonly alias: pulumi.Output<string>;
     /**
@@ -88,15 +99,19 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
      */
     declare public readonly details: pulumi.Output<outputs.s3control.MultiRegionAccessPointDetails>;
     /**
-     * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+     * DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      */
     declare public /*out*/ readonly domainName: pulumi.Output<string>;
+    /**
+     * Name of the Multi-Region Access Point.
+     */
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
+     * Status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
 
@@ -118,6 +133,7 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["details"] = state?.details;
             resourceInputs["domainName"] = state?.domainName;
+            resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
             resourceInputs["status"] = state?.status;
         } else {
@@ -131,6 +147,7 @@ export class MultiRegionAccessPoint extends pulumi.CustomResource {
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -147,7 +164,7 @@ export interface MultiRegionAccessPointState {
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The alias for the Multi-Region Access Point.
+     * Alias for the Multi-Region Access Point.
      */
     alias?: pulumi.Input<string | undefined>;
     /**
@@ -159,15 +176,19 @@ export interface MultiRegionAccessPointState {
      */
     details?: pulumi.Input<inputs.s3control.MultiRegionAccessPointDetails | undefined>;
     /**
-     * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+     * DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      */
     domainName?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the Multi-Region Access Point.
+     */
+    name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
+     * Status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      */
     status?: pulumi.Input<string | undefined>;
 }

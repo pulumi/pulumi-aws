@@ -4,6 +4,7 @@
 package com.pulumi.aws.msk.inputs;
 
 import com.pulumi.aws.msk.inputs.ReplicatorKafkaClusterArgs;
+import com.pulumi.aws.msk.inputs.ReplicatorLogDeliveryArgs;
 import com.pulumi.aws.msk.inputs.ReplicatorReplicationInfoListArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -69,6 +70,21 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<ReplicatorKafkaClusterArgs>>> kafkaClusters() {
         return Optional.ofNullable(this.kafkaClusters);
+    }
+
+    /**
+     * Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     * 
+     */
+    @Import(name="logDelivery")
+    private @Nullable Output<ReplicatorLogDeliveryArgs> logDelivery;
+
+    /**
+     * @return Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     * 
+     */
+    public Optional<Output<ReplicatorLogDeliveryArgs>> logDelivery() {
+        return Optional.ofNullable(this.logDelivery);
     }
 
     /**
@@ -168,6 +184,7 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
         this.currentVersion = $.currentVersion;
         this.description = $.description;
         this.kafkaClusters = $.kafkaClusters;
+        this.logDelivery = $.logDelivery;
         this.region = $.region;
         this.replicationInfoList = $.replicationInfoList;
         this.replicatorName = $.replicatorName;
@@ -274,6 +291,27 @@ public final class ReplicatorState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder kafkaClusters(ReplicatorKafkaClusterArgs... kafkaClusters) {
             return kafkaClusters(List.of(kafkaClusters));
+        }
+
+        /**
+         * @param logDelivery Configuration block for delivering replicator logs to customer destinations. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logDelivery(@Nullable Output<ReplicatorLogDeliveryArgs> logDelivery) {
+            $.logDelivery = logDelivery;
+            return this;
+        }
+
+        /**
+         * @param logDelivery Configuration block for delivering replicator logs to customer destinations. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logDelivery(ReplicatorLogDeliveryArgs logDelivery) {
+            return logDelivery(Output.of(logDelivery));
         }
 
         /**

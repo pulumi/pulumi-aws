@@ -15,6 +15,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +30,8 @@ import javax.annotation.Nullable;
  * Amazon-issued, where AWS provides the certificate authority and automatically manages renewal;
  * imported certificates, issued by another certificate authority;
  * and private certificates, issued using an ACM Private Certificate Authority.
+ * 
+ * &gt; **Note:** Write-Only argument `privateKeyWo` is available to use in place of `privateKey`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
  * 
  * ## Amazon-Issued Certificates
  * 
@@ -149,6 +152,63 @@ import javax.annotation.Nullable;
  * 
  *         var cert = new Certificate("cert", CertificateArgs.builder()
  *             .privateKey(example.privateKeyPem())
+ *             .certificateBody(exampleSelfSignedCert.certPem())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Existing Certificate Body Import With Write-Only Private Key
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.tls.PrivateKey;
+ * import com.pulumi.tls.PrivateKeyArgs;
+ * import com.pulumi.tls.SelfSignedCert;
+ * import com.pulumi.tls.SelfSignedCertArgs;
+ * import com.pulumi.aws.acm.Certificate;
+ * import com.pulumi.aws.acm.CertificateArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new PrivateKey("example", PrivateKeyArgs.builder()
+ *             .algorithm("RSA")
+ *             .build());
+ * 
+ *         var exampleSelfSignedCert = new SelfSignedCert("exampleSelfSignedCert", SelfSignedCertArgs.builder()
+ *             .keyAlgorithm("RSA")
+ *             .privateKeyPem(example.privateKeyPem())
+ *             .subject(SelfSignedCertSubjectArgs.builder()
+ *                 .commonName("example.com")
+ *                 .organization("ACME Examples, Inc")
+ *                 .build())
+ *             .validityPeriodHours(12)
+ *             .allowedUses(            
+ *                 "key_encipherment",
+ *                 "digital_signature",
+ *                 "server_auth")
+ *             .build());
+ * 
+ *         var cert = new Certificate("cert", CertificateArgs.builder()
+ *             .privateKeyWo(example.privateKeyPem())
+ *             .privateKeyWoVersion(1)
  *             .certificateBody(exampleSelfSignedCert.certPem())
  *             .build());
  * 
@@ -307,6 +367,26 @@ public class Certificate extends com.pulumi.resources.CustomResource {
 
     public Output<Optional<String>> privateKey() {
         return Codegen.optional(this.privateKey);
+    }
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * 
+     */
+    @Export(name="privateKeyWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> privateKeyWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * 
+     */
+    public Output<Optional<String>> privateKeyWo() {
+        return Codegen.optional(this.privateKeyWo);
+    }
+    @Export(name="privateKeyWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> privateKeyWoVersion;
+
+    public Output<Optional<Integer>> privateKeyWoVersion() {
+        return Codegen.optional(this.privateKeyWoVersion);
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -481,7 +561,8 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "privateKey"
+                "privateKey",
+                "privateKeyWo"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

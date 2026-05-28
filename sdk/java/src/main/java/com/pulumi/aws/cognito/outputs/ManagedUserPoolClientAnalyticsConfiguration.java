@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ManagedUserPoolClientAnalyticsConfiguration {
     /**
-     * @return Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
+     * @return Application ARN for an AWS End User Messaging application. It conflicts with `externalId` and `roleArn`.
      * 
      */
     private @Nullable String applicationArn;
     /**
-     * @return Unique identifier for an Amazon Pinpoint application.
+     * @return Unique identifier for an AWS End User Messaging application.
      * 
      */
     private @Nullable String applicationId;
@@ -28,26 +28,26 @@ public final class ManagedUserPoolClientAnalyticsConfiguration {
      */
     private @Nullable String externalId;
     /**
-     * @return ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `applicationArn`.
+     * @return ARN of an IAM role that authorizes Amazon Cognito to publish events to AWS End User Messaging analytics. It conflicts with `applicationArn`.
      * 
      */
     private @Nullable String roleArn;
     /**
-     * @return If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+     * @return If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to AWS End User Messaging analytics.
      * 
      */
     private @Nullable Boolean userDataShared;
 
     private ManagedUserPoolClientAnalyticsConfiguration() {}
     /**
-     * @return Application ARN for an Amazon Pinpoint application. It conflicts with `externalId` and `roleArn`.
+     * @return Application ARN for an AWS End User Messaging application. It conflicts with `externalId` and `roleArn`.
      * 
      */
     public Optional<String> applicationArn() {
         return Optional.ofNullable(this.applicationArn);
     }
     /**
-     * @return Unique identifier for an Amazon Pinpoint application.
+     * @return Unique identifier for an AWS End User Messaging application.
      * 
      */
     public Optional<String> applicationId() {
@@ -61,14 +61,14 @@ public final class ManagedUserPoolClientAnalyticsConfiguration {
         return Optional.ofNullable(this.externalId);
     }
     /**
-     * @return ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `applicationArn`.
+     * @return ARN of an IAM role that authorizes Amazon Cognito to publish events to AWS End User Messaging analytics. It conflicts with `applicationArn`.
      * 
      */
     public Optional<String> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
     /**
-     * @return If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+     * @return If `userDataShared` is set to `true`, Amazon Cognito will include user data in the events it publishes to AWS End User Messaging analytics.
      * 
      */
     public Optional<Boolean> userDataShared() {

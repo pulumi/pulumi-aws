@@ -19,6 +19,8 @@ import (
 // imported certificates, issued by another certificate authority;
 // and private certificates, issued using an ACM Private Certificate Authority.
 //
+// > **Note:** Write-Only argument `privateKeyWo` is available to use in place of `privateKey`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+//
 // ## Amazon-Issued Certificates
 //
 // For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.
@@ -137,6 +139,60 @@ import (
 //
 // ```
 //
+// ### Existing Certificate Body Import With Write-Only Private Key
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acm"
+//	"github.com/pulumi/pulumi-tls/sdk/v5/go/tls"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := tls.NewPrivateKey(ctx, "example", &tls.PrivateKeyArgs{
+//				Algorithm: pulumi.String("RSA"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "example", &tls.SelfSignedCertArgs{
+//				KeyAlgorithm:  "RSA",
+//				PrivateKeyPem: example.PrivateKeyPem,
+//				Subject: tls.SelfSignedCertSubjectArgs{
+//					map[string]interface{}{
+//						"commonName":   "example.com",
+//						"organization": "ACME Examples, Inc",
+//					},
+//				},
+//				ValidityPeriodHours: pulumi.Int(12),
+//				AllowedUses: pulumi.StringArray{
+//					pulumi.String("key_encipherment"),
+//					pulumi.String("digital_signature"),
+//					pulumi.String("server_auth"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
+//				PrivateKeyWo:        example.PrivateKeyPem,
+//				PrivateKeyWoVersion: pulumi.Int(1),
+//				CertificateBody:     exampleSelfSignedCert.CertPem,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Referencing domainValidationOptions With forEach Based Resources
 //
 // See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
@@ -178,6 +234,9 @@ type Certificate struct {
 	// `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
 	PendingRenewal pulumi.BoolOutput      `pulumi:"pendingRenewal"`
 	PrivateKey     pulumi.StringPtrOutput `pulumi:"privateKey"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	PrivateKeyWo        pulumi.StringPtrOutput `pulumi:"privateKeyWo"`
+	PrivateKeyWoVersion pulumi.IntPtrOutput    `pulumi:"privateKeyWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	// * Creating an Amazon issued certificate
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -210,8 +269,12 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.PrivateKey != nil {
 		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringPtrInput)
 	}
+	if args.PrivateKeyWo != nil {
+		args.PrivateKeyWo = pulumi.ToSecret(args.PrivateKeyWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"privateKey",
+		"privateKeyWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -258,6 +321,9 @@ type certificateState struct {
 	// `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
 	PendingRenewal *bool   `pulumi:"pendingRenewal"`
 	PrivateKey     *string `pulumi:"privateKey"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	PrivateKeyWo        *string `pulumi:"privateKeyWo"`
+	PrivateKeyWoVersion *int    `pulumi:"privateKeyWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	// * Creating an Amazon issued certificate
 	Region *string `pulumi:"region"`
@@ -302,6 +368,9 @@ type CertificateState struct {
 	// `true` if a Private certificate eligible for managed renewal is within the `earlyRenewalDuration` period.
 	PendingRenewal pulumi.BoolPtrInput
 	PrivateKey     pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	PrivateKeyWo        pulumi.StringPtrInput
+	PrivateKeyWoVersion pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	// * Creating an Amazon issued certificate
 	Region pulumi.StringPtrInput
@@ -338,6 +407,9 @@ type certificateArgs struct {
 	KeyAlgorithm         *string             `pulumi:"keyAlgorithm"`
 	Options              *CertificateOptions `pulumi:"options"`
 	PrivateKey           *string             `pulumi:"privateKey"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	PrivateKeyWo        *string `pulumi:"privateKeyWo"`
+	PrivateKeyWoVersion *int    `pulumi:"privateKeyWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	// * Creating an Amazon issued certificate
 	Region                  *string  `pulumi:"region"`
@@ -359,6 +431,9 @@ type CertificateArgs struct {
 	KeyAlgorithm         pulumi.StringPtrInput
 	Options              CertificateOptionsPtrInput
 	PrivateKey           pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	PrivateKeyWo        pulumi.StringPtrInput
+	PrivateKeyWoVersion pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	// * Creating an Amazon issued certificate
 	Region                  pulumi.StringPtrInput
@@ -514,6 +589,15 @@ func (o CertificateOutput) PendingRenewal() pulumi.BoolOutput {
 
 func (o CertificateOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
+}
+
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+func (o CertificateOutput) PrivateKeyWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.PrivateKeyWo }).(pulumi.StringPtrOutput)
+}
+
+func (o CertificateOutput) PrivateKeyWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.IntPtrOutput { return v.PrivateKeyWoVersion }).(pulumi.IntPtrOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

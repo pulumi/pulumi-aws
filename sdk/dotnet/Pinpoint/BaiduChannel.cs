@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint
 {
     /// <summary>
-    /// Provides a Pinpoint Baidu Channel resource.
+    /// Provides an End User Messaging Baidu Channel resource.
     /// 
     /// &gt; **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
     /// ## Example Usage
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
+    /// Using `pulumi import`, import End User Messaging Baidu Channel using the `application-id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
@@ -53,13 +53,13 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> ApiKey { get; private set; } = null!;
 
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to enable the channel. Defaults to `True`.
+        /// Whether to enable the channel. Defaults to `True`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -144,13 +144,13 @@ namespace Pulumi.Aws.Pinpoint
         }
 
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether to enable the channel. Defaults to `True`.
+        /// Whether to enable the channel. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -202,13 +202,13 @@ namespace Pulumi.Aws.Pinpoint
         }
 
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable the channel. Defaults to `True`.
+        /// Whether to enable the channel. Defaults to `True`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

@@ -12,6 +12,8 @@ import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepEksResourceScaling
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepExecutionApprovalConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepGlobalAuroraConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepParallelConfig;
+import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig;
+import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepRdsPromoteReadReplicaConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepRegionSwitchPlanConfig;
 import com.pulumi.aws.arcregionswitch.outputs.PlanWorkflowStepRoute53HealthCheckConfig;
 import com.pulumi.core.annotations.CustomType;
@@ -65,7 +67,7 @@ public final class PlanWorkflowStep {
      */
     private @Nullable List<PlanWorkflowStepExecutionApprovalConfig> executionApprovalConfigs;
     /**
-     * @return Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+     * @return Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
      * 
      */
     private String executionBlockType;
@@ -84,6 +86,16 @@ public final class PlanWorkflowStep {
      * 
      */
     private @Nullable List<PlanWorkflowStepParallelConfig> parallelConfigs;
+    /**
+     * @return Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+     * 
+     */
+    private @Nullable List<PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig> rdsCreateCrossRegionReadReplicaConfigs;
+    /**
+     * @return Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+     * 
+     */
+    private @Nullable List<PlanWorkflowStepRdsPromoteReadReplicaConfig> rdsPromoteReadReplicaConfigs;
     private @Nullable List<PlanWorkflowStepRegionSwitchPlanConfig> regionSwitchPlanConfigs;
     /**
      * @return Configuration for Route53 health check operations. See Route53 Health Check Config below.
@@ -149,7 +161,7 @@ public final class PlanWorkflowStep {
         return this.executionApprovalConfigs == null ? List.of() : this.executionApprovalConfigs;
     }
     /**
-     * @return Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+     * @return Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
      * 
      */
     public String executionBlockType() {
@@ -175,6 +187,20 @@ public final class PlanWorkflowStep {
      */
     public List<PlanWorkflowStepParallelConfig> parallelConfigs() {
         return this.parallelConfigs == null ? List.of() : this.parallelConfigs;
+    }
+    /**
+     * @return Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+     * 
+     */
+    public List<PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig> rdsCreateCrossRegionReadReplicaConfigs() {
+        return this.rdsCreateCrossRegionReadReplicaConfigs == null ? List.of() : this.rdsCreateCrossRegionReadReplicaConfigs;
+    }
+    /**
+     * @return Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+     * 
+     */
+    public List<PlanWorkflowStepRdsPromoteReadReplicaConfig> rdsPromoteReadReplicaConfigs() {
+        return this.rdsPromoteReadReplicaConfigs == null ? List.of() : this.rdsPromoteReadReplicaConfigs;
     }
     public List<PlanWorkflowStepRegionSwitchPlanConfig> regionSwitchPlanConfigs() {
         return this.regionSwitchPlanConfigs == null ? List.of() : this.regionSwitchPlanConfigs;
@@ -208,6 +234,8 @@ public final class PlanWorkflowStep {
         private @Nullable List<PlanWorkflowStepGlobalAuroraConfig> globalAuroraConfigs;
         private String name;
         private @Nullable List<PlanWorkflowStepParallelConfig> parallelConfigs;
+        private @Nullable List<PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig> rdsCreateCrossRegionReadReplicaConfigs;
+        private @Nullable List<PlanWorkflowStepRdsPromoteReadReplicaConfig> rdsPromoteReadReplicaConfigs;
         private @Nullable List<PlanWorkflowStepRegionSwitchPlanConfig> regionSwitchPlanConfigs;
         private @Nullable List<PlanWorkflowStepRoute53HealthCheckConfig> route53HealthCheckConfigs;
         public Builder() {}
@@ -225,6 +253,8 @@ public final class PlanWorkflowStep {
     	      this.globalAuroraConfigs = defaults.globalAuroraConfigs;
     	      this.name = defaults.name;
     	      this.parallelConfigs = defaults.parallelConfigs;
+    	      this.rdsCreateCrossRegionReadReplicaConfigs = defaults.rdsCreateCrossRegionReadReplicaConfigs;
+    	      this.rdsPromoteReadReplicaConfigs = defaults.rdsPromoteReadReplicaConfigs;
     	      this.regionSwitchPlanConfigs = defaults.regionSwitchPlanConfigs;
     	      this.route53HealthCheckConfigs = defaults.route53HealthCheckConfigs;
         }
@@ -333,6 +363,24 @@ public final class PlanWorkflowStep {
             return parallelConfigs(List.of(parallelConfigs));
         }
         @CustomType.Setter
+        public Builder rdsCreateCrossRegionReadReplicaConfigs(@Nullable List<PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig> rdsCreateCrossRegionReadReplicaConfigs) {
+
+            this.rdsCreateCrossRegionReadReplicaConfigs = rdsCreateCrossRegionReadReplicaConfigs;
+            return this;
+        }
+        public Builder rdsCreateCrossRegionReadReplicaConfigs(PlanWorkflowStepRdsCreateCrossRegionReadReplicaConfig... rdsCreateCrossRegionReadReplicaConfigs) {
+            return rdsCreateCrossRegionReadReplicaConfigs(List.of(rdsCreateCrossRegionReadReplicaConfigs));
+        }
+        @CustomType.Setter
+        public Builder rdsPromoteReadReplicaConfigs(@Nullable List<PlanWorkflowStepRdsPromoteReadReplicaConfig> rdsPromoteReadReplicaConfigs) {
+
+            this.rdsPromoteReadReplicaConfigs = rdsPromoteReadReplicaConfigs;
+            return this;
+        }
+        public Builder rdsPromoteReadReplicaConfigs(PlanWorkflowStepRdsPromoteReadReplicaConfig... rdsPromoteReadReplicaConfigs) {
+            return rdsPromoteReadReplicaConfigs(List.of(rdsPromoteReadReplicaConfigs));
+        }
+        @CustomType.Setter
         public Builder regionSwitchPlanConfigs(@Nullable List<PlanWorkflowStepRegionSwitchPlanConfig> regionSwitchPlanConfigs) {
 
             this.regionSwitchPlanConfigs = regionSwitchPlanConfigs;
@@ -364,6 +412,8 @@ public final class PlanWorkflowStep {
             _resultValue.globalAuroraConfigs = globalAuroraConfigs;
             _resultValue.name = name;
             _resultValue.parallelConfigs = parallelConfigs;
+            _resultValue.rdsCreateCrossRegionReadReplicaConfigs = rdsCreateCrossRegionReadReplicaConfigs;
+            _resultValue.rdsPromoteReadReplicaConfigs = rdsPromoteReadReplicaConfigs;
             _resultValue.regionSwitchPlanConfigs = regionSwitchPlanConfigs;
             _resultValue.route53HealthCheckConfigs = route53HealthCheckConfigs;
             return _resultValue;

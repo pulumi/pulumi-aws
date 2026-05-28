@@ -72,7 +72,7 @@ import (
 //					AuthenticationMode: pulumi.String("API"),
 //				},
 //				RoleArn: cluster.Arn,
-//				Version: pulumi.String("1.31"),
+//				Version: pulumi.String("1.35"),
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
 //						az1.Id,
@@ -203,7 +203,7 @@ import (
 //					AuthenticationMode: pulumi.String("API"),
 //				},
 //				RoleArn:                    cluster.Arn,
-//				Version:                    pulumi.String("1.31"),
+//				Version:                    pulumi.String("1.35"),
 //				BootstrapSelfManagedAddons: pulumi.Bool(false),
 //				ComputeConfig: &eks.ClusterComputeConfigArgs{
 //					Enabled: pulumi.Bool(true),
@@ -317,7 +317,7 @@ import (
 //					AuthenticationMode: pulumi.String("API"),
 //				},
 //				RoleArn: cluster.Arn,
-//				Version: pulumi.String("1.31"),
+//				Version: pulumi.String("1.35"),
 //				RemoteNetworkConfig: &eks.ClusterRemoteNetworkConfigArgs{
 //					RemoteNodeNetworks: &eks.ClusterRemoteNetworkConfigRemoteNodeNetworksArgs{
 //						Cidrs: pulumi.StringArray{
@@ -419,7 +419,7 @@ import (
 //					AuthenticationMode: pulumi.String("CONFIG_MAP"),
 //				},
 //				RoleArn: cluster.Arn,
-//				Version: pulumi.String("1.31"),
+//				Version: pulumi.String("1.35"),
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					EndpointPrivateAccess: pulumi.Bool(true),
 //					EndpointPublicAccess:  pulumi.Bool(false),

@@ -30,6 +30,7 @@ class PlanArgs:
                  primary_region: pulumi.Input[Optional[_builtins.str]] = None,
                  recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['PlanReportConfigurationArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['PlanTimeoutsArgs']] = None,
                  triggers: pulumi.Input[Optional[Sequence[pulumi.Input['PlanTriggerArgs']]]] = None,
@@ -46,6 +47,7 @@ class PlanArgs:
         :param pulumi.Input[_builtins.str] primary_region: Primary region for the plan.
         :param pulumi.Input[_builtins.int] recovery_time_objective_minutes: Recovery time objective in minutes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanReportConfigurationArgs']]] report_configurations: Configuration for automated execution reports. See Report Configuration below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]] triggers: Set of triggers that can initiate the plan execution. See Triggers below.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]] workflows: List of workflows that define the steps to execute. See Workflow below.
@@ -70,6 +72,8 @@ class PlanArgs:
             pulumi.log.warn("""region is deprecated: This attribute will be removed in a future version of the provider.""")
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if report_configurations is not None:
+            pulumi.set(__self__, "report_configurations", report_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -189,6 +193,18 @@ class PlanArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="reportConfigurations")
+    def report_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanReportConfigurationArgs']]]]:
+        """
+        Configuration for automated execution reports. See Report Configuration below.
+        """
+        return pulumi.get(self, "report_configurations")
+
+    @report_configurations.setter
+    def report_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanReportConfigurationArgs']]]]):
+        pulumi.set(self, "report_configurations", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -249,6 +265,7 @@ class _PlanState:
                  recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 report_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['PlanReportConfigurationArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['PlanTimeoutsArgs']] = None,
@@ -267,6 +284,7 @@ class _PlanState:
         :param pulumi.Input[_builtins.int] recovery_time_objective_minutes: Recovery time objective in minutes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanReportConfigurationArgs']]] report_configurations: Configuration for automated execution reports. See Report Configuration below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]] triggers: Set of triggers that can initiate the plan execution. See Triggers below.
@@ -297,6 +315,8 @@ class _PlanState:
             pulumi.set(__self__, "region", region)
         if regions is not None:
             pulumi.set(__self__, "regions", regions)
+        if report_configurations is not None:
+            pulumi.set(__self__, "report_configurations", report_configurations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -430,6 +450,18 @@ class _PlanState:
         pulumi.set(self, "regions", value)
 
     @_builtins.property
+    @pulumi.getter(name="reportConfigurations")
+    def report_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PlanReportConfigurationArgs']]]]:
+        """
+        Configuration for automated execution reports. See Report Configuration below.
+        """
+        return pulumi.get(self, "report_configurations")
+
+    @report_configurations.setter
+    def report_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PlanReportConfigurationArgs']]]]):
+        pulumi.set(self, "report_configurations", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -504,6 +536,7 @@ class Plan(pulumi.CustomResource):
                  recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 report_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['PlanTimeoutsArgs', 'PlanTimeoutsArgsDict']]] = None,
                  triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
@@ -668,6 +701,12 @@ class Plan(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the ARC Region Switch Plan.
+
         Using `pulumi import`, import Application Recovery Controller Region Switch Plan using the `arn`. For example:
 
         ```sh
@@ -686,6 +725,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] recovery_time_objective_minutes: Recovery time objective in minutes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]]] report_configurations: Configuration for automated execution reports. See Report Configuration below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]] triggers: Set of triggers that can initiate the plan execution. See Triggers below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]] workflows: List of workflows that define the steps to execute. See Workflow below.
@@ -857,6 +897,12 @@ class Plan(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the ARC Region Switch Plan.
+
         Using `pulumi import`, import Application Recovery Controller Region Switch Plan using the `arn`. For example:
 
         ```sh
@@ -888,6 +934,7 @@ class Plan(pulumi.CustomResource):
                  recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 report_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['PlanTimeoutsArgs', 'PlanTimeoutsArgsDict']]] = None,
                  triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]]] = None,
@@ -916,6 +963,7 @@ class Plan(pulumi.CustomResource):
             if regions is None and not opts.urn:
                 raise TypeError("Missing required property 'regions'")
             __props__.__dict__["regions"] = regions
+            __props__.__dict__["report_configurations"] = report_configurations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["triggers"] = triggers
@@ -942,6 +990,7 @@ class Plan(pulumi.CustomResource):
             recovery_time_objective_minutes: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            report_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timeouts: pulumi.Input[Optional[Union['PlanTimeoutsArgs', 'PlanTimeoutsArgsDict']]] = None,
@@ -964,6 +1013,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] recovery_time_objective_minutes: Recovery time objective in minutes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanReportConfigurationArgs', 'PlanReportConfigurationArgsDict']]]] report_configurations: Configuration for automated execution reports. See Report Configuration below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]] triggers: Set of triggers that can initiate the plan execution. See Triggers below.
@@ -985,6 +1035,7 @@ class Plan(pulumi.CustomResource):
         __props__.__dict__["recovery_time_objective_minutes"] = recovery_time_objective_minutes
         __props__.__dict__["region"] = region
         __props__.__dict__["regions"] = regions
+        __props__.__dict__["report_configurations"] = report_configurations
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -1072,6 +1123,14 @@ class Plan(pulumi.CustomResource):
         List of AWS regions involved in the plan.
         """
         return pulumi.get(self, "regions")
+
+    @_builtins.property
+    @pulumi.getter(name="reportConfigurations")
+    def report_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.PlanReportConfiguration']]]:
+        """
+        Configuration for automated execution reports. See Report Configuration below.
+        """
+        return pulumi.get(self, "report_configurations")
 
     @_builtins.property
     @pulumi.getter

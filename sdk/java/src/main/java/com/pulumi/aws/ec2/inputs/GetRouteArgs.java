@@ -182,6 +182,21 @@ public final class GetRouteArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * ODB network ARN of the Route belonging to the Route Table.
+     * 
+     */
+    @Import(name="odbNetworkArn")
+    private @Nullable Output<String> odbNetworkArn;
+
+    /**
+     * @return ODB network ARN of the Route belonging to the Route Table.
+     * 
+     */
+    public Optional<Output<String>> odbNetworkArn() {
+        return Optional.ofNullable(this.odbNetworkArn);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -259,6 +274,7 @@ public final class GetRouteArgs extends com.pulumi.resources.InvokeArgs {
         this.localGatewayId = $.localGatewayId;
         this.natGatewayId = $.natGatewayId;
         this.networkInterfaceId = $.networkInterfaceId;
+        this.odbNetworkArn = $.odbNetworkArn;
         this.region = $.region;
         this.routeTableId = $.routeTableId;
         this.transitGatewayId = $.transitGatewayId;
@@ -512,6 +528,27 @@ public final class GetRouteArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
+        }
+
+        /**
+         * @param odbNetworkArn ODB network ARN of the Route belonging to the Route Table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(@Nullable Output<String> odbNetworkArn) {
+            $.odbNetworkArn = odbNetworkArn;
+            return this;
+        }
+
+        /**
+         * @param odbNetworkArn ODB network ARN of the Route belonging to the Route Table.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(String odbNetworkArn) {
+            return odbNetworkArn(Output.of(odbNetworkArn));
         }
 
         /**

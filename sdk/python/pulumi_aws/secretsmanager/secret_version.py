@@ -148,6 +148,7 @@ class _SecretVersionState:
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
                  has_secret_string_wo: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  secret_binary: pulumi.Input[Optional[_builtins.str]] = None,
                  secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  secret_string: pulumi.Input[Optional[_builtins.str]] = None,
@@ -158,8 +159,10 @@ class _SecretVersionState:
         """
         Input properties used for looking up and filtering SecretVersion resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the secret.
+        :param pulumi.Input[_builtins.str] arn: (**Deprecated**) The ARN of the secret.
+               Use `secret_arn` instead.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the secret.
         :param pulumi.Input[_builtins.str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
         :param pulumi.Input[_builtins.str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         :param pulumi.Input[_builtins.str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
@@ -172,11 +175,16 @@ class _SecretVersionState:
                > **NOTE:** If `version_stages` is configured, you must include the `AWSCURRENT` staging label if this secret version is the only version or if the label is currently present on this secret version, otherwise this provider will show a perpetual difference.
         """
         if arn is not None:
+            warnings.warn("""arn is deprecated. Use secret_arn instead.""", DeprecationWarning)
+            pulumi.log.warn("""arn is deprecated: arn is deprecated. Use secret_arn instead.""")
+        if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if has_secret_string_wo is not None:
             pulumi.set(__self__, "has_secret_string_wo", has_secret_string_wo)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
         if secret_binary is not None:
             pulumi.set(__self__, "secret_binary", secret_binary)
         if secret_id is not None:
@@ -194,9 +202,11 @@ class _SecretVersionState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""arn is deprecated. Use secret_arn instead.""")
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the secret.
+        (**Deprecated**) The ARN of the secret.
+        Use `secret_arn` instead.
         """
         return pulumi.get(self, "arn")
 
@@ -224,6 +234,18 @@ class _SecretVersionState:
     @region.setter
     def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARN of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secret_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="secretBinary")
@@ -526,6 +548,7 @@ class SecretVersion(pulumi.CustomResource):
             __props__.__dict__["version_stages"] = version_stages
             __props__.__dict__["arn"] = None
             __props__.__dict__["has_secret_string_wo"] = None
+            __props__.__dict__["secret_arn"] = None
             __props__.__dict__["version_id"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secretBinary", "secretString", "secretStringWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -542,6 +565,7 @@ class SecretVersion(pulumi.CustomResource):
             arn: pulumi.Input[Optional[_builtins.str]] = None,
             has_secret_string_wo: pulumi.Input[Optional[_builtins.bool]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
+            secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
             secret_binary: pulumi.Input[Optional[_builtins.str]] = None,
             secret_id: pulumi.Input[Optional[_builtins.str]] = None,
             secret_string: pulumi.Input[Optional[_builtins.str]] = None,
@@ -556,8 +580,10 @@ class SecretVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the secret.
+        :param pulumi.Input[_builtins.str] arn: (**Deprecated**) The ARN of the secret.
+               Use `secret_arn` instead.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] secret_arn: The ARN of the secret.
         :param pulumi.Input[_builtins.str] secret_binary: Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secret_string` or `secret_string_wo` is not set. Needs to be encoded to base64.
         :param pulumi.Input[_builtins.str] secret_id: Specifies the secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
         :param pulumi.Input[_builtins.str] secret_string: Specifies text data that you want to encrypt and store in this version of the secret. This is required if `secret_binary` or `secret_string_wo` is not set.
@@ -576,6 +602,7 @@ class SecretVersion(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["has_secret_string_wo"] = has_secret_string_wo
         __props__.__dict__["region"] = region
+        __props__.__dict__["secret_arn"] = secret_arn
         __props__.__dict__["secret_binary"] = secret_binary
         __props__.__dict__["secret_id"] = secret_id
         __props__.__dict__["secret_string"] = secret_string
@@ -587,9 +614,11 @@ class SecretVersion(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""arn is deprecated. Use secret_arn instead.""")
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the secret.
+        (**Deprecated**) The ARN of the secret.
+        Use `secret_arn` instead.
         """
         return pulumi.get(self, "arn")
 
@@ -605,6 +634,14 @@ class SecretVersion(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The ARN of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
 
     @_builtins.property
     @pulumi.getter(name="secretBinary")

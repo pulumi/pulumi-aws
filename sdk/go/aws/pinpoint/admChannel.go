@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
+// Provides an End User Messaging ADM (Amazon Device Messaging) Channel resource.
 //
 // > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
 // ## Example Usage
@@ -50,7 +50,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
+// Using `pulumi import`, import End User Messaging ADM Channel using the `application-id`. For example:
 //
 // ```sh
 // $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
@@ -58,13 +58,13 @@ import (
 type AdmChannel struct {
 	pulumi.CustomResourceState
 
-	// The application ID.
+	// Application ID.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
-	// Specifies whether to enable the channel. Defaults to `true`.
+	// Whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -120,26 +120,26 @@ func GetAdmChannel(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AdmChannel resources.
 type admChannelState struct {
-	// The application ID.
+	// Application ID.
 	ApplicationId *string `pulumi:"applicationId"`
 	// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
 	ClientId *string `pulumi:"clientId"`
 	// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
 	ClientSecret *string `pulumi:"clientSecret"`
-	// Specifies whether to enable the channel. Defaults to `true`.
+	// Whether to enable the channel. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type AdmChannelState struct {
-	// The application ID.
+	// Application ID.
 	ApplicationId pulumi.StringPtrInput
 	// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
 	ClientId pulumi.StringPtrInput
 	// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
 	ClientSecret pulumi.StringPtrInput
-	// Specifies whether to enable the channel. Defaults to `true`.
+	// Whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -150,13 +150,13 @@ func (AdmChannelState) ElementType() reflect.Type {
 }
 
 type admChannelArgs struct {
-	// The application ID.
+	// Application ID.
 	ApplicationId string `pulumi:"applicationId"`
 	// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
 	ClientId string `pulumi:"clientId"`
 	// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
 	ClientSecret string `pulumi:"clientSecret"`
-	// Specifies whether to enable the channel. Defaults to `true`.
+	// Whether to enable the channel. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -164,13 +164,13 @@ type admChannelArgs struct {
 
 // The set of arguments for constructing a AdmChannel resource.
 type AdmChannelArgs struct {
-	// The application ID.
+	// Application ID.
 	ApplicationId pulumi.StringInput
 	// Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
 	ClientId pulumi.StringInput
 	// Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
 	ClientSecret pulumi.StringInput
-	// Specifies whether to enable the channel. Defaults to `true`.
+	// Whether to enable the channel. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -263,7 +263,7 @@ func (o AdmChannelOutput) ToAdmChannelOutputWithContext(ctx context.Context) Adm
 	return o
 }
 
-// The application ID.
+// Application ID.
 func (o AdmChannelOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdmChannel) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
@@ -278,7 +278,7 @@ func (o AdmChannelOutput) ClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *AdmChannel) pulumi.StringOutput { return v.ClientSecret }).(pulumi.StringOutput)
 }
 
-// Specifies whether to enable the channel. Defaults to `true`.
+// Whether to enable the channel. Defaults to `true`.
 func (o AdmChannelOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AdmChannel) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }

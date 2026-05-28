@@ -17,14 +17,20 @@ namespace Pulumi.Aws.Pinpoint.Outputs
         /// JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
         /// </summary>
         public readonly string? DefaultSubstitutions;
+        /// <summary>
+        /// Custom description of the message template.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EmailTemplateEmailTemplateHeader> Headers;
         /// <summary>
-        /// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+        /// Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
         /// </summary>
         public readonly string? HtmlPart;
         /// <summary>
-        /// The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+        /// Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
         /// </summary>
         public readonly string? RecommenderId;
         /// <summary>
