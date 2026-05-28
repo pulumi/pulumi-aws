@@ -66,10 +66,10 @@ index 5eac7d28062..40fa13dfb6e 100644
  	return c.RegionalARN(ctx, names.EC2, "key-pair/"+keyName)
  }
 diff --git a/internal/service/ec2/ec2_key_pair_test.go b/internal/service/ec2/ec2_key_pair_test.go
-index 9553a75bb1d..459c6fedba0 100644
+index 28737b6c9ed..52305fb2834 100644
 --- a/internal/service/ec2/ec2_key_pair_test.go
 +++ b/internal/service/ec2/ec2_key_pair_test.go
-@@ -44,14 +44,19 @@ func TestAccEC2KeyPair_basic(t *testing.T) {
+@@ -45,14 +45,19 @@ func TestAccEC2KeyPair_basic(t *testing.T) {
  					resource.TestMatchResourceAttr(resourceName, "fingerprint", regexache.MustCompile(`[0-9a-f]{2}(:[0-9a-f]{2}){15}`)),
  					resource.TestCheckResourceAttr(resourceName, "key_name", rName),
  					resource.TestCheckResourceAttr(resourceName, "key_name_prefix", ""),
@@ -94,7 +94,7 @@ index 9553a75bb1d..459c6fedba0 100644
  			},
  		},
  	})
-@@ -83,10 +88,9 @@ func TestAccEC2KeyPair_tags(t *testing.T) {
+@@ -84,10 +89,9 @@ func TestAccEC2KeyPair_tags(t *testing.T) {
  				),
  			},
  			{
@@ -108,7 +108,7 @@ index 9553a75bb1d..459c6fedba0 100644
  			},
  			{
  				Config: testAccKeyPairConfig_tags2(rName, publicKey, acctest.CtKey1, acctest.CtValue1Updated, acctest.CtKey2, acctest.CtValue2),
-@@ -134,10 +138,9 @@ func TestAccEC2KeyPair_nameGenerated(t *testing.T) {
+@@ -135,10 +139,9 @@ func TestAccEC2KeyPair_nameGenerated(t *testing.T) {
  				),
  			},
  			{
@@ -122,7 +122,7 @@ index 9553a75bb1d..459c6fedba0 100644
  			},
  		},
  	})
-@@ -168,10 +171,48 @@ func TestAccEC2KeyPair_namePrefix(t *testing.T) {
+@@ -169,10 +172,48 @@ func TestAccEC2KeyPair_namePrefix(t *testing.T) {
  				),
  			},
  			{
