@@ -88,7 +88,7 @@ func addResourceNote(resourceFile string, markdownNote string) tfbridge.DocsEdit
 			re := regexp.MustCompile(`[#] Resource: [\w-]+`)
 			return re.ReplaceAllFunc(content, func(matching []byte) []byte {
 				return append(append([]byte{}, matching...), []byte(
-					fmt.Sprintf("\n\n> **NOTE:**: %s", markdownNote),
+					fmt.Sprintf("\n\n> **NOTE:** %s", markdownNote),
 				)...)
 			}), nil
 		},

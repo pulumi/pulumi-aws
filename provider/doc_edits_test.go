@@ -42,7 +42,21 @@ func TestReplacementDoesNotIncludeTodos(t *testing.T) {
 	}
 }
 
+func TestAddResourceNote_UsesCorrectNoteFormat(t *testing.T) {
+	t.Parallel()
+
+	edit := addResourceNote("some_resource.html.markdown", "This is a note.")
+	content := []byte("# Resource: aws_some_resource\n\nSome content.")
+	out, err := edit.Edit("some_resource.html.markdown", content)
+	require.NoError(t, err)
+
+	// The note must use a single colon ("**NOTE:** text"), not a double colon ("**NOTE:**: text").
+	require.Contains(t, string(out), "> **NOTE:** This is a note.")
+	require.NotContains(t, string(out), "**NOTE:**: ")
+}
+
 func TestFixUpBucketReplicationConfig_InsertsNotesFromRuleSection(t *testing.T) {
+	t.Parallel()
 	content := strings.Join([]string{
 		"# Resource: aws_s3_bucket_replication_configuration",
 		"",
@@ -82,6 +96,7 @@ func TestFixUpBucketReplicationConfig_InsertsNotesFromRuleSection(t *testing.T) 
 }
 
 func TestFixUpBucketReplicationConfig_DoesNotDuplicateInsertedNotes(t *testing.T) {
+	t.Parallel()
 	noteBlock := strings.Join([]string{
 		"~> **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object.",
 		"",
