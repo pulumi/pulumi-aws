@@ -110,6 +110,7 @@ func TestCognitoIdentityProviderProviderDetailsUpgrade(t *testing.T) {
 	test, _ := testProviderUpgrade(t, filepath.Join("test-programs", "cognito-identity-provider-provider-details"),
 		&testProviderUpgradeOptions{
 			skipDefaultPreviewTest: true,
+			skipCache:              true,
 		},
 	)
 	test.ClearGrpcLog(t)
