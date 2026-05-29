@@ -16,12 +16,12 @@ namespace Pulumi.Aws.Msk.Outputs
         /// <summary>
         /// Configuration block for replicator log delivery. Detailed below.
         /// </summary>
-        public readonly Outputs.ReplicatorLogDeliveryReplicatorLogDelivery? ReplicatorLogDelivery;
+        public readonly Outputs.ReplicatorLogDeliveryReplicatorLogDelivery? LogDelivery;
 
         [OutputConstructor]
         private ReplicatorLogDelivery(Outputs.ReplicatorLogDeliveryReplicatorLogDelivery? replicatorLogDelivery)
         {
-            ReplicatorLogDelivery = replicatorLogDelivery;
+            LogDelivery = replicatorLogDelivery;
         }
     }
 }

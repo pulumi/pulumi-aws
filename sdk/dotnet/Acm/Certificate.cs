@@ -18,8 +18,6 @@ namespace Pulumi.Aws.Acm
     /// imported certificates, issued by another certificate authority;
     /// and private certificates, issued using an ACM Private Certificate Authority.
     /// 
-    /// &gt; **Note:** Write-Only argument `PrivateKeyWo` is available to use in place of `PrivateKey`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
-    /// 
     /// ## Amazon-Issued Certificates
     /// 
     /// For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.

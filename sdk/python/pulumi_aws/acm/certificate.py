@@ -643,8 +643,6 @@ class Certificate(pulumi.CustomResource):
         imported certificates, issued by another certificate authority;
         and private certificates, issued using an ACM Private Certificate Authority.
 
-        > **Note:** Write-Only argument `private_key_wo` is available to use in place of `private_key`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
-
         ## Amazon-Issued Certificates
 
         For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.
@@ -806,8 +804,6 @@ class Certificate(pulumi.CustomResource):
         Amazon-issued, where AWS provides the certificate authority and automatically manages renewal;
         imported certificates, issued by another certificate authority;
         and private certificates, issued using an ACM Private Certificate Authority.
-
-        > **Note:** Write-Only argument `private_key_wo` is available to use in place of `private_key`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
 
         ## Amazon-Issued Certificates
 

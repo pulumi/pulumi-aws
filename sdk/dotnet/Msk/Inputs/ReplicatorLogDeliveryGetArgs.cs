@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Msk.Inputs
         /// Configuration block for replicator log delivery. Detailed below.
         /// </summary>
         [Input("replicatorLogDelivery")]
-        public Input<Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryGetArgs>? ReplicatorLogDelivery { get; set; }
+        public Input<Inputs.ReplicatorLogDeliveryReplicatorLogDeliveryGetArgs>? LogDelivery { get; set; }
 
         public ReplicatorLogDeliveryGetArgs()
         {
