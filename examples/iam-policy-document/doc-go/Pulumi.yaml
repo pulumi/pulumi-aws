@@ -1,3 +1,0 @@
-name: iam-policy-document
-description: Basic example of an AWS Policy Document
-runtime: go
