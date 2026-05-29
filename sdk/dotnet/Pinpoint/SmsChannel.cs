@@ -10,7 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint
 {
     /// <summary>
-    /// Use the `aws.pinpoint.SmsChannel` resource to manage Pinpoint SMS Channels.
+    /// Use the `aws.pinpoint.SmsChannel` resource to manage End User Messaging SMS Channels.
+    /// 
+    /// &gt; **NOTE:** AWS has feature frozen the SMS channel of End User Messaging.
     /// 
     /// ## Example Usage
     /// 
@@ -34,7 +36,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import the Pinpoint SMS Channel using the `ApplicationId`. For example:
+    /// Using `pulumi import`, import the End User Messaging SMS Channel using the `ApplicationId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id

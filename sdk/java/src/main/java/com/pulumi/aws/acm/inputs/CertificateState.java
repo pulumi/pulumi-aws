@@ -10,6 +10,7 @@ import com.pulumi.aws.acm.inputs.CertificateValidationOptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -163,6 +164,28 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<String>> privateKey() {
         return Optional.ofNullable(this.privateKey);
+    }
+
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * 
+     */
+    @Import(name="privateKeyWo")
+    private @Nullable Output<String> privateKeyWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * 
+     */
+    public Optional<Output<String>> privateKeyWo() {
+        return Optional.ofNullable(this.privateKeyWo);
+    }
+
+    @Import(name="privateKeyWoVersion")
+    private @Nullable Output<Integer> privateKeyWoVersion;
+
+    public Optional<Output<Integer>> privateKeyWoVersion() {
+        return Optional.ofNullable(this.privateKeyWoVersion);
     }
 
     /**
@@ -324,6 +347,8 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         this.options = $.options;
         this.pendingRenewal = $.pendingRenewal;
         this.privateKey = $.privateKey;
+        this.privateKeyWo = $.privateKeyWo;
+        this.privateKeyWoVersion = $.privateKeyWoVersion;
         this.region = $.region;
         this.renewalEligibility = $.renewalEligibility;
         this.renewalSummaries = $.renewalSummaries;
@@ -558,6 +583,36 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
 
         public Builder privateKey(String privateKey) {
             return privateKey(Output.of(privateKey));
+        }
+
+        /**
+         * @param privateKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateKeyWo(@Nullable Output<String> privateKeyWo) {
+            $.privateKeyWo = privateKeyWo;
+            return this;
+        }
+
+        /**
+         * @param privateKeyWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateKeyWo(String privateKeyWo) {
+            return privateKeyWo(Output.of(privateKeyWo));
+        }
+
+        public Builder privateKeyWoVersion(@Nullable Output<Integer> privateKeyWoVersion) {
+            $.privateKeyWoVersion = privateKeyWoVersion;
+            return this;
+        }
+
+        public Builder privateKeyWoVersion(Integer privateKeyWoVersion) {
+            return privateKeyWoVersion(Output.of(privateKeyWoVersion));
         }
 
         /**

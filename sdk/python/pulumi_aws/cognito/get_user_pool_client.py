@@ -143,7 +143,7 @@ class GetUserPoolClientResult:
     @pulumi.getter(name="analyticsConfigurations")
     def analytics_configurations(self) -> Sequence['outputs.GetUserPoolClientAnalyticsConfigurationResult']:
         """
-        (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+        (Optional) Configuration block for AWS End User Messaging analytics for collecting metrics for this user pool. Detailed below.
         """
         return pulumi.get(self, "analytics_configurations")
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Pinpoint APNs VoIP Channel resource.
+ * Provides an End User Messaging APNs VoIP Channel resource.
  *
  * > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
  * ## Example Usage
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Pinpoint APNs VoIP Channel using the `application-id`. For example:
+ * Using `pulumi import`, import End User Messaging APNs VoIP Channel using the `application-id`. For example:
  *
  * ```sh
  * $ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id
@@ -64,26 +64,19 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
     }
 
     /**
-     * The application ID.
+     * Application ID.
      */
     declare public readonly applicationId: pulumi.Output<string>;
     /**
-     * The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
+     * ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app. Required if using Key credentials.
      */
     declare public readonly bundleId: pulumi.Output<string | undefined>;
     /**
-     * The pem encoded TLS Certificate from Apple.
+     * Pem encoded TLS Certificate from Apple. Required if using Certificate credentials.
      */
     declare public readonly certificate: pulumi.Output<string | undefined>;
     /**
-     * The default authentication method used for APNs.
-     * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-     * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-     * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-     *
-     * One of the following sets of credentials is also required.
-     *
-     * If you choose to use __Certificate credentials__ you will have to provide:
+     * Default authentication method used for APNs. __NOTE__: AWS End User Messaging uses this default for every APNs push notification that you send using the console. You can override the default when you send a message programmatically using the AWS End User Messaging API, the AWS CLI, or an AWS SDK. If your default authentication type fails, AWS End User Messaging doesn't attempt to use the other authentication type.
      */
     declare public readonly defaultAuthenticationMethod: pulumi.Output<string | undefined>;
     /**
@@ -91,9 +84,7 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
-     * The Certificate Private Key file (ie. `.key` file).
-     *
-     * If you choose to use __Key credentials__ you will have to provide:
+     * Certificate Private Key file (ie. `.key` file). Required if using Certificate credentials.
      */
     declare public readonly privateKey: pulumi.Output<string | undefined>;
     /**
@@ -101,15 +92,15 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+     * ID assigned to your Apple developer account team. This value is provided on the Membership page. Required if using Key credentials.
      */
     declare public readonly teamId: pulumi.Output<string | undefined>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
+     * `.p8` file that you download from your Apple developer account when you create an authentication key. Required if using Key credentials.
      */
     declare public readonly tokenKey: pulumi.Output<string | undefined>;
     /**
-     * The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
+     * ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section. Required if using Key credentials.
      */
     declare public readonly tokenKeyId: pulumi.Output<string | undefined>;
 
@@ -164,26 +155,19 @@ export class ApnsVoipChannel extends pulumi.CustomResource {
  */
 export interface ApnsVoipChannelState {
     /**
-     * The application ID.
+     * Application ID.
      */
     applicationId?: pulumi.Input<string | undefined>;
     /**
-     * The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
+     * ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app. Required if using Key credentials.
      */
     bundleId?: pulumi.Input<string | undefined>;
     /**
-     * The pem encoded TLS Certificate from Apple.
+     * Pem encoded TLS Certificate from Apple. Required if using Certificate credentials.
      */
     certificate?: pulumi.Input<string | undefined>;
     /**
-     * The default authentication method used for APNs.
-     * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-     * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-     * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-     *
-     * One of the following sets of credentials is also required.
-     *
-     * If you choose to use __Certificate credentials__ you will have to provide:
+     * Default authentication method used for APNs. __NOTE__: AWS End User Messaging uses this default for every APNs push notification that you send using the console. You can override the default when you send a message programmatically using the AWS End User Messaging API, the AWS CLI, or an AWS SDK. If your default authentication type fails, AWS End User Messaging doesn't attempt to use the other authentication type.
      */
     defaultAuthenticationMethod?: pulumi.Input<string | undefined>;
     /**
@@ -191,9 +175,7 @@ export interface ApnsVoipChannelState {
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The Certificate Private Key file (ie. `.key` file).
-     *
-     * If you choose to use __Key credentials__ you will have to provide:
+     * Certificate Private Key file (ie. `.key` file). Required if using Certificate credentials.
      */
     privateKey?: pulumi.Input<string | undefined>;
     /**
@@ -201,15 +183,15 @@ export interface ApnsVoipChannelState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+     * ID assigned to your Apple developer account team. This value is provided on the Membership page. Required if using Key credentials.
      */
     teamId?: pulumi.Input<string | undefined>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
+     * `.p8` file that you download from your Apple developer account when you create an authentication key. Required if using Key credentials.
      */
     tokenKey?: pulumi.Input<string | undefined>;
     /**
-     * The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
+     * ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section. Required if using Key credentials.
      */
     tokenKeyId?: pulumi.Input<string | undefined>;
 }
@@ -219,26 +201,19 @@ export interface ApnsVoipChannelState {
  */
 export interface ApnsVoipChannelArgs {
     /**
-     * The application ID.
+     * Application ID.
      */
     applicationId: pulumi.Input<string>;
     /**
-     * The ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app.
+     * ID assigned to your iOS app. To find this value, choose Certificates, IDs & Profiles, choose App IDs in the Identifiers section, and choose your app. Required if using Key credentials.
      */
     bundleId?: pulumi.Input<string | undefined>;
     /**
-     * The pem encoded TLS Certificate from Apple.
+     * Pem encoded TLS Certificate from Apple. Required if using Certificate credentials.
      */
     certificate?: pulumi.Input<string | undefined>;
     /**
-     * The default authentication method used for APNs.
-     * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-     * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-     * If your default authentication type fails, Amazon Pinpoint doesn't attempt to use the other authentication type.
-     *
-     * One of the following sets of credentials is also required.
-     *
-     * If you choose to use __Certificate credentials__ you will have to provide:
+     * Default authentication method used for APNs. __NOTE__: AWS End User Messaging uses this default for every APNs push notification that you send using the console. You can override the default when you send a message programmatically using the AWS End User Messaging API, the AWS CLI, or an AWS SDK. If your default authentication type fails, AWS End User Messaging doesn't attempt to use the other authentication type.
      */
     defaultAuthenticationMethod?: pulumi.Input<string | undefined>;
     /**
@@ -246,9 +221,7 @@ export interface ApnsVoipChannelArgs {
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The Certificate Private Key file (ie. `.key` file).
-     *
-     * If you choose to use __Key credentials__ you will have to provide:
+     * Certificate Private Key file (ie. `.key` file). Required if using Certificate credentials.
      */
     privateKey?: pulumi.Input<string | undefined>;
     /**
@@ -256,15 +229,15 @@ export interface ApnsVoipChannelArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+     * ID assigned to your Apple developer account team. This value is provided on the Membership page. Required if using Key credentials.
      */
     teamId?: pulumi.Input<string | undefined>;
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
+     * `.p8` file that you download from your Apple developer account when you create an authentication key. Required if using Key credentials.
      */
     tokenKey?: pulumi.Input<string | undefined>;
     /**
-     * The ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section.
+     * ID assigned to your signing key. To find this value, choose Certificates, IDs & Profiles, and choose your key in the Keys section. Required if using Key credentials.
      */
     tokenKeyId?: pulumi.Input<string | undefined>;
 }

@@ -18,14 +18,14 @@ public final class AdmChannelArgs extends com.pulumi.resources.ResourceArgs {
     public static final AdmChannelArgs Empty = new AdmChannelArgs();
 
     /**
-     * The application ID.
+     * Application ID.
      * 
      */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      */
     public Output<String> applicationId() {
@@ -63,14 +63,14 @@ public final class AdmChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to enable the channel. Defaults to `true`.
+     * Whether to enable the channel. Defaults to `true`.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Specifies whether to enable the channel. Defaults to `true`.
+     * @return Whether to enable the channel. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -121,7 +121,7 @@ public final class AdmChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class AdmChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AdmChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Specifies whether to enable the channel. Defaults to `true`.
+         * @param enabled Whether to enable the channel. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class AdmChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Specifies whether to enable the channel. Defaults to `true`.
+         * @param enabled Whether to enable the channel. Defaults to `true`.
          * 
          * @return builder
          * 

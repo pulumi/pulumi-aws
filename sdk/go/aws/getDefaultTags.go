@@ -54,11 +54,13 @@ func GetDefaultTags(ctx *pulumi.Context, args *GetDefaultTagsArgs, opts ...pulum
 
 // A collection of arguments for invoking getDefaultTags.
 type GetDefaultTagsArgs struct {
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Id *string `pulumi:"id"`
 }
 
 // A collection of values returned by getDefaultTags.
 type GetDefaultTagsResult struct {
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Id string `pulumi:"id"`
 	// Key-value mapping of provider default tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -75,6 +77,7 @@ func GetDefaultTagsOutput(ctx *pulumi.Context, args GetDefaultTagsOutputArgs, op
 
 // A collection of arguments for invoking getDefaultTags.
 type GetDefaultTagsOutputArgs struct {
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
@@ -97,6 +100,7 @@ func (o GetDefaultTagsResultOutput) ToGetDefaultTagsResultOutputWithContext(ctx 
 	return o
 }
 
+// Deprecated: This attribute will be removed in a future version of the provider.
 func (o GetDefaultTagsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDefaultTagsResult) string { return v.Id }).(pulumi.StringOutput)
 }

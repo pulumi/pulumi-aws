@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Pinpoint Baidu Channel resource.
+ * Provides an End User Messaging Baidu Channel resource.
  *
  * > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
  * ## Example Usage
@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
+ * Using `pulumi import`, import End User Messaging Baidu Channel using the `application-id`. For example:
  *
  * ```sh
  * $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
@@ -63,11 +63,11 @@ export class BaiduChannel extends pulumi.CustomResource {
      */
     declare public readonly apiKey: pulumi.Output<string>;
     /**
-     * The application ID.
+     * Application ID.
      */
     declare public readonly applicationId: pulumi.Output<string>;
     /**
-     * Specifies whether to enable the channel. Defaults to `true`.
+     * Whether to enable the channel. Defaults to `true`.
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
@@ -130,11 +130,11 @@ export interface BaiduChannelState {
      */
     apiKey?: pulumi.Input<string | undefined>;
     /**
-     * The application ID.
+     * Application ID.
      */
     applicationId?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether to enable the channel. Defaults to `true`.
+     * Whether to enable the channel. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -156,11 +156,11 @@ export interface BaiduChannelArgs {
      */
     apiKey: pulumi.Input<string>;
     /**
-     * The application ID.
+     * Application ID.
      */
     applicationId: pulumi.Input<string>;
     /**
-     * Specifies whether to enable the channel. Defaults to `true`.
+     * Whether to enable the channel. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**

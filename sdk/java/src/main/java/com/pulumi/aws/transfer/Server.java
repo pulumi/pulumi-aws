@@ -508,6 +508,20 @@ public class Server extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.invocationRole);
     }
     /**
+     * Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
+     * 
+     */
+    @Export(name="ipAddressType", refs={String.class}, tree="[0]")
+    private Output<String> ipAddressType;
+
+    /**
+     * @return Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
+     * 
+     */
+    public Output<String> ipAddressType() {
+        return this.ipAddressType;
+    }
+    /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */

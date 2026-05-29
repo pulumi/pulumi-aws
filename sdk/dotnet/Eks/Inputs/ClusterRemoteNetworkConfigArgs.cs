@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Eks.Inputs
         /// <summary>
         /// Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
         /// </summary>
-        [Input("remoteNodeNetworks", required: true)]
-        public Input<Inputs.ClusterRemoteNetworkConfigRemoteNodeNetworksArgs> RemoteNodeNetworks { get; set; } = null!;
+        [Input("remoteNodeNetworks")]
+        public Input<Inputs.ClusterRemoteNetworkConfigRemoteNodeNetworksArgs>? RemoteNodeNetworks { get; set; }
 
         /// <summary>
         /// Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.

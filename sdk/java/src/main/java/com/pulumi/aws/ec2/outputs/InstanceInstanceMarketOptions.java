@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class InstanceInstanceMarketOptions {
     /**
-     * @return Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
+     * @return Type of market for the instance. Valid values are `spot`, `capacity-block`, and `interruptible-capacity-reservation`. Use `interruptible-capacity-reservation` to launch instances into [interruptible Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-consumer-procedures.html). Defaults to `spot`. Required if `spotOptions` is specified.
      * 
      */
     private @Nullable String marketType;
@@ -25,7 +25,7 @@ public final class InstanceInstanceMarketOptions {
 
     private InstanceInstanceMarketOptions() {}
     /**
-     * @return Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
+     * @return Type of market for the instance. Valid values are `spot`, `capacity-block`, and `interruptible-capacity-reservation`. Use `interruptible-capacity-reservation` to launch instances into [interruptible Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-consumer-procedures.html). Defaults to `spot`. Required if `spotOptions` is specified.
      * 
      */
     public Optional<String> marketType() {

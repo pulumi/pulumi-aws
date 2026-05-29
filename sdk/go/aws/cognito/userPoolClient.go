@@ -303,7 +303,7 @@ type UserPoolClient struct {
 	AllowedOauthFlowsUserPoolClient pulumi.BoolOutput `pulumi:"allowedOauthFlowsUserPoolClient"`
 	// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthScopes pulumi.StringArrayOutput `pulumi:"allowedOauthScopes"`
-	// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+	// Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
 	AnalyticsConfiguration UserPoolClientAnalyticsConfigurationPtrOutput `pulumi:"analyticsConfiguration"`
 	// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
 	AuthSessionValidity pulumi.IntOutput `pulumi:"authSessionValidity"`
@@ -394,7 +394,7 @@ type userPoolClientState struct {
 	AllowedOauthFlowsUserPoolClient *bool `pulumi:"allowedOauthFlowsUserPoolClient"`
 	// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthScopes []string `pulumi:"allowedOauthScopes"`
-	// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+	// Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
 	AnalyticsConfiguration *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
 	// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
 	AuthSessionValidity *int `pulumi:"authSessionValidity"`
@@ -449,7 +449,7 @@ type UserPoolClientState struct {
 	AllowedOauthFlowsUserPoolClient pulumi.BoolPtrInput
 	// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthScopes pulumi.StringArrayInput
-	// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+	// Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
 	AnalyticsConfiguration UserPoolClientAnalyticsConfigurationPtrInput
 	// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
 	AuthSessionValidity pulumi.IntPtrInput
@@ -508,7 +508,7 @@ type userPoolClientArgs struct {
 	AllowedOauthFlowsUserPoolClient *bool `pulumi:"allowedOauthFlowsUserPoolClient"`
 	// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthScopes []string `pulumi:"allowedOauthScopes"`
-	// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+	// Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
 	AnalyticsConfiguration *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
 	// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
 	AuthSessionValidity *int `pulumi:"authSessionValidity"`
@@ -562,7 +562,7 @@ type UserPoolClientArgs struct {
 	AllowedOauthFlowsUserPoolClient pulumi.BoolPtrInput
 	// List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowedOauthFlowsUserPoolClient` must be set to `true` before you can configure this option.
 	AllowedOauthScopes pulumi.StringArrayInput
-	// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+	// Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
 	AnalyticsConfiguration UserPoolClientAnalyticsConfigurationPtrInput
 	// Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `authSessionValidity` are between `3` and `15`, with a default value of `3`.
 	AuthSessionValidity pulumi.IntPtrInput
@@ -713,7 +713,7 @@ func (o UserPoolClientOutput) AllowedOauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.StringArrayOutput { return v.AllowedOauthScopes }).(pulumi.StringArrayOutput)
 }
 
-// Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+// Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
 func (o UserPoolClientOutput) AnalyticsConfiguration() UserPoolClientAnalyticsConfigurationPtrOutput {
 	return o.ApplyT(func(v *UserPoolClient) UserPoolClientAnalyticsConfigurationPtrOutput { return v.AnalyticsConfiguration }).(UserPoolClientAnalyticsConfigurationPtrOutput)
 }

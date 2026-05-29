@@ -92,6 +92,35 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Existing Certificate Body Import With Write-Only Private Key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as tls from "@pulumi/tls";
+ *
+ * const example = new tls.PrivateKey("example", {algorithm: "RSA"});
+ * const exampleSelfSignedCert = new tls.SelfSignedCert("example", {
+ *     keyAlgorithm: "RSA",
+ *     privateKeyPem: example.privateKeyPem,
+ *     subject: [{
+ *         commonName: "example.com",
+ *         organization: "ACME Examples, Inc",
+ *     }],
+ *     validityPeriodHours: 12,
+ *     allowedUses: [
+ *         "key_encipherment",
+ *         "digital_signature",
+ *         "server_auth",
+ *     ],
+ * });
+ * const cert = new aws.acm.Certificate("cert", {
+ *     privateKeyWo: example.privateKeyPem,
+ *     privateKeyWoVersion: 1,
+ *     certificateBody: exampleSelfSignedCert.certPem,
+ * });
+ * ```
+ *
  * ### Referencing domainValidationOptions With forEach Based Resources
  *
  * See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
@@ -193,6 +222,11 @@ export class Certificate extends pulumi.CustomResource {
     declare public /*out*/ readonly pendingRenewal: pulumi.Output<boolean>;
     declare public readonly privateKey: pulumi.Output<string | undefined>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     */
+    declare public readonly privateKeyWo: pulumi.Output<string | undefined>;
+    declare public readonly privateKeyWoVersion: pulumi.Output<number | undefined>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * * Creating an Amazon issued certificate
      */
@@ -255,6 +289,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["options"] = state?.options;
             resourceInputs["pendingRenewal"] = state?.pendingRenewal;
             resourceInputs["privateKey"] = state?.privateKey;
+            resourceInputs["privateKeyWo"] = state?.privateKeyWo;
+            resourceInputs["privateKeyWoVersion"] = state?.privateKeyWoVersion;
             resourceInputs["region"] = state?.region;
             resourceInputs["renewalEligibility"] = state?.renewalEligibility;
             resourceInputs["renewalSummaries"] = state?.renewalSummaries;
@@ -276,6 +312,8 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["keyAlgorithm"] = args?.keyAlgorithm;
             resourceInputs["options"] = args?.options;
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
+            resourceInputs["privateKeyWo"] = args?.privateKeyWo ? pulumi.secret(args.privateKeyWo) : undefined;
+            resourceInputs["privateKeyWoVersion"] = args?.privateKeyWoVersion;
             resourceInputs["region"] = args?.region;
             resourceInputs["subjectAlternativeNames"] = args?.subjectAlternativeNames;
             resourceInputs["tags"] = args?.tags;
@@ -294,7 +332,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["validationEmails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["privateKey"] };
+        const secretOpts = { additionalSecretOutputs: ["privateKey", "privateKeyWo"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
@@ -337,6 +375,11 @@ export interface CertificateState {
      */
     pendingRenewal?: pulumi.Input<boolean | undefined>;
     privateKey?: pulumi.Input<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     */
+    privateKeyWo?: pulumi.Input<string | undefined>;
+    privateKeyWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * * Creating an Amazon issued certificate
@@ -390,6 +433,11 @@ export interface CertificateArgs {
     keyAlgorithm?: pulumi.Input<string | undefined>;
     options?: pulumi.Input<inputs.acm.CertificateOptions | undefined>;
     privateKey?: pulumi.Input<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     */
+    privateKeyWo?: pulumi.Input<string | undefined>;
+    privateKeyWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * * Creating an Amazon issued certificate

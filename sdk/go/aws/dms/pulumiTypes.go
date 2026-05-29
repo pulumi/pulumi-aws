@@ -2420,7 +2420,7 @@ type EndpointPostgresSettings struct {
 	MapBooleanAsBoolean *bool `pulumi:"mapBooleanAsBoolean"`
 	// Optional When true, DMS migrates JSONB values as CLOB.
 	MapJsonbAsClob *bool `pulumi:"mapJsonbAsClob"`
-	// Optional When true, DMS migrates LONG values as VARCHAR.
+	// Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
 	MapLongVarcharAs *string `pulumi:"mapLongVarcharAs"`
 	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 	MaxFileSize *int `pulumi:"maxFileSize"`
@@ -2470,7 +2470,7 @@ type EndpointPostgresSettingsArgs struct {
 	MapBooleanAsBoolean pulumi.BoolPtrInput `pulumi:"mapBooleanAsBoolean"`
 	// Optional When true, DMS migrates JSONB values as CLOB.
 	MapJsonbAsClob pulumi.BoolPtrInput `pulumi:"mapJsonbAsClob"`
-	// Optional When true, DMS migrates LONG values as VARCHAR.
+	// Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
 	MapLongVarcharAs pulumi.StringPtrInput `pulumi:"mapLongVarcharAs"`
 	// Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
 	MaxFileSize pulumi.IntPtrInput `pulumi:"maxFileSize"`
@@ -2624,7 +2624,7 @@ func (o EndpointPostgresSettingsOutput) MapJsonbAsClob() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *bool { return v.MapJsonbAsClob }).(pulumi.BoolPtrOutput)
 }
 
-// Optional When true, DMS migrates LONG values as VARCHAR.
+// Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
 func (o EndpointPostgresSettingsOutput) MapLongVarcharAs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointPostgresSettings) *string { return v.MapLongVarcharAs }).(pulumi.StringPtrOutput)
 }
@@ -2803,7 +2803,7 @@ func (o EndpointPostgresSettingsPtrOutput) MapJsonbAsClob() pulumi.BoolPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Optional When true, DMS migrates LONG values as VARCHAR.
+// Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
 func (o EndpointPostgresSettingsPtrOutput) MapLongVarcharAs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointPostgresSettings) *string {
 		if v == nil {

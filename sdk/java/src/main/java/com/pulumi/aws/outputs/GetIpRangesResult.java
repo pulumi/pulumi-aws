@@ -24,6 +24,12 @@ public final class GetIpRangesResult {
      * 
      */
     private String createDate;
+    /**
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     private String id;
     /**
      * @return Lexically ordered list of IPv6 CIDR blocks.
@@ -55,6 +61,12 @@ public final class GetIpRangesResult {
     public String createDate() {
         return this.createDate;
     }
+    /**
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     public String id() {
         return this.id;
     }

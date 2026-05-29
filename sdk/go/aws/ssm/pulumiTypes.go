@@ -4811,6 +4811,9 @@ func (o QuicksetupConfigurationManagerTimeoutsPtrOutput) Update() pulumi.StringP
 type ResourceDataSyncS3Destination struct {
 	// Name of S3 bucket where the aggregated data is stored.
 	BucketName string `pulumi:"bucketName"`
+	// Enables destination data sharing.
+	// See `destinationDataSharing` below.
+	DestinationDataSharing *ResourceDataSyncS3DestinationDestinationDataSharing `pulumi:"destinationDataSharing"`
 	// ARN of an encryption key for a destination in Amazon S3.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Prefix for the bucket.
@@ -4835,6 +4838,9 @@ type ResourceDataSyncS3DestinationInput interface {
 type ResourceDataSyncS3DestinationArgs struct {
 	// Name of S3 bucket where the aggregated data is stored.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
+	// Enables destination data sharing.
+	// See `destinationDataSharing` below.
+	DestinationDataSharing ResourceDataSyncS3DestinationDestinationDataSharingPtrInput `pulumi:"destinationDataSharing"`
 	// ARN of an encryption key for a destination in Amazon S3.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// Prefix for the bucket.
@@ -4927,6 +4933,14 @@ func (o ResourceDataSyncS3DestinationOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// Enables destination data sharing.
+// See `destinationDataSharing` below.
+func (o ResourceDataSyncS3DestinationOutput) DestinationDataSharing() ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput {
+	return o.ApplyT(func(v ResourceDataSyncS3Destination) *ResourceDataSyncS3DestinationDestinationDataSharing {
+		return v.DestinationDataSharing
+	}).(ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput)
+}
+
 // ARN of an encryption key for a destination in Amazon S3.
 func (o ResourceDataSyncS3DestinationOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
@@ -4981,6 +4995,17 @@ func (o ResourceDataSyncS3DestinationPtrOutput) BucketName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// Enables destination data sharing.
+// See `destinationDataSharing` below.
+func (o ResourceDataSyncS3DestinationPtrOutput) DestinationDataSharing() ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput {
+	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *ResourceDataSyncS3DestinationDestinationDataSharing {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationDataSharing
+	}).(ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput)
+}
+
 // ARN of an encryption key for a destination in Amazon S3.
 func (o ResourceDataSyncS3DestinationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
@@ -5018,6 +5043,141 @@ func (o ResourceDataSyncS3DestinationPtrOutput) SyncFormat() pulumi.StringPtrOut
 			return nil
 		}
 		return v.SyncFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceDataSyncS3DestinationDestinationDataSharing struct {
+	DestinationDataSharingType *string `pulumi:"destinationDataSharingType"`
+}
+
+// ResourceDataSyncS3DestinationDestinationDataSharingInput is an input type that accepts ResourceDataSyncS3DestinationDestinationDataSharingArgs and ResourceDataSyncS3DestinationDestinationDataSharingOutput values.
+// You can construct a concrete instance of `ResourceDataSyncS3DestinationDestinationDataSharingInput` via:
+//
+//	ResourceDataSyncS3DestinationDestinationDataSharingArgs{...}
+type ResourceDataSyncS3DestinationDestinationDataSharingInput interface {
+	pulumi.Input
+
+	ToResourceDataSyncS3DestinationDestinationDataSharingOutput() ResourceDataSyncS3DestinationDestinationDataSharingOutput
+	ToResourceDataSyncS3DestinationDestinationDataSharingOutputWithContext(context.Context) ResourceDataSyncS3DestinationDestinationDataSharingOutput
+}
+
+type ResourceDataSyncS3DestinationDestinationDataSharingArgs struct {
+	DestinationDataSharingType pulumi.StringPtrInput `pulumi:"destinationDataSharingType"`
+}
+
+func (ResourceDataSyncS3DestinationDestinationDataSharingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDataSyncS3DestinationDestinationDataSharing)(nil)).Elem()
+}
+
+func (i ResourceDataSyncS3DestinationDestinationDataSharingArgs) ToResourceDataSyncS3DestinationDestinationDataSharingOutput() ResourceDataSyncS3DestinationDestinationDataSharingOutput {
+	return i.ToResourceDataSyncS3DestinationDestinationDataSharingOutputWithContext(context.Background())
+}
+
+func (i ResourceDataSyncS3DestinationDestinationDataSharingArgs) ToResourceDataSyncS3DestinationDestinationDataSharingOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationDestinationDataSharingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncS3DestinationDestinationDataSharingOutput)
+}
+
+func (i ResourceDataSyncS3DestinationDestinationDataSharingArgs) ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutput() ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput {
+	return i.ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceDataSyncS3DestinationDestinationDataSharingArgs) ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncS3DestinationDestinationDataSharingOutput).ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutputWithContext(ctx)
+}
+
+// ResourceDataSyncS3DestinationDestinationDataSharingPtrInput is an input type that accepts ResourceDataSyncS3DestinationDestinationDataSharingArgs, ResourceDataSyncS3DestinationDestinationDataSharingPtr and ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput values.
+// You can construct a concrete instance of `ResourceDataSyncS3DestinationDestinationDataSharingPtrInput` via:
+//
+//	        ResourceDataSyncS3DestinationDestinationDataSharingArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceDataSyncS3DestinationDestinationDataSharingPtrInput interface {
+	pulumi.Input
+
+	ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutput() ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput
+	ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutputWithContext(context.Context) ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput
+}
+
+type resourceDataSyncS3DestinationDestinationDataSharingPtrType ResourceDataSyncS3DestinationDestinationDataSharingArgs
+
+func ResourceDataSyncS3DestinationDestinationDataSharingPtr(v *ResourceDataSyncS3DestinationDestinationDataSharingArgs) ResourceDataSyncS3DestinationDestinationDataSharingPtrInput {
+	return (*resourceDataSyncS3DestinationDestinationDataSharingPtrType)(v)
+}
+
+func (*resourceDataSyncS3DestinationDestinationDataSharingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDataSyncS3DestinationDestinationDataSharing)(nil)).Elem()
+}
+
+func (i *resourceDataSyncS3DestinationDestinationDataSharingPtrType) ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutput() ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput {
+	return i.ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceDataSyncS3DestinationDestinationDataSharingPtrType) ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput)
+}
+
+type ResourceDataSyncS3DestinationDestinationDataSharingOutput struct{ *pulumi.OutputState }
+
+func (ResourceDataSyncS3DestinationDestinationDataSharingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceDataSyncS3DestinationDestinationDataSharing)(nil)).Elem()
+}
+
+func (o ResourceDataSyncS3DestinationDestinationDataSharingOutput) ToResourceDataSyncS3DestinationDestinationDataSharingOutput() ResourceDataSyncS3DestinationDestinationDataSharingOutput {
+	return o
+}
+
+func (o ResourceDataSyncS3DestinationDestinationDataSharingOutput) ToResourceDataSyncS3DestinationDestinationDataSharingOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationDestinationDataSharingOutput {
+	return o
+}
+
+func (o ResourceDataSyncS3DestinationDestinationDataSharingOutput) ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutput() ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput {
+	return o.ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceDataSyncS3DestinationDestinationDataSharingOutput) ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDataSyncS3DestinationDestinationDataSharing) *ResourceDataSyncS3DestinationDestinationDataSharing {
+		return &v
+	}).(ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput)
+}
+
+func (o ResourceDataSyncS3DestinationDestinationDataSharingOutput) DestinationDataSharingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceDataSyncS3DestinationDestinationDataSharing) *string {
+		return v.DestinationDataSharingType
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceDataSyncS3DestinationDestinationDataSharing)(nil)).Elem()
+}
+
+func (o ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput) ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutput() ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput {
+	return o
+}
+
+func (o ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput) ToResourceDataSyncS3DestinationDestinationDataSharingPtrOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput {
+	return o
+}
+
+func (o ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput) Elem() ResourceDataSyncS3DestinationDestinationDataSharingOutput {
+	return o.ApplyT(func(v *ResourceDataSyncS3DestinationDestinationDataSharing) ResourceDataSyncS3DestinationDestinationDataSharing {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceDataSyncS3DestinationDestinationDataSharing
+		return ret
+	}).(ResourceDataSyncS3DestinationDestinationDataSharingOutput)
+}
+
+func (o ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput) DestinationDataSharingType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceDataSyncS3DestinationDestinationDataSharing) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationDataSharingType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7043,6 +7203,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QuicksetupConfigurationManagerTimeoutsPtrInput)(nil)).Elem(), QuicksetupConfigurationManagerTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncS3DestinationInput)(nil)).Elem(), ResourceDataSyncS3DestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncS3DestinationPtrInput)(nil)).Elem(), ResourceDataSyncS3DestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncS3DestinationDestinationDataSharingInput)(nil)).Elem(), ResourceDataSyncS3DestinationDestinationDataSharingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncS3DestinationDestinationDataSharingPtrInput)(nil)).Elem(), ResourceDataSyncS3DestinationDestinationDataSharingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContactsRotationRecurrenceInput)(nil)).Elem(), GetContactsRotationRecurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContactsRotationRecurrenceArrayInput)(nil)).Elem(), GetContactsRotationRecurrenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetContactsRotationRecurrenceDailySettingInput)(nil)).Elem(), GetContactsRotationRecurrenceDailySettingArgs{})
@@ -7147,6 +7309,8 @@ func init() {
 	pulumi.RegisterOutputType(QuicksetupConfigurationManagerTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationPtrOutput{})
+	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationDestinationDataSharingOutput{})
+	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput{})
 	pulumi.RegisterOutputType(GetContactsRotationRecurrenceOutput{})
 	pulumi.RegisterOutputType(GetContactsRotationRecurrenceArrayOutput{})
 	pulumi.RegisterOutputType(GetContactsRotationRecurrenceDailySettingOutput{})

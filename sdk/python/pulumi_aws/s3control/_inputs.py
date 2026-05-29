@@ -37,6 +37,8 @@ __all__ = [
     'MultiRegionAccessPointDetailsRegionArgsDict',
     'MultiRegionAccessPointPolicyDetailsArgs',
     'MultiRegionAccessPointPolicyDetailsArgsDict',
+    'MultiRegionAccessPointRoutesRouteArgs',
+    'MultiRegionAccessPointRoutesRouteArgsDict',
     'ObjectLambdaAccessPointConfigurationArgs',
     'ObjectLambdaAccessPointConfigurationArgsDict',
     'ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs',
@@ -510,11 +512,19 @@ class DirectoryBucketAccessPointScopeScopeArgs:
 
 class MultiRegionAccessPointDetailsArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
+    """
+    The name of the Multi-Region Access Point.
+    """
     regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgsDict']]]
     """
-    Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+
+    For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
     """
     public_access_block: NotRequired[pulumi.Input[Optional['MultiRegionAccessPointDetailsPublicAccessBlockArgsDict']]]
+    """
+    Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+    """
 
 @pulumi.input_type
 class MultiRegionAccessPointDetailsArgs:
@@ -523,7 +533,11 @@ class MultiRegionAccessPointDetailsArgs:
                  regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]],
                  public_access_block: pulumi.Input[Optional['MultiRegionAccessPointDetailsPublicAccessBlockArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]] regions: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] name: The name of the Multi-Region Access Point.
+        :param pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]] regions: The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+               
+               For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
+        :param pulumi.Input['MultiRegionAccessPointDetailsPublicAccessBlockArgs'] public_access_block: Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "regions", regions)
@@ -533,6 +547,9 @@ class MultiRegionAccessPointDetailsArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Multi-Region Access Point.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -543,7 +560,9 @@ class MultiRegionAccessPointDetailsArgs:
     @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+
+        For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
         """
         return pulumi.get(self, "regions")
 
@@ -554,6 +573,9 @@ class MultiRegionAccessPointDetailsArgs:
     @_builtins.property
     @pulumi.getter(name="publicAccessBlock")
     def public_access_block(self) -> pulumi.Input[Optional['MultiRegionAccessPointDetailsPublicAccessBlockArgs']]:
+        """
+        Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+        """
         return pulumi.get(self, "public_access_block")
 
     @public_access_block.setter
@@ -563,9 +585,27 @@ class MultiRegionAccessPointDetailsArgs:
 
 class MultiRegionAccessPointDetailsPublicAccessBlockArgsDict(TypedDict):
     block_public_acls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+    * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+    * PUT Object calls fail if the request includes a public ACL.
+    * PUT Bucket calls fail if the request includes a public ACL.
+    """
     block_public_policy: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+    * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+    """
     ignore_public_acls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+    * Ignore all public ACLs on buckets in this account and any objects that they contain.
+    """
     restrict_public_buckets: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+    * Only the bucket owner and AWS Services can access buckets with public policies.
+    """
 
 @pulumi.input_type
 class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
@@ -574,6 +614,18 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
                  block_public_policy: pulumi.Input[Optional[_builtins.bool]] = None,
                  ignore_public_acls: pulumi.Input[Optional[_builtins.bool]] = None,
                  restrict_public_buckets: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] block_public_acls: Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+               * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+               * PUT Object calls fail if the request includes a public ACL.
+               * PUT Bucket calls fail if the request includes a public ACL.
+        :param pulumi.Input[_builtins.bool] block_public_policy: Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+               * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+        :param pulumi.Input[_builtins.bool] ignore_public_acls: Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+               * Ignore all public ACLs on buckets in this account and any objects that they contain.
+        :param pulumi.Input[_builtins.bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+               * Only the bucket owner and AWS Services can access buckets with public policies.
+        """
         if block_public_acls is not None:
             pulumi.set(__self__, "block_public_acls", block_public_acls)
         if block_public_policy is not None:
@@ -586,6 +638,12 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
     @_builtins.property
     @pulumi.getter(name="blockPublicAcls")
     def block_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+        * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+        * PUT Object calls fail if the request includes a public ACL.
+        * PUT Bucket calls fail if the request includes a public ACL.
+        """
         return pulumi.get(self, "block_public_acls")
 
     @block_public_acls.setter
@@ -595,6 +653,10 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
     @_builtins.property
     @pulumi.getter(name="blockPublicPolicy")
     def block_public_policy(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+        * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+        """
         return pulumi.get(self, "block_public_policy")
 
     @block_public_policy.setter
@@ -604,6 +666,10 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
     @_builtins.property
     @pulumi.getter(name="ignorePublicAcls")
     def ignore_public_acls(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+        * Ignore all public ACLs on buckets in this account and any objects that they contain.
+        """
         return pulumi.get(self, "ignore_public_acls")
 
     @ignore_public_acls.setter
@@ -613,6 +679,10 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
     @_builtins.property
     @pulumi.getter(name="restrictPublicBuckets")
     def restrict_public_buckets(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+        * Only the bucket owner and AWS Services can access buckets with public policies.
+        """
         return pulumi.get(self, "restrict_public_buckets")
 
     @restrict_public_buckets.setter
@@ -622,7 +692,13 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
 
 class MultiRegionAccessPointDetailsRegionArgsDict(TypedDict):
     bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the associated bucket for the Region.
+    """
     bucket_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
+    """
     region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -635,6 +711,8 @@ class MultiRegionAccessPointDetailsRegionArgs:
                  bucket_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None):
         """
+        :param pulumi.Input[_builtins.str] bucket: The name of the associated bucket for the Region.
+        :param pulumi.Input[_builtins.str] bucket_account_id: The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -646,6 +724,9 @@ class MultiRegionAccessPointDetailsRegionArgs:
     @_builtins.property
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the associated bucket for the Region.
+        """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
@@ -655,6 +736,9 @@ class MultiRegionAccessPointDetailsRegionArgs:
     @_builtins.property
     @pulumi.getter(name="bucketAccountId")
     def bucket_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
+        """
         return pulumi.get(self, "bucket_account_id")
 
     @bucket_account_id.setter
@@ -725,6 +809,72 @@ class MultiRegionAccessPointPolicyDetailsArgs:
     @policy.setter
     def policy(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "policy", value)
+
+
+class MultiRegionAccessPointRoutesRouteArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    Name of the Amazon S3 bucket.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    AWS Region where the bucket is located.
+    """
+    traffic_dial_percentage: pulumi.Input[_builtins.int]
+    """
+    Traffic routing configuration. A value of `0` indicates a passive status (traffic will not be routed to the Region), and a value of `100` indicates an active status (traffic will be routed to the Region).
+    """
+
+@pulumi.input_type
+class MultiRegionAccessPointRoutesRouteArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 region: pulumi.Input[_builtins.str],
+                 traffic_dial_percentage: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] bucket: Name of the Amazon S3 bucket.
+        :param pulumi.Input[_builtins.str] region: AWS Region where the bucket is located.
+        :param pulumi.Input[_builtins.int] traffic_dial_percentage: Traffic routing configuration. A value of `0` indicates a passive status (traffic will not be routed to the Region), and a value of `100` indicates an active status (traffic will be routed to the Region).
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "region", region)
+        pulumi.set(__self__, "traffic_dial_percentage", traffic_dial_percentage)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS Region where the bucket is located.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trafficDialPercentage")
+    def traffic_dial_percentage(self) -> pulumi.Input[_builtins.int]:
+        """
+        Traffic routing configuration. A value of `0` indicates a passive status (traffic will not be routed to the Region), and a value of `100` indicates an active status (traffic will be routed to the Region).
+        """
+        return pulumi.get(self, "traffic_dial_percentage")
+
+    @traffic_dial_percentage.setter
+    def traffic_dial_percentage(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "traffic_dial_percentage", value)
 
 
 class ObjectLambdaAccessPointConfigurationArgsDict(TypedDict):

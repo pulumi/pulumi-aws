@@ -17,14 +17,14 @@ public final class InstanceInstanceMarketOptionsArgs extends com.pulumi.resource
     public static final InstanceInstanceMarketOptionsArgs Empty = new InstanceInstanceMarketOptionsArgs();
 
     /**
-     * Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
+     * Type of market for the instance. Valid values are `spot`, `capacity-block`, and `interruptible-capacity-reservation`. Use `interruptible-capacity-reservation` to launch instances into [interruptible Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-consumer-procedures.html). Defaults to `spot`. Required if `spotOptions` is specified.
      * 
      */
     @Import(name="marketType")
     private @Nullable Output<String> marketType;
 
     /**
-     * @return Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
+     * @return Type of market for the instance. Valid values are `spot`, `capacity-block`, and `interruptible-capacity-reservation`. Use `interruptible-capacity-reservation` to launch instances into [interruptible Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-consumer-procedures.html). Defaults to `spot`. Required if `spotOptions` is specified.
      * 
      */
     public Optional<Output<String>> marketType() {
@@ -72,7 +72,7 @@ public final class InstanceInstanceMarketOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param marketType Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
+         * @param marketType Type of market for the instance. Valid values are `spot`, `capacity-block`, and `interruptible-capacity-reservation`. Use `interruptible-capacity-reservation` to launch instances into [interruptible Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-consumer-procedures.html). Defaults to `spot`. Required if `spotOptions` is specified.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class InstanceInstanceMarketOptionsArgs extends com.pulumi.resource
         }
 
         /**
-         * @param marketType Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spotOptions` is specified.
+         * @param marketType Type of market for the instance. Valid values are `spot`, `capacity-block`, and `interruptible-capacity-reservation`. Use `interruptible-capacity-reservation` to launch instances into [interruptible Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-consumer-procedures.html). Defaults to `spot`. Required if `spotOptions` is specified.
          * 
          * @return builder
          * 

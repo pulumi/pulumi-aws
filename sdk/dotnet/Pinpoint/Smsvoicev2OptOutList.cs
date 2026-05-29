@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the opt-out list.
+        /// Name of the opt-out list.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class Smsvoicev2OptOutListArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the opt-out list.
+        /// Name of the opt-out list.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of the opt-out list.
+        /// Name of the opt-out list.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Pinpoint
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -200,6 +200,21 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of an ODB network.
+     * 
+     */
+    @Import(name="odbNetworkArn")
+    private @Nullable Output<String> odbNetworkArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of an ODB network.
+     * 
+     */
+    public Optional<Output<String>> odbNetworkArn() {
+        return Optional.ofNullable(this.odbNetworkArn);
+    }
+
+    /**
      * How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
      * 
      */
@@ -327,6 +342,7 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
         this.localGatewayId = $.localGatewayId;
         this.natGatewayId = $.natGatewayId;
         this.networkInterfaceId = $.networkInterfaceId;
+        this.odbNetworkArn = $.odbNetworkArn;
         this.origin = $.origin;
         this.region = $.region;
         this.routeTableId = $.routeTableId;
@@ -608,6 +624,27 @@ public final class RouteState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
+        }
+
+        /**
+         * @param odbNetworkArn The Amazon Resource Name (ARN) of an ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(@Nullable Output<String> odbNetworkArn) {
+            $.odbNetworkArn = odbNetworkArn;
+            return this;
+        }
+
+        /**
+         * @param odbNetworkArn The Amazon Resource Name (ARN) of an ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(String odbNetworkArn) {
+            return odbNetworkArn(Output.of(odbNetworkArn));
         }
 
         /**

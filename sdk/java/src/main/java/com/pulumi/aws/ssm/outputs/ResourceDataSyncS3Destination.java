@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ssm.outputs;
 
+import com.pulumi.aws.ssm.outputs.ResourceDataSyncS3DestinationDestinationDataSharing;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -17,6 +18,12 @@ public final class ResourceDataSyncS3Destination {
      * 
      */
     private String bucketName;
+    /**
+     * @return Enables destination data sharing.
+     * See `destinationDataSharing` below.
+     * 
+     */
+    private @Nullable ResourceDataSyncS3DestinationDestinationDataSharing destinationDataSharing;
     /**
      * @return ARN of an encryption key for a destination in Amazon S3.
      * 
@@ -45,6 +52,14 @@ public final class ResourceDataSyncS3Destination {
      */
     public String bucketName() {
         return this.bucketName;
+    }
+    /**
+     * @return Enables destination data sharing.
+     * See `destinationDataSharing` below.
+     * 
+     */
+    public Optional<ResourceDataSyncS3DestinationDestinationDataSharing> destinationDataSharing() {
+        return Optional.ofNullable(this.destinationDataSharing);
     }
     /**
      * @return ARN of an encryption key for a destination in Amazon S3.
@@ -85,6 +100,7 @@ public final class ResourceDataSyncS3Destination {
     @CustomType.Builder
     public static final class Builder {
         private String bucketName;
+        private @Nullable ResourceDataSyncS3DestinationDestinationDataSharing destinationDataSharing;
         private @Nullable String kmsKeyArn;
         private @Nullable String prefix;
         private String region;
@@ -93,6 +109,7 @@ public final class ResourceDataSyncS3Destination {
         public Builder(ResourceDataSyncS3Destination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bucketName = defaults.bucketName;
+    	      this.destinationDataSharing = defaults.destinationDataSharing;
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.prefix = defaults.prefix;
     	      this.region = defaults.region;
@@ -105,6 +122,12 @@ public final class ResourceDataSyncS3Destination {
               throw new MissingRequiredPropertyException("ResourceDataSyncS3Destination", "bucketName");
             }
             this.bucketName = bucketName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder destinationDataSharing(@Nullable ResourceDataSyncS3DestinationDestinationDataSharing destinationDataSharing) {
+
+            this.destinationDataSharing = destinationDataSharing;
             return this;
         }
         @CustomType.Setter
@@ -136,6 +159,7 @@ public final class ResourceDataSyncS3Destination {
         public ResourceDataSyncS3Destination build() {
             final var _resultValue = new ResourceDataSyncS3Destination();
             _resultValue.bucketName = bucketName;
+            _resultValue.destinationDataSharing = destinationDataSharing;
             _resultValue.kmsKeyArn = kmsKeyArn;
             _resultValue.prefix = prefix;
             _resultValue.region = region;

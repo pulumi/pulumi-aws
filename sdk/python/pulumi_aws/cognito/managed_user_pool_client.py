@@ -53,7 +53,7 @@ class ManagedUserPoolClientArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
-        :param pulumi.Input['ManagedUserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        :param pulumi.Input['ManagedUserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
         :param pulumi.Input[_builtins.int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.str] default_redirect_uri: Default redirect URI and must be included in the list of callback URLs.
@@ -187,7 +187,7 @@ class ManagedUserPoolClientArgs:
     @pulumi.getter(name="analyticsConfiguration")
     def analytics_configuration(self) -> pulumi.Input[Optional['ManagedUserPoolClientAnalyticsConfigurationArgs']]:
         """
-        Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
         """
         return pulumi.get(self, "analytics_configuration")
 
@@ -450,7 +450,7 @@ class _ManagedUserPoolClientState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
-        :param pulumi.Input['ManagedUserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        :param pulumi.Input['ManagedUserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
         :param pulumi.Input[_builtins.int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.str] client_secret: Client secret of the user pool client.
@@ -580,7 +580,7 @@ class _ManagedUserPoolClientState:
     @pulumi.getter(name="analyticsConfiguration")
     def analytics_configuration(self) -> pulumi.Input[Optional['ManagedUserPoolClientAnalyticsConfigurationArgs']]:
         """
-        Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
         """
         return pulumi.get(self, "analytics_configuration")
 
@@ -911,7 +911,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
-        :param pulumi.Input[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        :param pulumi.Input[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
         :param pulumi.Input[_builtins.int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.str] default_redirect_uri: Default redirect URI and must be included in the list of callback URLs.
@@ -1096,7 +1096,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_flows: List of allowed OAuth flows, including `code`, `implicit`, and `client_credentials`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.bool] allowed_oauth_flows_user_pool_client: Whether the client is allowed to use OAuth 2.0 features. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure the following arguments: `callback_urls`, `logout_urls`, `allowed_oauth_scopes` and `allowed_oauth_flows`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_oauth_scopes: List of allowed OAuth scopes, including `phone`, `email`, `openid`, `profile`, and `aws.cognito.signin.user.admin`. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
-        :param pulumi.Input[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        :param pulumi.Input[Union['ManagedUserPoolClientAnalyticsConfigurationArgs', 'ManagedUserPoolClientAnalyticsConfigurationArgsDict']] analytics_configuration: Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
         :param pulumi.Input[_builtins.int] auth_session_validity: Duration, in minutes, of the session token created by Amazon Cognito for each API request in an authentication flow. The session token must be responded to by the native user of the user pool before it expires. Valid values for `auth_session_validity` are between `3` and `15`, with a default value of `3`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] callback_urls: List of allowed callback URLs for the identity providers. `allowed_oauth_flows_user_pool_client` must be set to `true` before you can configure this option.
         :param pulumi.Input[_builtins.str] client_secret: Client secret of the user pool client.
@@ -1189,7 +1189,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="analyticsConfiguration")
     def analytics_configuration(self) -> pulumi.Output[Optional['outputs.ManagedUserPoolClientAnalyticsConfiguration']]:
         """
-        Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+        Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
         """
         return pulumi.get(self, "analytics_configuration")
 

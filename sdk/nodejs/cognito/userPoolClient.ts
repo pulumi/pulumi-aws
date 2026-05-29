@@ -188,7 +188,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     declare public readonly allowedOauthScopes: pulumi.Output<string[]>;
     /**
-     * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+     * Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
      */
     declare public readonly analyticsConfiguration: pulumi.Output<outputs.cognito.UserPoolClientAnalyticsConfiguration | undefined>;
     /**
@@ -371,7 +371,7 @@ export interface UserPoolClientState {
      */
     allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+     * Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
      */
     analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfiguration | undefined>;
     /**
@@ -479,7 +479,7 @@ export interface UserPoolClientArgs {
      */
     allowedOauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+     * Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
      */
     analyticsConfiguration?: pulumi.Input<inputs.cognito.UserPoolClientAnalyticsConfiguration | undefined>;
     /**

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class ManagedUserPoolClientAnalyticsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Application ARN for an Amazon Pinpoint application. It conflicts with `ExternalId` and `RoleArn`.
+        /// Application ARN for an AWS End User Messaging application. It conflicts with `ExternalId` and `RoleArn`.
         /// </summary>
         [Input("applicationArn")]
         public Input<string>? ApplicationArn { get; set; }
 
         /// <summary>
-        /// Unique identifier for an Amazon Pinpoint application.
+        /// Unique identifier for an AWS End User Messaging application.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
@@ -31,13 +31,13 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? ExternalId { get; set; }
 
         /// <summary>
-        /// ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. It conflicts with `ApplicationArn`.
+        /// ARN of an IAM role that authorizes Amazon Cognito to publish events to AWS End User Messaging analytics. It conflicts with `ApplicationArn`.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// If `UserDataShared` is set to `True`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+        /// If `UserDataShared` is set to `True`, Amazon Cognito will include user data in the events it publishes to AWS End User Messaging analytics.
         /// </summary>
         [Input("userDataShared")]
         public Input<bool>? UserDataShared { get; set; }

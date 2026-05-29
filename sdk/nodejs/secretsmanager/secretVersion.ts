@@ -102,7 +102,10 @@ export class SecretVersion extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the secret.
+     * (**Deprecated**) The ARN of the secret.
+     * Use `secretArn` instead.
+     *
+     * @deprecated arn is deprecated. Use secretArn instead.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public /*out*/ readonly hasSecretStringWo: pulumi.Output<boolean>;
@@ -110,6 +113,10 @@ export class SecretVersion extends pulumi.CustomResource {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
+    /**
+     * The ARN of the secret.
+     */
+    declare public /*out*/ readonly secretArn: pulumi.Output<string>;
     /**
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
      */
@@ -158,6 +165,7 @@ export class SecretVersion extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["hasSecretStringWo"] = state?.hasSecretStringWo;
             resourceInputs["region"] = state?.region;
+            resourceInputs["secretArn"] = state?.secretArn;
             resourceInputs["secretBinary"] = state?.secretBinary;
             resourceInputs["secretId"] = state?.secretId;
             resourceInputs["secretString"] = state?.secretString;
@@ -179,6 +187,7 @@ export class SecretVersion extends pulumi.CustomResource {
             resourceInputs["versionStages"] = args?.versionStages;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hasSecretStringWo"] = undefined /*out*/;
+            resourceInputs["secretArn"] = undefined /*out*/;
             resourceInputs["versionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -193,7 +202,10 @@ export class SecretVersion extends pulumi.CustomResource {
  */
 export interface SecretVersionState {
     /**
-     * The ARN of the secret.
+     * (**Deprecated**) The ARN of the secret.
+     * Use `secretArn` instead.
+     *
+     * @deprecated arn is deprecated. Use secretArn instead.
      */
     arn?: pulumi.Input<string | undefined>;
     hasSecretStringWo?: pulumi.Input<boolean | undefined>;
@@ -201,6 +213,10 @@ export interface SecretVersionState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * The ARN of the secret.
+     */
+    secretArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
      */

@@ -187,6 +187,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of an ODB network.
+        /// </summary>
+        [Output("odbNetworkArn")]
+        public Output<string?> OdbNetworkArn { get; private set; } = null!;
+
+        /// <summary>
         /// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
         /// </summary>
         [Output("origin")]
@@ -341,6 +347,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of an ODB network.
+        /// </summary>
+        [Input("odbNetworkArn")]
+        public Input<string>? OdbNetworkArn { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -455,6 +467,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("networkInterfaceId")]
         public Input<string>? NetworkInterfaceId { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of an ODB network.
+        /// </summary>
+        [Input("odbNetworkArn")]
+        public Input<string>? OdbNetworkArn { get; set; }
 
         /// <summary>
         /// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.

@@ -229,7 +229,7 @@ export class S3Endpoint extends pulumi.CustomResource {
      */
     declare public readonly enableStatistics: pulumi.Output<boolean | undefined>;
     /**
-     * Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+     * Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
      */
     declare public readonly encodingType: pulumi.Output<string | undefined>;
     /**
@@ -593,7 +593,7 @@ export interface S3EndpointState {
      */
     enableStatistics?: pulumi.Input<boolean | undefined>;
     /**
-     * Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+     * Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
      */
     encodingType?: pulumi.Input<string | undefined>;
     /**
@@ -817,7 +817,7 @@ export interface S3EndpointArgs {
      */
     enableStatistics?: pulumi.Input<boolean | undefined>;
     /**
-     * Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+     * Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
      */
     encodingType?: pulumi.Input<string | undefined>;
     /**

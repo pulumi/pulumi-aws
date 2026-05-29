@@ -163,6 +163,10 @@ export class Route extends pulumi.CustomResource {
      */
     declare public readonly networkInterfaceId: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) of an ODB network.
+     */
+    declare public readonly odbNetworkArn: pulumi.Output<string | undefined>;
+    /**
      * How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
      */
     declare public /*out*/ readonly origin: pulumi.Output<string>;
@@ -220,6 +224,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["localGatewayId"] = state?.localGatewayId;
             resourceInputs["natGatewayId"] = state?.natGatewayId;
             resourceInputs["networkInterfaceId"] = state?.networkInterfaceId;
+            resourceInputs["odbNetworkArn"] = state?.odbNetworkArn;
             resourceInputs["origin"] = state?.origin;
             resourceInputs["region"] = state?.region;
             resourceInputs["routeTableId"] = state?.routeTableId;
@@ -242,6 +247,7 @@ export class Route extends pulumi.CustomResource {
             resourceInputs["localGatewayId"] = args?.localGatewayId;
             resourceInputs["natGatewayId"] = args?.natGatewayId;
             resourceInputs["networkInterfaceId"] = args?.networkInterfaceId;
+            resourceInputs["odbNetworkArn"] = args?.odbNetworkArn;
             resourceInputs["region"] = args?.region;
             resourceInputs["routeTableId"] = args?.routeTableId;
             resourceInputs["transitGatewayId"] = args?.transitGatewayId;
@@ -311,6 +317,10 @@ export interface RouteState {
      * Identifier of an EC2 network interface.
      */
     networkInterfaceId?: pulumi.Input<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of an ODB network.
+     */
+    odbNetworkArn?: pulumi.Input<string | undefined>;
     /**
      * How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
      */
@@ -391,6 +401,10 @@ export interface RouteArgs {
      * Identifier of an EC2 network interface.
      */
     networkInterfaceId?: pulumi.Input<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of an ODB network.
+     */
+    odbNetworkArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

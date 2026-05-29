@@ -112,6 +112,10 @@ export class Replicator extends pulumi.CustomResource {
      */
     declare public readonly kafkaClusters: pulumi.Output<outputs.msk.ReplicatorKafkaCluster[]>;
     /**
+     * Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     */
+    declare public readonly logDelivery: pulumi.Output<outputs.msk.ReplicatorLogDelivery | undefined>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -153,6 +157,7 @@ export class Replicator extends pulumi.CustomResource {
             resourceInputs["currentVersion"] = state?.currentVersion;
             resourceInputs["description"] = state?.description;
             resourceInputs["kafkaClusters"] = state?.kafkaClusters;
+            resourceInputs["logDelivery"] = state?.logDelivery;
             resourceInputs["region"] = state?.region;
             resourceInputs["replicationInfoList"] = state?.replicationInfoList;
             resourceInputs["replicatorName"] = state?.replicatorName;
@@ -175,6 +180,7 @@ export class Replicator extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args?.description;
             resourceInputs["kafkaClusters"] = args?.kafkaClusters;
+            resourceInputs["logDelivery"] = args?.logDelivery;
             resourceInputs["region"] = args?.region;
             resourceInputs["replicationInfoList"] = args?.replicationInfoList;
             resourceInputs["replicatorName"] = args?.replicatorName;
@@ -206,6 +212,10 @@ export interface ReplicatorState {
      * A list of Kafka clusters which are targets of the replicator.
      */
     kafkaClusters?: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[] | undefined>;
+    /**
+     * Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     */
+    logDelivery?: pulumi.Input<inputs.msk.ReplicatorLogDelivery | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -244,6 +254,10 @@ export interface ReplicatorArgs {
      * A list of Kafka clusters which are targets of the replicator.
      */
     kafkaClusters: pulumi.Input<pulumi.Input<inputs.msk.ReplicatorKafkaCluster>[]>;
+    /**
+     * Configuration block for delivering replicator logs to customer destinations. Detailed below.
+     */
+    logDelivery?: pulumi.Input<inputs.msk.ReplicatorLogDelivery | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

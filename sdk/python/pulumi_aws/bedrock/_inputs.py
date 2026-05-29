@@ -687,6 +687,30 @@ __all__ = [
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryArgsDict',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs',
     'AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgsDict',
+    'AgentcoreOnlineEvaluationConfigDataSourceConfigArgs',
+    'AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict',
+    'AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs',
+    'AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgsDict',
+    'AgentcoreOnlineEvaluationConfigEvaluatorArgs',
+    'AgentcoreOnlineEvaluationConfigEvaluatorArgsDict',
+    'AgentcoreOnlineEvaluationConfigOutputConfigArgs',
+    'AgentcoreOnlineEvaluationConfigOutputConfigArgsDict',
+    'AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs',
+    'AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgsDict',
+    'AgentcoreOnlineEvaluationConfigRuleArgs',
+    'AgentcoreOnlineEvaluationConfigRuleArgsDict',
+    'AgentcoreOnlineEvaluationConfigRuleFilterArgs',
+    'AgentcoreOnlineEvaluationConfigRuleFilterArgsDict',
+    'AgentcoreOnlineEvaluationConfigRuleFilterValueArgs',
+    'AgentcoreOnlineEvaluationConfigRuleFilterValueArgsDict',
+    'AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs',
+    'AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgsDict',
+    'AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs',
+    'AgentcoreOnlineEvaluationConfigRuleSessionConfigArgsDict',
+    'AgentcoreOnlineEvaluationConfigTimeoutsArgs',
+    'AgentcoreOnlineEvaluationConfigTimeoutsArgsDict',
+    'AgentcorePolicyEngineTimeoutsArgs',
+    'AgentcorePolicyEngineTimeoutsArgsDict',
     'AgentcoreTokenVaultCmkKmsConfigurationArgs',
     'AgentcoreTokenVaultCmkKmsConfigurationArgsDict',
     'CustomModelOutputDataConfigArgs',
@@ -20161,6 +20185,563 @@ class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderCo
     @token_endpoint.setter
     def token_endpoint(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "token_endpoint", value)
+
+
+class AgentcoreOnlineEvaluationConfigDataSourceConfigArgsDict(TypedDict):
+    cloudwatch_logs: NotRequired[pulumi.Input[Optional['AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgsDict']]]
+    """
+    CloudWatch logs configuration for reading agent traces. See `cloudwatch_logs` Block below.
+    """
+
+@pulumi.input_type
+class AgentcoreOnlineEvaluationConfigDataSourceConfigArgs:
+    def __init__(__self__, *,
+                 cloudwatch_logs: pulumi.Input[Optional['AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs'] cloudwatch_logs: CloudWatch logs configuration for reading agent traces. See `cloudwatch_logs` Block below.
+        """
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> pulumi.Input[Optional['AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs']]:
+        """
+        CloudWatch logs configuration for reading agent traces. See `cloudwatch_logs` Block below.
+        """
+        return pulumi.get(self, "cloudwatch_logs")
+
+    @cloudwatch_logs.setter
+    def cloudwatch_logs(self, value: pulumi.Input[Optional['AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs']]):
+        pulumi.set(self, "cloudwatch_logs", value)
+
+
+class AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgsDict(TypedDict):
+    log_group_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of CloudWatch log group names to monitor for agent traces. Maximum 5.
+    """
+    service_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of service names to filter traces within the specified log groups.
+    """
+
+@pulumi.input_type
+class AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs:
+    def __init__(__self__, *,
+                 log_group_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 service_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: List of CloudWatch log group names to monitor for agent traces. Maximum 5.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_names: List of service names to filter traces within the specified log groups.
+        """
+        pulumi.set(__self__, "log_group_names", log_group_names)
+        pulumi.set(__self__, "service_names", service_names)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupNames")
+    def log_group_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of CloudWatch log group names to monitor for agent traces. Maximum 5.
+        """
+        return pulumi.get(self, "log_group_names")
+
+    @log_group_names.setter
+    def log_group_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "log_group_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceNames")
+    def service_names(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of service names to filter traces within the specified log groups.
+        """
+        return pulumi.get(self, "service_names")
+
+    @service_names.setter
+    def service_names(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "service_names", value)
+
+
+class AgentcoreOnlineEvaluationConfigEvaluatorArgsDict(TypedDict):
+    evaluator_id: pulumi.Input[_builtins.str]
+    """
+    Unique identifier of the evaluator. Can reference builtin evaluators (e.g., `Builtin.Helpfulness`, `Builtin.GoalSuccessRate`) or custom evaluator IDs.
+    """
+
+@pulumi.input_type
+class AgentcoreOnlineEvaluationConfigEvaluatorArgs:
+    def __init__(__self__, *,
+                 evaluator_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] evaluator_id: Unique identifier of the evaluator. Can reference builtin evaluators (e.g., `Builtin.Helpfulness`, `Builtin.GoalSuccessRate`) or custom evaluator IDs.
+        """
+        pulumi.set(__self__, "evaluator_id", evaluator_id)
+
+    @_builtins.property
+    @pulumi.getter(name="evaluatorId")
+    def evaluator_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Unique identifier of the evaluator. Can reference builtin evaluators (e.g., `Builtin.Helpfulness`, `Builtin.GoalSuccessRate`) or custom evaluator IDs.
+        """
+        return pulumi.get(self, "evaluator_id")
+
+    @evaluator_id.setter
+    def evaluator_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "evaluator_id", value)
+
+
+class AgentcoreOnlineEvaluationConfigOutputConfigArgsDict(TypedDict):
+    cloudwatch_configs: pulumi.Input[Sequence[pulumi.Input['AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgsDict']]]
+    """
+    CloudWatch configuration for evaluation results. See `cloudwatch_config` Block below.
+    """
+
+@pulumi.input_type
+class AgentcoreOnlineEvaluationConfigOutputConfigArgs:
+    def __init__(__self__, *,
+                 cloudwatch_configs: pulumi.Input[Sequence[pulumi.Input['AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs']]] cloudwatch_configs: CloudWatch configuration for evaluation results. See `cloudwatch_config` Block below.
+        """
+        pulumi.set(__self__, "cloudwatch_configs", cloudwatch_configs)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchConfigs")
+    def cloudwatch_configs(self) -> pulumi.Input[Sequence[pulumi.Input['AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs']]]:
+        """
+        CloudWatch configuration for evaluation results. See `cloudwatch_config` Block below.
+        """
+        return pulumi.get(self, "cloudwatch_configs")
+
+    @cloudwatch_configs.setter
+    def cloudwatch_configs(self, value: pulumi.Input[Sequence[pulumi.Input['AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs']]]):
+        pulumi.set(self, "cloudwatch_configs", value)
+
+
+class AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgsDict(TypedDict):
+    log_group_name: pulumi.Input[_builtins.str]
+    """
+    Name of the CloudWatch log group where evaluation results are written.
+    """
+
+@pulumi.input_type
+class AgentcoreOnlineEvaluationConfigOutputConfigCloudwatchConfigArgs:
+    def __init__(__self__, *,
+                 log_group_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] log_group_name: Name of the CloudWatch log group where evaluation results are written.
+        """
+        pulumi.set(__self__, "log_group_name", log_group_name)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the CloudWatch log group where evaluation results are written.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @log_group_name.setter
+    def log_group_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_group_name", value)
+
+
+class AgentcoreOnlineEvaluationConfigRuleArgsDict(TypedDict):
+    sampling_config: pulumi.Input['AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgsDict']
+    """
+    Sampling configuration determining what percentage of agent traces to evaluate. See `sampling_config` Block below.
+    """
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOnlineEvaluationConfigRuleFilterArgsDict']]]]]
+    """
+    List of filters determining which agent traces to evaluate. Maximum 5. See `filter` Block below.
+    """
+    session_config: NotRequired[pulumi.Input[Optional['AgentcoreOnlineEvaluationConfigRuleSessionConfigArgsDict']]]
+    """
+    Session configuration defining timeout settings for detecting when agent sessions are complete. See `session_config` Block below.
+    """
+
+@pulumi.input_type
+class AgentcoreOnlineEvaluationConfigRuleArgs:
+    def __init__(__self__, *,
+                 sampling_config: pulumi.Input['AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs'],
+                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOnlineEvaluationConfigRuleFilterArgs']]]] = None,
+                 session_config: pulumi.Input[Optional['AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs'] sampling_config: Sampling configuration determining what percentage of agent traces to evaluate. See `sampling_config` Block below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreOnlineEvaluationConfigRuleFilterArgs']]] filters: List of filters determining which agent traces to evaluate. Maximum 5. See `filter` Block below.
+        :param pulumi.Input['AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs'] session_config: Session configuration defining timeout settings for detecting when agent sessions are complete. See `session_config` Block below.
+        """
+        pulumi.set(__self__, "sampling_config", sampling_config)
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if session_config is not None:
+            pulumi.set(__self__, "session_config", session_config)
+
+    @_builtins.property
+    @pulumi.getter(name="samplingConfig")
+    def sampling_config(self) -> pulumi.Input['AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs']:
+        """
+        Sampling configuration determining what percentage of agent traces to evaluate. See `sampling_config` Block below.
+        """
+        return pulumi.get(self, "sampling_config")
+
+    @sampling_config.setter
+    def sampling_config(self, value: pulumi.Input['AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs']):
+        pulumi.set(self, "sampling_config", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOnlineEvaluationConfigRuleFilterArgs']]]]:
+        """
+        List of filters determining which agent traces to evaluate. Maximum 5. See `filter` Block below.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreOnlineEvaluationConfigRuleFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionConfig")
+    def session_config(self) -> pulumi.Input[Optional['AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs']]:
+        """
+        Session configuration defining timeout settings for detecting when agent sessions are complete. See `session_config` Block below.
+        """
+        return pulumi.get(self, "session_config")
+
+    @session_config.setter
+    def session_config(self, value: pulumi.Input[Optional['AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs']]):
+        pulumi.set(self, "session_config", value)
+
+
+class AgentcoreOnlineEvaluationConfigRuleFilterArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Key or field name to filter on within the agent trace data.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    Comparison operator. Valid values: `Equals`, `NotEquals`, `GreaterThan`, `LessThan`, `GreaterThanOrEqual`, `LessThanOrEqual`, `Contains`, `NotContains`.
+    """
+    value: pulumi.Input['AgentcoreOnlineEvaluationConfigRuleFilterValueArgsDict']
+    """
+    Value to compare against. See `value` Block below.
+    """
+
+@pulumi.input_type
+class AgentcoreOnlineEvaluationConfigRuleFilterArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input[_builtins.str],
+                 value: pulumi.Input['AgentcoreOnlineEvaluationConfigRuleFilterValueArgs']):
+        """
+        :param pulumi.Input[_builtins.str] key: Key or field name to filter on within the agent trace data.
+        :param pulumi.Input[_builtins.str] operator: Comparison operator. Valid values: `Equals`, `NotEquals`, `GreaterThan`, `LessThan`, `GreaterThanOrEqual`, `LessThanOrEqual`, `Contains`, `NotContains`.
+        :param pulumi.Input['AgentcoreOnlineEvaluationConfigRuleFilterValueArgs'] value: Value to compare against. See `value` Block below.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Key or field name to filter on within the agent trace data.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        Comparison operator. Valid values: `Equals`, `NotEquals`, `GreaterThan`, `LessThan`, `GreaterThanOrEqual`, `LessThanOrEqual`, `Contains`, `NotContains`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input['AgentcoreOnlineEvaluationConfigRuleFilterValueArgs']:
+        """
+        Value to compare against. See `value` Block below.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input['AgentcoreOnlineEvaluationConfigRuleFilterValueArgs']):
+        pulumi.set(self, "value", value)
+
+
+class AgentcoreOnlineEvaluationConfigRuleFilterValueArgsDict(TypedDict):
+    boolean_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Boolean value for true/false filtering.
+    """
+    double_value: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Numeric value for numerical filtering.
+    """
+    string_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    String value for text-based filtering.
+    """
+
+@pulumi.input_type
+class AgentcoreOnlineEvaluationConfigRuleFilterValueArgs:
+    def __init__(__self__, *,
+                 boolean_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 double_value: pulumi.Input[Optional[_builtins.float]] = None,
+                 string_value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] boolean_value: Boolean value for true/false filtering.
+        :param pulumi.Input[_builtins.float] double_value: Numeric value for numerical filtering.
+        :param pulumi.Input[_builtins.str] string_value: String value for text-based filtering.
+        """
+        if boolean_value is not None:
+            pulumi.set(__self__, "boolean_value", boolean_value)
+        if double_value is not None:
+            pulumi.set(__self__, "double_value", double_value)
+        if string_value is not None:
+            pulumi.set(__self__, "string_value", string_value)
+
+    @_builtins.property
+    @pulumi.getter(name="booleanValue")
+    def boolean_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Boolean value for true/false filtering.
+        """
+        return pulumi.get(self, "boolean_value")
+
+    @boolean_value.setter
+    def boolean_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "boolean_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="doubleValue")
+    def double_value(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Numeric value for numerical filtering.
+        """
+        return pulumi.get(self, "double_value")
+
+    @double_value.setter
+    def double_value(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "double_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String value for text-based filtering.
+        """
+        return pulumi.get(self, "string_value")
+
+    @string_value.setter
+    def string_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "string_value", value)
+
+
+class AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgsDict(TypedDict):
+    sampling_percentage: pulumi.Input[_builtins.float]
+    """
+    Percentage of agent traces to sample for evaluation, from 0.01 to 100.
+    """
+
+@pulumi.input_type
+class AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs:
+    def __init__(__self__, *,
+                 sampling_percentage: pulumi.Input[_builtins.float]):
+        """
+        :param pulumi.Input[_builtins.float] sampling_percentage: Percentage of agent traces to sample for evaluation, from 0.01 to 100.
+        """
+        pulumi.set(__self__, "sampling_percentage", sampling_percentage)
+
+    @_builtins.property
+    @pulumi.getter(name="samplingPercentage")
+    def sampling_percentage(self) -> pulumi.Input[_builtins.float]:
+        """
+        Percentage of agent traces to sample for evaluation, from 0.01 to 100.
+        """
+        return pulumi.get(self, "sampling_percentage")
+
+    @sampling_percentage.setter
+    def sampling_percentage(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "sampling_percentage", value)
+
+
+class AgentcoreOnlineEvaluationConfigRuleSessionConfigArgsDict(TypedDict):
+    session_timeout_minutes: pulumi.Input[_builtins.int]
+    """
+    Minutes of inactivity after which a session is considered complete. Between 1 and 60.
+    """
+
+@pulumi.input_type
+class AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs:
+    def __init__(__self__, *,
+                 session_timeout_minutes: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] session_timeout_minutes: Minutes of inactivity after which a session is considered complete. Between 1 and 60.
+        """
+        pulumi.set(__self__, "session_timeout_minutes", session_timeout_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionTimeoutMinutes")
+    def session_timeout_minutes(self) -> pulumi.Input[_builtins.int]:
+        """
+        Minutes of inactivity after which a session is considered complete. Between 1 and 60.
+        """
+        return pulumi.get(self, "session_timeout_minutes")
+
+    @session_timeout_minutes.setter
+    def session_timeout_minutes(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "session_timeout_minutes", value)
+
+
+class AgentcoreOnlineEvaluationConfigTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class AgentcoreOnlineEvaluationConfigTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+class AgentcorePolicyEngineTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class AgentcorePolicyEngineTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 class AgentcoreTokenVaultCmkKmsConfigurationArgsDict(TypedDict):

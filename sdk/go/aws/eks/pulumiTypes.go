@@ -3264,7 +3264,7 @@ func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) GroupName() pulumi.S
 
 type ClusterRemoteNetworkConfig struct {
 	// Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
-	RemoteNodeNetworks ClusterRemoteNetworkConfigRemoteNodeNetworks `pulumi:"remoteNodeNetworks"`
+	RemoteNodeNetworks *ClusterRemoteNetworkConfigRemoteNodeNetworks `pulumi:"remoteNodeNetworks"`
 	// Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
 	RemotePodNetworks *ClusterRemoteNetworkConfigRemotePodNetworks `pulumi:"remotePodNetworks"`
 }
@@ -3282,7 +3282,7 @@ type ClusterRemoteNetworkConfigInput interface {
 
 type ClusterRemoteNetworkConfigArgs struct {
 	// Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
-	RemoteNodeNetworks ClusterRemoteNetworkConfigRemoteNodeNetworksInput `pulumi:"remoteNodeNetworks"`
+	RemoteNodeNetworks ClusterRemoteNetworkConfigRemoteNodeNetworksPtrInput `pulumi:"remoteNodeNetworks"`
 	// Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
 	RemotePodNetworks ClusterRemoteNetworkConfigRemotePodNetworksPtrInput `pulumi:"remotePodNetworks"`
 }
@@ -3365,10 +3365,10 @@ func (o ClusterRemoteNetworkConfigOutput) ToClusterRemoteNetworkConfigPtrOutputW
 }
 
 // Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
-func (o ClusterRemoteNetworkConfigOutput) RemoteNodeNetworks() ClusterRemoteNetworkConfigRemoteNodeNetworksOutput {
-	return o.ApplyT(func(v ClusterRemoteNetworkConfig) ClusterRemoteNetworkConfigRemoteNodeNetworks {
+func (o ClusterRemoteNetworkConfigOutput) RemoteNodeNetworks() ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput {
+	return o.ApplyT(func(v ClusterRemoteNetworkConfig) *ClusterRemoteNetworkConfigRemoteNodeNetworks {
 		return v.RemoteNodeNetworks
-	}).(ClusterRemoteNetworkConfigRemoteNodeNetworksOutput)
+	}).(ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput)
 }
 
 // Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
@@ -3408,7 +3408,7 @@ func (o ClusterRemoteNetworkConfigPtrOutput) RemoteNodeNetworks() ClusterRemoteN
 		if v == nil {
 			return nil
 		}
-		return &v.RemoteNodeNetworks
+		return v.RemoteNodeNetworks
 	}).(ClusterRemoteNetworkConfigRemoteNodeNetworksPtrOutput)
 }
 

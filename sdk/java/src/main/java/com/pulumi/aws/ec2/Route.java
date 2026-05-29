@@ -322,6 +322,20 @@ public class Route extends com.pulumi.resources.CustomResource {
         return this.networkInterfaceId;
     }
     /**
+     * The Amazon Resource Name (ARN) of an ODB network.
+     * 
+     */
+    @Export(name="odbNetworkArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> odbNetworkArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of an ODB network.
+     * 
+     */
+    public Output<Optional<String>> odbNetworkArn() {
+        return Codegen.optional(this.odbNetworkArn);
+    }
+    /**
      * How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
      * 
      */

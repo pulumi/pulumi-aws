@@ -473,7 +473,7 @@ type ConfigurationSetEventDestinationEventDestination struct {
 	KinesisFirehoseDestination *ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination `pulumi:"kinesisFirehoseDestination"`
 	// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
 	MatchingEventTypes []string `pulumi:"matchingEventTypes"`
-	// An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
+	// An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
 	PinpointDestination *ConfigurationSetEventDestinationEventDestinationPinpointDestination `pulumi:"pinpointDestination"`
 	// An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
 	SnsDestination *ConfigurationSetEventDestinationEventDestinationSnsDestination `pulumi:"snsDestination"`
@@ -501,7 +501,7 @@ type ConfigurationSetEventDestinationEventDestinationArgs struct {
 	KinesisFirehoseDestination ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationPtrInput `pulumi:"kinesisFirehoseDestination"`
 	// An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
 	MatchingEventTypes pulumi.StringArrayInput `pulumi:"matchingEventTypes"`
-	// An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
+	// An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
 	PinpointDestination ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrInput `pulumi:"pinpointDestination"`
 	// An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
 	SnsDestination ConfigurationSetEventDestinationEventDestinationSnsDestinationPtrInput `pulumi:"snsDestination"`
@@ -615,7 +615,7 @@ func (o ConfigurationSetEventDestinationEventDestinationOutput) MatchingEventTyp
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) []string { return v.MatchingEventTypes }).(pulumi.StringArrayOutput)
 }
 
-// An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
+// An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationOutput) PinpointDestination() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
 	return o.ApplyT(func(v ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationPinpointDestination {
 		return v.PinpointDestination
@@ -703,7 +703,7 @@ func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) MatchingEvent
 	}).(pulumi.StringArrayOutput)
 }
 
-// An object that defines an Amazon Pinpoint project destination for email events. See `pinpointDestination` Block for details.
+// An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
 func (o ConfigurationSetEventDestinationEventDestinationPtrOutput) PinpointDestination() ConfigurationSetEventDestinationEventDestinationPinpointDestinationPtrOutput {
 	return o.ApplyT(func(v *ConfigurationSetEventDestinationEventDestination) *ConfigurationSetEventDestinationEventDestinationPinpointDestination {
 		if v == nil {

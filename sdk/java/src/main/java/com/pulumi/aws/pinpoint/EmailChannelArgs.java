@@ -18,47 +18,47 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
     public static final EmailChannelArgs Empty = new EmailChannelArgs();
 
     /**
-     * The application ID.
+     * Application ID.
      * 
      * @deprecated
-     * application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * application_id is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* application_id is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      * @deprecated
-     * application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * application_id is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* application_id is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     public Output<String> applicationId() {
         return this.applicationId;
     }
 
     /**
-     * The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+     * ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
      * 
      * @deprecated
-     * configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * configuration_set is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* configuration_set is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Import(name="configurationSet")
     private @Nullable Output<String> configurationSet;
 
     /**
-     * @return The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+     * @return ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
      * 
      * @deprecated
-     * configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * configuration_set is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* configuration_set is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     public Optional<Output<String>> configurationSet() {
         return Optional.ofNullable(this.configurationSet);
     }
@@ -67,10 +67,10 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
      * Whether the channel is enabled or disabled. Defaults to `true`.
      * 
      * @deprecated
-     * enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * enabled is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* enabled is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
@@ -78,79 +78,79 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
      * @return Whether the channel is enabled or disabled. Defaults to `true`.
      * 
      * @deprecated
-     * enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * enabled is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* enabled is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
     /**
-     * The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+     * Email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      * 
      * @deprecated
-     * from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * from_address is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* from_address is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Import(name="fromAddress", required=true)
     private Output<String> fromAddress;
 
     /**
-     * @return The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+     * @return Email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
      * 
      * @deprecated
-     * from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * from_address is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* from_address is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     public Output<String> fromAddress() {
         return this.fromAddress;
     }
 
     /**
-     * The ARN of an identity verified with SES.
+     * ARN of an identity verified with SES.
      * 
      * @deprecated
-     * identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * identity is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* identity is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Import(name="identity", required=true)
     private Output<String> identity;
 
     /**
-     * @return The ARN of an identity verified with SES.
+     * @return ARN of an identity verified with SES.
      * 
      * @deprecated
-     * identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * identity is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* identity is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     public Output<String> identity() {
         return this.identity;
     }
 
     /**
-     * The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+     * ARN of an IAM role for AWS End User Messaging to use to send email from your campaigns or journeys through Amazon SES.
      * 
      * @deprecated
-     * orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * orchestration_sending_role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* orchestration_sending_role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Import(name="orchestrationSendingRoleArn")
     private @Nullable Output<String> orchestrationSendingRoleArn;
 
     /**
-     * @return The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+     * @return ARN of an IAM role for AWS End User Messaging to use to send email from your campaigns or journeys through Amazon SES.
      * 
      * @deprecated
-     * orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * orchestration_sending_role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* orchestration_sending_role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     public Optional<Output<String>> orchestrationSendingRoleArn() {
         return Optional.ofNullable(this.orchestrationSendingRoleArn);
     }
@@ -171,24 +171,24 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
+     * ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
      * @deprecated
-     * role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
+     * @return ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
      * 
      * @deprecated
-     * role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+     * role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
      * 
      */
-    @Deprecated /* role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+    @Deprecated /* role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
     public Optional<Output<String>> roleArn() {
         return Optional.ofNullable(this.roleArn);
     }
@@ -225,59 +225,59 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
          * @deprecated
-         * application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * application_id is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* application_id is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder applicationId(Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
          * @deprecated
-         * application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * application_id is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* application_id is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* application_id is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
         /**
-         * @param configurationSet The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+         * @param configurationSet ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
          * 
          * @return builder
          * 
          * @deprecated
-         * configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * configuration_set is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* configuration_set is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder configurationSet(@Nullable Output<String> configurationSet) {
             $.configurationSet = configurationSet;
             return this;
         }
 
         /**
-         * @param configurationSet The ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
+         * @param configurationSet ARN of the Amazon SES configuration set that you want to apply to messages that you send through the channel.
          * 
          * @return builder
          * 
          * @deprecated
-         * configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * configuration_set is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* configuration_set is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* configuration_set is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder configurationSet(String configurationSet) {
             return configurationSet(Output.of(configurationSet));
         }
@@ -288,10 +288,10 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * enabled is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* enabled is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
@@ -303,97 +303,97 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * enabled is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* enabled is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* enabled is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
         /**
-         * @param fromAddress The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+         * @param fromAddress Email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
          * 
          * @return builder
          * 
          * @deprecated
-         * from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * from_address is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* from_address is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder fromAddress(Output<String> fromAddress) {
             $.fromAddress = fromAddress;
             return this;
         }
 
         /**
-         * @param fromAddress The email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
+         * @param fromAddress Email address used to send emails from. You can use email only (`user{@literal @}example.com`) or friendly address (`User &lt;user{@literal @}example.com&gt;`). This field comply with [RFC 5322](https://www.ietf.org/rfc/rfc5322.txt).
          * 
          * @return builder
          * 
          * @deprecated
-         * from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * from_address is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* from_address is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* from_address is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder fromAddress(String fromAddress) {
             return fromAddress(Output.of(fromAddress));
         }
 
         /**
-         * @param identity The ARN of an identity verified with SES.
+         * @param identity ARN of an identity verified with SES.
          * 
          * @return builder
          * 
          * @deprecated
-         * identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * identity is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* identity is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder identity(Output<String> identity) {
             $.identity = identity;
             return this;
         }
 
         /**
-         * @param identity The ARN of an identity verified with SES.
+         * @param identity ARN of an identity verified with SES.
          * 
          * @return builder
          * 
          * @deprecated
-         * identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * identity is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* identity is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* identity is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder identity(String identity) {
             return identity(Output.of(identity));
         }
 
         /**
-         * @param orchestrationSendingRoleArn The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+         * @param orchestrationSendingRoleArn ARN of an IAM role for AWS End User Messaging to use to send email from your campaigns or journeys through Amazon SES.
          * 
          * @return builder
          * 
          * @deprecated
-         * orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * orchestration_sending_role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* orchestration_sending_role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder orchestrationSendingRoleArn(@Nullable Output<String> orchestrationSendingRoleArn) {
             $.orchestrationSendingRoleArn = orchestrationSendingRoleArn;
             return this;
         }
 
         /**
-         * @param orchestrationSendingRoleArn The ARN of an IAM role for Amazon Pinpoint to use to send email from your campaigns or journeys through Amazon SES.
+         * @param orchestrationSendingRoleArn ARN of an IAM role for AWS End User Messaging to use to send email from your campaigns or journeys through Amazon SES.
          * 
          * @return builder
          * 
          * @deprecated
-         * orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * orchestration_sending_role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* orchestration_sending_role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* orchestration_sending_role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder orchestrationSendingRoleArn(String orchestrationSendingRoleArn) {
             return orchestrationSendingRoleArn(Output.of(orchestrationSendingRoleArn));
         }
@@ -420,30 +420,30 @@ public final class EmailChannelArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
+         * @param roleArn ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
          * 
          * @return builder
          * 
          * @deprecated
-         * role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder roleArn(@Nullable Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
         /**
-         * @param roleArn *Deprecated* The ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
+         * @param roleArn ARN of an IAM Role used to submit events to Mobile Analytics&#39; event ingestion service.
          * 
          * @return builder
          * 
          * @deprecated
-         * role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+         * role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
          * 
          */
-        @Deprecated /* role_arn is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
+        @Deprecated /* role_arn is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES. */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

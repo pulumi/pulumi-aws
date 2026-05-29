@@ -171,6 +171,21 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The Amazon Resource Name (ARN) of an ODB network.
+     * 
+     */
+    @Import(name="odbNetworkArn")
+    private @Nullable Output<String> odbNetworkArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of an ODB network.
+     * 
+     */
+    public Optional<Output<String>> odbNetworkArn() {
+        return Optional.ofNullable(this.odbNetworkArn);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -266,6 +281,7 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
         this.localGatewayId = $.localGatewayId;
         this.natGatewayId = $.natGatewayId;
         this.networkInterfaceId = $.networkInterfaceId;
+        this.odbNetworkArn = $.odbNetworkArn;
         this.region = $.region;
         this.routeTableId = $.routeTableId;
         this.transitGatewayId = $.transitGatewayId;
@@ -503,6 +519,27 @@ public final class RouteArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder networkInterfaceId(String networkInterfaceId) {
             return networkInterfaceId(Output.of(networkInterfaceId));
+        }
+
+        /**
+         * @param odbNetworkArn The Amazon Resource Name (ARN) of an ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(@Nullable Output<String> odbNetworkArn) {
+            $.odbNetworkArn = odbNetworkArn;
+            return this;
+        }
+
+        /**
+         * @param odbNetworkArn The Amazon Resource Name (ARN) of an ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(String odbNetworkArn) {
+            return odbNetworkArn(Output.of(odbNetworkArn));
         }
 
         /**

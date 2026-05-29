@@ -26,7 +26,7 @@ class GetSecretVersionResult:
     """
     A collection of values returned by getSecretVersion.
     """
-    def __init__(__self__, arn=None, created_date=None, id=None, region=None, secret_binary=None, secret_id=None, secret_string=None, version_id=None, version_stage=None, version_stages=None):
+    def __init__(__self__, arn=None, created_date=None, id=None, region=None, secret_arn=None, secret_binary=None, secret_id=None, secret_string=None, version_id=None, version_stage=None, version_stages=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -39,6 +39,9 @@ class GetSecretVersionResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if secret_arn and not isinstance(secret_arn, str):
+            raise TypeError("Expected argument 'secret_arn' to be a str")
+        pulumi.set(__self__, "secret_arn", secret_arn)
         if secret_binary and not isinstance(secret_binary, str):
             raise TypeError("Expected argument 'secret_binary' to be a str")
         pulumi.set(__self__, "secret_binary", secret_binary)
@@ -60,9 +63,11 @@ class GetSecretVersionResult:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""arn is deprecated. Use secret_arn instead.""")
     def arn(self) -> _builtins.str:
         """
-        ARN of the secret.
+        (**Deprecated**) The ARN of the secret.
+        Use `secret_arn` instead.
         """
         return pulumi.get(self, "arn")
 
@@ -86,6 +91,14 @@ class GetSecretVersionResult:
     @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        The ARN of the secret.
+        """
+        return pulumi.get(self, "secret_arn")
 
     @_builtins.property
     @pulumi.getter(name="secretBinary")
@@ -137,6 +150,7 @@ class AwaitableGetSecretVersionResult(GetSecretVersionResult):
             created_date=self.created_date,
             id=self.id,
             region=self.region,
+            secret_arn=self.secret_arn,
             secret_binary=self.secret_binary,
             secret_id=self.secret_id,
             secret_string=self.secret_string,
@@ -206,6 +220,7 @@ def get_secret_version(region: Optional[_builtins.str] = None,
         created_date=pulumi.get(__ret__, 'created_date'),
         id=pulumi.get(__ret__, 'id'),
         region=pulumi.get(__ret__, 'region'),
+        secret_arn=pulumi.get(__ret__, 'secret_arn'),
         secret_binary=pulumi.get(__ret__, 'secret_binary'),
         secret_id=pulumi.get(__ret__, 'secret_id'),
         secret_string=pulumi.get(__ret__, 'secret_string'),
@@ -272,6 +287,7 @@ def get_secret_version_output(region: pulumi.Input[Optional[Optional[_builtins.s
         created_date=pulumi.get(__response__, 'created_date'),
         id=pulumi.get(__response__, 'id'),
         region=pulumi.get(__response__, 'region'),
+        secret_arn=pulumi.get(__response__, 'secret_arn'),
         secret_binary=pulumi.get(__response__, 'secret_binary'),
         secret_id=pulumi.get(__response__, 'secret_id'),
         secret_string=pulumi.get(__response__, 'secret_string'),

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ssm.inputs;
 
+import com.pulumi.aws.ssm.inputs.ResourceDataSyncS3DestinationDestinationDataSharingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -29,6 +30,23 @@ public final class ResourceDataSyncS3DestinationArgs extends com.pulumi.resource
      */
     public Output<String> bucketName() {
         return this.bucketName;
+    }
+
+    /**
+     * Enables destination data sharing.
+     * See `destinationDataSharing` below.
+     * 
+     */
+    @Import(name="destinationDataSharing")
+    private @Nullable Output<ResourceDataSyncS3DestinationDestinationDataSharingArgs> destinationDataSharing;
+
+    /**
+     * @return Enables destination data sharing.
+     * See `destinationDataSharing` below.
+     * 
+     */
+    public Optional<Output<ResourceDataSyncS3DestinationDestinationDataSharingArgs>> destinationDataSharing() {
+        return Optional.ofNullable(this.destinationDataSharing);
     }
 
     /**
@@ -95,6 +113,7 @@ public final class ResourceDataSyncS3DestinationArgs extends com.pulumi.resource
 
     private ResourceDataSyncS3DestinationArgs(ResourceDataSyncS3DestinationArgs $) {
         this.bucketName = $.bucketName;
+        this.destinationDataSharing = $.destinationDataSharing;
         this.kmsKeyArn = $.kmsKeyArn;
         this.prefix = $.prefix;
         this.region = $.region;
@@ -138,6 +157,29 @@ public final class ResourceDataSyncS3DestinationArgs extends com.pulumi.resource
          */
         public Builder bucketName(String bucketName) {
             return bucketName(Output.of(bucketName));
+        }
+
+        /**
+         * @param destinationDataSharing Enables destination data sharing.
+         * See `destinationDataSharing` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationDataSharing(@Nullable Output<ResourceDataSyncS3DestinationDestinationDataSharingArgs> destinationDataSharing) {
+            $.destinationDataSharing = destinationDataSharing;
+            return this;
+        }
+
+        /**
+         * @param destinationDataSharing Enables destination data sharing.
+         * See `destinationDataSharing` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationDataSharing(ResourceDataSyncS3DestinationDestinationDataSharingArgs destinationDataSharing) {
+            return destinationDataSharing(Output.of(destinationDataSharing));
         }
 
         /**

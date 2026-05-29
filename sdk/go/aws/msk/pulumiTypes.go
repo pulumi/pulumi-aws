@@ -4119,6 +4119,813 @@ func (o ReplicatorKafkaClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOut
 	return o.ApplyT(func(v ReplicatorKafkaClusterVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+type ReplicatorLogDelivery struct {
+	// Configuration block for replicator log delivery. Detailed below.
+	ReplicatorLogDelivery *ReplicatorLogDeliveryReplicatorLogDelivery `pulumi:"replicatorLogDelivery"`
+}
+
+// ReplicatorLogDeliveryInput is an input type that accepts ReplicatorLogDeliveryArgs and ReplicatorLogDeliveryOutput values.
+// You can construct a concrete instance of `ReplicatorLogDeliveryInput` via:
+//
+//	ReplicatorLogDeliveryArgs{...}
+type ReplicatorLogDeliveryInput interface {
+	pulumi.Input
+
+	ToReplicatorLogDeliveryOutput() ReplicatorLogDeliveryOutput
+	ToReplicatorLogDeliveryOutputWithContext(context.Context) ReplicatorLogDeliveryOutput
+}
+
+type ReplicatorLogDeliveryArgs struct {
+	// Configuration block for replicator log delivery. Detailed below.
+	ReplicatorLogDelivery ReplicatorLogDeliveryReplicatorLogDeliveryPtrInput `pulumi:"replicatorLogDelivery"`
+}
+
+func (ReplicatorLogDeliveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorLogDelivery)(nil)).Elem()
+}
+
+func (i ReplicatorLogDeliveryArgs) ToReplicatorLogDeliveryOutput() ReplicatorLogDeliveryOutput {
+	return i.ToReplicatorLogDeliveryOutputWithContext(context.Background())
+}
+
+func (i ReplicatorLogDeliveryArgs) ToReplicatorLogDeliveryOutputWithContext(ctx context.Context) ReplicatorLogDeliveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryOutput)
+}
+
+func (i ReplicatorLogDeliveryArgs) ToReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryPtrOutput {
+	return i.ToReplicatorLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorLogDeliveryArgs) ToReplicatorLogDeliveryPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryOutput).ToReplicatorLogDeliveryPtrOutputWithContext(ctx)
+}
+
+// ReplicatorLogDeliveryPtrInput is an input type that accepts ReplicatorLogDeliveryArgs, ReplicatorLogDeliveryPtr and ReplicatorLogDeliveryPtrOutput values.
+// You can construct a concrete instance of `ReplicatorLogDeliveryPtrInput` via:
+//
+//	        ReplicatorLogDeliveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorLogDeliveryPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryPtrOutput
+	ToReplicatorLogDeliveryPtrOutputWithContext(context.Context) ReplicatorLogDeliveryPtrOutput
+}
+
+type replicatorLogDeliveryPtrType ReplicatorLogDeliveryArgs
+
+func ReplicatorLogDeliveryPtr(v *ReplicatorLogDeliveryArgs) ReplicatorLogDeliveryPtrInput {
+	return (*replicatorLogDeliveryPtrType)(v)
+}
+
+func (*replicatorLogDeliveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorLogDelivery)(nil)).Elem()
+}
+
+func (i *replicatorLogDeliveryPtrType) ToReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryPtrOutput {
+	return i.ToReplicatorLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorLogDeliveryPtrType) ToReplicatorLogDeliveryPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryPtrOutput)
+}
+
+type ReplicatorLogDeliveryOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorLogDeliveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorLogDelivery)(nil)).Elem()
+}
+
+func (o ReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryOutput() ReplicatorLogDeliveryOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryOutputWithContext(ctx context.Context) ReplicatorLogDeliveryOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryPtrOutput {
+	return o.ToReplicatorLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorLogDelivery) *ReplicatorLogDelivery {
+		return &v
+	}).(ReplicatorLogDeliveryPtrOutput)
+}
+
+// Configuration block for replicator log delivery. Detailed below.
+func (o ReplicatorLogDeliveryOutput) ReplicatorLogDelivery() ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput {
+	return o.ApplyT(func(v ReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDelivery {
+		return v.ReplicatorLogDelivery
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput)
+}
+
+type ReplicatorLogDeliveryPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorLogDeliveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorLogDelivery)(nil)).Elem()
+}
+
+func (o ReplicatorLogDeliveryPtrOutput) ToReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryPtrOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryPtrOutput) ToReplicatorLogDeliveryPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryPtrOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryPtrOutput) Elem() ReplicatorLogDeliveryOutput {
+	return o.ApplyT(func(v *ReplicatorLogDelivery) ReplicatorLogDelivery {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorLogDelivery
+		return ret
+	}).(ReplicatorLogDeliveryOutput)
+}
+
+// Configuration block for replicator log delivery. Detailed below.
+func (o ReplicatorLogDeliveryPtrOutput) ReplicatorLogDelivery() ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDelivery {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicatorLogDelivery
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput)
+}
+
+type ReplicatorLogDeliveryReplicatorLogDelivery struct {
+	// Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+	CloudwatchLogs *ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs `pulumi:"cloudwatchLogs"`
+	// Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+	Firehose *ReplicatorLogDeliveryReplicatorLogDeliveryFirehose `pulumi:"firehose"`
+	// Configuration block for replicator log delivery to Amazon S3. Detailed below.
+	S3 *ReplicatorLogDeliveryReplicatorLogDeliveryS3 `pulumi:"s3"`
+}
+
+// ReplicatorLogDeliveryReplicatorLogDeliveryInput is an input type that accepts ReplicatorLogDeliveryReplicatorLogDeliveryArgs and ReplicatorLogDeliveryReplicatorLogDeliveryOutput values.
+// You can construct a concrete instance of `ReplicatorLogDeliveryReplicatorLogDeliveryInput` via:
+//
+//	ReplicatorLogDeliveryReplicatorLogDeliveryArgs{...}
+type ReplicatorLogDeliveryReplicatorLogDeliveryInput interface {
+	pulumi.Input
+
+	ToReplicatorLogDeliveryReplicatorLogDeliveryOutput() ReplicatorLogDeliveryReplicatorLogDeliveryOutput
+	ToReplicatorLogDeliveryReplicatorLogDeliveryOutputWithContext(context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryOutput
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryArgs struct {
+	// Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+	CloudwatchLogs ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
+	// Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+	Firehose ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrInput `pulumi:"firehose"`
+	// Configuration block for replicator log delivery to Amazon S3. Detailed below.
+	S3 ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrInput `pulumi:"s3"`
+}
+
+func (ReplicatorLogDeliveryReplicatorLogDeliveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDelivery)(nil)).Elem()
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryArgs) ToReplicatorLogDeliveryReplicatorLogDeliveryOutput() ReplicatorLogDeliveryReplicatorLogDeliveryOutput {
+	return i.ToReplicatorLogDeliveryReplicatorLogDeliveryOutputWithContext(context.Background())
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryArgs) ToReplicatorLogDeliveryReplicatorLogDeliveryOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryReplicatorLogDeliveryOutput)
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryArgs) ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput {
+	return i.ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryArgs) ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryReplicatorLogDeliveryOutput).ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutputWithContext(ctx)
+}
+
+// ReplicatorLogDeliveryReplicatorLogDeliveryPtrInput is an input type that accepts ReplicatorLogDeliveryReplicatorLogDeliveryArgs, ReplicatorLogDeliveryReplicatorLogDeliveryPtr and ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput values.
+// You can construct a concrete instance of `ReplicatorLogDeliveryReplicatorLogDeliveryPtrInput` via:
+//
+//	        ReplicatorLogDeliveryReplicatorLogDeliveryArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorLogDeliveryReplicatorLogDeliveryPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput
+	ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutputWithContext(context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput
+}
+
+type replicatorLogDeliveryReplicatorLogDeliveryPtrType ReplicatorLogDeliveryReplicatorLogDeliveryArgs
+
+func ReplicatorLogDeliveryReplicatorLogDeliveryPtr(v *ReplicatorLogDeliveryReplicatorLogDeliveryArgs) ReplicatorLogDeliveryReplicatorLogDeliveryPtrInput {
+	return (*replicatorLogDeliveryReplicatorLogDeliveryPtrType)(v)
+}
+
+func (*replicatorLogDeliveryReplicatorLogDeliveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorLogDeliveryReplicatorLogDelivery)(nil)).Elem()
+}
+
+func (i *replicatorLogDeliveryReplicatorLogDeliveryPtrType) ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput {
+	return i.ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorLogDeliveryReplicatorLogDeliveryPtrType) ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput)
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorLogDeliveryReplicatorLogDeliveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDelivery)(nil)).Elem()
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryOutput() ReplicatorLogDeliveryReplicatorLogDeliveryOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput {
+	return o.ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDelivery {
+		return &v
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput)
+}
+
+// Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryOutput) CloudwatchLogs() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs {
+		return v.CloudwatchLogs
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput)
+}
+
+// Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryOutput) Firehose() ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput {
+	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDeliveryFirehose {
+		return v.Firehose
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput)
+}
+
+// Configuration block for replicator log delivery to Amazon S3. Detailed below.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryOutput) S3() ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput {
+	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDeliveryS3 {
+		return v.S3
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput)
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorLogDeliveryReplicatorLogDelivery)(nil)).Elem()
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) Elem() ReplicatorLogDeliveryReplicatorLogDeliveryOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDelivery) ReplicatorLogDeliveryReplicatorLogDelivery {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorLogDeliveryReplicatorLogDelivery
+		return ret
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryOutput)
+}
+
+// Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) CloudwatchLogs() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs {
+		if v == nil {
+			return nil
+		}
+		return v.CloudwatchLogs
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput)
+}
+
+// Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) Firehose() ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDeliveryFirehose {
+		if v == nil {
+			return nil
+		}
+		return v.Firehose
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput)
+}
+
+// Configuration block for replicator log delivery to Amazon S3. Detailed below.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput) S3() ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDelivery) *ReplicatorLogDeliveryReplicatorLogDeliveryS3 {
+		if v == nil {
+			return nil
+		}
+		return v.S3
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput)
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs struct {
+	// Boolean whether to enable log delivery to CloudWatch Logs.
+	Enabled bool `pulumi:"enabled"`
+	// Name of CloudWatch Logs log group. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+	LogGroup *string `pulumi:"logGroup"`
+}
+
+// ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsInput is an input type that accepts ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs and ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput values.
+// You can construct a concrete instance of `ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsInput` via:
+//
+//	ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs{...}
+type ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsInput interface {
+	pulumi.Input
+
+	ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput
+	ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutputWithContext(context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs struct {
+	// Boolean whether to enable log delivery to CloudWatch Logs.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Name of CloudWatch Logs log group. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
+}
+
+func (ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs)(nil)).Elem()
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs) ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput {
+	return i.ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutputWithContext(context.Background())
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs) ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput)
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs) ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput {
+	return i.ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs) ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput).ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutputWithContext(ctx)
+}
+
+// ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrInput is an input type that accepts ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs, ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtr and ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput values.
+// You can construct a concrete instance of `ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrInput` via:
+//
+//	        ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput
+	ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutputWithContext(context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput
+}
+
+type replicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrType ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs
+
+func ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtr(v *ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs) ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrInput {
+	return (*replicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrType)(v)
+}
+
+func (*replicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs)(nil)).Elem()
+}
+
+func (i *replicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrType) ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput {
+	return i.ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrType) ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput)
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs)(nil)).Elem()
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput {
+	return o.ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs) *ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs {
+		return &v
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput)
+}
+
+// Boolean whether to enable log delivery to CloudWatch Logs.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Name of CloudWatch Logs log group. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs) *string { return v.LogGroup }).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs)(nil)).Elem()
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput) Elem() ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs) ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs
+		return ret
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput)
+}
+
+// Boolean whether to enable log delivery to CloudWatch Logs.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Name of CloudWatch Logs log group. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput) LogGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryFirehose struct {
+	// Name of the Firehose delivery stream. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+	DeliveryStream *string `pulumi:"deliveryStream"`
+	// Boolean whether to enable log delivery to Firehose.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseInput is an input type that accepts ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs and ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput values.
+// You can construct a concrete instance of `ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseInput` via:
+//
+//	ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs{...}
+type ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseInput interface {
+	pulumi.Input
+
+	ToReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput() ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput
+	ToReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutputWithContext(context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs struct {
+	// Name of the Firehose delivery stream. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
+	// Boolean whether to enable log delivery to Firehose.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryFirehose)(nil)).Elem()
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs) ToReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput() ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput {
+	return i.ToReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutputWithContext(context.Background())
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs) ToReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput)
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs) ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput {
+	return i.ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs) ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput).ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutputWithContext(ctx)
+}
+
+// ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrInput is an input type that accepts ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs, ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtr and ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput values.
+// You can construct a concrete instance of `ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrInput` via:
+//
+//	        ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrInput interface {
+	pulumi.Input
+
+	ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput
+	ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutputWithContext(context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput
+}
+
+type replicatorLogDeliveryReplicatorLogDeliveryFirehosePtrType ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs
+
+func ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtr(v *ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs) ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrInput {
+	return (*replicatorLogDeliveryReplicatorLogDeliveryFirehosePtrType)(v)
+}
+
+func (*replicatorLogDeliveryReplicatorLogDeliveryFirehosePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorLogDeliveryReplicatorLogDeliveryFirehose)(nil)).Elem()
+}
+
+func (i *replicatorLogDeliveryReplicatorLogDeliveryFirehosePtrType) ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput {
+	return i.ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorLogDeliveryReplicatorLogDeliveryFirehosePtrType) ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput)
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryFirehose)(nil)).Elem()
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput() ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput {
+	return o.ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorLogDeliveryReplicatorLogDeliveryFirehose) *ReplicatorLogDeliveryReplicatorLogDeliveryFirehose {
+		return &v
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput)
+}
+
+// Name of the Firehose delivery stream. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDeliveryFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
+}
+
+// Boolean whether to enable log delivery to Firehose.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDeliveryFirehose) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorLogDeliveryReplicatorLogDeliveryFirehose)(nil)).Elem()
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput) Elem() ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDeliveryFirehose) ReplicatorLogDeliveryReplicatorLogDeliveryFirehose {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorLogDeliveryReplicatorLogDeliveryFirehose
+		return ret
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput)
+}
+
+// Name of the Firehose delivery stream. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput) DeliveryStream() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDeliveryFirehose) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeliveryStream
+	}).(pulumi.StringPtrOutput)
+}
+
+// Boolean whether to enable log delivery to Firehose.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDeliveryFirehose) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryS3 struct {
+	// Name of the S3 bucket. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+	Bucket *string `pulumi:"bucket"`
+	// Boolean whether to enable log delivery to S3.
+	Enabled bool `pulumi:"enabled"`
+	// Prefix to use when storing replicator logs in S3. If `enabled` is `false`, this value must not be set.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// ReplicatorLogDeliveryReplicatorLogDeliveryS3Input is an input type that accepts ReplicatorLogDeliveryReplicatorLogDeliveryS3Args and ReplicatorLogDeliveryReplicatorLogDeliveryS3Output values.
+// You can construct a concrete instance of `ReplicatorLogDeliveryReplicatorLogDeliveryS3Input` via:
+//
+//	ReplicatorLogDeliveryReplicatorLogDeliveryS3Args{...}
+type ReplicatorLogDeliveryReplicatorLogDeliveryS3Input interface {
+	pulumi.Input
+
+	ToReplicatorLogDeliveryReplicatorLogDeliveryS3Output() ReplicatorLogDeliveryReplicatorLogDeliveryS3Output
+	ToReplicatorLogDeliveryReplicatorLogDeliveryS3OutputWithContext(context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryS3Output
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryS3Args struct {
+	// Name of the S3 bucket. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// Boolean whether to enable log delivery to S3.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Prefix to use when storing replicator logs in S3. If `enabled` is `false`, this value must not be set.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (ReplicatorLogDeliveryReplicatorLogDeliveryS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryS3)(nil)).Elem()
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryS3Args) ToReplicatorLogDeliveryReplicatorLogDeliveryS3Output() ReplicatorLogDeliveryReplicatorLogDeliveryS3Output {
+	return i.ToReplicatorLogDeliveryReplicatorLogDeliveryS3OutputWithContext(context.Background())
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryS3Args) ToReplicatorLogDeliveryReplicatorLogDeliveryS3OutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryReplicatorLogDeliveryS3Output)
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryS3Args) ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput {
+	return i.ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatorLogDeliveryReplicatorLogDeliveryS3Args) ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryReplicatorLogDeliveryS3Output).ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutputWithContext(ctx)
+}
+
+// ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrInput is an input type that accepts ReplicatorLogDeliveryReplicatorLogDeliveryS3Args, ReplicatorLogDeliveryReplicatorLogDeliveryS3Ptr and ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput values.
+// You can construct a concrete instance of `ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrInput` via:
+//
+//	        ReplicatorLogDeliveryReplicatorLogDeliveryS3Args{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrInput interface {
+	pulumi.Input
+
+	ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput
+	ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutputWithContext(context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput
+}
+
+type replicatorLogDeliveryReplicatorLogDeliveryS3PtrType ReplicatorLogDeliveryReplicatorLogDeliveryS3Args
+
+func ReplicatorLogDeliveryReplicatorLogDeliveryS3Ptr(v *ReplicatorLogDeliveryReplicatorLogDeliveryS3Args) ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrInput {
+	return (*replicatorLogDeliveryReplicatorLogDeliveryS3PtrType)(v)
+}
+
+func (*replicatorLogDeliveryReplicatorLogDeliveryS3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorLogDeliveryReplicatorLogDeliveryS3)(nil)).Elem()
+}
+
+func (i *replicatorLogDeliveryReplicatorLogDeliveryS3PtrType) ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput {
+	return i.ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutputWithContext(context.Background())
+}
+
+func (i *replicatorLogDeliveryReplicatorLogDeliveryS3PtrType) ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput)
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryS3Output struct{ *pulumi.OutputState }
+
+func (ReplicatorLogDeliveryReplicatorLogDeliveryS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryS3)(nil)).Elem()
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3Output) ToReplicatorLogDeliveryReplicatorLogDeliveryS3Output() ReplicatorLogDeliveryReplicatorLogDeliveryS3Output {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3Output) ToReplicatorLogDeliveryReplicatorLogDeliveryS3OutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryS3Output {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3Output) ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput {
+	return o.ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3Output) ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorLogDeliveryReplicatorLogDeliveryS3) *ReplicatorLogDeliveryReplicatorLogDeliveryS3 {
+		return &v
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput)
+}
+
+// Name of the S3 bucket. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3Output) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDeliveryS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// Boolean whether to enable log delivery to S3.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3Output) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDeliveryS3) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Prefix to use when storing replicator logs in S3. If `enabled` is `false`, this value must not be set.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3Output) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatorLogDeliveryReplicatorLogDeliveryS3) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorLogDeliveryReplicatorLogDeliveryS3)(nil)).Elem()
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput() ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput) ToReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutputWithContext(ctx context.Context) ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput {
+	return o
+}
+
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput) Elem() ReplicatorLogDeliveryReplicatorLogDeliveryS3Output {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDeliveryS3) ReplicatorLogDeliveryReplicatorLogDeliveryS3 {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorLogDeliveryReplicatorLogDeliveryS3
+		return ret
+	}).(ReplicatorLogDeliveryReplicatorLogDeliveryS3Output)
+}
+
+// Name of the S3 bucket. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDeliveryS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// Boolean whether to enable log delivery to S3.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDeliveryS3) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Prefix to use when storing replicator logs in S3. If `enabled` is `false`, this value must not be set.
+func (o ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatorLogDeliveryReplicatorLogDeliveryS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
 type ReplicatorReplicationInfoList struct {
 	// Configuration relating to consumer group replication.
 	ConsumerGroupReplications []ReplicatorReplicationInfoListConsumerGroupReplication `pulumi:"consumerGroupReplications"`
@@ -6756,6 +7563,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterArrayInput)(nil)).Elem(), ReplicatorKafkaClusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterAmazonMskClusterInput)(nil)).Elem(), ReplicatorKafkaClusterAmazonMskClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterVpcConfigInput)(nil)).Elem(), ReplicatorKafkaClusterVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryInput)(nil)).Elem(), ReplicatorLogDeliveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryPtrInput)(nil)).Elem(), ReplicatorLogDeliveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryInput)(nil)).Elem(), ReplicatorLogDeliveryReplicatorLogDeliveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryPtrInput)(nil)).Elem(), ReplicatorLogDeliveryReplicatorLogDeliveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsInput)(nil)).Elem(), ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrInput)(nil)).Elem(), ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseInput)(nil)).Elem(), ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrInput)(nil)).Elem(), ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryS3Input)(nil)).Elem(), ReplicatorLogDeliveryReplicatorLogDeliveryS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrInput)(nil)).Elem(), ReplicatorLogDeliveryReplicatorLogDeliveryS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListInput)(nil)).Elem(), ReplicatorReplicationInfoListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListPtrInput)(nil)).Elem(), ReplicatorReplicationInfoListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationInfoListConsumerGroupReplicationInput)(nil)).Elem(), ReplicatorReplicationInfoListConsumerGroupReplicationArgs{})
@@ -6850,6 +7667,16 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterAmazonMskClusterOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterVpcConfigOutput{})
+	pulumi.RegisterOutputType(ReplicatorLogDeliveryOutput{})
+	pulumi.RegisterOutputType(ReplicatorLogDeliveryPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorLogDeliveryReplicatorLogDeliveryOutput{})
+	pulumi.RegisterOutputType(ReplicatorLogDeliveryReplicatorLogDeliveryPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsOutput{})
+	pulumi.RegisterOutputType(ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseOutput{})
+	pulumi.RegisterOutputType(ReplicatorLogDeliveryReplicatorLogDeliveryFirehosePtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorLogDeliveryReplicatorLogDeliveryS3Output{})
+	pulumi.RegisterOutputType(ReplicatorLogDeliveryReplicatorLogDeliveryS3PtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoListOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoListPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationInfoListConsumerGroupReplicationOutput{})

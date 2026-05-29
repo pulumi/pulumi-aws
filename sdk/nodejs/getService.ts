@@ -65,6 +65,9 @@ export interface GetServiceArgs {
      * DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
      */
     dnsName?: string;
+    /**
+     * @deprecated Use 'reverse_dns_name' instead. This attribute will be removed in a future version of the provider.
+     */
     id?: string;
     /**
      * Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.
@@ -89,6 +92,9 @@ export interface GetServiceArgs {
  */
 export interface GetServiceResult {
     readonly dnsName: string;
+    /**
+     * @deprecated Use 'reverse_dns_name' instead. This attribute will be removed in a future version of the provider.
+     */
     readonly id: string;
     readonly partition: string;
     readonly region: string;
@@ -161,6 +167,9 @@ export interface GetServiceOutputArgs {
      * DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dnsName`, `reverseDnsName`, or `serviceId` is required.
      */
     dnsName?: pulumi.Input<string | undefined>;
+    /**
+     * @deprecated Use 'reverse_dns_name' instead. This attribute will be removed in a future version of the provider.
+     */
     id?: pulumi.Input<string | undefined>;
     /**
      * Region of the service (_e.g.,_ `us-west-2`, `ap-northeast-1`). Defaults to the Region set in the provider configuration.

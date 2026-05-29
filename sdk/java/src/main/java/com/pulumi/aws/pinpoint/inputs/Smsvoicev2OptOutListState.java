@@ -32,14 +32,14 @@ public final class Smsvoicev2OptOutListState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the opt-out list.
+     * Name of the opt-out list.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the opt-out list.
+     * @return Name of the opt-out list.
      * 
      */
     public Optional<Output<String>> name() {
@@ -77,14 +77,14 @@ public final class Smsvoicev2OptOutListState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -141,7 +141,7 @@ public final class Smsvoicev2OptOutListState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the opt-out list.
+         * @param name Name of the opt-out list.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class Smsvoicev2OptOutListState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param name The name of the opt-out list.
+         * @param name Name of the opt-out list.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class Smsvoicev2OptOutListState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class Smsvoicev2OptOutListState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

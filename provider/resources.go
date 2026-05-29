@@ -4061,6 +4061,20 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo { 
 				},
 			},
 			"aws_msk_configuration":            {Tok: awsResource(mskMod, "Configuration")},
+			"aws_msk_replicator": {
+				Tok: awsResource(mskMod, "Replicator"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"log_delivery": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"replicator_log_delivery": {
+									CSharpName: "LogDelivery",
+								},
+							},
+						},
+					},
+				},
+			},
 			"aws_msk_scram_secret_association": {Tok: awsResource(mskMod, "ScramSecretAssociation")},
 			"aws_msk_serverless_cluster": {
 				Tok: awsResource(mskMod, "ServerlessCluster"),

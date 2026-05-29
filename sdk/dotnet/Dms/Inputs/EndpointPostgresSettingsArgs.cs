@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<bool>? MapJsonbAsClob { get; set; }
 
         /// <summary>
-        /// Optional When true, DMS migrates LONG values as VARCHAR.
+        /// Specifies how DMS maps LONG VARCHAR values. Valid values are `Wstring`, `Clob`, and `Nclob`.
         /// </summary>
         [Input("mapLongVarcharAs")]
         public Input<string>? MapLongVarcharAs { get; set; }

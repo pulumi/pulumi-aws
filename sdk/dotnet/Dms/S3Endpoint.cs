@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Dms
         public Output<bool?> EnableStatistics { get; private set; } = null!;
 
         /// <summary>
-        /// Type of encoding to use. Value values are `RleDictionary`, `Plain`, and `PlainDictionary`. (AWS default is `RleDictionary`.)
+        /// Type of encoding to use. Value values are `rle-dictionary`, `Plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
         /// </summary>
         [Output("encodingType")]
         public Output<string?> EncodingType { get; private set; } = null!;
@@ -654,7 +654,7 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? EnableStatistics { get; set; }
 
         /// <summary>
-        /// Type of encoding to use. Value values are `RleDictionary`, `Plain`, and `PlainDictionary`. (AWS default is `RleDictionary`.)
+        /// Type of encoding to use. Value values are `rle-dictionary`, `Plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
         /// </summary>
         [Input("encodingType")]
         public Input<string>? EncodingType { get; set; }
@@ -964,7 +964,7 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? EnableStatistics { get; set; }
 
         /// <summary>
-        /// Type of encoding to use. Value values are `RleDictionary`, `Plain`, and `PlainDictionary`. (AWS default is `RleDictionary`.)
+        /// Type of encoding to use. Value values are `rle-dictionary`, `Plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
         /// </summary>
         [Input("encodingType")]
         public Input<string>? EncodingType { get; set; }

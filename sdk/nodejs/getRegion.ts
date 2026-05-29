@@ -44,7 +44,9 @@ export interface GetRegionArgs {
      */
     endpoint?: string;
     /**
-     * Region's name (e.g. `us-east-1`).
+     * (**Deprecated**) Region's name (e.g. `us-east-1`).
+     *
+     * @deprecated Use 'region' instead. This attribute will be removed in a future version of the provider.
      */
     id?: string;
     /**
@@ -69,7 +71,9 @@ export interface GetRegionResult {
     readonly description: string;
     readonly endpoint: string;
     /**
-     * Region's name (e.g. `us-east-1`).
+     * (**Deprecated**) Region's name (e.g. `us-east-1`).
+     *
+     * @deprecated Use 'region' instead. This attribute will be removed in a future version of the provider.
      */
     readonly id: string;
     /**
@@ -118,7 +122,9 @@ export interface GetRegionOutputArgs {
      */
     endpoint?: pulumi.Input<string | undefined>;
     /**
-     * Region's name (e.g. `us-east-1`).
+     * (**Deprecated**) Region's name (e.g. `us-east-1`).
+     *
+     * @deprecated Use 'region' instead. This attribute will be removed in a future version of the provider.
      */
     id?: pulumi.Input<string | undefined>;
     /**

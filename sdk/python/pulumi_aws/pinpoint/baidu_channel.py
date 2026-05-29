@@ -28,9 +28,9 @@ class BaiduChannelArgs:
         The set of arguments for constructing a BaiduChannel resource.
 
         :param pulumi.Input[_builtins.str] api_key: Platform credential API key from Baidu.
-        :param pulumi.Input[_builtins.str] application_id: The application ID.
+        :param pulumi.Input[_builtins.str] application_id: Application ID.
         :param pulumi.Input[_builtins.str] secret_key: Platform credential Secret key from Baidu.
-        :param pulumi.Input[_builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable the channel. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "api_key", api_key)
@@ -57,7 +57,7 @@ class BaiduChannelArgs:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The application ID.
+        Application ID.
         """
         return pulumi.get(self, "application_id")
 
@@ -81,7 +81,7 @@ class BaiduChannelArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether to enable the channel. Defaults to `true`.
+        Whether to enable the channel. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -114,8 +114,8 @@ class _BaiduChannelState:
         Input properties used for looking up and filtering BaiduChannel resources.
 
         :param pulumi.Input[_builtins.str] api_key: Platform credential API key from Baidu.
-        :param pulumi.Input[_builtins.str] application_id: The application ID.
-        :param pulumi.Input[_builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] application_id: Application ID.
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable the channel. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_key: Platform credential Secret key from Baidu.
         """
@@ -146,7 +146,7 @@ class _BaiduChannelState:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The application ID.
+        Application ID.
         """
         return pulumi.get(self, "application_id")
 
@@ -158,7 +158,7 @@ class _BaiduChannelState:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether to enable the channel. Defaults to `true`.
+        Whether to enable the channel. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -204,7 +204,7 @@ class BaiduChannel(pulumi.CustomResource):
                  secret_key: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Pinpoint Baidu Channel resource.
+        Provides an End User Messaging Baidu Channel resource.
 
         > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
         ## Example Usage
@@ -222,7 +222,7 @@ class BaiduChannel(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
+        Using `pulumi import`, import End User Messaging Baidu Channel using the `application-id`. For example:
 
         ```sh
         $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
@@ -232,8 +232,8 @@ class BaiduChannel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: Platform credential API key from Baidu.
-        :param pulumi.Input[_builtins.str] application_id: The application ID.
-        :param pulumi.Input[_builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] application_id: Application ID.
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable the channel. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_key: Platform credential Secret key from Baidu.
         """
@@ -244,7 +244,7 @@ class BaiduChannel(pulumi.CustomResource):
                  args: BaiduChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Pinpoint Baidu Channel resource.
+        Provides an End User Messaging Baidu Channel resource.
 
         > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
         ## Example Usage
@@ -262,7 +262,7 @@ class BaiduChannel(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
+        Using `pulumi import`, import End User Messaging Baidu Channel using the `application-id`. For example:
 
         ```sh
         $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
@@ -334,8 +334,8 @@ class BaiduChannel(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: Platform credential API key from Baidu.
-        :param pulumi.Input[_builtins.str] application_id: The application ID.
-        :param pulumi.Input[_builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] application_id: Application ID.
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable the channel. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] secret_key: Platform credential Secret key from Baidu.
         """
@@ -362,7 +362,7 @@ class BaiduChannel(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The application ID.
+        Application ID.
         """
         return pulumi.get(self, "application_id")
 
@@ -370,7 +370,7 @@ class BaiduChannel(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies whether to enable the channel. Defaults to `true`.
+        Whether to enable the channel. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

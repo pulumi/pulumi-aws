@@ -161,7 +161,7 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         public readonly ImmutableArray<string> AllowedOauthScopes;
         /// <summary>
-        /// (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+        /// (Optional) Configuration block for AWS End User Messaging analytics for collecting metrics for this user pool. Detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUserPoolClientAnalyticsConfigurationResult> AnalyticsConfigurations;
         /// <summary>

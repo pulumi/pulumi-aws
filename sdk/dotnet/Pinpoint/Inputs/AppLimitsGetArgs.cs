@@ -13,25 +13,25 @@ namespace Pulumi.Aws.Pinpoint.Inputs
     public sealed class AppLimitsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of messages that the campaign can send daily.
+        /// Maximum number of messages that the campaign can send daily.
         /// </summary>
         [Input("daily")]
         public Input<int>? Daily { get; set; }
 
         /// <summary>
-        /// The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+        /// Length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. Minimum value is 60.
         /// </summary>
         [Input("maximumDuration")]
         public Input<int>? MaximumDuration { get; set; }
 
         /// <summary>
-        /// The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+        /// Number of messages that the campaign can send per second. Minimum value is 50, and the maximum is 20000.
         /// </summary>
         [Input("messagesPerSecond")]
         public Input<int>? MessagesPerSecond { get; set; }
 
         /// <summary>
-        /// The maximum total number of messages that the campaign can send.
+        /// Maximum total number of messages that the campaign can send.
         /// </summary>
         [Input("total")]
         public Input<int>? Total { get; set; }

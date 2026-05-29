@@ -28,13 +28,13 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.s3.Bucket;
  * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.ssm.ResourceDataSync;
+ * import com.pulumi.aws.ssm.ResourceDataSyncArgs;
+ * import com.pulumi.aws.ssm.inputs.ResourceDataSyncS3DestinationArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
- * import com.pulumi.aws.ssm.ResourceDataSync;
- * import com.pulumi.aws.ssm.ResourceDataSyncArgs;
- * import com.pulumi.aws.ssm.inputs.ResourceDataSyncS3DestinationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -48,11 +48,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var hogeBucket = new Bucket("hogeBucket", BucketArgs.builder()
- *             .bucket("tf-test-bucket-1234")
+ *         var exampleBucket = new Bucket("exampleBucket", BucketArgs.builder()
+ *             .bucket("example")
  *             .build());
  * 
- *         final var hoge = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         var exampleResourceDataSync = new ResourceDataSync("exampleResourceDataSync", ResourceDataSyncArgs.builder()
+ *             .name("example")
+ *             .s3Destination(ResourceDataSyncS3DestinationArgs.builder()
+ *                 .bucketName(exampleBucket.bucket())
+ *                 .region(exampleBucket.region())
+ *                 .build())
+ *             .build());
+ * 
+ *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid("SSMBucketPermissionsCheck")
@@ -62,7 +70,7 @@ import javax.annotation.Nullable;
  *                         .identifiers("ssm.amazonaws.com")
  *                         .build())
  *                     .actions("s3:GetBucketAcl")
- *                     .resources("arn:aws:s3:::tf-test-bucket-1234")
+ *                     .resources(exampleBucket.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid("SSMBucketDelivery")
@@ -72,7 +80,7 @@ import javax.annotation.Nullable;
  *                         .identifiers("ssm.amazonaws.com")
  *                         .build())
  *                     .actions("s3:PutObject")
- *                     .resources("arn:aws:s3:::tf-test-bucket-1234/*")
+ *                     .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
  *                         .variable("s3:x-amz-acl")
@@ -81,23 +89,22 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *         var hogeBucketPolicy = new BucketPolicy("hogeBucketPolicy", BucketPolicyArgs.builder()
- *             .bucket(hogeBucket.id())
- *             .policy(hoge.json())
- *             .build());
- * 
- *         var foo = new ResourceDataSync("foo", ResourceDataSyncArgs.builder()
- *             .name("foo")
- *             .s3Destination(ResourceDataSyncS3DestinationArgs.builder()
- *                 .bucketName(hogeBucket.bucket())
- *                 .region(hogeBucket.region())
- *                 .build())
+ *         var exampleBucketPolicy = new BucketPolicy("exampleBucketPolicy", BucketPolicyArgs.builder()
+ *             .bucket(exampleBucket.bucket())
+ *             .policy(example.applyValue(_example -> _example.json()))
  *             .build());
  * 
  *     }
  * }
  * }
  * </pre>
+ * 
+ * ## destinationDataSharing
+ * 
+ * `destinationDataSharing` supports the following:
+ * 
+ * * `destinationDataSharingType` - (Optional) Data sharing type.
+ *   Only `Organization` is supported.
  * 
  * ## Import
  * 

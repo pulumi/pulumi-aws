@@ -49,7 +49,7 @@ namespace Pulumi.Aws.SesV2.Inputs
         }
 
         /// <summary>
-        /// An object that defines an Amazon Pinpoint project destination for email events. See `PinpointDestination` Block for details.
+        /// An object that defines an AWS End User Messaging project destination for email events. See `PinpointDestination` Block for details.
         /// </summary>
         [Input("pinpointDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs>? PinpointDestination { get; set; }

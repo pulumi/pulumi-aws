@@ -84,7 +84,10 @@ export interface GetSecretVersionArgs {
  */
 export interface GetSecretVersionResult {
     /**
-     * ARN of the secret.
+     * (**Deprecated**) The ARN of the secret.
+     * Use `secretArn` instead.
+     *
+     * @deprecated arn is deprecated. Use secretArn instead.
      */
     readonly arn: string;
     /**
@@ -96,6 +99,10 @@ export interface GetSecretVersionResult {
      */
     readonly id: string;
     readonly region: string;
+    /**
+     * The ARN of the secret.
+     */
+    readonly secretArn: string;
     /**
      * Decrypted part of the protected secret information that was originally provided as a binary.
      */

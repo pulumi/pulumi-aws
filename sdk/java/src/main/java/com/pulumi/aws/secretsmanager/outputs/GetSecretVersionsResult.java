@@ -16,9 +16,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSecretVersionsResult {
     /**
-     * @return ARN of the secret.
+     * @return (**Deprecated**) The ARN of the secret.
+     * Use `secretArn` instead.
+     * 
+     * @deprecated
+     * arn is deprecated. Use secretArn instead.
      * 
      */
+    @Deprecated /* arn is deprecated. Use secretArn instead. */
     private String arn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -26,9 +31,28 @@ public final class GetSecretVersionsResult {
      */
     private String id;
     private @Nullable Boolean includeDeprecated;
+    /**
+     * @return (**Deprecated**) Name of the secret.
+     * Use `secretName` instead.
+     * 
+     * @deprecated
+     * name is deprecated. Use secretName instead.
+     * 
+     */
+    @Deprecated /* name is deprecated. Use secretName instead. */
     private String name;
     private String region;
+    /**
+     * @return The ARN of the secret.
+     * 
+     */
+    private String secretArn;
     private String secretId;
+    /**
+     * @return Name of the secret.
+     * 
+     */
+    private String secretName;
     /**
      * @return List of the versions of the secret. Attributes are specified below.
      * 
@@ -37,9 +61,14 @@ public final class GetSecretVersionsResult {
 
     private GetSecretVersionsResult() {}
     /**
-     * @return ARN of the secret.
+     * @return (**Deprecated**) The ARN of the secret.
+     * Use `secretArn` instead.
+     * 
+     * @deprecated
+     * arn is deprecated. Use secretArn instead.
      * 
      */
+    @Deprecated /* arn is deprecated. Use secretArn instead. */
     public String arn() {
         return this.arn;
     }
@@ -53,14 +82,37 @@ public final class GetSecretVersionsResult {
     public Optional<Boolean> includeDeprecated() {
         return Optional.ofNullable(this.includeDeprecated);
     }
+    /**
+     * @return (**Deprecated**) Name of the secret.
+     * Use `secretName` instead.
+     * 
+     * @deprecated
+     * name is deprecated. Use secretName instead.
+     * 
+     */
+    @Deprecated /* name is deprecated. Use secretName instead. */
     public String name() {
         return this.name;
     }
     public String region() {
         return this.region;
     }
+    /**
+     * @return The ARN of the secret.
+     * 
+     */
+    public String secretArn() {
+        return this.secretArn;
+    }
     public String secretId() {
         return this.secretId;
+    }
+    /**
+     * @return Name of the secret.
+     * 
+     */
+    public String secretName() {
+        return this.secretName;
     }
     /**
      * @return List of the versions of the secret. Attributes are specified below.
@@ -84,7 +136,9 @@ public final class GetSecretVersionsResult {
         private @Nullable Boolean includeDeprecated;
         private String name;
         private String region;
+        private String secretArn;
         private String secretId;
+        private String secretName;
         private List<GetSecretVersionsVersion> versions;
         public Builder() {}
         public Builder(GetSecretVersionsResult defaults) {
@@ -94,7 +148,9 @@ public final class GetSecretVersionsResult {
     	      this.includeDeprecated = defaults.includeDeprecated;
     	      this.name = defaults.name;
     	      this.region = defaults.region;
+    	      this.secretArn = defaults.secretArn;
     	      this.secretId = defaults.secretId;
+    	      this.secretName = defaults.secretName;
     	      this.versions = defaults.versions;
         }
 
@@ -137,11 +193,27 @@ public final class GetSecretVersionsResult {
             return this;
         }
         @CustomType.Setter
+        public Builder secretArn(String secretArn) {
+            if (secretArn == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionsResult", "secretArn");
+            }
+            this.secretArn = secretArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder secretId(String secretId) {
             if (secretId == null) {
               throw new MissingRequiredPropertyException("GetSecretVersionsResult", "secretId");
             }
             this.secretId = secretId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secretName(String secretName) {
+            if (secretName == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionsResult", "secretName");
+            }
+            this.secretName = secretName;
             return this;
         }
         @CustomType.Setter
@@ -162,7 +234,9 @@ public final class GetSecretVersionsResult {
             _resultValue.includeDeprecated = includeDeprecated;
             _resultValue.name = name;
             _resultValue.region = region;
+            _resultValue.secretArn = secretArn;
             _resultValue.secretId = secretId;
+            _resultValue.secretName = secretName;
             _resultValue.versions = versions;
             return _resultValue;
         }

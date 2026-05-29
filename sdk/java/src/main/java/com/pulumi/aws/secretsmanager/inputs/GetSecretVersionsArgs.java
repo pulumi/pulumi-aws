@@ -19,7 +19,8 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
 
     /**
      * If true, all deprecated secret versions are included in the response.
-     * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+     * If false, no deprecated secret versions are included in the response.
+     * If no value is specified, the default value is `false`.
      * 
      */
     @Import(name="includeDeprecated")
@@ -27,7 +28,8 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
 
     /**
      * @return If true, all deprecated secret versions are included in the response.
-     * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+     * If false, no deprecated secret versions are included in the response.
+     * If no value is specified, the default value is `false`.
      * 
      */
     public Optional<Output<Boolean>> includeDeprecated() {
@@ -92,7 +94,8 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
 
         /**
          * @param includeDeprecated If true, all deprecated secret versions are included in the response.
-         * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+         * If false, no deprecated secret versions are included in the response.
+         * If no value is specified, the default value is `false`.
          * 
          * @return builder
          * 
@@ -104,7 +107,8 @@ public final class GetSecretVersionsArgs extends com.pulumi.resources.InvokeArgs
 
         /**
          * @param includeDeprecated If true, all deprecated secret versions are included in the response.
-         * If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+         * If false, no deprecated secret versions are included in the response.
+         * If no value is specified, the default value is `false`.
          * 
          * @return builder
          * 

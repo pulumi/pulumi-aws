@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Pinpoint APNs VoIP Sandbox Channel resource.
+ * Provides an End User Messaging APNs VoIP Sandbox Channel resource.
  * 
  * &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
  * ## Example Usage
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Pinpoint APNs VoIP Sandbox Channel using the `application-id`. For example:
+ * Using `pulumi import`, import End User Messaging APNs VoIP Sandbox Channel using the `application-id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id
@@ -76,70 +76,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel")
 public class ApnsVoipSandboxChannel extends com.pulumi.resources.CustomResource {
     /**
-     * The application ID.
+     * Application ID.
      * 
      */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      */
     public Output<String> applicationId() {
         return this.applicationId;
     }
     /**
-     * The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
+     * ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app. Required if using Key credentials.
      * 
      */
     @Export(name="bundleId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> bundleId;
 
     /**
-     * @return The ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app.
+     * @return ID assigned to your iOS app. To find this value, choose Certificates, IDs &amp; Profiles, choose App IDs in the Identifiers section, and choose your app. Required if using Key credentials.
      * 
      */
     public Output<Optional<String>> bundleId() {
         return Codegen.optional(this.bundleId);
     }
     /**
-     * The pem encoded TLS Certificate from Apple.
+     * Pem encoded TLS Certificate from Apple. Required if using Certificate credentials.
      * 
      */
     @Export(name="certificate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> certificate;
 
     /**
-     * @return The pem encoded TLS Certificate from Apple.
+     * @return Pem encoded TLS Certificate from Apple. Required if using Certificate credentials.
      * 
      */
     public Output<Optional<String>> certificate() {
         return Codegen.optional(this.certificate);
     }
     /**
-     * The default authentication method used for APNs.
-     * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-     * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-     * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
-     * 
-     * One of the following sets of credentials is also required.
-     * 
-     * If you choose to use __Certificate credentials__ you will have to provide:
+     * Default authentication method used for APNs. __NOTE__: AWS End User Messaging uses this default for every APNs push notification that you send using the console. You can override the default when you send a message programmatically using the AWS End User Messaging API, the AWS CLI, or an AWS SDK. If your default authentication type fails, AWS End User Messaging doesn&#39;t attempt to use the other authentication type.
      * 
      */
     @Export(name="defaultAuthenticationMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultAuthenticationMethod;
 
     /**
-     * @return The default authentication method used for APNs.
-     * __NOTE__: Amazon Pinpoint uses this default for every APNs push notification that you send using the console.
-     * You can override the default when you send a message programmatically using the Amazon Pinpoint API, the AWS CLI, or an AWS SDK.
-     * If your default authentication type fails, Amazon Pinpoint doesn&#39;t attempt to use the other authentication type.
-     * 
-     * One of the following sets of credentials is also required.
-     * 
-     * If you choose to use __Certificate credentials__ you will have to provide:
+     * @return Default authentication method used for APNs. __NOTE__: AWS End User Messaging uses this default for every APNs push notification that you send using the console. You can override the default when you send a message programmatically using the AWS End User Messaging API, the AWS CLI, or an AWS SDK. If your default authentication type fails, AWS End User Messaging doesn&#39;t attempt to use the other authentication type.
      * 
      */
     public Output<Optional<String>> defaultAuthenticationMethod() {
@@ -160,18 +146,14 @@ public class ApnsVoipSandboxChannel extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.enabled);
     }
     /**
-     * The Certificate Private Key file (ie. `.key` file).
-     * 
-     * If you choose to use __Key credentials__ you will have to provide:
+     * Certificate Private Key file (ie. `.key` file). Required if using Certificate credentials.
      * 
      */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
     /**
-     * @return The Certificate Private Key file (ie. `.key` file).
-     * 
-     * If you choose to use __Key credentials__ you will have to provide:
+     * @return Certificate Private Key file (ie. `.key` file). Required if using Certificate credentials.
      * 
      */
     public Output<Optional<String>> privateKey() {
@@ -192,42 +174,42 @@ public class ApnsVoipSandboxChannel extends com.pulumi.resources.CustomResource 
         return this.region;
     }
     /**
-     * The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+     * ID assigned to your Apple developer account team. This value is provided on the Membership page. Required if using Key credentials.
      * 
      */
     @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> teamId;
 
     /**
-     * @return The ID assigned to your Apple developer account team. This value is provided on the Membership page.
+     * @return ID assigned to your Apple developer account team. This value is provided on the Membership page. Required if using Key credentials.
      * 
      */
     public Output<Optional<String>> teamId() {
         return Codegen.optional(this.teamId);
     }
     /**
-     * The `.p8` file that you download from your Apple developer account when you create an authentication key.
+     * `.p8` file that you download from your Apple developer account when you create an authentication key. Required if using Key credentials.
      * 
      */
     @Export(name="tokenKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenKey;
 
     /**
-     * @return The `.p8` file that you download from your Apple developer account when you create an authentication key.
+     * @return `.p8` file that you download from your Apple developer account when you create an authentication key. Required if using Key credentials.
      * 
      */
     public Output<Optional<String>> tokenKey() {
         return Codegen.optional(this.tokenKey);
     }
     /**
-     * The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
+     * ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section. Required if using Key credentials.
      * 
      */
     @Export(name="tokenKeyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> tokenKeyId;
 
     /**
-     * @return The ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section.
+     * @return ID assigned to your signing key. To find this value, choose Certificates, IDs &amp; Profiles, and choose your key in the Keys section. Required if using Key credentials.
      * 
      */
     public Output<Optional<String>> tokenKeyId() {

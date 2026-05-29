@@ -205,7 +205,7 @@ class ConfigurationSetEventDestinationEventDestinationArgsDict(TypedDict):
     """
     pinpoint_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgsDict']]]
     """
-    An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
+    An object that defines an AWS End User Messaging project destination for email events. See `pinpoint_destination` Block for details.
     """
     sns_destination: NotRequired[pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgsDict']]]
     """
@@ -228,7 +228,7 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
         :param pulumi.Input[_builtins.bool] enabled: When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
         :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs'] event_bridge_destination: An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
         :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs'] kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
-        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs'] pinpoint_destination: An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs'] pinpoint_destination: An object that defines an AWS End User Messaging project destination for email events. See `pinpoint_destination` Block for details.
         :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs'] sns_destination: An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
         """
         pulumi.set(__self__, "matching_event_types", matching_event_types)
@@ -309,7 +309,7 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
     @pulumi.getter(name="pinpointDestination")
     def pinpoint_destination(self) -> pulumi.Input[Optional['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs']]:
         """
-        An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
+        An object that defines an AWS End User Messaging project destination for email events. See `pinpoint_destination` Block for details.
         """
         return pulumi.get(self, "pinpoint_destination")
 

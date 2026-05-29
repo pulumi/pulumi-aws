@@ -12,6 +12,9 @@ namespace Pulumi.Aws.Observabilityadmin.Inputs
 
     public sealed class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Criteria for selecting data sources. Uses the same filter expression format as `LogGroupSelectionCriteria`, but operates on Data Source Name and Data Source Type operands. When both `LogGroupSelectionCriteria` and `DataSourceSelectionCriteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
+        /// </summary>
         [Input("dataSourceSelectionCriteria")]
         public Input<string>? DataSourceSelectionCriteria { get; set; }
 

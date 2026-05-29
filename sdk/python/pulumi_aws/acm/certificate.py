@@ -29,6 +29,8 @@ class CertificateArgs:
                  key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
                  options: pulumi.Input[Optional['CertificateOptionsArgs']] = None,
                  private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -38,6 +40,7 @@ class CertificateArgs:
         The set of arguments for constructing a Certificate resource.
 
         :param pulumi.Input[_builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[_builtins.str] private_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
                * Creating an Amazon issued certificate
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -58,6 +61,10 @@ class CertificateArgs:
             pulumi.set(__self__, "options", options)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
+        if private_key_wo is not None:
+            pulumi.set(__self__, "private_key_wo", private_key_wo)
+        if private_key_wo_version is not None:
+            pulumi.set(__self__, "private_key_wo_version", private_key_wo_version)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if subject_alternative_names is not None:
@@ -145,6 +152,27 @@ class CertificateArgs:
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
+    @pulumi.getter(name="privateKeyWo")
+    def private_key_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "private_key_wo")
+
+    @private_key_wo.setter
+    def private_key_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_key_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeyWoVersion")
+    def private_key_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "private_key_wo_version")
+
+    @private_key_wo_version.setter
+    def private_key_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "private_key_wo_version", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -213,6 +241,8 @@ class _CertificateState:
                  options: pulumi.Input[Optional['CertificateOptionsArgs']] = None,
                  pending_renewal: pulumi.Input[Optional[_builtins.bool]] = None,
                  private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  renewal_eligibility: pulumi.Input[Optional[_builtins.str]] = None,
                  renewal_summaries: pulumi.Input[Optional[Sequence[pulumi.Input['CertificateRenewalSummaryArgs']]]] = None,
@@ -235,6 +265,7 @@ class _CertificateState:
         :param pulumi.Input[_builtins.str] not_after: Expiration date and time of the certificate.
         :param pulumi.Input[_builtins.str] not_before: Start of the validity period of the certificate.
         :param pulumi.Input[_builtins.bool] pending_renewal: `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+        :param pulumi.Input[_builtins.str] private_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
                * Creating an Amazon issued certificate
         :param pulumi.Input[_builtins.str] renewal_eligibility: Whether the certificate is eligible for managed renewal.
@@ -271,6 +302,10 @@ class _CertificateState:
             pulumi.set(__self__, "pending_renewal", pending_renewal)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
+        if private_key_wo is not None:
+            pulumi.set(__self__, "private_key_wo", private_key_wo)
+        if private_key_wo_version is not None:
+            pulumi.set(__self__, "private_key_wo_version", private_key_wo_version)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if renewal_eligibility is not None:
@@ -432,6 +467,27 @@ class _CertificateState:
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
+    @pulumi.getter(name="privateKeyWo")
+    def private_key_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "private_key_wo")
+
+    @private_key_wo.setter
+    def private_key_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_key_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeyWoVersion")
+    def private_key_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "private_key_wo_version")
+
+    @private_key_wo_version.setter
+    def private_key_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "private_key_wo_version", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -570,6 +626,8 @@ class Certificate(pulumi.CustomResource):
                  key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
                  options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
                  private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -658,6 +716,33 @@ class Certificate(pulumi.CustomResource):
             certificate_body=example_self_signed_cert.cert_pem)
         ```
 
+        ### Existing Certificate Body Import With Write-Only Private Key
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_tls as tls
+
+        example = tls.PrivateKey("example", algorithm="RSA")
+        example_self_signed_cert = tls.SelfSignedCert("example",
+            key_algorithm="RSA",
+            private_key_pem=example.private_key_pem,
+            subject=[{
+                "commonName": "example.com",
+                "organization": "ACME Examples, Inc",
+            }],
+            validity_period_hours=12,
+            allowed_uses=[
+                "key_encipherment",
+                "digital_signature",
+                "server_auth",
+            ])
+        cert = aws.acm.Certificate("cert",
+            private_key_wo=example.private_key_pem,
+            private_key_wo_version=1,
+            certificate_body=example_self_signed_cert.cert_pem)
+        ```
+
         ### Referencing domain_validation_options With for_each Based Resources
 
         See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
@@ -700,6 +785,7 @@ class Certificate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[_builtins.str] private_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
                * Creating an Amazon issued certificate
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -792,6 +878,33 @@ class Certificate(pulumi.CustomResource):
             certificate_body=example_self_signed_cert.cert_pem)
         ```
 
+        ### Existing Certificate Body Import With Write-Only Private Key
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_tls as tls
+
+        example = tls.PrivateKey("example", algorithm="RSA")
+        example_self_signed_cert = tls.SelfSignedCert("example",
+            key_algorithm="RSA",
+            private_key_pem=example.private_key_pem,
+            subject=[{
+                "commonName": "example.com",
+                "organization": "ACME Examples, Inc",
+            }],
+            validity_period_hours=12,
+            allowed_uses=[
+                "key_encipherment",
+                "digital_signature",
+                "server_auth",
+            ])
+        cert = aws.acm.Certificate("cert",
+            private_key_wo=example.private_key_pem,
+            private_key_wo_version=1,
+            certificate_body=example_self_signed_cert.cert_pem)
+        ```
+
         ### Referencing domain_validation_options With for_each Based Resources
 
         See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
@@ -854,6 +967,8 @@ class Certificate(pulumi.CustomResource):
                  key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
                  options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
                  private_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -876,6 +991,8 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["key_algorithm"] = key_algorithm
             __props__.__dict__["options"] = options
             __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
+            __props__.__dict__["private_key_wo"] = None if private_key_wo is None else pulumi.Output.secret(private_key_wo)
+            __props__.__dict__["private_key_wo_version"] = private_key_wo_version
             __props__.__dict__["region"] = region
             __props__.__dict__["subject_alternative_names"] = subject_alternative_names
             __props__.__dict__["tags"] = tags
@@ -892,7 +1009,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_emails"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["privateKey"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["privateKey", "privateKeyWo"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'aws:acm/certificate:Certificate',
@@ -917,6 +1034,8 @@ class Certificate(pulumi.CustomResource):
             options: pulumi.Input[Optional[Union['CertificateOptionsArgs', 'CertificateOptionsArgsDict']]] = None,
             pending_renewal: pulumi.Input[Optional[_builtins.bool]] = None,
             private_key: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            private_key_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             renewal_eligibility: pulumi.Input[Optional[_builtins.str]] = None,
             renewal_summaries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateRenewalSummaryArgs', 'CertificateRenewalSummaryArgsDict']]]]] = None,
@@ -943,6 +1062,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] not_after: Expiration date and time of the certificate.
         :param pulumi.Input[_builtins.str] not_before: Start of the validity period of the certificate.
         :param pulumi.Input[_builtins.bool] pending_renewal: `true` if a Private certificate eligible for managed renewal is within the `early_renewal_duration` period.
+        :param pulumi.Input[_builtins.str] private_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
                * Creating an Amazon issued certificate
         :param pulumi.Input[_builtins.str] renewal_eligibility: Whether the certificate is eligible for managed renewal.
@@ -970,6 +1090,8 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["options"] = options
         __props__.__dict__["pending_renewal"] = pending_renewal
         __props__.__dict__["private_key"] = private_key
+        __props__.__dict__["private_key_wo"] = private_key_wo
+        __props__.__dict__["private_key_wo_version"] = private_key_wo_version
         __props__.__dict__["region"] = region
         __props__.__dict__["renewal_eligibility"] = renewal_eligibility
         __props__.__dict__["renewal_summaries"] = renewal_summaries
@@ -1067,6 +1189,19 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="privateKey")
     def private_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         return pulumi.get(self, "private_key")
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeyWo")
+    def private_key_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        """
+        return pulumi.get(self, "private_key_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeyWoVersion")
+    def private_key_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
+        return pulumi.get(self, "private_key_wo_version")
 
     @_builtins.property
     @pulumi.getter

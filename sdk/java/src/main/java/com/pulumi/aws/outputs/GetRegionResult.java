@@ -17,9 +17,13 @@ public final class GetRegionResult {
     private String description;
     private String endpoint;
     /**
-     * @return Region&#39;s name (e.g. `us-east-1`).
+     * @return (**Deprecated**) Region&#39;s name (e.g. `us-east-1`).
+     * 
+     * @deprecated
+     * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
     private String id;
     /**
      * @deprecated
@@ -42,9 +46,13 @@ public final class GetRegionResult {
         return this.endpoint;
     }
     /**
-     * @return Region&#39;s name (e.g. `us-east-1`).
+     * @return (**Deprecated**) Region&#39;s name (e.g. `us-east-1`).
+     * 
+     * @deprecated
+     * Use &#39;region&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* Use 'region' instead. This attribute will be removed in a future version of the provider. */
     public String id() {
         return this.id;
     }

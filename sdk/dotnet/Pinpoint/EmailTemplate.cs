@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint
 {
     /// <summary>
-    /// &gt; **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `aws.ses.Template` or `aws.sesv2.EmailIdentity` and related SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+    /// &gt; **NOTE:** This resource is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `aws.ses.Template` or `aws.sesv2.EmailIdentity` and related SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
     /// 
-    /// Provides a Pinpoint Email Template resource
+    /// Provides an End User Messaging Email Template resource
     /// 
     /// ## Example Usage
     /// 
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Pinpoint Email Template using the `TemplateName`. For example:
+    /// Using `pulumi import`, import End User Messaging Email Template using the `TemplateName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:pinpoint/emailTemplate:EmailTemplate reset template_name
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+        /// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
         /// </summary>
         [Output("emailTemplates")]
         public Output<ImmutableArray<Outputs.EmailTemplateEmailTemplate>> EmailTemplates { get; private set; } = null!;
@@ -77,14 +77,20 @@ namespace Pulumi.Aws.Pinpoint
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+        /// Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
         /// </summary>
         [Output("templateName")]
         public Output<string> TemplateName { get; private set; } = null!;
@@ -139,9 +145,9 @@ namespace Pulumi.Aws.Pinpoint
         private InputList<Inputs.EmailTemplateEmailTemplateArgs>? _emailTemplates;
 
         /// <summary>
-        /// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+        /// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
         /// </summary>
-        [Obsolete(@"email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.")]
+        [Obsolete(@"email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.")]
         public InputList<Inputs.EmailTemplateEmailTemplateArgs> EmailTemplates
         {
             get => _emailTemplates ?? (_emailTemplates = new InputList<Inputs.EmailTemplateEmailTemplateArgs>());
@@ -156,6 +162,10 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -163,7 +173,7 @@ namespace Pulumi.Aws.Pinpoint
         }
 
         /// <summary>
-        /// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+        /// Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
         /// </summary>
         [Input("templateName", required: true)]
         public Input<string> TemplateName { get; set; } = null!;
@@ -186,9 +196,9 @@ namespace Pulumi.Aws.Pinpoint
         private InputList<Inputs.EmailTemplateEmailTemplateGetArgs>? _emailTemplates;
 
         /// <summary>
-        /// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+        /// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
         /// </summary>
-        [Obsolete(@"email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.")]
+        [Obsolete(@"email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.")]
         public InputList<Inputs.EmailTemplateEmailTemplateGetArgs> EmailTemplates
         {
             get => _emailTemplates ?? (_emailTemplates = new InputList<Inputs.EmailTemplateEmailTemplateGetArgs>());
@@ -203,6 +213,10 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -211,6 +225,10 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
@@ -218,7 +236,7 @@ namespace Pulumi.Aws.Pinpoint
         }
 
         /// <summary>
-        /// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+        /// Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
         /// </summary>
         [Input("templateName")]
         public Input<string>? TemplateName { get; set; }

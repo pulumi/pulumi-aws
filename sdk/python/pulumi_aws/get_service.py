@@ -59,6 +59,7 @@ class GetServiceResult:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use 'reverse_dns_name' instead. This attribute will be removed in a future version of the provider.""")
     def id(self) -> _builtins.str:
         return pulumi.get(self, "id")
 

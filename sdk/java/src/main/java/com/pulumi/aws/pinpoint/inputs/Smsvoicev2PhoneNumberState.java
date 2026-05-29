@@ -50,14 +50,14 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+     * Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      * 
      */
     @Import(name="isoCountryCode")
     private @Nullable Output<String> isoCountryCode;
 
     /**
-     * @return The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+     * @return Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      * 
      */
     public Optional<Output<String>> isoCountryCode() {
@@ -65,14 +65,14 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+     * Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
      * 
      */
     @Import(name="messageType")
     private @Nullable Output<String> messageType;
 
     /**
-     * @return The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+     * @return Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
      * 
      */
     public Optional<Output<String>> messageType() {
@@ -80,14 +80,14 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The monthly price, in US dollars, to lease the phone number.
+     * Monthly price, in US dollars, to lease the phone number.
      * 
      */
     @Import(name="monthlyLeasingPrice")
     private @Nullable Output<String> monthlyLeasingPrice;
 
     /**
-     * @return The monthly price, in US dollars, to lease the phone number.
+     * @return Monthly price, in US dollars, to lease the phone number.
      * 
      */
     public Optional<Output<String>> monthlyLeasingPrice() {
@@ -95,14 +95,14 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+     * Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
      * 
      */
     @Import(name="numberCapabilities")
     private @Nullable Output<List<String>> numberCapabilities;
 
     /**
-     * @return Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+     * @return Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
      * 
      */
     public Optional<Output<List<String>>> numberCapabilities() {
@@ -110,14 +110,14 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+     * Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      * 
      */
     @Import(name="numberType")
     private @Nullable Output<String> numberType;
 
     /**
-     * @return The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+     * @return Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      * 
      */
     public Optional<Output<String>> numberType() {
@@ -125,14 +125,14 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The name of the opt-out list to associate with the phone number.
+     * Name of the opt-out list to associate with the phone number.
      * 
      */
     @Import(name="optOutListName")
     private @Nullable Output<String> optOutListName;
 
     /**
-     * @return The name of the opt-out list to associate with the phone number.
+     * @return Name of the opt-out list to associate with the phone number.
      * 
      */
     public Optional<Output<String>> optOutListName() {
@@ -140,14 +140,14 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The new phone number that was requested.
+     * New phone number that was requested.
      * 
      */
     @Import(name="phoneNumber")
     private @Nullable Output<String> phoneNumber;
 
     /**
-     * @return The new phone number that was requested.
+     * @return New phone number that was requested.
      * 
      */
     public Optional<Output<String>> phoneNumber() {
@@ -199,22 +199,30 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         return Optional.ofNullable(this.selfManagedOptOutsEnabled);
     }
 
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -357,7 +365,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param isoCountryCode The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+         * @param isoCountryCode Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
          * 
          * @return builder
          * 
@@ -368,7 +376,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param isoCountryCode The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+         * @param isoCountryCode Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
          * 
          * @return builder
          * 
@@ -378,7 +386,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param messageType The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+         * @param messageType Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
          * 
          * @return builder
          * 
@@ -389,7 +397,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param messageType The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+         * @param messageType Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
          * 
          * @return builder
          * 
@@ -399,7 +407,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param monthlyLeasingPrice The monthly price, in US dollars, to lease the phone number.
+         * @param monthlyLeasingPrice Monthly price, in US dollars, to lease the phone number.
          * 
          * @return builder
          * 
@@ -410,7 +418,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param monthlyLeasingPrice The monthly price, in US dollars, to lease the phone number.
+         * @param monthlyLeasingPrice Monthly price, in US dollars, to lease the phone number.
          * 
          * @return builder
          * 
@@ -420,7 +428,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param numberCapabilities Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+         * @param numberCapabilities Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
          * 
          * @return builder
          * 
@@ -431,7 +439,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param numberCapabilities Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+         * @param numberCapabilities Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
          * 
          * @return builder
          * 
@@ -441,7 +449,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param numberCapabilities Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+         * @param numberCapabilities Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
          * 
          * @return builder
          * 
@@ -451,7 +459,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param numberType The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+         * @param numberType Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
          * 
          * @return builder
          * 
@@ -462,7 +470,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param numberType The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+         * @param numberType Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
          * 
          * @return builder
          * 
@@ -472,7 +480,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param optOutListName The name of the opt-out list to associate with the phone number.
+         * @param optOutListName Name of the opt-out list to associate with the phone number.
          * 
          * @return builder
          * 
@@ -483,7 +491,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param optOutListName The name of the opt-out list to associate with the phone number.
+         * @param optOutListName Name of the opt-out list to associate with the phone number.
          * 
          * @return builder
          * 
@@ -493,7 +501,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param phoneNumber The new phone number that was requested.
+         * @param phoneNumber New phone number that was requested.
          * 
          * @return builder
          * 
@@ -504,7 +512,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param phoneNumber The new phone number that was requested.
+         * @param phoneNumber New phone number that was requested.
          * 
          * @return builder
          * 
@@ -576,17 +584,29 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
             return selfManagedOptOutsEnabled(Output.of(selfManagedOptOutsEnabled));
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -597,7 +617,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

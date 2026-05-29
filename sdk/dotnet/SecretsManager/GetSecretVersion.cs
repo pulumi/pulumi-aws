@@ -289,7 +289,8 @@ namespace Pulumi.Aws.SecretsManager
     public sealed class GetSecretVersionResult
     {
         /// <summary>
-        /// ARN of the secret.
+        /// (**Deprecated**) The ARN of the secret.
+        /// Use `SecretArn` instead.
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -301,6 +302,10 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly string Id;
         public readonly string Region;
+        /// <summary>
+        /// The ARN of the secret.
+        /// </summary>
+        public readonly string SecretArn;
         /// <summary>
         /// Decrypted part of the protected secret information that was originally provided as a binary.
         /// </summary>
@@ -327,6 +332,8 @@ namespace Pulumi.Aws.SecretsManager
 
             string region,
 
+            string secretArn,
+
             string secretBinary,
 
             string secretId,
@@ -343,6 +350,7 @@ namespace Pulumi.Aws.SecretsManager
             CreatedDate = createdDate;
             Id = id;
             Region = region;
+            SecretArn = secretArn;
             SecretBinary = secretBinary;
             SecretId = secretId;
             SecretString = secretString;

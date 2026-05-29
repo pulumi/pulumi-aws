@@ -226,7 +226,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
         :param _builtins.bool enabled: When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
         :param 'ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs' event_bridge_destination: An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
         :param 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs' kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
-        :param 'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs' pinpoint_destination: An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
+        :param 'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs' pinpoint_destination: An object that defines an AWS End User Messaging project destination for email events. See `pinpoint_destination` Block for details.
         :param 'ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs' sns_destination: An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
         """
         pulumi.set(__self__, "matching_event_types", matching_event_types)
@@ -287,7 +287,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @pulumi.getter(name="pinpointDestination")
     def pinpoint_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination']:
         """
-        An object that defines an Amazon Pinpoint project destination for email events. See `pinpoint_destination` Block for details.
+        An object that defines an AWS End User Messaging project destination for email events. See `pinpoint_destination` Block for details.
         """
         return pulumi.get(self, "pinpoint_destination")
 

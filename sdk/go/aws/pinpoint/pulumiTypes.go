@@ -14,11 +14,11 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AppCampaignHook struct {
-	// Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
+	// Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`.
 	LambdaFunctionName *string `pulumi:"lambdaFunctionName"`
 	// What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
 	Mode *string `pulumi:"mode"`
-	// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
+	// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`.
 	WebUrl *string `pulumi:"webUrl"`
 }
 
@@ -34,11 +34,11 @@ type AppCampaignHookInput interface {
 }
 
 type AppCampaignHookArgs struct {
-	// Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
+	// Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`.
 	LambdaFunctionName pulumi.StringPtrInput `pulumi:"lambdaFunctionName"`
 	// What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
-	// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
+	// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`.
 	WebUrl pulumi.StringPtrInput `pulumi:"webUrl"`
 }
 
@@ -119,7 +119,7 @@ func (o AppCampaignHookOutput) ToAppCampaignHookPtrOutputWithContext(ctx context
 	}).(AppCampaignHookPtrOutput)
 }
 
-// Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
+// Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`.
 func (o AppCampaignHookOutput) LambdaFunctionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppCampaignHook) *string { return v.LambdaFunctionName }).(pulumi.StringPtrOutput)
 }
@@ -129,7 +129,7 @@ func (o AppCampaignHookOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppCampaignHook) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
-// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
+// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`.
 func (o AppCampaignHookOutput) WebUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppCampaignHook) *string { return v.WebUrl }).(pulumi.StringPtrOutput)
 }
@@ -158,7 +158,7 @@ func (o AppCampaignHookPtrOutput) Elem() AppCampaignHookOutput {
 	}).(AppCampaignHookOutput)
 }
 
-// Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`
+// Lambda function name or ARN to be called for delivery. Conflicts with `webUrl`.
 func (o AppCampaignHookPtrOutput) LambdaFunctionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppCampaignHook) *string {
 		if v == nil {
@@ -178,7 +178,7 @@ func (o AppCampaignHookPtrOutput) Mode() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`
+// Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambdaFunctionName`.
 func (o AppCampaignHookPtrOutput) WebUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppCampaignHook) *string {
 		if v == nil {
@@ -189,13 +189,13 @@ func (o AppCampaignHookPtrOutput) WebUrl() pulumi.StringPtrOutput {
 }
 
 type AppLimits struct {
-	// The maximum number of messages that the campaign can send daily.
+	// Maximum number of messages that the campaign can send daily.
 	Daily *int `pulumi:"daily"`
-	// The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+	// Length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. Minimum value is 60.
 	MaximumDuration *int `pulumi:"maximumDuration"`
-	// The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+	// Number of messages that the campaign can send per second. Minimum value is 50, and the maximum is 20000.
 	MessagesPerSecond *int `pulumi:"messagesPerSecond"`
-	// The maximum total number of messages that the campaign can send.
+	// Maximum total number of messages that the campaign can send.
 	Total *int `pulumi:"total"`
 }
 
@@ -211,13 +211,13 @@ type AppLimitsInput interface {
 }
 
 type AppLimitsArgs struct {
-	// The maximum number of messages that the campaign can send daily.
+	// Maximum number of messages that the campaign can send daily.
 	Daily pulumi.IntPtrInput `pulumi:"daily"`
-	// The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+	// Length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. Minimum value is 60.
 	MaximumDuration pulumi.IntPtrInput `pulumi:"maximumDuration"`
-	// The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+	// Number of messages that the campaign can send per second. Minimum value is 50, and the maximum is 20000.
 	MessagesPerSecond pulumi.IntPtrInput `pulumi:"messagesPerSecond"`
-	// The maximum total number of messages that the campaign can send.
+	// Maximum total number of messages that the campaign can send.
 	Total pulumi.IntPtrInput `pulumi:"total"`
 }
 
@@ -298,22 +298,22 @@ func (o AppLimitsOutput) ToAppLimitsPtrOutputWithContext(ctx context.Context) Ap
 	}).(AppLimitsPtrOutput)
 }
 
-// The maximum number of messages that the campaign can send daily.
+// Maximum number of messages that the campaign can send daily.
 func (o AppLimitsOutput) Daily() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppLimits) *int { return v.Daily }).(pulumi.IntPtrOutput)
 }
 
-// The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+// Length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. Minimum value is 60.
 func (o AppLimitsOutput) MaximumDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppLimits) *int { return v.MaximumDuration }).(pulumi.IntPtrOutput)
 }
 
-// The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+// Number of messages that the campaign can send per second. Minimum value is 50, and the maximum is 20000.
 func (o AppLimitsOutput) MessagesPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppLimits) *int { return v.MessagesPerSecond }).(pulumi.IntPtrOutput)
 }
 
-// The maximum total number of messages that the campaign can send.
+// Maximum total number of messages that the campaign can send.
 func (o AppLimitsOutput) Total() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AppLimits) *int { return v.Total }).(pulumi.IntPtrOutput)
 }
@@ -342,7 +342,7 @@ func (o AppLimitsPtrOutput) Elem() AppLimitsOutput {
 	}).(AppLimitsOutput)
 }
 
-// The maximum number of messages that the campaign can send daily.
+// Maximum number of messages that the campaign can send daily.
 func (o AppLimitsPtrOutput) Daily() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppLimits) *int {
 		if v == nil {
@@ -352,7 +352,7 @@ func (o AppLimitsPtrOutput) Daily() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+// Length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. Minimum value is 60.
 func (o AppLimitsPtrOutput) MaximumDuration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppLimits) *int {
 		if v == nil {
@@ -362,7 +362,7 @@ func (o AppLimitsPtrOutput) MaximumDuration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+// Number of messages that the campaign can send per second. Minimum value is 50, and the maximum is 20000.
 func (o AppLimitsPtrOutput) MessagesPerSecond() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppLimits) *int {
 		if v == nil {
@@ -372,7 +372,7 @@ func (o AppLimitsPtrOutput) MessagesPerSecond() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The maximum total number of messages that the campaign can send.
+// Maximum total number of messages that the campaign can send.
 func (o AppLimitsPtrOutput) Total() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AppLimits) *int {
 		if v == nil {
@@ -383,9 +383,9 @@ func (o AppLimitsPtrOutput) Total() pulumi.IntPtrOutput {
 }
 
 type AppQuietTime struct {
-	// The default end time for quiet time in ISO 8601 format. Required if `start` is set
+	// Default end time for quiet time in ISO 8601 format. Required if `start` is set.
 	End *string `pulumi:"end"`
-	// The default start time for quiet time in ISO 8601 format. Required if `end` is set
+	// Default start time for quiet time in ISO 8601 format. Required if `end` is set.
 	Start *string `pulumi:"start"`
 }
 
@@ -401,9 +401,9 @@ type AppQuietTimeInput interface {
 }
 
 type AppQuietTimeArgs struct {
-	// The default end time for quiet time in ISO 8601 format. Required if `start` is set
+	// Default end time for quiet time in ISO 8601 format. Required if `start` is set.
 	End pulumi.StringPtrInput `pulumi:"end"`
-	// The default start time for quiet time in ISO 8601 format. Required if `end` is set
+	// Default start time for quiet time in ISO 8601 format. Required if `end` is set.
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -484,12 +484,12 @@ func (o AppQuietTimeOutput) ToAppQuietTimePtrOutputWithContext(ctx context.Conte
 	}).(AppQuietTimePtrOutput)
 }
 
-// The default end time for quiet time in ISO 8601 format. Required if `start` is set
+// Default end time for quiet time in ISO 8601 format. Required if `start` is set.
 func (o AppQuietTimeOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppQuietTime) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
-// The default start time for quiet time in ISO 8601 format. Required if `end` is set
+// Default start time for quiet time in ISO 8601 format. Required if `end` is set.
 func (o AppQuietTimeOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppQuietTime) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -518,7 +518,7 @@ func (o AppQuietTimePtrOutput) Elem() AppQuietTimeOutput {
 	}).(AppQuietTimeOutput)
 }
 
-// The default end time for quiet time in ISO 8601 format. Required if `start` is set
+// Default end time for quiet time in ISO 8601 format. Required if `start` is set.
 func (o AppQuietTimePtrOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppQuietTime) *string {
 		if v == nil {
@@ -528,7 +528,7 @@ func (o AppQuietTimePtrOutput) End() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The default start time for quiet time in ISO 8601 format. Required if `end` is set
+// Default start time for quiet time in ISO 8601 format. Required if `end` is set.
 func (o AppQuietTimePtrOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppQuietTime) *string {
 		if v == nil {
@@ -540,12 +540,14 @@ func (o AppQuietTimePtrOutput) Start() pulumi.StringPtrOutput {
 
 type EmailTemplateEmailTemplate struct {
 	// JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
-	DefaultSubstitutions *string                            `pulumi:"defaultSubstitutions"`
-	Description          *string                            `pulumi:"description"`
-	Headers              []EmailTemplateEmailTemplateHeader `pulumi:"headers"`
-	// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+	DefaultSubstitutions *string `pulumi:"defaultSubstitutions"`
+	// Custom description of the message template.
+	Description *string `pulumi:"description"`
+	// List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+	Headers []EmailTemplateEmailTemplateHeader `pulumi:"headers"`
+	// Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
 	HtmlPart *string `pulumi:"htmlPart"`
-	// The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+	// Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
 	RecommenderId *string `pulumi:"recommenderId"`
 	// Subject line, or title, to use in email messages that are based on the message template.
 	Subject *string `pulumi:"subject"`
@@ -566,12 +568,14 @@ type EmailTemplateEmailTemplateInput interface {
 
 type EmailTemplateEmailTemplateArgs struct {
 	// JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
-	DefaultSubstitutions pulumi.StringPtrInput                      `pulumi:"defaultSubstitutions"`
-	Description          pulumi.StringPtrInput                      `pulumi:"description"`
-	Headers              EmailTemplateEmailTemplateHeaderArrayInput `pulumi:"headers"`
-	// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+	DefaultSubstitutions pulumi.StringPtrInput `pulumi:"defaultSubstitutions"`
+	// Custom description of the message template.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+	Headers EmailTemplateEmailTemplateHeaderArrayInput `pulumi:"headers"`
+	// Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
 	HtmlPart pulumi.StringPtrInput `pulumi:"htmlPart"`
-	// The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+	// Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
 	RecommenderId pulumi.StringPtrInput `pulumi:"recommenderId"`
 	// Subject line, or title, to use in email messages that are based on the message template.
 	Subject pulumi.StringPtrInput `pulumi:"subject"`
@@ -635,20 +639,22 @@ func (o EmailTemplateEmailTemplateOutput) DefaultSubstitutions() pulumi.StringPt
 	return o.ApplyT(func(v EmailTemplateEmailTemplate) *string { return v.DefaultSubstitutions }).(pulumi.StringPtrOutput)
 }
 
+// Custom description of the message template.
 func (o EmailTemplateEmailTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailTemplateEmailTemplate) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
 func (o EmailTemplateEmailTemplateOutput) Headers() EmailTemplateEmailTemplateHeaderArrayOutput {
 	return o.ApplyT(func(v EmailTemplateEmailTemplate) []EmailTemplateEmailTemplateHeader { return v.Headers }).(EmailTemplateEmailTemplateHeaderArrayOutput)
 }
 
-// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+// Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
 func (o EmailTemplateEmailTemplateOutput) HtmlPart() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailTemplateEmailTemplate) *string { return v.HtmlPart }).(pulumi.StringPtrOutput)
 }
 
-// The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+// Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
 func (o EmailTemplateEmailTemplateOutput) RecommenderId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EmailTemplateEmailTemplate) *string { return v.RecommenderId }).(pulumi.StringPtrOutput)
 }

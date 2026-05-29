@@ -11,6 +11,8 @@ import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepParallelConfigStepE
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgs;
+import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs;
+import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs;
 import com.pulumi.core.Output;
@@ -148,14 +150,14 @@ public final class PlanWorkflowStepParallelConfigStepArgs extends com.pulumi.res
     }
 
     /**
-     * Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+     * Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
      * 
      */
     @Import(name="executionBlockType", required=true)
     private Output<String> executionBlockType;
 
     /**
-     * @return Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+     * @return Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
      * 
      */
     public Output<String> executionBlockType() {
@@ -190,6 +192,36 @@ public final class PlanWorkflowStepParallelConfigStepArgs extends com.pulumi.res
      */
     public Output<String> name() {
         return this.name;
+    }
+
+    /**
+     * Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+     * 
+     */
+    @Import(name="rdsCreateCrossRegionReadReplicaConfigs")
+    private @Nullable Output<List<PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs>> rdsCreateCrossRegionReadReplicaConfigs;
+
+    /**
+     * @return Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+     * 
+     */
+    public Optional<Output<List<PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs>>> rdsCreateCrossRegionReadReplicaConfigs() {
+        return Optional.ofNullable(this.rdsCreateCrossRegionReadReplicaConfigs);
+    }
+
+    /**
+     * Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+     * 
+     */
+    @Import(name="rdsPromoteReadReplicaConfigs")
+    private @Nullable Output<List<PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs>> rdsPromoteReadReplicaConfigs;
+
+    /**
+     * @return Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+     * 
+     */
+    public Optional<Output<List<PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs>>> rdsPromoteReadReplicaConfigs() {
+        return Optional.ofNullable(this.rdsPromoteReadReplicaConfigs);
     }
 
     @Import(name="regionSwitchPlanConfigs")
@@ -228,6 +260,8 @@ public final class PlanWorkflowStepParallelConfigStepArgs extends com.pulumi.res
         this.executionBlockType = $.executionBlockType;
         this.globalAuroraConfigs = $.globalAuroraConfigs;
         this.name = $.name;
+        this.rdsCreateCrossRegionReadReplicaConfigs = $.rdsCreateCrossRegionReadReplicaConfigs;
+        this.rdsPromoteReadReplicaConfigs = $.rdsPromoteReadReplicaConfigs;
         this.regionSwitchPlanConfigs = $.regionSwitchPlanConfigs;
         this.route53HealthCheckConfigs = $.route53HealthCheckConfigs;
     }
@@ -489,7 +523,7 @@ public final class PlanWorkflowStepParallelConfigStepArgs extends com.pulumi.res
         }
 
         /**
-         * @param executionBlockType Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+         * @param executionBlockType Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
          * 
          * @return builder
          * 
@@ -500,7 +534,7 @@ public final class PlanWorkflowStepParallelConfigStepArgs extends com.pulumi.res
         }
 
         /**
-         * @param executionBlockType Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+         * @param executionBlockType Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
          * 
          * @return builder
          * 
@@ -559,6 +593,68 @@ public final class PlanWorkflowStepParallelConfigStepArgs extends com.pulumi.res
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param rdsCreateCrossRegionReadReplicaConfigs Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rdsCreateCrossRegionReadReplicaConfigs(@Nullable Output<List<PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs>> rdsCreateCrossRegionReadReplicaConfigs) {
+            $.rdsCreateCrossRegionReadReplicaConfigs = rdsCreateCrossRegionReadReplicaConfigs;
+            return this;
+        }
+
+        /**
+         * @param rdsCreateCrossRegionReadReplicaConfigs Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rdsCreateCrossRegionReadReplicaConfigs(List<PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs> rdsCreateCrossRegionReadReplicaConfigs) {
+            return rdsCreateCrossRegionReadReplicaConfigs(Output.of(rdsCreateCrossRegionReadReplicaConfigs));
+        }
+
+        /**
+         * @param rdsCreateCrossRegionReadReplicaConfigs Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rdsCreateCrossRegionReadReplicaConfigs(PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfigArgs... rdsCreateCrossRegionReadReplicaConfigs) {
+            return rdsCreateCrossRegionReadReplicaConfigs(List.of(rdsCreateCrossRegionReadReplicaConfigs));
+        }
+
+        /**
+         * @param rdsPromoteReadReplicaConfigs Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rdsPromoteReadReplicaConfigs(@Nullable Output<List<PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs>> rdsPromoteReadReplicaConfigs) {
+            $.rdsPromoteReadReplicaConfigs = rdsPromoteReadReplicaConfigs;
+            return this;
+        }
+
+        /**
+         * @param rdsPromoteReadReplicaConfigs Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rdsPromoteReadReplicaConfigs(List<PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs> rdsPromoteReadReplicaConfigs) {
+            return rdsPromoteReadReplicaConfigs(Output.of(rdsPromoteReadReplicaConfigs));
+        }
+
+        /**
+         * @param rdsPromoteReadReplicaConfigs Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rdsPromoteReadReplicaConfigs(PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfigArgs... rdsPromoteReadReplicaConfigs) {
+            return rdsPromoteReadReplicaConfigs(List.of(rdsPromoteReadReplicaConfigs));
         }
 
         public Builder regionSwitchPlanConfigs(@Nullable Output<List<PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgs>> regionSwitchPlanConfigs) {

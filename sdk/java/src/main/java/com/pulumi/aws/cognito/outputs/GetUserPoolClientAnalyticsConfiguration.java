@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class GetUserPoolClientAnalyticsConfiguration {
     /**
-     * @return (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+     * @return (Optional) Application ARN for an AWS End User Messaging application. Conflicts with `externalId` and `roleArn`.
      * 
      */
     private String applicationArn;
     /**
-     * @return (Optional) Application ID for an Amazon Pinpoint application.
+     * @return (Optional) Application ID for an AWS End User Messaging application.
      * 
      */
     private String applicationId;
@@ -27,26 +27,26 @@ public final class GetUserPoolClientAnalyticsConfiguration {
      */
     private String externalId;
     /**
-     * @return (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+     * @return (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to AWS End User Messaging analytics. Conflicts with `applicationArn`.
      * 
      */
     private String roleArn;
     /**
-     * @return (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+     * @return (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to AWS End User Messaging analytics.
      * 
      */
     private Boolean userDataShared;
 
     private GetUserPoolClientAnalyticsConfiguration() {}
     /**
-     * @return (Optional) Application ARN for an Amazon Pinpoint application. Conflicts with `externalId` and `roleArn`.
+     * @return (Optional) Application ARN for an AWS End User Messaging application. Conflicts with `externalId` and `roleArn`.
      * 
      */
     public String applicationArn() {
         return this.applicationArn;
     }
     /**
-     * @return (Optional) Application ID for an Amazon Pinpoint application.
+     * @return (Optional) Application ID for an AWS End User Messaging application.
      * 
      */
     public String applicationId() {
@@ -60,14 +60,14 @@ public final class GetUserPoolClientAnalyticsConfiguration {
         return this.externalId;
     }
     /**
-     * @return (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics. Conflicts with `applicationArn`.
+     * @return (Optional) ARN of an IAM role that authorizes Amazon Cognito to publish events to AWS End User Messaging analytics. Conflicts with `applicationArn`.
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.
+     * @return (Optional) If set to `true`, Amazon Cognito will include user data in the events it publishes to AWS End User Messaging analytics.
      * 
      */
     public Boolean userDataShared() {

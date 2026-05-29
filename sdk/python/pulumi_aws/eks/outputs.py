@@ -1002,19 +1002,20 @@ class ClusterRemoteNetworkConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 remote_node_networks: 'outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks',
+                 remote_node_networks: Optional['outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks'] = None,
                  remote_pod_networks: Optional['outputs.ClusterRemoteNetworkConfigRemotePodNetworks'] = None):
         """
         :param 'ClusterRemoteNetworkConfigRemoteNodeNetworksArgs' remote_node_networks: Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
         :param 'ClusterRemoteNetworkConfigRemotePodNetworksArgs' remote_pod_networks: Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
         """
-        pulumi.set(__self__, "remote_node_networks", remote_node_networks)
+        if remote_node_networks is not None:
+            pulumi.set(__self__, "remote_node_networks", remote_node_networks)
         if remote_pod_networks is not None:
             pulumi.set(__self__, "remote_pod_networks", remote_pod_networks)
 
     @_builtins.property
     @pulumi.getter(name="remoteNodeNetworks")
-    def remote_node_networks(self) -> 'outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks':
+    def remote_node_networks(self) -> Optional['outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks']:
         """
         Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
         """

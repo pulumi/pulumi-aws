@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Pinpoint Baidu Channel resource.
+ * Provides an End User Messaging Baidu Channel resource.
  * 
  * &gt; **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
  * ## Example Usage
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
+ * Using `pulumi import`, import End User Messaging Baidu Channel using the `application-id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
@@ -84,28 +84,28 @@ public class BaiduChannel extends com.pulumi.resources.CustomResource {
         return this.apiKey;
     }
     /**
-     * The application ID.
+     * Application ID.
      * 
      */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      */
     public Output<String> applicationId() {
         return this.applicationId;
     }
     /**
-     * Specifies whether to enable the channel. Defaults to `true`.
+     * Whether to enable the channel. Defaults to `true`.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Specifies whether to enable the channel. Defaults to `true`.
+     * @return Whether to enable the channel. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

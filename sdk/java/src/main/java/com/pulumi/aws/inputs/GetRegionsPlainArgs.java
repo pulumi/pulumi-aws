@@ -48,16 +48,24 @@ public final class GetRegionsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * 
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * 
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -121,11 +129,15 @@ public final class GetRegionsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+         * @param id (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
          * 
          * @return builder
          * 
+         * @deprecated
+         * This attribute will be removed in a future version of the provider.
+         * 
          */
+        @Deprecated /* This attribute will be removed in a future version of the provider. */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;

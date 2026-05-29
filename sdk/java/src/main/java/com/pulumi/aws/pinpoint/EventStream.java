@@ -14,9 +14,9 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **NOTE:** This resource is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. After that date, this resource will no longer be available. For SMS/Voice event delivery, use `aws.pinpoint.Smsvoicev2ConfigurationSet` with an event destination.
+ * &gt; **NOTE:** This resource is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. After that date, this resource will no longer be available. For SMS/Voice event delivery, use `aws.pinpoint.Smsvoicev2ConfigurationSet` with an event destination.
  * 
- * Provides a Pinpoint Event Stream resource.
+ * Provides an End User Messaging Event Stream resource.
  * 
  * ## Example Usage
  * 
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:
+ * Using `pulumi import`, import End User Messaging Event Stream using the `application-id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
@@ -112,36 +112,36 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:pinpoint/eventStream:EventStream")
 public class EventStream extends com.pulumi.resources.CustomResource {
     /**
-     * The application ID.
+     * Application ID.
      * 
      * @deprecated
-     * application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      * 
      */
-    @Deprecated /* application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+    @Deprecated /* application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      */
     public Output<String> applicationId() {
         return this.applicationId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
      * @deprecated
-     * destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      * 
      */
-    @Deprecated /* destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+    @Deprecated /* destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
     @Export(name="destinationStreamArn", refs={String.class}, tree="[0]")
     private Output<String> destinationStreamArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * @return Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
      */
     public Output<String> destinationStreamArn() {
@@ -162,18 +162,18 @@ public class EventStream extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+     * IAM role that authorizes AWS End User Messaging to publish events to the stream in your account.
      * 
      * @deprecated
-     * role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      * 
      */
-    @Deprecated /* role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+    @Deprecated /* role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+     * @return IAM role that authorizes AWS End User Messaging to publish events to the stream in your account.
      * 
      */
     public Output<String> roleArn() {

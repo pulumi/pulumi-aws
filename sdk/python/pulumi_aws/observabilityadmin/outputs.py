@@ -420,6 +420,7 @@ class CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration(dict):
                  log_group_selection_criteria: Optional[_builtins.str] = None):
         """
         :param _builtins.str encrypted_log_group_strategy: Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
+        :param _builtins.str data_source_selection_criteria: Criteria for selecting data sources. Uses the same filter expression format as `log_group_selection_criteria`, but operates on Data Source Name and Data Source Type operands. When both `log_group_selection_criteria` and `data_source_selection_criteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
         :param _builtins.str log_group_selection_criteria: Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
         """
         pulumi.set(__self__, "encrypted_log_group_strategy", encrypted_log_group_strategy)
@@ -439,6 +440,9 @@ class CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="dataSourceSelectionCriteria")
     def data_source_selection_criteria(self) -> Optional[_builtins.str]:
+        """
+        Criteria for selecting data sources. Uses the same filter expression format as `log_group_selection_criteria`, but operates on Data Source Name and Data Source Type operands. When both `log_group_selection_criteria` and `data_source_selection_criteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
+        """
         return pulumi.get(self, "data_source_selection_criteria")
 
     @_builtins.property

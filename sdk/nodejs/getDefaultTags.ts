@@ -46,6 +46,9 @@ export function getDefaultTags(args?: GetDefaultTagsArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getDefaultTags.
  */
 export interface GetDefaultTagsArgs {
+    /**
+     * @deprecated This attribute will be removed in a future version of the provider.
+     */
     id?: string;
 }
 
@@ -53,6 +56,9 @@ export interface GetDefaultTagsArgs {
  * A collection of values returned by getDefaultTags.
  */
 export interface GetDefaultTagsResult {
+    /**
+     * @deprecated This attribute will be removed in a future version of the provider.
+     */
     readonly id: string;
     /**
      * Key-value mapping of provider default tags.
@@ -101,5 +107,8 @@ export function getDefaultTagsOutput(args?: GetDefaultTagsOutputArgs, opts?: pul
  * A collection of arguments for invoking getDefaultTags.
  */
 export interface GetDefaultTagsOutputArgs {
+    /**
+     * @deprecated This attribute will be removed in a future version of the provider.
+     */
     id?: pulumi.Input<string | undefined>;
 }

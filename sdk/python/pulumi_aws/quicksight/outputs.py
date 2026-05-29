@@ -4186,7 +4186,9 @@ class DataSourceParametersAthena(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "workGroup":
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "workGroup":
             suggest = "work_group"
 
         if suggest:
@@ -4201,12 +4203,24 @@ class DataSourceParametersAthena(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 role_arn: Optional[_builtins.str] = None,
                  work_group: Optional[_builtins.str] = None):
         """
+        :param _builtins.str role_arn: Use the `role_arn` to override an account-wide role for a specific athena data source.
         :param _builtins.str work_group: The work-group to which to connect.
         """
+        if role_arn is not None:
+            pulumi.set(__self__, "role_arn", role_arn)
         if work_group is not None:
             pulumi.set(__self__, "work_group", work_group)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> Optional[_builtins.str]:
+        """
+        Use the `role_arn` to override an account-wide role for a specific athena data source.
+        """
+        return pulumi.get(self, "role_arn")
 
     @_builtins.property
     @pulumi.getter(name="workGroup")

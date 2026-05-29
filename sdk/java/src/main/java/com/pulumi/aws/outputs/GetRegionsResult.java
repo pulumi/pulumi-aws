@@ -18,9 +18,13 @@ public final class GetRegionsResult {
     private @Nullable Boolean allRegions;
     private @Nullable List<GetRegionsFilter> filters;
     /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * 
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     private String id;
     /**
      * @return Names of regions that meets the criteria.
@@ -36,9 +40,13 @@ public final class GetRegionsResult {
         return this.filters == null ? List.of() : this.filters;
     }
     /**
-     * @return Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * 
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
      * 
      */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     public String id() {
         return this.id;
     }

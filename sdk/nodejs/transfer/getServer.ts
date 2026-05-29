@@ -83,6 +83,10 @@ export interface GetServerResult {
      */
     readonly invocationRole: string;
     /**
+     * Type of IP addresses for the AWS Transfer Family endpoint.
+     */
+    readonly ipAddressType: string;
+    /**
      * ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      */
     readonly loggingRole: string;

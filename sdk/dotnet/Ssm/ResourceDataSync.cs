@@ -22,12 +22,22 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var hogeBucket = new Aws.S3.Bucket("hoge", new()
+    ///     var exampleBucket = new Aws.S3.Bucket("example", new()
     ///     {
-    ///         BucketName = "tf-test-bucket-1234",
+    ///         BucketName = "example",
     ///     });
     /// 
-    ///     var hoge = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     var exampleResourceDataSync = new Aws.Ssm.ResourceDataSync("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         S3Destination = new Aws.Ssm.Inputs.ResourceDataSyncS3DestinationArgs
+    ///         {
+    ///             BucketName = exampleBucket.BucketName,
+    ///             Region = exampleBucket.Region,
+    ///         },
+    ///     });
+    /// 
+    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
     ///     {
     ///         Statements = new[]
     ///         {
@@ -52,7 +62,7 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     "arn:aws:s3:::tf-test-bucket-1234",
+    ///                     exampleBucket.Arn,
     ///                 },
     ///             },
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
@@ -76,7 +86,7 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///                 Resources = new[]
     ///                 {
-    ///                     "arn:aws:s3:::tf-test-bucket-1234/*",
+    ///                     $"{exampleBucket.Arn}/*",
     ///                 },
     ///                 Conditions = new[]
     ///                 {
@@ -94,24 +104,21 @@ namespace Pulumi.Aws.Ssm
     ///         },
     ///     });
     /// 
-    ///     var hogeBucketPolicy = new Aws.S3.BucketPolicy("hoge", new()
+    ///     var exampleBucketPolicy = new Aws.S3.BucketPolicy("example", new()
     ///     {
-    ///         Bucket = hogeBucket.Id,
-    ///         Policy = hoge.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///     });
-    /// 
-    ///     var foo = new Aws.Ssm.ResourceDataSync("foo", new()
-    ///     {
-    ///         Name = "foo",
-    ///         S3Destination = new Aws.Ssm.Inputs.ResourceDataSyncS3DestinationArgs
-    ///         {
-    ///             BucketName = hogeBucket.BucketName,
-    ///             Region = hogeBucket.Region,
-    ///         },
+    ///         Bucket = exampleBucket.BucketName,
+    ///         Policy = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///     });
     /// 
     /// });
     /// ```
+    /// 
+    /// ## DestinationDataSharing
+    /// 
+    /// `DestinationDataSharing` supports the following:
+    /// 
+    /// * `DestinationDataSharingType` - (Optional) Data sharing type.
+    ///   Only `Organization` is supported.
     /// 
     /// ## Import
     /// 

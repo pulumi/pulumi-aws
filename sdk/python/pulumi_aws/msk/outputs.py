@@ -44,6 +44,11 @@ __all__ = [
     'ReplicatorKafkaCluster',
     'ReplicatorKafkaClusterAmazonMskCluster',
     'ReplicatorKafkaClusterVpcConfig',
+    'ReplicatorLogDelivery',
+    'ReplicatorLogDeliveryReplicatorLogDelivery',
+    'ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs',
+    'ReplicatorLogDeliveryReplicatorLogDeliveryFirehose',
+    'ReplicatorLogDeliveryReplicatorLogDeliveryS3',
     'ReplicatorReplicationInfoList',
     'ReplicatorReplicationInfoListConsumerGroupReplication',
     'ReplicatorReplicationInfoListTopicReplication',
@@ -1208,6 +1213,238 @@ class ReplicatorKafkaClusterVpcConfig(dict):
         The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
         """
         return pulumi.get(self, "security_groups_ids")
+
+
+@pulumi.output_type
+class ReplicatorLogDelivery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicatorLogDelivery":
+            suggest = "replicator_log_delivery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatorLogDelivery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatorLogDelivery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatorLogDelivery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replicator_log_delivery: Optional['outputs.ReplicatorLogDeliveryReplicatorLogDelivery'] = None):
+        """
+        :param 'ReplicatorLogDeliveryReplicatorLogDeliveryArgs' replicator_log_delivery: Configuration block for replicator log delivery. Detailed below.
+        """
+        if replicator_log_delivery is not None:
+            pulumi.set(__self__, "replicator_log_delivery", replicator_log_delivery)
+
+    @_builtins.property
+    @pulumi.getter(name="replicatorLogDelivery")
+    def replicator_log_delivery(self) -> Optional['outputs.ReplicatorLogDeliveryReplicatorLogDelivery']:
+        """
+        Configuration block for replicator log delivery. Detailed below.
+        """
+        return pulumi.get(self, "replicator_log_delivery")
+
+
+@pulumi.output_type
+class ReplicatorLogDeliveryReplicatorLogDelivery(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudwatchLogs":
+            suggest = "cloudwatch_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatorLogDeliveryReplicatorLogDelivery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatorLogDeliveryReplicatorLogDelivery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatorLogDeliveryReplicatorLogDelivery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloudwatch_logs: Optional['outputs.ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs'] = None,
+                 firehose: Optional['outputs.ReplicatorLogDeliveryReplicatorLogDeliveryFirehose'] = None,
+                 s3: Optional['outputs.ReplicatorLogDeliveryReplicatorLogDeliveryS3'] = None):
+        """
+        :param 'ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogsArgs' cloudwatch_logs: Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+        :param 'ReplicatorLogDeliveryReplicatorLogDeliveryFirehoseArgs' firehose: Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+        :param 'ReplicatorLogDeliveryReplicatorLogDeliveryS3Args' s3: Configuration block for replicator log delivery to Amazon S3. Detailed below.
+        """
+        if cloudwatch_logs is not None:
+            pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
+        if firehose is not None:
+            pulumi.set(__self__, "firehose", firehose)
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudwatchLogs")
+    def cloudwatch_logs(self) -> Optional['outputs.ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs']:
+        """
+        Configuration block for replicator log delivery to Amazon CloudWatch Logs. Detailed below.
+        """
+        return pulumi.get(self, "cloudwatch_logs")
+
+    @_builtins.property
+    @pulumi.getter
+    def firehose(self) -> Optional['outputs.ReplicatorLogDeliveryReplicatorLogDeliveryFirehose']:
+        """
+        Configuration block for replicator log delivery to Amazon Data Firehose. Detailed below.
+        """
+        return pulumi.get(self, "firehose")
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.ReplicatorLogDeliveryReplicatorLogDeliveryS3']:
+        """
+        Configuration block for replicator log delivery to Amazon S3. Detailed below.
+        """
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroup":
+            suggest = "log_group"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatorLogDeliveryReplicatorLogDeliveryCloudwatchLogs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 log_group: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Boolean whether to enable log delivery to CloudWatch Logs.
+        :param _builtins.str log_group: Name of CloudWatch Logs log group. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if log_group is not None:
+            pulumi.set(__self__, "log_group", log_group)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Boolean whether to enable log delivery to CloudWatch Logs.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroup")
+    def log_group(self) -> Optional[_builtins.str]:
+        """
+        Name of CloudWatch Logs log group. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+        """
+        return pulumi.get(self, "log_group")
+
+
+@pulumi.output_type
+class ReplicatorLogDeliveryReplicatorLogDeliveryFirehose(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStream":
+            suggest = "delivery_stream"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicatorLogDeliveryReplicatorLogDeliveryFirehose. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicatorLogDeliveryReplicatorLogDeliveryFirehose.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicatorLogDeliveryReplicatorLogDeliveryFirehose.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 delivery_stream: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Boolean whether to enable log delivery to Firehose.
+        :param _builtins.str delivery_stream: Name of the Firehose delivery stream. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if delivery_stream is not None:
+            pulumi.set(__self__, "delivery_stream", delivery_stream)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Boolean whether to enable log delivery to Firehose.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryStream")
+    def delivery_stream(self) -> Optional[_builtins.str]:
+        """
+        Name of the Firehose delivery stream. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+        """
+        return pulumi.get(self, "delivery_stream")
+
+
+@pulumi.output_type
+class ReplicatorLogDeliveryReplicatorLogDeliveryS3(dict):
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 bucket: Optional[_builtins.str] = None,
+                 prefix: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Boolean whether to enable log delivery to S3.
+        :param _builtins.str bucket: Name of the S3 bucket. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+        :param _builtins.str prefix: Prefix to use when storing replicator logs in S3. If `enabled` is `false`, this value must not be set.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Boolean whether to enable log delivery to S3.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> Optional[_builtins.str]:
+        """
+        Name of the S3 bucket. Required if `enabled` is `true`. If `enabled` is `false`, this value must not be set.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> Optional[_builtins.str]:
+        """
+        Prefix to use when storing replicator logs in S3. If `enabled` is `false`, this value must not be set.
+        """
+        return pulumi.get(self, "prefix")
 
 
 @pulumi.output_type

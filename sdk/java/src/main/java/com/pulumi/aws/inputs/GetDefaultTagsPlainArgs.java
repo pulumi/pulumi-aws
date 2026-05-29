@@ -14,9 +14,21 @@ public final class GetDefaultTagsPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetDefaultTagsPlainArgs Empty = new GetDefaultTagsPlainArgs();
 
+    /**
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     @Import(name="id")
     private @Nullable String id;
 
+    /**
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -45,6 +57,14 @@ public final class GetDefaultTagsPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetDefaultTagsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This attribute will be removed in a future version of the provider.
+         * 
+         */
+        @Deprecated /* This attribute will be removed in a future version of the provider. */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;

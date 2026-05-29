@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ec2.Inputs
     public sealed class InstanceInstanceMarketOptionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of market for the instance. Valid values are `Spot` and `capacity-block`. Defaults to `Spot`. Required if `SpotOptions` is specified.
+        /// Type of market for the instance. Valid values are `Spot`, `capacity-block`, and `interruptible-capacity-reservation`. Use `interruptible-capacity-reservation` to launch instances into [interruptible Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-consumer-procedures.html). Defaults to `Spot`. Required if `SpotOptions` is specified.
         /// </summary>
         [Input("marketType")]
         public Input<string>? MarketType { get; set; }

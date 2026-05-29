@@ -218,6 +218,21 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    /**
+     * @return Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
+    }
+
+    /**
      * Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
@@ -491,6 +506,7 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
         this.hostKeyFingerprint = $.hostKeyFingerprint;
         this.identityProviderType = $.identityProviderType;
         this.invocationRole = $.invocationRole;
+        this.ipAddressType = $.ipAddressType;
         this.loggingRole = $.loggingRole;
         this.postAuthenticationLoginBanner = $.postAuthenticationLoginBanner;
         this.preAuthenticationLoginBanner = $.preAuthenticationLoginBanner;
@@ -796,6 +812,27 @@ public final class ServerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder invocationRole(String invocationRole) {
             return invocationRole(Output.of(invocationRole));
+        }
+
+        /**
+         * @param ipAddressType Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `ipAddressType` is set to `DUALSTACK`, `addressAllocationIds` cannot be specified in the `endpointDetails` block. Updating `ipAddressType` stops the server and then restarts it with the new `ipAddressType` value.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         /**

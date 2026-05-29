@@ -50,9 +50,11 @@ class GetPartitionResult:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""Use 'partition' instead. This attribute will be removed in a future version of the provider.""")
     def id(self) -> _builtins.str:
         """
-        Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+        (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+        Use `partition` instead.
         """
         return pulumi.get(self, "id")
 
@@ -106,7 +108,8 @@ def get_partition(id: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+    :param _builtins.str id: (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+           Use `partition` instead.
     """
     __args__ = dict()
     __args__['id'] = id
@@ -139,7 +142,8 @@ def get_partition_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = N
     ```
 
 
-    :param _builtins.str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+    :param _builtins.str id: (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+           Use `partition` instead.
     """
     __args__ = dict()
     __args__['id'] = id

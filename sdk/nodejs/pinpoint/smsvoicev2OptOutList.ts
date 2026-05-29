@@ -57,7 +57,7 @@ export class Smsvoicev2OptOutList extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The name of the opt-out list.
+     * Name of the opt-out list.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -69,7 +69,7 @@ export class Smsvoicev2OptOutList extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -113,7 +113,7 @@ export interface Smsvoicev2OptOutListState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the opt-out list.
+     * Name of the opt-out list.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -125,7 +125,7 @@ export interface Smsvoicev2OptOutListState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -135,7 +135,7 @@ export interface Smsvoicev2OptOutListState {
  */
 export interface Smsvoicev2OptOutListArgs {
     /**
-     * The name of the opt-out list.
+     * Name of the opt-out list.
      */
     name?: pulumi.Input<string | undefined>;
     /**

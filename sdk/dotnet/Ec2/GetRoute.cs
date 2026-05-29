@@ -205,6 +205,12 @@ namespace Pulumi.Aws.Ec2
         public string? NetworkInterfaceId { get; set; }
 
         /// <summary>
+        /// ODB network ARN of the Route belonging to the Route Table.
+        /// </summary>
+        [Input("odbNetworkArn")]
+        public string? OdbNetworkArn { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -305,6 +311,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
+        /// ODB network ARN of the Route belonging to the Route Table.
+        /// </summary>
+        [Input("odbNetworkArn")]
+        public Input<string>? OdbNetworkArn { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -355,6 +367,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string LocalGatewayId;
         public readonly string NatGatewayId;
         public readonly string NetworkInterfaceId;
+        public readonly string OdbNetworkArn;
         public readonly string Region;
         public readonly string RouteTableId;
         public readonly string TransitGatewayId;
@@ -386,6 +399,8 @@ namespace Pulumi.Aws.Ec2
 
             string networkInterfaceId,
 
+            string odbNetworkArn,
+
             string region,
 
             string routeTableId,
@@ -406,6 +421,7 @@ namespace Pulumi.Aws.Ec2
             LocalGatewayId = localGatewayId;
             NatGatewayId = natGatewayId;
             NetworkInterfaceId = networkInterfaceId;
+            OdbNetworkArn = odbNetworkArn;
             Region = region;
             RouteTableId = routeTableId;
             TransitGatewayId = transitGatewayId;

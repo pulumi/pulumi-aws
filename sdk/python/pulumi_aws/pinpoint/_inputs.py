@@ -32,7 +32,7 @@ __all__ = [
 class AppCampaignHookArgsDict(TypedDict):
     lambda_function_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+    Lambda function name or ARN to be called for delivery. Conflicts with `web_url`.
     """
     mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -40,7 +40,7 @@ class AppCampaignHookArgsDict(TypedDict):
     """
     web_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+    Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`.
     """
 
 @pulumi.input_type
@@ -50,9 +50,9 @@ class AppCampaignHookArgs:
                  mode: pulumi.Input[Optional[_builtins.str]] = None,
                  web_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] lambda_function_name: Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+        :param pulumi.Input[_builtins.str] lambda_function_name: Lambda function name or ARN to be called for delivery. Conflicts with `web_url`.
         :param pulumi.Input[_builtins.str] mode: What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
-        :param pulumi.Input[_builtins.str] web_url: Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+        :param pulumi.Input[_builtins.str] web_url: Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`.
         """
         if lambda_function_name is not None:
             pulumi.set(__self__, "lambda_function_name", lambda_function_name)
@@ -65,7 +65,7 @@ class AppCampaignHookArgs:
     @pulumi.getter(name="lambdaFunctionName")
     def lambda_function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+        Lambda function name or ARN to be called for delivery. Conflicts with `web_url`.
         """
         return pulumi.get(self, "lambda_function_name")
 
@@ -89,7 +89,7 @@ class AppCampaignHookArgs:
     @pulumi.getter(name="webUrl")
     def web_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+        Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`.
         """
         return pulumi.get(self, "web_url")
 
@@ -101,19 +101,19 @@ class AppCampaignHookArgs:
 class AppLimitsArgsDict(TypedDict):
     daily: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum number of messages that the campaign can send daily.
+    Maximum number of messages that the campaign can send daily.
     """
     maximum_duration: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+    Length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. Minimum value is 60.
     """
     messages_per_second: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+    Number of messages that the campaign can send per second. Minimum value is 50, and the maximum is 20000.
     """
     total: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum total number of messages that the campaign can send.
+    Maximum total number of messages that the campaign can send.
     """
 
 @pulumi.input_type
@@ -124,10 +124,10 @@ class AppLimitsArgs:
                  messages_per_second: pulumi.Input[Optional[_builtins.int]] = None,
                  total: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.int] daily: The maximum number of messages that the campaign can send daily.
-        :param pulumi.Input[_builtins.int] maximum_duration: The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-        :param pulumi.Input[_builtins.int] messages_per_second: The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-        :param pulumi.Input[_builtins.int] total: The maximum total number of messages that the campaign can send.
+        :param pulumi.Input[_builtins.int] daily: Maximum number of messages that the campaign can send daily.
+        :param pulumi.Input[_builtins.int] maximum_duration: Length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. Minimum value is 60.
+        :param pulumi.Input[_builtins.int] messages_per_second: Number of messages that the campaign can send per second. Minimum value is 50, and the maximum is 20000.
+        :param pulumi.Input[_builtins.int] total: Maximum total number of messages that the campaign can send.
         """
         if daily is not None:
             pulumi.set(__self__, "daily", daily)
@@ -142,7 +142,7 @@ class AppLimitsArgs:
     @pulumi.getter
     def daily(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum number of messages that the campaign can send daily.
+        Maximum number of messages that the campaign can send daily.
         """
         return pulumi.get(self, "daily")
 
@@ -154,7 +154,7 @@ class AppLimitsArgs:
     @pulumi.getter(name="maximumDuration")
     def maximum_duration(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+        Length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. Minimum value is 60.
         """
         return pulumi.get(self, "maximum_duration")
 
@@ -166,7 +166,7 @@ class AppLimitsArgs:
     @pulumi.getter(name="messagesPerSecond")
     def messages_per_second(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+        Number of messages that the campaign can send per second. Minimum value is 50, and the maximum is 20000.
         """
         return pulumi.get(self, "messages_per_second")
 
@@ -178,7 +178,7 @@ class AppLimitsArgs:
     @pulumi.getter
     def total(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum total number of messages that the campaign can send.
+        Maximum total number of messages that the campaign can send.
         """
         return pulumi.get(self, "total")
 
@@ -190,11 +190,11 @@ class AppLimitsArgs:
 class AppQuietTimeArgsDict(TypedDict):
     end: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The default end time for quiet time in ISO 8601 format. Required if `start` is set
+    Default end time for quiet time in ISO 8601 format. Required if `start` is set.
     """
     start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The default start time for quiet time in ISO 8601 format. Required if `end` is set
+    Default start time for quiet time in ISO 8601 format. Required if `end` is set.
     """
 
 @pulumi.input_type
@@ -203,8 +203,8 @@ class AppQuietTimeArgs:
                  end: pulumi.Input[Optional[_builtins.str]] = None,
                  start: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] end: The default end time for quiet time in ISO 8601 format. Required if `start` is set
-        :param pulumi.Input[_builtins.str] start: The default start time for quiet time in ISO 8601 format. Required if `end` is set
+        :param pulumi.Input[_builtins.str] end: Default end time for quiet time in ISO 8601 format. Required if `start` is set.
+        :param pulumi.Input[_builtins.str] start: Default start time for quiet time in ISO 8601 format. Required if `end` is set.
         """
         if end is not None:
             pulumi.set(__self__, "end", end)
@@ -215,7 +215,7 @@ class AppQuietTimeArgs:
     @pulumi.getter
     def end(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default end time for quiet time in ISO 8601 format. Required if `start` is set
+        Default end time for quiet time in ISO 8601 format. Required if `start` is set.
         """
         return pulumi.get(self, "end")
 
@@ -227,7 +227,7 @@ class AppQuietTimeArgs:
     @pulumi.getter
     def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The default start time for quiet time in ISO 8601 format. Required if `end` is set
+        Default start time for quiet time in ISO 8601 format. Required if `end` is set.
         """
         return pulumi.get(self, "start")
 
@@ -242,14 +242,20 @@ class EmailTemplateEmailTemplateArgsDict(TypedDict):
     JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
     """
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Custom description of the message template.
+    """
     headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgsDict']]]]]
+    """
+    List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+    """
     html_part: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+    Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
     """
     recommender_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+    Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
     """
     subject: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -272,8 +278,10 @@ class EmailTemplateEmailTemplateArgs:
                  text_part: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] default_substitutions: JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
-        :param pulumi.Input[_builtins.str] html_part: The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-        :param pulumi.Input[_builtins.str] recommender_id: The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+        :param pulumi.Input[_builtins.str] description: Custom description of the message template.
+        :param pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]] headers: List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+        :param pulumi.Input[_builtins.str] html_part: Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+        :param pulumi.Input[_builtins.str] recommender_id: Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
         :param pulumi.Input[_builtins.str] subject: Subject line, or title, to use in email messages that are based on the message template.
         :param pulumi.Input[_builtins.str] text_part: Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
         """
@@ -307,6 +315,9 @@ class EmailTemplateEmailTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Custom description of the message template.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -316,6 +327,9 @@ class EmailTemplateEmailTemplateArgs:
     @_builtins.property
     @pulumi.getter
     def headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgs']]]]:
+        """
+        List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+        """
         return pulumi.get(self, "headers")
 
     @headers.setter
@@ -326,7 +340,7 @@ class EmailTemplateEmailTemplateArgs:
     @pulumi.getter(name="htmlPart")
     def html_part(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+        Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
         """
         return pulumi.get(self, "html_part")
 
@@ -338,7 +352,7 @@ class EmailTemplateEmailTemplateArgs:
     @pulumi.getter(name="recommenderId")
     def recommender_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+        Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
         """
         return pulumi.get(self, "recommender_id")
 

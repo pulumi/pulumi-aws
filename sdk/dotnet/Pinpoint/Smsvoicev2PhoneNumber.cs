@@ -60,43 +60,43 @@ namespace Pulumi.Aws.Pinpoint
         public Output<bool> DeletionProtectionEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+        /// Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
         /// </summary>
         [Output("isoCountryCode")]
         public Output<string> IsoCountryCode { get; private set; } = null!;
 
         /// <summary>
-        /// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+        /// Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
         /// </summary>
         [Output("messageType")]
         public Output<string> MessageType { get; private set; } = null!;
 
         /// <summary>
-        /// The monthly price, in US dollars, to lease the phone number.
+        /// Monthly price, in US dollars, to lease the phone number.
         /// </summary>
         [Output("monthlyLeasingPrice")]
         public Output<string> MonthlyLeasingPrice { get; private set; } = null!;
 
         /// <summary>
-        /// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+        /// Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
         /// </summary>
         [Output("numberCapabilities")]
         public Output<ImmutableArray<string>> NumberCapabilities { get; private set; } = null!;
 
         /// <summary>
-        /// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+        /// Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
         /// </summary>
         [Output("numberType")]
         public Output<string> NumberType { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the opt-out list to associate with the phone number.
+        /// Name of the opt-out list to associate with the phone number.
         /// </summary>
         [Output("optOutListName")]
         public Output<string> OptOutListName { get; private set; } = null!;
 
         /// <summary>
-        /// The new phone number that was requested.
+        /// New phone number that was requested.
         /// </summary>
         [Output("phoneNumber")]
         public Output<string> PhoneNumber { get; private set; } = null!;
@@ -119,11 +119,14 @@ namespace Pulumi.Aws.Pinpoint
         [Output("selfManagedOptOutsEnabled")]
         public Output<bool> SelfManagedOptOutsEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -202,13 +205,13 @@ namespace Pulumi.Aws.Pinpoint
         public Input<bool>? DeletionProtectionEnabled { get; set; }
 
         /// <summary>
-        /// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+        /// Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
         /// </summary>
         [Input("isoCountryCode", required: true)]
         public Input<string> IsoCountryCode { get; set; } = null!;
 
         /// <summary>
-        /// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+        /// Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
         /// </summary>
         [Input("messageType", required: true)]
         public Input<string> MessageType { get; set; } = null!;
@@ -217,7 +220,7 @@ namespace Pulumi.Aws.Pinpoint
         private InputList<string>? _numberCapabilities;
 
         /// <summary>
-        /// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+        /// Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
         /// </summary>
         public InputList<string> NumberCapabilities
         {
@@ -226,13 +229,13 @@ namespace Pulumi.Aws.Pinpoint
         }
 
         /// <summary>
-        /// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+        /// Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
         /// </summary>
         [Input("numberType", required: true)]
         public Input<string> NumberType { get; set; } = null!;
 
         /// <summary>
-        /// The name of the opt-out list to associate with the phone number.
+        /// Name of the opt-out list to associate with the phone number.
         /// </summary>
         [Input("optOutListName")]
         public Input<string>? OptOutListName { get; set; }
@@ -257,6 +260,10 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -305,19 +312,19 @@ namespace Pulumi.Aws.Pinpoint
         public Input<bool>? DeletionProtectionEnabled { get; set; }
 
         /// <summary>
-        /// The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
+        /// Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
         /// </summary>
         [Input("isoCountryCode")]
         public Input<string>? IsoCountryCode { get; set; }
 
         /// <summary>
-        /// The type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
+        /// Type of message. Valid values are `TRANSACTIONAL` for messages that are critical or time-sensitive and `PROMOTIONAL` for messages that aren’t critical or time-sensitive.
         /// </summary>
         [Input("messageType")]
         public Input<string>? MessageType { get; set; }
 
         /// <summary>
-        /// The monthly price, in US dollars, to lease the phone number.
+        /// Monthly price, in US dollars, to lease the phone number.
         /// </summary>
         [Input("monthlyLeasingPrice")]
         public Input<string>? MonthlyLeasingPrice { get; set; }
@@ -326,7 +333,7 @@ namespace Pulumi.Aws.Pinpoint
         private InputList<string>? _numberCapabilities;
 
         /// <summary>
-        /// Describes if the origination identity can be used for text messages, voice calls or both. valid values are `SMS` and `VOICE`.
+        /// Whether the origination identity can be used for text messages, voice calls or both. Valid values are `SMS` and `VOICE`.
         /// </summary>
         public InputList<string> NumberCapabilities
         {
@@ -335,19 +342,19 @@ namespace Pulumi.Aws.Pinpoint
         }
 
         /// <summary>
-        /// The type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+        /// Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
         /// </summary>
         [Input("numberType")]
         public Input<string>? NumberType { get; set; }
 
         /// <summary>
-        /// The name of the opt-out list to associate with the phone number.
+        /// Name of the opt-out list to associate with the phone number.
         /// </summary>
         [Input("optOutListName")]
         public Input<string>? OptOutListName { get; set; }
 
         /// <summary>
-        /// The new phone number that was requested.
+        /// New phone number that was requested.
         /// </summary>
         [Input("phoneNumber")]
         public Input<string>? PhoneNumber { get; set; }
@@ -372,6 +379,10 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -382,7 +393,7 @@ namespace Pulumi.Aws.Pinpoint
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -157,6 +157,8 @@ type Route struct {
 	NatGatewayId pulumi.StringPtrOutput `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
+	// The Amazon Resource Name (ARN) of an ODB network.
+	OdbNetworkArn pulumi.StringPtrOutput `pulumi:"odbNetworkArn"`
 	// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
 	Origin pulumi.StringOutput `pulumi:"origin"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -236,6 +238,8 @@ type routeState struct {
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The Amazon Resource Name (ARN) of an ODB network.
+	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
 	// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
 	Origin *string `pulumi:"origin"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -283,6 +287,8 @@ type RouteState struct {
 	NatGatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of an ODB network.
+	OdbNetworkArn pulumi.StringPtrInput
 	// How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.
 	Origin pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -330,6 +336,8 @@ type routeArgs struct {
 	NatGatewayId *string `pulumi:"natGatewayId"`
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The Amazon Resource Name (ARN) of an ODB network.
+	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID of the routing table.
@@ -370,6 +378,8 @@ type RouteArgs struct {
 	NatGatewayId pulumi.StringPtrInput
 	// Identifier of an EC2 network interface.
 	NetworkInterfaceId pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of an ODB network.
+	OdbNetworkArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID of the routing table.
@@ -533,6 +543,11 @@ func (o RouteOutput) NatGatewayId() pulumi.StringPtrOutput {
 // Identifier of an EC2 network interface.
 func (o RouteOutput) NetworkInterfaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.NetworkInterfaceId }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of an ODB network.
+func (o RouteOutput) OdbNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.OdbNetworkArn }).(pulumi.StringPtrOutput)
 }
 
 // How the route was created - `CreateRouteTable`, `CreateRoute` or `EnableVgwRoutePropagation`.

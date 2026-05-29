@@ -61,15 +61,15 @@ export class Smsvoicev2ConfigurationSet extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+     * Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
      */
     declare public readonly defaultMessageType: pulumi.Output<string | undefined>;
     /**
-     * The default sender ID to use for this configuration set.
+     * Default sender ID to use for this configuration set.
      */
     declare public readonly defaultSenderId: pulumi.Output<string | undefined>;
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -81,7 +81,7 @@ export class Smsvoicev2ConfigurationSet extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -129,15 +129,15 @@ export interface Smsvoicev2ConfigurationSetState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+     * Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
      */
     defaultMessageType?: pulumi.Input<string | undefined>;
     /**
-     * The default sender ID to use for this configuration set.
+     * Default sender ID to use for this configuration set.
      */
     defaultSenderId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface Smsvoicev2ConfigurationSetState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -159,15 +159,15 @@ export interface Smsvoicev2ConfigurationSetState {
  */
 export interface Smsvoicev2ConfigurationSetArgs {
     /**
-     * The default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL"
+     * Default message type. Must either be "TRANSACTIONAL" or "PROMOTIONAL".
      */
     defaultMessageType?: pulumi.Input<string | undefined>;
     /**
-     * The default sender ID to use for this configuration set.
+     * Default sender ID to use for this configuration set.
      */
     defaultSenderId?: pulumi.Input<string | undefined>;
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      */
     name?: pulumi.Input<string | undefined>;
     /**

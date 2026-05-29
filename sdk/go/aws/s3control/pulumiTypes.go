@@ -1078,9 +1078,13 @@ func (o DirectoryBucketAccessPointScopeScopePtrOutput) Prefixes() pulumi.StringA
 }
 
 type MultiRegionAccessPointDetails struct {
-	Name              string                                          `pulumi:"name"`
+	// The name of the Multi-Region Access Point.
+	Name string `pulumi:"name"`
+	// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
 	PublicAccessBlock *MultiRegionAccessPointDetailsPublicAccessBlock `pulumi:"publicAccessBlock"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+	//
+	// For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
 	Regions []MultiRegionAccessPointDetailsRegion `pulumi:"regions"`
 }
 
@@ -1096,9 +1100,13 @@ type MultiRegionAccessPointDetailsInput interface {
 }
 
 type MultiRegionAccessPointDetailsArgs struct {
-	Name              pulumi.StringInput                                     `pulumi:"name"`
+	// The name of the Multi-Region Access Point.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
 	PublicAccessBlock MultiRegionAccessPointDetailsPublicAccessBlockPtrInput `pulumi:"publicAccessBlock"`
-	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+	//
+	// For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
 	Regions MultiRegionAccessPointDetailsRegionArrayInput `pulumi:"regions"`
 }
 
@@ -1179,17 +1187,21 @@ func (o MultiRegionAccessPointDetailsOutput) ToMultiRegionAccessPointDetailsPtrO
 	}).(MultiRegionAccessPointDetailsPtrOutput)
 }
 
+// The name of the Multi-Region Access Point.
 func (o MultiRegionAccessPointDetailsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetails) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
 func (o MultiRegionAccessPointDetailsOutput) PublicAccessBlock() MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetails) *MultiRegionAccessPointDetailsPublicAccessBlock {
 		return v.PublicAccessBlock
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+//
+// For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
 func (o MultiRegionAccessPointDetailsOutput) Regions() MultiRegionAccessPointDetailsRegionArrayOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetails) []MultiRegionAccessPointDetailsRegion { return v.Regions }).(MultiRegionAccessPointDetailsRegionArrayOutput)
 }
@@ -1218,6 +1230,7 @@ func (o MultiRegionAccessPointDetailsPtrOutput) Elem() MultiRegionAccessPointDet
 	}).(MultiRegionAccessPointDetailsOutput)
 }
 
+// The name of the Multi-Region Access Point.
 func (o MultiRegionAccessPointDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetails) *string {
 		if v == nil {
@@ -1227,6 +1240,7 @@ func (o MultiRegionAccessPointDetailsPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
 func (o MultiRegionAccessPointDetailsPtrOutput) PublicAccessBlock() MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetails) *MultiRegionAccessPointDetailsPublicAccessBlock {
 		if v == nil {
@@ -1236,7 +1250,9 @@ func (o MultiRegionAccessPointDetailsPtrOutput) PublicAccessBlock() MultiRegionA
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
 }
 
-// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+//
+// For more information, see the documentation on [Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html).
 func (o MultiRegionAccessPointDetailsPtrOutput) Regions() MultiRegionAccessPointDetailsRegionArrayOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetails) []MultiRegionAccessPointDetailsRegion {
 		if v == nil {
@@ -1247,9 +1263,19 @@ func (o MultiRegionAccessPointDetailsPtrOutput) Regions() MultiRegionAccessPoint
 }
 
 type MultiRegionAccessPointDetailsPublicAccessBlock struct {
-	BlockPublicAcls       *bool `pulumi:"blockPublicAcls"`
-	BlockPublicPolicy     *bool `pulumi:"blockPublicPolicy"`
-	IgnorePublicAcls      *bool `pulumi:"ignorePublicAcls"`
+	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	// * PUT Object calls fail if the request includes a public ACL.
+	// * PUT Bucket calls fail if the request includes a public ACL.
+	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
+	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
+	// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
+	// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+	// * Only the bucket owner and AWS Services can access buckets with public policies.
 	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
 }
 
@@ -1265,9 +1291,19 @@ type MultiRegionAccessPointDetailsPublicAccessBlockInput interface {
 }
 
 type MultiRegionAccessPointDetailsPublicAccessBlockArgs struct {
-	BlockPublicAcls       pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
-	BlockPublicPolicy     pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
-	IgnorePublicAcls      pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
+	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	// * PUT Object calls fail if the request includes a public ACL.
+	// * PUT Bucket calls fail if the request includes a public ACL.
+	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
+	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
+	// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+	IgnorePublicAcls pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
+	// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+	// * Only the bucket owner and AWS Services can access buckets with public policies.
 	RestrictPublicBuckets pulumi.BoolPtrInput `pulumi:"restrictPublicBuckets"`
 }
 
@@ -1348,18 +1384,28 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) ToMultiRegionAcces
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
 }
 
+// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+// * PUT Object calls fail if the request includes a public ACL.
+// * PUT Bucket calls fail if the request includes a public ACL.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
 }
 
+// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
 }
 
+// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+// * Ignore all public ACLs on buckets in this account and any objects that they contain.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
 }
 
+// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+// * Only the bucket owner and AWS Services can access buckets with public policies.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
 }
@@ -1388,6 +1434,10 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) Elem() MultiReg
 	}).(MultiRegionAccessPointDetailsPublicAccessBlockOutput)
 }
 
+// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+// * PUT Object calls fail if the request includes a public ACL.
+// * PUT Bucket calls fail if the request includes a public ACL.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
 		if v == nil {
@@ -1397,6 +1447,8 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) BlockPublicAcls
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
 		if v == nil {
@@ -1406,6 +1458,8 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) BlockPublicPoli
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+// * Ignore all public ACLs on buckets in this account and any objects that they contain.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
 		if v == nil {
@@ -1415,6 +1469,8 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) IgnorePublicAcl
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+// * Only the bucket owner and AWS Services can access buckets with public policies.
 func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
 		if v == nil {
@@ -1425,7 +1481,9 @@ func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) RestrictPublicB
 }
 
 type MultiRegionAccessPointDetailsRegion struct {
-	Bucket          string  `pulumi:"bucket"`
+	// The name of the associated bucket for the Region.
+	Bucket string `pulumi:"bucket"`
+	// The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
 	BucketAccountId *string `pulumi:"bucketAccountId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -1443,7 +1501,9 @@ type MultiRegionAccessPointDetailsRegionInput interface {
 }
 
 type MultiRegionAccessPointDetailsRegionArgs struct {
-	Bucket          pulumi.StringInput    `pulumi:"bucket"`
+	// The name of the associated bucket for the Region.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
 	BucketAccountId pulumi.StringPtrInput `pulumi:"bucketAccountId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -1500,10 +1560,12 @@ func (o MultiRegionAccessPointDetailsRegionOutput) ToMultiRegionAccessPointDetai
 	return o
 }
 
+// The name of the associated bucket for the Region.
 func (o MultiRegionAccessPointDetailsRegionOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsRegion) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
 func (o MultiRegionAccessPointDetailsRegionOutput) BucketAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MultiRegionAccessPointDetailsRegion) *string { return v.BucketAccountId }).(pulumi.StringPtrOutput)
 }
@@ -1695,6 +1757,121 @@ func (o MultiRegionAccessPointPolicyDetailsPtrOutput) Policy() pulumi.StringPtrO
 		}
 		return &v.Policy
 	}).(pulumi.StringPtrOutput)
+}
+
+type MultiRegionAccessPointRoutesRoute struct {
+	// Name of the Amazon S3 bucket.
+	Bucket string `pulumi:"bucket"`
+	// AWS Region where the bucket is located.
+	Region string `pulumi:"region"`
+	// Traffic routing configuration. A value of `0` indicates a passive status (traffic will not be routed to the Region), and a value of `100` indicates an active status (traffic will be routed to the Region).
+	TrafficDialPercentage int `pulumi:"trafficDialPercentage"`
+}
+
+// MultiRegionAccessPointRoutesRouteInput is an input type that accepts MultiRegionAccessPointRoutesRouteArgs and MultiRegionAccessPointRoutesRouteOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointRoutesRouteInput` via:
+//
+//	MultiRegionAccessPointRoutesRouteArgs{...}
+type MultiRegionAccessPointRoutesRouteInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointRoutesRouteOutput() MultiRegionAccessPointRoutesRouteOutput
+	ToMultiRegionAccessPointRoutesRouteOutputWithContext(context.Context) MultiRegionAccessPointRoutesRouteOutput
+}
+
+type MultiRegionAccessPointRoutesRouteArgs struct {
+	// Name of the Amazon S3 bucket.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// AWS Region where the bucket is located.
+	Region pulumi.StringInput `pulumi:"region"`
+	// Traffic routing configuration. A value of `0` indicates a passive status (traffic will not be routed to the Region), and a value of `100` indicates an active status (traffic will be routed to the Region).
+	TrafficDialPercentage pulumi.IntInput `pulumi:"trafficDialPercentage"`
+}
+
+func (MultiRegionAccessPointRoutesRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointRoutesRoute)(nil)).Elem()
+}
+
+func (i MultiRegionAccessPointRoutesRouteArgs) ToMultiRegionAccessPointRoutesRouteOutput() MultiRegionAccessPointRoutesRouteOutput {
+	return i.ToMultiRegionAccessPointRoutesRouteOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointRoutesRouteArgs) ToMultiRegionAccessPointRoutesRouteOutputWithContext(ctx context.Context) MultiRegionAccessPointRoutesRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointRoutesRouteOutput)
+}
+
+// MultiRegionAccessPointRoutesRouteArrayInput is an input type that accepts MultiRegionAccessPointRoutesRouteArray and MultiRegionAccessPointRoutesRouteArrayOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointRoutesRouteArrayInput` via:
+//
+//	MultiRegionAccessPointRoutesRouteArray{ MultiRegionAccessPointRoutesRouteArgs{...} }
+type MultiRegionAccessPointRoutesRouteArrayInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointRoutesRouteArrayOutput() MultiRegionAccessPointRoutesRouteArrayOutput
+	ToMultiRegionAccessPointRoutesRouteArrayOutputWithContext(context.Context) MultiRegionAccessPointRoutesRouteArrayOutput
+}
+
+type MultiRegionAccessPointRoutesRouteArray []MultiRegionAccessPointRoutesRouteInput
+
+func (MultiRegionAccessPointRoutesRouteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultiRegionAccessPointRoutesRoute)(nil)).Elem()
+}
+
+func (i MultiRegionAccessPointRoutesRouteArray) ToMultiRegionAccessPointRoutesRouteArrayOutput() MultiRegionAccessPointRoutesRouteArrayOutput {
+	return i.ToMultiRegionAccessPointRoutesRouteArrayOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointRoutesRouteArray) ToMultiRegionAccessPointRoutesRouteArrayOutputWithContext(ctx context.Context) MultiRegionAccessPointRoutesRouteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointRoutesRouteArrayOutput)
+}
+
+type MultiRegionAccessPointRoutesRouteOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointRoutesRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointRoutesRoute)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointRoutesRouteOutput) ToMultiRegionAccessPointRoutesRouteOutput() MultiRegionAccessPointRoutesRouteOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointRoutesRouteOutput) ToMultiRegionAccessPointRoutesRouteOutputWithContext(ctx context.Context) MultiRegionAccessPointRoutesRouteOutput {
+	return o
+}
+
+// Name of the Amazon S3 bucket.
+func (o MultiRegionAccessPointRoutesRouteOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointRoutesRoute) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// AWS Region where the bucket is located.
+func (o MultiRegionAccessPointRoutesRouteOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointRoutesRoute) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Traffic routing configuration. A value of `0` indicates a passive status (traffic will not be routed to the Region), and a value of `100` indicates an active status (traffic will be routed to the Region).
+func (o MultiRegionAccessPointRoutesRouteOutput) TrafficDialPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointRoutesRoute) int { return v.TrafficDialPercentage }).(pulumi.IntOutput)
+}
+
+type MultiRegionAccessPointRoutesRouteArrayOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointRoutesRouteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultiRegionAccessPointRoutesRoute)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointRoutesRouteArrayOutput) ToMultiRegionAccessPointRoutesRouteArrayOutput() MultiRegionAccessPointRoutesRouteArrayOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointRoutesRouteArrayOutput) ToMultiRegionAccessPointRoutesRouteArrayOutputWithContext(ctx context.Context) MultiRegionAccessPointRoutesRouteArrayOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointRoutesRouteArrayOutput) Index(i pulumi.IntInput) MultiRegionAccessPointRoutesRouteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultiRegionAccessPointRoutesRoute {
+		return vs[0].([]MultiRegionAccessPointRoutesRoute)[vs[1].(int)]
+	}).(MultiRegionAccessPointRoutesRouteOutput)
 }
 
 type ObjectLambdaAccessPointConfiguration struct {
@@ -8978,6 +9155,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointDetailsRegionArrayInput)(nil)).Elem(), MultiRegionAccessPointDetailsRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointPolicyDetailsInput)(nil)).Elem(), MultiRegionAccessPointPolicyDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointPolicyDetailsPtrInput)(nil)).Elem(), MultiRegionAccessPointPolicyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointRoutesRouteInput)(nil)).Elem(), MultiRegionAccessPointRoutesRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointRoutesRouteArrayInput)(nil)).Elem(), MultiRegionAccessPointRoutesRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointConfigurationInput)(nil)).Elem(), ObjectLambdaAccessPointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointConfigurationPtrInput)(nil)).Elem(), ObjectLambdaAccessPointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfigurationInput)(nil)).Elem(), ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{})
@@ -9096,6 +9275,8 @@ func init() {
 	pulumi.RegisterOutputType(MultiRegionAccessPointDetailsRegionArrayOutput{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointPolicyDetailsOutput{})
 	pulumi.RegisterOutputType(MultiRegionAccessPointPolicyDetailsPtrOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointRoutesRouteOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointRoutesRouteArrayOutput{})
 	pulumi.RegisterOutputType(ObjectLambdaAccessPointConfigurationOutput{})
 	pulumi.RegisterOutputType(ObjectLambdaAccessPointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput{})

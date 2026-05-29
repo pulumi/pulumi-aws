@@ -27,10 +27,10 @@ class AdmChannelArgs:
         """
         The set of arguments for constructing a AdmChannel resource.
 
-        :param pulumi.Input[_builtins.str] application_id: The application ID.
+        :param pulumi.Input[_builtins.str] application_id: Application ID.
         :param pulumi.Input[_builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[_builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        :param pulumi.Input[_builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable the channel. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "application_id", application_id)
@@ -45,7 +45,7 @@ class AdmChannelArgs:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The application ID.
+        Application ID.
         """
         return pulumi.get(self, "application_id")
 
@@ -81,7 +81,7 @@ class AdmChannelArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether to enable the channel. Defaults to `true`.
+        Whether to enable the channel. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -113,10 +113,10 @@ class _AdmChannelState:
         """
         Input properties used for looking up and filtering AdmChannel resources.
 
-        :param pulumi.Input[_builtins.str] application_id: The application ID.
+        :param pulumi.Input[_builtins.str] application_id: Application ID.
         :param pulumi.Input[_builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[_builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        :param pulumi.Input[_builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable the channel. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if application_id is not None:
@@ -134,7 +134,7 @@ class _AdmChannelState:
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The application ID.
+        Application ID.
         """
         return pulumi.get(self, "application_id")
 
@@ -170,7 +170,7 @@ class _AdmChannelState:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether to enable the channel. Defaults to `true`.
+        Whether to enable the channel. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 
@@ -204,7 +204,7 @@ class AdmChannel(pulumi.CustomResource):
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
+        Provides an End User Messaging ADM (Amazon Device Messaging) Channel resource.
 
         > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
         ## Example Usage
@@ -223,7 +223,7 @@ class AdmChannel(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
+        Using `pulumi import`, import End User Messaging ADM Channel using the `application-id`. For example:
 
         ```sh
         $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
@@ -232,10 +232,10 @@ class AdmChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: The application ID.
+        :param pulumi.Input[_builtins.str] application_id: Application ID.
         :param pulumi.Input[_builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[_builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        :param pulumi.Input[_builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable the channel. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -245,7 +245,7 @@ class AdmChannel(pulumi.CustomResource):
                  args: AdmChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
+        Provides an End User Messaging ADM (Amazon Device Messaging) Channel resource.
 
         > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
         ## Example Usage
@@ -264,7 +264,7 @@ class AdmChannel(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
+        Using `pulumi import`, import End User Messaging ADM Channel using the `application-id`. For example:
 
         ```sh
         $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
@@ -335,10 +335,10 @@ class AdmChannel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] application_id: The application ID.
+        :param pulumi.Input[_builtins.str] application_id: Application ID.
         :param pulumi.Input[_builtins.str] client_id: Client ID (part of OAuth Credentials) obtained via Amazon Developer Account.
         :param pulumi.Input[_builtins.str] client_secret: Client Secret (part of OAuth Credentials) obtained via Amazon Developer Account.
-        :param pulumi.Input[_builtins.bool] enabled: Specifies whether to enable the channel. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] enabled: Whether to enable the channel. Defaults to `true`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -356,7 +356,7 @@ class AdmChannel(pulumi.CustomResource):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The application ID.
+        Application ID.
         """
         return pulumi.get(self, "application_id")
 
@@ -380,7 +380,7 @@ class AdmChannel(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specifies whether to enable the channel. Defaults to `true`.
+        Whether to enable the channel. Defaults to `true`.
         """
         return pulumi.get(self, "enabled")
 

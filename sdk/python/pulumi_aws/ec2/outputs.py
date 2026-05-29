@@ -4713,7 +4713,7 @@ class InstanceInstanceMarketOptions(dict):
                  market_type: Optional[_builtins.str] = None,
                  spot_options: Optional['outputs.InstanceInstanceMarketOptionsSpotOptions'] = None):
         """
-        :param _builtins.str market_type: Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
+        :param _builtins.str market_type: Type of market for the instance. Valid values are `spot`, `capacity-block`, and `interruptible-capacity-reservation`. Use `interruptible-capacity-reservation` to launch instances into [interruptible Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-consumer-procedures.html). Defaults to `spot`. Required if `spot_options` is specified.
         :param 'InstanceInstanceMarketOptionsSpotOptionsArgs' spot_options: Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
         """
         if market_type is not None:
@@ -4725,7 +4725,7 @@ class InstanceInstanceMarketOptions(dict):
     @pulumi.getter(name="marketType")
     def market_type(self) -> Optional[_builtins.str]:
         """
-        Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
+        Type of market for the instance. Valid values are `spot`, `capacity-block`, and `interruptible-capacity-reservation`. Use `interruptible-capacity-reservation` to launch instances into [interruptible Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-consumer-procedures.html). Defaults to `spot`. Required if `spot_options` is specified.
         """
         return pulumi.get(self, "market_type")
 
@@ -15089,6 +15089,8 @@ class RouteTableRoute(dict):
             suggest = "nat_gateway_id"
         elif key == "networkInterfaceId":
             suggest = "network_interface_id"
+        elif key == "odbNetworkArn":
+            suggest = "odb_network_arn"
         elif key == "transitGatewayId":
             suggest = "transit_gateway_id"
         elif key == "vpcEndpointId":
@@ -15118,6 +15120,7 @@ class RouteTableRoute(dict):
                  local_gateway_id: Optional[_builtins.str] = None,
                  nat_gateway_id: Optional[_builtins.str] = None,
                  network_interface_id: Optional[_builtins.str] = None,
+                 odb_network_arn: Optional[_builtins.str] = None,
                  transit_gateway_id: Optional[_builtins.str] = None,
                  vpc_endpoint_id: Optional[_builtins.str] = None,
                  vpc_peering_connection_id: Optional[_builtins.str] = None):
@@ -15134,6 +15137,7 @@ class RouteTableRoute(dict):
         :param _builtins.str local_gateway_id: Identifier of a Outpost local gateway.
         :param _builtins.str nat_gateway_id: Identifier of a VPC NAT gateway.
         :param _builtins.str network_interface_id: Identifier of an EC2 network interface.
+        :param _builtins.str odb_network_arn: The Amazon Resource Name (ARN) of an ODB network.
         :param _builtins.str transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param _builtins.str vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param _builtins.str vpc_peering_connection_id: Identifier of a VPC peering connection.
@@ -15160,6 +15164,8 @@ class RouteTableRoute(dict):
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if odb_network_arn is not None:
+            pulumi.set(__self__, "odb_network_arn", odb_network_arn)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if vpc_endpoint_id is not None:
@@ -15248,6 +15254,14 @@ class RouteTableRoute(dict):
         Identifier of an EC2 network interface.
         """
         return pulumi.get(self, "network_interface_id")
+
+    @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of an ODB network.
+        """
+        return pulumi.get(self, "odb_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")
@@ -27254,6 +27268,7 @@ class GetRouteTableRouteResult(dict):
                  local_gateway_id: _builtins.str,
                  nat_gateway_id: _builtins.str,
                  network_interface_id: _builtins.str,
+                 odb_network_arn: _builtins.str,
                  transit_gateway_id: _builtins.str,
                  vpc_endpoint_id: _builtins.str,
                  vpc_peering_connection_id: _builtins.str):
@@ -27269,6 +27284,7 @@ class GetRouteTableRouteResult(dict):
         :param _builtins.str local_gateway_id: Local Gateway ID.
         :param _builtins.str nat_gateway_id: NAT Gateway ID.
         :param _builtins.str network_interface_id: ID of the elastic network interface (eni) to use.
+        :param _builtins.str odb_network_arn: ARN of the ODB network.
         :param _builtins.str transit_gateway_id: EC2 Transit Gateway ID.
         :param _builtins.str vpc_endpoint_id: VPC Endpoint ID.
         :param _builtins.str vpc_peering_connection_id: VPC Peering ID.
@@ -27284,6 +27300,7 @@ class GetRouteTableRouteResult(dict):
         pulumi.set(__self__, "local_gateway_id", local_gateway_id)
         pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
+        pulumi.set(__self__, "odb_network_arn", odb_network_arn)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
         pulumi.set(__self__, "vpc_peering_connection_id", vpc_peering_connection_id)
@@ -27375,6 +27392,14 @@ class GetRouteTableRouteResult(dict):
         ID of the elastic network interface (eni) to use.
         """
         return pulumi.get(self, "network_interface_id")
+
+    @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> _builtins.str:
+        """
+        ARN of the ODB network.
+        """
+        return pulumi.get(self, "odb_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")

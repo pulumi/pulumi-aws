@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Pinpoint Destination
+ * ### End User Messaging Destination
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

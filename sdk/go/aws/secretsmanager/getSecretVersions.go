@@ -107,7 +107,8 @@ func GetSecretVersions(ctx *pulumi.Context, args *GetSecretVersionsArgs, opts ..
 // A collection of arguments for invoking getSecretVersions.
 type GetSecretVersionsArgs struct {
 	// If true, all deprecated secret versions are included in the response.
-	// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+	// If false, no deprecated secret versions are included in the response.
+	// If no value is specified, the default value is `false`.
 	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -117,14 +118,25 @@ type GetSecretVersionsArgs struct {
 
 // A collection of values returned by getSecretVersions.
 type GetSecretVersionsResult struct {
-	// ARN of the secret.
+	// (**Deprecated**) The ARN of the secret.
+	// Use `secretArn` instead.
+	//
+	// Deprecated: arn is deprecated. Use secretArn instead.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
 	IncludeDeprecated *bool  `pulumi:"includeDeprecated"`
-	Name              string `pulumi:"name"`
-	Region            string `pulumi:"region"`
-	SecretId          string `pulumi:"secretId"`
+	// (**Deprecated**) Name of the secret.
+	// Use `secretName` instead.
+	//
+	// Deprecated: name is deprecated. Use secretName instead.
+	Name   string `pulumi:"name"`
+	Region string `pulumi:"region"`
+	// The ARN of the secret.
+	SecretArn string `pulumi:"secretArn"`
+	SecretId  string `pulumi:"secretId"`
+	// Name of the secret.
+	SecretName string `pulumi:"secretName"`
 	// List of the versions of the secret. Attributes are specified below.
 	Versions []GetSecretVersionsVersion `pulumi:"versions"`
 }
@@ -141,7 +153,8 @@ func GetSecretVersionsOutput(ctx *pulumi.Context, args GetSecretVersionsOutputAr
 // A collection of arguments for invoking getSecretVersions.
 type GetSecretVersionsOutputArgs struct {
 	// If true, all deprecated secret versions are included in the response.
-	// If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
+	// If false, no deprecated secret versions are included in the response.
+	// If no value is specified, the default value is `false`.
 	IncludeDeprecated pulumi.BoolPtrInput `pulumi:"includeDeprecated"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -168,7 +181,10 @@ func (o GetSecretVersionsResultOutput) ToGetSecretVersionsResultOutputWithContex
 	return o
 }
 
-// ARN of the secret.
+// (**Deprecated**) The ARN of the secret.
+// Use `secretArn` instead.
+//
+// Deprecated: arn is deprecated. Use secretArn instead.
 func (o GetSecretVersionsResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -182,6 +198,10 @@ func (o GetSecretVersionsResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v GetSecretVersionsResult) *bool { return v.IncludeDeprecated }).(pulumi.BoolPtrOutput)
 }
 
+// (**Deprecated**) Name of the secret.
+// Use `secretName` instead.
+//
+// Deprecated: name is deprecated. Use secretName instead.
 func (o GetSecretVersionsResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -190,8 +210,18 @@ func (o GetSecretVersionsResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// The ARN of the secret.
+func (o GetSecretVersionsResultOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
 func (o GetSecretVersionsResultOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// Name of the secret.
+func (o GetSecretVersionsResultOutput) SecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretVersionsResult) string { return v.SecretName }).(pulumi.StringOutput)
 }
 
 // List of the versions of the secret. Attributes are specified below.

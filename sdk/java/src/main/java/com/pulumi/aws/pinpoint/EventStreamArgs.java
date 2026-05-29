@@ -17,47 +17,47 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
     public static final EventStreamArgs Empty = new EventStreamArgs();
 
     /**
-     * The application ID.
+     * Application ID.
      * 
      * @deprecated
-     * application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      * 
      */
-    @Deprecated /* application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+    @Deprecated /* application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
     /**
-     * @return The application ID.
+     * @return Application ID.
      * 
      * @deprecated
-     * application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      * 
      */
-    @Deprecated /* application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+    @Deprecated /* application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
     public Output<String> applicationId() {
         return this.applicationId;
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
      * @deprecated
-     * destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      * 
      */
-    @Deprecated /* destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+    @Deprecated /* destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
     @Import(name="destinationStreamArn", required=true)
     private Output<String> destinationStreamArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * @return Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
      * @deprecated
-     * destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      * 
      */
-    @Deprecated /* destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+    @Deprecated /* destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
     public Output<String> destinationStreamArn() {
         return this.destinationStreamArn;
     }
@@ -78,24 +78,24 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+     * IAM role that authorizes AWS End User Messaging to publish events to the stream in your account.
      * 
      * @deprecated
-     * role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      * 
      */
-    @Deprecated /* role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+    @Deprecated /* role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+     * @return IAM role that authorizes AWS End User Messaging to publish events to the stream in your account.
      * 
      * @deprecated
-     * role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+     * role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
      * 
      */
-    @Deprecated /* role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+    @Deprecated /* role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
     public Output<String> roleArn() {
         return this.roleArn;
     }
@@ -128,59 +128,59 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
          * @deprecated
-         * application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+         * application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
          * 
          */
-        @Deprecated /* application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+        @Deprecated /* application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
         public Builder applicationId(Output<String> applicationId) {
             $.applicationId = applicationId;
             return this;
         }
 
         /**
-         * @param applicationId The application ID.
+         * @param applicationId Application ID.
          * 
          * @return builder
          * 
          * @deprecated
-         * application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+         * application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
          * 
          */
-        @Deprecated /* application_id is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+        @Deprecated /* application_id is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
         public Builder applicationId(String applicationId) {
             return applicationId(Output.of(applicationId));
         }
 
         /**
-         * @param destinationStreamArn The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+         * @param destinationStreamArn Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
          * 
          * @return builder
          * 
          * @deprecated
-         * destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+         * destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
          * 
          */
-        @Deprecated /* destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+        @Deprecated /* destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
         public Builder destinationStreamArn(Output<String> destinationStreamArn) {
             $.destinationStreamArn = destinationStreamArn;
             return this;
         }
 
         /**
-         * @param destinationStreamArn The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+         * @param destinationStreamArn Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
          * 
          * @return builder
          * 
          * @deprecated
-         * destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+         * destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
          * 
          */
-        @Deprecated /* destination_stream_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+        @Deprecated /* destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
         public Builder destinationStreamArn(String destinationStreamArn) {
             return destinationStreamArn(Output.of(destinationStreamArn));
         }
@@ -207,30 +207,30 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+         * @param roleArn IAM role that authorizes AWS End User Messaging to publish events to the stream in your account.
          * 
          * @return builder
          * 
          * @deprecated
-         * role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+         * role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
          * 
          */
-        @Deprecated /* role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+        @Deprecated /* role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
         public Builder roleArn(Output<String> roleArn) {
             $.roleArn = roleArn;
             return this;
         }
 
         /**
-         * @param roleArn The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
+         * @param roleArn IAM role that authorizes AWS End User Messaging to publish events to the stream in your account.
          * 
          * @return builder
          * 
          * @deprecated
-         * role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026.
+         * role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
          * 
          */
-        @Deprecated /* role_arn is deprecated. Amazon Pinpoint event streams are being discontinued on October 30, 2026. */
+        @Deprecated /* role_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026. */
         public Builder roleArn(String roleArn) {
             return roleArn(Output.of(roleArn));
         }

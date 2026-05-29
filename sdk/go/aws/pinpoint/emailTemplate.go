@@ -12,9 +12,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **NOTE:** This resource is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `ses.Template` or `sesv2.EmailIdentity` and related SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
+// > **NOTE:** This resource is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES using `ses.Template` or `sesv2.EmailIdentity` and related SESv2 resources. See the [AWS End User Messaging migration guide](https://docs.aws.amazon.com/pinpoint/latest/userguide/migrate.html) for details.
 //
-// # Provides a Pinpoint Email Template resource
+// # Provides an End User Messaging Email Template resource
 //
 // ## Example Usage
 //
@@ -56,7 +56,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Pinpoint Email Template using the `templateName`. For example:
+// Using `pulumi import`, import End User Messaging Email Template using the `templateName`. For example:
 //
 // ```sh
 // $ pulumi import aws:pinpoint/emailTemplate:EmailTemplate reset template_name
@@ -66,17 +66,19 @@ type EmailTemplate struct {
 
 	// Amazon Resource Name (ARN) of the message template.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+	// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
 	//
-	// Deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+	// Deprecated: email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	EmailTemplates EmailTemplateEmailTemplateArrayOutput `pulumi:"emailTemplates"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region  pulumi.StringOutput    `pulumi:"region"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Region pulumi.StringOutput `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+	// Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	//
-	// Deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+	// Deprecated: template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	TemplateName pulumi.StringOutput `pulumi:"templateName"`
 }
 
@@ -115,34 +117,38 @@ func GetEmailTemplate(ctx *pulumi.Context,
 type emailTemplateState struct {
 	// Amazon Resource Name (ARN) of the message template.
 	Arn *string `pulumi:"arn"`
-	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+	// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
 	//
-	// Deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+	// Deprecated: email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	EmailTemplates []EmailTemplateEmailTemplate `pulumi:"emailTemplates"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region  *string           `pulumi:"region"`
-	Tags    map[string]string `pulumi:"tags"`
+	Region *string `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+	// Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	//
-	// Deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+	// Deprecated: template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	TemplateName *string `pulumi:"templateName"`
 }
 
 type EmailTemplateState struct {
 	// Amazon Resource Name (ARN) of the message template.
 	Arn pulumi.StringPtrInput
-	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+	// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
 	//
-	// Deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+	// Deprecated: email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	EmailTemplates EmailTemplateEmailTemplateArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Region pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+	// Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	//
-	// Deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+	// Deprecated: template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	TemplateName pulumi.StringPtrInput
 }
 
@@ -151,31 +157,33 @@ func (EmailTemplateState) ElementType() reflect.Type {
 }
 
 type emailTemplateArgs struct {
-	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+	// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
 	//
-	// Deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+	// Deprecated: email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	EmailTemplates []EmailTemplateEmailTemplate `pulumi:"emailTemplates"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region *string           `pulumi:"region"`
-	Tags   map[string]string `pulumi:"tags"`
-	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+	Region *string `pulumi:"region"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	//
-	// Deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+	// Deprecated: template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	TemplateName string `pulumi:"templateName"`
 }
 
 // The set of arguments for constructing a EmailTemplate resource.
 type EmailTemplateArgs struct {
-	// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+	// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
 	//
-	// Deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+	// Deprecated: email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	EmailTemplates EmailTemplateEmailTemplateArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
-	// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 	//
-	// Deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+	// Deprecated: template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 	TemplateName pulumi.StringInput
 }
 
@@ -271,9 +279,9 @@ func (o EmailTemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the content and settings for a message template that can be used in messages that are sent through the email channel. See Email Template
+// Content and settings for a message template that can be used in messages that are sent through the email channel. See below.
 //
-// Deprecated: email_template is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+// Deprecated: email_template is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 func (o EmailTemplateOutput) EmailTemplates() EmailTemplateEmailTemplateArrayOutput {
 	return o.ApplyT(func(v *EmailTemplate) EmailTemplateEmailTemplateArrayOutput { return v.EmailTemplates }).(EmailTemplateEmailTemplateArrayOutput)
 }
@@ -283,17 +291,19 @@ func (o EmailTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o EmailTemplateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o EmailTemplateOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
+// Name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 //
-// Deprecated: template_name is deprecated. Amazon Pinpoint email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
+// Deprecated: template_name is deprecated. AWS End User Messaging email features are being discontinued on October 30, 2026. Migrate to Amazon SES.
 func (o EmailTemplateOutput) TemplateName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailTemplate) pulumi.StringOutput { return v.TemplateName }).(pulumi.StringOutput)
 }

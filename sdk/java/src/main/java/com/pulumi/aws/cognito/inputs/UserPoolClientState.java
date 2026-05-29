@@ -82,14 +82,14 @@ public final class UserPoolClientState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+     * Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
      * 
      */
     @Import(name="analyticsConfiguration")
     private @Nullable Output<UserPoolClientAnalyticsConfigurationArgs> analyticsConfiguration;
 
     /**
-     * @return Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+     * @return Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
      * 
      */
     public Optional<Output<UserPoolClientAnalyticsConfigurationArgs>> analyticsConfiguration() {
@@ -553,7 +553,7 @@ public final class UserPoolClientState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param analyticsConfiguration Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+         * @param analyticsConfiguration Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
          * 
          * @return builder
          * 
@@ -564,7 +564,7 @@ public final class UserPoolClientState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param analyticsConfiguration Configuration block for Amazon Pinpoint analytics that collects metrics for this user pool. See details below.
+         * @param analyticsConfiguration Configuration block for AWS End User Messaging analytics that collects metrics for this user pool. See details below.
          * 
          * @return builder
          * 

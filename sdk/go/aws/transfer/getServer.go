@@ -77,6 +77,8 @@ type LookupServerResult struct {
 	IdentityProviderType string `pulumi:"identityProviderType"`
 	// ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 	InvocationRole string `pulumi:"invocationRole"`
+	// Type of IP addresses for the AWS Transfer Family endpoint.
+	IpAddressType string `pulumi:"ipAddressType"`
 	// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
 	LoggingRole string `pulumi:"loggingRole"`
 	// File transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint.
@@ -169,6 +171,11 @@ func (o LookupServerResultOutput) IdentityProviderType() pulumi.StringOutput {
 // ARN of the IAM role used to authenticate the user account with an `identityProviderType` of `API_GATEWAY`.
 func (o LookupServerResultOutput) InvocationRole() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.InvocationRole }).(pulumi.StringOutput)
+}
+
+// Type of IP addresses for the AWS Transfer Family endpoint.
+func (o LookupServerResultOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerResult) string { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
 // ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.

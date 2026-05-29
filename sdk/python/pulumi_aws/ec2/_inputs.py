@@ -5933,7 +5933,7 @@ class InstanceEphemeralBlockDeviceArgs:
 class InstanceInstanceMarketOptionsArgsDict(TypedDict):
     market_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
+    Type of market for the instance. Valid values are `spot`, `capacity-block`, and `interruptible-capacity-reservation`. Use `interruptible-capacity-reservation` to launch instances into [interruptible Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-consumer-procedures.html). Defaults to `spot`. Required if `spot_options` is specified.
     """
     spot_options: NotRequired[pulumi.Input[Optional['InstanceInstanceMarketOptionsSpotOptionsArgsDict']]]
     """
@@ -5946,7 +5946,7 @@ class InstanceInstanceMarketOptionsArgs:
                  market_type: pulumi.Input[Optional[_builtins.str]] = None,
                  spot_options: pulumi.Input[Optional['InstanceInstanceMarketOptionsSpotOptionsArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] market_type: Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
+        :param pulumi.Input[_builtins.str] market_type: Type of market for the instance. Valid values are `spot`, `capacity-block`, and `interruptible-capacity-reservation`. Use `interruptible-capacity-reservation` to launch instances into [interruptible Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-consumer-procedures.html). Defaults to `spot`. Required if `spot_options` is specified.
         :param pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs'] spot_options: Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
         """
         if market_type is not None:
@@ -5958,7 +5958,7 @@ class InstanceInstanceMarketOptionsArgs:
     @pulumi.getter(name="marketType")
     def market_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of market for the instance. Valid values are `spot` and `capacity-block`. Defaults to `spot`. Required if `spot_options` is specified.
+        Type of market for the instance. Valid values are `spot`, `capacity-block`, and `interruptible-capacity-reservation`. Use `interruptible-capacity-reservation` to launch instances into [interruptible Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-consumer-procedures.html). Defaults to `spot`. Required if `spot_options` is specified.
         """
         return pulumi.get(self, "market_type")
 
@@ -18880,6 +18880,10 @@ class RouteTableRouteArgsDict(TypedDict):
     """
     Identifier of an EC2 network interface.
     """
+    odb_network_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of an ODB network.
+    """
     transit_gateway_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Identifier of an EC2 Transit Gateway.
@@ -18908,6 +18912,7 @@ class RouteTableRouteArgs:
                  local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  nat_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 odb_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_peering_connection_id: pulumi.Input[Optional[_builtins.str]] = None):
@@ -18924,6 +18929,7 @@ class RouteTableRouteArgs:
         :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of a Outpost local gateway.
         :param pulumi.Input[_builtins.str] nat_gateway_id: Identifier of a VPC NAT gateway.
         :param pulumi.Input[_builtins.str] network_interface_id: Identifier of an EC2 network interface.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The Amazon Resource Name (ARN) of an ODB network.
         :param pulumi.Input[_builtins.str] transit_gateway_id: Identifier of an EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] vpc_endpoint_id: Identifier of a VPC Endpoint.
         :param pulumi.Input[_builtins.str] vpc_peering_connection_id: Identifier of a VPC peering connection.
@@ -18950,6 +18956,8 @@ class RouteTableRouteArgs:
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if odb_network_arn is not None:
+            pulumi.set(__self__, "odb_network_arn", odb_network_arn)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
         if vpc_endpoint_id is not None:
@@ -19078,6 +19086,18 @@ class RouteTableRouteArgs:
     @network_interface_id.setter
     def network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_interface_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of an ODB network.
+        """
+        return pulumi.get(self, "odb_network_arn")
+
+    @odb_network_arn.setter
+    def odb_network_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "odb_network_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="transitGatewayId")

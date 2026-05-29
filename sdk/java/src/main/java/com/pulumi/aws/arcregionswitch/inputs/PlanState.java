@@ -4,6 +4,7 @@
 package com.pulumi.aws.arcregionswitch.inputs;
 
 import com.pulumi.aws.arcregionswitch.inputs.PlanAssociatedAlarmArgs;
+import com.pulumi.aws.arcregionswitch.inputs.PlanReportConfigurationArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanTimeoutsArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanTriggerArgs;
 import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowArgs;
@@ -181,6 +182,21 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Configuration for automated execution reports. See Report Configuration below.
+     * 
+     */
+    @Import(name="reportConfigurations")
+    private @Nullable Output<List<PlanReportConfigurationArgs>> reportConfigurations;
+
+    /**
+     * @return Configuration for automated execution reports. See Report Configuration below.
+     * 
+     */
+    public Optional<Output<List<PlanReportConfigurationArgs>>> reportConfigurations() {
+        return Optional.ofNullable(this.reportConfigurations);
+    }
+
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -264,6 +280,7 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
         this.recoveryTimeObjectiveMinutes = $.recoveryTimeObjectiveMinutes;
         this.region = $.region;
         this.regions = $.regions;
+        this.reportConfigurations = $.reportConfigurations;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timeouts = $.timeouts;
@@ -525,6 +542,37 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder regions(String... regions) {
             return regions(List.of(regions));
+        }
+
+        /**
+         * @param reportConfigurations Configuration for automated execution reports. See Report Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder reportConfigurations(@Nullable Output<List<PlanReportConfigurationArgs>> reportConfigurations) {
+            $.reportConfigurations = reportConfigurations;
+            return this;
+        }
+
+        /**
+         * @param reportConfigurations Configuration for automated execution reports. See Report Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder reportConfigurations(List<PlanReportConfigurationArgs> reportConfigurations) {
+            return reportConfigurations(Output.of(reportConfigurations));
+        }
+
+        /**
+         * @param reportConfigurations Configuration for automated execution reports. See Report Configuration below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder reportConfigurations(PlanReportConfigurationArgs... reportConfigurations) {
+            return reportConfigurations(List.of(reportConfigurations));
         }
 
         /**

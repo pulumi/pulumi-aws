@@ -16,6 +16,21 @@ public final class DataSourceParametersAthenaArgs extends com.pulumi.resources.R
     public static final DataSourceParametersAthenaArgs Empty = new DataSourceParametersAthenaArgs();
 
     /**
+     * Use the `roleArn` to override an account-wide role for a specific athena data source.
+     * 
+     */
+    @Import(name="roleArn")
+    private @Nullable Output<String> roleArn;
+
+    /**
+     * @return Use the `roleArn` to override an account-wide role for a specific athena data source.
+     * 
+     */
+    public Optional<Output<String>> roleArn() {
+        return Optional.ofNullable(this.roleArn);
+    }
+
+    /**
      * The work-group to which to connect.
      * 
      */
@@ -33,6 +48,7 @@ public final class DataSourceParametersAthenaArgs extends com.pulumi.resources.R
     private DataSourceParametersAthenaArgs() {}
 
     private DataSourceParametersAthenaArgs(DataSourceParametersAthenaArgs $) {
+        this.roleArn = $.roleArn;
         this.workGroup = $.workGroup;
     }
 
@@ -52,6 +68,27 @@ public final class DataSourceParametersAthenaArgs extends com.pulumi.resources.R
 
         public Builder(DataSourceParametersAthenaArgs defaults) {
             $ = new DataSourceParametersAthenaArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param roleArn Use the `roleArn` to override an account-wide role for a specific athena data source.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleArn(@Nullable Output<String> roleArn) {
+            $.roleArn = roleArn;
+            return this;
+        }
+
+        /**
+         * @param roleArn Use the `roleArn` to override an account-wide role for a specific athena data source.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleArn(String roleArn) {
+            return roleArn(Output.of(roleArn));
         }
 
         /**

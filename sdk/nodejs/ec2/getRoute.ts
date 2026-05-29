@@ -45,6 +45,7 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
         "localGatewayId": args.localGatewayId,
         "natGatewayId": args.natGatewayId,
         "networkInterfaceId": args.networkInterfaceId,
+        "odbNetworkArn": args.odbNetworkArn,
         "region": args.region,
         "routeTableId": args.routeTableId,
         "transitGatewayId": args.transitGatewayId,
@@ -101,6 +102,10 @@ export interface GetRouteArgs {
      */
     networkInterfaceId?: string;
     /**
+     * ODB network ARN of the Route belonging to the Route Table.
+     */
+    odbNetworkArn?: string;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: string;
@@ -139,6 +144,7 @@ export interface GetRouteResult {
     readonly localGatewayId: string;
     readonly natGatewayId: string;
     readonly networkInterfaceId: string;
+    readonly odbNetworkArn: string;
     readonly region: string;
     readonly routeTableId: string;
     readonly transitGatewayId: string;
@@ -185,6 +191,7 @@ export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOut
         "localGatewayId": args.localGatewayId,
         "natGatewayId": args.natGatewayId,
         "networkInterfaceId": args.networkInterfaceId,
+        "odbNetworkArn": args.odbNetworkArn,
         "region": args.region,
         "routeTableId": args.routeTableId,
         "transitGatewayId": args.transitGatewayId,
@@ -240,6 +247,10 @@ export interface GetRouteOutputArgs {
      * Network Interface ID of the Route belonging to the Route Table.
      */
     networkInterfaceId?: pulumi.Input<string | undefined>;
+    /**
+     * ODB network ARN of the Route belonging to the Route Table.
+     */
+    odbNetworkArn?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

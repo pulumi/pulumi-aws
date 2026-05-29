@@ -189,6 +189,10 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         public readonly string InvocationRole;
         /// <summary>
+        /// Type of IP addresses for the AWS Transfer Family endpoint.
+        /// </summary>
+        public readonly string IpAddressType;
+        /// <summary>
         /// ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         /// </summary>
         public readonly string LoggingRole;
@@ -233,6 +237,8 @@ namespace Pulumi.Aws.Transfer
 
             string invocationRole,
 
+            string ipAddressType,
+
             string loggingRole,
 
             ImmutableArray<string> protocols,
@@ -257,6 +263,7 @@ namespace Pulumi.Aws.Transfer
             Id = id;
             IdentityProviderType = identityProviderType;
             InvocationRole = invocationRole;
+            IpAddressType = ipAddressType;
             LoggingRole = loggingRole;
             Protocols = protocols;
             Region = region;

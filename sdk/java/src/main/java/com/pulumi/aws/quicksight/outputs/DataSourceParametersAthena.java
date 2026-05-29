@@ -12,12 +12,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataSourceParametersAthena {
     /**
+     * @return Use the `roleArn` to override an account-wide role for a specific athena data source.
+     * 
+     */
+    private @Nullable String roleArn;
+    /**
      * @return The work-group to which to connect.
      * 
      */
     private @Nullable String workGroup;
 
     private DataSourceParametersAthena() {}
+    /**
+     * @return Use the `roleArn` to override an account-wide role for a specific athena data source.
+     * 
+     */
+    public Optional<String> roleArn() {
+        return Optional.ofNullable(this.roleArn);
+    }
     /**
      * @return The work-group to which to connect.
      * 
@@ -35,13 +47,21 @@ public final class DataSourceParametersAthena {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String roleArn;
         private @Nullable String workGroup;
         public Builder() {}
         public Builder(DataSourceParametersAthena defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.roleArn = defaults.roleArn;
     	      this.workGroup = defaults.workGroup;
         }
 
+        @CustomType.Setter
+        public Builder roleArn(@Nullable String roleArn) {
+
+            this.roleArn = roleArn;
+            return this;
+        }
         @CustomType.Setter
         public Builder workGroup(@Nullable String workGroup) {
 
@@ -50,6 +70,7 @@ public final class DataSourceParametersAthena {
         }
         public DataSourceParametersAthena build() {
             final var _resultValue = new DataSourceParametersAthena();
+            _resultValue.roleArn = roleArn;
             _resultValue.workGroup = workGroup;
             return _resultValue;
         }

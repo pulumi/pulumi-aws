@@ -17,14 +17,14 @@ public final class Smsvoicev2ConfigurationSetArgs extends com.pulumi.resources.R
     public static final Smsvoicev2ConfigurationSetArgs Empty = new Smsvoicev2ConfigurationSetArgs();
 
     /**
-     * The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
+     * Default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;.
      * 
      */
     @Import(name="defaultMessageType")
     private @Nullable Output<String> defaultMessageType;
 
     /**
-     * @return The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
+     * @return Default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;.
      * 
      */
     public Optional<Output<String>> defaultMessageType() {
@@ -32,14 +32,14 @@ public final class Smsvoicev2ConfigurationSetArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The default sender ID to use for this configuration set.
+     * Default sender ID to use for this configuration set.
      * 
      */
     @Import(name="defaultSenderId")
     private @Nullable Output<String> defaultSenderId;
 
     /**
-     * @return The default sender ID to use for this configuration set.
+     * @return Default sender ID to use for this configuration set.
      * 
      */
     public Optional<Output<String>> defaultSenderId() {
@@ -47,14 +47,14 @@ public final class Smsvoicev2ConfigurationSetArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the configuration set.
+     * @return Name of the configuration set.
      * 
      */
     public Optional<Output<String>> name() {
@@ -120,7 +120,7 @@ public final class Smsvoicev2ConfigurationSetArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param defaultMessageType The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
+         * @param defaultMessageType Default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class Smsvoicev2ConfigurationSetArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param defaultMessageType The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
+         * @param defaultMessageType Default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class Smsvoicev2ConfigurationSetArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param defaultSenderId The default sender ID to use for this configuration set.
+         * @param defaultSenderId Default sender ID to use for this configuration set.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class Smsvoicev2ConfigurationSetArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param defaultSenderId The default sender ID to use for this configuration set.
+         * @param defaultSenderId Default sender ID to use for this configuration set.
          * 
          * @return builder
          * 
@@ -162,7 +162,7 @@ public final class Smsvoicev2ConfigurationSetArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the configuration set.
+         * @param name Name of the configuration set.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class Smsvoicev2ConfigurationSetArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param name The name of the configuration set.
+         * @param name Name of the configuration set.
          * 
          * @return builder
          * 

@@ -11,6 +11,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDefaultTagsResult {
+    /**
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     private String id;
     /**
      * @return Key-value mapping of provider default tags.
@@ -19,6 +25,12 @@ public final class GetDefaultTagsResult {
     private Map<String,String> tags;
 
     private GetDefaultTagsResult() {}
+    /**
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     public String id() {
         return this.id;
     }

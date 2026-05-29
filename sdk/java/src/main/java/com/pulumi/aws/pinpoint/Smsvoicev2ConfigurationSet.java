@@ -79,42 +79,42 @@ public class Smsvoicev2ConfigurationSet extends com.pulumi.resources.CustomResou
         return this.arn;
     }
     /**
-     * The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
+     * Default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;.
      * 
      */
     @Export(name="defaultMessageType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultMessageType;
 
     /**
-     * @return The default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;
+     * @return Default message type. Must either be &#34;TRANSACTIONAL&#34; or &#34;PROMOTIONAL&#34;.
      * 
      */
     public Output<Optional<String>> defaultMessageType() {
         return Codegen.optional(this.defaultMessageType);
     }
     /**
-     * The default sender ID to use for this configuration set.
+     * Default sender ID to use for this configuration set.
      * 
      */
     @Export(name="defaultSenderId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultSenderId;
 
     /**
-     * @return The default sender ID to use for this configuration set.
+     * @return Default sender ID to use for this configuration set.
      * 
      */
     public Output<Optional<String>> defaultSenderId() {
         return Codegen.optional(this.defaultSenderId);
     }
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the configuration set.
+     * @return Name of the configuration set.
      * 
      */
     public Output<String> name() {
@@ -149,14 +149,14 @@ public class Smsvoicev2ConfigurationSet extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

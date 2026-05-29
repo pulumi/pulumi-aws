@@ -69,7 +69,7 @@ type LookupUserPoolClientResult struct {
 	AllowedOauthFlowsUserPoolClient bool `pulumi:"allowedOauthFlowsUserPoolClient"`
 	// (Optional) List of allowed OAuth scopes (phone, email, openid, profile, and aws.cognito.signin.user.admin).
 	AllowedOauthScopes []string `pulumi:"allowedOauthScopes"`
-	// (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+	// (Optional) Configuration block for AWS End User Messaging analytics for collecting metrics for this user pool. Detailed below.
 	AnalyticsConfigurations []GetUserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfigurations"`
 	// (Optional) List of allowed callback URLs for the identity providers.
 	CallbackUrls []string `pulumi:"callbackUrls"`
@@ -168,7 +168,7 @@ func (o LookupUserPoolClientResultOutput) AllowedOauthScopes() pulumi.StringArra
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.AllowedOauthScopes }).(pulumi.StringArrayOutput)
 }
 
-// (Optional) Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
+// (Optional) Configuration block for AWS End User Messaging analytics for collecting metrics for this user pool. Detailed below.
 func (o LookupUserPoolClientResultOutput) AnalyticsConfigurations() GetUserPoolClientAnalyticsConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) []GetUserPoolClientAnalyticsConfiguration {
 		return v.AnalyticsConfigurations

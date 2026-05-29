@@ -10,12 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Pinpoint
 {
     /// <summary>
-    /// Provides a Pinpoint GCM Channel resource.
+    /// Provides an End User Messaging GCM Channel resource.
     /// 
     /// &gt; **Note:** Credentials (Service Account JSON and API Key) will be stored in the raw state as plain-text.
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
+    /// Using `pulumi import`, import End User Messaging GCM Channel using the `application-id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
@@ -25,17 +25,20 @@ namespace Pulumi.Aws.Pinpoint
     public partial class GcmChannel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Platform credential API key from Google.
+        /// Platform credential API key from Google. Conflicts with `ServiceJson`.
         /// </summary>
         [Output("apiKey")]
         public Output<string?> ApiKey { get; private set; } = null!;
 
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
+        /// </summary>
         [Output("defaultAuthenticationMethod")]
         public Output<string?> DefaultAuthenticationMethod { get; private set; } = null!;
 
@@ -51,6 +54,9 @@ namespace Pulumi.Aws.Pinpoint
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Service Account JSON from Google to use with the GCM API. Conflicts with `ApiKey`.
+        /// </summary>
         [Output("serviceJson")]
         public Output<string?> ServiceJson { get; private set; } = null!;
 
@@ -109,7 +115,7 @@ namespace Pulumi.Aws.Pinpoint
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// Platform credential API key from Google.
+        /// Platform credential API key from Google. Conflicts with `ServiceJson`.
         /// </summary>
         public Input<string>? ApiKey
         {
@@ -122,11 +128,14 @@ namespace Pulumi.Aws.Pinpoint
         }
 
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
+        /// </summary>
         [Input("defaultAuthenticationMethod")]
         public Input<string>? DefaultAuthenticationMethod { get; set; }
 
@@ -144,6 +153,10 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("serviceJson")]
         private Input<string>? _serviceJson;
+
+        /// <summary>
+        /// Service Account JSON from Google to use with the GCM API. Conflicts with `ApiKey`.
+        /// </summary>
         public Input<string>? ServiceJson
         {
             get => _serviceJson;
@@ -166,7 +179,7 @@ namespace Pulumi.Aws.Pinpoint
         private Input<string>? _apiKey;
 
         /// <summary>
-        /// Platform credential API key from Google.
+        /// Platform credential API key from Google. Conflicts with `ServiceJson`.
         /// </summary>
         public Input<string>? ApiKey
         {
@@ -179,11 +192,14 @@ namespace Pulumi.Aws.Pinpoint
         }
 
         /// <summary>
-        /// The application ID.
+        /// Application ID.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
+        /// <summary>
+        /// Default authentication method used for GCM. Valid values: `KEY`, `TOKEN`. Defaults to `KEY`.
+        /// </summary>
         [Input("defaultAuthenticationMethod")]
         public Input<string>? DefaultAuthenticationMethod { get; set; }
 
@@ -201,6 +217,10 @@ namespace Pulumi.Aws.Pinpoint
 
         [Input("serviceJson")]
         private Input<string>? _serviceJson;
+
+        /// <summary>
+        /// Service Account JSON from Google to use with the GCM API. Conflicts with `ApiKey`.
+        /// </summary>
         public Input<string>? ServiceJson
         {
             get => _serviceJson;

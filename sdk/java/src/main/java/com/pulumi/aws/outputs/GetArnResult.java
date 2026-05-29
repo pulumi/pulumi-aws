@@ -16,6 +16,12 @@ public final class GetArnResult {
      */
     private String account;
     private String arn;
+    /**
+     * @deprecated
+     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
     private String id;
     /**
      * @return Partition that the resource is in.
@@ -23,12 +29,14 @@ public final class GetArnResult {
      */
     private String partition;
     /**
-     * @return Region the resource resides in. Note that the ARNs for some resources do not include a Region, so this component might be omitted.
+     * @return Region the resource resides in.
+     * Note that the ARNs for some resources do not include a Region, so this component might be omitted.
      * 
      */
     private String region;
     /**
-     * @return Content of this part of the ARN varies by service. It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
+     * @return Content of this part of the ARN varies by service.
+     * It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
      * 
      */
     private String resource;
@@ -49,6 +57,12 @@ public final class GetArnResult {
     public String arn() {
         return this.arn;
     }
+    /**
+     * @deprecated
+     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
     public String id() {
         return this.id;
     }
@@ -60,14 +74,16 @@ public final class GetArnResult {
         return this.partition;
     }
     /**
-     * @return Region the resource resides in. Note that the ARNs for some resources do not include a Region, so this component might be omitted.
+     * @return Region the resource resides in.
+     * Note that the ARNs for some resources do not include a Region, so this component might be omitted.
      * 
      */
     public String region() {
         return this.region;
     }
     /**
-     * @return Content of this part of the ARN varies by service. It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
+     * @return Content of this part of the ARN varies by service.
+     * It often includes an indicator of the type of resource—for example, an IAM user or Amazon RDS database —followed by a slash (/) or a colon (:), followed by the resource name itself.
      * 
      */
     public String resource() {

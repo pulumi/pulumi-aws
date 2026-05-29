@@ -32,14 +32,14 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The alias for the Multi-Region Access Point.
+     * Alias for the Multi-Region Access Point.
      * 
      */
     @Import(name="alias")
     private @Nullable Output<String> alias;
 
     /**
-     * @return The alias for the Multi-Region Access Point.
+     * @return Alias for the Multi-Region Access Point.
      * 
      */
     public Optional<Output<String>> alias() {
@@ -77,18 +77,33 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+     * DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+     * @return DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
      * 
      */
     public Optional<Output<String>> domainName() {
         return Optional.ofNullable(this.domainName);
+    }
+
+    /**
+     * Name of the Multi-Region Access Point.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return Name of the Multi-Region Access Point.
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -107,14 +122,14 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
+     * Status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
+     * @return Status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
      * 
      */
     public Optional<Output<String>> status() {
@@ -129,6 +144,7 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         this.arn = $.arn;
         this.details = $.details;
         this.domainName = $.domainName;
+        this.name = $.name;
         this.region = $.region;
         this.status = $.status;
     }
@@ -173,7 +189,7 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param alias The alias for the Multi-Region Access Point.
+         * @param alias Alias for the Multi-Region Access Point.
          * 
          * @return builder
          * 
@@ -184,7 +200,7 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param alias The alias for the Multi-Region Access Point.
+         * @param alias Alias for the Multi-Region Access Point.
          * 
          * @return builder
          * 
@@ -236,7 +252,7 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param domainName The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+         * @param domainName DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
          * 
          * @return builder
          * 
@@ -247,13 +263,34 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param domainName The DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
+         * @param domainName DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
          * 
          * @return builder
          * 
          */
         public Builder domainName(String domainName) {
             return domainName(Output.of(domainName));
+        }
+
+        /**
+         * @param name Name of the Multi-Region Access Point.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name Name of the Multi-Region Access Point.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
         }
 
         /**
@@ -278,7 +315,7 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param status The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
+         * @param status Status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
          * 
          * @return builder
          * 
@@ -289,7 +326,7 @@ public final class MultiRegionAccessPointState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param status The current status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
+         * @param status Status of the Multi-Region Access Point. One of: `READY`, `INCONSISTENT_ACROSS_REGIONS`, `CREATING`, `PARTIALLY_CREATED`, `PARTIALLY_DELETED`, `DELETING`.
          * 
          * @return builder
          * 

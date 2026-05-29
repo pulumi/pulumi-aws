@@ -12,6 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration {
+    /**
+     * @return Criteria for selecting data sources. Uses the same filter expression format as `logGroupSelectionCriteria`, but operates on Data Source Name and Data Source Type operands. When both `logGroupSelectionCriteria` and `dataSourceSelectionCriteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
+     * 
+     */
     private @Nullable String dataSourceSelectionCriteria;
     /**
      * @return Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
@@ -25,6 +29,10 @@ public final class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigur
     private @Nullable String logGroupSelectionCriteria;
 
     private CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration() {}
+    /**
+     * @return Criteria for selecting data sources. Uses the same filter expression format as `logGroupSelectionCriteria`, but operates on Data Source Name and Data Source Type operands. When both `logGroupSelectionCriteria` and `dataSourceSelectionCriteria` are specified, a log event must match both criteria to be centralized. Must be between 1 and 2000 characters.
+     * 
+     */
     public Optional<String> dataSourceSelectionCriteria() {
         return Optional.ofNullable(this.dataSourceSelectionCriteria);
     }

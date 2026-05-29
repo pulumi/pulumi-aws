@@ -12,9 +12,15 @@ namespace Pulumi.Aws.S3Control.Inputs
 
     public sealed class MultiRegionAccessPointDetailsRegionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the associated bucket for the Region.
+        /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID that owns the Amazon S3 bucket that's associated with this Multi-Region Access Point.
+        /// </summary>
         [Input("bucketAccountId")]
         public Input<string>? BucketAccountId { get; set; }
 

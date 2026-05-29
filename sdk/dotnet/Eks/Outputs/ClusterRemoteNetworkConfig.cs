@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// <summary>
         /// Configuration block with remote node network configuration for EKS Hybrid Nodes. Detailed below.
         /// </summary>
-        public readonly Outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks RemoteNodeNetworks;
+        public readonly Outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks? RemoteNodeNetworks;
         /// <summary>
         /// Configuration block with remote pod network configuration for EKS Hybrid Nodes. Detailed below.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Eks.Outputs
 
         [OutputConstructor]
         private ClusterRemoteNetworkConfig(
-            Outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks remoteNodeNetworks,
+            Outputs.ClusterRemoteNetworkConfigRemoteNodeNetworks? remoteNodeNetworks,
 
             Outputs.ClusterRemoteNetworkConfigRemotePodNetworks? remotePodNetworks)
         {

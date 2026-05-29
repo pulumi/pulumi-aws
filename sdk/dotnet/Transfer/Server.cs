@@ -321,6 +321,12 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> InvocationRole { get; private set; } = null!;
 
         /// <summary>
+        /// Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `IpAddressType` is set to `DUALSTACK`, `AddressAllocationIds` cannot be specified in the `EndpointDetails` block. Updating `IpAddressType` stops the server and then restarts it with the new `IpAddressType` value.
+        /// </summary>
+        [Output("ipAddressType")]
+        public Output<string> IpAddressType { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         /// </summary>
         [Output("loggingRole")]
@@ -549,6 +555,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("invocationRole")]
         public Input<string>? InvocationRole { get; set; }
+
+        /// <summary>
+        /// Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `IpAddressType` is set to `DUALSTACK`, `AddressAllocationIds` cannot be specified in the `EndpointDetails` block. Updating `IpAddressType` stops the server and then restarts it with the new `IpAddressType` value.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
@@ -785,6 +797,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("invocationRole")]
         public Input<string>? InvocationRole { get; set; }
+
+        /// <summary>
+        /// Type of IP addresses for the AWS Transfer Family endpoint. Valid values are `IPV4` and `DUALSTACK`. The default value is `IPV4`. When `IpAddressType` is set to `DUALSTACK`, `AddressAllocationIds` cannot be specified in the `EndpointDetails` block. Updating `IpAddressType` stops the server and then restarts it with the new `IpAddressType` value.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.

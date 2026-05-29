@@ -101,7 +101,7 @@ class S3EndpointArgs:
         :param pulumi.Input[_builtins.bool] detach_target_on_lob_lookup_failure_parquet: Undocumented argument for use as directed by AWS Support.
         :param pulumi.Input[_builtins.int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[_builtins.bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
-        :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
+        :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
         :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Bucket owner to prevent sniping. Value is an AWS account ID.
         :param pulumi.Input[_builtins.str] external_table_definition: JSON document that describes how AWS DMS should interpret the data. Required for `source` endpoints.
@@ -560,7 +560,7 @@ class S3EndpointArgs:
     @pulumi.getter(name="encodingType")
     def encoding_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
+        Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
         """
         return pulumi.get(self, "encoding_type")
 
@@ -894,7 +894,7 @@ class _S3EndpointState:
         :param pulumi.Input[_builtins.bool] detach_target_on_lob_lookup_failure_parquet: Undocumented argument for use as directed by AWS Support.
         :param pulumi.Input[_builtins.int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[_builtins.bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
-        :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
+        :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
         :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         :param pulumi.Input[_builtins.str] endpoint_arn: ARN for the endpoint.
         :param pulumi.Input[_builtins.str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
@@ -1339,7 +1339,7 @@ class _S3EndpointState:
     @pulumi.getter(name="encodingType")
     def encoding_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
+        Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
         """
         return pulumi.get(self, "encoding_type")
 
@@ -1862,7 +1862,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] detach_target_on_lob_lookup_failure_parquet: Undocumented argument for use as directed by AWS Support.
         :param pulumi.Input[_builtins.int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[_builtins.bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
-        :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
+        :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
         :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         :param pulumi.Input[_builtins.str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[_builtins.str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
@@ -2219,7 +2219,7 @@ class S3Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] detach_target_on_lob_lookup_failure_parquet: Undocumented argument for use as directed by AWS Support.
         :param pulumi.Input[_builtins.int] dict_page_size_limit: Maximum size in bytes of an encoded dictionary page of a column. (AWS default is 1 MiB, _i.e._, `1048576`.)
         :param pulumi.Input[_builtins.bool] enable_statistics: Whether to enable statistics for Parquet pages and row groups. Default is `true`.
-        :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
+        :param pulumi.Input[_builtins.str] encoding_type: Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
         :param pulumi.Input[_builtins.str] encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
         :param pulumi.Input[_builtins.str] endpoint_arn: ARN for the endpoint.
         :param pulumi.Input[_builtins.str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
@@ -2515,7 +2515,7 @@ class S3Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="encodingType")
     def encoding_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Type of encoding to use. Value values are `rle_dictionary`, `plain`, and `plain_dictionary`. (AWS default is `rle_dictionary`.)
+        Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
         """
         return pulumi.get(self, "encoding_type")
 

@@ -272,6 +272,12 @@ namespace Pulumi.Aws.ArcRegionSwitch
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the ARC Region Switch Plan.
+    /// 
     /// Using `pulumi import`, import Application Recovery Controller Region Switch Plan using the `Arn`. For example:
     /// 
     /// ```sh
@@ -340,6 +346,12 @@ namespace Pulumi.Aws.ArcRegionSwitch
         /// </summary>
         [Output("regions")]
         public Output<ImmutableArray<string>> Regions { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for automated execution reports. See Report Configuration below.
+        /// </summary>
+        [Output("reportConfigurations")]
+        public Output<ImmutableArray<Outputs.PlanReportConfiguration>> ReportConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -482,6 +494,18 @@ namespace Pulumi.Aws.ArcRegionSwitch
             set => _regions = value;
         }
 
+        [Input("reportConfigurations")]
+        private InputList<Inputs.PlanReportConfigurationArgs>? _reportConfigurations;
+
+        /// <summary>
+        /// Configuration for automated execution reports. See Report Configuration below.
+        /// </summary>
+        public InputList<Inputs.PlanReportConfigurationArgs> ReportConfigurations
+        {
+            get => _reportConfigurations ?? (_reportConfigurations = new InputList<Inputs.PlanReportConfigurationArgs>());
+            set => _reportConfigurations = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -601,6 +625,18 @@ namespace Pulumi.Aws.ArcRegionSwitch
         {
             get => _regions ?? (_regions = new InputList<string>());
             set => _regions = value;
+        }
+
+        [Input("reportConfigurations")]
+        private InputList<Inputs.PlanReportConfigurationGetArgs>? _reportConfigurations;
+
+        /// <summary>
+        /// Configuration for automated execution reports. See Report Configuration below.
+        /// </summary>
+        public InputList<Inputs.PlanReportConfigurationGetArgs> ReportConfigurations
+        {
+            get => _reportConfigurations ?? (_reportConfigurations = new InputList<Inputs.PlanReportConfigurationGetArgs>());
+            set => _reportConfigurations = value;
         }
 
         [Input("tags")]

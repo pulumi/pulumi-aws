@@ -32,29 +32,45 @@ public final class EmailTemplateEmailTemplateArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.defaultSubstitutions);
     }
 
+    /**
+     * Custom description of the message template.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Custom description of the message template.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+     * 
+     */
     @Import(name="headers")
     private @Nullable Output<List<EmailTemplateEmailTemplateHeaderArgs>> headers;
 
+    /**
+     * @return List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+     * 
+     */
     public Optional<Output<List<EmailTemplateEmailTemplateHeaderArgs>>> headers() {
         return Optional.ofNullable(this.headers);
     }
 
     /**
-     * The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+     * Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
      * 
      */
     @Import(name="htmlPart")
     private @Nullable Output<String> htmlPart;
 
     /**
-     * @return The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+     * @return Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
      * 
      */
     public Optional<Output<String>> htmlPart() {
@@ -62,14 +78,14 @@ public final class EmailTemplateEmailTemplateArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+     * Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
      * 
      */
     @Import(name="recommenderId")
     private @Nullable Output<String> recommenderId;
 
     /**
-     * @return The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+     * @return Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
      * 
      */
     public Optional<Output<String>> recommenderId() {
@@ -157,30 +173,60 @@ public final class EmailTemplateEmailTemplateArgs extends com.pulumi.resources.R
             return defaultSubstitutions(Output.of(defaultSubstitutions));
         }
 
+        /**
+         * @param description Custom description of the message template.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Custom description of the message template.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param headers List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headers(@Nullable Output<List<EmailTemplateEmailTemplateHeaderArgs>> headers) {
             $.headers = headers;
             return this;
         }
 
+        /**
+         * @param headers List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headers(List<EmailTemplateEmailTemplateHeaderArgs> headers) {
             return headers(Output.of(headers));
         }
 
+        /**
+         * @param headers List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder headers(EmailTemplateEmailTemplateHeaderArgs... headers) {
             return headers(List.of(headers));
         }
 
         /**
-         * @param htmlPart The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+         * @param htmlPart Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
          * 
          * @return builder
          * 
@@ -191,7 +237,7 @@ public final class EmailTemplateEmailTemplateArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param htmlPart The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+         * @param htmlPart Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
          * 
          * @return builder
          * 
@@ -201,7 +247,7 @@ public final class EmailTemplateEmailTemplateArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param recommenderId The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+         * @param recommenderId Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
          * 
          * @return builder
          * 
@@ -212,7 +258,7 @@ public final class EmailTemplateEmailTemplateArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param recommenderId The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+         * @param recommenderId Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
          * 
          * @return builder
          * 

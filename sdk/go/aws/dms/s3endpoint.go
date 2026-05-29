@@ -189,7 +189,7 @@ type S3Endpoint struct {
 	DictPageSizeLimit pulumi.IntPtrOutput `pulumi:"dictPageSizeLimit"`
 	// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
 	EnableStatistics pulumi.BoolPtrOutput `pulumi:"enableStatistics"`
-	// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+	// Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
 	EncodingType pulumi.StringPtrOutput `pulumi:"encodingType"`
 	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
 	EncryptionMode pulumi.StringPtrOutput `pulumi:"encryptionMode"`
@@ -343,7 +343,7 @@ type s3endpointState struct {
 	DictPageSizeLimit *int `pulumi:"dictPageSizeLimit"`
 	// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
 	EnableStatistics *bool `pulumi:"enableStatistics"`
-	// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+	// Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
 	EncodingType *string `pulumi:"encodingType"`
 	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
 	EncryptionMode *string `pulumi:"encryptionMode"`
@@ -456,7 +456,7 @@ type S3EndpointState struct {
 	DictPageSizeLimit pulumi.IntPtrInput
 	// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
 	EnableStatistics pulumi.BoolPtrInput
-	// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+	// Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
 	EncodingType pulumi.StringPtrInput
 	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
 	EncryptionMode pulumi.StringPtrInput
@@ -573,7 +573,7 @@ type s3endpointArgs struct {
 	DictPageSizeLimit *int `pulumi:"dictPageSizeLimit"`
 	// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
 	EnableStatistics *bool `pulumi:"enableStatistics"`
-	// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+	// Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
 	EncodingType *string `pulumi:"encodingType"`
 	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
 	EncryptionMode *string `pulumi:"encryptionMode"`
@@ -677,7 +677,7 @@ type S3EndpointArgs struct {
 	DictPageSizeLimit pulumi.IntPtrInput
 	// Whether to enable statistics for Parquet pages and row groups. Default is `true`.
 	EnableStatistics pulumi.BoolPtrInput
-	// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+	// Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
 	EncodingType pulumi.StringPtrInput
 	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. (AWS default is `SSE_S3`.) (Ignored for source endpoints -- only `SSE_S3` is valid.)
 	EncryptionMode pulumi.StringPtrInput
@@ -941,7 +941,7 @@ func (o S3EndpointOutput) EnableStatistics() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.BoolPtrOutput { return v.EnableStatistics }).(pulumi.BoolPtrOutput)
 }
 
-// Type of encoding to use. Value values are `rleDictionary`, `plain`, and `plainDictionary`. (AWS default is `rleDictionary`.)
+// Type of encoding to use. Value values are `rle-dictionary`, `plain`, and `plain-dictionary`. (AWS default is `rle-dictionary`.)
 func (o S3EndpointOutput) EncodingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringPtrOutput { return v.EncodingType }).(pulumi.StringPtrOutput)
 }

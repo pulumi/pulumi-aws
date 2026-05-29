@@ -168,6 +168,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the ARC Region Switch Plan.
+ *
  * Using `pulumi import`, import Application Recovery Controller Region Switch Plan using the `arn`. For example:
  *
  * ```sh
@@ -245,6 +251,10 @@ export class Plan extends pulumi.CustomResource {
      */
     declare public readonly regions: pulumi.Output<string[]>;
     /**
+     * Configuration for automated execution reports. See Report Configuration below.
+     */
+    declare public readonly reportConfigurations: pulumi.Output<outputs.arcregionswitch.PlanReportConfiguration[] | undefined>;
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -287,6 +297,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["recoveryTimeObjectiveMinutes"] = state?.recoveryTimeObjectiveMinutes;
             resourceInputs["region"] = state?.region;
             resourceInputs["regions"] = state?.regions;
+            resourceInputs["reportConfigurations"] = state?.reportConfigurations;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timeouts"] = state?.timeouts;
@@ -312,6 +323,7 @@ export class Plan extends pulumi.CustomResource {
             resourceInputs["recoveryTimeObjectiveMinutes"] = args?.recoveryTimeObjectiveMinutes;
             resourceInputs["region"] = args?.region;
             resourceInputs["regions"] = args?.regions;
+            resourceInputs["reportConfigurations"] = args?.reportConfigurations;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["triggers"] = args?.triggers;
@@ -370,6 +382,10 @@ export interface PlanState {
      * List of AWS regions involved in the plan.
      */
     regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Configuration for automated execution reports. See Report Configuration below.
+     */
+    reportConfigurations?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanReportConfiguration>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -433,6 +449,10 @@ export interface PlanArgs {
      * List of AWS regions involved in the plan.
      */
     regions: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration for automated execution reports. See Report Configuration below.
+     */
+    reportConfigurations?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanReportConfiguration>[] | undefined>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

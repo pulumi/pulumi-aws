@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
+ * Provides an End User Messaging ADM (Amazon Device Messaging) Channel resource.
  *
  * > **Note:** All arguments including the Client ID and Client Secret will be stored in the raw state as plain-text.
  * ## Example Usage
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Pinpoint ADM Channel using the `application-id`. For example:
+ * Using `pulumi import`, import End User Messaging ADM Channel using the `application-id`. For example:
  *
  * ```sh
  * $ pulumi import aws:pinpoint/admChannel:AdmChannel channel application-id
@@ -60,7 +60,7 @@ export class AdmChannel extends pulumi.CustomResource {
     }
 
     /**
-     * The application ID.
+     * Application ID.
      */
     declare public readonly applicationId: pulumi.Output<string>;
     /**
@@ -72,7 +72,7 @@ export class AdmChannel extends pulumi.CustomResource {
      */
     declare public readonly clientSecret: pulumi.Output<string>;
     /**
-     * Specifies whether to enable the channel. Defaults to `true`.
+     * Whether to enable the channel. Defaults to `true`.
      */
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
@@ -127,7 +127,7 @@ export class AdmChannel extends pulumi.CustomResource {
  */
 export interface AdmChannelState {
     /**
-     * The application ID.
+     * Application ID.
      */
     applicationId?: pulumi.Input<string | undefined>;
     /**
@@ -139,7 +139,7 @@ export interface AdmChannelState {
      */
     clientSecret?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether to enable the channel. Defaults to `true`.
+     * Whether to enable the channel. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -153,7 +153,7 @@ export interface AdmChannelState {
  */
 export interface AdmChannelArgs {
     /**
-     * The application ID.
+     * Application ID.
      */
     applicationId: pulumi.Input<string>;
     /**
@@ -165,7 +165,7 @@ export interface AdmChannelArgs {
      */
     clientSecret: pulumi.Input<string>;
     /**
-     * Specifies whether to enable the channel. Defaults to `true`.
+     * Whether to enable the channel. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean | undefined>;
     /**

@@ -14,9 +14,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetSecretVersionResult {
     /**
-     * @return ARN of the secret.
+     * @return (**Deprecated**) The ARN of the secret.
+     * Use `secretArn` instead.
+     * 
+     * @deprecated
+     * arn is deprecated. Use secretArn instead.
      * 
      */
+    @Deprecated /* arn is deprecated. Use secretArn instead. */
     private String arn;
     /**
      * @return Created date of the secret in UTC.
@@ -29,6 +34,11 @@ public final class GetSecretVersionResult {
      */
     private String id;
     private String region;
+    /**
+     * @return The ARN of the secret.
+     * 
+     */
+    private String secretArn;
     /**
      * @return Decrypted part of the protected secret information that was originally provided as a binary.
      * 
@@ -50,9 +60,14 @@ public final class GetSecretVersionResult {
 
     private GetSecretVersionResult() {}
     /**
-     * @return ARN of the secret.
+     * @return (**Deprecated**) The ARN of the secret.
+     * Use `secretArn` instead.
+     * 
+     * @deprecated
+     * arn is deprecated. Use secretArn instead.
      * 
      */
+    @Deprecated /* arn is deprecated. Use secretArn instead. */
     public String arn() {
         return this.arn;
     }
@@ -72,6 +87,13 @@ public final class GetSecretVersionResult {
     }
     public String region() {
         return this.region;
+    }
+    /**
+     * @return The ARN of the secret.
+     * 
+     */
+    public String secretArn() {
+        return this.secretArn;
     }
     /**
      * @return Decrypted part of the protected secret information that was originally provided as a binary.
@@ -117,6 +139,7 @@ public final class GetSecretVersionResult {
         private String createdDate;
         private String id;
         private String region;
+        private String secretArn;
         private String secretBinary;
         private String secretId;
         private String secretString;
@@ -130,6 +153,7 @@ public final class GetSecretVersionResult {
     	      this.createdDate = defaults.createdDate;
     	      this.id = defaults.id;
     	      this.region = defaults.region;
+    	      this.secretArn = defaults.secretArn;
     	      this.secretBinary = defaults.secretBinary;
     	      this.secretId = defaults.secretId;
     	      this.secretString = defaults.secretString;
@@ -168,6 +192,14 @@ public final class GetSecretVersionResult {
               throw new MissingRequiredPropertyException("GetSecretVersionResult", "region");
             }
             this.region = region;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder secretArn(String secretArn) {
+            if (secretArn == null) {
+              throw new MissingRequiredPropertyException("GetSecretVersionResult", "secretArn");
+            }
+            this.secretArn = secretArn;
             return this;
         }
         @CustomType.Setter
@@ -225,6 +257,7 @@ public final class GetSecretVersionResult {
             _resultValue.createdDate = createdDate;
             _resultValue.id = id;
             _resultValue.region = region;
+            _resultValue.secretArn = secretArn;
             _resultValue.secretBinary = secretBinary;
             _resultValue.secretId = secretId;
             _resultValue.secretString = secretString;

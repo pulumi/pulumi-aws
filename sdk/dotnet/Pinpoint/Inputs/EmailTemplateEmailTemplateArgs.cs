@@ -18,11 +18,18 @@ namespace Pulumi.Aws.Pinpoint.Inputs
         [Input("defaultSubstitutions")]
         public Input<string>? DefaultSubstitutions { get; set; }
 
+        /// <summary>
+        /// Custom description of the message template.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         [Input("headers")]
         private InputList<Inputs.EmailTemplateEmailTemplateHeaderArgs>? _headers;
+
+        /// <summary>
+        /// List of [MessageHeaders](https://docs.aws.amazon.com/pinpoint/latest/apireference/templates-template-name-email.html#templates-template-name-email-model-messageheader) for the email. You can have up to 15 Headers. See below.
+        /// </summary>
         public InputList<Inputs.EmailTemplateEmailTemplateHeaderArgs> Headers
         {
             get => _headers ?? (_headers = new InputList<Inputs.EmailTemplateEmailTemplateHeaderArgs>());
@@ -30,13 +37,13 @@ namespace Pulumi.Aws.Pinpoint.Inputs
         }
 
         /// <summary>
-        /// The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+        /// Message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
         /// </summary>
         [Input("htmlPart")]
         public Input<string>? HtmlPart { get; set; }
 
         /// <summary>
-        /// The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+        /// Unique identifier for the recommender model to use for the message template. AWS End User Messaging uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
         /// </summary>
         [Input("recommenderId")]
         public Input<string>? RecommenderId { get; set; }

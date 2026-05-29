@@ -157,14 +157,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:secretsmanager/secretVersion:SecretVersion")
 public class SecretVersion extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the secret.
+     * (**Deprecated**) The ARN of the secret.
+     * Use `secretArn` instead.
+     * 
+     * @deprecated
+     * arn is deprecated. Use secretArn instead.
      * 
      */
+    @Deprecated /* arn is deprecated. Use secretArn instead. */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the secret.
+     * @return (**Deprecated**) The ARN of the secret.
+     * Use `secretArn` instead.
      * 
      */
     public Output<String> arn() {
@@ -189,6 +195,20 @@ public class SecretVersion extends com.pulumi.resources.CustomResource {
      */
     public Output<String> region() {
         return this.region;
+    }
+    /**
+     * The ARN of the secret.
+     * 
+     */
+    @Export(name="secretArn", refs={String.class}, tree="[0]")
+    private Output<String> secretArn;
+
+    /**
+     * @return The ARN of the secret.
+     * 
+     */
+    public Output<String> secretArn() {
+        return this.secretArn;
     }
     /**
      * Specifies binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.

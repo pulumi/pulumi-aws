@@ -19,6 +19,13 @@ namespace Pulumi.Aws.Ssm.Inputs
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
+        /// Enables destination data sharing.
+        /// See `DestinationDataSharing` below.
+        /// </summary>
+        [Input("destinationDataSharing")]
+        public Input<Inputs.ResourceDataSyncS3DestinationDestinationDataSharingGetArgs>? DestinationDataSharing { get; set; }
+
+        /// <summary>
         /// ARN of an encryption key for a destination in Amazon S3.
         /// </summary>
         [Input("kmsKeyArn")]

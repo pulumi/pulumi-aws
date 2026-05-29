@@ -239,7 +239,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             })
         ```
 
-        ### Pinpoint Destination
+        ### End User Messaging Destination
 
         ```python
         import pulumi
@@ -366,7 +366,7 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
             })
         ```
 
-        ### Pinpoint Destination
+        ### End User Messaging Destination
 
         ```python
         import pulumi

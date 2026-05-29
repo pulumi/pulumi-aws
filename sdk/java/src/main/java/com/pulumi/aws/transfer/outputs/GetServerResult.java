@@ -53,6 +53,11 @@ public final class GetServerResult {
      */
     private String invocationRole;
     /**
+     * @return Type of IP addresses for the AWS Transfer Family endpoint.
+     * 
+     */
+    private String ipAddressType;
+    /**
      * @return ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
@@ -143,6 +148,13 @@ public final class GetServerResult {
         return this.invocationRole;
     }
     /**
+     * @return Type of IP addresses for the AWS Transfer Family endpoint.
+     * 
+     */
+    public String ipAddressType() {
+        return this.ipAddressType;
+    }
+    /**
      * @return ARN of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
      * 
      */
@@ -208,6 +220,7 @@ public final class GetServerResult {
         private String id;
         private String identityProviderType;
         private String invocationRole;
+        private String ipAddressType;
         private String loggingRole;
         private List<String> protocols;
         private String region;
@@ -227,6 +240,7 @@ public final class GetServerResult {
     	      this.id = defaults.id;
     	      this.identityProviderType = defaults.identityProviderType;
     	      this.invocationRole = defaults.invocationRole;
+    	      this.ipAddressType = defaults.ipAddressType;
     	      this.loggingRole = defaults.loggingRole;
     	      this.protocols = defaults.protocols;
     	      this.region = defaults.region;
@@ -299,6 +313,14 @@ public final class GetServerResult {
               throw new MissingRequiredPropertyException("GetServerResult", "invocationRole");
             }
             this.invocationRole = invocationRole;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder ipAddressType(String ipAddressType) {
+            if (ipAddressType == null) {
+              throw new MissingRequiredPropertyException("GetServerResult", "ipAddressType");
+            }
+            this.ipAddressType = ipAddressType;
             return this;
         }
         @CustomType.Setter
@@ -381,6 +403,7 @@ public final class GetServerResult {
             _resultValue.id = id;
             _resultValue.identityProviderType = identityProviderType;
             _resultValue.invocationRole = invocationRole;
+            _resultValue.ipAddressType = ipAddressType;
             _resultValue.loggingRole = loggingRole;
             _resultValue.protocols = protocols;
             _resultValue.region = region;

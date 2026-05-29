@@ -134,6 +134,12 @@ namespace Pulumi.Aws.Msk
         public Output<ImmutableArray<Outputs.ReplicatorKafkaCluster>> KafkaClusters { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for delivering replicator logs to customer destinations. Detailed below.
+        /// </summary>
+        [Output("logDelivery")]
+        public Output<Outputs.ReplicatorLogDelivery?> LogDelivery { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
@@ -234,6 +240,12 @@ namespace Pulumi.Aws.Msk
         }
 
         /// <summary>
+        /// Configuration block for delivering replicator logs to customer destinations. Detailed below.
+        /// </summary>
+        [Input("logDelivery")]
+        public Input<Inputs.ReplicatorLogDeliveryArgs>? LogDelivery { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -303,6 +315,12 @@ namespace Pulumi.Aws.Msk
             get => _kafkaClusters ?? (_kafkaClusters = new InputList<Inputs.ReplicatorKafkaClusterGetArgs>());
             set => _kafkaClusters = value;
         }
+
+        /// <summary>
+        /// Configuration block for delivering replicator logs to customer destinations. Detailed below.
+        /// </summary>
+        [Input("logDelivery")]
+        public Input<Inputs.ReplicatorLogDeliveryGetArgs>? LogDelivery { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

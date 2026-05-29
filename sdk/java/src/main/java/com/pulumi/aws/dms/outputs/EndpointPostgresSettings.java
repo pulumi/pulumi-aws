@@ -79,7 +79,7 @@ public final class EndpointPostgresSettings {
      */
     private @Nullable Boolean mapJsonbAsClob;
     /**
-     * @return Optional When true, DMS migrates LONG values as VARCHAR.
+     * @return Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
      * 
      */
     private @Nullable String mapLongVarcharAs;
@@ -197,7 +197,7 @@ public final class EndpointPostgresSettings {
         return Optional.ofNullable(this.mapJsonbAsClob);
     }
     /**
-     * @return Optional When true, DMS migrates LONG values as VARCHAR.
+     * @return Specifies how DMS maps LONG VARCHAR values. Valid values are `wstring`, `clob`, and `nclob`.
      * 
      */
     public Optional<String> mapLongVarcharAs() {

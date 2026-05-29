@@ -37,7 +37,10 @@ export function getPartition(args?: GetPartitionArgs, opts?: pulumi.InvokeOption
  */
 export interface GetPartitionArgs {
     /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * Use `partition` instead.
+     *
+     * @deprecated Use 'partition' instead. This attribute will be removed in a future version of the provider.
      */
     id?: string;
 }
@@ -51,7 +54,10 @@ export interface GetPartitionResult {
      */
     readonly dnsSuffix: string;
     /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * Use `partition` instead.
+     *
+     * @deprecated Use 'partition' instead. This attribute will be removed in a future version of the provider.
      */
     readonly id: string;
     /**
@@ -96,7 +102,10 @@ export function getPartitionOutput(args?: GetPartitionOutputArgs, opts?: pulumi.
  */
 export interface GetPartitionOutputArgs {
     /**
-     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * Use `partition` instead.
+     *
+     * @deprecated Use 'partition' instead. This attribute will be removed in a future version of the provider.
      */
     id?: pulumi.Input<string | undefined>;
 }

@@ -56,6 +56,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? NetworkInterfaceId;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of an ODB network.
+        /// </summary>
+        public readonly string? OdbNetworkArn;
+        /// <summary>
         /// Identifier of an EC2 Transit Gateway.
         /// </summary>
         public readonly string? TransitGatewayId;
@@ -92,6 +96,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             string? networkInterfaceId,
 
+            string? odbNetworkArn,
+
             string? transitGatewayId,
 
             string? vpcEndpointId,
@@ -108,6 +114,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             LocalGatewayId = localGatewayId;
             NatGatewayId = natGatewayId;
             NetworkInterfaceId = networkInterfaceId;
+            OdbNetworkArn = odbNetworkArn;
             TransitGatewayId = transitGatewayId;
             VpcEndpointId = vpcEndpointId;
             VpcPeeringConnectionId = vpcPeeringConnectionId;

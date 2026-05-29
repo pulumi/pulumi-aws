@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepExecutionApprovalConfig> ExecutionApprovalConfigs;
         /// <summary>
-        /// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+        /// Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `RdsCreateCrossRegionReplica`, `RdsPromoteReadReplica`, `Route53HealthCheck`.
         /// </summary>
         public readonly string ExecutionBlockType;
         /// <summary>
@@ -57,6 +57,14 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// Name of the step.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Configuration for creating cross-region RDS read replicas. See RDS Create Cross Region Read Replica Config below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig> RdsCreateCrossRegionReadReplicaConfigs;
+        /// <summary>
+        /// Configuration for promoting RDS read replicas. See RDS Promote Read Replica Config below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig> RdsPromoteReadReplicaConfigs;
         public readonly ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig> RegionSwitchPlanConfigs;
         /// <summary>
         /// Configuration for Route53 health check operations. See Route53 Health Check Config below.
@@ -87,6 +95,10 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
 
             string name,
 
+            ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepRdsCreateCrossRegionReadReplicaConfig> rdsCreateCrossRegionReadReplicaConfigs,
+
+            ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepRdsPromoteReadReplicaConfig> rdsPromoteReadReplicaConfigs,
+
             ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfig> regionSwitchPlanConfigs,
 
             ImmutableArray<Outputs.PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfig> route53HealthCheckConfigs)
@@ -102,6 +114,8 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
             ExecutionBlockType = executionBlockType;
             GlobalAuroraConfigs = globalAuroraConfigs;
             Name = name;
+            RdsCreateCrossRegionReadReplicaConfigs = rdsCreateCrossRegionReadReplicaConfigs;
+            RdsPromoteReadReplicaConfigs = rdsPromoteReadReplicaConfigs;
             RegionSwitchPlanConfigs = regionSwitchPlanConfigs;
             Route53HealthCheckConfigs = route53HealthCheckConfigs;
         }
