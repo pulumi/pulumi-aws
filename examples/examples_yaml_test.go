@@ -106,6 +106,25 @@ func TestIamOpenIDConnectProviderUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "iam-openidconnectprovider"), nil)
 }
 
+func TestCognitoIdentityProviderProviderDetailsUpgrade(t *testing.T) {
+	test, _ := testProviderUpgrade(t, filepath.Join("test-programs", "cognito-identity-provider-provider-details"),
+		&testProviderUpgradeOptions{
+			skipDefaultPreviewTest: true,
+		},
+	)
+	result := test.Preview(t, optpreview.Diff())
+	assertpreview.HasNoReplacements(t, result)
+	assert.Equal(t, 1, result.ChangeSummary[apitype.OpUpdate])
+	for op, count := range result.ChangeSummary {
+		switch op {
+		case apitype.OpSame, apitype.OpUpdate:
+			continue
+		default:
+			assert.Zerof(t, count, "unexpected %s during provider upgrade preview", op)
+		}
+	}
+}
+
 func TestKmsKeyUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "kms-key"), nil)
 }
