@@ -112,15 +112,28 @@ func TestCognitoIdentityProviderProviderDetailsUpgrade(t *testing.T) {
 			skipDefaultPreviewTest: true,
 		},
 	)
+	test.ClearGrpcLog(t)
 	result := test.Preview(t, optpreview.Diff())
 	assertpreview.HasNoReplacements(t, result)
-	assert.Equal(t, 1, result.ChangeSummary[apitype.OpUpdate])
 	for op, count := range result.ChangeSummary {
 		switch op {
 		case apitype.OpSame, apitype.OpUpdate:
 			continue
 		default:
 			assert.Zerof(t, count, "unexpected %s during provider upgrade preview", op)
+		}
+	}
+
+	diffs, err := test.GrpcLog(t).Diffs()
+	require.NoError(t, err)
+	for _, diff := range diffs {
+		if !strings.Contains(diff.Request.GetUrn(), "aws:cognito/identityProvider:IdentityProvider") {
+			continue
+		}
+
+		assert.NotContains(t, diff.Response.GetDiffs(), "providerDetails")
+		for key := range diff.Response.GetDetailedDiff() {
+			assert.NotContains(t, key, "providerDetails")
 		}
 	}
 }
