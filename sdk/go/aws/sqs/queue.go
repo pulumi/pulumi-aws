@@ -13,7 +13,7 @@ import (
 
 // Amazon SQS (Simple Queue Service) is a fully managed message queuing service that enables decoupling and scaling of microservices, distributed systems, and serverless applications. This resource allows you to create, configure, and manage an SQS queue, which acts as a reliable message buffer between producers and consumers. With support for standard and FIFO queues, SQS ensures secure, scalable, and asynchronous message processing. Use this resource to define queue attributes, configure access policies, and integrate seamlessly with AWS services like Lambda, SNS, and EC2.
 //
-// !> AWS will hang indefinitely, leading to a `timeout while waiting` error, when creating or updating an `sqs.Queue` with an associated `sqs.QueuePolicy` if `Version = "2012-10-17"` is not explicitly set in the policy.
+// > AWS will hang indefinitely, leading to a `timeout while waiting` error, when creating or updating an `sqs.Queue` with an associated `sqs.QueuePolicy` if `Version = "2012-10-17"` is not explicitly set in the policy.
 //
 // ## Example Usage
 //

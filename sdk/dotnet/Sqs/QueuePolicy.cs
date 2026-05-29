@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Sqs
     /// <summary>
     /// Allows you to set a policy of an SQS Queue while referencing the ARN of the queue within the policy.
     /// 
-    /// !&gt; AWS will hang indefinitely when creating or updating an `aws.sqs.Queue` with an associated policy if `Version = "2012-10-17"` is not explicitly set in the policy. See below for an example of how to avoid this issue.
+    /// &gt; AWS will hang indefinitely when creating or updating an `aws.sqs.Queue` with an associated policy if `Version = "2012-10-17"` is not explicitly set in the policy. See below for an example of how to avoid this issue.
     /// 
     /// ## Example Usage
     /// 

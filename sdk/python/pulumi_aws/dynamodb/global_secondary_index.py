@@ -394,7 +394,7 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
                  warm_throughput: pulumi.Input[Optional[Union['GlobalSecondaryIndexWarmThroughputArgs', 'GlobalSecondaryIndexWarmThroughputArgsDict']]] = None,
                  __props__=None):
         """
-        !> **WARNING:** Do not combine `dynamodb.GlobalSecondaryIndex` resources in conjunction with `global_secondary_index` on `dynamodb.Table`. Doing so may cause conflicts, perpertual differences, and Global Secondary Indexes being overwritten.
+        > **WARNING:** Do not combine `dynamodb.GlobalSecondaryIndex` resources in conjunction with `global_secondary_index` on `dynamodb.Table`. Doing so may cause conflicts, perpertual differences, and Global Secondary Indexes being overwritten.
 
         ## Example Usage
 
@@ -532,7 +532,7 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
                  args: GlobalSecondaryIndexArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **WARNING:** Do not combine `dynamodb.GlobalSecondaryIndex` resources in conjunction with `global_secondary_index` on `dynamodb.Table`. Doing so may cause conflicts, perpertual differences, and Global Secondary Indexes being overwritten.
+        > **WARNING:** Do not combine `dynamodb.GlobalSecondaryIndex` resources in conjunction with `global_secondary_index` on `dynamodb.Table`. Doing so may cause conflicts, perpertual differences, and Global Secondary Indexes being overwritten.
 
         ## Example Usage
 

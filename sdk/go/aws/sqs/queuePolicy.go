@@ -14,7 +14,7 @@ import (
 
 // Allows you to set a policy of an SQS Queue while referencing the ARN of the queue within the policy.
 //
-// !> AWS will hang indefinitely when creating or updating an `sqs.Queue` with an associated policy if `Version = "2012-10-17"` is not explicitly set in the policy. See below for an example of how to avoid this issue.
+// > AWS will hang indefinitely when creating or updating an `sqs.Queue` with an associated policy if `Version = "2012-10-17"` is not explicitly set in the policy. See below for an example of how to avoid this issue.
 //
 // ## Example Usage
 //

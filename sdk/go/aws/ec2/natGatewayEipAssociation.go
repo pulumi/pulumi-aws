@@ -14,7 +14,7 @@ import (
 
 // Resource for managing an AWS VPC NAT Gateway EIP Association.
 //
-// !> **WARNING:** You should not use the `ec2.NatGatewayEipAssociation` resource in conjunction with an `ec2.NatGateway` resource that has `secondaryAllocationIds` configured. Doing so may cause perpetual differences, and result in associations being overwritten.
+// > **WARNING:** You should not use the `ec2.NatGatewayEipAssociation` resource in conjunction with an `ec2.NatGateway` resource that has `secondaryAllocationIds` configured. Doing so may cause perpetual differences, and result in associations being overwritten.
 //
 // ## Example Usage
 //

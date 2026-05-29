@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
         /// 
-        /// !&gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `TransitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `TransitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
+        /// &gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `TransitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `TransitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
         /// 
         /// ## Example Usage
         /// 
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
         /// 
-        /// !&gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `TransitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `TransitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
+        /// &gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `TransitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `TransitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
         /// 
         /// ## Example Usage
         /// 
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
         /// 
-        /// !&gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `TransitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `TransitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
+        /// &gt; **Warning:** Using the `aws.ec2transitgateway.getDirectConnectGatewayAttachment` data source in combination with  `aws.ec2transitgateway.RouteTablePropagation` or `aws.ec2transitgateway.RouteTableAssociation` may result in lost connectivity due to unnecessary resource re-creation. To avoid this, use the `TransitGatewayAttachmentId` attribute directly from the `aws.directconnect.GatewayAssociation` resource. For example, `TransitGatewayAttachmentId  = aws_dx_gateway_association.example.transit_gateway_attachment_id`.
         /// 
         /// ## Example Usage
         /// 

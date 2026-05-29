@@ -1379,7 +1379,7 @@ type LustreFileSystemMetadataConfiguration struct {
 	Iops *int `pulumi:"iops"`
 	// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
 	//
-	// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+	// > **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 	Mode *string `pulumi:"mode"`
 }
 
@@ -1399,7 +1399,7 @@ type LustreFileSystemMetadataConfigurationArgs struct {
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
 	//
-	// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+	// > **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 }
 
@@ -1487,7 +1487,7 @@ func (o LustreFileSystemMetadataConfigurationOutput) Iops() pulumi.IntPtrOutput 
 
 // Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
 //
-// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+// > **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 func (o LustreFileSystemMetadataConfigurationOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LustreFileSystemMetadataConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
@@ -1528,7 +1528,7 @@ func (o LustreFileSystemMetadataConfigurationPtrOutput) Iops() pulumi.IntPtrOutp
 
 // Mode for the metadata configuration of the file system. Valid values are `AUTOMATIC`, and `USER_PROVISIONED`. Must be set to `USER_PROVISIONED` for `INTELLIGENT_TIERING` storage type.
 //
-// !> **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
+// > **WARNING:** Updating the value of `iops` from a higher to a lower value will force a recreation of the resource. Any data on the file system will be lost when recreating.
 func (o LustreFileSystemMetadataConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LustreFileSystemMetadataConfiguration) *string {
 		if v == nil {

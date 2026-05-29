@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
     /// 
-    /// !&gt; **WARN:** When importing Open API Specifications with the `Body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `PutRestApiMode` attribute and set it to `Merge`.
+    /// &gt; **WARN:** When importing Open API Specifications with the `Body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `PutRestApiMode` attribute and set it to `Merge`.
     /// 
     /// ## Example Usage
     /// 
