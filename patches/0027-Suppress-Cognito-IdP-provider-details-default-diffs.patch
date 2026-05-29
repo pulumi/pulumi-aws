@@ -5,7 +5,7 @@ Subject: [PATCH] Suppress Cognito IdP provider details default diffs
 
 
 diff --git a/internal/service/cognitoidp/identity_provider.go b/internal/service/cognitoidp/identity_provider.go
-index 168cee841f1..d5a67765337 100644
+index 168cee841f1..e8f4323e442 100644
 --- a/internal/service/cognitoidp/identity_provider.go
 +++ b/internal/service/cognitoidp/identity_provider.go
 @@ -9,6 +9,7 @@ import (
@@ -30,7 +30,7 @@ index 168cee841f1..d5a67765337 100644
  			},
  			names.AttrProviderName: {
  				Type:         schema.TypeString,
-@@ -87,6 +89,99 @@ func resourceIdentityProvider() *schema.Resource {
+@@ -87,6 +89,114 @@ func resourceIdentityProvider() *schema.Resource {
  	}
  }
  
@@ -45,6 +45,11 @@ index 168cee841f1..d5a67765337 100644
 +	},
 +}
 +
++// suppressIdentityProviderProviderDetailsDiff handles provider detail values that
++// Cognito returns from DescribeIdentityProvider even when they were not present
++// in configuration. The provider keeps those values in state so they remain
++// visible, but suppresses plans that would only remove known AWS-returned
++// defaults or read-only values from state.
 +func suppressIdentityProviderProviderDetailsDiff(k, old, new string, d *schema.ResourceData) bool {
 +	oldRaw, newRaw := d.GetChange("provider_details")
 +	oldDetails := stringMap(oldRaw)
@@ -60,6 +65,8 @@ index 168cee841f1..d5a67765337 100644
 +		return false
 +	}
 +
++	// Never suppress a diff for a configured key. If the configuration changes a
++	// provider detail value, Terraform must still plan an update for it.
 +	if _, configured := newDetails[detailKey]; configured {
 +		return false
 +	}
@@ -67,6 +74,10 @@ index 168cee841f1..d5a67765337 100644
 +	return isReadOnlyOrDefaultIdentityProviderDetail(providerType, detailKey, old, newDetails) && new == ""
 +}
 +
++// suppressIdentityProviderProviderDetailsCountDiff covers the TypeMap count
++// entry, which changes when Cognito adds extra provider detail keys during read.
++// The count diff is safe to suppress only when every missing key is one of the
++// known AWS-returned values and all still-configured keys are unchanged.
 +func suppressIdentityProviderProviderDetailsCountDiff(providerType string, oldDetails, newDetails map[string]string) bool {
 +	if len(oldDetails) <= len(newDetails) {
 +		return false
@@ -89,6 +100,10 @@ index 168cee841f1..d5a67765337 100644
 +	return removed
 +}
 +
++// isReadOnlyOrDefaultIdentityProviderDetail is intentionally allowlist-based.
++// Cognito provider_details is a free-form map, so suppressing arbitrary removed
++// keys could hide real user changes. Google returns documented endpoint defaults
++// when omitted, while SAML returns derived/read-only metadata fields.
 +func isReadOnlyOrDefaultIdentityProviderDetail(providerType, key, oldValue string, configuredDetails map[string]string) bool {
 +	if defaults, ok := defaultIdentityProviderDetails[providerType]; ok {
 +		if defaultValue, ok := defaults[key]; ok {
