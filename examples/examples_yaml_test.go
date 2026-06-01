@@ -106,6 +106,38 @@ func TestIamOpenIDConnectProviderUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "iam-openidconnectprovider"), nil)
 }
 
+func TestCognitoIdentityProviderProviderDetailsUpgrade(t *testing.T) {
+	test, _ := testProviderUpgrade(t, filepath.Join("test-programs", "cognito-identity-provider-provider-details"),
+		&testProviderUpgradeOptions{
+			skipDefaultPreviewTest: true,
+		},
+	)
+	test.ClearGrpcLog(t)
+	result := test.Preview(t, optpreview.Diff())
+	assertpreview.HasNoReplacements(t, result)
+	for op, count := range result.ChangeSummary {
+		switch op {
+		case apitype.OpSame, apitype.OpUpdate:
+			continue
+		default:
+			assert.Zerof(t, count, "unexpected %s during provider upgrade preview", op)
+		}
+	}
+
+	diffs, err := test.GrpcLog(t).Diffs()
+	require.NoError(t, err)
+	for _, diff := range diffs {
+		if !strings.Contains(diff.Request.GetUrn(), "aws:cognito/identityProvider:IdentityProvider") {
+			continue
+		}
+
+		assert.NotContains(t, diff.Response.GetDiffs(), "providerDetails")
+		for key := range diff.Response.GetDetailedDiff() {
+			assert.NotContains(t, key, "providerDetails")
+		}
+	}
+}
+
 func TestKmsKeyUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "kms-key"), nil)
 }
@@ -357,6 +389,166 @@ resources:
 			t.Logf("stderr: %s", upr.StdErr)
 
 			assertpreview.HasNoChanges(t, pt.Preview(t))
+		})
+	}
+}
+
+func TestCognitoIdentityProviderProviderDetailsDiff(t *testing.T) {
+	t.Parallel()
+	skipIfShort(t)
+
+	type yamlProgram string
+
+	const google yamlProgram = `
+name: project
+runtime: yaml
+config:
+  randSuffix:
+    type: string
+  clientId:
+    type: string
+resources:
+  userPool:
+    type: aws:cognito:UserPool
+    properties:
+      name: pulumi-aws-5401-${randSuffix}
+      schemas:
+        - name: email
+          required: true
+          attributeDataType: String
+      passwordPolicy:
+        minimumLength: 8
+        requireUppercase: true
+        requireLowercase: true
+        requireNumbers: true
+        requireSymbols: true
+  identityProvider:
+    type: aws:cognito:IdentityProvider
+    properties:
+      userPoolId: ${userPool.id}
+      providerType: Google
+      providerName: Google
+      providerDetails:
+        client_id: ${clientId}
+        client_secret: client_secret
+        authorize_scopes: email profile openid
+      attributeMapping:
+        email: email
+        username: sub
+`
+
+	const saml yamlProgram = `
+name: project
+runtime: yaml
+config:
+  randSuffix:
+    type: string
+resources:
+  userPool:
+    type: aws:cognito:UserPool
+    properties:
+      name: pulumi-aws-5401-${randSuffix}
+      schemas:
+        - name: email
+          required: true
+          attributeDataType: String
+  identityProvider:
+    type: aws:cognito:IdentityProvider
+    properties:
+      userPoolId: ${userPool.id}
+      providerType: SAML
+      providerName: saml-${randSuffix}
+      providerDetails:
+        MetadataFile:
+          fn::secret: |
+            <?xml version="1.0"?>
+            <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://terraform-dev-ed.my.salesforce.com" validUntil="2070-08-31T14:30:09Z">
+              <md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+                <md:KeyDescriptor use="signing">
+                  <ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+                    <ds:X509Data>
+                      <ds:X509Certificate>MIICfjCCAeegAwIBAgIBADANBgkqhkiG9w0BAQ0FADBbMQswCQYDVQQGEwJ1czELMAkGA1UECAwCQ0ExEjAQBgNVBAoMCVRlcnJhZm9ybTErMCkGA1UEAwwidGVycmFmb3JtLWRldi1lZC5teS5zYWxlc2ZvcmNlLmNvbTAgFw0yMDA4MjkxNDQ4MzlaGA8yMDcwMDgxNzE0NDgzOVowWzELMAkGA1UEBhMCdXMxCzAJBgNVBAgMAkNBMRIwEAYDVQQKDAlUZXJyYWZvcm0xKzApBgNVBAMMInRlcnJhZm9ybS1kZXYtZWQubXkuc2FsZXNmb3JjZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAOxUTzEKdivVjfZ/BERGpX/ZWQsBKHut17dQTKW/3jox1N9EJ3ULj9qEDen6zQ74Ce8hSEkrG7MP9mcP1oEhQZSca5tTAop1GejJG+bfF4v6cXM9pqHlllrYrmXMfESiahqhBhE8VvoGJkvp393TcB1lX+WxO8Q74demTrQn5tgvAgMBAAGjUDBOMB0GA1UdDgQWBBREKZt4Av70WKQE4aLD2tvbSLnBlzAfBgNVHSMEGDAWgBREKZt4Av70WKQE4aLD2tvbSLnBlzAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBDQUAA4GBACxeC29WMGqeOlQF4JWwsYwIC82SUaZvMDqjAm9ieIrAZRH6J6Cu40c/rvsUGUjQ9logKX15RAyI7Rn0jBUgopRkNL71HyyM7ug4qN5An05VmKQWIbVfxkNVB2Ipb/ICMc5UE38G4y4VbANZFvbFbkVq6OAP2GGNl22o/XSnhFY8</ds:X509Certificate>
+                    </ds:X509Data>
+                  </ds:KeyInfo>
+                </md:KeyDescriptor>
+                <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+                <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://terraform-dev-ed.my.salesforce.com/idp/endpoint/HttpPost"/>
+                <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://terraform-dev-ed.my.salesforce.com/idp/endpoint/HttpRedirect"/>
+              </md:IDPSSODescriptor>
+            </md:EntityDescriptor>
+`
+
+	testCases := []struct {
+		name         string
+		program      yamlProgram
+		firstConfig  map[string]string
+		secondConfig map[string]string
+		expectUpdate bool
+	}{
+		{
+			name:    "google defaults from read do not cause a diff",
+			program: google,
+			firstConfig: map[string]string{
+				"clientId": "test-url.apps.googleusercontent.com",
+			},
+			secondConfig: map[string]string{
+				"clientId": "test-url.apps.googleusercontent.com",
+			},
+		},
+		{
+			name:    "google configured value changes still cause a diff",
+			program: google,
+			firstConfig: map[string]string{
+				"clientId": "test-url.apps.googleusercontent.com",
+			},
+			secondConfig: map[string]string{
+				"clientId": "new-client-id-url.apps.googleusercontent.com",
+			},
+			expectUpdate: true,
+		},
+		{
+			name:    "saml secret metadata read-only details do not cause a diff",
+			program: saml,
+		},
+	}
+
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+
+	for _, tc := range testCases {
+		tc := tc
+
+		t.Run(tc.name, func(t *testing.T) {
+			t.Parallel()
+
+			workdir := t.TempDir()
+			err := os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), []byte(tc.program), 0o600)
+			require.NoError(t, err)
+
+			pt := pulumitest.NewPulumiTest(t, workdir,
+				opttest.SkipInstall(),
+				opttest.TestInPlace(),
+				opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+			)
+			pt.SetConfig(t, "randSuffix", fmt.Sprintf("%d", rand.Intn(1024*1024)))
+			for key, value := range tc.firstConfig {
+				pt.SetConfig(t, key, value)
+			}
+
+			pt.Up(t)
+			assertpreview.HasNoChanges(t, pt.Preview(t, optpreview.Refresh(), optpreview.Diff()))
+
+			for key, value := range tc.secondConfig {
+				pt.SetConfig(t, key, value)
+			}
+
+			if tc.expectUpdate {
+				pr := pt.Preview(t, optpreview.Diff())
+				assert.Equal(t, 1, pr.ChangeSummary[apitype.OpUpdate])
+				return
+			}
+
+			assertpreview.HasNoChanges(t, pt.Preview(t, optpreview.Refresh(), optpreview.Diff()))
 		})
 	}
 }

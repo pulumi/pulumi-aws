@@ -1,0 +1,485 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: corymhall <43035978+corymhall@users.noreply.github.com>
+Date: Thu, 28 May 2026 14:49:48 -0400
+Subject: [PATCH] Suppress Cognito IdP provider details default diffs
+
+
+diff --git a/internal/service/cognitoidp/identity_provider.go b/internal/service/cognitoidp/identity_provider.go
+index 168cee841f1..e8f4323e442 100644
+--- a/internal/service/cognitoidp/identity_provider.go
++++ b/internal/service/cognitoidp/identity_provider.go
+@@ -9,6 +9,7 @@ import (
+ 	"context"
+ 	"fmt"
+ 	"log"
++	"maps"
+ 	"strings"
+ 
+ 	"github.com/YakDriver/regexache"
+@@ -62,9 +63,10 @@ func resourceIdentityProvider() *schema.Resource {
+ 				},
+ 			},
+ 			"provider_details": {
+-				Type:     schema.TypeMap,
+-				Required: true,
+-				Elem:     &schema.Schema{Type: schema.TypeString},
++				Type:             schema.TypeMap,
++				Required:         true,
++				Elem:             &schema.Schema{Type: schema.TypeString},
++				DiffSuppressFunc: suppressIdentityProviderProviderDetailsDiff,
+ 			},
+ 			names.AttrProviderName: {
+ 				Type:         schema.TypeString,
+@@ -87,6 +89,114 @@ func resourceIdentityProvider() *schema.Resource {
+ 	}
+ }
+ 
++var defaultIdentityProviderDetails = map[string]map[string]string{
++	"Google": {
++		"attributes_url":                "https://people.googleapis.com/v1/people/me?personFields=",
++		"attributes_url_add_attributes": "true",
++		"authorize_url":                 "https://accounts.google.com/o/oauth2/v2/auth",
++		"oidc_issuer":                   "https://accounts.google.com",
++		"token_request_method":          "POST",
++		"token_url":                     "https://www.googleapis.com/oauth2/v4/token",
++	},
++}
++
++// suppressIdentityProviderProviderDetailsDiff handles provider detail values that
++// Cognito returns from DescribeIdentityProvider even when they were not present
++// in configuration. The provider keeps those values in state so they remain
++// visible, but suppresses plans that would only remove known AWS-returned
++// defaults or read-only values from state.
++func suppressIdentityProviderProviderDetailsDiff(k, old, new string, d *schema.ResourceData) bool {
++	oldRaw, newRaw := d.GetChange("provider_details")
++	oldDetails := stringMap(oldRaw)
++	newDetails := stringMap(newRaw)
++	providerType := d.Get("provider_type").(string)
++
++	if k == "provider_details.%" {
++		return suppressIdentityProviderProviderDetailsCountDiff(providerType, oldDetails, newDetails)
++	}
++
++	detailKey, ok := strings.CutPrefix(k, "provider_details.")
++	if !ok {
++		return false
++	}
++
++	// Never suppress a diff for a configured key. If the configuration changes a
++	// provider detail value, Terraform must still plan an update for it.
++	if _, configured := newDetails[detailKey]; configured {
++		return false
++	}
++
++	return isReadOnlyOrDefaultIdentityProviderDetail(providerType, detailKey, old, newDetails) && new == ""
++}
++
++// suppressIdentityProviderProviderDetailsCountDiff covers the TypeMap count
++// entry, which changes when Cognito adds extra provider detail keys during read.
++// The count diff is safe to suppress only when every missing key is one of the
++// known AWS-returned values and all still-configured keys are unchanged.
++func suppressIdentityProviderProviderDetailsCountDiff(providerType string, oldDetails, newDetails map[string]string) bool {
++	if len(oldDetails) <= len(newDetails) {
++		return false
++	}
++
++	removed := false
++	for key, oldValue := range oldDetails {
++		newValue, configured := newDetails[key]
++		switch {
++		case !configured:
++			if !isReadOnlyOrDefaultIdentityProviderDetail(providerType, key, oldValue, newDetails) {
++				return false
++			}
++			removed = true
++		case oldValue != newValue:
++			return false
++		}
++	}
++
++	return removed
++}
++
++// isReadOnlyOrDefaultIdentityProviderDetail is intentionally allowlist-based.
++// Cognito provider_details is a free-form map, so suppressing arbitrary removed
++// keys could hide real user changes. Google returns documented endpoint defaults
++// when omitted, while SAML returns derived/read-only metadata fields.
++func isReadOnlyOrDefaultIdentityProviderDetail(providerType, key, oldValue string, configuredDetails map[string]string) bool {
++	if defaults, ok := defaultIdentityProviderDetails[providerType]; ok {
++		if defaultValue, ok := defaults[key]; ok {
++			return oldValue == defaultValue
++		}
++	}
++
++	switch providerType {
++	case "SAML":
++		switch key {
++		case "ActiveEncryptionCertificate":
++			return true
++		case "SSORedirectBindingURI":
++			_, hasMetadataFile := configuredDetails["MetadataFile"]
++			return hasMetadataFile
++		}
++	}
++
++	return false
++}
++
++func stringMap(v any) map[string]string {
++	switch v := v.(type) {
++	case map[string]string:
++		return maps.Clone(v)
++	case map[string]any:
++		m := make(map[string]string, len(v))
++		for k, v := range v {
++			m[k] = fmt.Sprint(v)
++		}
++		return m
++	case nil:
++		return nil
++	default:
++		return nil
++	}
++}
++
+ func resourceIdentityProviderCreate(ctx context.Context, d *schema.ResourceData, meta any) diag.Diagnostics {
+ 	var diags diag.Diagnostics
+ 	conn := meta.(*conns.AWSClient).CognitoIDPClient(ctx)
+diff --git a/internal/service/cognitoidp/identity_provider_internal_test.go b/internal/service/cognitoidp/identity_provider_internal_test.go
+new file mode 100644
+index 00000000000..ff216a7eba0
+--- /dev/null
++++ b/internal/service/cognitoidp/identity_provider_internal_test.go
+@@ -0,0 +1,171 @@
++// Copyright IBM Corp. 2014, 2026
++// SPDX-License-Identifier: MPL-2.0
++
++package cognitoidp
++
++import "testing"
++
++func TestSuppressIdentityProviderProviderDetailsCountDiff(t *testing.T) {
++	t.Parallel()
++
++	testCases := map[string]struct {
++		providerType string
++		oldDetails   map[string]string
++		newDetails   map[string]string
++		want         bool
++	}{
++		"google defaults removed": {
++			providerType: "Google",
++			oldDetails: map[string]string{
++				"attributes_url":                "https://people.googleapis.com/v1/people/me?personFields=",
++				"attributes_url_add_attributes": "true",
++				"authorize_scopes":              "email profile openid",
++				"authorize_url":                 "https://accounts.google.com/o/oauth2/v2/auth",
++				"client_id":                     "test-url.apps.googleusercontent.com",
++				"client_secret":                 "client_secret",
++				"oidc_issuer":                   "https://accounts.google.com",
++				"token_request_method":          "POST",
++				"token_url":                     "https://www.googleapis.com/oauth2/v4/token",
++			},
++			newDetails: map[string]string{
++				"authorize_scopes": "email profile openid",
++				"client_id":        "test-url.apps.googleusercontent.com",
++				"client_secret":    "client_secret",
++			},
++			want: true,
++		},
++		"configured value changes": {
++			providerType: "Google",
++			oldDetails: map[string]string{
++				"attributes_url":   "https://people.googleapis.com/v1/people/me?personFields=",
++				"authorize_scopes": "email profile openid",
++				"client_id":        "test-url.apps.googleusercontent.com",
++				"client_secret":    "client_secret",
++			},
++			newDetails: map[string]string{
++				"authorize_scopes": "email profile openid",
++				"client_id":        "new-client-id-url.apps.googleusercontent.com",
++				"client_secret":    "client_secret",
++			},
++			want: false,
++		},
++		"custom google detail removed": {
++			providerType: "Google",
++			oldDetails: map[string]string{
++				"attributes_url": "https://example.com/attributes",
++				"client_id":      "test-url.apps.googleusercontent.com",
++				"client_secret":  "client_secret",
++			},
++			newDetails: map[string]string{
++				"client_id":     "test-url.apps.googleusercontent.com",
++				"client_secret": "client_secret",
++			},
++			want: false,
++		},
++		"saml returned details removed with metadata file configured": {
++			providerType: "SAML",
++			oldDetails: map[string]string{
++				"ActiveEncryptionCertificate": "certificate",
++				"MetadataFile":                "<xml>",
++				"SSORedirectBindingURI":       "https://example.com/sso",
++			},
++			newDetails: map[string]string{
++				"MetadataFile": "<xml>",
++			},
++			want: true,
++		},
++		"saml redirect removed without metadata file configured": {
++			providerType: "SAML",
++			oldDetails: map[string]string{
++				"ActiveEncryptionCertificate": "certificate",
++				"SSORedirectBindingURI":       "https://example.com/sso",
++			},
++			newDetails: map[string]string{},
++			want:       false,
++		},
++		"saml metadata file removed": {
++			providerType: "SAML",
++			oldDetails: map[string]string{
++				"ActiveEncryptionCertificate": "certificate",
++				"MetadataFile":                "<xml>",
++				"SSORedirectBindingURI":       "https://example.com/sso",
++			},
++			newDetails: map[string]string{},
++			want:       false,
++		},
++	}
++
++	for name, tc := range testCases {
++		t.Run(name, func(t *testing.T) {
++			t.Parallel()
++
++			got := suppressIdentityProviderProviderDetailsCountDiff(tc.providerType, tc.oldDetails, tc.newDetails)
++
++			if got != tc.want {
++				t.Errorf("got %t, want %t", got, tc.want)
++			}
++		})
++	}
++}
++
++func TestIsReadOnlyOrDefaultIdentityProviderDetail(t *testing.T) {
++	t.Parallel()
++
++	testCases := map[string]struct {
++		providerType      string
++		key               string
++		oldValue          string
++		configuredDetails map[string]string
++		want              bool
++	}{
++		"default google detail": {
++			providerType:      "Google",
++			key:               "authorize_url",
++			oldValue:          "https://accounts.google.com/o/oauth2/v2/auth",
++			configuredDetails: map[string]string{},
++			want:              true,
++		},
++		"custom google detail": {
++			providerType:      "Google",
++			key:               "authorize_url",
++			oldValue:          "https://example.com/auth",
++			configuredDetails: map[string]string{},
++			want:              false,
++		},
++		"saml active encryption certificate": {
++			providerType:      "SAML",
++			key:               "ActiveEncryptionCertificate",
++			oldValue:          "certificate",
++			configuredDetails: map[string]string{},
++			want:              true,
++		},
++		"saml redirect with metadata file": {
++			providerType: "SAML",
++			key:          "SSORedirectBindingURI",
++			oldValue:     "https://example.com/sso",
++			configuredDetails: map[string]string{
++				"MetadataFile": "<xml>",
++			},
++			want: true,
++		},
++		"saml redirect without metadata file": {
++			providerType:      "SAML",
++			key:               "SSORedirectBindingURI",
++			oldValue:          "https://example.com/sso",
++			configuredDetails: map[string]string{},
++			want:              false,
++		},
++	}
++
++	for name, tc := range testCases {
++		t.Run(name, func(t *testing.T) {
++			t.Parallel()
++
++			got := isReadOnlyOrDefaultIdentityProviderDetail(tc.providerType, tc.key, tc.oldValue, tc.configuredDetails)
++
++			if got != tc.want {
++				t.Errorf("got %t, want %t", got, tc.want)
++			}
++		})
++	}
++}
+diff --git a/internal/service/cognitoidp/identity_provider_test.go b/internal/service/cognitoidp/identity_provider_test.go
+index 658c9e8680f..7fbba244bad 100644
+--- a/internal/service/cognitoidp/identity_provider_test.go
++++ b/internal/service/cognitoidp/identity_provider_test.go
+@@ -81,6 +81,48 @@ func TestAccCognitoIDPIdentityProvider_basic(t *testing.T) {
+ 	})
+ }
+ 
++func TestAccCognitoIDPIdentityProvider_defaultProviderDetails(t *testing.T) {
++	ctx := acctest.Context(t)
++	var identityProvider awstypes.IdentityProviderType
++	resourceName := "aws_cognito_identity_provider.test"
++	rName := acctest.RandomWithPrefix(t, acctest.ResourcePrefix)
++
++	acctest.ParallelTest(ctx, t, resource.TestCase{
++		PreCheck:                 func() { acctest.PreCheck(ctx, t); testAccPreCheckIdentityProvider(ctx, t) },
++		ErrorCheck:               acctest.ErrorCheck(t, names.CognitoIDPServiceID),
++		ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
++		CheckDestroy:             testAccCheckIdentityProviderDestroy(ctx, t),
++		Steps: []resource.TestStep{
++			{
++				Config: testAccIdentityProviderConfig_defaults(rName),
++				Check: resource.ComposeAggregateTestCheckFunc(
++					testAccCheckIdentityProviderExists(ctx, t, resourceName, &identityProvider),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.%", "9"),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.authorize_scopes", names.AttrEmail),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.authorize_url", "https://accounts.google.com/o/oauth2/v2/auth"),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.client_id", "test-url.apps.googleusercontent.com"),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.client_secret", names.AttrClientSecret),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.attributes_url", "https://people.googleapis.com/v1/people/me?personFields="),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.attributes_url_add_attributes", acctest.CtTrue),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.token_request_method", "POST"),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.token_url", "https://www.googleapis.com/oauth2/v4/token"),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.oidc_issuer", "https://accounts.google.com"),
++				),
++			},
++			{
++				Config: testAccIdentityProviderConfig_defaultsUpdated(rName),
++				Check: resource.ComposeAggregateTestCheckFunc(
++					testAccCheckIdentityProviderExists(ctx, t, resourceName, &identityProvider),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.%", "9"),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.authorize_scopes", names.AttrEmail),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.client_id", "new-client-id-url.apps.googleusercontent.com"),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.client_secret", "updated_client_secret"),
++				),
++			},
++		},
++	})
++}
++
+ func TestAccCognitoIDPIdentityProvider_idpIdentifiers(t *testing.T) {
+ 	ctx := acctest.Context(t)
+ 	var identityProvider awstypes.IdentityProviderType
+@@ -188,6 +230,32 @@ func TestAccCognitoIDPIdentityProvider_saml(t *testing.T) {
+ 	})
+ }
+ 
++func TestAccCognitoIDPIdentityProvider_samlDefaultProviderDetails(t *testing.T) {
++	ctx := acctest.Context(t)
++	var identityProvider awstypes.IdentityProviderType
++	resourceName := "aws_cognito_identity_provider.test"
++	rName := acctest.RandomWithPrefix(t, acctest.ResourcePrefix)
++
++	acctest.ParallelTest(ctx, t, resource.TestCase{
++		PreCheck:                 func() { acctest.PreCheck(ctx, t); testAccPreCheckIdentityProvider(ctx, t) },
++		ErrorCheck:               acctest.ErrorCheck(t, names.CognitoIDPServiceID),
++		ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
++		CheckDestroy:             testAccCheckIdentityProviderDestroy(ctx, t),
++		Steps: []resource.TestStep{
++			{
++				Config: testAccIdentityProviderConfig_samlDefaults(rName),
++				Check: resource.ComposeAggregateTestCheckFunc(
++					testAccCheckIdentityProviderExists(ctx, t, resourceName, &identityProvider),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.%", "3"),
++					resource.TestCheckResourceAttrSet(resourceName, "provider_details.ActiveEncryptionCertificate"),
++					resource.TestCheckResourceAttrSet(resourceName, "provider_details.MetadataFile"),
++					resource.TestCheckResourceAttr(resourceName, "provider_details.SSORedirectBindingURI", "https://terraform-dev-ed.my.salesforce.com/idp/endpoint/HttpRedirect"),
++				),
++			},
++		},
++	})
++}
++
+ func TestAccCognitoIDPIdentityProvider_disappears(t *testing.T) {
+ 	ctx := acctest.Context(t)
+ 	var identityProvider awstypes.IdentityProviderType
+@@ -299,6 +367,48 @@ func testAccCheckIdentityProviderExists(ctx context.Context, t *testing.T, n str
+ 	}
+ }
+ 
++func testAccIdentityProviderConfig_defaults(rName string) string {
++	return fmt.Sprintf(`
++resource "aws_cognito_user_pool" "test" {
++  name                     = %[1]q
++  auto_verified_attributes = ["email"]
++}
++
++resource "aws_cognito_identity_provider" "test" {
++  user_pool_id  = aws_cognito_user_pool.test.id
++  provider_name = "Google"
++  provider_type = "Google"
++
++  provider_details = {
++    authorize_scopes = "email"
++    client_id        = "test-url.apps.googleusercontent.com"
++    client_secret    = "client_secret"
++  }
++}
++`, rName)
++}
++
++func testAccIdentityProviderConfig_defaultsUpdated(rName string) string {
++	return fmt.Sprintf(`
++resource "aws_cognito_user_pool" "test" {
++  name                     = %[1]q
++  auto_verified_attributes = ["email"]
++}
++
++resource "aws_cognito_identity_provider" "test" {
++  user_pool_id  = aws_cognito_user_pool.test.id
++  provider_name = "Google"
++  provider_type = "Google"
++
++  provider_details = {
++    authorize_scopes = "email"
++    client_id        = "new-client-id-url.apps.googleusercontent.com"
++    client_secret    = "updated_client_secret"
++  }
++}
++`, rName)
++}
++
+ func testAccIdentityProviderConfig_basic(rName string) string {
+ 	return fmt.Sprintf(`
+ resource "aws_cognito_user_pool" "test" {
+@@ -387,6 +497,25 @@ resource "aws_cognito_identity_provider" "test" {
+ `, rName, attribute)
+ }
+ 
++func testAccIdentityProviderConfig_samlDefaults(rName string) string {
++	return fmt.Sprintf(`
++resource "aws_cognito_user_pool" "test" {
++  name                     = %[1]q
++  auto_verified_attributes = ["email"]
++}
++
++resource "aws_cognito_identity_provider" "test" {
++  user_pool_id  = aws_cognito_user_pool.test.id
++  provider_name = %[1]q
++  provider_type = "SAML"
++
++  provider_details = {
++    MetadataFile = file("./test-fixtures/saml-metadata.xml")
++  }
++}
++`, rName)
++}
++
+ func testAccIdentityProviderConfig_saml(rName, userPoolName, encryptedResponses string) string {
+ 	return fmt.Sprintf(`
+ resource "aws_cognito_user_pool" "test" {
