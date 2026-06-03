@@ -39,6 +39,9 @@ concurrency:
 jobs:
   upstream_tests:
     name: upstream_tests
+    # Disabled on the v6 security-patch backport branch: these upstream acceptance
+    # tests provision real AWS resources and are too old to run reliably.
+    if: false
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
