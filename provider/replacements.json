@@ -392,7 +392,7 @@
     },
     {
       "old": "`aws_s3_bucket` bucket policy, causing spurious diffs in Terraform. If\n",
-      "new": "`aws_s3_bucket` bucket policy, causing spurious diffs in TODO. If\n"
+      "new": "`aws_s3_bucket` bucket policy, causing spurious diffs in Pulumi. If\n"
     }
   ],
   "cloudfront_public_key.html.markdown": [
@@ -1176,7 +1176,7 @@
     },
     {
       "old": "`create_before_destroy` lifecycle block. This will allow Terraform\n",
-      "new": "`create_before_destroy` lifecycle block. This will allow TODO\n"
+      "new": "`create_before_destroy` lifecycle block. This will allow Pulumi\n"
     }
   ],
   "iam_session_context.html.markdown": [
@@ -1560,7 +1560,7 @@
     },
     {
       "old": "for more information or how to launch Spot Instances with Terraform.\n",
-      "new": "for more information or how to launch Spot Instances with TODO.\n"
+      "new": "for more information or how to launch Spot Instances with Pulumi.\n"
     }
   ],
   "launch_template.html.markdown": [
@@ -1648,7 +1648,7 @@
     },
     {
       "old": "For more information, see the Amazon VPC User Guide on [Route Tables](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table). For information about managing normal route tables in Terraform, see `aws_route_table`.\n",
-      "new": "For more information, see the Amazon VPC User Guide on [Route Tables](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table). For information about managing normal route tables in TODO, see `aws_route_table`.\n"
+      "new": "For more information, see the Amazon VPC User Guide on [Route Tables](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table). For information about managing normal route tables in Pulumi, see `aws_route_table`.\n"
     }
   ],
   "memorydb_cluster.html.markdown": [
@@ -1900,7 +1900,7 @@
     },
     {
       "old": "~> **Note:** This resource always calls the RDS [`StartActivityStream`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html) API with the `ApplyImmediately` parameter set to `true`. This is because the Terraform needs the activity stream to be started in order for it to get the associated attributes.\n",
-      "new": "~> **Note:** This resource always calls the RDS [`StartActivityStream`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html) API with the `ApplyImmediately` parameter set to `true`. This is because the TODO needs the activity stream to be started in order for it to get the associated attributes.\n"
+      "new": "~> **Note:** This resource always calls the RDS [`StartActivityStream`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html) API with the `ApplyImmediately` parameter set to `true`. This is because the provider needs the activity stream to be started in order for it to get the associated attributes.\n"
     }
   ],
   "rds_cluster_instance.html.markdown": [
