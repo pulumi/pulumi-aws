@@ -5,7 +5,7 @@ Subject: [PATCH] Suppress Cognito IdP provider details default diffs
 
 
 diff --git a/internal/service/cognitoidp/identity_provider.go b/internal/service/cognitoidp/identity_provider.go
-index 168cee841f1..e8f4323e442 100644
+index 4cc88b544a2..d904fe43b4b 100644
 --- a/internal/service/cognitoidp/identity_provider.go
 +++ b/internal/service/cognitoidp/identity_provider.go
 @@ -9,6 +9,7 @@ import (
@@ -16,21 +16,21 @@ index 168cee841f1..e8f4323e442 100644
  	"strings"
  
  	"github.com/YakDriver/regexache"
-@@ -62,9 +63,10 @@ func resourceIdentityProvider() *schema.Resource {
+@@ -63,9 +64,10 @@ func resourceIdentityProvider() *schema.Resource {
+ 					},
  				},
- 			},
- 			"provider_details": {
--				Type:     schema.TypeMap,
--				Required: true,
--				Elem:     &schema.Schema{Type: schema.TypeString},
-+				Type:             schema.TypeMap,
-+				Required:         true,
-+				Elem:             &schema.Schema{Type: schema.TypeString},
-+				DiffSuppressFunc: suppressIdentityProviderProviderDetailsDiff,
- 			},
- 			names.AttrProviderName: {
- 				Type:         schema.TypeString,
-@@ -87,6 +89,114 @@ func resourceIdentityProvider() *schema.Resource {
+ 				"provider_details": {
+-					Type:     schema.TypeMap,
+-					Required: true,
+-					Elem:     &schema.Schema{Type: schema.TypeString},
++					Type:             schema.TypeMap,
++					Required:         true,
++					Elem:             &schema.Schema{Type: schema.TypeString},
++					DiffSuppressFunc: suppressIdentityProviderProviderDetailsDiff,
+ 				},
+ 				names.AttrProviderName: {
+ 					Type:         schema.TypeString,
+@@ -89,6 +91,114 @@ func resourceIdentityProvider() *schema.Resource {
  	}
  }
  

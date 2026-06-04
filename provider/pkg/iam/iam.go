@@ -33,11 +33,27 @@ func iamRoleReconfigure(p *schema.Provider) {
 	// Pulumi especially poorly, impacting the upgrade path for Pulumi users attempting to address the deprecation
 	// of inlinePolicy and managedPolicyArns. Until these are sorted out, deprecation notices are removed from
 	// the Pulumi AWS provider.
-	inlinePolicy, ok := iamRole.Schema["inline_policy"]
-	contract.Assertf(ok, "Expected an inline_policy parameter on the aws_iam_role resource")
-	inlinePolicy.Deprecated = ""
+	reconfigureSchema(iamRole, func(roleSchema map[string]*schema.Schema) {
+		inlinePolicy, ok := roleSchema["inline_policy"]
+		contract.Assertf(ok, "Expected an inline_policy parameter on the aws_iam_role resource")
+		inlinePolicy.Deprecated = ""
 
-	managedPolicyArns, ok := iamRole.Schema["managed_policy_arns"]
-	contract.Assertf(ok, "Expected an managed_policy_arns parameter on the aws_iam_role resource")
-	managedPolicyArns.Deprecated = ""
+		managedPolicyArns, ok := roleSchema["managed_policy_arns"]
+		contract.Assertf(ok, "Expected an managed_policy_arns parameter on the aws_iam_role resource")
+		managedPolicyArns.Deprecated = ""
+	})
+}
+
+func reconfigureSchema(r *schema.Resource, reconfigure func(map[string]*schema.Schema)) {
+	if r.SchemaFunc == nil {
+		reconfigure(r.Schema)
+		return
+	}
+
+	oldSchemaFunc := r.SchemaFunc
+	r.SchemaFunc = func() map[string]*schema.Schema {
+		resourceSchema := oldSchemaFunc()
+		reconfigure(resourceSchema)
+		return resourceSchema
+	}
 }

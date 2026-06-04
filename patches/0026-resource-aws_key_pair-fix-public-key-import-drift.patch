@@ -21,19 +21,19 @@ index 00000000000..c166a5e1f64
 +resource/aws_key_pair: Fix import drift by persisting and normalizing `public_key`
 +```
 diff --git a/internal/service/ec2/ec2_key_pair.go b/internal/service/ec2/ec2_key_pair.go
-index 5eac7d28062..40fa13dfb6e 100644
+index 0401d5f22de..71982f992f1 100644
 --- a/internal/service/ec2/ec2_key_pair.go
 +++ b/internal/service/ec2/ec2_key_pair.go
-@@ -85,7 +85,7 @@ func resourceKeyPair() *schema.Resource {
- 				StateFunc: func(v any) string {
- 					switch v := v.(type) {
- 					case string:
--						return strings.TrimSpace(v)
-+						return normalizeOpenSSHPublicKey(v)
- 					default:
- 						return ""
- 					}
-@@ -142,6 +142,7 @@ func resourceKeyPairRead(ctx context.Context, d *schema.ResourceData, meta any)
+@@ -86,7 +86,7 @@ func resourceKeyPair() *schema.Resource {
+ 					StateFunc: func(v any) string {
+ 						switch v := v.(type) {
+ 						case string:
+-							return strings.TrimSpace(v)
++							return normalizeOpenSSHPublicKey(v)
+ 						default:
+ 							return ""
+ 						}
+@@ -144,6 +144,7 @@ func resourceKeyPairRead(ctx context.Context, d *schema.ResourceData, meta any)
  	d.Set("key_name_prefix", create.NamePrefixFromName(aws.ToString(keyPair.KeyName)))
  	d.Set("key_pair_id", keyPair.KeyPairId)
  	d.Set("key_type", keyPair.KeyType)
@@ -41,7 +41,7 @@ index 5eac7d28062..40fa13dfb6e 100644
  
  	setTagsOut(ctx, keyPair.Tags)
  
-@@ -190,6 +191,23 @@ func openSSHPublicKeysEqual(v1, v2 string) bool {
+@@ -192,6 +193,23 @@ func openSSHPublicKeysEqual(v1, v2 string) bool {
  
  	return key1.Type() == key2.Type() && bytes.Equal(key1.Marshal(), key2.Marshal())
  }
@@ -176,10 +176,10 @@ index 28737b6c9ed..52305fb2834 100644
  		},
  	})
 diff --git a/internal/service/ec2/find.go b/internal/service/ec2/find.go
-index f952f3b068b..3d63cf69ae7 100644
+index 034e5820a5e..0dd616b964a 100644
 --- a/internal/service/ec2/find.go
 +++ b/internal/service/ec2/find.go
-@@ -5974,7 +5974,8 @@ func findKeyPairs(ctx context.Context, conn *ec2.Client, input *ec2.DescribeKeyP
+@@ -6031,7 +6031,8 @@ func findKeyPairs(ctx context.Context, conn *ec2.Client, input *ec2.DescribeKeyP
  
  func findKeyPairByName(ctx context.Context, conn *ec2.Client, name string) (*awstypes.KeyPairInfo, error) {
  	input := ec2.DescribeKeyPairsInput{
