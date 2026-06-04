@@ -39,6 +39,7 @@ jobs:
       default_branch: ${{ github.event.pull_request.base.ref }}
       is_pr: ${{ github.event_name == 'pull_request' }}
       is_automated: ${{ github.actor == 'dependabot[bot]' }}
+      acceptance_fanout: true
 
   build_provider:
     uses: ./.github/workflows/build_provider.yml
@@ -56,6 +57,169 @@ jobs:
             {"os": "windows", "arch": "amd64"}
           ]
         }
+
+  test_provider:
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: pulumi-ubuntu-8core
+    needs: prerequisites
+    permissions:
+      contents: read
+      id-token: write # For ESC secrets.
+    steps:
+    # Run as first step so we don't delete things that have just been installed
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
+      with:
+        tool-cache: false
+        swap-storage: false
+        dotnet: false
+    - name: Checkout Repo
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      with:
+        submodules: true
+        persist-credentials: false
+    - env:
+        ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+        ESC_ACTION_EXPORT_ENVIRONMENT_VARIABLES: "false"
+        ESC_ACTION_OIDC_AUTH: "true"
+        ESC_ACTION_OIDC_ORGANIZATION: pulumi
+        ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+      id: esc-secrets
+      name: Fetch secrets from ESC
+      uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
+    - uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+      id: app-auth
+      with:
+        app-id: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_APP_ID }}
+        private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
+        owner: ${{ github.repository_owner }}
+    - name: Setup mise
+      uses: jdx/mise-action@8d3b0ba20a9cea7b883d922ea958553c941ab082
+      env:
+        MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
+      with:
+        version: 2026.3.7
+        github_token: ${{ steps.app-auth.outputs.token }}
+        cache_save: false
+    - name: Restore Go Cache
+      uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+      with:
+        path: |
+          ~/go/pkg/mod
+          ~/.cache/go-build
+        key: ${{ runner.os }}-go-prerequisites-${{ hashFiles('provider/*.sum', 'upstream/*.sum', 'sdk/go/*.sum', 'sdk/*.sum', '*.sum') }}
+    - name: Prepare local workspace
+      run: make prepare_local_workspace
+      env:
+        GITHUB_TOKEN: ${{ steps.app-auth.outputs.token }}
+    - name: Restore prerequisites
+      uses: ./.github/actions/download-prerequisites
+    - name: Unit-test provider code
+      run: make test_provider
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        OIDC_ROLE_ARN: ${{ steps.esc-secrets.outputs.OIDC_ROLE_ARN }}
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@e79a6962e0d4c0c17b229090214935d2e33f8354 # v6.0.1
+      env:
+        CODECOV_TOKEN: ${{ steps.esc-secrets.outputs.CODECOV_TOKEN }}
+
+  build_schema:
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: pulumi-ubuntu-8core
+    needs: prerequisites
+    permissions:
+      contents: read
+      pull-requests: write
+      id-token: write # For ESC secrets.
+    steps:
+    # Run as first step so we don't delete things that have just been installed
+    - name: Free Disk Space (Ubuntu)
+      uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
+      with:
+        tool-cache: false
+        swap-storage: false
+        dotnet: false
+    - name: Checkout Repo
+      uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      with:
+        submodules: true
+        persist-credentials: false
+    - env:
+        ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+        ESC_ACTION_EXPORT_ENVIRONMENT_VARIABLES: "false"
+        ESC_ACTION_OIDC_AUTH: "true"
+        ESC_ACTION_OIDC_ORGANIZATION: pulumi
+        ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+      id: esc-secrets
+      name: Fetch secrets from ESC
+      uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
+    - uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+      id: app-auth
+      with:
+        app-id: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_APP_ID }}
+        private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
+        owner: ${{ github.repository_owner }}
+    - name: Cache examples generation
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+      with:
+        path: |
+          .pulumi/examples-cache
+        key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
+    - name: Setup mise
+      uses: jdx/mise-action@8d3b0ba20a9cea7b883d922ea958553c941ab082
+      env:
+        MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
+      with:
+        version: 2026.3.7
+        github_token: ${{ steps.app-auth.outputs.token }}
+        cache_save: false
+    - name: Restore Go Cache
+      uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5
+      with:
+        path: |
+          ~/go/pkg/mod
+          ~/.cache/go-build
+        key: ${{ runner.os }}-go-prerequisites-${{ hashFiles('provider/*.sum', 'upstream/*.sum', 'sdk/go/*.sum', 'sdk/*.sum', '*.sum') }}
+    - name: Prepare local workspace before restoring previously built files
+      run: make prepare_local_workspace
+      env:
+        GITHUB_TOKEN: ${{ steps.app-auth.outputs.token }}
+    - name: Restore prerequisites
+      uses: ./.github/actions/download-prerequisites
+    - name: Restore makefile progress
+      run: make --touch provider
+    - name: Generate schema
+      run: make schema
+      env:
+        PROVIDER_VERSION: ${{ needs.prerequisites.outputs.version }}
+    - name: Check worktree clean
+      id: worktreeClean
+      uses: pulumi/git-status-check-action@v1
+    - if: github.event_name == 'pull_request'
+      name: Check Schema is Valid
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+        {
+          echo "SCHEMA_CHANGES<<$EOF";
+          schema-tools compare -r github://api.github.com/pulumi -p aws -o "${{ github.event.pull_request.base.ref }}" -n --local-path=provider/cmd/pulumi-resource-aws/schema.json;
+          echo "$EOF";
+        } >> "$GITHUB_ENV"
+    - if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
+      name: Comment on PR with Details of Schema Check
+      uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        comment-tag: schemaCheck
+        message: >+
+          ${{ env.SCHEMA_CHANGES }}
+
+
+          Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
 
   build_sdk:
     if: github.event_name == 'repository_dispatch' ||
@@ -100,6 +264,8 @@ jobs:
     needs:
     - test
     - build_provider
+    - build_schema
+    - test_provider
     - license_check
     runs-on: ubuntu-latest
     steps:
