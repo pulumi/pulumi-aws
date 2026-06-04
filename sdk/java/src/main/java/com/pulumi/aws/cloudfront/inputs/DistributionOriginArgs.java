@@ -99,14 +99,14 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Unique identifier of a [CloudFront origin access control][8] for this origin.
+     * Unique identifier of a CloudFront origin access control for this origin.
      * 
      */
     @Import(name="originAccessControlId")
     private @Nullable Output<String> originAccessControlId;
 
     /**
-     * @return Unique identifier of a [CloudFront origin access control][8] for this origin.
+     * @return Unique identifier of a CloudFront origin access control for this origin.
      * 
      */
     public Optional<Output<String>> originAccessControlId() {
@@ -346,7 +346,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originAccessControlId Unique identifier of a [CloudFront origin access control][8] for this origin.
+         * @param originAccessControlId Unique identifier of a CloudFront origin access control for this origin.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class DistributionOriginArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param originAccessControlId Unique identifier of a [CloudFront origin access control][8] for this origin.
+         * @param originAccessControlId Unique identifier of a CloudFront origin access control for this origin.
          * 
          * @return builder
          * 

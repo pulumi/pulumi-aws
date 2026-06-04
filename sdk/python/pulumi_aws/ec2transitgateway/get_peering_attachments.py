@@ -59,7 +59,7 @@ class GetPeeringAttachmentsResult:
     @pulumi.getter
     def ids(self) -> Sequence[_builtins.str]:
         """
-        A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [ec2transitgateway.PeeringAttachment][2] data source, searching by identifier.
+        A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the ec2transitgateway.PeeringAttachment data source, searching by identifier.
         """
         return pulumi.get(self, "ids")
 

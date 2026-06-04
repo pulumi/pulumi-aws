@@ -94,6 +94,7 @@ type LookupLoadBalancerResult struct {
 	EnableCrossZoneLoadBalancing                         bool                            `pulumi:"enableCrossZoneLoadBalancing"`
 	EnableDeletionProtection                             bool                            `pulumi:"enableDeletionProtection"`
 	EnableHttp2                                          bool                            `pulumi:"enableHttp2"`
+	EnablePrefixForIpv6SourceNat                         string                          `pulumi:"enablePrefixForIpv6SourceNat"`
 	EnableTlsVersionAndCipherSuiteHeaders                bool                            `pulumi:"enableTlsVersionAndCipherSuiteHeaders"`
 	EnableWafFailOpen                                    bool                            `pulumi:"enableWafFailOpen"`
 	EnableXffClientPort                                  bool                            `pulumi:"enableXffClientPort"`
@@ -212,6 +213,10 @@ func (o LookupLoadBalancerResultOutput) EnableDeletionProtection() pulumi.BoolOu
 
 func (o LookupLoadBalancerResultOutput) EnableHttp2() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableHttp2 }).(pulumi.BoolOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) EnablePrefixForIpv6SourceNat() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.EnablePrefixForIpv6SourceNat }).(pulumi.StringOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) EnableTlsVersionAndCipherSuiteHeaders() pulumi.BoolOutput {

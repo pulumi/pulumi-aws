@@ -10,11 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Observabilityadmin
 {
     /// <summary>
-    /// Manages an AWS CloudWatch Observability Admin Telemetry Rule for Organization.
+    /// Manages an AWS CloudWatch Observability Admin Telemetry Rule for an AWS Organization.
     /// 
-    /// &gt; **NOTE:** Before using this resource, telemetry evaluation for organization must be enabled for your AWS organization. You can use the `aws.observabilityadmin.TelemetryEvaluationForOrganization` resource to enable it.
+    /// An organization-wide telemetry rule defines how telemetry data (logs, metrics, or traces) should be collected for AWS resources across the accounts in your organization. The rule can target one or more Regions and configure a destination (such as CloudWatch Logs or S3) along with source-specific parameters for VPC flow logs, WAF logs, CloudTrail events, ELB access logs, and more.
     /// 
-    /// &gt; **NOTE:** This resource can only be used in the organization management account.
+    /// &gt; **NOTE:** Before using this resource, telemetry evaluation for organization must be enabled. Use the `aws.observabilityadmin.TelemetryEvaluationForOrganization` resource to enable it.
+    /// 
+    /// &gt; **NOTE:** This resource can only be used from the organization management account.
     /// 
     /// ## Example Usage
     /// 
@@ -49,6 +51,94 @@ namespace Pulumi.Aws.Observabilityadmin
     /// });
     /// ```
     /// 
+    /// ### VPC Flow Logs to CloudWatch Logs
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Observabilityadmin.TelemetryEvaluationForOrganization("example");
+    /// 
+    ///     var exampleTelemetryRuleForOrganization = new Aws.Observabilityadmin.TelemetryRuleForOrganization("example", new()
+    ///     {
+    ///         RuleName = "org-vpc-flow-logs-rule",
+    ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleArgs
+    ///         {
+    ///             TelemetryType = "Logs",
+    ///             ResourceType = "AWS::EC2::VPC",
+    ///             TelemetrySourceTypes = new[]
+    ///             {
+    ///                 "VPC_FLOW_LOGS",
+    ///             },
+    ///             AllRegions = true,
+    ///             AllowFieldUpdates = true,
+    ///             DestinationConfiguration = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleDestinationConfigurationArgs
+    ///             {
+    ///                 DestinationType = "cloud-watch-logs",
+    ///                 DestinationPattern = "/aws/vpcflowlogs/&lt;resourceId&gt;",
+    ///                 RetentionInDays = 30,
+    ///                 VpcFlowLogParameters = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs
+    ///                 {
+    ///                     TrafficType = "ALL",
+    ///                     MaxAggregationInterval = 60,
+    ///                 },
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Scoped to Specific Organizational Units
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.Organizations.GetOrganization.Invoke();
+    /// 
+    ///     var example = new Aws.Observabilityadmin.TelemetryEvaluationForOrganization("example");
+    /// 
+    ///     var exampleTelemetryRuleForOrganization = new Aws.Observabilityadmin.TelemetryRuleForOrganization("example", new()
+    ///     {
+    ///         RuleName = "org-scoped-rule",
+    ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleArgs
+    ///         {
+    ///             TelemetryType = "Logs",
+    ///             ResourceType = "AWS::EKS::Cluster",
+    ///             Scope = $"OrganizationId = '{current.Apply(getOrganizationResult =&gt; getOrganizationResult.Id)}'",
+    ///             SelectionCriteria = "ResourceTags.Environment = 'production'",
+    ///             Regions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///                 "us-west-2",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### With Tags
     /// 
     /// ```csharp
@@ -63,7 +153,7 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleTelemetryRuleForOrganization = new Aws.Observabilityadmin.TelemetryRuleForOrganization("example", new()
     ///     {
-    ///         RuleName = "vpc-logs-org-rule",
+    ///         RuleName = "org-tagged-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleForOrganizationRuleArgs
     ///         {
     ///             TelemetryType = "Logs",
@@ -108,31 +198,33 @@ namespace Pulumi.Aws.Observabilityadmin
     public partial class TelemetryRuleForOrganization : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// AWS region. If not specified, the provider region is used.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the telemetry rule. See `Rule` Block below.
+        /// Configuration block for the organization telemetry rule. See `Rule` below.
         /// </summary>
         [Output("rule")]
         public Output<Outputs.TelemetryRuleForOrganizationRule> Rule { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the telemetry rule for organization.
+        /// ARN of the organization telemetry rule.
         /// </summary>
         [Output("ruleArn")]
         public Output<string> RuleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+        /// Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("ruleName")]
         public Output<string> RuleName { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -193,19 +285,21 @@ namespace Pulumi.Aws.Observabilityadmin
     public sealed class TelemetryRuleForOrganizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS region. If not specified, the provider region is used.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block for the telemetry rule. See `Rule` Block below.
+        /// Configuration block for the organization telemetry rule. See `Rule` below.
         /// </summary>
         [Input("rule", required: true)]
         public Input<Inputs.TelemetryRuleForOrganizationRuleArgs> Rule { get; set; } = null!;
 
         /// <summary>
-        /// Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+        /// Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
@@ -214,7 +308,7 @@ namespace Pulumi.Aws.Observabilityadmin
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -234,25 +328,27 @@ namespace Pulumi.Aws.Observabilityadmin
     public sealed class TelemetryRuleForOrganizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS region. If not specified, the provider region is used.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block for the telemetry rule. See `Rule` Block below.
+        /// Configuration block for the organization telemetry rule. See `Rule` below.
         /// </summary>
         [Input("rule")]
         public Input<Inputs.TelemetryRuleForOrganizationRuleGetArgs>? Rule { get; set; }
 
         /// <summary>
-        /// ARN of the telemetry rule for organization.
+        /// ARN of the organization telemetry rule.
         /// </summary>
         [Input("ruleArn")]
         public Input<string>? RuleArn { get; set; }
 
         /// <summary>
-        /// Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+        /// Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
@@ -261,7 +357,7 @@ namespace Pulumi.Aws.Observabilityadmin
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

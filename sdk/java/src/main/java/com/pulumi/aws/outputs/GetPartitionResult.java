@@ -16,8 +16,7 @@ public final class GetPartitionResult {
      */
     private String dnsSuffix;
     /**
-     * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * Use `partition` instead.
+     * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China). Use `partition` instead.
      * 
      * @deprecated
      * Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.
@@ -45,8 +44,7 @@ public final class GetPartitionResult {
         return this.dnsSuffix;
     }
     /**
-     * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * Use `partition` instead.
+     * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China). Use `partition` instead.
      * 
      * @deprecated
      * Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.

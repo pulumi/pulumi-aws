@@ -50,7 +50,7 @@ export interface GetVolumeArgs {
     /**
      * One or more name/value pairs to filter off of. There are
      * several valid keys, for a full reference, check out
-     * [describe-volumes in the AWS CLI reference][1].
+     * [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html).
      */
     filters?: inputs.ebs.GetVolumeFilter[];
     /**
@@ -183,7 +183,7 @@ export interface GetVolumeOutputArgs {
     /**
      * One or more name/value pairs to filter off of. There are
      * several valid keys, for a full reference, check out
-     * [describe-volumes in the AWS CLI reference][1].
+     * [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html).
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetVolumeFilterArgs>[] | undefined>;
     /**

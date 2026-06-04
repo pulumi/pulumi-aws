@@ -134,7 +134,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The [policy][1] for the resource.
+        /// The policy for the resource.
         /// </summary>
         public readonly string Policy;
         public readonly string Region;

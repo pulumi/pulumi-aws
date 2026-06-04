@@ -92,6 +92,8 @@ type LookupStreamResult struct {
 	StreamModeDetails []GetStreamStreamModeDetail `pulumi:"streamModeDetails"`
 	// Map of tags to assigned to the stream.
 	Tags map[string]string `pulumi:"tags"`
+	// Warm throughput in MB/s for the stream. Detailed below.
+	WarmThroughputs []GetStreamWarmThroughput `pulumi:"warmThroughputs"`
 }
 
 func LookupStreamOutput(ctx *pulumi.Context, args LookupStreamOutputArgs, opts ...pulumi.InvokeOption) LookupStreamResultOutput {
@@ -204,6 +206,11 @@ func (o LookupStreamResultOutput) StreamModeDetails() GetStreamStreamModeDetailA
 // Map of tags to assigned to the stream.
 func (o LookupStreamResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupStreamResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Warm throughput in MB/s for the stream. Detailed below.
+func (o LookupStreamResultOutput) WarmThroughputs() GetStreamWarmThroughputArrayOutput {
+	return o.ApplyT(func(v LookupStreamResult) []GetStreamWarmThroughput { return v.WarmThroughputs }).(GetStreamWarmThroughputArrayOutput)
 }
 
 func init() {

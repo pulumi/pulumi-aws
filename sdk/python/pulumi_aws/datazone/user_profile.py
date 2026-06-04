@@ -290,6 +290,18 @@ class UserProfile(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `domain_identifier` - (String) Identifier of the DataZone domain.
+        * `user_identifier` - (String) Identifier of the user.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import DataZone User Profile using the `user_identifier,domain_identifier,type`. For example:
 
         ```sh
@@ -331,6 +343,18 @@ class UserProfile(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `domain_identifier` - (String) Identifier of the DataZone domain.
+        * `user_identifier` - (String) Identifier of the user.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import DataZone User Profile using the `user_identifier,domain_identifier,type`. For example:
 

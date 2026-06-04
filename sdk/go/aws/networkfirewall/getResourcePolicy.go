@@ -60,7 +60,7 @@ type LookupResourcePolicyArgs struct {
 type LookupResourcePolicyResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The [policy][1] for the resource.
+	// The policy for the resource.
 	Policy      string `pulumi:"policy"`
 	Region      string `pulumi:"region"`
 	ResourceArn string `pulumi:"resourceArn"`
@@ -107,7 +107,7 @@ func (o LookupResourcePolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The [policy][1] for the resource.
+// The policy for the resource.
 func (o LookupResourcePolicyResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResourcePolicyResult) string { return v.Policy }).(pulumi.StringOutput)
 }

@@ -71,7 +71,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// });
         /// ```
         /// 
-        /// AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `Name` values but distinct `Arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `Arn`, or `Name` and `Arn`, is recommended.
+        /// AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `Name` values but distinct `Arn` values, e.g. firewall policies shared via a Resource Access Manager (RAM) share. In that case specifying `Arn`, or `Name` and `Arn`, is recommended.
         /// 
         /// &gt; **Note:** If there are multiple firewall policies in an account with the same `Name`, and `Arn` is not specified, the default behavior will return the firewall policy with `Name` that was created in the account.
         /// </summary>
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// });
         /// ```
         /// 
-        /// AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `Name` values but distinct `Arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `Arn`, or `Name` and `Arn`, is recommended.
+        /// AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `Name` values but distinct `Arn` values, e.g. firewall policies shared via a Resource Access Manager (RAM) share. In that case specifying `Arn`, or `Name` and `Arn`, is recommended.
         /// 
         /// &gt; **Note:** If there are multiple firewall policies in an account with the same `Name`, and `Arn` is not specified, the default behavior will return the firewall policy with `Name` that was created in the account.
         /// </summary>
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// });
         /// ```
         /// 
-        /// AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `Name` values but distinct `Arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `Arn`, or `Name` and `Arn`, is recommended.
+        /// AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `Name` values but distinct `Arn` values, e.g. firewall policies shared via a Resource Access Manager (RAM) share. In that case specifying `Arn`, or `Name` and `Arn`, is recommended.
         /// 
         /// &gt; **Note:** If there are multiple firewall policies in an account with the same `Name`, and `Arn` is not specified, the default behavior will return the firewall policy with `Name` that was created in the account.
         /// </summary>
@@ -304,7 +304,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The [policy][2] for the specified firewall policy.
+        /// The policy for the specified firewall policy.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFirewallPolicyFirewallPolicyResult> FirewallPolicies;
         /// <summary>

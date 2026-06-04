@@ -176,6 +176,10 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// A list of EC2 placement group IDs associated with the ODB network.
+        /// </summary>
+        public readonly ImmutableArray<string> Ec2PlacementGroupIds;
+        /// <summary>
         /// Unique identifier of the odb network resource.
         /// </summary>
         public readonly string Id;
@@ -243,6 +247,8 @@ namespace Pulumi.Aws.Odb
 
             string displayName,
 
+            ImmutableArray<string> ec2PlacementGroupIds,
+
             string id,
 
             ImmutableArray<Outputs.GetNetworkManagedServiceResult> managedServices,
@@ -280,6 +286,7 @@ namespace Pulumi.Aws.Odb
             CustomDomainName = customDomainName;
             DefaultDnsPrefix = defaultDnsPrefix;
             DisplayName = displayName;
+            Ec2PlacementGroupIds = ec2PlacementGroupIds;
             Id = id;
             ManagedServices = managedServices;
             OciDnsForwardingConfigs = ociDnsForwardingConfigs;

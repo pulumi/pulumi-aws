@@ -24,7 +24,8 @@ class VpcIpamPoolCidrAllocationArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  disallowed_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
-                 region: pulumi.Input[Optional[_builtins.str]] = None):
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcIpamPoolCidrAllocation resource.
 
@@ -34,6 +35,7 @@ class VpcIpamPoolCidrAllocationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disallowed_cidrs: Exclude a particular CIDR range from being returned by the pool.
         :param pulumi.Input[_builtins.int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "ipam_pool_id", ipam_pool_id)
         if cidr is not None:
@@ -46,6 +48,8 @@ class VpcIpamPoolCidrAllocationArgs:
             pulumi.set(__self__, "netmask_length", netmask_length)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="ipamPoolId")
@@ -119,6 +123,18 @@ class VpcIpamPoolCidrAllocationArgs:
     def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _VpcIpamPoolCidrAllocationState:
@@ -132,7 +148,9 @@ class _VpcIpamPoolCidrAllocationState:
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_type: pulumi.Input[Optional[_builtins.str]] = None):
+                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering VpcIpamPoolCidrAllocation resources.
 
@@ -145,6 +163,8 @@ class _VpcIpamPoolCidrAllocationState:
         :param pulumi.Input[_builtins.str] resource_id: The ID of the resource.
         :param pulumi.Input[_builtins.str] resource_owner: The owner of the resource.
         :param pulumi.Input[_builtins.str] resource_type: The type of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if cidr is not None:
             pulumi.set(__self__, "cidr", cidr)
@@ -166,6 +186,10 @@ class _VpcIpamPoolCidrAllocationState:
             pulumi.set(__self__, "resource_owner", resource_owner)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @_builtins.property
     @pulumi.getter
@@ -284,6 +308,30 @@ class _VpcIpamPoolCidrAllocationState:
     def resource_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_type", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.type_token("aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation")
 class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
@@ -297,6 +345,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
                  ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Allocates (reserves) a CIDR from an IPAM address pool, preventing usage by IPAM. Only works for private IPv4.
@@ -367,6 +416,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ipam_pool_id: The ID of the pool to which you want to assign a CIDR.
         :param pulumi.Input[_builtins.int] netmask_length: The netmask length of the CIDR you would like to allocate to the IPAM pool. Valid Values: `0-128`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -456,6 +506,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
                  ipam_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  netmask_length: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -473,10 +524,12 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             __props__.__dict__["ipam_pool_id"] = ipam_pool_id
             __props__.__dict__["netmask_length"] = netmask_length
             __props__.__dict__["region"] = region
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["ipam_pool_allocation_id"] = None
             __props__.__dict__["resource_id"] = None
             __props__.__dict__["resource_owner"] = None
             __props__.__dict__["resource_type"] = None
+            __props__.__dict__["tags_all"] = None
         super(VpcIpamPoolCidrAllocation, __self__).__init__(
             'aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation',
             resource_name,
@@ -496,7 +549,9 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             resource_owner: pulumi.Input[Optional[_builtins.str]] = None,
-            resource_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'VpcIpamPoolCidrAllocation':
+            resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'VpcIpamPoolCidrAllocation':
         """
         Get an existing VpcIpamPoolCidrAllocation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -513,6 +568,8 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_id: The ID of the resource.
         :param pulumi.Input[_builtins.str] resource_owner: The owner of the resource.
         :param pulumi.Input[_builtins.str] resource_type: The type of the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -528,6 +585,8 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["resource_owner"] = resource_owner
         __props__.__dict__["resource_type"] = resource_type
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return VpcIpamPoolCidrAllocation(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -606,4 +665,20 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         The type of the resource.
         """
         return pulumi.get(self, "resource_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 

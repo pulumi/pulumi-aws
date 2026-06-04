@@ -272,8 +272,6 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:s3/bucketAcl:BucketAcl example bucket-name,123456789012,private
  * ```
  * 
- * [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
- * 
  */
 @ResourceType(type="aws:s3/bucketAcl:BucketAcl")
 public class BucketAcl extends com.pulumi.resources.CustomResource {

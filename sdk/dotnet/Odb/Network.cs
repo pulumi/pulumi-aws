@@ -92,6 +92,12 @@ namespace Pulumi.Aws.Odb
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// A list of EC2 placement group IDs associated with the ODB network.
+        /// </summary>
+        [Output("ec2PlacementGroupIds")]
+        public Output<ImmutableArray<string>> Ec2PlacementGroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the configuration for KMS access from the ODB network.
         /// </summary>
         [Output("kmsAccess")]
@@ -469,6 +475,18 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        [Input("ec2PlacementGroupIds")]
+        private InputList<string>? _ec2PlacementGroupIds;
+
+        /// <summary>
+        /// A list of EC2 placement group IDs associated with the ODB network.
+        /// </summary>
+        public InputList<string> Ec2PlacementGroupIds
+        {
+            get => _ec2PlacementGroupIds ?? (_ec2PlacementGroupIds = new InputList<string>());
+            set => _ec2PlacementGroupIds = value;
+        }
 
         /// <summary>
         /// Specifies the configuration for KMS access from the ODB network.

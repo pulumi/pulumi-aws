@@ -15,14 +15,14 @@ public final class GetRegionsFilter extends com.pulumi.resources.InvokeArgs {
     public static final GetRegionsFilter Empty = new GetRegionsFilter();
 
     /**
-     * Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+     * Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-regions.html).
      * 
      */
     @Import(name="name", required=true)
     private String name;
 
     /**
-     * @return Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+     * @return Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-regions.html).
      * 
      */
     public String name() {
@@ -70,7 +70,7 @@ public final class GetRegionsFilter extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param name Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+         * @param name Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-regions.html).
          * 
          * @return builder
          * 

@@ -137,6 +137,14 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
      * The type of the resource.
      */
     declare public /*out*/ readonly resourceType: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a VpcIpamPoolCidrAllocation resource with the given unique name, arguments, and options.
@@ -161,6 +169,8 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
             resourceInputs["resourceId"] = state?.resourceId;
             resourceInputs["resourceOwner"] = state?.resourceOwner;
             resourceInputs["resourceType"] = state?.resourceType;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as VpcIpamPoolCidrAllocationArgs | undefined;
             if (args?.ipamPoolId === undefined && !opts.urn) {
@@ -172,10 +182,12 @@ export class VpcIpamPoolCidrAllocation extends pulumi.CustomResource {
             resourceInputs["ipamPoolId"] = args?.ipamPoolId;
             resourceInputs["netmaskLength"] = args?.netmaskLength;
             resourceInputs["region"] = args?.region;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["ipamPoolAllocationId"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["resourceOwner"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcIpamPoolCidrAllocation.__pulumiType, name, resourceInputs, opts);
@@ -223,6 +235,14 @@ export interface VpcIpamPoolCidrAllocationState {
      * The type of the resource.
      */
     resourceType?: pulumi.Input<string | undefined>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -253,4 +273,8 @@ export interface VpcIpamPoolCidrAllocationArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

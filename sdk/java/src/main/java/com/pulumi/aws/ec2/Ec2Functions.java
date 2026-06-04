@@ -22,6 +22,8 @@ import com.pulumi.aws.ec2.inputs.GetEipsArgs;
 import com.pulumi.aws.ec2.inputs.GetEipsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
 import com.pulumi.aws.ec2.inputs.GetElasticIpPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+import com.pulumi.aws.ec2.inputs.GetHostsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
 import com.pulumi.aws.ec2.inputs.GetInstancePlainArgs;
 import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
@@ -145,6 +147,7 @@ import com.pulumi.aws.ec2.outputs.GetCustomerGatewayResult;
 import com.pulumi.aws.ec2.outputs.GetDedicatedHostResult;
 import com.pulumi.aws.ec2.outputs.GetEipsResult;
 import com.pulumi.aws.ec2.outputs.GetElasticIpResult;
+import com.pulumi.aws.ec2.outputs.GetHostsResult;
 import com.pulumi.aws.ec2.outputs.GetInstanceResult;
 import com.pulumi.aws.ec2.outputs.GetInstanceTypeOfferingResult;
 import com.pulumi.aws.ec2.outputs.GetInstanceTypeOfferingsResult;
@@ -3757,6 +3760,629 @@ public final class Ec2Functions {
      */
     public static CompletableFuture<GetElasticIpResult> getElasticIpPlain(GetElasticIpPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getElasticIp:getElasticIp", TypeShape.of(GetElasticIpResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHostsResult> getHosts() {
+        return getHosts(GetHostsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetHostsResult> getHostsPlain() {
+        return getHostsPlain(GetHostsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHostsResult> getHosts(GetHostsArgs args) {
+        return getHosts(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetHostsResult> getHostsPlain(GetHostsPlainArgs args) {
+        return getHostsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHostsResult> getHosts(GetHostsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHostsResult> getHosts(GetHostsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetHostsResult> getHostsPlain(GetHostsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.

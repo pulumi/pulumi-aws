@@ -9,8 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE on associating a WAFv2 Web ACL with a Cloudfront distribution:** Do not use this resource to associate a WAFv2 Web ACL with a Cloudfront Distribution. The [AWS API call backing this resource](https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html) notes that you should use the `webAclId` property on the `cloudfrontDistribution` instead.
  *
- * [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
- *
  * ## Import
  *
  * Using `pulumi import`, import WAFv2 Web ACL Association using `WEB_ACL_ARN,RESOURCE_ARN`. For example:

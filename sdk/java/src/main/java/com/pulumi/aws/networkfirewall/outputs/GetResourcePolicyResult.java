@@ -16,7 +16,7 @@ public final class GetResourcePolicyResult {
      */
     private String id;
     /**
-     * @return The [policy][1] for the resource.
+     * @return The policy for the resource.
      * 
      */
     private String policy;
@@ -32,7 +32,7 @@ public final class GetResourcePolicyResult {
         return this.id;
     }
     /**
-     * @return The [policy][1] for the resource.
+     * @return The policy for the resource.
      * 
      */
     public String policy() {

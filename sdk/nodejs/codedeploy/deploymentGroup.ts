@@ -169,8 +169,6 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
  * ```
- *
- * [1]: http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
  */
 export class DeploymentGroup extends pulumi.CustomResource {
     /**

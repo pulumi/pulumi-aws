@@ -20,7 +20,7 @@ public final class GetPeeringAttachmentsResult {
      */
     private String id;
     /**
-     * @return A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [aws.ec2transitgateway.PeeringAttachment][2] data source, searching by identifier.
+     * @return A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the aws.ec2transitgateway.PeeringAttachment data source, searching by identifier.
      * 
      */
     private List<String> ids;
@@ -38,7 +38,7 @@ public final class GetPeeringAttachmentsResult {
         return this.id;
     }
     /**
-     * @return A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [aws.ec2transitgateway.PeeringAttachment][2] data source, searching by identifier.
+     * @return A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the aws.ec2transitgateway.PeeringAttachment data source, searching by identifier.
      * 
      */
     public List<String> ids() {

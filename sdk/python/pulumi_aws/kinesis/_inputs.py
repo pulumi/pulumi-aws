@@ -15,6 +15,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AccountSettingsMinimumThroughputBillingCommitmentArgs',
+    'AccountSettingsMinimumThroughputBillingCommitmentArgsDict',
     'AnalyticsApplicationCloudwatchLoggingOptionsArgs',
     'AnalyticsApplicationCloudwatchLoggingOptionsArgsDict',
     'AnalyticsApplicationInputsArgs',
@@ -258,6 +260,114 @@ __all__ = [
     'StreamStreamModeDetailsArgs',
     'StreamStreamModeDetailsArgsDict',
 ]
+
+class AccountSettingsMinimumThroughputBillingCommitmentArgsDict(TypedDict):
+    status: pulumi.Input[_builtins.str]
+    """
+    Desired status of the minimum throughput billing commitment. Valid values: `ENABLED`, `DISABLED`.
+    """
+    earliest_allowed_end_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Earliest timestamp when the commitment can be ended.
+    """
+    ended_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Timestamp when the commitment was ended.
+    """
+    started_at: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Timestamp when the commitment was started.
+    """
+    status_actual: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Current status of the minimum throughput billing commitment. Values: `ENABLED`, `DISABLED`, `ENABLED_UNTIL_EARLIEST_ALLOWED_END`.
+    """
+
+@pulumi.input_type
+class AccountSettingsMinimumThroughputBillingCommitmentArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input[_builtins.str],
+                 earliest_allowed_end_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 ended_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 started_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_actual: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] status: Desired status of the minimum throughput billing commitment. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.str] earliest_allowed_end_at: Earliest timestamp when the commitment can be ended.
+        :param pulumi.Input[_builtins.str] ended_at: Timestamp when the commitment was ended.
+        :param pulumi.Input[_builtins.str] started_at: Timestamp when the commitment was started.
+        :param pulumi.Input[_builtins.str] status_actual: Current status of the minimum throughput billing commitment. Values: `ENABLED`, `DISABLED`, `ENABLED_UNTIL_EARLIEST_ALLOWED_END`.
+        """
+        pulumi.set(__self__, "status", status)
+        if earliest_allowed_end_at is not None:
+            pulumi.set(__self__, "earliest_allowed_end_at", earliest_allowed_end_at)
+        if ended_at is not None:
+            pulumi.set(__self__, "ended_at", ended_at)
+        if started_at is not None:
+            pulumi.set(__self__, "started_at", started_at)
+        if status_actual is not None:
+            pulumi.set(__self__, "status_actual", status_actual)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[_builtins.str]:
+        """
+        Desired status of the minimum throughput billing commitment. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="earliestAllowedEndAt")
+    def earliest_allowed_end_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Earliest timestamp when the commitment can be ended.
+        """
+        return pulumi.get(self, "earliest_allowed_end_at")
+
+    @earliest_allowed_end_at.setter
+    def earliest_allowed_end_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "earliest_allowed_end_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endedAt")
+    def ended_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Timestamp when the commitment was ended.
+        """
+        return pulumi.get(self, "ended_at")
+
+    @ended_at.setter
+    def ended_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ended_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startedAt")
+    def started_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Timestamp when the commitment was started.
+        """
+        return pulumi.get(self, "started_at")
+
+    @started_at.setter
+    def started_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "started_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="statusActual")
+    def status_actual(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Current status of the minimum throughput billing commitment. Values: `ENABLED`, `DISABLED`, `ENABLED_UNTIL_EARLIEST_ALLOWED_END`.
+        """
+        return pulumi.get(self, "status_actual")
+
+    @status_actual.setter
+    def status_actual(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status_actual", value)
+
 
 class AnalyticsApplicationCloudwatchLoggingOptionsArgsDict(TypedDict):
     log_stream_arn: pulumi.Input[_builtins.str]

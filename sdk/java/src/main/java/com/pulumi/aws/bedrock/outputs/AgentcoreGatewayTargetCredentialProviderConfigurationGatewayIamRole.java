@@ -4,11 +4,39 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole {
+    /**
+     * @return AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Only meaningful when `service` is set.
+     * 
+     */
+    private @Nullable String region;
+    /**
+     * @return The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
+     * 
+     */
+    private @Nullable String service;
+
     private AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole() {}
+    /**
+     * @return AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Only meaningful when `service` is set.
+     * 
+     */
+    public Optional<String> region() {
+        return Optional.ofNullable(this.region);
+    }
+    /**
+     * @return The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
+     * 
+     */
+    public Optional<String> service() {
+        return Optional.ofNullable(this.service);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -19,13 +47,31 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayI
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String region;
+        private @Nullable String service;
         public Builder() {}
         public Builder(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.region = defaults.region;
+    	      this.service = defaults.service;
         }
 
+        @CustomType.Setter
+        public Builder region(@Nullable String region) {
+
+            this.region = region;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder service(@Nullable String service) {
+
+            this.service = service;
+            return this;
+        }
         public AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole build() {
             final var _resultValue = new AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole();
+            _resultValue.region = region;
+            _resultValue.service = service;
             return _resultValue;
         }
     }

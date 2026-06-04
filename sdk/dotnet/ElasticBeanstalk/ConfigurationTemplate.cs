@@ -92,7 +92,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         /// <summary>
         /// A solution stack to base your Template
-        /// off of. Example stacks can be found in the [Amazon API documentation][1]
+        /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         /// </summary>
         [Output("solutionStackName")]
         public Output<string?> SolutionStackName { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         /// <summary>
         /// A solution stack to base your Template
-        /// off of. Example stacks can be found in the [Amazon API documentation][1]
+        /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         /// </summary>
         [Input("solutionStackName")]
         public Input<string>? SolutionStackName { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         /// <summary>
         /// A solution stack to base your Template
-        /// off of. Example stacks can be found in the [Amazon API documentation][1]
+        /// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         /// </summary>
         [Input("solutionStackName")]
         public Input<string>? SolutionStackName { get; set; }

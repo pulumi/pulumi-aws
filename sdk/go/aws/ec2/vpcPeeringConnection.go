@@ -204,7 +204,7 @@ type VpcPeeringConnection struct {
 	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept pulumi.BoolPtrOutput `pulumi:"autoAccept"`
 	// The AWS account ID of the target peer VPC.
-	// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+	// Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
 	PeerOwnerId pulumi.StringOutput `pulumi:"peerOwnerId"`
 	// The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
@@ -268,7 +268,7 @@ type vpcPeeringConnectionState struct {
 	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept *bool `pulumi:"autoAccept"`
 	// The AWS account ID of the target peer VPC.
-	// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+	// Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
 	PeerOwnerId *string `pulumi:"peerOwnerId"`
 	// The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
@@ -297,7 +297,7 @@ type VpcPeeringConnectionState struct {
 	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept pulumi.BoolPtrInput
 	// The AWS account ID of the target peer VPC.
-	// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+	// Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
 	PeerOwnerId pulumi.StringPtrInput
 	// The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
@@ -328,7 +328,7 @@ type vpcPeeringConnectionArgs struct {
 	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept *bool `pulumi:"autoAccept"`
 	// The AWS account ID of the target peer VPC.
-	// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+	// Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
 	PeerOwnerId *string `pulumi:"peerOwnerId"`
 	// The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
@@ -354,7 +354,7 @@ type VpcPeeringConnectionArgs struct {
 	// Accept the peering (both VPCs need to be in the same AWS account and region).
 	AutoAccept pulumi.BoolPtrInput
 	// The AWS account ID of the target peer VPC.
-	// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+	// Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
 	PeerOwnerId pulumi.StringPtrInput
 	// The region of the accepter VPC of the VPC Peering Connection. `autoAccept` must be `false`,
 	// and use the `ec2.VpcPeeringConnectionAccepter` to manage the accepter side.
@@ -476,7 +476,7 @@ func (o VpcPeeringConnectionOutput) AutoAccept() pulumi.BoolPtrOutput {
 }
 
 // The AWS account ID of the target peer VPC.
-// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+// Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
 func (o VpcPeeringConnectionOutput) PeerOwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcPeeringConnection) pulumi.StringOutput { return v.PeerOwnerId }).(pulumi.StringOutput)
 }

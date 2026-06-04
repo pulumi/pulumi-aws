@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * 
  * This resource treats its inline rules as absolute; only the rules defined inline are created, and any additions/removals external to this resource will result in diffs being shown. For these reasons, this resource is incompatible with the `aws.ec2.NetworkAclRule` resource.
  * 
- * For more information about Network ACLs, see the AWS Documentation on [Network ACLs][aws-network-acls].
+ * For more information about Network ACLs, see the AWS Documentation on [Network ACLs](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html).
  * 
  * ## Example Usage
  * 

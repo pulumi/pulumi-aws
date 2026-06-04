@@ -654,7 +654,7 @@ def get_instance(filters: Optional[Sequence[Union['GetInstanceFilterArgs', 'GetI
 
     :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']] filters: One or more filters to apply to the search.
            If multiple `filter` blocks are provided, they all must be true.
-           For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+           For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
            See `filter` Block below.
     :param _builtins.bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
     :param _builtins.bool get_user_data: Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
@@ -765,7 +765,7 @@ def get_instance_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['
 
     :param Sequence[Union['GetInstanceFilterArgs', 'GetInstanceFilterArgsDict']] filters: One or more filters to apply to the search.
            If multiple `filter` blocks are provided, they all must be true.
-           For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+           For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
            See `filter` Block below.
     :param _builtins.bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
     :param _builtins.bool get_user_data: Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.

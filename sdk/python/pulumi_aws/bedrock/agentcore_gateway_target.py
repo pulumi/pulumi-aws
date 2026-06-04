@@ -40,7 +40,7 @@ class AgentcoreGatewayTargetArgs:
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input['AgentcoreGatewayTargetMetadataConfigurationArgs'] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
-        :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "gateway_identifier", gateway_identifier)
         pulumi.set(__self__, "target_configuration", target_configuration)
@@ -135,7 +135,7 @@ class AgentcoreGatewayTargetArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -173,7 +173,7 @@ class _AgentcoreGatewayTargetState:
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
         :param pulumi.Input['AgentcoreGatewayTargetMetadataConfigurationArgs'] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
-        :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs'] target_configuration: Configuration for the target endpoint. See `target_configuration` below.
                
                The following arguments are optional:
@@ -262,7 +262,7 @@ class _AgentcoreGatewayTargetState:
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -322,7 +322,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTimeoutsArgs', 'AgentcoreGatewayTargetTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions or APIs, allowing agents to interact with external services through the Model Context Protocol (MCP).
+        Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions, APIs, or AgentCore Runtime agents, allowing agents to interact with external services through the Model Context Protocol (MCP) or by routing HTTP traffic directly to a runtime.
 
         ## Example Usage
 
@@ -525,6 +525,31 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             })
         ```
 
+        ### Target with IAM SigV4 Authentication (MCP Server)
+
+        Use this for `mcp_server` targets pointing at AWS-hosted SigV4-protected endpoints (e.g. another Bedrock AgentCore Runtime). The gateway signs upstream requests using its own IAM role.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sigv4_example = aws.bedrock.AgentcoreGatewayTarget("sigv4_example",
+            name="sigv4-target",
+            gateway_identifier=example["gatewayId"],
+            credential_provider_configuration={
+                "gateway_iam_role": {
+                    "service": "bedrock-agentcore",
+                },
+            },
+            target_configuration={
+                "mcp": {
+                    "mcp_server": {
+                        "endpoint": "https://example-runtime.bedrock-agentcore.us-east-1.amazonaws.com/runtimes/example/invocations?qualifier=DEFAULT",
+                    },
+                },
+            })
+        ```
+
         ### Complex Schema with JSON Serialization
 
         ```python
@@ -608,6 +633,41 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                 ],
                 "allowed_response_headers": ["x-rate-limit-remaining"],
                 "allowed_query_parameters": ["version"],
+            })
+        ```
+
+        ### HTTP Target Routing to an AgentCore Runtime
+
+        Routes gateway traffic directly to an AgentCore Runtime agent over HTTP, without MCP aggregation. The gateway must not have a `protocol_type` set.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreAgentRuntime("example",
+            agent_runtime_name="example-runtime",
+            role_arn=runtime_role["arn"],
+            agent_runtime_artifact={
+                "container_configuration": {
+                    "container_uri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest",
+                },
+            },
+            network_configuration={
+                "network_mode": "PUBLIC",
+            })
+        runtime = aws.bedrock.AgentcoreGatewayTarget("runtime",
+            name="runtime-target",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            credential_provider_configuration={
+                "gateway_iam_role": {},
+            },
+            target_configuration={
+                "http": {
+                    "agentcore_runtime": {
+                        "arn": example.agent_runtime_arn,
+                        "qualifier": "DEFAULT",
+                    },
+                },
             })
         ```
 
@@ -627,7 +687,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
         :param pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
-        :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']] target_configuration: Configuration for the target endpoint. See `target_configuration` below.
                
                The following arguments are optional:
@@ -639,7 +699,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                  args: AgentcoreGatewayTargetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions or APIs, allowing agents to interact with external services through the Model Context Protocol (MCP).
+        Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions, APIs, or AgentCore Runtime agents, allowing agents to interact with external services through the Model Context Protocol (MCP) or by routing HTTP traffic directly to a runtime.
 
         ## Example Usage
 
@@ -842,6 +902,31 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             })
         ```
 
+        ### Target with IAM SigV4 Authentication (MCP Server)
+
+        Use this for `mcp_server` targets pointing at AWS-hosted SigV4-protected endpoints (e.g. another Bedrock AgentCore Runtime). The gateway signs upstream requests using its own IAM role.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sigv4_example = aws.bedrock.AgentcoreGatewayTarget("sigv4_example",
+            name="sigv4-target",
+            gateway_identifier=example["gatewayId"],
+            credential_provider_configuration={
+                "gateway_iam_role": {
+                    "service": "bedrock-agentcore",
+                },
+            },
+            target_configuration={
+                "mcp": {
+                    "mcp_server": {
+                        "endpoint": "https://example-runtime.bedrock-agentcore.us-east-1.amazonaws.com/runtimes/example/invocations?qualifier=DEFAULT",
+                    },
+                },
+            })
+        ```
+
         ### Complex Schema with JSON Serialization
 
         ```python
@@ -925,6 +1010,41 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                 ],
                 "allowed_response_headers": ["x-rate-limit-remaining"],
                 "allowed_query_parameters": ["version"],
+            })
+        ```
+
+        ### HTTP Target Routing to an AgentCore Runtime
+
+        Routes gateway traffic directly to an AgentCore Runtime agent over HTTP, without MCP aggregation. The gateway must not have a `protocol_type` set.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreAgentRuntime("example",
+            agent_runtime_name="example-runtime",
+            role_arn=runtime_role["arn"],
+            agent_runtime_artifact={
+                "container_configuration": {
+                    "container_uri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest",
+                },
+            },
+            network_configuration={
+                "network_mode": "PUBLIC",
+            })
+        runtime = aws.bedrock.AgentcoreGatewayTarget("runtime",
+            name="runtime-target",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            credential_provider_configuration={
+                "gateway_iam_role": {},
+            },
+            target_configuration={
+                "http": {
+                    "agentcore_runtime": {
+                        "arn": example.agent_runtime_arn,
+                        "qualifier": "DEFAULT",
+                    },
+                },
             })
         ```
 
@@ -1013,7 +1133,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
         :param pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
-        :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']] target_configuration: Configuration for the target endpoint. See `target_configuration` below.
                
                The following arguments are optional:
@@ -1078,7 +1198,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
         """
-        AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

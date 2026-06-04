@@ -14,23 +14,70 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
     public sealed class TelemetryRuleRule
     {
         /// <summary>
-        /// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
-        /// 
-        /// &gt; **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+        /// Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `Regions`.
+        /// </summary>
+        public readonly bool? AllRegions;
+        /// <summary>
+        /// Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+        /// </summary>
+        public readonly bool? AllowFieldUpdates;
+        /// <summary>
+        /// Configuration block specifying where and how the telemetry data is delivered. See `DestinationConfiguration` below.
+        /// </summary>
+        public readonly Outputs.TelemetryRuleRuleDestinationConfiguration? DestinationConfiguration;
+        /// <summary>
+        /// Set of Regions to replicate the rule to. Mutually exclusive with `AllRegions`. Order is not preserved.
+        /// </summary>
+        public readonly ImmutableArray<string> Regions;
+        /// <summary>
+        /// AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
         /// </summary>
         public readonly string? ResourceType;
         /// <summary>
-        /// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+        /// Organizational scope to which the rule applies, specified using accounts or organizational units.
+        /// </summary>
+        public readonly string? Scope;
+        /// <summary>
+        /// Criteria for selecting which resources the rule applies to, such as resource tags.
+        /// </summary>
+        public readonly string? SelectionCriteria;
+        /// <summary>
+        /// List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `ResourceType`. If not provided, the API may default this value based on `ResourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+        /// </summary>
+        public readonly ImmutableArray<string> TelemetrySourceTypes;
+        /// <summary>
+        /// Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
         /// </summary>
         public readonly string TelemetryType;
 
         [OutputConstructor]
         private TelemetryRuleRule(
+            bool? allRegions,
+
+            bool? allowFieldUpdates,
+
+            Outputs.TelemetryRuleRuleDestinationConfiguration? destinationConfiguration,
+
+            ImmutableArray<string> regions,
+
             string? resourceType,
+
+            string? scope,
+
+            string? selectionCriteria,
+
+            ImmutableArray<string> telemetrySourceTypes,
 
             string telemetryType)
         {
+            AllRegions = allRegions;
+            AllowFieldUpdates = allowFieldUpdates;
+            DestinationConfiguration = destinationConfiguration;
+            Regions = regions;
             ResourceType = resourceType;
+            Scope = scope;
+            SelectionCriteria = selectionCriteria;
+            TelemetrySourceTypes = telemetrySourceTypes;
             TelemetryType = telemetryType;
         }
     }

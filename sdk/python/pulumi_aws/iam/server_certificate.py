@@ -380,7 +380,7 @@ class ServerCertificate(pulumi.CustomResource):
         - AWS OpsWorks
 
         For information about server certificates in IAM, see [Managing Server
-        Certificates][2] in AWS Documentation.
+        Certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html) in AWS Documentation.
 
         ## Example Usage
 
@@ -420,7 +420,7 @@ class ServerCertificate(pulumi.CustomResource):
         Some properties of an IAM Server Certificates cannot be updated while they are
         in use. In order for the provider to effectively manage a Certificate in this situation, it is
         recommended you utilize the `name_prefix` attribute and enable the
-        `create_before_destroy`. This will allow this provider
+        `create_before_destroy` lifecycle block. This will allow Terraform
         to create a new, updated `iam.ServerCertificate` resource and replace it in
         dependant resources before attempting to destroy the old version.
 
@@ -431,9 +431,6 @@ class ServerCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
         ```
-
-        [1]: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
-        [2]: https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
 
 
         :param str resource_name: The name of the resource.
@@ -471,7 +468,7 @@ class ServerCertificate(pulumi.CustomResource):
         - AWS OpsWorks
 
         For information about server certificates in IAM, see [Managing Server
-        Certificates][2] in AWS Documentation.
+        Certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html) in AWS Documentation.
 
         ## Example Usage
 
@@ -511,7 +508,7 @@ class ServerCertificate(pulumi.CustomResource):
         Some properties of an IAM Server Certificates cannot be updated while they are
         in use. In order for the provider to effectively manage a Certificate in this situation, it is
         recommended you utilize the `name_prefix` attribute and enable the
-        `create_before_destroy`. This will allow this provider
+        `create_before_destroy` lifecycle block. This will allow Terraform
         to create a new, updated `iam.ServerCertificate` resource and replace it in
         dependant resources before attempting to destroy the old version.
 
@@ -522,9 +519,6 @@ class ServerCertificate(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
         ```
-
-        [1]: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
-        [2]: https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
 
 
         :param str resource_name: The name of the resource.

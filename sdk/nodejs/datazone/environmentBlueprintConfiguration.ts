@@ -38,6 +38,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `domainId` - (String) ID of the DataZone domain.
+ * * `environmentBlueprintId` - (String) ID of the environment blueprint.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import DataZone Environment Blueprint Configuration using the `domainId` and `environmentBlueprintId`, separated by a `/`. For example:
  *
  * ```sh
@@ -87,6 +99,10 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
      */
     declare public readonly environmentBlueprintId: pulumi.Output<string>;
     /**
+     * A map of global parameters to configure for the blueprint across all regions.
+     */
+    declare public readonly globalParameters: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
      * ARN of the manage access role with which this blueprint is created.
      */
     declare public readonly manageAccessRoleArn: pulumi.Output<string | undefined>;
@@ -119,6 +135,7 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
             resourceInputs["domainId"] = state?.domainId;
             resourceInputs["enabledRegions"] = state?.enabledRegions;
             resourceInputs["environmentBlueprintId"] = state?.environmentBlueprintId;
+            resourceInputs["globalParameters"] = state?.globalParameters;
             resourceInputs["manageAccessRoleArn"] = state?.manageAccessRoleArn;
             resourceInputs["provisioningRoleArn"] = state?.provisioningRoleArn;
             resourceInputs["region"] = state?.region;
@@ -137,6 +154,7 @@ export class EnvironmentBlueprintConfiguration extends pulumi.CustomResource {
             resourceInputs["domainId"] = args?.domainId;
             resourceInputs["enabledRegions"] = args?.enabledRegions;
             resourceInputs["environmentBlueprintId"] = args?.environmentBlueprintId;
+            resourceInputs["globalParameters"] = args?.globalParameters;
             resourceInputs["manageAccessRoleArn"] = args?.manageAccessRoleArn;
             resourceInputs["provisioningRoleArn"] = args?.provisioningRoleArn;
             resourceInputs["region"] = args?.region;
@@ -165,6 +183,10 @@ export interface EnvironmentBlueprintConfigurationState {
      * ID of the Environment Blueprint
      */
     environmentBlueprintId?: pulumi.Input<string | undefined>;
+    /**
+     * A map of global parameters to configure for the blueprint across all regions.
+     */
+    globalParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the manage access role with which this blueprint is created.
      */
@@ -201,6 +223,10 @@ export interface EnvironmentBlueprintConfigurationArgs {
      * ID of the Environment Blueprint
      */
     environmentBlueprintId: pulumi.Input<string>;
+    /**
+     * A map of global parameters to configure for the blueprint across all regions.
+     */
+    globalParameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * ARN of the manage access role with which this blueprint is created.
      */

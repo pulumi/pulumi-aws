@@ -120,6 +120,7 @@ __all__ = [
     'LaunchTemplatePrivateDnsNameOptions',
     'LaunchTemplateSecondaryInterface',
     'LaunchTemplateTagSpecification',
+    'LocalGatewayRouteTableTimeouts',
     'ManagedPrefixListEntry',
     'NatGatewayAvailabilityZoneAddress',
     'NatGatewayEipAssociationTimeouts',
@@ -315,9 +316,13 @@ __all__ = [
     'GetCoipPoolFilterResult',
     'GetCoipPoolsFilterResult',
     'GetCustomerGatewayFilterResult',
+    'GetDedicatedHostAvailableCapacityResult',
+    'GetDedicatedHostAvailableCapacityAvailableInstanceCapacityResult',
     'GetDedicatedHostFilterResult',
+    'GetDedicatedHostInstanceResult',
     'GetEipsFilterResult',
     'GetElasticIpFilterResult',
+    'GetHostsFilterResult',
     'GetInstanceCreditSpecificationResult',
     'GetInstanceEbsBlockDeviceResult',
     'GetInstanceEnclaveOptionResult',
@@ -8309,6 +8314,37 @@ class LaunchTemplateTagSpecification(dict):
         A map of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class LocalGatewayRouteTableTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
 
 
 @pulumi.output_type
@@ -20464,6 +20500,75 @@ class GetCustomerGatewayFilterResult(dict):
 
 
 @pulumi.output_type
+class GetDedicatedHostAvailableCapacityResult(dict):
+    def __init__(__self__, *,
+                 available_instance_capacities: Sequence['outputs.GetDedicatedHostAvailableCapacityAvailableInstanceCapacityResult'],
+                 available_vcpus: _builtins.int):
+        """
+        :param Sequence['GetDedicatedHostAvailableCapacityAvailableInstanceCapacityArgs'] available_instance_capacities: The number of instances that can be launched onto the Dedicated Host for each instance size supported. See `available_instance_capacity` below.
+        :param _builtins.int available_vcpus: The number of vCPUs available for launching instances onto the Dedicated Host.
+        """
+        pulumi.set(__self__, "available_instance_capacities", available_instance_capacities)
+        pulumi.set(__self__, "available_vcpus", available_vcpus)
+
+    @_builtins.property
+    @pulumi.getter(name="availableInstanceCapacities")
+    def available_instance_capacities(self) -> Sequence['outputs.GetDedicatedHostAvailableCapacityAvailableInstanceCapacityResult']:
+        """
+        The number of instances that can be launched onto the Dedicated Host for each instance size supported. See `available_instance_capacity` below.
+        """
+        return pulumi.get(self, "available_instance_capacities")
+
+    @_builtins.property
+    @pulumi.getter(name="availableVcpus")
+    def available_vcpus(self) -> _builtins.int:
+        """
+        The number of vCPUs available for launching instances onto the Dedicated Host.
+        """
+        return pulumi.get(self, "available_vcpus")
+
+
+@pulumi.output_type
+class GetDedicatedHostAvailableCapacityAvailableInstanceCapacityResult(dict):
+    def __init__(__self__, *,
+                 available_capacity: _builtins.int,
+                 instance_type: _builtins.str,
+                 total_capacity: _builtins.int):
+        """
+        :param _builtins.int available_capacity: The number of instances that can be launched onto the Dedicated Host based on the host's available capacity.
+        :param _builtins.str instance_type: The instance type of the running instance.
+        :param _builtins.int total_capacity: The total number of instances that can be launched onto the Dedicated Host if there are no instances running on it.
+        """
+        pulumi.set(__self__, "available_capacity", available_capacity)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "total_capacity", total_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="availableCapacity")
+    def available_capacity(self) -> _builtins.int:
+        """
+        The number of instances that can be launched onto the Dedicated Host based on the host's available capacity.
+        """
+        return pulumi.get(self, "available_capacity")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        """
+        The instance type of the running instance.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="totalCapacity")
+    def total_capacity(self) -> _builtins.int:
+        """
+        The total number of instances that can be launched onto the Dedicated Host if there are no instances running on it.
+        """
+        return pulumi.get(self, "total_capacity")
+
+
+@pulumi.output_type
 class GetDedicatedHostFilterResult(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
@@ -20490,6 +20595,46 @@ class GetDedicatedHostFilterResult(dict):
         Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetDedicatedHostInstanceResult(dict):
+    def __init__(__self__, *,
+                 instance_id: _builtins.str,
+                 instance_type: _builtins.str,
+                 owner_id: _builtins.str):
+        """
+        :param _builtins.str instance_id: The ID of the instance running on the Dedicated Host.
+        :param _builtins.str instance_type: The instance type of the running instance.
+        :param _builtins.str owner_id: The ID of the AWS account that owns the instance.
+        """
+        pulumi.set(__self__, "instance_id", instance_id)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "owner_id", owner_id)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> _builtins.str:
+        """
+        The ID of the instance running on the Dedicated Host.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        """
+        The instance type of the running instance.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerId")
+    def owner_id(self) -> _builtins.str:
+        """
+        The ID of the AWS account that owns the instance.
+        """
+        return pulumi.get(self, "owner_id")
 
 
 @pulumi.output_type
@@ -20539,6 +20684,35 @@ class GetElasticIpFilterResult(dict):
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetHostsFilterResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter.
+        :param Sequence[_builtins.str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the filter.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of one or more values for the filter.
+        """
         return pulumi.get(self, "values")
 
 
@@ -20741,7 +20915,7 @@ class GetInstanceFilterResult(dict):
                  values: Sequence[_builtins.str]):
         """
         :param _builtins.str name: Name of the filter.
-               For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+               For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
         :param Sequence[_builtins.str] values: One or more values to match.
         """
         pulumi.set(__self__, "name", name)
@@ -20752,7 +20926,7 @@ class GetInstanceFilterResult(dict):
     def name(self) -> _builtins.str:
         """
         Name of the filter.
-        For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
         """
         return pulumi.get(self, "name")
 
@@ -21356,7 +21530,7 @@ class GetInstancesFilterResult(dict):
                  values: Sequence[_builtins.str]):
         """
         :param _builtins.str name: Name of the filter.
-               For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+               For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
         :param Sequence[_builtins.str] values: One or more values to match.
         """
         pulumi.set(__self__, "name", name)
@@ -21367,7 +21541,7 @@ class GetInstancesFilterResult(dict):
     def name(self) -> _builtins.str:
         """
         Name of the filter.
-        For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
         """
         return pulumi.get(self, "name")
 

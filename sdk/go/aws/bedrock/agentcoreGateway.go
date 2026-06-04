@@ -228,7 +228,7 @@ type AgentcoreGateway struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
 	ProtocolConfiguration AgentcoreGatewayProtocolConfigurationPtrOutput `pulumi:"protocolConfiguration"`
-	// Protocol type for the gateway. Valid values: `MCP`.
+	// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
 	ProtocolType pulumi.StringOutput `pulumi:"protocolType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -254,9 +254,6 @@ func NewAgentcoreGateway(ctx *pulumi.Context,
 
 	if args.AuthorizerType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizerType'")
-	}
-	if args.ProtocolType == nil {
-		return nil, errors.New("invalid value for required argument 'ProtocolType'")
 	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
@@ -306,7 +303,7 @@ type agentcoreGatewayState struct {
 	Name *string `pulumi:"name"`
 	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
 	ProtocolConfiguration *AgentcoreGatewayProtocolConfiguration `pulumi:"protocolConfiguration"`
-	// Protocol type for the gateway. Valid values: `MCP`.
+	// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
 	ProtocolType *string `pulumi:"protocolType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -346,7 +343,7 @@ type AgentcoreGatewayState struct {
 	Name pulumi.StringPtrInput
 	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
 	ProtocolConfiguration AgentcoreGatewayProtocolConfigurationPtrInput
-	// Protocol type for the gateway. Valid values: `MCP`.
+	// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
 	ProtocolType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -384,8 +381,8 @@ type agentcoreGatewayArgs struct {
 	Name *string `pulumi:"name"`
 	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
 	ProtocolConfiguration *AgentcoreGatewayProtocolConfiguration `pulumi:"protocolConfiguration"`
-	// Protocol type for the gateway. Valid values: `MCP`.
-	ProtocolType string `pulumi:"protocolType"`
+	// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
+	ProtocolType *string `pulumi:"protocolType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the IAM role that the gateway assumes to access AWS services.
@@ -415,8 +412,8 @@ type AgentcoreGatewayArgs struct {
 	Name pulumi.StringPtrInput
 	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
 	ProtocolConfiguration AgentcoreGatewayProtocolConfigurationPtrInput
-	// Protocol type for the gateway. Valid values: `MCP`.
-	ProtocolType pulumi.StringInput
+	// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
+	ProtocolType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the IAM role that the gateway assumes to access AWS services.
@@ -576,7 +573,7 @@ func (o AgentcoreGatewayOutput) ProtocolConfiguration() AgentcoreGatewayProtocol
 	}).(AgentcoreGatewayProtocolConfigurationPtrOutput)
 }
 
-// Protocol type for the gateway. Valid values: `MCP`.
+// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
 func (o AgentcoreGatewayOutput) ProtocolType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.ProtocolType }).(pulumi.StringOutput)
 }

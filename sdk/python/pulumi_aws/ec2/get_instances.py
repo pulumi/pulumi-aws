@@ -178,7 +178,7 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
 
     :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: One or more filters to apply to the search.
            If multiple `filter` blocks are provided, they all must be true.
-           For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+           For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
            See `filter` Block below.
     :param Sequence[_builtins.str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
     :param Mapping[str, _builtins.str] instance_tags: Map of tags, each pair of which must
@@ -246,7 +246,7 @@ def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union[
 
     :param Sequence[Union['GetInstancesFilterArgs', 'GetInstancesFilterArgsDict']] filters: One or more filters to apply to the search.
            If multiple `filter` blocks are provided, they all must be true.
-           For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+           For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
            See `filter` Block below.
     :param Sequence[_builtins.str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
     :param Mapping[str, _builtins.str] instance_tags: Map of tags, each pair of which must

@@ -32,6 +32,7 @@ public final class GetLoadBalancerResult {
     private Boolean enableCrossZoneLoadBalancing;
     private Boolean enableDeletionProtection;
     private Boolean enableHttp2;
+    private String enablePrefixForIpv6SourceNat;
     private Boolean enableTlsVersionAndCipherSuiteHeaders;
     private Boolean enableWafFailOpen;
     private Boolean enableXffClientPort;
@@ -99,6 +100,9 @@ public final class GetLoadBalancerResult {
     }
     public Boolean enableHttp2() {
         return this.enableHttp2;
+    }
+    public String enablePrefixForIpv6SourceNat() {
+        return this.enablePrefixForIpv6SourceNat;
     }
     public Boolean enableTlsVersionAndCipherSuiteHeaders() {
         return this.enableTlsVersionAndCipherSuiteHeaders;
@@ -196,6 +200,7 @@ public final class GetLoadBalancerResult {
         private Boolean enableCrossZoneLoadBalancing;
         private Boolean enableDeletionProtection;
         private Boolean enableHttp2;
+        private String enablePrefixForIpv6SourceNat;
         private Boolean enableTlsVersionAndCipherSuiteHeaders;
         private Boolean enableWafFailOpen;
         private Boolean enableXffClientPort;
@@ -235,6 +240,7 @@ public final class GetLoadBalancerResult {
     	      this.enableCrossZoneLoadBalancing = defaults.enableCrossZoneLoadBalancing;
     	      this.enableDeletionProtection = defaults.enableDeletionProtection;
     	      this.enableHttp2 = defaults.enableHttp2;
+    	      this.enablePrefixForIpv6SourceNat = defaults.enablePrefixForIpv6SourceNat;
     	      this.enableTlsVersionAndCipherSuiteHeaders = defaults.enableTlsVersionAndCipherSuiteHeaders;
     	      this.enableWafFailOpen = defaults.enableWafFailOpen;
     	      this.enableXffClientPort = defaults.enableXffClientPort;
@@ -365,6 +371,14 @@ public final class GetLoadBalancerResult {
               throw new MissingRequiredPropertyException("GetLoadBalancerResult", "enableHttp2");
             }
             this.enableHttp2 = enableHttp2;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enablePrefixForIpv6SourceNat(String enablePrefixForIpv6SourceNat) {
+            if (enablePrefixForIpv6SourceNat == null) {
+              throw new MissingRequiredPropertyException("GetLoadBalancerResult", "enablePrefixForIpv6SourceNat");
+            }
+            this.enablePrefixForIpv6SourceNat = enablePrefixForIpv6SourceNat;
             return this;
         }
         @CustomType.Setter
@@ -581,6 +595,7 @@ public final class GetLoadBalancerResult {
             _resultValue.enableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
             _resultValue.enableDeletionProtection = enableDeletionProtection;
             _resultValue.enableHttp2 = enableHttp2;
+            _resultValue.enablePrefixForIpv6SourceNat = enablePrefixForIpv6SourceNat;
             _resultValue.enableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
             _resultValue.enableWafFailOpen = enableWafFailOpen;
             _resultValue.enableXffClientPort = enableXffClientPort;

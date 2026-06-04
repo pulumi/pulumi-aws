@@ -119,8 +119,6 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
  * ```
  * 
- * [1]: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
- * 
  */
 @ResourceType(type="aws:rds/clusterEndpoint:ClusterEndpoint")
 public class ClusterEndpoint extends com.pulumi.resources.CustomResource {

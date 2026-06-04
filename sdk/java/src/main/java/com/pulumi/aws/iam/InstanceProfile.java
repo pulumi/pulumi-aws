@@ -209,14 +209,14 @@ public class InstanceProfile extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * [Unique ID][1] assigned by AWS.
+     * [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      * 
      */
     @Export(name="uniqueId", refs={String.class}, tree="[0]")
     private Output<String> uniqueId;
 
     /**
-     * @return [Unique ID][1] assigned by AWS.
+     * @return [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      * 
      */
     public Output<String> uniqueId() {

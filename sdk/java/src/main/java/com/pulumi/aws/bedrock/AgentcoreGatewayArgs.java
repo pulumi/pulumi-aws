@@ -143,18 +143,18 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Protocol type for the gateway. Valid values: `MCP`.
+     * Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `aws.bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
      * 
      */
-    @Import(name="protocolType", required=true)
-    private Output<String> protocolType;
+    @Import(name="protocolType")
+    private @Nullable Output<String> protocolType;
 
     /**
-     * @return Protocol type for the gateway. Valid values: `MCP`.
+     * @return Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `aws.bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
      * 
      */
-    public Output<String> protocolType() {
-        return this.protocolType;
+    public Optional<Output<String>> protocolType() {
+        return Optional.ofNullable(this.protocolType);
     }
 
     /**
@@ -428,18 +428,18 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param protocolType Protocol type for the gateway. Valid values: `MCP`.
+         * @param protocolType Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `aws.bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
          * 
          * @return builder
          * 
          */
-        public Builder protocolType(Output<String> protocolType) {
+        public Builder protocolType(@Nullable Output<String> protocolType) {
             $.protocolType = protocolType;
             return this;
         }
 
         /**
-         * @param protocolType Protocol type for the gateway. Valid values: `MCP`.
+         * @param protocolType Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `aws.bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
          * 
          * @return builder
          * 
@@ -527,9 +527,6 @@ public final class AgentcoreGatewayArgs extends com.pulumi.resources.ResourceArg
         public AgentcoreGatewayArgs build() {
             if ($.authorizerType == null) {
                 throw new MissingRequiredPropertyException("AgentcoreGatewayArgs", "authorizerType");
-            }
-            if ($.protocolType == null) {
-                throw new MissingRequiredPropertyException("AgentcoreGatewayArgs", "protocolType");
             }
             if ($.roleArn == null) {
                 throw new MissingRequiredPropertyException("AgentcoreGatewayArgs", "roleArn");

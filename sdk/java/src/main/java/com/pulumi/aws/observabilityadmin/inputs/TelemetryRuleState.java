@@ -19,14 +19,14 @@ public final class TelemetryRuleState extends com.pulumi.resources.ResourceArgs 
     public static final TelemetryRuleState Empty = new TelemetryRuleState();
 
     /**
-     * AWS region. If not specified, the provider region is used.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return AWS region. If not specified, the provider region is used.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -34,14 +34,14 @@ public final class TelemetryRuleState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Configuration block for the telemetry rule. See rule below.
+     * Configuration block for the telemetry rule. See `rule` below.
      * 
      */
     @Import(name="rule")
     private @Nullable Output<TelemetryRuleRuleArgs> rule;
 
     /**
-     * @return Configuration block for the telemetry rule. See rule below.
+     * @return Configuration block for the telemetry rule. See `rule` below.
      * 
      */
     public Optional<Output<TelemetryRuleRuleArgs>> rule() {
@@ -64,14 +64,18 @@ public final class TelemetryRuleState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+     * Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="ruleName")
     private @Nullable Output<String> ruleName;
 
     /**
-     * @return Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+     * @return Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> ruleName() {
@@ -79,14 +83,14 @@ public final class TelemetryRuleState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -146,7 +150,7 @@ public final class TelemetryRuleState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param region AWS region. If not specified, the provider region is used.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -157,7 +161,7 @@ public final class TelemetryRuleState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param region AWS region. If not specified, the provider region is used.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -167,7 +171,7 @@ public final class TelemetryRuleState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rule Configuration block for the telemetry rule. See rule below.
+         * @param rule Configuration block for the telemetry rule. See `rule` below.
          * 
          * @return builder
          * 
@@ -178,7 +182,7 @@ public final class TelemetryRuleState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rule Configuration block for the telemetry rule. See rule below.
+         * @param rule Configuration block for the telemetry rule. See `rule` below.
          * 
          * @return builder
          * 
@@ -209,7 +213,9 @@ public final class TelemetryRuleState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ruleName Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+         * @param ruleName Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -220,7 +226,9 @@ public final class TelemetryRuleState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ruleName Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+         * @param ruleName Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -230,7 +238,7 @@ public final class TelemetryRuleState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -241,7 +249,7 @@ public final class TelemetryRuleState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

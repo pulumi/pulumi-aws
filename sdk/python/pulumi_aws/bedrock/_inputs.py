@@ -477,14 +477,22 @@ __all__ = [
     'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict',
     'AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs',
     'AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgsDict',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgsDict',
     'AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs',
     'AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgsDict',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgsDict',
     'AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs',
     'AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgsDict',
     'AgentcoreGatewayTargetMetadataConfigurationArgs',
     'AgentcoreGatewayTargetMetadataConfigurationArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationArgs',
     'AgentcoreGatewayTargetTargetConfigurationArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationHttpArgs',
+    'AgentcoreGatewayTargetTargetConfigurationHttpArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs',
+    'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpArgs',
     'AgentcoreGatewayTargetTargetConfigurationMcpArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs',
@@ -12761,9 +12769,17 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
     """
     API key-based authentication configuration. See `api_key` below.
     """
+    caller_iam_credentials: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgsDict']]]
+    """
+    Caller IAM credentials-based authentication configuration. See `caller_iam_credentials` below.
+    """
     gateway_iam_role: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgsDict']]]
     """
-    Use the gateway's IAM role for authentication. This is an empty configuration block.
+    Use the gateway's IAM role for authentication. See `gateway_iam_role` below.
+    """
+    jwt_passthrough: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgsDict']]]
+    """
+    JWT passthrough-based authentication configuration. This is an empty configuration block.
     """
     oauth: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgsDict']]]
     """
@@ -12774,17 +12790,25 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
 class AgentcoreGatewayTargetCredentialProviderConfigurationArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs']] = None,
+                 caller_iam_credentials: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs']] = None,
                  gateway_iam_role: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs']] = None,
+                 jwt_passthrough: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs']] = None,
                  oauth: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs']] = None):
         """
         :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs'] api_key: API key-based authentication configuration. See `api_key` below.
-        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs'] gateway_iam_role: Use the gateway's IAM role for authentication. This is an empty configuration block.
+        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs'] caller_iam_credentials: Caller IAM credentials-based authentication configuration. See `caller_iam_credentials` below.
+        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs'] gateway_iam_role: Use the gateway's IAM role for authentication. See `gateway_iam_role` below.
+        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs'] jwt_passthrough: JWT passthrough-based authentication configuration. This is an empty configuration block.
         :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs'] oauth: OAuth-based authentication configuration. See `oauth` below.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if caller_iam_credentials is not None:
+            pulumi.set(__self__, "caller_iam_credentials", caller_iam_credentials)
         if gateway_iam_role is not None:
             pulumi.set(__self__, "gateway_iam_role", gateway_iam_role)
+        if jwt_passthrough is not None:
+            pulumi.set(__self__, "jwt_passthrough", jwt_passthrough)
         if oauth is not None:
             pulumi.set(__self__, "oauth", oauth)
 
@@ -12801,16 +12825,40 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationArgs:
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
+    @pulumi.getter(name="callerIamCredentials")
+    def caller_iam_credentials(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs']]:
+        """
+        Caller IAM credentials-based authentication configuration. See `caller_iam_credentials` below.
+        """
+        return pulumi.get(self, "caller_iam_credentials")
+
+    @caller_iam_credentials.setter
+    def caller_iam_credentials(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs']]):
+        pulumi.set(self, "caller_iam_credentials", value)
+
+    @_builtins.property
     @pulumi.getter(name="gatewayIamRole")
     def gateway_iam_role(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs']]:
         """
-        Use the gateway's IAM role for authentication. This is an empty configuration block.
+        Use the gateway's IAM role for authentication. See `gateway_iam_role` below.
         """
         return pulumi.get(self, "gateway_iam_role")
 
     @gateway_iam_role.setter
     def gateway_iam_role(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs']]):
         pulumi.set(self, "gateway_iam_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jwtPassthrough")
+    def jwt_passthrough(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs']]:
+        """
+        JWT passthrough-based authentication configuration. This is an empty configuration block.
+        """
+        return pulumi.get(self, "jwt_passthrough")
+
+    @jwt_passthrough.setter
+    def jwt_passthrough(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs']]):
+        pulumi.set(self, "jwt_passthrough", value)
 
     @_builtins.property
     @pulumi.getter
@@ -12913,11 +12961,108 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs:
         pulumi.set(self, "credential_prefix", value)
 
 
+class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgsDict(TypedDict):
+    service: pulumi.Input[_builtins.str]
+    """
+    The service name for the credentials.
+    """
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The AWS region for the credentials.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs:
+    def __init__(__self__, *,
+                 service: pulumi.Input[_builtins.str],
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] service: The service name for the credentials.
+        :param pulumi.Input[_builtins.str] region: The AWS region for the credentials.
+        """
+        pulumi.set(__self__, "service", service)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[_builtins.str]:
+        """
+        The service name for the credentials.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The AWS region for the credentials.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
+
 class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgsDict(TypedDict):
-    pass
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `service` is set.
+    """
+    service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gateway_iam_role {}`).
+    """
 
 @pulumi.input_type
 class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] region: AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `service` is set.
+        :param pulumi.Input[_builtins.str] service: The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gateway_iam_role {}`).
+        """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `service` is set.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gateway_iam_role {}`).
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service", value)
+
+
+class AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs:
     def __init__(__self__):
         pass
 
@@ -13105,6 +13250,10 @@ class AgentcoreGatewayTargetMetadataConfigurationArgs:
 
 
 class AgentcoreGatewayTargetTargetConfigurationArgsDict(TypedDict):
+    http: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpArgsDict']]]
+    """
+    HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+    """
     mcp: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpArgsDict']]]
     """
     Model Context Protocol (MCP) configuration. See `mcp` below.
@@ -13113,12 +13262,28 @@ class AgentcoreGatewayTargetTargetConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AgentcoreGatewayTargetTargetConfigurationArgs:
     def __init__(__self__, *,
+                 http: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpArgs']] = None,
                  mcp: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpArgs']] = None):
         """
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpArgs'] http: HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpArgs'] mcp: Model Context Protocol (MCP) configuration. See `mcp` below.
         """
+        if http is not None:
+            pulumi.set(__self__, "http", http)
         if mcp is not None:
             pulumi.set(__self__, "mcp", mcp)
+
+    @_builtins.property
+    @pulumi.getter
+    def http(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpArgs']]:
+        """
+        HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+        """
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpArgs']]):
+        pulumi.set(self, "http", value)
 
     @_builtins.property
     @pulumi.getter
@@ -13131,6 +13296,89 @@ class AgentcoreGatewayTargetTargetConfigurationArgs:
     @mcp.setter
     def mcp(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpArgs']]):
         pulumi.set(self, "mcp", value)
+
+
+class AgentcoreGatewayTargetTargetConfigurationHttpArgsDict(TypedDict):
+    agentcore_runtime: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgsDict']]]
+    """
+    AgentCore Runtime target configuration. See `agentcore_runtime` below.
+
+    > **Note:** HTTP targets can only be attached to gateways that do not have a `protocol_type` set. They are not supported on MCP-protocol gateways.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationHttpArgs:
+    def __init__(__self__, *,
+                 agentcore_runtime: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs'] agentcore_runtime: AgentCore Runtime target configuration. See `agentcore_runtime` below.
+               
+               > **Note:** HTTP targets can only be attached to gateways that do not have a `protocol_type` set. They are not supported on MCP-protocol gateways.
+        """
+        if agentcore_runtime is not None:
+            pulumi.set(__self__, "agentcore_runtime", agentcore_runtime)
+
+    @_builtins.property
+    @pulumi.getter(name="agentcoreRuntime")
+    def agentcore_runtime(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs']]:
+        """
+        AgentCore Runtime target configuration. See `agentcore_runtime` below.
+
+        > **Note:** HTTP targets can only be attached to gateways that do not have a `protocol_type` set. They are not supported on MCP-protocol gateways.
+        """
+        return pulumi.get(self, "agentcore_runtime")
+
+    @agentcore_runtime.setter
+    def agentcore_runtime(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs']]):
+        pulumi.set(self, "agentcore_runtime", value)
+
+
+class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the AgentCore Runtime agent that the gateway routes requests to.
+    """
+    qualifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Runtime qualifier identifying a specific endpoint version. Defaults to `DEFAULT` when not set.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str],
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] arn: ARN of the AgentCore Runtime agent that the gateway routes requests to.
+        :param pulumi.Input[_builtins.str] qualifier: Runtime qualifier identifying a specific endpoint version. Defaults to `DEFAULT` when not set.
+        """
+        pulumi.set(__self__, "arn", arn)
+        if qualifier is not None:
+            pulumi.set(__self__, "qualifier", qualifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the AgentCore Runtime agent that the gateway routes requests to.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Runtime qualifier identifying a specific endpoint version. Defaults to `DEFAULT` when not set.
+        """
+        return pulumi.get(self, "qualifier")
+
+    @qualifier.setter
+    def qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "qualifier", value)
 
 
 class AgentcoreGatewayTargetTargetConfigurationMcpArgsDict(TypedDict):

@@ -153,7 +153,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     declare public readonly autoAccept: pulumi.Output<boolean | undefined>;
     /**
      * The AWS account ID of the target peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+     * Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
      */
     declare public readonly peerOwnerId: pulumi.Output<string>;
     /**
@@ -255,7 +255,7 @@ export interface VpcPeeringConnectionState {
     autoAccept?: pulumi.Input<boolean | undefined>;
     /**
      * The AWS account ID of the target peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+     * Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
      */
     peerOwnerId?: pulumi.Input<string | undefined>;
     /**
@@ -305,7 +305,7 @@ export interface VpcPeeringConnectionArgs {
     autoAccept?: pulumi.Input<boolean | undefined>;
     /**
      * The AWS account ID of the target peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+     * Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
      */
     peerOwnerId?: pulumi.Input<string | undefined>;
     /**

@@ -1079,10 +1079,16 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Kinesis Firehose Delivery streams using the stream ARN. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) ARN of the delivery stream.
+ * 
+ * Using `pulumi import`, import Kinesis Firehose Delivery Streams using `arn`. For example:
  * 
  * ```sh
- * $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
+ * $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream example arn:aws:firehose:us-east-1:123456789012:deliverystream/example-delivery-stream
  * ```
  * 
  * Note: Import does not work for stream destination `s3`. Consider using `extendedS3` since `s3` destination is deprecated.

@@ -38,15 +38,22 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Kinesis Streams using the `name`. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) Name of the stream.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Kinesis Streams using `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
+ * $ pulumi import aws:kinesis/stream:Stream example example-stream
  * ```
- *
- * [1]: https://aws.amazon.com/documentation/kinesis/
- * [2]: https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html
- * [3]: https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
  */
 export class Stream extends pulumi.CustomResource {
     /**
@@ -77,7 +84,7 @@ export class Stream extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * The Amazon Resource Name (ARN) specifying the stream (same as `id`).
      */
     declare public readonly arn: pulumi.Output<string>;
     /**
@@ -109,8 +116,7 @@ export class Stream extends pulumi.CustomResource {
      */
     declare public readonly retentionPeriod: pulumi.Output<number | undefined>;
     /**
-     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      */
     declare public readonly shardCount: pulumi.Output<number | undefined>;
     /**
@@ -129,6 +135,10 @@ export class Stream extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Target warm throughput in MB/s that the stream should be scaled to handle.
+     */
+    declare public readonly warmThroughputMibPs: pulumi.Output<number | undefined>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -156,6 +166,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["streamModeDetails"] = state?.streamModeDetails;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["warmThroughputMibPs"] = state?.warmThroughputMibPs;
         } else {
             const args = argsOrState as StreamArgs | undefined;
             resourceInputs["arn"] = args?.arn;
@@ -170,6 +181,7 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["shardLevelMetrics"] = args?.shardLevelMetrics;
             resourceInputs["streamModeDetails"] = args?.streamModeDetails;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["warmThroughputMibPs"] = args?.warmThroughputMibPs;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -182,7 +194,7 @@ export class Stream extends pulumi.CustomResource {
  */
 export interface StreamState {
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * The Amazon Resource Name (ARN) specifying the stream (same as `id`).
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -214,8 +226,7 @@ export interface StreamState {
      */
     retentionPeriod?: pulumi.Input<number | undefined>;
     /**
-     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      */
     shardCount?: pulumi.Input<number | undefined>;
     /**
@@ -234,6 +245,10 @@ export interface StreamState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Target warm throughput in MB/s that the stream should be scaled to handle.
+     */
+    warmThroughputMibPs?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -241,7 +256,7 @@ export interface StreamState {
  */
 export interface StreamArgs {
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * The Amazon Resource Name (ARN) specifying the stream (same as `id`).
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -273,8 +288,7 @@ export interface StreamArgs {
      */
     retentionPeriod?: pulumi.Input<number | undefined>;
     /**
-     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      */
     shardCount?: pulumi.Input<number | undefined>;
     /**
@@ -289,4 +303,8 @@ export interface StreamArgs {
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Target warm throughput in MB/s that the stream should be scaled to handle.
+     */
+    warmThroughputMibPs?: pulumi.Input<number | undefined>;
 }

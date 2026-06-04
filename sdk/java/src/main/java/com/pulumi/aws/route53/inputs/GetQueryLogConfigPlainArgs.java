@@ -20,7 +20,7 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
     /**
      * One or more name/value pairs to use as filters. There are
      * several valid keys, for a full reference, check out
-     * [Route53resolver Filter value in the AWS API reference][1].
+     * [Route53resolver Filter value in the AWS API reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html).
      * 
      */
     @Import(name="filters")
@@ -29,7 +29,7 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
     /**
      * @return One or more name/value pairs to use as filters. There are
      * several valid keys, for a full reference, check out
-     * [Route53resolver Filter value in the AWS API reference][1].
+     * [Route53resolver Filter value in the AWS API reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html).
      * 
      */
     public Optional<List<GetQueryLogConfigFilter>> filters() {
@@ -127,7 +127,7 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
         /**
          * @param filters One or more name/value pairs to use as filters. There are
          * several valid keys, for a full reference, check out
-         * [Route53resolver Filter value in the AWS API reference][1].
+         * [Route53resolver Filter value in the AWS API reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html).
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class GetQueryLogConfigPlainArgs extends com.pulumi.resources.Invok
         /**
          * @param filters One or more name/value pairs to use as filters. There are
          * several valid keys, for a full reference, check out
-         * [Route53resolver Filter value in the AWS API reference][1].
+         * [Route53resolver Filter value in the AWS API reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html).
          * 
          * @return builder
          * 

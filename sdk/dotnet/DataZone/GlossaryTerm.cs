@@ -131,6 +131,18 @@ namespace Pulumi.Aws.DataZone
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `DomainIdentifier` - (String) Identifier of the DataZone domain.
+    /// * `Id` - (String) ID of the glossary term.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import DataZone Glossary Term using a comma-delimited string combining the `DomainIdentifier`, `Id`, and the `GlossaryIdentifier`. For example:
     /// 
     /// ```sh

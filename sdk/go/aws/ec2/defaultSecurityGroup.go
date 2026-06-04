@@ -19,7 +19,7 @@ import (
 //
 // This resource treats its inline rules as absolute; only the rules defined inline are created, and any additions/removals external to this resource will result in diff shown. For these reasons, this resource is incompatible with the `ec2.SecurityGroupRule` resource.
 //
-// For more information about default security groups, see the AWS documentation on [Default Security Groups][aws-default-security-groups]. To manage normal security groups, see the `ec2.SecurityGroup` resource.
+// For more information about default security groups, see the AWS documentation on [Default Security Groups](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html#default-security-group). To manage normal security groups, see the `ec2.SecurityGroup` resource.
 //
 // ## Example Usage
 //

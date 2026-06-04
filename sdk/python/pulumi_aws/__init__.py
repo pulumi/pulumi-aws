@@ -4992,6 +4992,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/localGatewayRouteTable",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/localGatewayRouteTable:LocalGatewayRouteTable": "LocalGatewayRouteTable"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/localGatewayRouteTableVirtualInterfaceGroupAssociation",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/localGatewayRouteTableVirtualInterfaceGroupAssociation:LocalGatewayRouteTableVirtualInterfaceGroupAssociation": "LocalGatewayRouteTableVirtualInterfaceGroupAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/localGatewayRouteTableVpcAssociation",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -7792,6 +7808,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "kinesis/accountSettings",
+  "fqn": "pulumi_aws.kinesis",
+  "classes": {
+   "aws:kinesis/accountSettings:AccountSettings": "AccountSettings"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "kinesis/analyticsApplication",
   "fqn": "pulumi_aws.kinesis",
   "classes": {
@@ -9756,6 +9780,14 @@ _utilities.register(
   "fqn": "pulumi_aws.pinpoint",
   "classes": {
    "aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet": "Smsvoicev2ConfigurationSet"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "pinpoint/smsvoicev2EventDestination",
+  "fqn": "pulumi_aws.pinpoint",
+  "classes": {
+   "aws:pinpoint/smsvoicev2EventDestination:Smsvoicev2EventDestination": "Smsvoicev2EventDestination"
   }
  },
  {

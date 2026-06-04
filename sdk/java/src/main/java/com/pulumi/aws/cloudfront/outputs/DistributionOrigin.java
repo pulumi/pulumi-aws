@@ -45,7 +45,7 @@ public final class DistributionOrigin {
      */
     private String domainName;
     /**
-     * @return Unique identifier of a [CloudFront origin access control][8] for this origin.
+     * @return Unique identifier of a CloudFront origin access control for this origin.
      * 
      */
     private @Nullable String originAccessControlId;
@@ -113,7 +113,7 @@ public final class DistributionOrigin {
         return this.domainName;
     }
     /**
-     * @return Unique identifier of a [CloudFront origin access control][8] for this origin.
+     * @return Unique identifier of a CloudFront origin access control for this origin.
      * 
      */
     public Optional<String> originAccessControlId() {

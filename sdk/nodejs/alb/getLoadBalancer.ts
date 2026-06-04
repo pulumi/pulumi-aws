@@ -83,6 +83,7 @@ export interface GetLoadBalancerResult {
     readonly enableCrossZoneLoadBalancing: boolean;
     readonly enableDeletionProtection: boolean;
     readonly enableHttp2: boolean;
+    readonly enablePrefixForIpv6SourceNat: string;
     readonly enableTlsVersionAndCipherSuiteHeaders: boolean;
     readonly enableWafFailOpen: boolean;
     readonly enableXffClientPort: boolean;

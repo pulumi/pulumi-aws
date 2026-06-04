@@ -273,7 +273,7 @@ type Eip struct {
 	//
 	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both.
 	// Including both will **not** return an error from the AWS API, but will have undefined behavior.
-	// See the relevant [AssociateAddress API Call][1] for more information.
+	// See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
 	//
 	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -355,7 +355,7 @@ type eipState struct {
 	//
 	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both.
 	// Including both will **not** return an error from the AWS API, but will have undefined behavior.
-	// See the relevant [AssociateAddress API Call][1] for more information.
+	// See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
 	//
 	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
 	Tags map[string]string `pulumi:"tags"`
@@ -408,7 +408,7 @@ type EipState struct {
 	//
 	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both.
 	// Including both will **not** return an error from the AWS API, but will have undefined behavior.
-	// See the relevant [AssociateAddress API Call][1] for more information.
+	// See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
 	//
 	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
 	Tags pulumi.StringMapInput
@@ -446,7 +446,7 @@ type eipArgs struct {
 	//
 	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both.
 	// Including both will **not** return an error from the AWS API, but will have undefined behavior.
-	// See the relevant [AssociateAddress API Call][1] for more information.
+	// See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
 	//
 	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
 	Tags map[string]string `pulumi:"tags"`
@@ -479,7 +479,7 @@ type EipArgs struct {
 	//
 	// > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both.
 	// Including both will **not** return an error from the AWS API, but will have undefined behavior.
-	// See the relevant [AssociateAddress API Call][1] for more information.
+	// See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
 	//
 	// > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
 	Tags pulumi.StringMapInput
@@ -676,7 +676,7 @@ func (o EipOutput) Region() pulumi.StringOutput {
 //
 // > **NOTE:** You can specify either the `instance` ID or the `networkInterface` ID, but not both.
 // Including both will **not** return an error from the AWS API, but will have undefined behavior.
-// See the relevant [AssociateAddress API Call][1] for more information.
+// See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
 //
 // > **NOTE:** Specifying both `publicIpv4Pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
 func (o EipOutput) Tags() pulumi.StringMapOutput {

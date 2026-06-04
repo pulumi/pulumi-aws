@@ -107,14 +107,14 @@ public class Group extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.path);
     }
     /**
-     * The [unique ID][1] assigned by AWS.
+     * The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      * 
      */
     @Export(name="uniqueId", refs={String.class}, tree="[0]")
     private Output<String> uniqueId;
 
     /**
-     * @return The [unique ID][1] assigned by AWS.
+     * @return The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      * 
      */
     public Output<String> uniqueId() {

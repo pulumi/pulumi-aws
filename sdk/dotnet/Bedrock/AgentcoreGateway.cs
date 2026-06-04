@@ -266,7 +266,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.AgentcoreGatewayProtocolConfiguration?> ProtocolConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol type for the gateway. Valid values: `MCP`.
+        /// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `aws.bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         /// </summary>
         [Output("protocolType")]
         public Output<string> ProtocolType { get; private set; } = null!;
@@ -407,10 +407,10 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.AgentcoreGatewayProtocolConfigurationArgs>? ProtocolConfiguration { get; set; }
 
         /// <summary>
-        /// Protocol type for the gateway. Valid values: `MCP`.
+        /// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `aws.bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         /// </summary>
-        [Input("protocolType", required: true)]
-        public Input<string> ProtocolType { get; set; } = null!;
+        [Input("protocolType")]
+        public Input<string>? ProtocolType { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -522,7 +522,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<Inputs.AgentcoreGatewayProtocolConfigurationGetArgs>? ProtocolConfiguration { get; set; }
 
         /// <summary>
-        /// Protocol type for the gateway. Valid values: `MCP`.
+        /// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `aws.bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         /// </summary>
         [Input("protocolType")]
         public Input<string>? ProtocolType { get; set; }

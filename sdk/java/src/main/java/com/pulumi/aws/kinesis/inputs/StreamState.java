@@ -21,14 +21,14 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
     public static final StreamState Empty = new StreamState();
 
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * The Amazon Resource Name (ARN) specifying the stream (same as `id`).
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * @return The Amazon Resource Name (ARN) specifying the stream (same as `id`).
      * 
      */
     public Optional<Output<String>> arn() {
@@ -141,16 +141,14 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      * 
      */
     @Import(name="shardCount")
     private @Nullable Output<Integer> shardCount;
 
     /**
-     * @return The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+     * @return The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      * 
      */
     public Optional<Output<Integer>> shardCount() {
@@ -217,6 +215,21 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Target warm throughput in MB/s that the stream should be scaled to handle.
+     * 
+     */
+    @Import(name="warmThroughputMibPs")
+    private @Nullable Output<Integer> warmThroughputMibPs;
+
+    /**
+     * @return Target warm throughput in MB/s that the stream should be scaled to handle.
+     * 
+     */
+    public Optional<Output<Integer>> warmThroughputMibPs() {
+        return Optional.ofNullable(this.warmThroughputMibPs);
+    }
+
     private StreamState() {}
 
     private StreamState(StreamState $) {
@@ -233,6 +246,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         this.streamModeDetails = $.streamModeDetails;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.warmThroughputMibPs = $.warmThroughputMibPs;
     }
 
     public static Builder builder() {
@@ -254,7 +268,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+         * @param arn The Amazon Resource Name (ARN) specifying the stream (same as `id`).
          * 
          * @return builder
          * 
@@ -265,7 +279,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+         * @param arn The Amazon Resource Name (ARN) specifying the stream (same as `id`).
          * 
          * @return builder
          * 
@@ -422,8 +436,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shardCount The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-         * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+         * @param shardCount The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
          * 
          * @return builder
          * 
@@ -434,8 +447,7 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param shardCount The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-         * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+         * @param shardCount The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
          * 
          * @return builder
          * 
@@ -536,6 +548,27 @@ public final class StreamState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param warmThroughputMibPs Target warm throughput in MB/s that the stream should be scaled to handle.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmThroughputMibPs(@Nullable Output<Integer> warmThroughputMibPs) {
+            $.warmThroughputMibPs = warmThroughputMibPs;
+            return this;
+        }
+
+        /**
+         * @param warmThroughputMibPs Target warm throughput in MB/s that the stream should be scaled to handle.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmThroughputMibPs(Integer warmThroughputMibPs) {
+            return warmThroughputMibPs(Output.of(warmThroughputMibPs));
         }
 
         public StreamState build() {

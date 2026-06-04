@@ -5361,7 +5361,7 @@ type DistributionOrigin struct {
 	CustomOriginConfig *DistributionOriginCustomOriginConfig `pulumi:"customOriginConfig"`
 	// Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
 	DomainName string `pulumi:"domainName"`
-	// Unique identifier of a [CloudFront origin access control][8] for this origin.
+	// Unique identifier of a CloudFront origin access control for this origin.
 	OriginAccessControlId *string `pulumi:"originAccessControlId"`
 	OriginId              string  `pulumi:"originId"`
 	// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
@@ -5398,7 +5398,7 @@ type DistributionOriginArgs struct {
 	CustomOriginConfig DistributionOriginCustomOriginConfigPtrInput `pulumi:"customOriginConfig"`
 	// Domain name corresponding to the distribution. For example: `d604721fxaaqy9.cloudfront.net`.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// Unique identifier of a [CloudFront origin access control][8] for this origin.
+	// Unique identifier of a CloudFront origin access control for this origin.
 	OriginAccessControlId pulumi.StringPtrInput `pulumi:"originAccessControlId"`
 	OriginId              pulumi.StringInput    `pulumi:"originId"`
 	// Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
@@ -5489,7 +5489,7 @@ func (o DistributionOriginOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOrigin) string { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// Unique identifier of a [CloudFront origin access control][8] for this origin.
+// Unique identifier of a CloudFront origin access control for this origin.
 func (o DistributionOriginOutput) OriginAccessControlId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DistributionOrigin) *string { return v.OriginAccessControlId }).(pulumi.StringPtrOutput)
 }
@@ -6757,7 +6757,7 @@ func (o DistributionRestrictionsPtrOutput) GeoRestriction() DistributionRestrict
 }
 
 type DistributionRestrictionsGeoRestriction struct {
-	// [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+	// [ISO 3166-1-alpha-2 codes](http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm) for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
 	Locations []string `pulumi:"locations"`
 	// Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
 	RestrictionType string `pulumi:"restrictionType"`
@@ -6775,7 +6775,7 @@ type DistributionRestrictionsGeoRestrictionInput interface {
 }
 
 type DistributionRestrictionsGeoRestrictionArgs struct {
-	// [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+	// [ISO 3166-1-alpha-2 codes](http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm) for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
 	Locations pulumi.StringArrayInput `pulumi:"locations"`
 	// Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
 	RestrictionType pulumi.StringInput `pulumi:"restrictionType"`
@@ -6858,7 +6858,7 @@ func (o DistributionRestrictionsGeoRestrictionOutput) ToDistributionRestrictions
 	}).(DistributionRestrictionsGeoRestrictionPtrOutput)
 }
 
-// [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+// [ISO 3166-1-alpha-2 codes](http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm) for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
 func (o DistributionRestrictionsGeoRestrictionOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionRestrictionsGeoRestriction) []string { return v.Locations }).(pulumi.StringArrayOutput)
 }
@@ -6892,7 +6892,7 @@ func (o DistributionRestrictionsGeoRestrictionPtrOutput) Elem() DistributionRest
 	}).(DistributionRestrictionsGeoRestrictionOutput)
 }
 
-// [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+// [ISO 3166-1-alpha-2 codes](http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm) for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
 func (o DistributionRestrictionsGeoRestrictionPtrOutput) Locations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DistributionRestrictionsGeoRestriction) []string {
 		if v == nil {

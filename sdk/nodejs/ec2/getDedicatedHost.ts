@@ -77,6 +77,14 @@ export interface GetDedicatedHostArgs {
  */
 export interface GetDedicatedHostResult {
     /**
+     * Time that the Dedicated Host was allocated, in RFC3339 format.
+     */
+    readonly allocationTime: string;
+    /**
+     * Whether the Dedicated Host supports multiple instance types of the same instance family. Valid values: `on`, `off`.
+     */
+    readonly allowsMultipleInstanceTypes: string;
+    /**
      * ARN of the Dedicated Host.
      */
     readonly arn: string;
@@ -93,15 +101,31 @@ export interface GetDedicatedHostResult {
      */
     readonly availabilityZone: string;
     /**
+     * AZ ID of the Availability Zone in which the Dedicated Host is allocated (e.g., `use1-az1`).
+     */
+    readonly availabilityZoneId: string;
+    /**
+     * The number of instances that can be launched onto the Dedicated Host based on the host's available capacity.
+     */
+    readonly availableCapacities: outputs.ec2.GetDedicatedHostAvailableCapacity[];
+    /**
      * Number of cores on the Dedicated Host.
      */
     readonly cores: number;
     readonly filters?: outputs.ec2.GetDedicatedHostFilter[];
     readonly hostId: string;
     /**
+     * Whether host maintenance is enabled or disabled for the Dedicated Host. Valid values: `on`, `off`.
+     */
+    readonly hostMaintenance: string;
+    /**
      * Whether host recovery is enabled or disabled for the Dedicated Host.
      */
     readonly hostRecovery: string;
+    /**
+     * The reservation ID of the Dedicated Host.
+     */
+    readonly hostReservationId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -111,22 +135,38 @@ export interface GetDedicatedHostResult {
      */
     readonly instanceFamily: string;
     /**
-     * Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
+     * The instance type of the running instance.
      */
     readonly instanceType: string;
+    /**
+     * The instances running on the Dedicated Host. See `instances` below.
+     */
+    readonly instances: outputs.ec2.GetDedicatedHostInstance[];
+    /**
+     * Whether the Dedicated Host is in a host resource group.
+     */
+    readonly memberOfServiceLinkedResourceGroup: boolean;
     /**
      * ARN of the AWS Outpost on which the Dedicated Host is allocated.
      */
     readonly outpostArn: string;
     /**
-     * ID of the AWS account that owns the Dedicated Host.
+     * The ID of the AWS account that owns the instance.
      */
     readonly ownerId: string;
     readonly region: string;
     /**
+     * Time that the Dedicated Host was released, in RFC3339 format.
+     */
+    readonly releaseTime: string;
+    /**
      * Number of sockets on the Dedicated Host.
      */
     readonly sockets: number;
+    /**
+     * Allocation state of the Dedicated Host. Valid values: `available`, `under-assessment`, `permanent-failure`, `released`, `released-permanent-failure`, `pending`.
+     */
+    readonly state: string;
     readonly tags: {[key: string]: string};
     /**
      * Total number of vCPUs on the Dedicated Host.

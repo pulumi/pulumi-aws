@@ -70,7 +70,7 @@ export interface GetAttachmentsResult {
      */
     readonly id: string;
     /**
-     * A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [aws.ec2transitgateway.getAttachment][2] data source, searching by identifier.
+     * A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the aws.ec2transitgateway.getAttachment data source, searching by identifier.
      */
     readonly ids: string[];
     readonly region: string;

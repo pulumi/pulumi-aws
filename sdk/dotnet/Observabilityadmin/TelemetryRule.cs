@@ -12,7 +12,9 @@ namespace Pulumi.Aws.Observabilityadmin
     /// <summary>
     /// Manages an AWS CloudWatch Observability Admin Telemetry Rule.
     /// 
-    /// &gt; **NOTE:** Before using this resource, telemetry evaluation must be enabled for your AWS account. You can use the `aws.observabilityadmin.TelemetryEvaluation` or `aws.observabilityadmin.TelemetryEvaluationForOrganization` resource to enable it.
+    /// A telemetry rule defines how telemetry data (logs, metrics, or traces) should be collected for AWS resources within an AWS account. The rule can target one or more Regions and optionally configure a destination (such as CloudWatch Logs or S3) along with source-specific parameters for VPC flow logs, WAF logs, CloudTrail events, ELB access logs, and more.
+    /// 
+    /// &gt; **NOTE:** Before using this resource, telemetry evaluation must be enabled for your AWS account. Use the `aws.observabilityadmin.TelemetryEvaluation` resource to enable it.
     /// 
     /// ## Example Usage
     /// 
@@ -47,6 +49,165 @@ namespace Pulumi.Aws.Observabilityadmin
     /// });
     /// ```
     /// 
+    /// ### VPC Flow Logs to CloudWatch Logs
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Observabilityadmin.TelemetryEvaluation("example");
+    /// 
+    ///     var exampleTelemetryRule = new Aws.Observabilityadmin.TelemetryRule("example", new()
+    ///     {
+    ///         RuleName = "vpc-flow-logs-rule",
+    ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleArgs
+    ///         {
+    ///             TelemetryType = "Logs",
+    ///             ResourceType = "AWS::EC2::VPC",
+    ///             TelemetrySourceTypes = new[]
+    ///             {
+    ///                 "VPC_FLOW_LOGS",
+    ///             },
+    ///             AllRegions = true,
+    ///             AllowFieldUpdates = true,
+    ///             DestinationConfiguration = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationArgs
+    ///             {
+    ///                 DestinationType = "cloud-watch-logs",
+    ///                 DestinationPattern = "/aws/vpcflowlogs/&lt;resourceId&gt;",
+    ///                 RetentionInDays = 30,
+    ///                 VpcFlowLogParameters = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs
+    ///                 {
+    ///                     TrafficType = "ALL",
+    ///                     MaxAggregationInterval = 60,
+    ///                 },
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Replicated Across Specific Regions
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Observabilityadmin.TelemetryEvaluation("example");
+    /// 
+    ///     var exampleTelemetryRule = new Aws.Observabilityadmin.TelemetryRule("example", new()
+    ///     {
+    ///         RuleName = "multi-region-rule",
+    ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleArgs
+    ///         {
+    ///             TelemetryType = "Logs",
+    ///             ResourceType = "AWS::EKS::Cluster",
+    ///             Regions = new[]
+    ///             {
+    ///                 "us-east-1",
+    ///                 "us-west-2",
+    ///                 "eu-west-1",
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### WAF Logging with Filters and Redacted Fields
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Observabilityadmin.TelemetryEvaluation("example");
+    /// 
+    ///     var exampleTelemetryRule = new Aws.Observabilityadmin.TelemetryRule("example", new()
+    ///     {
+    ///         RuleName = "waf-logs-rule",
+    ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleArgs
+    ///         {
+    ///             TelemetryType = "Logs",
+    ///             ResourceType = "AWS::WAFv2::WebACL",
+    ///             DestinationConfiguration = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationArgs
+    ///             {
+    ///                 DestinationType = "cloud-watch-logs",
+    ///                 DestinationPattern = "aws-waf-logs-&lt;resourceId&gt;",
+    ///                 RetentionInDays = 30,
+    ///                 WafLoggingParameters = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs
+    ///                 {
+    ///                     LogType = "WAF_LOGS",
+    ///                     LoggingFilter = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs
+    ///                     {
+    ///                         DefaultBehavior = "KEEP",
+    ///                         Filters = new[]
+    ///                         {
+    ///                             new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs
+    ///                             {
+    ///                                 Behavior = "DROP",
+    ///                                 Requirement = "MEETS_ANY",
+    ///                                 Conditions = new[]
+    ///                                 {
+    ///                                     new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs
+    ///                                     {
+    ///                                         ActionCondition = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs
+    ///                                         {
+    ///                                             Action = "ALLOW",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     RedactedFields = new[]
+    ///                     {
+    ///                         new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs
+    ///                         {
+    ///                             QueryString = "",
+    ///                             SingleHeader = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs
+    ///                             {
+    ///                                 Name = "authorization",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             example,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### With Tags
     /// 
     /// ```csharp
@@ -61,7 +222,7 @@ namespace Pulumi.Aws.Observabilityadmin
     /// 
     ///     var exampleTelemetryRule = new Aws.Observabilityadmin.TelemetryRule("example", new()
     ///     {
-    ///         RuleName = "vpc-logs-rule",
+    ///         RuleName = "tagged-rule",
     ///         Rule = new Aws.Observabilityadmin.Inputs.TelemetryRuleRuleArgs
     ///         {
     ///             TelemetryType = "Logs",
@@ -106,13 +267,13 @@ namespace Pulumi.Aws.Observabilityadmin
     public partial class TelemetryRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// AWS region. If not specified, the provider region is used.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for the telemetry rule. See rule below.
+        /// Configuration block for the telemetry rule. See `Rule` below.
         /// </summary>
         [Output("rule")]
         public Output<Outputs.TelemetryRuleRule> Rule { get; private set; } = null!;
@@ -124,13 +285,15 @@ namespace Pulumi.Aws.Observabilityadmin
         public Output<string> RuleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+        /// Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("ruleName")]
         public Output<string> RuleName { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -191,19 +354,21 @@ namespace Pulumi.Aws.Observabilityadmin
     public sealed class TelemetryRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS region. If not specified, the provider region is used.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block for the telemetry rule. See rule below.
+        /// Configuration block for the telemetry rule. See `Rule` below.
         /// </summary>
         [Input("rule", required: true)]
         public Input<Inputs.TelemetryRuleRuleArgs> Rule { get; set; } = null!;
 
         /// <summary>
-        /// Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+        /// Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("ruleName", required: true)]
         public Input<string> RuleName { get; set; } = null!;
@@ -212,7 +377,7 @@ namespace Pulumi.Aws.Observabilityadmin
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -232,13 +397,13 @@ namespace Pulumi.Aws.Observabilityadmin
     public sealed class TelemetryRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS region. If not specified, the provider region is used.
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Configuration block for the telemetry rule. See rule below.
+        /// Configuration block for the telemetry rule. See `Rule` below.
         /// </summary>
         [Input("rule")]
         public Input<Inputs.TelemetryRuleRuleGetArgs>? Rule { get; set; }
@@ -250,7 +415,9 @@ namespace Pulumi.Aws.Observabilityadmin
         public Input<string>? RuleArn { get; set; }
 
         /// <summary>
-        /// Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+        /// Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
@@ -259,7 +426,7 @@ namespace Pulumi.Aws.Observabilityadmin
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

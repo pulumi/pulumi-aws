@@ -657,6 +657,9 @@ class Certificate(pulumi.CustomResource):
 
         Domain validation through email is also supported but should be avoided as it requires a manual step outside of this provider.
 
+        It's recommended to specify `create_before_destroy = true` in a lifecycle block to replace a certificate
+        which is currently in use (eg, by `lb.Listener`).
+
         ## Certificates Imported from Other Certificate Authority
 
         Imported certificates can be used to make certificates created with an external certificate authority available for AWS services.
@@ -818,6 +821,9 @@ class Certificate(pulumi.CustomResource):
         deploy the required validation records and wait for validation to complete.
 
         Domain validation through email is also supported but should be avoided as it requires a manual step outside of this provider.
+
+        It's recommended to specify `create_before_destroy = true` in a lifecycle block to replace a certificate
+        which is currently in use (eg, by `lb.Listener`).
 
         ## Certificates Imported from Other Certificate Authority
 

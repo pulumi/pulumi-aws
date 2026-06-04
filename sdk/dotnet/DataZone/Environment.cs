@@ -56,6 +56,18 @@ namespace Pulumi.Aws.DataZone
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `DomainIdentifier` - (String) Identifier of the DataZone domain.
+    /// * `Id` - (String) ID of the environment.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import DataZone Environment using the `domain_idntifier,id`. For example:
     /// 
     /// ```sh

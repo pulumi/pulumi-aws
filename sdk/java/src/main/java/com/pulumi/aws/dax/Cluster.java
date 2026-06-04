@@ -66,8 +66,6 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
  * ```
  * 
- * [1]: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
- * 
  */
 @ResourceType(type="aws:dax/cluster:Cluster")
 public class Cluster extends com.pulumi.resources.CustomResource {

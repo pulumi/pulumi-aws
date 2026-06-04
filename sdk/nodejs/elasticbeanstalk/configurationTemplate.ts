@@ -94,7 +94,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
     declare public readonly settings: pulumi.Output<outputs.elasticbeanstalk.ConfigurationTemplateSetting[]>;
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     declare public readonly solutionStackName: pulumi.Output<string | undefined>;
 
@@ -168,7 +168,7 @@ export interface ConfigurationTemplateState {
     settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[] | undefined>;
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     solutionStackName?: pulumi.Input<string | undefined>;
 }
@@ -205,7 +205,7 @@ export interface ConfigurationTemplateArgs {
     settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[] | undefined>;
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     solutionStackName?: pulumi.Input<string | undefined>;
 }

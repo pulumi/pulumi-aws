@@ -86,7 +86,7 @@ func GetInstances(ctx *pulumi.Context, args *GetInstancesArgs, opts ...pulumi.In
 type GetInstancesArgs struct {
 	// One or more filters to apply to the search.
 	// If multiple `filter` blocks are provided, they all must be true.
-	// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+	// For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
 	// See `filter` Block below.
 	Filters []GetInstancesFilter `pulumi:"filters"`
 	// List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
@@ -129,7 +129,7 @@ func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts .
 type GetInstancesOutputArgs struct {
 	// One or more filters to apply to the search.
 	// If multiple `filter` blocks are provided, they all must be true.
-	// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+	// For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
 	// See `filter` Block below.
 	Filters GetInstancesFilterArrayInput `pulumi:"filters"`
 	// List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.

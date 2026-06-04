@@ -49,7 +49,7 @@ export interface GetResourcePolicyResult {
      */
     readonly id: string;
     /**
-     * The [policy][1] for the resource.
+     * The policy for the resource.
      */
     readonly policy: string;
     readonly region: string;

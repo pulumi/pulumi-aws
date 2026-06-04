@@ -22,7 +22,6 @@ __all__ = ['AgentcoreGatewayArgs', 'AgentcoreGateway']
 class AgentcoreGatewayArgs:
     def __init__(__self__, *,
                  authorizer_type: pulumi.Input[_builtins.str],
-                 protocol_type: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[_builtins.str],
                  authorizer_configuration: pulumi.Input[Optional['AgentcoreGatewayAuthorizerConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -31,6 +30,7 @@ class AgentcoreGatewayArgs:
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_configuration: pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationArgs']] = None,
+                 protocol_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['AgentcoreGatewayTimeoutsArgs']] = None):
@@ -38,7 +38,6 @@ class AgentcoreGatewayArgs:
         The set of arguments for constructing a AgentcoreGateway resource.
 
         :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizer_configuration` block is required.
-        :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the gateway assumes to access AWS services.
                
                The following arguments are optional:
@@ -49,11 +48,11 @@ class AgentcoreGatewayArgs:
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
         :param pulumi.Input[_builtins.str] name: Name of the gateway.
         :param pulumi.Input['AgentcoreGatewayProtocolConfigurationArgs'] protocol_configuration: Protocol-specific configuration for the gateway. See `protocol_configuration` below.
+        :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "authorizer_type", authorizer_type)
-        pulumi.set(__self__, "protocol_type", protocol_type)
         pulumi.set(__self__, "role_arn", role_arn)
         if authorizer_configuration is not None:
             pulumi.set(__self__, "authorizer_configuration", authorizer_configuration)
@@ -69,6 +68,8 @@ class AgentcoreGatewayArgs:
             pulumi.set(__self__, "name", name)
         if protocol_configuration is not None:
             pulumi.set(__self__, "protocol_configuration", protocol_configuration)
+        if protocol_type is not None:
+            pulumi.set(__self__, "protocol_type", protocol_type)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -87,18 +88,6 @@ class AgentcoreGatewayArgs:
     @authorizer_type.setter
     def authorizer_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "authorizer_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="protocolType")
-    def protocol_type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Protocol type for the gateway. Valid values: `MCP`.
-        """
-        return pulumi.get(self, "protocol_type")
-
-    @protocol_type.setter
-    def protocol_type(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "protocol_type", value)
 
     @_builtins.property
     @pulumi.getter(name="roleArn")
@@ -199,6 +188,18 @@ class AgentcoreGatewayArgs:
         pulumi.set(self, "protocol_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="protocolType")
+    def protocol_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
+        """
+        return pulumi.get(self, "protocol_type")
+
+    @protocol_type.setter
+    def protocol_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "protocol_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -267,7 +268,7 @@ class _AgentcoreGatewayState:
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
         :param pulumi.Input[_builtins.str] name: Name of the gateway.
         :param pulumi.Input['AgentcoreGatewayProtocolConfigurationArgs'] protocol_configuration: Protocol-specific configuration for the gateway. See `protocol_configuration` below.
-        :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`.
+        :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the gateway assumes to access AWS services.
                
@@ -449,7 +450,7 @@ class _AgentcoreGatewayState:
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Protocol type for the gateway. Valid values: `MCP`.
+        Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         """
         return pulumi.get(self, "protocol_type")
 
@@ -680,7 +681,7 @@ class AgentcoreGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
         :param pulumi.Input[_builtins.str] name: Name of the gateway.
         :param pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']] protocol_configuration: Protocol-specific configuration for the gateway. See `protocol_configuration` below.
-        :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`.
+        :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the gateway assumes to access AWS services.
                
@@ -861,8 +862,6 @@ class AgentcoreGateway(pulumi.CustomResource):
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["protocol_configuration"] = protocol_configuration
-            if protocol_type is None and not opts.urn:
-                raise TypeError("Missing required property 'protocol_type'")
             __props__.__dict__["protocol_type"] = protocol_type
             __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
@@ -921,7 +920,7 @@ class AgentcoreGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt the gateway data.
         :param pulumi.Input[_builtins.str] name: Name of the gateway.
         :param pulumi.Input[Union['AgentcoreGatewayProtocolConfigurationArgs', 'AgentcoreGatewayProtocolConfigurationArgsDict']] protocol_configuration: Protocol-specific configuration for the gateway. See `protocol_configuration` below.
-        :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`.
+        :param pulumi.Input[_builtins.str] protocol_type: Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that the gateway assumes to access AWS services.
                
@@ -1046,7 +1045,7 @@ class AgentcoreGateway(pulumi.CustomResource):
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Protocol type for the gateway. Valid values: `MCP`.
+        Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         """
         return pulumi.get(self, "protocol_type")
 

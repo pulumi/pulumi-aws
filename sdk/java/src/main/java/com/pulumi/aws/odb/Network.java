@@ -192,6 +192,20 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
+     * A list of EC2 placement group IDs associated with the ODB network.
+     * 
+     */
+    @Export(name="ec2PlacementGroupIds", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> ec2PlacementGroupIds;
+
+    /**
+     * @return A list of EC2 placement group IDs associated with the ODB network.
+     * 
+     */
+    public Output<List<String>> ec2PlacementGroupIds() {
+        return this.ec2PlacementGroupIds;
+    }
+    /**
      * Specifies the configuration for KMS access from the ODB network.
      * 
      */

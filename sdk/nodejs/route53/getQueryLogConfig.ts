@@ -58,7 +58,7 @@ export interface GetQueryLogConfigArgs {
     /**
      * One or more name/value pairs to use as filters. There are
      * several valid keys, for a full reference, check out
-     * [Route53resolver Filter value in the AWS API reference][1].
+     * [Route53resolver Filter value in the AWS API reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html).
      */
     filters?: inputs.route53.GetQueryLogConfigFilter[];
     /**
@@ -166,7 +166,7 @@ export interface GetQueryLogConfigOutputArgs {
     /**
      * One or more name/value pairs to use as filters. There are
      * several valid keys, for a full reference, check out
-     * [Route53resolver Filter value in the AWS API reference][1].
+     * [Route53resolver Filter value in the AWS API reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html).
      */
     filters?: pulumi.Input<pulumi.Input<inputs.route53.GetQueryLogConfigFilterArgs>[] | undefined>;
     /**

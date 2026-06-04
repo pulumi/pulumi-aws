@@ -21,7 +21,7 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * One or more name/value pairs to filter off of. There are
      * several valid keys, for a full reference, check out
-     * [describe-volumes in the AWS CLI reference][1].
+     * [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html).
      * 
      */
     @Import(name="filters")
@@ -30,7 +30,7 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
     /**
      * @return One or more name/value pairs to filter off of. There are
      * several valid keys, for a full reference, check out
-     * [describe-volumes in the AWS CLI reference][1].
+     * [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html).
      * 
      */
     public Optional<List<GetVolumeFilter>> filters() {
@@ -114,7 +114,7 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters One or more name/value pairs to filter off of. There are
          * several valid keys, for a full reference, check out
-         * [describe-volumes in the AWS CLI reference][1].
+         * [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html).
          * 
          * @return builder
          * 
@@ -127,7 +127,7 @@ public final class GetVolumePlainArgs extends com.pulumi.resources.InvokeArgs {
         /**
          * @param filters One or more name/value pairs to filter off of. There are
          * several valid keys, for a full reference, check out
-         * [describe-volumes in the AWS CLI reference][1].
+         * [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html).
          * 
          * @return builder
          * 

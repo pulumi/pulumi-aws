@@ -56,19 +56,26 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Kinesis Streams using the `name`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` (String) Name of the stream.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Kinesis Streams using `name`. For example:
 //
 // ```sh
-// $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
+// $ pulumi import aws:kinesis/stream:Stream example example-stream
 // ```
-//
-// [1]: https://aws.amazon.com/documentation/kinesis/
-// [2]: https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html
-// [3]: https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
 type Stream struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+	// The Amazon Resource Name (ARN) specifying the stream (same as `id`).
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType pulumi.StringPtrOutput `pulumi:"encryptionType"`
@@ -84,8 +91,7 @@ type Stream struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
-	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
 	ShardCount pulumi.IntPtrOutput `pulumi:"shardCount"`
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayOutput `pulumi:"shardLevelMetrics"`
@@ -95,6 +101,8 @@ type Stream struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Target warm throughput in MB/s that the stream should be scaled to handle.
+	WarmThroughputMibPs pulumi.IntPtrOutput `pulumi:"warmThroughputMibPs"`
 }
 
 // NewStream registers a new resource with the given unique name, arguments, and options.
@@ -127,7 +135,7 @@ func GetStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Stream resources.
 type streamState struct {
-	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+	// The Amazon Resource Name (ARN) specifying the stream (same as `id`).
 	Arn *string `pulumi:"arn"`
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType *string `pulumi:"encryptionType"`
@@ -143,8 +151,7 @@ type streamState struct {
 	Region *string `pulumi:"region"`
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
-	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
 	ShardCount *int `pulumi:"shardCount"`
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics []string `pulumi:"shardLevelMetrics"`
@@ -154,10 +161,12 @@ type streamState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Target warm throughput in MB/s that the stream should be scaled to handle.
+	WarmThroughputMibPs *int `pulumi:"warmThroughputMibPs"`
 }
 
 type StreamState struct {
-	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+	// The Amazon Resource Name (ARN) specifying the stream (same as `id`).
 	Arn pulumi.StringPtrInput
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType pulumi.StringPtrInput
@@ -173,8 +182,7 @@ type StreamState struct {
 	Region pulumi.StringPtrInput
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod pulumi.IntPtrInput
-	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
 	ShardCount pulumi.IntPtrInput
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayInput
@@ -184,6 +192,8 @@ type StreamState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
+	// Target warm throughput in MB/s that the stream should be scaled to handle.
+	WarmThroughputMibPs pulumi.IntPtrInput
 }
 
 func (StreamState) ElementType() reflect.Type {
@@ -191,7 +201,7 @@ func (StreamState) ElementType() reflect.Type {
 }
 
 type streamArgs struct {
-	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+	// The Amazon Resource Name (ARN) specifying the stream (same as `id`).
 	Arn *string `pulumi:"arn"`
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType *string `pulumi:"encryptionType"`
@@ -207,8 +217,7 @@ type streamArgs struct {
 	Region *string `pulumi:"region"`
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
-	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
 	ShardCount *int `pulumi:"shardCount"`
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics []string `pulumi:"shardLevelMetrics"`
@@ -216,11 +225,13 @@ type streamArgs struct {
 	StreamModeDetails *StreamStreamModeDetails `pulumi:"streamModeDetails"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Target warm throughput in MB/s that the stream should be scaled to handle.
+	WarmThroughputMibPs *int `pulumi:"warmThroughputMibPs"`
 }
 
 // The set of arguments for constructing a Stream resource.
 type StreamArgs struct {
-	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+	// The Amazon Resource Name (ARN) specifying the stream (same as `id`).
 	Arn pulumi.StringPtrInput
 	// The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
 	EncryptionType pulumi.StringPtrInput
@@ -236,8 +247,7 @@ type StreamArgs struct {
 	Region pulumi.StringPtrInput
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod pulumi.IntPtrInput
-	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
 	ShardCount pulumi.IntPtrInput
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayInput
@@ -245,6 +255,8 @@ type StreamArgs struct {
 	StreamModeDetails StreamStreamModeDetailsPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Target warm throughput in MB/s that the stream should be scaled to handle.
+	WarmThroughputMibPs pulumi.IntPtrInput
 }
 
 func (StreamArgs) ElementType() reflect.Type {
@@ -334,7 +346,7 @@ func (o StreamOutput) ToStreamOutputWithContext(ctx context.Context) StreamOutpu
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+// The Amazon Resource Name (ARN) specifying the stream (same as `id`).
 func (o StreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -374,8 +386,7 @@ func (o StreamOutput) RetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Stream) pulumi.IntPtrOutput { return v.RetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
-// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
 func (o StreamOutput) ShardCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Stream) pulumi.IntPtrOutput { return v.ShardCount }).(pulumi.IntPtrOutput)
 }
@@ -398,6 +409,11 @@ func (o StreamOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o StreamOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Stream) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Target warm throughput in MB/s that the stream should be scaled to handle.
+func (o StreamOutput) WarmThroughputMibPs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Stream) pulumi.IntPtrOutput { return v.WarmThroughputMibPs }).(pulumi.IntPtrOutput)
 }
 
 type StreamArrayOutput struct{ *pulumi.OutputState }

@@ -226,7 +226,7 @@ def get_resolver_endpoint(filters: Optional[Sequence[Union['GetResolverEndpointF
 
     :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
-           [Route53resolver Filter value in the AWS API reference][1].
+           [Route53resolver Filter value in the AWS API reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
     """
@@ -283,7 +283,7 @@ def get_resolver_endpoint_output(filters: pulumi.Input[Optional[Optional[Sequenc
 
     :param Sequence[Union['GetResolverEndpointFilterArgs', 'GetResolverEndpointFilterArgsDict']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
-           [Route53resolver Filter value in the AWS API reference][1].
+           [Route53resolver Filter value in the AWS API reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html).
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str resolver_endpoint_id: ID of the Route53 Resolver Endpoint.
     """

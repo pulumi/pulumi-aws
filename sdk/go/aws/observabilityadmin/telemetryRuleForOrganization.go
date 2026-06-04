@@ -12,11 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS CloudWatch Observability Admin Telemetry Rule for Organization.
+// Manages an AWS CloudWatch Observability Admin Telemetry Rule for an AWS Organization.
 //
-// > **NOTE:** Before using this resource, telemetry evaluation for organization must be enabled for your AWS organization. You can use the `observabilityadmin.TelemetryEvaluationForOrganization` resource to enable it.
+// An organization-wide telemetry rule defines how telemetry data (logs, metrics, or traces) should be collected for AWS resources across the accounts in your organization. The rule can target one or more Regions and configure a destination (such as CloudWatch Logs or S3) along with source-specific parameters for VPC flow logs, WAF logs, CloudTrail events, ELB access logs, and more.
 //
-// > **NOTE:** This resource can only be used in the organization management account.
+// > **NOTE:** Before using this resource, telemetry evaluation for organization must be enabled. Use the `observabilityadmin.TelemetryEvaluationForOrganization` resource to enable it.
+//
+// > **NOTE:** This resource can only be used from the organization management account.
 //
 // ## Example Usage
 //
@@ -56,6 +58,103 @@ import (
 //
 // ```
 //
+// ### VPC Flow Logs to CloudWatch Logs
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/observabilityadmin"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := observabilityadmin.NewTelemetryEvaluationForOrganization(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = observabilityadmin.NewTelemetryRuleForOrganization(ctx, "example", &observabilityadmin.TelemetryRuleForOrganizationArgs{
+//				RuleName: pulumi.String("org-vpc-flow-logs-rule"),
+//				Rule: &observabilityadmin.TelemetryRuleForOrganizationRuleArgs{
+//					TelemetryType: pulumi.String("Logs"),
+//					ResourceType:  pulumi.String("AWS::EC2::VPC"),
+//					TelemetrySourceTypes: pulumi.StringArray{
+//						pulumi.String("VPC_FLOW_LOGS"),
+//					},
+//					AllRegions:        pulumi.Bool(true),
+//					AllowFieldUpdates: pulumi.Bool(true),
+//					DestinationConfiguration: &observabilityadmin.TelemetryRuleForOrganizationRuleDestinationConfigurationArgs{
+//						DestinationType:    pulumi.String("cloud-watch-logs"),
+//						DestinationPattern: pulumi.String("/aws/vpcflowlogs/<resourceId>"),
+//						RetentionInDays:    pulumi.Int(30),
+//						VpcFlowLogParameters: &observabilityadmin.TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs{
+//							TrafficType:            pulumi.String("ALL"),
+//							MaxAggregationInterval: pulumi.Int(60),
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Scoped to Specific Organizational Units
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/observabilityadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := organizations.LookupOrganization(ctx, &organizations.LookupOrganizationArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := observabilityadmin.NewTelemetryEvaluationForOrganization(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = observabilityadmin.NewTelemetryRuleForOrganization(ctx, "example", &observabilityadmin.TelemetryRuleForOrganizationArgs{
+//				RuleName: pulumi.String("org-scoped-rule"),
+//				Rule: &observabilityadmin.TelemetryRuleForOrganizationRuleArgs{
+//					TelemetryType:     pulumi.String("Logs"),
+//					ResourceType:      pulumi.String("AWS::EKS::Cluster"),
+//					Scope:             pulumi.Sprintf("OrganizationId = '%v'", current.Id),
+//					SelectionCriteria: pulumi.String("ResourceTags.Environment = 'production'"),
+//					Regions: pulumi.StringArray{
+//						pulumi.String("us-east-1"),
+//						pulumi.String("us-west-2"),
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### With Tags
 //
 // ```go
@@ -75,7 +174,7 @@ import (
 //				return err
 //			}
 //			_, err = observabilityadmin.NewTelemetryRuleForOrganization(ctx, "example", &observabilityadmin.TelemetryRuleForOrganizationArgs{
-//				RuleName: pulumi.String("vpc-logs-org-rule"),
+//				RuleName: pulumi.String("org-tagged-rule"),
 //				Rule: &observabilityadmin.TelemetryRuleForOrganizationRuleArgs{
 //					TelemetryType: pulumi.String("Logs"),
 //					ResourceType:  pulumi.String("AWS::EC2::VPC"),
@@ -117,15 +216,17 @@ import (
 type TelemetryRuleForOrganization struct {
 	pulumi.CustomResourceState
 
-	// AWS region. If not specified, the provider region is used.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block for the telemetry rule. See `rule` Block below.
+	// Configuration block for the organization telemetry rule. See `rule` below.
 	Rule TelemetryRuleForOrganizationRuleOutput `pulumi:"rule"`
-	// ARN of the telemetry rule for organization.
+	// ARN of the organization telemetry rule.
 	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
-	// Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+	// Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+	//
+	// The following arguments are optional:
 	RuleName pulumi.StringOutput `pulumi:"ruleName"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput                        `pulumi:"tagsAll"`
@@ -168,15 +269,17 @@ func GetTelemetryRuleForOrganization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TelemetryRuleForOrganization resources.
 type telemetryRuleForOrganizationState struct {
-	// AWS region. If not specified, the provider region is used.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration block for the telemetry rule. See `rule` Block below.
+	// Configuration block for the organization telemetry rule. See `rule` below.
 	Rule *TelemetryRuleForOrganizationRule `pulumi:"rule"`
-	// ARN of the telemetry rule for organization.
+	// ARN of the organization telemetry rule.
 	RuleArn *string `pulumi:"ruleArn"`
-	// Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+	// Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+	//
+	// The following arguments are optional:
 	RuleName *string `pulumi:"ruleName"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string                     `pulumi:"tagsAll"`
@@ -184,15 +287,17 @@ type telemetryRuleForOrganizationState struct {
 }
 
 type TelemetryRuleForOrganizationState struct {
-	// AWS region. If not specified, the provider region is used.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration block for the telemetry rule. See `rule` Block below.
+	// Configuration block for the organization telemetry rule. See `rule` below.
 	Rule TelemetryRuleForOrganizationRulePtrInput
-	// ARN of the telemetry rule for organization.
+	// ARN of the organization telemetry rule.
 	RuleArn pulumi.StringPtrInput
-	// Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+	// Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+	//
+	// The following arguments are optional:
 	RuleName pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
@@ -204,26 +309,30 @@ func (TelemetryRuleForOrganizationState) ElementType() reflect.Type {
 }
 
 type telemetryRuleForOrganizationArgs struct {
-	// AWS region. If not specified, the provider region is used.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration block for the telemetry rule. See `rule` Block below.
+	// Configuration block for the organization telemetry rule. See `rule` below.
 	Rule TelemetryRuleForOrganizationRule `pulumi:"rule"`
-	// Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+	// Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+	//
+	// The following arguments are optional:
 	RuleName string `pulumi:"ruleName"`
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string                     `pulumi:"tags"`
 	Timeouts *TelemetryRuleForOrganizationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a TelemetryRuleForOrganization resource.
 type TelemetryRuleForOrganizationArgs struct {
-	// AWS region. If not specified, the provider region is used.
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration block for the telemetry rule. See `rule` Block below.
+	// Configuration block for the organization telemetry rule. See `rule` below.
 	Rule TelemetryRuleForOrganizationRuleInput
-	// Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+	// Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+	//
+	// The following arguments are optional:
 	RuleName pulumi.StringInput
-	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts TelemetryRuleForOrganizationTimeoutsPtrInput
 }
@@ -315,27 +424,29 @@ func (o TelemetryRuleForOrganizationOutput) ToTelemetryRuleForOrganizationOutput
 	return o
 }
 
-// AWS region. If not specified, the provider region is used.
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o TelemetryRuleForOrganizationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TelemetryRuleForOrganization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block for the telemetry rule. See `rule` Block below.
+// Configuration block for the organization telemetry rule. See `rule` below.
 func (o TelemetryRuleForOrganizationOutput) Rule() TelemetryRuleForOrganizationRuleOutput {
 	return o.ApplyT(func(v *TelemetryRuleForOrganization) TelemetryRuleForOrganizationRuleOutput { return v.Rule }).(TelemetryRuleForOrganizationRuleOutput)
 }
 
-// ARN of the telemetry rule for organization.
+// ARN of the organization telemetry rule.
 func (o TelemetryRuleForOrganizationOutput) RuleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TelemetryRuleForOrganization) pulumi.StringOutput { return v.RuleArn }).(pulumi.StringOutput)
 }
 
-// Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+// Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+//
+// The following arguments are optional:
 func (o TelemetryRuleForOrganizationOutput) RuleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TelemetryRuleForOrganization) pulumi.StringOutput { return v.RuleName }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o TelemetryRuleForOrganizationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TelemetryRuleForOrganization) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

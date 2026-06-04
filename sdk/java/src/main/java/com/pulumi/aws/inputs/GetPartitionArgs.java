@@ -16,8 +16,7 @@ public final class GetPartitionArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetPartitionArgs Empty = new GetPartitionArgs();
 
     /**
-     * (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * Use `partition` instead.
+     * (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China). Use `partition` instead.
      * 
      * @deprecated
      * Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.
@@ -28,8 +27,7 @@ public final class GetPartitionArgs extends com.pulumi.resources.InvokeArgs {
     private @Nullable Output<String> id;
 
     /**
-     * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * Use `partition` instead.
+     * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China). Use `partition` instead.
      * 
      * @deprecated
      * Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.
@@ -65,8 +63,7 @@ public final class GetPartitionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-         * Use `partition` instead.
+         * @param id (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China). Use `partition` instead.
          * 
          * @return builder
          * 
@@ -81,8 +78,7 @@ public final class GetPartitionArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param id (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-         * Use `partition` instead.
+         * @param id (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China). Use `partition` instead.
          * 
          * @return builder
          * 

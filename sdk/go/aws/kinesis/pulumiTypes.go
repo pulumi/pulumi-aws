@@ -13,6 +13,219 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AccountSettingsMinimumThroughputBillingCommitment struct {
+	// Earliest timestamp when the commitment can be ended.
+	EarliestAllowedEndAt *string `pulumi:"earliestAllowedEndAt"`
+	// Timestamp when the commitment was ended.
+	EndedAt *string `pulumi:"endedAt"`
+	// Timestamp when the commitment was started.
+	StartedAt *string `pulumi:"startedAt"`
+	// Desired status of the minimum throughput billing commitment. Valid values: `ENABLED`, `DISABLED`.
+	Status string `pulumi:"status"`
+	// Current status of the minimum throughput billing commitment. Values: `ENABLED`, `DISABLED`, `ENABLED_UNTIL_EARLIEST_ALLOWED_END`.
+	StatusActual *string `pulumi:"statusActual"`
+}
+
+// AccountSettingsMinimumThroughputBillingCommitmentInput is an input type that accepts AccountSettingsMinimumThroughputBillingCommitmentArgs and AccountSettingsMinimumThroughputBillingCommitmentOutput values.
+// You can construct a concrete instance of `AccountSettingsMinimumThroughputBillingCommitmentInput` via:
+//
+//	AccountSettingsMinimumThroughputBillingCommitmentArgs{...}
+type AccountSettingsMinimumThroughputBillingCommitmentInput interface {
+	pulumi.Input
+
+	ToAccountSettingsMinimumThroughputBillingCommitmentOutput() AccountSettingsMinimumThroughputBillingCommitmentOutput
+	ToAccountSettingsMinimumThroughputBillingCommitmentOutputWithContext(context.Context) AccountSettingsMinimumThroughputBillingCommitmentOutput
+}
+
+type AccountSettingsMinimumThroughputBillingCommitmentArgs struct {
+	// Earliest timestamp when the commitment can be ended.
+	EarliestAllowedEndAt pulumi.StringPtrInput `pulumi:"earliestAllowedEndAt"`
+	// Timestamp when the commitment was ended.
+	EndedAt pulumi.StringPtrInput `pulumi:"endedAt"`
+	// Timestamp when the commitment was started.
+	StartedAt pulumi.StringPtrInput `pulumi:"startedAt"`
+	// Desired status of the minimum throughput billing commitment. Valid values: `ENABLED`, `DISABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Current status of the minimum throughput billing commitment. Values: `ENABLED`, `DISABLED`, `ENABLED_UNTIL_EARLIEST_ALLOWED_END`.
+	StatusActual pulumi.StringPtrInput `pulumi:"statusActual"`
+}
+
+func (AccountSettingsMinimumThroughputBillingCommitmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSettingsMinimumThroughputBillingCommitment)(nil)).Elem()
+}
+
+func (i AccountSettingsMinimumThroughputBillingCommitmentArgs) ToAccountSettingsMinimumThroughputBillingCommitmentOutput() AccountSettingsMinimumThroughputBillingCommitmentOutput {
+	return i.ToAccountSettingsMinimumThroughputBillingCommitmentOutputWithContext(context.Background())
+}
+
+func (i AccountSettingsMinimumThroughputBillingCommitmentArgs) ToAccountSettingsMinimumThroughputBillingCommitmentOutputWithContext(ctx context.Context) AccountSettingsMinimumThroughputBillingCommitmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSettingsMinimumThroughputBillingCommitmentOutput)
+}
+
+func (i AccountSettingsMinimumThroughputBillingCommitmentArgs) ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutput() AccountSettingsMinimumThroughputBillingCommitmentPtrOutput {
+	return i.ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutputWithContext(context.Background())
+}
+
+func (i AccountSettingsMinimumThroughputBillingCommitmentArgs) ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutputWithContext(ctx context.Context) AccountSettingsMinimumThroughputBillingCommitmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSettingsMinimumThroughputBillingCommitmentOutput).ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutputWithContext(ctx)
+}
+
+// AccountSettingsMinimumThroughputBillingCommitmentPtrInput is an input type that accepts AccountSettingsMinimumThroughputBillingCommitmentArgs, AccountSettingsMinimumThroughputBillingCommitmentPtr and AccountSettingsMinimumThroughputBillingCommitmentPtrOutput values.
+// You can construct a concrete instance of `AccountSettingsMinimumThroughputBillingCommitmentPtrInput` via:
+//
+//	        AccountSettingsMinimumThroughputBillingCommitmentArgs{...}
+//
+//	or:
+//
+//	        nil
+type AccountSettingsMinimumThroughputBillingCommitmentPtrInput interface {
+	pulumi.Input
+
+	ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutput() AccountSettingsMinimumThroughputBillingCommitmentPtrOutput
+	ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutputWithContext(context.Context) AccountSettingsMinimumThroughputBillingCommitmentPtrOutput
+}
+
+type accountSettingsMinimumThroughputBillingCommitmentPtrType AccountSettingsMinimumThroughputBillingCommitmentArgs
+
+func AccountSettingsMinimumThroughputBillingCommitmentPtr(v *AccountSettingsMinimumThroughputBillingCommitmentArgs) AccountSettingsMinimumThroughputBillingCommitmentPtrInput {
+	return (*accountSettingsMinimumThroughputBillingCommitmentPtrType)(v)
+}
+
+func (*accountSettingsMinimumThroughputBillingCommitmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountSettingsMinimumThroughputBillingCommitment)(nil)).Elem()
+}
+
+func (i *accountSettingsMinimumThroughputBillingCommitmentPtrType) ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutput() AccountSettingsMinimumThroughputBillingCommitmentPtrOutput {
+	return i.ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutputWithContext(context.Background())
+}
+
+func (i *accountSettingsMinimumThroughputBillingCommitmentPtrType) ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutputWithContext(ctx context.Context) AccountSettingsMinimumThroughputBillingCommitmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountSettingsMinimumThroughputBillingCommitmentPtrOutput)
+}
+
+type AccountSettingsMinimumThroughputBillingCommitmentOutput struct{ *pulumi.OutputState }
+
+func (AccountSettingsMinimumThroughputBillingCommitmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountSettingsMinimumThroughputBillingCommitment)(nil)).Elem()
+}
+
+func (o AccountSettingsMinimumThroughputBillingCommitmentOutput) ToAccountSettingsMinimumThroughputBillingCommitmentOutput() AccountSettingsMinimumThroughputBillingCommitmentOutput {
+	return o
+}
+
+func (o AccountSettingsMinimumThroughputBillingCommitmentOutput) ToAccountSettingsMinimumThroughputBillingCommitmentOutputWithContext(ctx context.Context) AccountSettingsMinimumThroughputBillingCommitmentOutput {
+	return o
+}
+
+func (o AccountSettingsMinimumThroughputBillingCommitmentOutput) ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutput() AccountSettingsMinimumThroughputBillingCommitmentPtrOutput {
+	return o.ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutputWithContext(context.Background())
+}
+
+func (o AccountSettingsMinimumThroughputBillingCommitmentOutput) ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutputWithContext(ctx context.Context) AccountSettingsMinimumThroughputBillingCommitmentPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountSettingsMinimumThroughputBillingCommitment) *AccountSettingsMinimumThroughputBillingCommitment {
+		return &v
+	}).(AccountSettingsMinimumThroughputBillingCommitmentPtrOutput)
+}
+
+// Earliest timestamp when the commitment can be ended.
+func (o AccountSettingsMinimumThroughputBillingCommitmentOutput) EarliestAllowedEndAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountSettingsMinimumThroughputBillingCommitment) *string { return v.EarliestAllowedEndAt }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the commitment was ended.
+func (o AccountSettingsMinimumThroughputBillingCommitmentOutput) EndedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountSettingsMinimumThroughputBillingCommitment) *string { return v.EndedAt }).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the commitment was started.
+func (o AccountSettingsMinimumThroughputBillingCommitmentOutput) StartedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountSettingsMinimumThroughputBillingCommitment) *string { return v.StartedAt }).(pulumi.StringPtrOutput)
+}
+
+// Desired status of the minimum throughput billing commitment. Valid values: `ENABLED`, `DISABLED`.
+func (o AccountSettingsMinimumThroughputBillingCommitmentOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountSettingsMinimumThroughputBillingCommitment) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Current status of the minimum throughput billing commitment. Values: `ENABLED`, `DISABLED`, `ENABLED_UNTIL_EARLIEST_ALLOWED_END`.
+func (o AccountSettingsMinimumThroughputBillingCommitmentOutput) StatusActual() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountSettingsMinimumThroughputBillingCommitment) *string { return v.StatusActual }).(pulumi.StringPtrOutput)
+}
+
+type AccountSettingsMinimumThroughputBillingCommitmentPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountSettingsMinimumThroughputBillingCommitmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountSettingsMinimumThroughputBillingCommitment)(nil)).Elem()
+}
+
+func (o AccountSettingsMinimumThroughputBillingCommitmentPtrOutput) ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutput() AccountSettingsMinimumThroughputBillingCommitmentPtrOutput {
+	return o
+}
+
+func (o AccountSettingsMinimumThroughputBillingCommitmentPtrOutput) ToAccountSettingsMinimumThroughputBillingCommitmentPtrOutputWithContext(ctx context.Context) AccountSettingsMinimumThroughputBillingCommitmentPtrOutput {
+	return o
+}
+
+func (o AccountSettingsMinimumThroughputBillingCommitmentPtrOutput) Elem() AccountSettingsMinimumThroughputBillingCommitmentOutput {
+	return o.ApplyT(func(v *AccountSettingsMinimumThroughputBillingCommitment) AccountSettingsMinimumThroughputBillingCommitment {
+		if v != nil {
+			return *v
+		}
+		var ret AccountSettingsMinimumThroughputBillingCommitment
+		return ret
+	}).(AccountSettingsMinimumThroughputBillingCommitmentOutput)
+}
+
+// Earliest timestamp when the commitment can be ended.
+func (o AccountSettingsMinimumThroughputBillingCommitmentPtrOutput) EarliestAllowedEndAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountSettingsMinimumThroughputBillingCommitment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EarliestAllowedEndAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the commitment was ended.
+func (o AccountSettingsMinimumThroughputBillingCommitmentPtrOutput) EndedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountSettingsMinimumThroughputBillingCommitment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// Timestamp when the commitment was started.
+func (o AccountSettingsMinimumThroughputBillingCommitmentPtrOutput) StartedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountSettingsMinimumThroughputBillingCommitment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartedAt
+	}).(pulumi.StringPtrOutput)
+}
+
+// Desired status of the minimum throughput billing commitment. Valid values: `ENABLED`, `DISABLED`.
+func (o AccountSettingsMinimumThroughputBillingCommitmentPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountSettingsMinimumThroughputBillingCommitment) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Current status of the minimum throughput billing commitment. Values: `ENABLED`, `DISABLED`, `ENABLED_UNTIL_EARLIEST_ALLOWED_END`.
+func (o AccountSettingsMinimumThroughputBillingCommitmentPtrOutput) StatusActual() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountSettingsMinimumThroughputBillingCommitment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StatusActual
+	}).(pulumi.StringPtrOutput)
+}
+
 type AnalyticsApplicationCloudwatchLoggingOptions struct {
 	// The ARN of the Kinesis Analytics Application.
 	Id *string `pulumi:"id"`
@@ -22826,7 +23039,115 @@ func (o GetStreamStreamModeDetailArrayOutput) Index(i pulumi.IntInput) GetStream
 	}).(GetStreamStreamModeDetailOutput)
 }
 
+type GetStreamWarmThroughput struct {
+	// Current warm throughput value on the stream.
+	CurrentMibPs int `pulumi:"currentMibPs"`
+	// Target warm throughput value on the stream.
+	TargetMibPs int `pulumi:"targetMibPs"`
+}
+
+// GetStreamWarmThroughputInput is an input type that accepts GetStreamWarmThroughputArgs and GetStreamWarmThroughputOutput values.
+// You can construct a concrete instance of `GetStreamWarmThroughputInput` via:
+//
+//	GetStreamWarmThroughputArgs{...}
+type GetStreamWarmThroughputInput interface {
+	pulumi.Input
+
+	ToGetStreamWarmThroughputOutput() GetStreamWarmThroughputOutput
+	ToGetStreamWarmThroughputOutputWithContext(context.Context) GetStreamWarmThroughputOutput
+}
+
+type GetStreamWarmThroughputArgs struct {
+	// Current warm throughput value on the stream.
+	CurrentMibPs pulumi.IntInput `pulumi:"currentMibPs"`
+	// Target warm throughput value on the stream.
+	TargetMibPs pulumi.IntInput `pulumi:"targetMibPs"`
+}
+
+func (GetStreamWarmThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStreamWarmThroughput)(nil)).Elem()
+}
+
+func (i GetStreamWarmThroughputArgs) ToGetStreamWarmThroughputOutput() GetStreamWarmThroughputOutput {
+	return i.ToGetStreamWarmThroughputOutputWithContext(context.Background())
+}
+
+func (i GetStreamWarmThroughputArgs) ToGetStreamWarmThroughputOutputWithContext(ctx context.Context) GetStreamWarmThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStreamWarmThroughputOutput)
+}
+
+// GetStreamWarmThroughputArrayInput is an input type that accepts GetStreamWarmThroughputArray and GetStreamWarmThroughputArrayOutput values.
+// You can construct a concrete instance of `GetStreamWarmThroughputArrayInput` via:
+//
+//	GetStreamWarmThroughputArray{ GetStreamWarmThroughputArgs{...} }
+type GetStreamWarmThroughputArrayInput interface {
+	pulumi.Input
+
+	ToGetStreamWarmThroughputArrayOutput() GetStreamWarmThroughputArrayOutput
+	ToGetStreamWarmThroughputArrayOutputWithContext(context.Context) GetStreamWarmThroughputArrayOutput
+}
+
+type GetStreamWarmThroughputArray []GetStreamWarmThroughputInput
+
+func (GetStreamWarmThroughputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStreamWarmThroughput)(nil)).Elem()
+}
+
+func (i GetStreamWarmThroughputArray) ToGetStreamWarmThroughputArrayOutput() GetStreamWarmThroughputArrayOutput {
+	return i.ToGetStreamWarmThroughputArrayOutputWithContext(context.Background())
+}
+
+func (i GetStreamWarmThroughputArray) ToGetStreamWarmThroughputArrayOutputWithContext(ctx context.Context) GetStreamWarmThroughputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetStreamWarmThroughputArrayOutput)
+}
+
+type GetStreamWarmThroughputOutput struct{ *pulumi.OutputState }
+
+func (GetStreamWarmThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetStreamWarmThroughput)(nil)).Elem()
+}
+
+func (o GetStreamWarmThroughputOutput) ToGetStreamWarmThroughputOutput() GetStreamWarmThroughputOutput {
+	return o
+}
+
+func (o GetStreamWarmThroughputOutput) ToGetStreamWarmThroughputOutputWithContext(ctx context.Context) GetStreamWarmThroughputOutput {
+	return o
+}
+
+// Current warm throughput value on the stream.
+func (o GetStreamWarmThroughputOutput) CurrentMibPs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStreamWarmThroughput) int { return v.CurrentMibPs }).(pulumi.IntOutput)
+}
+
+// Target warm throughput value on the stream.
+func (o GetStreamWarmThroughputOutput) TargetMibPs() pulumi.IntOutput {
+	return o.ApplyT(func(v GetStreamWarmThroughput) int { return v.TargetMibPs }).(pulumi.IntOutput)
+}
+
+type GetStreamWarmThroughputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetStreamWarmThroughputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetStreamWarmThroughput)(nil)).Elem()
+}
+
+func (o GetStreamWarmThroughputArrayOutput) ToGetStreamWarmThroughputArrayOutput() GetStreamWarmThroughputArrayOutput {
+	return o
+}
+
+func (o GetStreamWarmThroughputArrayOutput) ToGetStreamWarmThroughputArrayOutputWithContext(ctx context.Context) GetStreamWarmThroughputArrayOutput {
+	return o
+}
+
+func (o GetStreamWarmThroughputArrayOutput) Index(i pulumi.IntInput) GetStreamWarmThroughputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetStreamWarmThroughput {
+		return vs[0].([]GetStreamWarmThroughput)[vs[1].(int)]
+	}).(GetStreamWarmThroughputOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountSettingsMinimumThroughputBillingCommitmentInput)(nil)).Elem(), AccountSettingsMinimumThroughputBillingCommitmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountSettingsMinimumThroughputBillingCommitmentPtrInput)(nil)).Elem(), AccountSettingsMinimumThroughputBillingCommitmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsApplicationCloudwatchLoggingOptionsInput)(nil)).Elem(), AnalyticsApplicationCloudwatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsApplicationCloudwatchLoggingOptionsPtrInput)(nil)).Elem(), AnalyticsApplicationCloudwatchLoggingOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalyticsApplicationInputsInput)(nil)).Elem(), AnalyticsApplicationInputsArgs{})
@@ -23070,6 +23391,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamStreamModeDetailsPtrInput)(nil)).Elem(), StreamStreamModeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStreamStreamModeDetailInput)(nil)).Elem(), GetStreamStreamModeDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStreamStreamModeDetailArrayInput)(nil)).Elem(), GetStreamStreamModeDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStreamWarmThroughputInput)(nil)).Elem(), GetStreamWarmThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetStreamWarmThroughputArrayInput)(nil)).Elem(), GetStreamWarmThroughputArray{})
+	pulumi.RegisterOutputType(AccountSettingsMinimumThroughputBillingCommitmentOutput{})
+	pulumi.RegisterOutputType(AccountSettingsMinimumThroughputBillingCommitmentPtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsApplicationCloudwatchLoggingOptionsOutput{})
 	pulumi.RegisterOutputType(AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsApplicationInputsOutput{})
@@ -23313,4 +23638,6 @@ func init() {
 	pulumi.RegisterOutputType(StreamStreamModeDetailsPtrOutput{})
 	pulumi.RegisterOutputType(GetStreamStreamModeDetailOutput{})
 	pulumi.RegisterOutputType(GetStreamStreamModeDetailArrayOutput{})
+	pulumi.RegisterOutputType(GetStreamWarmThroughputOutput{})
+	pulumi.RegisterOutputType(GetStreamWarmThroughputArrayOutput{})
 }

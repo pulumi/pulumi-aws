@@ -28,6 +28,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `domainIdentifier` - (String) Identifier of the DataZone domain.
+ * * `name` - (String) Name of the asset type.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import DataZone Asset Type using the `domain_identifier,name`. For example:
  *
  * ```sh

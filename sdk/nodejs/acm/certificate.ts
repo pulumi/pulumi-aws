@@ -30,6 +30,9 @@ import * as utilities from "../utilities";
  *
  * Domain validation through email is also supported but should be avoided as it requires a manual step outside of this provider.
  *
+ * It's recommended to specify `createBeforeDestroy = true` in a lifecycle block to replace a certificate
+ * which is currently in use (eg, by `aws.lb.Listener`).
+ *
  * ## Certificates Imported from Other Certificate Authority
  *
  * Imported certificates can be used to make certificates created with an external certificate authority available for AWS services.

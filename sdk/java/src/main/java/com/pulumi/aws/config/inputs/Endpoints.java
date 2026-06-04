@@ -785,6 +785,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String interconnect;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String internetmonitor;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2655,6 +2660,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> interconnect() {
+        return Optional.ofNullable(this.interconnect);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> internetmonitor() {
         return Optional.ofNullable(this.internetmonitor);
     }
@@ -3921,6 +3933,7 @@ public final class Endpoints {
         private @Nullable String inspector;
         private @Nullable String inspector2;
         private @Nullable String inspectorv2;
+        private @Nullable String interconnect;
         private @Nullable String internetmonitor;
         private @Nullable String invoicing;
         private @Nullable String iot;
@@ -4236,6 +4249,7 @@ public final class Endpoints {
     	      this.inspector = defaults.inspector;
     	      this.inspector2 = defaults.inspector2;
     	      this.inspectorv2 = defaults.inspectorv2;
+    	      this.interconnect = defaults.interconnect;
     	      this.internetmonitor = defaults.internetmonitor;
     	      this.invoicing = defaults.invoicing;
     	      this.iot = defaults.iot;
@@ -5318,6 +5332,12 @@ public final class Endpoints {
         public Builder inspectorv2(@Nullable String inspectorv2) {
 
             this.inspectorv2 = inspectorv2;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder interconnect(@Nullable String interconnect) {
+
+            this.interconnect = interconnect;
             return this;
         }
         @CustomType.Setter
@@ -6424,6 +6444,7 @@ public final class Endpoints {
             _resultValue.inspector = inspector;
             _resultValue.inspector2 = inspector2;
             _resultValue.inspectorv2 = inspectorv2;
+            _resultValue.interconnect = interconnect;
             _resultValue.internetmonitor = internetmonitor;
             _resultValue.invoicing = invoicing;
             _resultValue.iot = iot;

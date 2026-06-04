@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the [aws.ec2transitgateway.getAttachment][2] data source, searching by identifier.
+        /// A list of all attachments ids matching the filter. You can retrieve more information about the attachment using the aws.ec2transitgateway.getAttachment data source, searching by identifier.
         /// </summary>
         public readonly ImmutableArray<string> Ids;
         public readonly string Region;

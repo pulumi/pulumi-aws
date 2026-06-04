@@ -300,8 +300,6 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
  * ```
  * 
- * [1]: http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
- * 
  */
 @ResourceType(type="aws:codedeploy/deploymentGroup:DeploymentGroup")
 public class DeploymentGroup extends com.pulumi.resources.CustomResource {

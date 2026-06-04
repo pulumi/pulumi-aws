@@ -61,6 +61,11 @@ public final class GetNetworkResult {
      */
     private String displayName;
     /**
+     * @return A list of EC2 placement group IDs associated with the ODB network.
+     * 
+     */
+    private List<String> ec2PlacementGroupIds;
+    /**
      * @return Unique identifier of the odb network resource.
      * 
      */
@@ -184,6 +189,13 @@ public final class GetNetworkResult {
         return this.displayName;
     }
     /**
+     * @return A list of EC2 placement group IDs associated with the ODB network.
+     * 
+     */
+    public List<String> ec2PlacementGroupIds() {
+        return this.ec2PlacementGroupIds;
+    }
+    /**
      * @return Unique identifier of the odb network resource.
      * 
      */
@@ -288,6 +300,7 @@ public final class GetNetworkResult {
         private String customDomainName;
         private String defaultDnsPrefix;
         private String displayName;
+        private List<String> ec2PlacementGroupIds;
         private String id;
         private List<GetNetworkManagedService> managedServices;
         private List<GetNetworkOciDnsForwardingConfig> ociDnsForwardingConfigs;
@@ -314,6 +327,7 @@ public final class GetNetworkResult {
     	      this.customDomainName = defaults.customDomainName;
     	      this.defaultDnsPrefix = defaults.defaultDnsPrefix;
     	      this.displayName = defaults.displayName;
+    	      this.ec2PlacementGroupIds = defaults.ec2PlacementGroupIds;
     	      this.id = defaults.id;
     	      this.managedServices = defaults.managedServices;
     	      this.ociDnsForwardingConfigs = defaults.ociDnsForwardingConfigs;
@@ -401,6 +415,17 @@ public final class GetNetworkResult {
             }
             this.displayName = displayName;
             return this;
+        }
+        @CustomType.Setter
+        public Builder ec2PlacementGroupIds(List<String> ec2PlacementGroupIds) {
+            if (ec2PlacementGroupIds == null) {
+              throw new MissingRequiredPropertyException("GetNetworkResult", "ec2PlacementGroupIds");
+            }
+            this.ec2PlacementGroupIds = ec2PlacementGroupIds;
+            return this;
+        }
+        public Builder ec2PlacementGroupIds(String... ec2PlacementGroupIds) {
+            return ec2PlacementGroupIds(List.of(ec2PlacementGroupIds));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -534,6 +559,7 @@ public final class GetNetworkResult {
             _resultValue.customDomainName = customDomainName;
             _resultValue.defaultDnsPrefix = defaultDnsPrefix;
             _resultValue.displayName = displayName;
+            _resultValue.ec2PlacementGroupIds = ec2PlacementGroupIds;
             _resultValue.id = id;
             _resultValue.managedServices = managedServices;
             _resultValue.ociDnsForwardingConfigs = ociDnsForwardingConfigs;

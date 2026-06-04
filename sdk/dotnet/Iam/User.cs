@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Iam
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The [unique ID][1] assigned by AWS.
+        /// The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         /// </summary>
         [Output("uniqueId")]
         public Output<string> UniqueId { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Iam
         }
 
         /// <summary>
-        /// The [unique ID][1] assigned by AWS.
+        /// The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         /// </summary>
         [Input("uniqueId")]
         public Input<string>? UniqueId { get; set; }

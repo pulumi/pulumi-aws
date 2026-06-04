@@ -139,8 +139,7 @@ namespace Pulumi.Aws
     public sealed class GetPartitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (**Deprecated**) Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China).
-        /// Use `Partition` instead.
+        /// (**Deprecated**) Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China). Use `Partition` instead.
         /// </summary>
         [Input("id")]
         public string? Id { get; set; }
@@ -154,8 +153,7 @@ namespace Pulumi.Aws
     public sealed class GetPartitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// (**Deprecated**) Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China).
-        /// Use `Partition` instead.
+        /// (**Deprecated**) Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China). Use `Partition` instead.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -175,8 +173,7 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string DnsSuffix;
         /// <summary>
-        /// (**Deprecated**) Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China).
-        /// Use `Partition` instead.
+        /// (**Deprecated**) Identifier of the current partition (e.g., `Aws` in AWS Commercial, `aws-cn` in AWS China). Use `Partition` instead.
         /// </summary>
         public readonly string Id;
         /// <summary>

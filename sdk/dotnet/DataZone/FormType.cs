@@ -141,6 +141,19 @@ namespace Pulumi.Aws.DataZone
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `DomainIdentifier` - (String) Identifier of the DataZone domain.
+    /// * `Name` - (String) Name of the form type.
+    /// * `Revision` - (String) Revision of the form type.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import DataZone Form Type using a comma separated value of `DomainIdentifier`,`Name`,`Revision`. For example:
     /// 
     /// ```sh

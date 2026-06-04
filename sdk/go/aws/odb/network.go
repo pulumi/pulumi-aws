@@ -48,6 +48,8 @@ type Network struct {
 	DeleteAssociatedResources pulumi.BoolOutput `pulumi:"deleteAssociatedResources"`
 	// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// A list of EC2 placement group IDs associated with the ODB network.
+	Ec2PlacementGroupIds pulumi.StringArrayOutput `pulumi:"ec2PlacementGroupIds"`
 	// Specifies the configuration for KMS access from the ODB network.
 	KmsAccess pulumi.StringOutput `pulumi:"kmsAccess"`
 	// Specifies the endpoint policy for KMS access from the ODB network.
@@ -164,6 +166,8 @@ type networkState struct {
 	DeleteAssociatedResources *bool `pulumi:"deleteAssociatedResources"`
 	// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
 	DisplayName *string `pulumi:"displayName"`
+	// A list of EC2 placement group IDs associated with the ODB network.
+	Ec2PlacementGroupIds []string `pulumi:"ec2PlacementGroupIds"`
 	// Specifies the configuration for KMS access from the ODB network.
 	KmsAccess *string `pulumi:"kmsAccess"`
 	// Specifies the endpoint policy for KMS access from the ODB network.
@@ -233,6 +237,8 @@ type NetworkState struct {
 	DeleteAssociatedResources pulumi.BoolPtrInput
 	// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
 	DisplayName pulumi.StringPtrInput
+	// A list of EC2 placement group IDs associated with the ODB network.
+	Ec2PlacementGroupIds pulumi.StringArrayInput
 	// Specifies the configuration for KMS access from the ODB network.
 	KmsAccess pulumi.StringPtrInput
 	// Specifies the endpoint policy for KMS access from the ODB network.
@@ -508,6 +514,11 @@ func (o NetworkOutput) DeleteAssociatedResources() pulumi.BoolOutput {
 // The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
 func (o NetworkOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// A list of EC2 placement group IDs associated with the ODB network.
+func (o NetworkOutput) Ec2PlacementGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringArrayOutput { return v.Ec2PlacementGroupIds }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the configuration for KMS access from the ODB network.

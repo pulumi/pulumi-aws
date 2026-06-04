@@ -36,7 +36,7 @@ import (
 //			cfg := config.New(ctx, "")
 //			var awsEc2LocalGatewayRouteTable interface{}
 //			cfg.RequireObject("awsEc2LocalGatewayRouteTable", &awsEc2LocalGatewayRouteTable)
-//			_, err := ec2.GetLocalGatewayRouteTable(ctx, &ec2.GetLocalGatewayRouteTableArgs{
+//			_, err := ec2.LookupLocalGatewayRouteTable(ctx, &ec2.LookupLocalGatewayRouteTableArgs{
 //				LocalGatewayRouteTableId: pulumi.StringRef(awsEc2LocalGatewayRouteTable),
 //			}, nil)
 //			if err != nil {
@@ -47,9 +47,9 @@ import (
 //	}
 //
 // ```
-func GetLocalGatewayRouteTable(ctx *pulumi.Context, args *GetLocalGatewayRouteTableArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayRouteTableResult, error) {
+func LookupLocalGatewayRouteTable(ctx *pulumi.Context, args *LookupLocalGatewayRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupLocalGatewayRouteTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetLocalGatewayRouteTableResult
+	var rv LookupLocalGatewayRouteTableResult
 	err := ctx.Invoke("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -58,7 +58,7 @@ func GetLocalGatewayRouteTable(ctx *pulumi.Context, args *GetLocalGatewayRouteTa
 }
 
 // A collection of arguments for invoking getLocalGatewayRouteTable.
-type GetLocalGatewayRouteTableArgs struct {
+type LookupLocalGatewayRouteTableArgs struct {
 	Filters []GetLocalGatewayRouteTableFilter `pulumi:"filters"`
 	// ID of the specific local gateway route table to retrieve.
 	LocalGatewayId *string `pulumi:"localGatewayId"`
@@ -80,7 +80,7 @@ type GetLocalGatewayRouteTableArgs struct {
 }
 
 // A collection of values returned by getLocalGatewayRouteTable.
-type GetLocalGatewayRouteTableResult struct {
+type LookupLocalGatewayRouteTableResult struct {
 	Filters []GetLocalGatewayRouteTableFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                       string            `pulumi:"id"`
@@ -92,17 +92,17 @@ type GetLocalGatewayRouteTableResult struct {
 	Tags                     map[string]string `pulumi:"tags"`
 }
 
-func GetLocalGatewayRouteTableOutput(ctx *pulumi.Context, args GetLocalGatewayRouteTableOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewayRouteTableResultOutput {
+func LookupLocalGatewayRouteTableOutput(ctx *pulumi.Context, args LookupLocalGatewayRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGatewayRouteTableResultOutput {
 	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLocalGatewayRouteTableResultOutput, error) {
-			args := v.(GetLocalGatewayRouteTableArgs)
+		ApplyT(func(v interface{}) (LookupLocalGatewayRouteTableResultOutput, error) {
+			args := v.(LookupLocalGatewayRouteTableArgs)
 			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args, GetLocalGatewayRouteTableResultOutput{}, options).(GetLocalGatewayRouteTableResultOutput), nil
-		}).(GetLocalGatewayRouteTableResultOutput)
+			return ctx.InvokeOutput("aws:ec2/getLocalGatewayRouteTable:getLocalGatewayRouteTable", args, LookupLocalGatewayRouteTableResultOutput{}, options).(LookupLocalGatewayRouteTableResultOutput), nil
+		}).(LookupLocalGatewayRouteTableResultOutput)
 }
 
 // A collection of arguments for invoking getLocalGatewayRouteTable.
-type GetLocalGatewayRouteTableOutputArgs struct {
+type LookupLocalGatewayRouteTableOutputArgs struct {
 	Filters GetLocalGatewayRouteTableFilterArrayInput `pulumi:"filters"`
 	// ID of the specific local gateway route table to retrieve.
 	LocalGatewayId pulumi.StringPtrInput `pulumi:"localGatewayId"`
@@ -123,58 +123,58 @@ type GetLocalGatewayRouteTableOutputArgs struct {
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
-func (GetLocalGatewayRouteTableOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLocalGatewayRouteTableArgs)(nil)).Elem()
+func (LookupLocalGatewayRouteTableOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLocalGatewayRouteTableArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getLocalGatewayRouteTable.
-type GetLocalGatewayRouteTableResultOutput struct{ *pulumi.OutputState }
+type LookupLocalGatewayRouteTableResultOutput struct{ *pulumi.OutputState }
 
-func (GetLocalGatewayRouteTableResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLocalGatewayRouteTableResult)(nil)).Elem()
+func (LookupLocalGatewayRouteTableResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLocalGatewayRouteTableResult)(nil)).Elem()
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) ToGetLocalGatewayRouteTableResultOutput() GetLocalGatewayRouteTableResultOutput {
+func (o LookupLocalGatewayRouteTableResultOutput) ToLookupLocalGatewayRouteTableResultOutput() LookupLocalGatewayRouteTableResultOutput {
 	return o
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) ToGetLocalGatewayRouteTableResultOutputWithContext(ctx context.Context) GetLocalGatewayRouteTableResultOutput {
+func (o LookupLocalGatewayRouteTableResultOutput) ToLookupLocalGatewayRouteTableResultOutputWithContext(ctx context.Context) LookupLocalGatewayRouteTableResultOutput {
 	return o
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) Filters() GetLocalGatewayRouteTableFilterArrayOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) []GetLocalGatewayRouteTableFilter { return v.Filters }).(GetLocalGatewayRouteTableFilterArrayOutput)
+func (o LookupLocalGatewayRouteTableResultOutput) Filters() GetLocalGatewayRouteTableFilterArrayOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteTableResult) []GetLocalGatewayRouteTableFilter { return v.Filters }).(GetLocalGatewayRouteTableFilterArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetLocalGatewayRouteTableResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupLocalGatewayRouteTableResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteTableResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) LocalGatewayId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.LocalGatewayId }).(pulumi.StringOutput)
+func (o LookupLocalGatewayRouteTableResultOutput) LocalGatewayId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteTableResult) string { return v.LocalGatewayId }).(pulumi.StringOutput)
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) LocalGatewayRouteTableId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.LocalGatewayRouteTableId }).(pulumi.StringOutput)
+func (o LookupLocalGatewayRouteTableResultOutput) LocalGatewayRouteTableId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteTableResult) string { return v.LocalGatewayRouteTableId }).(pulumi.StringOutput)
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) OutpostArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.OutpostArn }).(pulumi.StringOutput)
+func (o LookupLocalGatewayRouteTableResultOutput) OutpostArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteTableResult) string { return v.OutpostArn }).(pulumi.StringOutput)
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.Region }).(pulumi.StringOutput)
+func (o LookupLocalGatewayRouteTableResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteTableResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) string { return v.State }).(pulumi.StringOutput)
+func (o LookupLocalGatewayRouteTableResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteTableResult) string { return v.State }).(pulumi.StringOutput)
 }
 
-func (o GetLocalGatewayRouteTableResultOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GetLocalGatewayRouteTableResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+func (o LookupLocalGatewayRouteTableResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupLocalGatewayRouteTableResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetLocalGatewayRouteTableResultOutput{})
+	pulumi.RegisterOutputType(LookupLocalGatewayRouteTableResultOutput{})
 }

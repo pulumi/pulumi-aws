@@ -8,11 +8,13 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Manages an AWS CloudWatch Observability Admin Telemetry Rule for Organization.
+ * Manages an AWS CloudWatch Observability Admin Telemetry Rule for an AWS Organization.
  *
- * > **NOTE:** Before using this resource, telemetry evaluation for organization must be enabled for your AWS organization. You can use the `aws.observabilityadmin.TelemetryEvaluationForOrganization` resource to enable it.
+ * An organization-wide telemetry rule defines how telemetry data (logs, metrics, or traces) should be collected for AWS resources across the accounts in your organization. The rule can target one or more Regions and configure a destination (such as CloudWatch Logs or S3) along with source-specific parameters for VPC flow logs, WAF logs, CloudTrail events, ELB access logs, and more.
  *
- * > **NOTE:** This resource can only be used in the organization management account.
+ * > **NOTE:** Before using this resource, telemetry evaluation for organization must be enabled. Use the `aws.observabilityadmin.TelemetryEvaluationForOrganization` resource to enable it.
+ *
+ * > **NOTE:** This resource can only be used from the organization management account.
  *
  * ## Example Usage
  *
@@ -34,6 +36,61 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### VPC Flow Logs to CloudWatch Logs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.observabilityadmin.TelemetryEvaluationForOrganization("example", {});
+ * const exampleTelemetryRuleForOrganization = new aws.observabilityadmin.TelemetryRuleForOrganization("example", {
+ *     ruleName: "org-vpc-flow-logs-rule",
+ *     rule: {
+ *         telemetryType: "Logs",
+ *         resourceType: "AWS::EC2::VPC",
+ *         telemetrySourceTypes: ["VPC_FLOW_LOGS"],
+ *         allRegions: true,
+ *         allowFieldUpdates: true,
+ *         destinationConfiguration: {
+ *             destinationType: "cloud-watch-logs",
+ *             destinationPattern: "/aws/vpcflowlogs/<resourceId>",
+ *             retentionInDays: 30,
+ *             vpcFlowLogParameters: {
+ *                 trafficType: "ALL",
+ *                 maxAggregationInterval: 60,
+ *             },
+ *         },
+ *     },
+ * }, {
+ *     dependsOn: [example],
+ * });
+ * ```
+ *
+ * ### Scoped to Specific Organizational Units
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.organizations.getOrganization({});
+ * const example = new aws.observabilityadmin.TelemetryEvaluationForOrganization("example", {});
+ * const exampleTelemetryRuleForOrganization = new aws.observabilityadmin.TelemetryRuleForOrganization("example", {
+ *     ruleName: "org-scoped-rule",
+ *     rule: {
+ *         telemetryType: "Logs",
+ *         resourceType: "AWS::EKS::Cluster",
+ *         scope: current.then(current => `OrganizationId = '${current.id}'`),
+ *         selectionCriteria: "ResourceTags.Environment = 'production'",
+ *         regions: [
+ *             "us-east-1",
+ *             "us-west-2",
+ *         ],
+ *     },
+ * }, {
+ *     dependsOn: [example],
+ * });
+ * ```
+ *
  * ### With Tags
  *
  * ```typescript
@@ -42,7 +99,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.observabilityadmin.TelemetryEvaluationForOrganization("example", {});
  * const exampleTelemetryRuleForOrganization = new aws.observabilityadmin.TelemetryRuleForOrganization("example", {
- *     ruleName: "vpc-logs-org-rule",
+ *     ruleName: "org-tagged-rule",
  *     rule: {
  *         telemetryType: "Logs",
  *         resourceType: "AWS::EC2::VPC",
@@ -104,23 +161,25 @@ export class TelemetryRuleForOrganization extends pulumi.CustomResource {
     }
 
     /**
-     * AWS region. If not specified, the provider region is used.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Configuration block for the telemetry rule. See `rule` Block below.
+     * Configuration block for the organization telemetry rule. See `rule` below.
      */
     declare public readonly rule: pulumi.Output<outputs.observabilityadmin.TelemetryRuleForOrganizationRule>;
     /**
-     * ARN of the telemetry rule for organization.
+     * ARN of the organization telemetry rule.
      */
     declare public /*out*/ readonly ruleArn: pulumi.Output<string>;
     /**
-     * Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+     * Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+     *
+     * The following arguments are optional:
      */
     declare public readonly ruleName: pulumi.Output<string>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -175,23 +234,25 @@ export class TelemetryRuleForOrganization extends pulumi.CustomResource {
  */
 export interface TelemetryRuleForOrganizationState {
     /**
-     * AWS region. If not specified, the provider region is used.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for the telemetry rule. See `rule` Block below.
+     * Configuration block for the organization telemetry rule. See `rule` below.
      */
     rule?: pulumi.Input<inputs.observabilityadmin.TelemetryRuleForOrganizationRule | undefined>;
     /**
-     * ARN of the telemetry rule for organization.
+     * ARN of the organization telemetry rule.
      */
     ruleArn?: pulumi.Input<string | undefined>;
     /**
-     * Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+     * Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+     *
+     * The following arguments are optional:
      */
     ruleName?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -206,19 +267,21 @@ export interface TelemetryRuleForOrganizationState {
  */
 export interface TelemetryRuleForOrganizationArgs {
     /**
-     * AWS region. If not specified, the provider region is used.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration block for the telemetry rule. See `rule` Block below.
+     * Configuration block for the organization telemetry rule. See `rule` below.
      */
     rule: pulumi.Input<inputs.observabilityadmin.TelemetryRuleForOrganizationRule>;
     /**
-     * Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+     * Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+     *
+     * The following arguments are optional:
      */
     ruleName: pulumi.Input<string>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.observabilityadmin.TelemetryRuleForOrganizationTimeouts | undefined>;

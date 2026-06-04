@@ -190,7 +190,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         For information about CloudFront distributions, see the
         [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For more information on generating
         origin access identities, see
-        [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
+        [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html).
 
         ## Example Usage
 
@@ -226,7 +226,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
         Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
         principal into an `AWS` IAM ARN principal when supplied in an
-        `s3.Bucket` bucket policy, causing spurious diffs. If
+        `s3.Bucket` bucket policy, causing spurious diffs in Terraform. If
         you see this behavior, use the `iam_arn` instead:
 
         ```python
@@ -245,9 +245,6 @@ class OriginAccessIdentity(pulumi.CustomResource):
             bucket=example_aws_s3_bucket["id"],
             policy=s3_policy.json)
         ```
-
-        [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
-        [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
 
         ## Import
 
@@ -274,7 +271,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         For information about CloudFront distributions, see the
         [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For more information on generating
         origin access identities, see
-        [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
+        [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html).
 
         ## Example Usage
 
@@ -310,7 +307,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
         Note that the AWS API may translate the `s3_canonical_user_id` `CanonicalUser`
         principal into an `AWS` IAM ARN principal when supplied in an
-        `s3.Bucket` bucket policy, causing spurious diffs. If
+        `s3.Bucket` bucket policy, causing spurious diffs in Terraform. If
         you see this behavior, use the `iam_arn` instead:
 
         ```python
@@ -329,9 +326,6 @@ class OriginAccessIdentity(pulumi.CustomResource):
             bucket=example_aws_s3_bucket["id"],
             policy=s3_policy.json)
         ```
-
-        [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
-        [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
 
         ## Import
 

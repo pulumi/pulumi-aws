@@ -13,6 +13,578 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetVpcCidrBlockAssociation struct {
+	// Association ID for the IPv4 CIDR block.
+	AssociationId string `pulumi:"associationId"`
+	// Cidr block of the desired VPC.
+	CidrBlock string `pulumi:"cidrBlock"`
+	// Current state of the desired VPC.
+	// Can be either `"pending"` or `"available"`.
+	State string `pulumi:"state"`
+}
+
+// GetVpcCidrBlockAssociationInput is an input type that accepts GetVpcCidrBlockAssociationArgs and GetVpcCidrBlockAssociationOutput values.
+// You can construct a concrete instance of `GetVpcCidrBlockAssociationInput` via:
+//
+//	GetVpcCidrBlockAssociationArgs{...}
+type GetVpcCidrBlockAssociationInput interface {
+	pulumi.Input
+
+	ToGetVpcCidrBlockAssociationOutput() GetVpcCidrBlockAssociationOutput
+	ToGetVpcCidrBlockAssociationOutputWithContext(context.Context) GetVpcCidrBlockAssociationOutput
+}
+
+type GetVpcCidrBlockAssociationArgs struct {
+	// Association ID for the IPv4 CIDR block.
+	AssociationId pulumi.StringInput `pulumi:"associationId"`
+	// Cidr block of the desired VPC.
+	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
+	// Current state of the desired VPC.
+	// Can be either `"pending"` or `"available"`.
+	State pulumi.StringInput `pulumi:"state"`
+}
+
+func (GetVpcCidrBlockAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcCidrBlockAssociation)(nil)).Elem()
+}
+
+func (i GetVpcCidrBlockAssociationArgs) ToGetVpcCidrBlockAssociationOutput() GetVpcCidrBlockAssociationOutput {
+	return i.ToGetVpcCidrBlockAssociationOutputWithContext(context.Background())
+}
+
+func (i GetVpcCidrBlockAssociationArgs) ToGetVpcCidrBlockAssociationOutputWithContext(ctx context.Context) GetVpcCidrBlockAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcCidrBlockAssociationOutput)
+}
+
+// GetVpcCidrBlockAssociationArrayInput is an input type that accepts GetVpcCidrBlockAssociationArray and GetVpcCidrBlockAssociationArrayOutput values.
+// You can construct a concrete instance of `GetVpcCidrBlockAssociationArrayInput` via:
+//
+//	GetVpcCidrBlockAssociationArray{ GetVpcCidrBlockAssociationArgs{...} }
+type GetVpcCidrBlockAssociationArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcCidrBlockAssociationArrayOutput() GetVpcCidrBlockAssociationArrayOutput
+	ToGetVpcCidrBlockAssociationArrayOutputWithContext(context.Context) GetVpcCidrBlockAssociationArrayOutput
+}
+
+type GetVpcCidrBlockAssociationArray []GetVpcCidrBlockAssociationInput
+
+func (GetVpcCidrBlockAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcCidrBlockAssociation)(nil)).Elem()
+}
+
+func (i GetVpcCidrBlockAssociationArray) ToGetVpcCidrBlockAssociationArrayOutput() GetVpcCidrBlockAssociationArrayOutput {
+	return i.ToGetVpcCidrBlockAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcCidrBlockAssociationArray) ToGetVpcCidrBlockAssociationArrayOutputWithContext(ctx context.Context) GetVpcCidrBlockAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcCidrBlockAssociationArrayOutput)
+}
+
+type GetVpcCidrBlockAssociationOutput struct{ *pulumi.OutputState }
+
+func (GetVpcCidrBlockAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcCidrBlockAssociation)(nil)).Elem()
+}
+
+func (o GetVpcCidrBlockAssociationOutput) ToGetVpcCidrBlockAssociationOutput() GetVpcCidrBlockAssociationOutput {
+	return o
+}
+
+func (o GetVpcCidrBlockAssociationOutput) ToGetVpcCidrBlockAssociationOutputWithContext(ctx context.Context) GetVpcCidrBlockAssociationOutput {
+	return o
+}
+
+// Association ID for the IPv4 CIDR block.
+func (o GetVpcCidrBlockAssociationOutput) AssociationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcCidrBlockAssociation) string { return v.AssociationId }).(pulumi.StringOutput)
+}
+
+// Cidr block of the desired VPC.
+func (o GetVpcCidrBlockAssociationOutput) CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcCidrBlockAssociation) string { return v.CidrBlock }).(pulumi.StringOutput)
+}
+
+// Current state of the desired VPC.
+// Can be either `"pending"` or `"available"`.
+func (o GetVpcCidrBlockAssociationOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcCidrBlockAssociation) string { return v.State }).(pulumi.StringOutput)
+}
+
+type GetVpcCidrBlockAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcCidrBlockAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcCidrBlockAssociation)(nil)).Elem()
+}
+
+func (o GetVpcCidrBlockAssociationArrayOutput) ToGetVpcCidrBlockAssociationArrayOutput() GetVpcCidrBlockAssociationArrayOutput {
+	return o
+}
+
+func (o GetVpcCidrBlockAssociationArrayOutput) ToGetVpcCidrBlockAssociationArrayOutputWithContext(ctx context.Context) GetVpcCidrBlockAssociationArrayOutput {
+	return o
+}
+
+func (o GetVpcCidrBlockAssociationArrayOutput) Index(i pulumi.IntInput) GetVpcCidrBlockAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcCidrBlockAssociation {
+		return vs[0].([]GetVpcCidrBlockAssociation)[vs[1].(int)]
+	}).(GetVpcCidrBlockAssociationOutput)
+}
+
+type GetVpcDhcpOptionsFilter struct {
+	// Name of the field to filter.
+	Name string `pulumi:"name"`
+	// Set of values for filtering.
+	//
+	// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
+	Values []string `pulumi:"values"`
+}
+
+// GetVpcDhcpOptionsFilterInput is an input type that accepts GetVpcDhcpOptionsFilterArgs and GetVpcDhcpOptionsFilterOutput values.
+// You can construct a concrete instance of `GetVpcDhcpOptionsFilterInput` via:
+//
+//	GetVpcDhcpOptionsFilterArgs{...}
+type GetVpcDhcpOptionsFilterInput interface {
+	pulumi.Input
+
+	ToGetVpcDhcpOptionsFilterOutput() GetVpcDhcpOptionsFilterOutput
+	ToGetVpcDhcpOptionsFilterOutputWithContext(context.Context) GetVpcDhcpOptionsFilterOutput
+}
+
+type GetVpcDhcpOptionsFilterArgs struct {
+	// Name of the field to filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values for filtering.
+	//
+	// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetVpcDhcpOptionsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcDhcpOptionsFilter)(nil)).Elem()
+}
+
+func (i GetVpcDhcpOptionsFilterArgs) ToGetVpcDhcpOptionsFilterOutput() GetVpcDhcpOptionsFilterOutput {
+	return i.ToGetVpcDhcpOptionsFilterOutputWithContext(context.Background())
+}
+
+func (i GetVpcDhcpOptionsFilterArgs) ToGetVpcDhcpOptionsFilterOutputWithContext(ctx context.Context) GetVpcDhcpOptionsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcDhcpOptionsFilterOutput)
+}
+
+// GetVpcDhcpOptionsFilterArrayInput is an input type that accepts GetVpcDhcpOptionsFilterArray and GetVpcDhcpOptionsFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcDhcpOptionsFilterArrayInput` via:
+//
+//	GetVpcDhcpOptionsFilterArray{ GetVpcDhcpOptionsFilterArgs{...} }
+type GetVpcDhcpOptionsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcDhcpOptionsFilterArrayOutput() GetVpcDhcpOptionsFilterArrayOutput
+	ToGetVpcDhcpOptionsFilterArrayOutputWithContext(context.Context) GetVpcDhcpOptionsFilterArrayOutput
+}
+
+type GetVpcDhcpOptionsFilterArray []GetVpcDhcpOptionsFilterInput
+
+func (GetVpcDhcpOptionsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcDhcpOptionsFilter)(nil)).Elem()
+}
+
+func (i GetVpcDhcpOptionsFilterArray) ToGetVpcDhcpOptionsFilterArrayOutput() GetVpcDhcpOptionsFilterArrayOutput {
+	return i.ToGetVpcDhcpOptionsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcDhcpOptionsFilterArray) ToGetVpcDhcpOptionsFilterArrayOutputWithContext(ctx context.Context) GetVpcDhcpOptionsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcDhcpOptionsFilterArrayOutput)
+}
+
+type GetVpcDhcpOptionsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetVpcDhcpOptionsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcDhcpOptionsFilter)(nil)).Elem()
+}
+
+func (o GetVpcDhcpOptionsFilterOutput) ToGetVpcDhcpOptionsFilterOutput() GetVpcDhcpOptionsFilterOutput {
+	return o
+}
+
+func (o GetVpcDhcpOptionsFilterOutput) ToGetVpcDhcpOptionsFilterOutputWithContext(ctx context.Context) GetVpcDhcpOptionsFilterOutput {
+	return o
+}
+
+// Name of the field to filter.
+func (o GetVpcDhcpOptionsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcDhcpOptionsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values for filtering.
+//
+// For more information about filtering, see the [EC2 API documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeDhcpOptions.html).
+func (o GetVpcDhcpOptionsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcDhcpOptionsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetVpcDhcpOptionsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcDhcpOptionsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcDhcpOptionsFilter)(nil)).Elem()
+}
+
+func (o GetVpcDhcpOptionsFilterArrayOutput) ToGetVpcDhcpOptionsFilterArrayOutput() GetVpcDhcpOptionsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcDhcpOptionsFilterArrayOutput) ToGetVpcDhcpOptionsFilterArrayOutputWithContext(ctx context.Context) GetVpcDhcpOptionsFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcDhcpOptionsFilterArrayOutput) Index(i pulumi.IntInput) GetVpcDhcpOptionsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcDhcpOptionsFilter {
+		return vs[0].([]GetVpcDhcpOptionsFilter)[vs[1].(int)]
+	}).(GetVpcDhcpOptionsFilterOutput)
+}
+
+type GetVpcEndpointDnsEntry struct {
+	// DNS name.
+	DnsName string `pulumi:"dnsName"`
+	// ID of the private hosted zone.
+	HostedZoneId string `pulumi:"hostedZoneId"`
+}
+
+// GetVpcEndpointDnsEntryInput is an input type that accepts GetVpcEndpointDnsEntryArgs and GetVpcEndpointDnsEntryOutput values.
+// You can construct a concrete instance of `GetVpcEndpointDnsEntryInput` via:
+//
+//	GetVpcEndpointDnsEntryArgs{...}
+type GetVpcEndpointDnsEntryInput interface {
+	pulumi.Input
+
+	ToGetVpcEndpointDnsEntryOutput() GetVpcEndpointDnsEntryOutput
+	ToGetVpcEndpointDnsEntryOutputWithContext(context.Context) GetVpcEndpointDnsEntryOutput
+}
+
+type GetVpcEndpointDnsEntryArgs struct {
+	// DNS name.
+	DnsName pulumi.StringInput `pulumi:"dnsName"`
+	// ID of the private hosted zone.
+	HostedZoneId pulumi.StringInput `pulumi:"hostedZoneId"`
+}
+
+func (GetVpcEndpointDnsEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcEndpointDnsEntry)(nil)).Elem()
+}
+
+func (i GetVpcEndpointDnsEntryArgs) ToGetVpcEndpointDnsEntryOutput() GetVpcEndpointDnsEntryOutput {
+	return i.ToGetVpcEndpointDnsEntryOutputWithContext(context.Background())
+}
+
+func (i GetVpcEndpointDnsEntryArgs) ToGetVpcEndpointDnsEntryOutputWithContext(ctx context.Context) GetVpcEndpointDnsEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointDnsEntryOutput)
+}
+
+// GetVpcEndpointDnsEntryArrayInput is an input type that accepts GetVpcEndpointDnsEntryArray and GetVpcEndpointDnsEntryArrayOutput values.
+// You can construct a concrete instance of `GetVpcEndpointDnsEntryArrayInput` via:
+//
+//	GetVpcEndpointDnsEntryArray{ GetVpcEndpointDnsEntryArgs{...} }
+type GetVpcEndpointDnsEntryArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcEndpointDnsEntryArrayOutput() GetVpcEndpointDnsEntryArrayOutput
+	ToGetVpcEndpointDnsEntryArrayOutputWithContext(context.Context) GetVpcEndpointDnsEntryArrayOutput
+}
+
+type GetVpcEndpointDnsEntryArray []GetVpcEndpointDnsEntryInput
+
+func (GetVpcEndpointDnsEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcEndpointDnsEntry)(nil)).Elem()
+}
+
+func (i GetVpcEndpointDnsEntryArray) ToGetVpcEndpointDnsEntryArrayOutput() GetVpcEndpointDnsEntryArrayOutput {
+	return i.ToGetVpcEndpointDnsEntryArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcEndpointDnsEntryArray) ToGetVpcEndpointDnsEntryArrayOutputWithContext(ctx context.Context) GetVpcEndpointDnsEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointDnsEntryArrayOutput)
+}
+
+type GetVpcEndpointDnsEntryOutput struct{ *pulumi.OutputState }
+
+func (GetVpcEndpointDnsEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcEndpointDnsEntry)(nil)).Elem()
+}
+
+func (o GetVpcEndpointDnsEntryOutput) ToGetVpcEndpointDnsEntryOutput() GetVpcEndpointDnsEntryOutput {
+	return o
+}
+
+func (o GetVpcEndpointDnsEntryOutput) ToGetVpcEndpointDnsEntryOutputWithContext(ctx context.Context) GetVpcEndpointDnsEntryOutput {
+	return o
+}
+
+// DNS name.
+func (o GetVpcEndpointDnsEntryOutput) DnsName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcEndpointDnsEntry) string { return v.DnsName }).(pulumi.StringOutput)
+}
+
+// ID of the private hosted zone.
+func (o GetVpcEndpointDnsEntryOutput) HostedZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcEndpointDnsEntry) string { return v.HostedZoneId }).(pulumi.StringOutput)
+}
+
+type GetVpcEndpointDnsEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcEndpointDnsEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcEndpointDnsEntry)(nil)).Elem()
+}
+
+func (o GetVpcEndpointDnsEntryArrayOutput) ToGetVpcEndpointDnsEntryArrayOutput() GetVpcEndpointDnsEntryArrayOutput {
+	return o
+}
+
+func (o GetVpcEndpointDnsEntryArrayOutput) ToGetVpcEndpointDnsEntryArrayOutputWithContext(ctx context.Context) GetVpcEndpointDnsEntryArrayOutput {
+	return o
+}
+
+func (o GetVpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) GetVpcEndpointDnsEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcEndpointDnsEntry {
+		return vs[0].([]GetVpcEndpointDnsEntry)[vs[1].(int)]
+	}).(GetVpcEndpointDnsEntryOutput)
+}
+
+type GetVpcEndpointDnsOption struct {
+	// The DNS records created for the endpoint.
+	DnsRecordIpType string `pulumi:"dnsRecordIpType"`
+	// Indicates whether to enable private DNS only for inbound endpoints.
+	PrivateDnsOnlyForInboundResolverEndpoint bool `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
+	// Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
+	PrivateDnsPreference string `pulumi:"privateDnsPreference"`
+	// List of private domains to create private hosted zones for and associate with the specified VPC.
+	PrivateDnsSpecifiedDomains []string `pulumi:"privateDnsSpecifiedDomains"`
+}
+
+// GetVpcEndpointDnsOptionInput is an input type that accepts GetVpcEndpointDnsOptionArgs and GetVpcEndpointDnsOptionOutput values.
+// You can construct a concrete instance of `GetVpcEndpointDnsOptionInput` via:
+//
+//	GetVpcEndpointDnsOptionArgs{...}
+type GetVpcEndpointDnsOptionInput interface {
+	pulumi.Input
+
+	ToGetVpcEndpointDnsOptionOutput() GetVpcEndpointDnsOptionOutput
+	ToGetVpcEndpointDnsOptionOutputWithContext(context.Context) GetVpcEndpointDnsOptionOutput
+}
+
+type GetVpcEndpointDnsOptionArgs struct {
+	// The DNS records created for the endpoint.
+	DnsRecordIpType pulumi.StringInput `pulumi:"dnsRecordIpType"`
+	// Indicates whether to enable private DNS only for inbound endpoints.
+	PrivateDnsOnlyForInboundResolverEndpoint pulumi.BoolInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
+	// Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
+	PrivateDnsPreference pulumi.StringInput `pulumi:"privateDnsPreference"`
+	// List of private domains to create private hosted zones for and associate with the specified VPC.
+	PrivateDnsSpecifiedDomains pulumi.StringArrayInput `pulumi:"privateDnsSpecifiedDomains"`
+}
+
+func (GetVpcEndpointDnsOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcEndpointDnsOption)(nil)).Elem()
+}
+
+func (i GetVpcEndpointDnsOptionArgs) ToGetVpcEndpointDnsOptionOutput() GetVpcEndpointDnsOptionOutput {
+	return i.ToGetVpcEndpointDnsOptionOutputWithContext(context.Background())
+}
+
+func (i GetVpcEndpointDnsOptionArgs) ToGetVpcEndpointDnsOptionOutputWithContext(ctx context.Context) GetVpcEndpointDnsOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointDnsOptionOutput)
+}
+
+// GetVpcEndpointDnsOptionArrayInput is an input type that accepts GetVpcEndpointDnsOptionArray and GetVpcEndpointDnsOptionArrayOutput values.
+// You can construct a concrete instance of `GetVpcEndpointDnsOptionArrayInput` via:
+//
+//	GetVpcEndpointDnsOptionArray{ GetVpcEndpointDnsOptionArgs{...} }
+type GetVpcEndpointDnsOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcEndpointDnsOptionArrayOutput() GetVpcEndpointDnsOptionArrayOutput
+	ToGetVpcEndpointDnsOptionArrayOutputWithContext(context.Context) GetVpcEndpointDnsOptionArrayOutput
+}
+
+type GetVpcEndpointDnsOptionArray []GetVpcEndpointDnsOptionInput
+
+func (GetVpcEndpointDnsOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcEndpointDnsOption)(nil)).Elem()
+}
+
+func (i GetVpcEndpointDnsOptionArray) ToGetVpcEndpointDnsOptionArrayOutput() GetVpcEndpointDnsOptionArrayOutput {
+	return i.ToGetVpcEndpointDnsOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcEndpointDnsOptionArray) ToGetVpcEndpointDnsOptionArrayOutputWithContext(ctx context.Context) GetVpcEndpointDnsOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointDnsOptionArrayOutput)
+}
+
+type GetVpcEndpointDnsOptionOutput struct{ *pulumi.OutputState }
+
+func (GetVpcEndpointDnsOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcEndpointDnsOption)(nil)).Elem()
+}
+
+func (o GetVpcEndpointDnsOptionOutput) ToGetVpcEndpointDnsOptionOutput() GetVpcEndpointDnsOptionOutput {
+	return o
+}
+
+func (o GetVpcEndpointDnsOptionOutput) ToGetVpcEndpointDnsOptionOutputWithContext(ctx context.Context) GetVpcEndpointDnsOptionOutput {
+	return o
+}
+
+// The DNS records created for the endpoint.
+func (o GetVpcEndpointDnsOptionOutput) DnsRecordIpType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcEndpointDnsOption) string { return v.DnsRecordIpType }).(pulumi.StringOutput)
+}
+
+// Indicates whether to enable private DNS only for inbound endpoints.
+func (o GetVpcEndpointDnsOptionOutput) PrivateDnsOnlyForInboundResolverEndpoint() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVpcEndpointDnsOption) bool { return v.PrivateDnsOnlyForInboundResolverEndpoint }).(pulumi.BoolOutput)
+}
+
+// Preference for which private domains have a private hosted zone created for and associated with the specified VPC.
+func (o GetVpcEndpointDnsOptionOutput) PrivateDnsPreference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcEndpointDnsOption) string { return v.PrivateDnsPreference }).(pulumi.StringOutput)
+}
+
+// List of private domains to create private hosted zones for and associate with the specified VPC.
+func (o GetVpcEndpointDnsOptionOutput) PrivateDnsSpecifiedDomains() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcEndpointDnsOption) []string { return v.PrivateDnsSpecifiedDomains }).(pulumi.StringArrayOutput)
+}
+
+type GetVpcEndpointDnsOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcEndpointDnsOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcEndpointDnsOption)(nil)).Elem()
+}
+
+func (o GetVpcEndpointDnsOptionArrayOutput) ToGetVpcEndpointDnsOptionArrayOutput() GetVpcEndpointDnsOptionArrayOutput {
+	return o
+}
+
+func (o GetVpcEndpointDnsOptionArrayOutput) ToGetVpcEndpointDnsOptionArrayOutputWithContext(ctx context.Context) GetVpcEndpointDnsOptionArrayOutput {
+	return o
+}
+
+func (o GetVpcEndpointDnsOptionArrayOutput) Index(i pulumi.IntInput) GetVpcEndpointDnsOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcEndpointDnsOption {
+		return vs[0].([]GetVpcEndpointDnsOption)[vs[1].(int)]
+	}).(GetVpcEndpointDnsOptionOutput)
+}
+
+type GetVpcEndpointFilter struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPC Endpoint will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetVpcEndpointFilterInput is an input type that accepts GetVpcEndpointFilterArgs and GetVpcEndpointFilterOutput values.
+// You can construct a concrete instance of `GetVpcEndpointFilterInput` via:
+//
+//	GetVpcEndpointFilterArgs{...}
+type GetVpcEndpointFilterInput interface {
+	pulumi.Input
+
+	ToGetVpcEndpointFilterOutput() GetVpcEndpointFilterOutput
+	ToGetVpcEndpointFilterOutputWithContext(context.Context) GetVpcEndpointFilterOutput
+}
+
+type GetVpcEndpointFilterArgs struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A VPC Endpoint will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetVpcEndpointFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcEndpointFilter)(nil)).Elem()
+}
+
+func (i GetVpcEndpointFilterArgs) ToGetVpcEndpointFilterOutput() GetVpcEndpointFilterOutput {
+	return i.ToGetVpcEndpointFilterOutputWithContext(context.Background())
+}
+
+func (i GetVpcEndpointFilterArgs) ToGetVpcEndpointFilterOutputWithContext(ctx context.Context) GetVpcEndpointFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointFilterOutput)
+}
+
+// GetVpcEndpointFilterArrayInput is an input type that accepts GetVpcEndpointFilterArray and GetVpcEndpointFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcEndpointFilterArrayInput` via:
+//
+//	GetVpcEndpointFilterArray{ GetVpcEndpointFilterArgs{...} }
+type GetVpcEndpointFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcEndpointFilterArrayOutput() GetVpcEndpointFilterArrayOutput
+	ToGetVpcEndpointFilterArrayOutputWithContext(context.Context) GetVpcEndpointFilterArrayOutput
+}
+
+type GetVpcEndpointFilterArray []GetVpcEndpointFilterInput
+
+func (GetVpcEndpointFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcEndpointFilter)(nil)).Elem()
+}
+
+func (i GetVpcEndpointFilterArray) ToGetVpcEndpointFilterArrayOutput() GetVpcEndpointFilterArrayOutput {
+	return i.ToGetVpcEndpointFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcEndpointFilterArray) ToGetVpcEndpointFilterArrayOutputWithContext(ctx context.Context) GetVpcEndpointFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointFilterArrayOutput)
+}
+
+type GetVpcEndpointFilterOutput struct{ *pulumi.OutputState }
+
+func (GetVpcEndpointFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcEndpointFilter)(nil)).Elem()
+}
+
+func (o GetVpcEndpointFilterOutput) ToGetVpcEndpointFilterOutput() GetVpcEndpointFilterOutput {
+	return o
+}
+
+func (o GetVpcEndpointFilterOutput) ToGetVpcEndpointFilterOutputWithContext(ctx context.Context) GetVpcEndpointFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+func (o GetVpcEndpointFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcEndpointFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A VPC Endpoint will be selected if any one of the given values matches.
+func (o GetVpcEndpointFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcEndpointFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetVpcEndpointFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcEndpointFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcEndpointFilter)(nil)).Elem()
+}
+
+func (o GetVpcEndpointFilterArrayOutput) ToGetVpcEndpointFilterArrayOutput() GetVpcEndpointFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcEndpointFilterArrayOutput) ToGetVpcEndpointFilterArrayOutputWithContext(ctx context.Context) GetVpcEndpointFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetVpcEndpointFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcEndpointFilter {
+		return vs[0].([]GetVpcEndpointFilter)[vs[1].(int)]
+	}).(GetVpcEndpointFilterOutput)
+}
+
 type GetVpcEndpointServiceFilter struct {
 	// Name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
 	Name string `pulumi:"name"`
@@ -2725,6 +3297,16 @@ func (o GetVpnGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetVpnGatewayFi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcCidrBlockAssociationInput)(nil)).Elem(), GetVpcCidrBlockAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcCidrBlockAssociationArrayInput)(nil)).Elem(), GetVpcCidrBlockAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcDhcpOptionsFilterInput)(nil)).Elem(), GetVpcDhcpOptionsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcDhcpOptionsFilterArrayInput)(nil)).Elem(), GetVpcDhcpOptionsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointDnsEntryInput)(nil)).Elem(), GetVpcEndpointDnsEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointDnsEntryArrayInput)(nil)).Elem(), GetVpcEndpointDnsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointDnsOptionInput)(nil)).Elem(), GetVpcEndpointDnsOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointDnsOptionArrayInput)(nil)).Elem(), GetVpcEndpointDnsOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointFilterInput)(nil)).Elem(), GetVpcEndpointFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointFilterArrayInput)(nil)).Elem(), GetVpcEndpointFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointServiceFilterInput)(nil)).Elem(), GetVpcEndpointServiceFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointServiceFilterArrayInput)(nil)).Elem(), GetVpcEndpointServiceFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcFilterInput)(nil)).Elem(), GetVpcFilterArgs{})
@@ -2771,6 +3353,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionVgwTelemetryArrayInput)(nil)).Elem(), GetVpnConnectionVgwTelemetryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterInput)(nil)).Elem(), GetVpnGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterArrayInput)(nil)).Elem(), GetVpnGatewayFilterArray{})
+	pulumi.RegisterOutputType(GetVpcCidrBlockAssociationOutput{})
+	pulumi.RegisterOutputType(GetVpcCidrBlockAssociationArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcDhcpOptionsFilterOutput{})
+	pulumi.RegisterOutputType(GetVpcDhcpOptionsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcEndpointDnsEntryOutput{})
+	pulumi.RegisterOutputType(GetVpcEndpointDnsEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcEndpointDnsOptionOutput{})
+	pulumi.RegisterOutputType(GetVpcEndpointDnsOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcEndpointFilterOutput{})
+	pulumi.RegisterOutputType(GetVpcEndpointFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcEndpointServiceFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcEndpointServiceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcFilterOutput{})

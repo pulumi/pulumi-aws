@@ -19,10 +19,22 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyGetArgs>? ApiKey { get; set; }
 
         /// <summary>
-        /// Use the gateway's IAM role for authentication. This is an empty configuration block.
+        /// Caller IAM credentials-based authentication configuration. See `CallerIamCredentials` below.
+        /// </summary>
+        [Input("callerIamCredentials")]
+        public Input<Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsGetArgs>? CallerIamCredentials { get; set; }
+
+        /// <summary>
+        /// Use the gateway's IAM role for authentication. See `GatewayIamRole` below.
         /// </summary>
         [Input("gatewayIamRole")]
         public Input<Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleGetArgs>? GatewayIamRole { get; set; }
+
+        /// <summary>
+        /// JWT passthrough-based authentication configuration. This is an empty configuration block.
+        /// </summary>
+        [Input("jwtPassthrough")]
+        public Input<Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughGetArgs>? JwtPassthrough { get; set; }
 
         /// <summary>
         /// OAuth-based authentication configuration. See `Oauth` below.
