@@ -206,6 +206,16 @@ build_python: .make/build_python
 	@touch $@
 .PHONY: generate_python build_python
 
+# TEMPORARY (pre-merge trial): shadow-gen diff. Generate the SDK both ways
+# (legacy codegen vs `pulumi package gen-sdk`) and report differences. Refs
+# pinned to the ci-mgmt PR stack. See pulumi/ci-mgmt#2300.
+compare_sdks: compare_sdk_nodejs compare_sdk_python compare_sdk_dotnet compare_sdk_go compare_sdk_java
+compare_sdk_%: .make/mise_install bin/$(CODEGEN) .make/schema | mise_env
+	GOPROXY=direct GOSUMDB=off go run github.com/pulumi/ci-mgmt/provider-ci@216aafe9c4758833f6d551549de870073ee4799f compare-sdk --language $*
+# Only the aggregate is .PHONY; the per-language pattern targets must not be, or
+# make skips the pattern recipe ("Nothing to be done").
+.PHONY: compare_sdks
+
 clean:
 	rm -rf sdk/{dotnet,nodejs,go,python}
 	rm -rf bin/*

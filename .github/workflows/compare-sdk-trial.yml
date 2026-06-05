@@ -1,0 +1,30 @@
+# TEMPORARY pre-merge trial of the centralized compare_sdk workflow (pulumi/ci-mgmt#2300).
+# Runs only prerequisites + compare_sdk; run-acceptance-tests is removed in this branch.
+name: compare-sdk-trial
+on:
+  pull_request: {}
+permissions:
+  contents: read
+jobs:
+  prerequisites:
+    permissions:
+      contents: read
+      pull-requests: write
+      id-token: write
+    uses: ./.github/workflows/prerequisites.yml
+    secrets: inherit
+    with:
+      default_branch: ${{ github.event.pull_request.base.ref }}
+      is_pr: true
+      is_automated: false
+  compare_sdk:
+    needs: prerequisites
+    uses: pulumi/ci-mgmt/.github/workflows/compare_sdk.yml@pose/chores/compare-sdk-ci-workflow-2282
+    permissions:
+      contents: read
+    with:
+      version: ${{ needs.prerequisites.outputs.version }}
+      languages: '["nodejs","python","dotnet","go","java"]'
+      runs-on: ubuntu-latest
+      mise-version: 2026.3.7
+      checkout-submodules: 'false'
