@@ -71,7 +71,7 @@ namespace Pulumi.Aws.ApiGateway
     /// });
     /// ```
     /// 
-    /// ## Lambda integration
+    /// ### Lambda integration
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.ApiGateway
     /// });
     /// ```
     /// 
-    /// ## Lambda integration with response streaming
+    /// ### Lambda integration with response streaming
     /// 
     /// All other resources and data sources are the same as in the previous example; only the integration configuration differs.
     /// Note that the `Timeout` of the `aws.lambda.Function` may need to be adjusted.
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.ApiGateway
     /// });
     /// ```
     /// 
-    /// ## VPC Link
+    /// ### VPC Link
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.ApiGateway
     /// });
     /// ```
     /// 
-    /// ## VPC Link V2 with Application Load Balancer
+    /// ### VPC Link V2 with Application Load Balancer
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

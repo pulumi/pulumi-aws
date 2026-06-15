@@ -13,6 +13,10 @@ namespace Pulumi.Aws.Ssm.Outputs
     [OutputType]
     public sealed class ResourceDataSyncS3DestinationDestinationDataSharing
     {
+        /// <summary>
+        /// Data sharing type.
+        /// Only `Organization` is supported.
+        /// </summary>
         public readonly string? DestinationDataSharingType;
 
         [OutputConstructor]

@@ -28,6 +28,7 @@ public final class GetReceivedLicensesFilter extends com.pulumi.resources.Invoke
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
+     * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -71,6 +72,7 @@ public final class GetReceivedLicensesFilter extends com.pulumi.resources.Invoke
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
+     * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -155,6 +157,7 @@ public final class GetReceivedLicensesFilter extends com.pulumi.resources.Invoke
          * import com.pulumi.core.Output;
          * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
          * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesArgs;
+         * import com.pulumi.aws.licensemanager.inputs.GetReceivedLicensesFilterArgs;
          * import java.util.ArrayList;
          * import java.util.Arrays;
          * import java.util.Map;

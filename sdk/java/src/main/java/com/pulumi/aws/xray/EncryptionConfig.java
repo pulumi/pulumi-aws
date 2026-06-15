@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With KMS Key
+ * ### Example Usage with KMS Key
  * 
  * <pre>
  * {@code
@@ -65,6 +65,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.kms.Key;
  * import com.pulumi.aws.kms.KeyArgs;
  * import com.pulumi.aws.xray.EncryptionConfig;

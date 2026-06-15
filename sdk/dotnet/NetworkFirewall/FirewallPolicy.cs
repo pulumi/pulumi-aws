@@ -67,7 +67,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// 
-    /// ## Policy with a HOME_NET Override
+    /// ### Policy with a HOME_NET Override
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// 
-    /// ## Policy with a Custom Action for Stateless Inspection
+    /// ### Policy with a Custom Action for Stateless Inspection
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// 
-    /// ## Policy with Active Threat Defense in Action Order
+    /// ### Policy with Active Threat Defense in Action Order
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// });
     /// ```
     /// 
-    /// ## Policy with Active Threat Defense in Strict Order
+    /// ### Policy with Active Threat Defense in Strict Order
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

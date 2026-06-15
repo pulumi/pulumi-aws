@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.batch.SchedulingPolicy;
  * import com.pulumi.aws.batch.SchedulingPolicyArgs;
  * import com.pulumi.aws.batch.inputs.SchedulingPolicyFairSharePolicyArgs;
+ * import com.pulumi.aws.batch.inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

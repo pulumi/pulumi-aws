@@ -37,7 +37,9 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retainOnDelete` flag.
  * 
- * ## Multi-tenant Distribution Limitations
+ * ## Example Usage
+ * 
+ * ### Multi-tenant Distribution Limitations
  * 
  * Multi-tenant distributions have the following limitations compared to standard CloudFront distributions:
  * 
@@ -64,8 +66,6 @@ import javax.annotation.Nullable;
  * - `trustedSigners` in cache behaviors - Use `trustedKeyGroups` instead
  * - Cache behavior TTL settings (`defaultTtl`, `maxTtl`, `minTtl`) - Use cache policies instead
  * 
- * ## Example Usage
- * 
  * <pre>
  * {@code
  * package generated_program;
@@ -76,12 +76,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.MultitenantDistribution;
  * import com.pulumi.aws.cloudfront.MultitenantDistributionArgs;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionOriginArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionOriginCustomOriginConfigArgs;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionDefaultCacheBehaviorArgs;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionRestrictionsArgs;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionRestrictionsGeoRestrictionArgs;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionViewerCertificateArgs;
  * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionTenantConfigArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionTenantConfigParameterDefinitionArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

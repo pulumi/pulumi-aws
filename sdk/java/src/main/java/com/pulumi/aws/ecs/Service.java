@@ -425,6 +425,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationArgs;
  * import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationLogConfigurationArgs;
  * import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationAccessLogConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationServiceArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -468,7 +469,7 @@ import javax.annotation.Nullable;
  *                 .services(ServiceServiceConnectConfigurationServiceArgs.builder()
  *                     .portName("http")
  *                     .discoveryName("example")
- *                     .clientAlias(ServiceServiceConnectConfigurationServiceClientAliasArgs.builder()
+ *                     .clientAlias(com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs.builder()
  *                         .dnsName("example")
  *                         .port(8080)
  *                         .build())

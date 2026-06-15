@@ -1614,6 +1614,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketAcl;
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantGranteeArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
@@ -1696,6 +1698,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketAcl;
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantGranteeArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
@@ -1778,6 +1782,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketAcl;
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantGranteeArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
@@ -1860,6 +1866,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketAcl;
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantGranteeArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
@@ -1942,6 +1950,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketAcl;
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantGranteeArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
@@ -2024,6 +2034,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketAcl;
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantGranteeArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
@@ -2106,6 +2118,8 @@ public final class CloudfrontFunctions {
      * import com.pulumi.aws.s3.BucketAcl;
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantArgs;
+     * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyGrantGranteeArgs;
      * import com.pulumi.aws.s3.inputs.BucketAclAccessControlPolicyOwnerArgs;
      * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;

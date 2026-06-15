@@ -22,6 +22,8 @@ import com.pulumi.aws.ec2.inputs.GetEipsArgs;
 import com.pulumi.aws.ec2.inputs.GetEipsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
 import com.pulumi.aws.ec2.inputs.GetElasticIpPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+import com.pulumi.aws.ec2.inputs.GetHostsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
 import com.pulumi.aws.ec2.inputs.GetInstancePlainArgs;
 import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
@@ -145,6 +147,7 @@ import com.pulumi.aws.ec2.outputs.GetCustomerGatewayResult;
 import com.pulumi.aws.ec2.outputs.GetDedicatedHostResult;
 import com.pulumi.aws.ec2.outputs.GetEipsResult;
 import com.pulumi.aws.ec2.outputs.GetElasticIpResult;
+import com.pulumi.aws.ec2.outputs.GetHostsResult;
 import com.pulumi.aws.ec2.outputs.GetInstanceResult;
 import com.pulumi.aws.ec2.outputs.GetInstanceTypeOfferingResult;
 import com.pulumi.aws.ec2.outputs.GetInstanceTypeOfferingsResult;
@@ -225,6 +228,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -282,6 +286,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -339,6 +344,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -396,6 +402,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -453,6 +460,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -510,6 +518,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -567,6 +576,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -623,6 +633,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -667,6 +678,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -711,6 +723,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -755,6 +768,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -799,6 +813,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetAmiIdsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1462,6 +1477,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayFilterArgs;
      * import com.pulumi.aws.ec2.VpnGateway;
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
@@ -1521,6 +1537,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayFilterArgs;
      * import com.pulumi.aws.ec2.VpnGateway;
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
@@ -1580,6 +1597,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayFilterArgs;
      * import com.pulumi.aws.ec2.VpnGateway;
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
@@ -1639,6 +1657,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayFilterArgs;
      * import com.pulumi.aws.ec2.VpnGateway;
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
@@ -1698,6 +1717,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayFilterArgs;
      * import com.pulumi.aws.ec2.VpnGateway;
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
@@ -1757,6 +1777,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayFilterArgs;
      * import com.pulumi.aws.ec2.VpnGateway;
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
@@ -1816,6 +1837,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayFilterArgs;
      * import com.pulumi.aws.ec2.VpnGateway;
      * import com.pulumi.aws.ec2.VpnGatewayArgs;
      * import com.pulumi.aws.ec2.VpnConnection;
@@ -1915,6 +1937,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1998,6 +2021,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2081,6 +2105,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2164,6 +2189,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2247,6 +2273,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2330,6 +2357,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2413,6 +2441,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2799,6 +2828,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2943,6 +2973,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3087,6 +3118,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3231,6 +3263,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3375,6 +3408,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3519,6 +3553,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3663,6 +3698,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3759,6 +3795,643 @@ public final class Ec2Functions {
         return Deployment.getInstance().invokeAsync("aws:ec2/getElasticIp:getElasticIp", TypeShape.of(GetElasticIpResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHostsResult> getHosts() {
+        return getHosts(GetHostsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetHostsResult> getHostsPlain() {
+        return getHostsPlain(GetHostsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHostsResult> getHosts(GetHostsArgs args) {
+        return getHosts(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetHostsResult> getHostsPlain(GetHostsPlainArgs args) {
+        return getHostsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHostsResult> getHosts(GetHostsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetHostsResult> getHosts(GetHostsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides a list of EC2 Dedicated Host IDs matching the provided filters. More information about Dedicated Hosts can be found in the [EC2 User Guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Filter by instance type
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .filters(            
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("c5.large")
+     *                     .build(),
+     *                 GetHostsFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("available")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Filter by Outpost ARN
+     * 
+     * The `outpostArn` argument applies a client-side filter because the `DescribeHosts` API does not support `outpost-arn` as a server-side filter.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetHostsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetHostsFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var outpost = Ec2Functions.getHosts(GetHostsArgs.builder()
+     *             .outpostArn(example.arn())
+     *             .filters(GetHostsFilterArgs.builder()
+     *                 .name("state")
+     *                 .values("available")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetHostsResult> getHostsPlain(GetHostsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getHosts:getHosts", TypeShape.of(GetHostsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to get the ID of an Amazon EC2 Instance for use in other resources.
      * 
      * ## Example Usage
@@ -3772,6 +4445,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3821,6 +4495,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3870,6 +4545,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3919,6 +4595,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3968,6 +4645,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4017,6 +4695,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4066,6 +4745,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4315,6 +4995,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4363,6 +5044,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4411,6 +5093,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4459,6 +5142,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4507,6 +5191,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4555,6 +5240,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4603,6 +5289,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4651,6 +5338,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4702,6 +5390,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4753,6 +5442,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4804,6 +5494,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4855,6 +5546,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4906,6 +5598,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4957,6 +5650,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5008,6 +5702,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5066,6 +5761,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5124,6 +5820,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5182,6 +5879,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5240,6 +5938,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5298,6 +5997,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5356,6 +6056,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5420,6 +6121,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesFilterArgs;
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -5447,7 +6149,7 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.ids().length(); i++) {
+     *         for (var i = 0; i < test.ids().size(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.ids()[range.value()])
      *                 .build());
@@ -5483,6 +6185,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesFilterArgs;
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -5510,7 +6213,7 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.ids().length(); i++) {
+     *         for (var i = 0; i < test.ids().size(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.ids()[range.value()])
      *                 .build());
@@ -5546,6 +6249,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesFilterArgs;
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -5573,7 +6277,7 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.ids().length(); i++) {
+     *         for (var i = 0; i < test.ids().size(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.ids()[range.value()])
      *                 .build());
@@ -5609,6 +6313,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesFilterArgs;
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -5636,7 +6341,7 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.ids().length(); i++) {
+     *         for (var i = 0; i < test.ids().size(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.ids()[range.value()])
      *                 .build());
@@ -5672,6 +6377,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesFilterArgs;
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -5699,7 +6405,7 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.ids().length(); i++) {
+     *         for (var i = 0; i < test.ids().size(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.ids()[range.value()])
      *                 .build());
@@ -5735,6 +6441,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesFilterArgs;
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -5762,7 +6469,7 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.ids().length(); i++) {
+     *         for (var i = 0; i < test.ids().size(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.ids()[range.value()])
      *                 .build());
@@ -5798,6 +6505,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesFilterArgs;
      * import com.pulumi.aws.ec2.Eip;
      * import com.pulumi.aws.ec2.EipArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -5825,7 +6533,7 @@ public final class Ec2Functions {
      *                 "stopped")
      *             .build());
      * 
-     *         for (var i = 0; i < test.ids().length(); i++) {
+     *         for (var i = 0; i < test.ids().size(); i++) {
      *             new Eip("testEip-" + i, EipArgs.builder()
      *                 .instance(test.ids()[range.value()])
      *                 .build());
@@ -5855,6 +6563,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5900,6 +6609,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5945,6 +6655,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5990,6 +6701,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -6035,6 +6747,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -6080,6 +6793,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -6125,6 +6839,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -6432,6 +7147,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -6482,6 +7198,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -6532,6 +7249,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -6582,6 +7300,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -6632,6 +7351,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -6682,6 +7402,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -6732,6 +7453,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -7013,6 +7735,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -7089,6 +7812,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -7165,6 +7889,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -7241,6 +7966,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -7317,6 +8043,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -7393,6 +8120,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -7469,6 +8197,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -9401,6 +10130,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -9485,6 +10215,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -9569,6 +10300,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -9653,6 +10385,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -9737,6 +10470,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -9821,6 +10555,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -9905,6 +10640,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -10690,6 +11426,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -10804,6 +11541,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -10918,6 +11656,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -11032,6 +11771,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -11146,6 +11886,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -11260,6 +12001,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -11374,6 +12116,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -12326,6 +13069,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -12438,6 +13182,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -12550,6 +13295,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -12662,6 +13408,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -12774,6 +13521,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -12886,6 +13634,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -12998,6 +13747,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -13109,6 +13859,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -13219,6 +13970,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -13329,6 +14081,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -13439,6 +14192,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -13549,6 +14303,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -13659,6 +14414,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -13769,6 +14525,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -14057,6 +14814,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -14135,6 +14893,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -14213,6 +14972,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -14291,6 +15051,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -14369,6 +15130,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -14447,6 +15209,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -14525,6 +15288,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetPublicIpv4PoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -15235,6 +15999,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesFilterArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -15259,7 +16024,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.ids().length(); i++) {
+     *         for (var i = 0; i < rts.ids().size(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
@@ -15295,6 +16060,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesFilterArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -15319,7 +16085,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.ids().length(); i++) {
+     *         for (var i = 0; i < rts.ids().size(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
@@ -15355,6 +16121,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesFilterArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -15379,7 +16146,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.ids().length(); i++) {
+     *         for (var i = 0; i < rts.ids().size(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
@@ -15415,6 +16182,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesFilterArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -15439,7 +16207,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.ids().length(); i++) {
+     *         for (var i = 0; i < rts.ids().size(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
@@ -15475,6 +16243,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesFilterArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -15499,7 +16268,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.ids().length(); i++) {
+     *         for (var i = 0; i < rts.ids().size(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
@@ -15535,6 +16304,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesFilterArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -15559,7 +16329,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.ids().length(); i++) {
+     *         for (var i = 0; i < rts.ids().size(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
@@ -15595,6 +16365,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetRouteTablesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTablesFilterArgs;
      * import com.pulumi.aws.ec2.Route;
      * import com.pulumi.aws.ec2.RouteArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -15619,7 +16390,7 @@ public final class Ec2Functions {
      *                 .build())
      *             .build());
      * 
-     *         for (var i = 0; i < rts.ids().length(); i++) {
+     *         for (var i = 0; i < rts.ids().size(); i++) {
      *             new Route("r-" + i, RouteArgs.builder()
      *                 .routeTableId(rts.ids()[range.value()])
      *                 .destinationCidrBlock("10.0.0.0/22")
@@ -16077,6 +16848,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -16159,6 +16931,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -16241,6 +17014,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -16323,6 +17097,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -16405,6 +17180,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -16487,6 +17263,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -16569,6 +17346,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17170,6 +17948,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17213,6 +17992,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17256,6 +18036,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17299,6 +18080,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17342,6 +18124,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17385,6 +18168,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17428,6 +18212,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesArgs;
+     * import com.pulumi.aws.ec2.inputs.GetServiceLinkVirtualInterfacesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17758,6 +18543,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17803,6 +18589,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17848,6 +18635,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17893,6 +18681,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17938,6 +18727,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -17983,6 +18773,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -18028,6 +18819,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -18127,6 +18919,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -18224,6 +19017,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -18321,6 +19115,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -18418,6 +19213,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -18515,6 +19311,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -18612,6 +19409,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -18709,6 +19507,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -18758,6 +19557,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -18782,7 +19582,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(TosetArgs.builder()
+     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
      *             .input(private_.ids())
      *             .build()).result())) {
      *             new Instance("app-" + range.key(), InstanceArgs.builder()
@@ -18821,6 +19621,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -18845,7 +19646,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(TosetArgs.builder()
+     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
      *             .input(private_.ids())
      *             .build()).result())) {
      *             new Instance("app-" + range.key(), InstanceArgs.builder()
@@ -18884,6 +19685,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -18908,7 +19710,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(TosetArgs.builder()
+     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
      *             .input(private_.ids())
      *             .build()).result())) {
      *             new Instance("app-" + range.key(), InstanceArgs.builder()
@@ -18947,6 +19749,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -18971,7 +19774,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(TosetArgs.builder()
+     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
      *             .input(private_.ids())
      *             .build()).result())) {
      *             new Instance("app-" + range.key(), InstanceArgs.builder()
@@ -19010,6 +19813,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -19034,7 +19838,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(TosetArgs.builder()
+     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
      *             .input(private_.ids())
      *             .build()).result())) {
      *             new Instance("app-" + range.key(), InstanceArgs.builder()
@@ -19073,6 +19877,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -19097,7 +19902,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(TosetArgs.builder()
+     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
      *             .input(private_.ids())
      *             .build()).result())) {
      *             new Instance("app-" + range.key(), InstanceArgs.builder()
@@ -19136,6 +19941,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetSubnetsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetsFilterArgs;
      * import com.pulumi.aws.ec2.Instance;
      * import com.pulumi.aws.ec2.InstanceArgs;
      * import com.pulumi.codegen.internal.KeyedValue;
@@ -19160,7 +19966,7 @@ public final class Ec2Functions {
      *             .tags(Map.of("Tier", "Private"))
      *             .build());
      * 
-     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(TosetArgs.builder()
+     *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
      *             .input(private_.ids())
      *             .build()).result())) {
      *             new Instance("app-" + range.key(), InstanceArgs.builder()
@@ -19970,6 +20776,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20053,6 +20860,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20136,6 +20944,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20219,6 +21028,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20302,6 +21112,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20385,6 +21196,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20468,6 +21280,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -20952,6 +21765,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -21081,6 +21895,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -21210,6 +22025,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -21339,6 +22155,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -21468,6 +22285,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -21597,6 +22415,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -21726,6 +22545,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -21987,6 +22807,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolFilterArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.ArrayList;
@@ -22050,6 +22871,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolFilterArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.ArrayList;
@@ -22113,6 +22935,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolFilterArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.ArrayList;
@@ -22176,6 +22999,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolFilterArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.ArrayList;
@@ -22239,6 +23063,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolFilterArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.ArrayList;
@@ -22302,6 +23127,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolFilterArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.ArrayList;
@@ -22365,6 +23191,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolFilterArgs;
      * import com.pulumi.aws.ec2.Vpc;
      * import com.pulumi.aws.ec2.VpcArgs;
      * import java.util.ArrayList;
@@ -22424,6 +23251,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolFilterArgs;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -22483,6 +23311,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolFilterArgs;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -22542,6 +23371,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolFilterArgs;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -22601,6 +23431,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolFilterArgs;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -22660,6 +23491,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolFilterArgs;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolCidrsArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -22719,6 +23551,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -22771,6 +23604,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -22823,6 +23657,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -22875,6 +23710,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -22927,6 +23763,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -22979,6 +23816,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23031,6 +23869,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamPoolsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23114,6 +23953,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23150,6 +23990,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23228,6 +24069,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23264,6 +24106,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23342,6 +24185,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23378,6 +24222,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23456,6 +24301,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23492,6 +24338,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23570,6 +24417,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23606,6 +24454,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23684,6 +24533,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23720,6 +24570,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23798,6 +24649,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -23834,6 +24686,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpcIpamsArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIpamsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -24712,6 +25565,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -24792,6 +25646,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -24872,6 +25727,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -24952,6 +25808,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -25032,6 +25889,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -25112,6 +25970,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -25192,6 +26051,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnConnectionArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnConnectionFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -25271,6 +26131,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -25316,6 +26177,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -25361,6 +26223,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -25406,6 +26269,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -25451,6 +26315,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -25496,6 +26361,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -25541,6 +26407,7 @@ public final class Ec2Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2.Ec2Functions;
      * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

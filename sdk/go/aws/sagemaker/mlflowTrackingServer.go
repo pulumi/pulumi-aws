@@ -58,7 +58,7 @@ type MlflowTrackingServer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
 	ArtifactStoreUri pulumi.StringOutput `pulumi:"artifactStoreUri"`
-	// A list of Member Definitions that contains objects that identify the workers that make up the work team.
+	// Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
 	AutomaticModelRegistration pulumi.BoolPtrOutput `pulumi:"automaticModelRegistration"`
 	// The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
 	MlflowVersion pulumi.StringOutput `pulumi:"mlflowVersion"`
@@ -123,7 +123,7 @@ type mlflowTrackingServerState struct {
 	Arn *string `pulumi:"arn"`
 	// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
 	ArtifactStoreUri *string `pulumi:"artifactStoreUri"`
-	// A list of Member Definitions that contains objects that identify the workers that make up the work team.
+	// Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
 	AutomaticModelRegistration *bool `pulumi:"automaticModelRegistration"`
 	// The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
 	MlflowVersion *string `pulumi:"mlflowVersion"`
@@ -150,7 +150,7 @@ type MlflowTrackingServerState struct {
 	Arn pulumi.StringPtrInput
 	// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
 	ArtifactStoreUri pulumi.StringPtrInput
-	// A list of Member Definitions that contains objects that identify the workers that make up the work team.
+	// Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
 	AutomaticModelRegistration pulumi.BoolPtrInput
 	// The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
 	MlflowVersion pulumi.StringPtrInput
@@ -179,7 +179,7 @@ func (MlflowTrackingServerState) ElementType() reflect.Type {
 type mlflowTrackingServerArgs struct {
 	// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
 	ArtifactStoreUri string `pulumi:"artifactStoreUri"`
-	// A list of Member Definitions that contains objects that identify the workers that make up the work team.
+	// Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
 	AutomaticModelRegistration *bool `pulumi:"automaticModelRegistration"`
 	// The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
 	MlflowVersion *string `pulumi:"mlflowVersion"`
@@ -201,7 +201,7 @@ type mlflowTrackingServerArgs struct {
 type MlflowTrackingServerArgs struct {
 	// The S3 URI for a general purpose bucket to use as the MLflow Tracking Server artifact store.
 	ArtifactStoreUri pulumi.StringInput
-	// A list of Member Definitions that contains objects that identify the workers that make up the work team.
+	// Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
 	AutomaticModelRegistration pulumi.BoolPtrInput
 	// The version of MLflow that the tracking server uses. To see which MLflow versions are available to use, see [How it works](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow.html#mlflow-create-tracking-server-how-it-works).
 	MlflowVersion pulumi.StringPtrInput
@@ -316,7 +316,7 @@ func (o MlflowTrackingServerOutput) ArtifactStoreUri() pulumi.StringOutput {
 	return o.ApplyT(func(v *MlflowTrackingServer) pulumi.StringOutput { return v.ArtifactStoreUri }).(pulumi.StringOutput)
 }
 
-// A list of Member Definitions that contains objects that identify the workers that make up the work team.
+// Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
 func (o MlflowTrackingServerOutput) AutomaticModelRegistration() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MlflowTrackingServer) pulumi.BoolPtrOutput { return v.AutomaticModelRegistration }).(pulumi.BoolPtrOutput)
 }

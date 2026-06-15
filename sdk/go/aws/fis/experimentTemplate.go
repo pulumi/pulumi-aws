@@ -73,7 +73,7 @@ import (
 //
 // ```
 //
-// ### With Report Configuration
+// ### Example Usage with Report Configuration
 //
 // ```go
 // package main

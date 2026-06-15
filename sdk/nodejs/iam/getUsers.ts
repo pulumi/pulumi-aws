@@ -60,7 +60,7 @@ export interface GetUsersArgs {
      */
     nameRegex?: string;
     /**
-     * Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
+     * Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-users.html).
      */
     pathPrefix?: string;
 }
@@ -140,7 +140,7 @@ export interface GetUsersOutputArgs {
      */
     nameRegex?: pulumi.Input<string | undefined>;
     /**
-     * Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
+     * Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-users.html).
      */
     pathPrefix?: pulumi.Input<string | undefined>;
 }

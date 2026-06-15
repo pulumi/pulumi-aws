@@ -34,6 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.glacier.Vault;
  * import com.pulumi.aws.glacier.VaultArgs;
  * import com.pulumi.aws.glacier.inputs.VaultNotificationArgs;

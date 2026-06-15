@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With Upstream Repository
+ * ### Example Usage with upstream repository
  * 
  * <pre>
  * {@code
@@ -111,7 +111,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With External Connection
+ * ### Example Usage with external connection
  * 
  * <pre>
  * {@code

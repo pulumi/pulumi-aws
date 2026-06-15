@@ -418,6 +418,17 @@ class Membership(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the membership.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import `cleanrooms.Membership` using the `id`. For example:
 
         ```sh
@@ -469,6 +480,17 @@ class Membership(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the membership.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import `cleanrooms.Membership` using the `id`. For example:
 

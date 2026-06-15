@@ -238,7 +238,7 @@ class StandardsControlAssociation(pulumi.CustomResource):
             updated_reason="Not needed")
         ```
 
-        ## Disabling security control in all standards
+        ### Disabling security control in all standards
 
         ```python
         import pulumi
@@ -321,7 +321,7 @@ class StandardsControlAssociation(pulumi.CustomResource):
             updated_reason="Not needed")
         ```
 
-        ## Disabling security control in all standards
+        ### Disabling security control in all standards
 
         ```python
         import pulumi

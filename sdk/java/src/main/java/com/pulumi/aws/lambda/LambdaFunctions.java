@@ -132,6 +132,53 @@ public final class LambdaFunctions {
      * 
      * ### Deployment Version Tracking
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get production alias details
+     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("payment-processor")
+     *             .name("production")
+     *             .build());
+     * 
+     *         // Get staging alias details
+     *         final var staging = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("payment-processor")
+     *             .name("staging")
+     *             .build());
+     * 
+     *         final var versionDrift = production.functionVersion() != staging.functionVersion();
+     * 
+     *         ctx.export("deploymentStatus", Map.ofEntries(
+     *             Map.entry("productionVersion", production.functionVersion()),
+     *             Map.entry("stagingVersion", staging.functionVersion()),
+     *             Map.entry("versionDrift", versionDrift),
+     *             Map.entry("readyForPromotion", !versionDrift)
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ### EventBridge Rule Target
      * 
      * <pre>
@@ -300,6 +347,53 @@ public final class LambdaFunctions {
      * </pre>
      * 
      * ### Deployment Version Tracking
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get production alias details
+     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("payment-processor")
+     *             .name("production")
+     *             .build());
+     * 
+     *         // Get staging alias details
+     *         final var staging = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("payment-processor")
+     *             .name("staging")
+     *             .build());
+     * 
+     *         final var versionDrift = production.functionVersion() != staging.functionVersion();
+     * 
+     *         ctx.export("deploymentStatus", Map.ofEntries(
+     *             Map.entry("productionVersion", production.functionVersion()),
+     *             Map.entry("stagingVersion", staging.functionVersion()),
+     *             Map.entry("versionDrift", versionDrift),
+     *             Map.entry("readyForPromotion", !versionDrift)
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * ### EventBridge Rule Target
      * 
@@ -470,6 +564,53 @@ public final class LambdaFunctions {
      * 
      * ### Deployment Version Tracking
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get production alias details
+     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("payment-processor")
+     *             .name("production")
+     *             .build());
+     * 
+     *         // Get staging alias details
+     *         final var staging = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("payment-processor")
+     *             .name("staging")
+     *             .build());
+     * 
+     *         final var versionDrift = production.functionVersion() != staging.functionVersion();
+     * 
+     *         ctx.export("deploymentStatus", Map.ofEntries(
+     *             Map.entry("productionVersion", production.functionVersion()),
+     *             Map.entry("stagingVersion", staging.functionVersion()),
+     *             Map.entry("versionDrift", versionDrift),
+     *             Map.entry("readyForPromotion", !versionDrift)
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ### EventBridge Rule Target
      * 
      * <pre>
@@ -639,6 +780,53 @@ public final class LambdaFunctions {
      * 
      * ### Deployment Version Tracking
      * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get production alias details
+     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("payment-processor")
+     *             .name("production")
+     *             .build());
+     * 
+     *         // Get staging alias details
+     *         final var staging = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("payment-processor")
+     *             .name("staging")
+     *             .build());
+     * 
+     *         final var versionDrift = production.functionVersion() != staging.functionVersion();
+     * 
+     *         ctx.export("deploymentStatus", Map.ofEntries(
+     *             Map.entry("productionVersion", production.functionVersion()),
+     *             Map.entry("stagingVersion", staging.functionVersion()),
+     *             Map.entry("versionDrift", versionDrift),
+     *             Map.entry("readyForPromotion", !versionDrift)
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
      * ### EventBridge Rule Target
      * 
      * <pre>
@@ -807,6 +995,53 @@ public final class LambdaFunctions {
      * </pre>
      * 
      * ### Deployment Version Tracking
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetAliasArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // Get production alias details
+     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("payment-processor")
+     *             .name("production")
+     *             .build());
+     * 
+     *         // Get staging alias details
+     *         final var staging = LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *             .functionName("payment-processor")
+     *             .name("staging")
+     *             .build());
+     * 
+     *         final var versionDrift = production.functionVersion() != staging.functionVersion();
+     * 
+     *         ctx.export("deploymentStatus", Map.ofEntries(
+     *             Map.entry("productionVersion", production.functionVersion()),
+     *             Map.entry("stagingVersion", staging.functionVersion()),
+     *             Map.entry("versionDrift", versionDrift),
+     *             Map.entry("readyForPromotion", !versionDrift)
+     *         ));
+     *     }
+     * }
+     * }
+     * </pre>
      * 
      * ### EventBridge Rule Target
      * 
@@ -2122,9 +2357,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         ctx.export("durableSettings", Map.ofEntries(
-     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0)),
-     *             Map.entry("executionTimeout", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
-     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0)),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
      *         ));
      *     }
      * }
@@ -2299,9 +2534,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         ctx.export("durableSettings", Map.ofEntries(
-     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0)),
-     *             Map.entry("executionTimeout", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
-     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0)),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
      *         ));
      *     }
      * }
@@ -2476,9 +2711,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         ctx.export("durableSettings", Map.ofEntries(
-     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0)),
-     *             Map.entry("executionTimeout", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
-     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0)),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
      *         ));
      *     }
      * }
@@ -2653,9 +2888,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         ctx.export("durableSettings", Map.ofEntries(
-     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0)),
-     *             Map.entry("executionTimeout", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
-     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0)),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
      *         ));
      *     }
      * }
@@ -2830,9 +3065,9 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         ctx.export("durableSettings", Map.ofEntries(
-     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0)),
-     *             Map.entry("executionTimeout", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
-     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().length().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
+     *             Map.entry("hasDurableConfig", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0)),
+     *             Map.entry("executionTimeout", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].executionTimeout() : null)),
+     *             Map.entry("retentionPeriod", durableFunction.durableConfigs().size().applyValue(_length -> _length > 0 ? durableFunction.durableConfigs()[0].retentionPeriod() : null))
      *         ));
      *     }
      * }
@@ -2961,7 +3196,7 @@ public final class LambdaFunctions {
      *             .functionName("api_function")
      *             .build());
      * 
-     *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     *         final var corsConfig = example.cors().size().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
      * 
      *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
      * 
@@ -3093,7 +3328,7 @@ public final class LambdaFunctions {
      *             .functionName("api_function")
      *             .build());
      * 
-     *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     *         final var corsConfig = example.cors().size().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
      * 
      *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
      * 
@@ -3225,7 +3460,7 @@ public final class LambdaFunctions {
      *             .functionName("api_function")
      *             .build());
      * 
-     *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     *         final var corsConfig = example.cors().size().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
      * 
      *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
      * 
@@ -3357,7 +3592,7 @@ public final class LambdaFunctions {
      *             .functionName("api_function")
      *             .build());
      * 
-     *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     *         final var corsConfig = example.cors().size().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
      * 
      *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
      * 
@@ -3489,7 +3724,7 @@ public final class LambdaFunctions {
      *             .functionName("api_function")
      *             .build());
      * 
-     *         final var corsConfig = example.cors().length().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
+     *         final var corsConfig = example.cors().size().applyValue(_length -> _length > 0 ? example.cors()[0] : null);
      * 
      *         final var allowedOrigins = corsConfig != null ? corsConfig.allowOrigins() : Arrays.asList();
      * 
@@ -3535,7 +3770,7 @@ public final class LambdaFunctions {
      *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
      *             .build());
      * 
-     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("functionCount", all.functionNames().size());
      *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
@@ -3574,7 +3809,7 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         // Create CloudWatch alarms for all functions
-     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *         for (var i = 0; i < all.functionNames().size(); i++) {
      *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
      *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
      *                 .comparisonOperator("GreaterThanThreshold")
@@ -3637,7 +3872,7 @@ public final class LambdaFunctions {
      *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
      *             .build());
      * 
-     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("functionCount", all.functionNames().size());
      *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
@@ -3676,7 +3911,7 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         // Create CloudWatch alarms for all functions
-     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *         for (var i = 0; i < all.functionNames().size(); i++) {
      *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
      *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
      *                 .comparisonOperator("GreaterThanThreshold")
@@ -3739,7 +3974,7 @@ public final class LambdaFunctions {
      *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
      *             .build());
      * 
-     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("functionCount", all.functionNames().size());
      *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
@@ -3778,7 +4013,7 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         // Create CloudWatch alarms for all functions
-     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *         for (var i = 0; i < all.functionNames().size(); i++) {
      *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
      *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
      *                 .comparisonOperator("GreaterThanThreshold")
@@ -3841,7 +4076,7 @@ public final class LambdaFunctions {
      *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
      *             .build());
      * 
-     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("functionCount", all.functionNames().size());
      *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
@@ -3880,7 +4115,7 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         // Create CloudWatch alarms for all functions
-     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *         for (var i = 0; i < all.functionNames().size(); i++) {
      *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
      *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
      *                 .comparisonOperator("GreaterThanThreshold")
@@ -3943,7 +4178,7 @@ public final class LambdaFunctions {
      *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
      *             .build());
      * 
-     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("functionCount", all.functionNames().size());
      *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
@@ -3982,7 +4217,7 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         // Create CloudWatch alarms for all functions
-     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *         for (var i = 0; i < all.functionNames().size(); i++) {
      *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
      *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
      *                 .comparisonOperator("GreaterThanThreshold")
@@ -4045,7 +4280,7 @@ public final class LambdaFunctions {
      *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
      *             .build());
      * 
-     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("functionCount", all.functionNames().size());
      *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
@@ -4084,7 +4319,7 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         // Create CloudWatch alarms for all functions
-     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *         for (var i = 0; i < all.functionNames().size(); i++) {
      *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
      *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
      *                 .comparisonOperator("GreaterThanThreshold")
@@ -4147,7 +4382,7 @@ public final class LambdaFunctions {
      *         final var all = LambdaFunctions.getFunctions(GetFunctionsArgs.builder()
      *             .build());
      * 
-     *         ctx.export("functionCount", all.functionNames().length());
+     *         ctx.export("functionCount", all.functionNames().size());
      *         ctx.export("allFunctionNames", all.functionNames());
      *     }
      * }
@@ -4186,7 +4421,7 @@ public final class LambdaFunctions {
      *             .build());
      * 
      *         // Create CloudWatch alarms for all functions
-     *         for (var i = 0; i < all.functionNames().length(); i++) {
+     *         for (var i = 0; i < all.functionNames().size(); i++) {
      *             new MetricAlarm("lambdaErrors-" + i, MetricAlarmArgs.builder()
      *                 .name(String.format("%s-errors", all.functionNames()[range.value()]))
      *                 .comparisonOperator("GreaterThanThreshold")

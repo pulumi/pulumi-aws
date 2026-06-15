@@ -6,6 +6,8 @@ package com.pulumi.aws.bedrock;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.bedrock.AgentcoreMemoryArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryState;
+import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryIndexedKey;
+import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryStreamDeliveryResources;
 import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -13,6 +15,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -33,6 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
@@ -199,6 +204,20 @@ public class AgentcoreMemory extends com.pulumi.resources.CustomResource {
         return this.eventExpiryDuration;
     }
     /**
+     * Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     * 
+     */
+    @Export(name="indexedKeys", refs={List.class,AgentcoreMemoryIndexedKey.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<AgentcoreMemoryIndexedKey>> indexedKeys;
+
+    /**
+     * @return Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     * 
+     */
+    public Output<Optional<List<AgentcoreMemoryIndexedKey>>> indexedKeys() {
+        return Codegen.optional(this.indexedKeys);
+    }
+    /**
      * ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
      * 
      */
@@ -239,6 +258,20 @@ public class AgentcoreMemory extends com.pulumi.resources.CustomResource {
      */
     public Output<String> region() {
         return this.region;
+    }
+    /**
+     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     * 
+     */
+    @Export(name="streamDeliveryResources", refs={AgentcoreMemoryStreamDeliveryResources.class}, tree="[0]")
+    private Output</* @Nullable */ AgentcoreMemoryStreamDeliveryResources> streamDeliveryResources;
+
+    /**
+     * @return Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     * 
+     */
+    public Output<Optional<AgentcoreMemoryStreamDeliveryResources>> streamDeliveryResources() {
+        return Codegen.optional(this.streamDeliveryResources);
     }
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

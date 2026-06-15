@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class InstanceFleetLaunchSpecificationsOnDemandSpecification {
     /**
-     * @return Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
+     * @return Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
      * 
      */
     private String allocationStrategy;
 
     private InstanceFleetLaunchSpecificationsOnDemandSpecification() {}
     /**
-     * @return Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
+     * @return Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
      * 
      */
     public String allocationStrategy() {

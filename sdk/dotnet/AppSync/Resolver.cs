@@ -113,7 +113,7 @@ namespace Pulumi.Aws.AppSync
     /// });
     /// ```
     /// 
-    /// ### JS
+    /// ### Example Usage JS
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

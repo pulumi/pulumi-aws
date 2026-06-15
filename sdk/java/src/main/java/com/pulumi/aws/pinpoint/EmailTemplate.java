@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.pinpoint.EmailTemplate;
  * import com.pulumi.aws.pinpoint.EmailTemplateArgs;
  * import com.pulumi.aws.pinpoint.inputs.EmailTemplateEmailTemplateArgs;
+ * import com.pulumi.aws.pinpoint.inputs.EmailTemplateEmailTemplateHeaderArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -289,7 +289,7 @@ def get_volume(filters: Optional[Sequence[Union['GetVolumeFilterArgs', 'GetVolum
 
     :param Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
-           [describe-volumes in the AWS CLI reference][1].
+           [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html).
     :param _builtins.bool most_recent: If more than one result is returned, use the most
            recent volume.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -354,7 +354,7 @@ def get_volume_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['Ge
 
     :param Sequence[Union['GetVolumeFilterArgs', 'GetVolumeFilterArgsDict']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
-           [describe-volumes in the AWS CLI reference][1].
+           [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html).
     :param _builtins.bool most_recent: If more than one result is returned, use the most
            recent volume.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

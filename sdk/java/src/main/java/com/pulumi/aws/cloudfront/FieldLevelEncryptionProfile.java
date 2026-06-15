@@ -34,6 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.FieldLevelEncryptionProfile;
  * import com.pulumi.aws.cloudfront.FieldLevelEncryptionProfileArgs;
  * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionProfileEncryptionEntitiesArgs;
+ * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs;
+ * import com.pulumi.aws.cloudfront.inputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

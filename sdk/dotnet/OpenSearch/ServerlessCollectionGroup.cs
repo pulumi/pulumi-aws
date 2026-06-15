@@ -93,6 +93,12 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+        /// </summary>
+        [Output("generation")]
+        public Output<string> Generation { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the collection group.
         /// </summary>
         [Output("name")]
@@ -105,7 +111,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+        /// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `Generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -189,6 +195,12 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+        /// </summary>
+        [Input("generation")]
+        public Input<string>? Generation { get; set; }
+
+        /// <summary>
         /// Name of the collection group.
         /// </summary>
         [Input("name")]
@@ -201,7 +213,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+        /// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `Generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -259,6 +271,12 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+        /// </summary>
+        [Input("generation")]
+        public Input<string>? Generation { get; set; }
+
+        /// <summary>
         /// Name of the collection group.
         /// </summary>
         [Input("name")]
@@ -271,7 +289,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+        /// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `Generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
         /// 
         /// The following arguments are optional:
         /// </summary>

@@ -224,8 +224,6 @@ namespace Pulumi.Aws.S3
     /// ```sh
     /// $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
     /// ```
-    /// 
-    /// [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
     /// </summary>
     [Obsolete(@"aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl")]
     [AwsResourceType("aws:s3/bucketAclV2:BucketAclV2")]

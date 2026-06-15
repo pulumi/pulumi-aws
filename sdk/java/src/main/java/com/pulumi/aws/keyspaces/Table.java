@@ -40,6 +40,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.keyspaces.Table;
  * import com.pulumi.aws.keyspaces.TableArgs;
  * import com.pulumi.aws.keyspaces.inputs.TableSchemaDefinitionArgs;
+ * import com.pulumi.aws.keyspaces.inputs.TableSchemaDefinitionColumnArgs;
+ * import com.pulumi.aws.keyspaces.inputs.TableSchemaDefinitionPartitionKeyArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

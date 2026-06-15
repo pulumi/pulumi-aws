@@ -132,7 +132,7 @@ class _UserState:
         :param pulumi.Input[_builtins.str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] unique_id: The [unique ID][1] assigned by AWS.
+        :param pulumi.Input[_builtins.str] unique_id: The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -241,7 +241,7 @@ class _UserState:
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The [unique ID][1] assigned by AWS.
+        The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         """
         return pulumi.get(self, "unique_id")
 
@@ -445,7 +445,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] permissions_boundary: The ARN of the policy that is used to set the permissions boundary for the user.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of tags for the IAM user. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] unique_id: The [unique ID][1] assigned by AWS.
+        :param pulumi.Input[_builtins.str] unique_id: The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -523,7 +523,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The [unique ID][1] assigned by AWS.
+        The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         """
         return pulumi.get(self, "unique_id")
 

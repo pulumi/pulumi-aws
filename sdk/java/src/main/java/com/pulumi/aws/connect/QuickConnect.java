@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.connect.QuickConnect;
  * import com.pulumi.aws.connect.QuickConnectArgs;
  * import com.pulumi.aws.connect.inputs.QuickConnectQuickConnectConfigArgs;
+ * import com.pulumi.aws.connect.inputs.QuickConnectQuickConnectConfigPhoneConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

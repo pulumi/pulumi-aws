@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * 
  * A capacity task redistributes the instance pools available on an Outpost rack or server to match the `instancePool` configuration declared in the resource. Starting a capacity task is a long-running, asynchronous operation — Terraform waits for it to reach a terminal state (`COMPLETED`, `CANCELLED`, or `FAILED`) before finishing the apply.
  * 
+ * Because every argument of this resource is marked as forces-new, any change to the configuration results in destroying and re-creating the capacity task. Tasks that are already in a terminal state (`COMPLETED` or `CANCELLED`) are left in place on destroy and only removed from Terraform state; tasks still in flight are cancelled and Terraform waits for them to reach `CANCELLED`. If a task reaches the terminal state `FAILED` during `delete`, the provider tolerates the &#34;already in a terminal state&#34; error returned by `CancelCapacityTask` and considers the resource successfully destroyed. If a create operation produces a `FAILED` task, the resource is not written to Terraform state (the `failureReason` is surfaced in the diagnostic instead), so no follow-up destroy is required.
+ * 
  * ## Example Usage
  * 
  * ### Minimal
@@ -124,12 +126,6 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * 
- * ## Lifecycle
- * 
- * Because every argument of this resource is marked as forces-new, any change to the configuration results in destroying and re-creating the capacity task. Tasks that are already in a terminal state (`COMPLETED` or `CANCELLED`) are left in place on destroy and only removed from Terraform state; tasks still in flight are cancelled and Terraform waits for them to reach `CANCELLED`. If a task reaches the terminal state `FAILED` during `delete`, the provider tolerates the &#34;already in a terminal state&#34; error returned by `CancelCapacityTask` and considers the resource successfully destroyed.
- * 
- * If a create operation produces a `FAILED` task, the resource is not written to Terraform state (the `failureReason` is surfaced in the diagnostic instead), so no follow-up destroy is required.
  * 
  * ## Import
  * 

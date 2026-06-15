@@ -63,7 +63,7 @@ import (
 //
 // ```
 //
-// ## Disabling security control in all standards
+// ### Disabling security control in all standards
 //
 // ```go
 // package main

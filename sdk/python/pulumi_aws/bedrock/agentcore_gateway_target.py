@@ -27,6 +27,7 @@ class AgentcoreGatewayTargetArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata_configuration: pulumi.Input[Optional['AgentcoreGatewayTargetMetadataConfigurationArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint: pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  timeouts: pulumi.Input[Optional['AgentcoreGatewayTargetTimeoutsArgs']] = None):
         """
@@ -40,7 +41,8 @@ class AgentcoreGatewayTargetArgs:
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input['AgentcoreGatewayTargetMetadataConfigurationArgs'] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
-        :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        :param pulumi.Input['AgentcoreGatewayTargetPrivateEndpointArgs'] private_endpoint: Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `private_endpoint` below.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "gateway_identifier", gateway_identifier)
         pulumi.set(__self__, "target_configuration", target_configuration)
@@ -52,6 +54,8 @@ class AgentcoreGatewayTargetArgs:
             pulumi.set(__self__, "metadata_configuration", metadata_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if timeouts is not None:
@@ -132,10 +136,22 @@ class AgentcoreGatewayTargetArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointArgs']]:
+        """
+        Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `private_endpoint` below.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointArgs']]):
+        pulumi.set(self, "private_endpoint", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -161,6 +177,7 @@ class _AgentcoreGatewayTargetState:
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata_configuration: pulumi.Input[Optional['AgentcoreGatewayTargetMetadataConfigurationArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint: pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_configuration: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationArgs']] = None,
                  target_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -173,7 +190,8 @@ class _AgentcoreGatewayTargetState:
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
         :param pulumi.Input['AgentcoreGatewayTargetMetadataConfigurationArgs'] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
-        :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        :param pulumi.Input['AgentcoreGatewayTargetPrivateEndpointArgs'] private_endpoint: Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `private_endpoint` below.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs'] target_configuration: Configuration for the target endpoint. See `target_configuration` below.
                
                The following arguments are optional:
@@ -189,6 +207,8 @@ class _AgentcoreGatewayTargetState:
             pulumi.set(__self__, "metadata_configuration", metadata_configuration)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if target_configuration is not None:
@@ -259,10 +279,22 @@ class _AgentcoreGatewayTargetState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointArgs']]:
+        """
+        Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `private_endpoint` below.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointArgs']]):
+        pulumi.set(self, "private_endpoint", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -317,12 +349,13 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint: pulumi.Input[Optional[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']]] = None,
                  timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTimeoutsArgs', 'AgentcoreGatewayTargetTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions or APIs, allowing agents to interact with external services through the Model Context Protocol (MCP).
+        Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions, APIs, or AgentCore Runtime agents, allowing agents to interact with external services through the Model Context Protocol (MCP) or by routing HTTP traffic directly to a runtime.
 
         ## Example Usage
 
@@ -525,6 +558,31 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             })
         ```
 
+        ### Target with IAM SigV4 Authentication (MCP Server)
+
+        Use this for `mcp_server` targets pointing at AWS-hosted SigV4-protected endpoints (e.g. another Bedrock AgentCore Runtime). The gateway signs upstream requests using its own IAM role.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sigv4_example = aws.bedrock.AgentcoreGatewayTarget("sigv4_example",
+            name="sigv4-target",
+            gateway_identifier=example["gatewayId"],
+            credential_provider_configuration={
+                "gateway_iam_role": {
+                    "service": "bedrock-agentcore",
+                },
+            },
+            target_configuration={
+                "mcp": {
+                    "mcp_server": {
+                        "endpoint": "https://example-runtime.bedrock-agentcore.us-east-1.amazonaws.com/runtimes/example/invocations?qualifier=DEFAULT",
+                    },
+                },
+            })
+        ```
+
         ### Complex Schema with JSON Serialization
 
         ```python
@@ -608,6 +666,118 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                 ],
                 "allowed_response_headers": ["x-rate-limit-remaining"],
                 "allowed_query_parameters": ["version"],
+            })
+        ```
+
+        ### HTTP Target Routing to an AgentCore Runtime
+
+        Routes gateway traffic directly to an AgentCore Runtime agent over HTTP, without MCP aggregation. The gateway must not have a `protocol_type` set.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreAgentRuntime("example",
+            agent_runtime_name="example-runtime",
+            role_arn=runtime_role["arn"],
+            agent_runtime_artifact={
+                "container_configuration": {
+                    "container_uri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest",
+                },
+            },
+            network_configuration={
+                "network_mode": "PUBLIC",
+            })
+        runtime = aws.bedrock.AgentcoreGatewayTarget("runtime",
+            name="runtime-target",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            credential_provider_configuration={
+                "gateway_iam_role": {},
+            },
+            target_configuration={
+                "http": {
+                    "agentcore_runtime": {
+                        "arn": example.agent_runtime_arn,
+                        "qualifier": "DEFAULT",
+                    },
+                },
+            })
+        ```
+
+        ### Self-hosted MCP server in a VPC (managed Lattice)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreGatewayTarget("example",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            name="my-private-mcp-target",
+            target_configuration={
+                "mcp": {
+                    "mcp_server": {
+                        "endpoint": "https://mcp.internal.example.com/mcp",
+                    },
+                },
+            },
+            private_endpoint={
+                "managed_vpc_resource": {
+                    "vpc_identifier": example_aws_vpc["id"],
+                    "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+                    "endpoint_ip_address_type": "IPV4",
+                    "security_group_ids": [mcp_lattice["id"]],
+                },
+            })
+        ```
+
+        ### Self-hosted MCP server with routing through an internal ALB
+
+        Use `routing_domain` when the MCP server has a private TLS certificate. Place an internal ALB with a public ACM certificate in front of the server and set `routing_domain` to the ALB DNS name.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreGatewayTarget("example",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            name="my-private-mcp-via-alb",
+            target_configuration={
+                "mcp": {
+                    "mcp_server": {
+                        "endpoint": "https://mcp.example.com/mcp",
+                    },
+                },
+            },
+            private_endpoint={
+                "managed_vpc_resource": {
+                    "vpc_identifier": example_aws_vpc["id"],
+                    "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+                    "endpoint_ip_address_type": "IPV4",
+                    "routing_domain": mcp_alb["dnsName"],
+                },
+            })
+        ```
+
+        ### Self-managed VPC Lattice resource configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreGatewayTarget("example",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            name="my-private-mcp-self-managed",
+            target_configuration={
+                "mcp": {
+                    "mcp_server": {
+                        "endpoint": "https://mcp.internal.example.com/mcp",
+                    },
+                },
+            },
+            private_endpoint={
+                "self_managed_lattice_resource": {
+                    "resource_configuration_identifier": mcp["arn"],
+                },
             })
         ```
 
@@ -627,7 +797,8 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
         :param pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
-        :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict']] private_endpoint: Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `private_endpoint` below.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']] target_configuration: Configuration for the target endpoint. See `target_configuration` below.
                
                The following arguments are optional:
@@ -639,7 +810,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                  args: AgentcoreGatewayTargetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions or APIs, allowing agents to interact with external services through the Model Context Protocol (MCP).
+        Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions, APIs, or AgentCore Runtime agents, allowing agents to interact with external services through the Model Context Protocol (MCP) or by routing HTTP traffic directly to a runtime.
 
         ## Example Usage
 
@@ -842,6 +1013,31 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             })
         ```
 
+        ### Target with IAM SigV4 Authentication (MCP Server)
+
+        Use this for `mcp_server` targets pointing at AWS-hosted SigV4-protected endpoints (e.g. another Bedrock AgentCore Runtime). The gateway signs upstream requests using its own IAM role.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        sigv4_example = aws.bedrock.AgentcoreGatewayTarget("sigv4_example",
+            name="sigv4-target",
+            gateway_identifier=example["gatewayId"],
+            credential_provider_configuration={
+                "gateway_iam_role": {
+                    "service": "bedrock-agentcore",
+                },
+            },
+            target_configuration={
+                "mcp": {
+                    "mcp_server": {
+                        "endpoint": "https://example-runtime.bedrock-agentcore.us-east-1.amazonaws.com/runtimes/example/invocations?qualifier=DEFAULT",
+                    },
+                },
+            })
+        ```
+
         ### Complex Schema with JSON Serialization
 
         ```python
@@ -925,6 +1121,118 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                 ],
                 "allowed_response_headers": ["x-rate-limit-remaining"],
                 "allowed_query_parameters": ["version"],
+            })
+        ```
+
+        ### HTTP Target Routing to an AgentCore Runtime
+
+        Routes gateway traffic directly to an AgentCore Runtime agent over HTTP, without MCP aggregation. The gateway must not have a `protocol_type` set.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreAgentRuntime("example",
+            agent_runtime_name="example-runtime",
+            role_arn=runtime_role["arn"],
+            agent_runtime_artifact={
+                "container_configuration": {
+                    "container_uri": "111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest",
+                },
+            },
+            network_configuration={
+                "network_mode": "PUBLIC",
+            })
+        runtime = aws.bedrock.AgentcoreGatewayTarget("runtime",
+            name="runtime-target",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            credential_provider_configuration={
+                "gateway_iam_role": {},
+            },
+            target_configuration={
+                "http": {
+                    "agentcore_runtime": {
+                        "arn": example.agent_runtime_arn,
+                        "qualifier": "DEFAULT",
+                    },
+                },
+            })
+        ```
+
+        ### Self-hosted MCP server in a VPC (managed Lattice)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreGatewayTarget("example",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            name="my-private-mcp-target",
+            target_configuration={
+                "mcp": {
+                    "mcp_server": {
+                        "endpoint": "https://mcp.internal.example.com/mcp",
+                    },
+                },
+            },
+            private_endpoint={
+                "managed_vpc_resource": {
+                    "vpc_identifier": example_aws_vpc["id"],
+                    "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+                    "endpoint_ip_address_type": "IPV4",
+                    "security_group_ids": [mcp_lattice["id"]],
+                },
+            })
+        ```
+
+        ### Self-hosted MCP server with routing through an internal ALB
+
+        Use `routing_domain` when the MCP server has a private TLS certificate. Place an internal ALB with a public ACM certificate in front of the server and set `routing_domain` to the ALB DNS name.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreGatewayTarget("example",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            name="my-private-mcp-via-alb",
+            target_configuration={
+                "mcp": {
+                    "mcp_server": {
+                        "endpoint": "https://mcp.example.com/mcp",
+                    },
+                },
+            },
+            private_endpoint={
+                "managed_vpc_resource": {
+                    "vpc_identifier": example_aws_vpc["id"],
+                    "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+                    "endpoint_ip_address_type": "IPV4",
+                    "routing_domain": mcp_alb["dnsName"],
+                },
+            })
+        ```
+
+        ### Self-managed VPC Lattice resource configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreGatewayTarget("example",
+            gateway_identifier=example_aws_bedrockagentcore_gateway["gatewayId"],
+            name="my-private-mcp-self-managed",
+            target_configuration={
+                "mcp": {
+                    "mcp_server": {
+                        "endpoint": "https://mcp.internal.example.com/mcp",
+                    },
+                },
+            },
+            private_endpoint={
+                "self_managed_lattice_resource": {
+                    "resource_configuration_identifier": mcp["arn"],
+                },
             })
         ```
 
@@ -957,6 +1265,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint: pulumi.Input[Optional[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  target_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']]] = None,
                  timeouts: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTimeoutsArgs', 'AgentcoreGatewayTargetTimeoutsArgsDict']]] = None,
@@ -976,6 +1285,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             __props__.__dict__["gateway_identifier"] = gateway_identifier
             __props__.__dict__["metadata_configuration"] = metadata_configuration
             __props__.__dict__["name"] = name
+            __props__.__dict__["private_endpoint"] = private_endpoint
             __props__.__dict__["region"] = region
             if target_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'target_configuration'")
@@ -997,6 +1307,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
             metadata_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_endpoint: pulumi.Input[Optional[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict']]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             target_configuration: pulumi.Input[Optional[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']]] = None,
             target_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1013,7 +1324,8 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
         :param pulumi.Input[Union['AgentcoreGatewayTargetMetadataConfigurationArgs', 'AgentcoreGatewayTargetMetadataConfigurationArgsDict']] metadata_configuration: Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadata_configuration` below.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
-        :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        :param pulumi.Input[Union['AgentcoreGatewayTargetPrivateEndpointArgs', 'AgentcoreGatewayTargetPrivateEndpointArgsDict']] private_endpoint: Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `private_endpoint` below.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AgentcoreGatewayTargetTargetConfigurationArgs', 'AgentcoreGatewayTargetTargetConfigurationArgsDict']] target_configuration: Configuration for the target endpoint. See `target_configuration` below.
                
                The following arguments are optional:
@@ -1028,6 +1340,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         __props__.__dict__["gateway_identifier"] = gateway_identifier
         __props__.__dict__["metadata_configuration"] = metadata_configuration
         __props__.__dict__["name"] = name
+        __props__.__dict__["private_endpoint"] = private_endpoint
         __props__.__dict__["region"] = region
         __props__.__dict__["target_configuration"] = target_configuration
         __props__.__dict__["target_id"] = target_id
@@ -1075,10 +1388,18 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> pulumi.Output[Optional['outputs.AgentcoreGatewayTargetPrivateEndpoint']]:
+        """
+        Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `private_endpoint` below.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
         """
-        AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

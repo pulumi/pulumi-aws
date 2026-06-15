@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With Existing Active Directory
+ * ### Example Usage with Existing Active Directory
  * 
  * <pre>
  * {@code
@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With SAML
+ * ### Example Usage with SAML
  * 
  * <pre>
  * {@code

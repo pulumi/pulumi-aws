@@ -21,6 +21,9 @@ __all__ = [
     'AppQuietTime',
     'EmailTemplateEmailTemplate',
     'EmailTemplateEmailTemplateHeader',
+    'Smsvoicev2EventDestinationCloudwatchLogsDestination',
+    'Smsvoicev2EventDestinationKinesisFirehoseDestination',
+    'Smsvoicev2EventDestinationSnsDestination',
     'Smsvoicev2PhoneNumberTimeouts',
 ]
 
@@ -334,6 +337,137 @@ class EmailTemplateEmailTemplateHeader(dict):
         Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class Smsvoicev2EventDestinationCloudwatchLogsDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamRoleArn":
+            suggest = "iam_role_arn"
+        elif key == "logGroupArn":
+            suggest = "log_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Smsvoicev2EventDestinationCloudwatchLogsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Smsvoicev2EventDestinationCloudwatchLogsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Smsvoicev2EventDestinationCloudwatchLogsDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 iam_role_arn: _builtins.str,
+                 log_group_arn: _builtins.str):
+        """
+        :param _builtins.str iam_role_arn: ARN of the IAM role that End User Messaging SMS assumes to write to the log group.
+        :param _builtins.str log_group_arn: ARN of the Amazon CloudWatch log group that receives the events.
+        """
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role that End User Messaging SMS assumes to write to the log group.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> _builtins.str:
+        """
+        ARN of the Amazon CloudWatch log group that receives the events.
+        """
+        return pulumi.get(self, "log_group_arn")
+
+
+@pulumi.output_type
+class Smsvoicev2EventDestinationKinesisFirehoseDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliveryStreamArn":
+            suggest = "delivery_stream_arn"
+        elif key == "iamRoleArn":
+            suggest = "iam_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Smsvoicev2EventDestinationKinesisFirehoseDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Smsvoicev2EventDestinationKinesisFirehoseDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Smsvoicev2EventDestinationKinesisFirehoseDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delivery_stream_arn: _builtins.str,
+                 iam_role_arn: _builtins.str):
+        """
+        :param _builtins.str delivery_stream_arn: ARN of the Amazon Data Firehose delivery stream that receives the events.
+        :param _builtins.str iam_role_arn: ARN of the IAM role that End User Messaging SMS assumes to write to the delivery stream.
+        """
+        pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryStreamArn")
+    def delivery_stream_arn(self) -> _builtins.str:
+        """
+        ARN of the Amazon Data Firehose delivery stream that receives the events.
+        """
+        return pulumi.get(self, "delivery_stream_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role that End User Messaging SMS assumes to write to the delivery stream.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+
+@pulumi.output_type
+class Smsvoicev2EventDestinationSnsDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicArn":
+            suggest = "topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Smsvoicev2EventDestinationSnsDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Smsvoicev2EventDestinationSnsDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Smsvoicev2EventDestinationSnsDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topic_arn: _builtins.str):
+        """
+        :param _builtins.str topic_arn: ARN of the Amazon SNS topic that receives the events.
+        """
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> _builtins.str:
+        """
+        ARN of the Amazon SNS topic that receives the events.
+        """
+        return pulumi.get(self, "topic_arn")
 
 
 @pulumi.output_type

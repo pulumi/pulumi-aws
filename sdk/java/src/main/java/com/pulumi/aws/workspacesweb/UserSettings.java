@@ -122,6 +122,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.workspacesweb.UserSettingsArgs;
  * import com.pulumi.aws.workspacesweb.inputs.UserSettingsToolbarConfigurationArgs;
  * import com.pulumi.aws.workspacesweb.inputs.UserSettingsCookieSynchronizationConfigurationArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.UserSettingsCookieSynchronizationConfigurationAllowlistArgs;
+ * import com.pulumi.aws.workspacesweb.inputs.UserSettingsCookieSynchronizationConfigurationBlocklistArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

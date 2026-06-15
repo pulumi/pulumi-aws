@@ -71,6 +71,7 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.aws.auditmanager.Framework;
      * import com.pulumi.aws.auditmanager.FrameworkArgs;
      * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
+     * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetControlArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -173,6 +174,7 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.aws.auditmanager.Framework;
      * import com.pulumi.aws.auditmanager.FrameworkArgs;
      * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
+     * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetControlArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -275,6 +277,7 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.aws.auditmanager.Framework;
      * import com.pulumi.aws.auditmanager.FrameworkArgs;
      * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
+     * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetControlArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -377,6 +380,7 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.aws.auditmanager.Framework;
      * import com.pulumi.aws.auditmanager.FrameworkArgs;
      * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
+     * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetControlArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -479,6 +483,7 @@ public final class AuditmanagerFunctions {
      * import com.pulumi.aws.auditmanager.Framework;
      * import com.pulumi.aws.auditmanager.FrameworkArgs;
      * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetArgs;
+     * import com.pulumi.aws.auditmanager.inputs.FrameworkControlSetControlArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

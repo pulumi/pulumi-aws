@@ -428,7 +428,9 @@ class DomainAdvancedSecurityOptionsJwtOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "publicKey":
+        if key == "jwksUrl":
+            suggest = "jwks_url"
+        elif key == "publicKey":
             suggest = "public_key"
         elif key == "rolesKey":
             suggest = "roles_key"
@@ -448,17 +450,21 @@ class DomainAdvancedSecurityOptionsJwtOptions(dict):
 
     def __init__(__self__, *,
                  enabled: Optional[_builtins.bool] = None,
+                 jwks_url: Optional[_builtins.str] = None,
                  public_key: Optional[_builtins.str] = None,
                  roles_key: Optional[_builtins.str] = None,
                  subject_key: Optional[_builtins.str] = None):
         """
         :param _builtins.bool enabled: Whether JWT authentication is enabled.
-        :param _builtins.str public_key: PEM-encoded public key used to verify JWT signatures.
+        :param _builtins.str jwks_url: URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwks_url` or `public_key` must be specified when `enabled` is set to `true`.
+        :param _builtins.str public_key: PEM-encoded public key used to verify JWT signatures. At least one of `jwks_url` or `public_key` must be specified when `enabled` is set to `true`. If both `jwks_url` and `public_key` are specified, `public_key` is ignored.
         :param _builtins.str roles_key: Element of the JWT assertion to use for roles. Default is `roles`.
         :param _builtins.str subject_key: Element of the JWT assertion to use for the user name. Default is `sub`.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if jwks_url is not None:
+            pulumi.set(__self__, "jwks_url", jwks_url)
         if public_key is not None:
             pulumi.set(__self__, "public_key", public_key)
         if roles_key is not None:
@@ -475,10 +481,18 @@ class DomainAdvancedSecurityOptionsJwtOptions(dict):
         return pulumi.get(self, "enabled")
 
     @_builtins.property
+    @pulumi.getter(name="jwksUrl")
+    def jwks_url(self) -> Optional[_builtins.str]:
+        """
+        URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwks_url` or `public_key` must be specified when `enabled` is set to `true`.
+        """
+        return pulumi.get(self, "jwks_url")
+
+    @_builtins.property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> Optional[_builtins.str]:
         """
-        PEM-encoded public key used to verify JWT signatures.
+        PEM-encoded public key used to verify JWT signatures. At least one of `jwks_url` or `public_key` must be specified when `enabled` is set to `true`. If both `jwks_url` and `public_key` are specified, `public_key` is ignored.
         """
         return pulumi.get(self, "public_key")
 
@@ -2773,16 +2787,19 @@ class GetDomainAdvancedSecurityOptionResult(dict):
 class GetDomainAdvancedSecurityOptionJwtOptionResult(dict):
     def __init__(__self__, *,
                  enabled: _builtins.bool,
+                 jwks_url: _builtins.str,
                  public_key: _builtins.str,
                  roles_key: _builtins.str,
                  subject_key: _builtins.str):
         """
         :param _builtins.bool enabled: Enabled disabled toggle for off-peak update window
+        :param _builtins.str jwks_url: URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures.
         :param _builtins.str public_key: PEM-encoded public key used to verify JWT signatures.
         :param _builtins.str roles_key: Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
         :param _builtins.str subject_key: Attribute that contains the subject identifier (such as username, user ID, or email) in IAM Identity Center.
         """
         pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "jwks_url", jwks_url)
         pulumi.set(__self__, "public_key", public_key)
         pulumi.set(__self__, "roles_key", roles_key)
         pulumi.set(__self__, "subject_key", subject_key)
@@ -2794,6 +2811,14 @@ class GetDomainAdvancedSecurityOptionJwtOptionResult(dict):
         Enabled disabled toggle for off-peak update window
         """
         return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="jwksUrl")
+    def jwks_url(self) -> _builtins.str:
+        """
+        URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures.
+        """
+        return pulumi.get(self, "jwks_url")
 
     @_builtins.property
     @pulumi.getter(name="publicKey")

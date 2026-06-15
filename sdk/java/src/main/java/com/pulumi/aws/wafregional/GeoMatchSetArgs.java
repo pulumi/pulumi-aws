@@ -18,14 +18,14 @@ public final class GeoMatchSetArgs extends com.pulumi.resources.ResourceArgs {
     public static final GeoMatchSetArgs Empty = new GeoMatchSetArgs();
 
     /**
-     * The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+     * Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      * 
      */
     @Import(name="geoMatchConstraints")
     private @Nullable Output<List<GeoMatchSetGeoMatchConstraintArgs>> geoMatchConstraints;
 
     /**
-     * @return The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+     * @return Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      * 
      */
     public Optional<Output<List<GeoMatchSetGeoMatchConstraintArgs>>> geoMatchConstraints() {
@@ -33,14 +33,14 @@ public final class GeoMatchSetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name or description of the Geo Match Set.
+     * Name or description of the Geo Match Set.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name or description of the Geo Match Set.
+     * @return Name or description of the Geo Match Set.
      * 
      */
     public Optional<Output<String>> name() {
@@ -89,7 +89,7 @@ public final class GeoMatchSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoMatchConstraints The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+         * @param geoMatchConstraints Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GeoMatchSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoMatchConstraints The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+         * @param geoMatchConstraints Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class GeoMatchSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geoMatchConstraints The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+         * @param geoMatchConstraints Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GeoMatchSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name or description of the Geo Match Set.
+         * @param name Name or description of the Geo Match Set.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class GeoMatchSetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name or description of the Geo Match Set.
+         * @param name Name or description of the Geo Match Set.
          * 
          * @return builder
          * 

@@ -111,7 +111,7 @@ type User struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The [unique ID][1] assigned by AWS.
+	// The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
 
@@ -161,7 +161,7 @@ type userState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The [unique ID][1] assigned by AWS.
+	// The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
 	UniqueId *string `pulumi:"uniqueId"`
 }
 
@@ -182,7 +182,7 @@ type UserState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The [unique ID][1] assigned by AWS.
+	// The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
 	UniqueId pulumi.StringPtrInput
 }
 
@@ -345,7 +345,7 @@ func (o UserOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *User) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The [unique ID][1] assigned by AWS.
+// The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
 func (o UserOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
 }

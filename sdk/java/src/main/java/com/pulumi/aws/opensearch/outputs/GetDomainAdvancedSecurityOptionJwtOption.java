@@ -17,6 +17,11 @@ public final class GetDomainAdvancedSecurityOptionJwtOption {
      */
     private Boolean enabled;
     /**
+     * @return URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures.
+     * 
+     */
+    private String jwksUrl;
+    /**
      * @return PEM-encoded public key used to verify JWT signatures.
      * 
      */
@@ -39,6 +44,13 @@ public final class GetDomainAdvancedSecurityOptionJwtOption {
      */
     public Boolean enabled() {
         return this.enabled;
+    }
+    /**
+     * @return URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures.
+     * 
+     */
+    public String jwksUrl() {
+        return this.jwksUrl;
     }
     /**
      * @return PEM-encoded public key used to verify JWT signatures.
@@ -72,6 +84,7 @@ public final class GetDomainAdvancedSecurityOptionJwtOption {
     @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
+        private String jwksUrl;
         private String publicKey;
         private String rolesKey;
         private String subjectKey;
@@ -79,6 +92,7 @@ public final class GetDomainAdvancedSecurityOptionJwtOption {
         public Builder(GetDomainAdvancedSecurityOptionJwtOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
+    	      this.jwksUrl = defaults.jwksUrl;
     	      this.publicKey = defaults.publicKey;
     	      this.rolesKey = defaults.rolesKey;
     	      this.subjectKey = defaults.subjectKey;
@@ -90,6 +104,14 @@ public final class GetDomainAdvancedSecurityOptionJwtOption {
               throw new MissingRequiredPropertyException("GetDomainAdvancedSecurityOptionJwtOption", "enabled");
             }
             this.enabled = enabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jwksUrl(String jwksUrl) {
+            if (jwksUrl == null) {
+              throw new MissingRequiredPropertyException("GetDomainAdvancedSecurityOptionJwtOption", "jwksUrl");
+            }
+            this.jwksUrl = jwksUrl;
             return this;
         }
         @CustomType.Setter
@@ -119,6 +141,7 @@ public final class GetDomainAdvancedSecurityOptionJwtOption {
         public GetDomainAdvancedSecurityOptionJwtOption build() {
             final var _resultValue = new GetDomainAdvancedSecurityOptionJwtOption();
             _resultValue.enabled = enabled;
+            _resultValue.jwksUrl = jwksUrl;
             _resultValue.publicKey = publicKey;
             _resultValue.rolesKey = rolesKey;
             _resultValue.subjectKey = subjectKey;

@@ -40,8 +40,8 @@ class PolicyExcludeMap(dict):
                  accounts: Optional[Sequence[_builtins.str]] = None,
                  orgunits: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] accounts: A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-        :param Sequence[_builtins.str] orgunits: A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        :param Sequence[_builtins.str] accounts: A list of AWS Organization member Accounts that you want to exclude from this AWS FMS Policy.
+        :param Sequence[_builtins.str] orgunits: A list of IDs of the AWS Organizational Units that you want to exclude from this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
                
                You can specify inclusions or exclusions, but not both. If you specify an `include_map`, AWS Firewall Manager applies the policy to all accounts specified by the `include_map`, and does not evaluate any `exclude_map` specifications. If you do not specify an `include_map`, then Firewall Manager applies the policy to all accounts except for those specified by the `exclude_map`.
         """
@@ -54,7 +54,7 @@ class PolicyExcludeMap(dict):
     @pulumi.getter
     def accounts(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+        A list of AWS Organization member Accounts that you want to exclude from this AWS FMS Policy.
         """
         return pulumi.get(self, "accounts")
 
@@ -62,7 +62,7 @@ class PolicyExcludeMap(dict):
     @pulumi.getter
     def orgunits(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+        A list of IDs of the AWS Organizational Units that you want to exclude from this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 
         You can specify inclusions or exclusions, but not both. If you specify an `include_map`, AWS Firewall Manager applies the policy to all accounts specified by the `include_map`, and does not evaluate any `exclude_map` specifications. If you do not specify an `include_map`, then Firewall Manager applies the policy to all accounts except for those specified by the `exclude_map`.
         """
@@ -130,7 +130,7 @@ class PolicySecurityServicePolicyData(dict):
                  managed_service_data: Optional[_builtins.str] = None,
                  policy_option: Optional['outputs.PolicySecurityServicePolicyDataPolicyOption'] = None):
         """
-        :param _builtins.str type: An integer value containing ICMP type.
+        :param _builtins.str type: The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
         :param _builtins.str managed_service_data: Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
         :param 'PolicySecurityServicePolicyDataPolicyOptionArgs' policy_option: Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
         """
@@ -144,7 +144,7 @@ class PolicySecurityServicePolicyData(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        An integer value containing ICMP type.
+        The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
         """
         return pulumi.get(self, "type")
 
@@ -743,7 +743,7 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy(dict):
     def __init__(__self__, *,
                  firewall_deployment_model: Optional[_builtins.str] = None):
         """
-        :param _builtins.str firewall_deployment_model: Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+        :param _builtins.str firewall_deployment_model: Defines the deployment model to use for the firewall policy. To use a distributed model, remove the `policy_option` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
         """
         if firewall_deployment_model is not None:
             pulumi.set(__self__, "firewall_deployment_model", firewall_deployment_model)
@@ -752,7 +752,7 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy(dict):
     @pulumi.getter(name="firewallDeploymentModel")
     def firewall_deployment_model(self) -> Optional[_builtins.str]:
         """
-        Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+        Defines the deployment model to use for the firewall policy. To use a distributed model, remove the `policy_option` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
         """
         return pulumi.get(self, "firewall_deployment_model")
 
@@ -778,18 +778,12 @@ class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy(dict):
 
     def __init__(__self__, *,
                  firewall_deployment_model: Optional[_builtins.str] = None):
-        """
-        :param _builtins.str firewall_deployment_model: Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
-        """
         if firewall_deployment_model is not None:
             pulumi.set(__self__, "firewall_deployment_model", firewall_deployment_model)
 
     @_builtins.property
     @pulumi.getter(name="firewallDeploymentModel")
     def firewall_deployment_model(self) -> Optional[_builtins.str]:
-        """
-        Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
-        """
         return pulumi.get(self, "firewall_deployment_model")
 
 

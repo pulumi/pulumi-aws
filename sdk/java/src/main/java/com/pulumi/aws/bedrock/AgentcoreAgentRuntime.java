@@ -41,6 +41,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicy;
@@ -180,6 +182,56 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .protocolConfiguration(AgentcoreAgentRuntimeProtocolConfigurationArgs.builder()
  *                 .serverProtocol("MCP")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### AG-UI Server
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreAgentRuntime;
+ * import com.pulumi.aws.bedrock.AgentcoreAgentRuntimeArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeProtocolConfigurationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentcoreAgentRuntime("example", AgentcoreAgentRuntimeArgs.builder()
+ *             .agentRuntimeName("example_agui_runtime")
+ *             .description("Agent runtime with AG-UI protocol")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
+ *                 .containerConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs.builder()
+ *                     .containerUri(String.format("%s:latest", exampleAwsEcrRepository.repositoryUrl()))
+ *                     .build())
+ *                 .build())
+ *             .networkConfiguration(AgentcoreAgentRuntimeNetworkConfigurationArgs.builder()
+ *                 .networkMode("PUBLIC")
+ *                 .build())
+ *             .protocolConfiguration(AgentcoreAgentRuntimeProtocolConfigurationArgs.builder()
+ *                 .serverProtocol("AGUI")
  *                 .build())
  *             .build());
  * 

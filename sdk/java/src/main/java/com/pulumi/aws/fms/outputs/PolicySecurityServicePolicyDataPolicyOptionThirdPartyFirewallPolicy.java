@@ -11,17 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy {
-    /**
-     * @return Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
-     * 
-     */
     private @Nullable String firewallDeploymentModel;
 
     private PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy() {}
-    /**
-     * @return Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
-     * 
-     */
     public Optional<String> firewallDeploymentModel() {
         return Optional.ofNullable(this.firewallDeploymentModel);
     }

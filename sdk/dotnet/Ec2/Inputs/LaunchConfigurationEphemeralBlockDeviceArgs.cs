@@ -12,12 +12,21 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchConfigurationEphemeralBlockDeviceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the block device to mount on the instance.
+        /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the device in the block device mapping of the AMI is suppressed.
+        /// </summary>
         [Input("noDevice")]
         public Input<bool>? NoDevice { get; set; }
 
+        /// <summary>
+        /// The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
+        /// </summary>
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }
 

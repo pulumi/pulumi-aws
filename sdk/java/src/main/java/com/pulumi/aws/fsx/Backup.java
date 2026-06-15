@@ -18,7 +18,9 @@ import javax.annotation.Nullable;
 /**
  * Provides a FSx Backup resource.
  * 
- * ## Lustre Example
+ * ## Example Usage
+ * 
+ * ### Lustre Example
  * 
  * <pre>
  * {@code
@@ -60,7 +62,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Windows Example
+ * ### Windows Example
  * 
  * <pre>
  * {@code
@@ -103,7 +105,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## ONTAP Example
+ * ### ONTAP Example
  * 
  * <pre>
  * {@code
@@ -146,7 +148,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## OpenZFS Example
+ * ### OpenZFS Example
  * 
  * <pre>
  * {@code

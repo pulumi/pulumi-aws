@@ -616,7 +616,7 @@ class ExpressGatewayService(pulumi.CustomResource):
             })
         ```
 
-        ## Service Updates and Deletion
+        ### Service Updates and Deletion
 
         ### Updates
 
@@ -678,7 +678,7 @@ class ExpressGatewayService(pulumi.CustomResource):
             })
         ```
 
-        ## Service Updates and Deletion
+        ### Service Updates and Deletion
 
         ### Updates
 

@@ -83,6 +83,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudtrail.EventDataStore;
  * import com.pulumi.aws.cloudtrail.EventDataStoreArgs;
  * import com.pulumi.aws.cloudtrail.inputs.EventDataStoreAdvancedEventSelectorArgs;
+ * import com.pulumi.aws.cloudtrail.inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

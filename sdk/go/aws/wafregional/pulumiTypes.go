@@ -205,11 +205,9 @@ func (o ByteMatchSetByteMatchTupleFieldToMatchOutput) Type() pulumi.StringOutput
 }
 
 type GeoMatchSetGeoMatchConstraint struct {
-	// The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+	// Type of geographical area you want AWS WAF to search for. Currently `Country` is the only valid value.
 	Type string `pulumi:"type"`
-	// The country that you want AWS WAF to search for.
-	// This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
-	// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
+	// Two-letter country code that you want AWS WAF to search for, e.g., `US`, `CA`, `RU`, `CN`. See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
 	Value string `pulumi:"value"`
 }
 
@@ -225,11 +223,9 @@ type GeoMatchSetGeoMatchConstraintInput interface {
 }
 
 type GeoMatchSetGeoMatchConstraintArgs struct {
-	// The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+	// Type of geographical area you want AWS WAF to search for. Currently `Country` is the only valid value.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The country that you want AWS WAF to search for.
-	// This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
-	// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
+	// Two-letter country code that you want AWS WAF to search for, e.g., `US`, `CA`, `RU`, `CN`. See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -284,14 +280,12 @@ func (o GeoMatchSetGeoMatchConstraintOutput) ToGeoMatchSetGeoMatchConstraintOutp
 	return o
 }
 
-// The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+// Type of geographical area you want AWS WAF to search for. Currently `Country` is the only valid value.
 func (o GeoMatchSetGeoMatchConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GeoMatchSetGeoMatchConstraint) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The country that you want AWS WAF to search for.
-// This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
-// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
+// Two-letter country code that you want AWS WAF to search for, e.g., `US`, `CA`, `RU`, `CN`. See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
 func (o GeoMatchSetGeoMatchConstraintOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v GeoMatchSetGeoMatchConstraint) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -914,9 +908,12 @@ func (o RuleGroupActivatedRuleActionOutput) Type() pulumi.StringOutput {
 }
 
 type RulePredicate struct {
-	DataId  string `pulumi:"dataId"`
-	Negated bool   `pulumi:"negated"`
-	Type    string `pulumi:"type"`
+	// The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+	DataId string `pulumi:"dataId"`
+	// Whether to use the settings or the negated settings that you specified in the objects.
+	Negated bool `pulumi:"negated"`
+	// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+	Type string `pulumi:"type"`
 }
 
 // RulePredicateInput is an input type that accepts RulePredicateArgs and RulePredicateOutput values.
@@ -931,9 +928,12 @@ type RulePredicateInput interface {
 }
 
 type RulePredicateArgs struct {
-	DataId  pulumi.StringInput `pulumi:"dataId"`
-	Negated pulumi.BoolInput   `pulumi:"negated"`
-	Type    pulumi.StringInput `pulumi:"type"`
+	// The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+	DataId pulumi.StringInput `pulumi:"dataId"`
+	// Whether to use the settings or the negated settings that you specified in the objects.
+	Negated pulumi.BoolInput `pulumi:"negated"`
+	// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (RulePredicateArgs) ElementType() reflect.Type {
@@ -987,14 +987,17 @@ func (o RulePredicateOutput) ToRulePredicateOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
 func (o RulePredicateOutput) DataId() pulumi.StringOutput {
 	return o.ApplyT(func(v RulePredicate) string { return v.DataId }).(pulumi.StringOutput)
 }
 
+// Whether to use the settings or the negated settings that you specified in the objects.
 func (o RulePredicateOutput) Negated() pulumi.BoolOutput {
 	return o.ApplyT(func(v RulePredicate) bool { return v.Negated }).(pulumi.BoolOutput)
 }
 
+// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
 func (o RulePredicateOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v RulePredicate) string { return v.Type }).(pulumi.StringOutput)
 }

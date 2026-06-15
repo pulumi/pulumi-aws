@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3control.MultiRegionAccessPoint;
  * import com.pulumi.aws.s3control.MultiRegionAccessPointArgs;
  * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsArgs;
+ * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsRegionArgs;
  * import com.pulumi.aws.s3control.MultiRegionAccessPointRoutes;
  * import com.pulumi.aws.s3control.MultiRegionAccessPointRoutesArgs;
  * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointRoutesRouteArgs;

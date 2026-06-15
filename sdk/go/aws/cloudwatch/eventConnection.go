@@ -50,7 +50,7 @@ import (
 //
 // ```
 //
-// ### Basic Authorization
+// ### Example Usage Basic Authorization
 //
 // ```go
 // package main
@@ -84,7 +84,7 @@ import (
 //
 // ```
 //
-// ### OAuth Authorization
+// ### Example Usage OAuth Authorization
 //
 // ```go
 // package main
@@ -145,7 +145,7 @@ import (
 //
 // ```
 //
-// ### Invocation Http Parameters
+// ### Example Usage Invocation Http Parameters
 //
 // ```go
 // package main
@@ -207,7 +207,7 @@ import (
 //
 // ```
 //
-// ### OAuth Authorization With Connectivity Parameters
+// ### Example Usage OAuth Authorization with Connectivity Parameters
 //
 // ```go
 // package main
@@ -259,7 +259,7 @@ import (
 //
 // ```
 //
-// ### CMK Encryption
+// ### Example Usage CMK Encryption
 //
 // ```go
 // package main

@@ -114,13 +114,6 @@ import (
 //
 // ```
 //
-// ## destinationDataSharing
-//
-// `destinationDataSharing` supports the following:
-//
-//   - `destinationDataSharingType` - (Optional) Data sharing type.
-//     Only `Organization` is supported.
-//
 // ## Import
 //
 // Using `pulumi import`, import SSM resource data sync using the `name`. For example:

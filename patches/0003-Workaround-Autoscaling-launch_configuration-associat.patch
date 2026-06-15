@@ -7,20 +7,20 @@ Subject: [PATCH] Workaround Autoscaling launch_configuration
 - Disable computation of property until fixed.
 
 diff --git a/internal/service/autoscaling/launch_configuration.go b/internal/service/autoscaling/launch_configuration.go
-index 2844d46772c..0d6d9399362 100644
+index 9680ae81db3..d5ab2a68581 100644
 --- a/internal/service/autoscaling/launch_configuration.go
 +++ b/internal/service/autoscaling/launch_configuration.go
-@@ -53,7 +53,8 @@ func resourceLaunchConfiguration() *schema.Resource {
- 			"associate_public_ip_address": {
- 				Type:     schema.TypeBool,
- 				Optional: true,
--				Computed: true,
-+				//Computed: true,
-+				Default:  false,
- 				ForceNew: true,
- 			},
- 			"ebs_block_device": {
-@@ -320,16 +321,19 @@ func resourceLaunchConfigurationCreate(ctx context.Context, d *schema.ResourceDa
+@@ -54,7 +54,8 @@ func resourceLaunchConfiguration() *schema.Resource {
+ 				"associate_public_ip_address": {
+ 					Type:     schema.TypeBool,
+ 					Optional: true,
+-					Computed: true,
++					//Computed: true,
++					Default:  false,
+ 					ForceNew: true,
+ 				},
+ 				"ebs_block_device": {
+@@ -322,16 +323,19 @@ func resourceLaunchConfigurationCreate(ctx context.Context, d *schema.ResourceDa
  
  	lcName := create.Name(ctx, d.Get(names.AttrName).(string), d.Get(names.AttrNamePrefix).(string))
  	input := autoscaling.CreateLaunchConfigurationInput{

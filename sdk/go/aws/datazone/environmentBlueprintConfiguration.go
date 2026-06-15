@@ -67,6 +67,18 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `domainId` - (String) ID of the DataZone domain.
+// * `environmentBlueprintId` - (String) ID of the environment blueprint.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import DataZone Environment Blueprint Configuration using the `domainId` and `environmentBlueprintId`, separated by a `/`. For example:
 //
 // ```sh
@@ -83,6 +95,8 @@ type EnvironmentBlueprintConfiguration struct {
 	EnabledRegions pulumi.StringArrayOutput `pulumi:"enabledRegions"`
 	// ID of the Environment Blueprint
 	EnvironmentBlueprintId pulumi.StringOutput `pulumi:"environmentBlueprintId"`
+	// A map of global parameters to configure for the blueprint across all regions.
+	GlobalParameters pulumi.StringMapOutput `pulumi:"globalParameters"`
 	// ARN of the manage access role with which this blueprint is created.
 	ManageAccessRoleArn pulumi.StringPtrOutput `pulumi:"manageAccessRoleArn"`
 	// ARN of the provisioning role with which this blueprint is created.
@@ -140,6 +154,8 @@ type environmentBlueprintConfigurationState struct {
 	EnabledRegions []string `pulumi:"enabledRegions"`
 	// ID of the Environment Blueprint
 	EnvironmentBlueprintId *string `pulumi:"environmentBlueprintId"`
+	// A map of global parameters to configure for the blueprint across all regions.
+	GlobalParameters map[string]string `pulumi:"globalParameters"`
 	// ARN of the manage access role with which this blueprint is created.
 	ManageAccessRoleArn *string `pulumi:"manageAccessRoleArn"`
 	// ARN of the provisioning role with which this blueprint is created.
@@ -159,6 +175,8 @@ type EnvironmentBlueprintConfigurationState struct {
 	EnabledRegions pulumi.StringArrayInput
 	// ID of the Environment Blueprint
 	EnvironmentBlueprintId pulumi.StringPtrInput
+	// A map of global parameters to configure for the blueprint across all regions.
+	GlobalParameters pulumi.StringMapInput
 	// ARN of the manage access role with which this blueprint is created.
 	ManageAccessRoleArn pulumi.StringPtrInput
 	// ARN of the provisioning role with which this blueprint is created.
@@ -182,6 +200,8 @@ type environmentBlueprintConfigurationArgs struct {
 	EnabledRegions []string `pulumi:"enabledRegions"`
 	// ID of the Environment Blueprint
 	EnvironmentBlueprintId string `pulumi:"environmentBlueprintId"`
+	// A map of global parameters to configure for the blueprint across all regions.
+	GlobalParameters map[string]string `pulumi:"globalParameters"`
 	// ARN of the manage access role with which this blueprint is created.
 	ManageAccessRoleArn *string `pulumi:"manageAccessRoleArn"`
 	// ARN of the provisioning role with which this blueprint is created.
@@ -202,6 +222,8 @@ type EnvironmentBlueprintConfigurationArgs struct {
 	EnabledRegions pulumi.StringArrayInput
 	// ID of the Environment Blueprint
 	EnvironmentBlueprintId pulumi.StringInput
+	// A map of global parameters to configure for the blueprint across all regions.
+	GlobalParameters pulumi.StringMapInput
 	// ARN of the manage access role with which this blueprint is created.
 	ManageAccessRoleArn pulumi.StringPtrInput
 	// ARN of the provisioning role with which this blueprint is created.
@@ -314,6 +336,11 @@ func (o EnvironmentBlueprintConfigurationOutput) EnabledRegions() pulumi.StringA
 // ID of the Environment Blueprint
 func (o EnvironmentBlueprintConfigurationOutput) EnvironmentBlueprintId() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringOutput { return v.EnvironmentBlueprintId }).(pulumi.StringOutput)
+}
+
+// A map of global parameters to configure for the blueprint across all regions.
+func (o EnvironmentBlueprintConfigurationOutput) GlobalParameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EnvironmentBlueprintConfiguration) pulumi.StringMapOutput { return v.GlobalParameters }).(pulumi.StringMapOutput)
 }
 
 // ARN of the manage access role with which this blueprint is created.

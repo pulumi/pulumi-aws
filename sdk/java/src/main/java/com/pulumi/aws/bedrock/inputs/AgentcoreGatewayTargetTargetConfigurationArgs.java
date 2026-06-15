@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationHttpArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentcoreGatewayTargetTargetConfigurationArgs Empty = new AgentcoreGatewayTargetTargetConfigurationArgs();
+
+    /**
+     * HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+     * 
+     */
+    @Import(name="http")
+    private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationHttpArgs> http;
+
+    /**
+     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+     * 
+     */
+    public Optional<Output<AgentcoreGatewayTargetTargetConfigurationHttpArgs>> http() {
+        return Optional.ofNullable(this.http);
+    }
 
     /**
      * Model Context Protocol (MCP) configuration. See `mcp` below.
@@ -33,6 +49,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
     private AgentcoreGatewayTargetTargetConfigurationArgs() {}
 
     private AgentcoreGatewayTargetTargetConfigurationArgs(AgentcoreGatewayTargetTargetConfigurationArgs $) {
+        this.http = $.http;
         this.mcp = $.mcp;
     }
 
@@ -52,6 +69,27 @@ public final class AgentcoreGatewayTargetTargetConfigurationArgs extends com.pul
 
         public Builder(AgentcoreGatewayTargetTargetConfigurationArgs defaults) {
             $ = new AgentcoreGatewayTargetTargetConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param http HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder http(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationHttpArgs> http) {
+            $.http = http;
+            return this;
+        }
+
+        /**
+         * @param http HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder http(AgentcoreGatewayTargetTargetConfigurationHttpArgs http) {
+            return http(Output.of(http));
         }
 
         /**

@@ -42,7 +42,7 @@ import (
 //
 // ```
 //
-// ### With VPC Endpoints
+// ### Example Usage with VPC Endpoints
 //
 // ```go
 // package main

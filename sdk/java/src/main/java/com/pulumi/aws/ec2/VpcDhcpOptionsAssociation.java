@@ -50,11 +50,6 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Remarks
- * 
- * * You can only associate one DHCP Options Set to a given VPC ID.
- * * Removing the DHCP Options Association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
- * 
  * ## Import
  * 
  * Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
@@ -69,12 +64,16 @@ public class VpcDhcpOptionsAssociation extends com.pulumi.resources.CustomResour
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
      * 
+     * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
+     * 
      */
     @Export(name="dhcpOptionsId", refs={String.class}, tree="[0]")
     private Output<String> dhcpOptionsId;
 
     /**
      * @return The ID of the DHCP Options Set to associate to the VPC.
+     * 
+     * &gt; **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS&#39;s `default` DHCP Options Set to the VPC.
      * 
      */
     public Output<String> dhcpOptionsId() {

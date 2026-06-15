@@ -540,7 +540,7 @@ class Instance(pulumi.CustomResource):
             })
         ```
 
-        ### With Existing Active Directory
+        ### Example Usage with Existing Active Directory
 
         ```python
         import pulumi
@@ -554,7 +554,7 @@ class Instance(pulumi.CustomResource):
             outbound_calls_enabled=True)
         ```
 
-        ### With SAML
+        ### Example Usage with SAML
 
         ```python
         import pulumi
@@ -631,7 +631,7 @@ class Instance(pulumi.CustomResource):
             })
         ```
 
-        ### With Existing Active Directory
+        ### Example Usage with Existing Active Directory
 
         ```python
         import pulumi
@@ -645,7 +645,7 @@ class Instance(pulumi.CustomResource):
             outbound_calls_enabled=True)
         ```
 
-        ### With SAML
+        ### Example Usage with SAML
 
         ```python
         import pulumi

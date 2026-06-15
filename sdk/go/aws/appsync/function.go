@@ -101,7 +101,7 @@ import (
 //
 // ```
 //
-// ### With Code
+// ### Example Usage With Code
 //
 // ```go
 // package main

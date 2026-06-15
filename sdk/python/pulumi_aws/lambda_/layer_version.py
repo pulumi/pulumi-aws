@@ -638,8 +638,6 @@ class LayerVersion(pulumi.CustomResource):
             ])
         ```
 
-        ## Specifying the Deployment Package
-
         AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
 
         Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3_bucket`, `s3_key` and `s3_object_version` arguments). When providing the deployment package via S3 it may be useful to use the `s3.BucketObjectv2` resource to upload it.
@@ -755,8 +753,6 @@ class LayerVersion(pulumi.CustomResource):
                 "arm64",
             ])
         ```
-
-        ## Specifying the Deployment Package
 
         AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `compatible_runtimes` this layer specifies. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `compatible_runtimes`.
 

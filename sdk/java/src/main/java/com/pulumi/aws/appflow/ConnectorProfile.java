@@ -143,9 +143,6 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:appflow/connectorProfile:ConnectorProfile example example-profile
  * ```
  * 
- * [1]: https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html
- * [2]: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
- * 
  */
 @ResourceType(type="aws:appflow/connectorProfile:ConnectorProfile")
 public class ConnectorProfile extends com.pulumi.resources.CustomResource {

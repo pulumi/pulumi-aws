@@ -72,7 +72,7 @@ import (
 //
 // ```
 //
-// ## Policy with a HOME_NET Override
+// ### Policy with a HOME_NET Override
 //
 // ```go
 // package main
@@ -129,7 +129,7 @@ import (
 //
 // ```
 //
-// ## Policy with a Custom Action for Stateless Inspection
+// ### Policy with a Custom Action for Stateless Inspection
 //
 // ```go
 // package main
@@ -178,7 +178,7 @@ import (
 //
 // ```
 //
-// ## Policy with Active Threat Defense in Action Order
+// ### Policy with Active Threat Defense in Action Order
 //
 // ```go
 // package main
@@ -227,7 +227,7 @@ import (
 //
 // ```
 //
-// ## Policy with Active Threat Defense in Strict Order
+// ### Policy with Active Threat Defense in Strict Order
 //
 // ```go
 // package main

@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.securityhub.inputs.AutomationRuleActionFindingFieldsUpdateSeverityArgs;
  * import com.pulumi.aws.securityhub.inputs.AutomationRuleActionFindingFieldsUpdateNoteArgs;
  * import com.pulumi.aws.securityhub.inputs.AutomationRuleCriteriaArgs;
+ * import com.pulumi.aws.securityhub.inputs.AutomationRuleCriteriaResourceIdArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

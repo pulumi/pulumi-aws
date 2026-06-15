@@ -19,16 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an AWS App Mesh virtual node resource.
  * 
- * ## Breaking Changes
- * 
- * Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), `aws.appmesh.VirtualNode` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
- * 
- * * Rename the `serviceName` attribute of the `dns` object to `hostname`.
- * 
- * * Replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks,
- * setting `virtualServiceName` to the name of the service.
- * 
- * The state associated with existing resources will automatically be migrated.
+ * &gt; **Note:** Because of backward incompatible API changes ([see issue](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), resource definitions created with provider versions earlier than v2.3.0 must be modified: rename the `serviceName` attribute of the `dns` object to `hostname`; replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks, setting `virtualServiceName` to the name of the service. Existing Terraform state is automatically migrated.
  * 
  * ## Example Usage
  * 
@@ -44,6 +35,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
  * import java.util.ArrayList;
@@ -101,6 +96,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs;
  * import java.util.ArrayList;
@@ -162,6 +161,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerHealthCheckArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
  * import java.util.ArrayList;
@@ -225,6 +229,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualNode;
  * import com.pulumi.aws.appmesh.VirtualNodeArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecBackendVirtualServiceArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingArgs;

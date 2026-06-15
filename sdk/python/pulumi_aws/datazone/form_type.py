@@ -477,6 +477,19 @@ class FormType(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `domain_identifier` - (String) Identifier of the DataZone domain.
+        * `name` - (String) Name of the form type.
+        * `revision` - (String) Revision of the form type.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import DataZone Form Type using a comma separated value of `domain_identifier`,`name`,`revision`. For example:
 
         ```sh
@@ -588,6 +601,19 @@ class FormType(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `domain_identifier` - (String) Identifier of the DataZone domain.
+        * `name` - (String) Name of the form type.
+        * `revision` - (String) Revision of the form type.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import DataZone Form Type using a comma separated value of `domain_identifier`,`name`,`revision`. For example:
 

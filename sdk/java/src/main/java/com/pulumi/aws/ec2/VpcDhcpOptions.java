@@ -97,14 +97,6 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Remarks
- * 
- * * Notice that all arguments are optional but you have to specify at least one argument.
- * * `domainNameServers`, `netbiosNameServers`, `ntpServers` are limited by AWS to maximum four servers only.
- * * To actually use the DHCP Options Set you need to associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`.
- * * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS&#39;s `default` DHCP Option Set.
- * * In most cases unless you&#39;re configuring your own DNS you&#39;ll want to set `domainNameServers` to `AmazonProvidedDNS`.
- * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
@@ -245,12 +237,16 @@ public class VpcDhcpOptions extends com.pulumi.resources.CustomResource {
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
+     * &gt; **Note:** All arguments are optional but at least one must be specified. `domainNameServers`, `netbiosNameServers`, and `ntpServers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS&#39;s `default` DHCP Option Set. In most cases, set `domainNameServers` to `AmazonProvidedDNS` unless configuring your own DNS.
+     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     * &gt; **Note:** All arguments are optional but at least one must be specified. `domainNameServers`, `netbiosNameServers`, and `ntpServers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `aws.ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS&#39;s `default` DHCP Option Set. In most cases, set `domainNameServers` to `AmazonProvidedDNS` unless configuring your own DNS.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

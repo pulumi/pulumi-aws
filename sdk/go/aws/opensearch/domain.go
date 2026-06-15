@@ -13,22 +13,7 @@ import (
 
 // Manages an Amazon OpenSearch Domain.
 //
-// ## Elasticsearch vs. OpenSearch
-//
-// Amazon OpenSearch Service is the successor to Amazon Elasticsearch Service and supports OpenSearch and legacy Elasticsearch OSS (up to 7.10, the final open source version of the software).
-//
-// OpenSearch Domain configurations are similar in many ways to Elasticsearch Domain configurations. However, there are important differences including these:
-//
-// * OpenSearch has `engineVersion` while Elasticsearch has `elasticsearchVersion`
-// * Versions are specified differently - _e.g._, `Elasticsearch_7.10` with OpenSearch vs. `7.10` for Elasticsearch.
-// * `instanceType` argument values end in `search` for OpenSearch vs. `elasticsearch` for Elasticsearch (_e.g._, `t2.micro.search` vs. `t2.micro.elasticsearch`).
-// * The AWS-managed service-linked role for OpenSearch is called `AWSServiceRoleForAmazonOpenSearchService` instead of `AWSServiceRoleForAmazonElasticsearchService` for Elasticsearch.
-//
-// There are also some potentially unexpected similarities in configurations:
-//
-// * ARNs for both are prefaced with `arn:aws:es:`.
-// * Both OpenSearch and Elasticsearch use assume role policies that refer to the `Principal` `Service` as `es.amazonaws.com`.
-// * IAM policy actions, such as those you will find in `accessPolicies`, are prefaced with `es:` for both.
+// Amazon OpenSearch Service is the successor to Amazon Elasticsearch Service and supports OpenSearch and legacy Elasticsearch OSS (up to 7.10, the final open source version of the software). Notable differences from Elasticsearch: OpenSearch uses `engineVersion` (vs `elasticsearchVersion`), versions are specified as `Elasticsearch_7.10` (vs `7.10`), `instanceType` values end in `search` (vs `elasticsearch`), and the service-linked role is `AWSServiceRoleForAmazonOpenSearchService`. Similarities: ARNs use `arn:aws:es:`, assume role policies reference `es.amazonaws.com`, and IAM policy actions are prefixed with `es:`.
 //
 // ## Example Usage
 //

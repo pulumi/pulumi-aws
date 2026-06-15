@@ -72,6 +72,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.backup.RestoreTestingSelection;
  * import com.pulumi.aws.backup.RestoreTestingSelectionArgs;
  * import com.pulumi.aws.backup.inputs.RestoreTestingSelectionProtectedResourceConditionsArgs;
+ * import com.pulumi.aws.backup.inputs.RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

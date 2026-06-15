@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.glue.TriggerArgs;
  * import com.pulumi.aws.glue.inputs.TriggerActionArgs;
  * import com.pulumi.aws.glue.inputs.TriggerPredicateArgs;
+ * import com.pulumi.aws.glue.inputs.TriggerPredicateConditionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -27,7 +27,7 @@ class GetServerlessCollectionGroupResult:
     """
     A collection of values returned by getServerlessCollectionGroup.
     """
-    def __init__(__self__, arn=None, capacity_limits=None, created_date=None, description=None, id=None, name=None, region=None, standby_replicas=None, tags=None):
+    def __init__(__self__, arn=None, capacity_limits=None, created_date=None, description=None, generation=None, id=None, name=None, region=None, standby_replicas=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -40,6 +40,9 @@ class GetServerlessCollectionGroupResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if generation and not isinstance(generation, str):
+            raise TypeError("Expected argument 'generation' to be a str")
+        pulumi.set(__self__, "generation", generation)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -90,6 +93,14 @@ class GetServerlessCollectionGroupResult:
 
     @_builtins.property
     @pulumi.getter
+    def generation(self) -> _builtins.str:
+        """
+        Generation of Amazon OpenSearch Serverless for the collection group.
+        """
+        return pulumi.get(self, "generation")
+
+    @_builtins.property
+    @pulumi.getter
     def id(self) -> _builtins.str:
         return pulumi.get(self, "id")
 
@@ -130,6 +141,7 @@ class AwaitableGetServerlessCollectionGroupResult(GetServerlessCollectionGroupRe
             capacity_limits=self.capacity_limits,
             created_date=self.created_date,
             description=self.description,
+            generation=self.generation,
             id=self.id,
             name=self.name,
             region=self.region,
@@ -174,6 +186,7 @@ def get_serverless_collection_group(id: Optional[_builtins.str] = None,
         capacity_limits=pulumi.get(__ret__, 'capacity_limits'),
         created_date=pulumi.get(__ret__, 'created_date'),
         description=pulumi.get(__ret__, 'description'),
+        generation=pulumi.get(__ret__, 'generation'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
@@ -215,6 +228,7 @@ def get_serverless_collection_group_output(id: pulumi.Input[Optional[Optional[_b
         capacity_limits=pulumi.get(__response__, 'capacity_limits'),
         created_date=pulumi.get(__response__, 'created_date'),
         description=pulumi.get(__response__, 'description'),
+        generation=pulumi.get(__response__, 'generation'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region'),

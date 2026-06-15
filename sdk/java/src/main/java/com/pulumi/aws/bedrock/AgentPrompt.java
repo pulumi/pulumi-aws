@@ -72,6 +72,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.inputs.AgentPromptVariantInferenceConfigurationTextArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentPromptVariantTemplateConfigurationArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentPromptVariantTemplateConfigurationTextArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentPromptVariantTemplateConfigurationTextInputVariableArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

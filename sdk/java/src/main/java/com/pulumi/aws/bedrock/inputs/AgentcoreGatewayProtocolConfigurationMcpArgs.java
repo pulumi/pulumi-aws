@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -47,6 +49,36 @@ public final class AgentcoreGatewayProtocolConfigurationMcpArgs extends com.pulu
     }
 
     /**
+     * Configuration block for session settings of the MCP gateway. See `sessionConfiguration` below.
+     * 
+     */
+    @Import(name="sessionConfiguration")
+    private @Nullable Output<AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgs> sessionConfiguration;
+
+    /**
+     * @return Configuration block for session settings of the MCP gateway. See `sessionConfiguration` below.
+     * 
+     */
+    public Optional<Output<AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgs>> sessionConfiguration() {
+        return Optional.ofNullable(this.sessionConfiguration);
+    }
+
+    /**
+     * Configuration block for streaming settings of the MCP gateway. See `streamingConfiguration` below.
+     * 
+     */
+    @Import(name="streamingConfiguration")
+    private @Nullable Output<AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs> streamingConfiguration;
+
+    /**
+     * @return Configuration block for streaming settings of the MCP gateway. See `streamingConfiguration` below.
+     * 
+     */
+    public Optional<Output<AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs>> streamingConfiguration() {
+        return Optional.ofNullable(this.streamingConfiguration);
+    }
+
+    /**
      * Set of supported MCP protocol versions.
      * 
      */
@@ -66,6 +98,8 @@ public final class AgentcoreGatewayProtocolConfigurationMcpArgs extends com.pulu
     private AgentcoreGatewayProtocolConfigurationMcpArgs(AgentcoreGatewayProtocolConfigurationMcpArgs $) {
         this.instructions = $.instructions;
         this.searchType = $.searchType;
+        this.sessionConfiguration = $.sessionConfiguration;
+        this.streamingConfiguration = $.streamingConfiguration;
         this.supportedVersions = $.supportedVersions;
     }
 
@@ -127,6 +161,48 @@ public final class AgentcoreGatewayProtocolConfigurationMcpArgs extends com.pulu
          */
         public Builder searchType(String searchType) {
             return searchType(Output.of(searchType));
+        }
+
+        /**
+         * @param sessionConfiguration Configuration block for session settings of the MCP gateway. See `sessionConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionConfiguration(@Nullable Output<AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgs> sessionConfiguration) {
+            $.sessionConfiguration = sessionConfiguration;
+            return this;
+        }
+
+        /**
+         * @param sessionConfiguration Configuration block for session settings of the MCP gateway. See `sessionConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sessionConfiguration(AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgs sessionConfiguration) {
+            return sessionConfiguration(Output.of(sessionConfiguration));
+        }
+
+        /**
+         * @param streamingConfiguration Configuration block for streaming settings of the MCP gateway. See `streamingConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamingConfiguration(@Nullable Output<AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs> streamingConfiguration) {
+            $.streamingConfiguration = streamingConfiguration;
+            return this;
+        }
+
+        /**
+         * @param streamingConfiguration Configuration block for streaming settings of the MCP gateway. See `streamingConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamingConfiguration(AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs streamingConfiguration) {
+            return streamingConfiguration(Output.of(streamingConfiguration));
         }
 
         /**

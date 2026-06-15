@@ -79,6 +79,21 @@ public final class ServerlessCollectionGroupState extends com.pulumi.resources.R
     }
 
     /**
+     * Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+     * 
+     */
+    @Import(name="generation")
+    private @Nullable Output<String> generation;
+
+    /**
+     * @return Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+     * 
+     */
+    public Optional<Output<String>> generation() {
+        return Optional.ofNullable(this.generation);
+    }
+
+    /**
      * Name of the collection group.
      * 
      */
@@ -109,7 +124,7 @@ public final class ServerlessCollectionGroupState extends com.pulumi.resources.R
     }
 
     /**
-     * Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+     * Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
      * 
      * The following arguments are optional:
      * 
@@ -118,7 +133,7 @@ public final class ServerlessCollectionGroupState extends com.pulumi.resources.R
     private @Nullable Output<String> standbyReplicas;
 
     /**
-     * @return Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+     * @return Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
      * 
      * The following arguments are optional:
      * 
@@ -164,6 +179,7 @@ public final class ServerlessCollectionGroupState extends com.pulumi.resources.R
         this.capacityLimits = $.capacityLimits;
         this.createdDate = $.createdDate;
         this.description = $.description;
+        this.generation = $.generation;
         this.name = $.name;
         this.region = $.region;
         this.standbyReplicas = $.standbyReplicas;
@@ -284,6 +300,27 @@ public final class ServerlessCollectionGroupState extends com.pulumi.resources.R
         }
 
         /**
+         * @param generation Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generation(@Nullable Output<String> generation) {
+            $.generation = generation;
+            return this;
+        }
+
+        /**
+         * @param generation Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder generation(String generation) {
+            return generation(Output.of(generation));
+        }
+
+        /**
          * @param name Name of the collection group.
          * 
          * @return builder
@@ -326,7 +363,7 @@ public final class ServerlessCollectionGroupState extends com.pulumi.resources.R
         }
 
         /**
-         * @param standbyReplicas Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+         * @param standbyReplicas Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
          * 
          * The following arguments are optional:
          * 
@@ -339,7 +376,7 @@ public final class ServerlessCollectionGroupState extends com.pulumi.resources.R
         }
 
         /**
-         * @param standbyReplicas Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+         * @param standbyReplicas Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
          * 
          * The following arguments are optional:
          * 

@@ -15,17 +15,9 @@ public final class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewall
 
     public static final PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs Empty = new PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs();
 
-    /**
-     * Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
-     * 
-     */
     @Import(name="firewallDeploymentModel")
     private @Nullable Output<String> firewallDeploymentModel;
 
-    /**
-     * @return Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
-     * 
-     */
     public Optional<Output<String>> firewallDeploymentModel() {
         return Optional.ofNullable(this.firewallDeploymentModel);
     }
@@ -54,23 +46,11 @@ public final class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewall
             $ = new PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param firewallDeploymentModel Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallDeploymentModel(@Nullable Output<String> firewallDeploymentModel) {
             $.firewallDeploymentModel = firewallDeploymentModel;
             return this;
         }
 
-        /**
-         * @param firewallDeploymentModel Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder firewallDeploymentModel(String firewallDeploymentModel) {
             return firewallDeploymentModel(Output.of(firewallDeploymentModel));
         }

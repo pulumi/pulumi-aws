@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Report Configuration
+ * ### Example Usage with Report Configuration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

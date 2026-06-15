@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.paymentcryptography.Key;
  * import com.pulumi.aws.paymentcryptography.KeyArgs;
  * import com.pulumi.aws.paymentcryptography.inputs.KeyKeyAttributeArgs;
+ * import com.pulumi.aws.paymentcryptography.inputs.KeyKeyAttributeKeyModesOfUseArgs;
  * import com.pulumi.aws.paymentcryptography.KeyAlias;
  * import com.pulumi.aws.paymentcryptography.KeyAliasArgs;
  * import java.util.ArrayList;

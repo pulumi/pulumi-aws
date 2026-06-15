@@ -42,7 +42,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// });
     /// ```
     /// 
-    /// ### With Upstream Repository
+    /// ### Example Usage with upstream repository
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -74,7 +74,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// });
     /// ```
     /// 
-    /// ### With External Connection
+    /// ### Example Usage with external connection
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

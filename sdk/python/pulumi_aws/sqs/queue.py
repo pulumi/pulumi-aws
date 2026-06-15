@@ -743,7 +743,7 @@ class Queue(pulumi.CustomResource):
             })
         ```
 
-        ## FIFO queue
+        ### FIFO queue
 
         ```python
         import pulumi
@@ -755,7 +755,7 @@ class Queue(pulumi.CustomResource):
             content_based_deduplication=True)
         ```
 
-        ## High-throughput FIFO queue
+        ### High-throughput FIFO queue
 
         ```python
         import pulumi
@@ -768,7 +768,7 @@ class Queue(pulumi.CustomResource):
             fifo_throughput_limit="perMessageGroupId")
         ```
 
-        ## Dead-letter queue
+        ### Dead-letter queue
 
         ```python
         import pulumi
@@ -790,7 +790,7 @@ class Queue(pulumi.CustomResource):
             }))
         ```
 
-        ## Server-side encryption (SSE)
+        ### Server-side encryption (SSE)
 
         Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
 
@@ -885,7 +885,7 @@ class Queue(pulumi.CustomResource):
             })
         ```
 
-        ## FIFO queue
+        ### FIFO queue
 
         ```python
         import pulumi
@@ -897,7 +897,7 @@ class Queue(pulumi.CustomResource):
             content_based_deduplication=True)
         ```
 
-        ## High-throughput FIFO queue
+        ### High-throughput FIFO queue
 
         ```python
         import pulumi
@@ -910,7 +910,7 @@ class Queue(pulumi.CustomResource):
             fifo_throughput_limit="perMessageGroupId")
         ```
 
-        ## Dead-letter queue
+        ### Dead-letter queue
 
         ```python
         import pulumi
@@ -932,7 +932,7 @@ class Queue(pulumi.CustomResource):
             }))
         ```
 
-        ## Server-side encryption (SSE)
+        ### Server-side encryption (SSE)
 
         Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
 

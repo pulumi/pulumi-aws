@@ -30,14 +30,14 @@ public final class GetRolesPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+     * Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-roles.html).
      * 
      */
     @Import(name="pathPrefix")
     private @Nullable String pathPrefix;
 
     /**
-     * @return Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+     * @return Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-roles.html).
      * 
      */
     public Optional<String> pathPrefix() {
@@ -81,7 +81,7 @@ public final class GetRolesPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param pathPrefix Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+         * @param pathPrefix Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-roles.html).
          * 
          * @return builder
          * 

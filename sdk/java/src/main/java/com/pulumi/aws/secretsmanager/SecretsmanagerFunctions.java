@@ -2186,6 +2186,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2229,6 +2230,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2272,6 +2274,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2315,6 +2318,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2358,6 +2362,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2401,6 +2406,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2444,6 +2450,7 @@ public final class SecretsmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
      * import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

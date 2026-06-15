@@ -608,6 +608,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -687,6 +688,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -766,6 +768,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -845,6 +848,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -924,6 +928,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1003,6 +1008,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1082,6 +1088,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetQueryLogConfigArgs;
+     * import com.pulumi.aws.route53.inputs.GetQueryLogConfigFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1623,6 +1630,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1699,6 +1707,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1775,6 +1784,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1851,6 +1861,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1927,6 +1938,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2003,6 +2015,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2079,6 +2092,7 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetResolverEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetResolverEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4308,6 +4322,10 @@ public final class Route53Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -4377,6 +4395,11 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -4485,6 +4508,10 @@ public final class Route53Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -4554,6 +4581,11 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -4662,6 +4694,10 @@ public final class Route53Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -4731,6 +4767,11 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -4839,6 +4880,10 @@ public final class Route53Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -4908,6 +4953,11 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -5016,6 +5066,10 @@ public final class Route53Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -5085,6 +5139,11 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -5193,6 +5252,10 @@ public final class Route53Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -5262,6 +5325,11 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -5370,6 +5438,10 @@ public final class Route53Functions {
      * import com.pulumi.aws.inputs.GetRegionArgs;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;
@@ -5439,6 +5511,11 @@ public final class Route53Functions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.route53.Route53Functions;
      * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentEndpointArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRulePrimaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleSecondaryArgs;
+     * import com.pulumi.aws.route53.inputs.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs;
      * import com.pulumi.aws.route53.TrafficPolicy;
      * import com.pulumi.aws.route53.TrafficPolicyArgs;
      * import java.util.ArrayList;

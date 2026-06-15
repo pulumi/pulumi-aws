@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codebuild.Webhook;
  * import com.pulumi.aws.codebuild.WebhookArgs;
  * import com.pulumi.aws.codebuild.inputs.WebhookFilterGroupArgs;
+ * import com.pulumi.aws.codebuild.inputs.WebhookFilterGroupFilterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -115,7 +116,7 @@ import javax.annotation.Nullable;
  *             .events("push")
  *             .name("example")
  *             .repository(exampleGithubRepository.name())
- *             .configuration(RepositoryWebhookConfigurationArgs.builder()
+ *             .configuration(com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs.builder()
  *                 .url(example.payloadUrl())
  *                 .secret(example.secret())
  *                 .contentType("json")
@@ -143,6 +144,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codebuild.Webhook;
  * import com.pulumi.aws.codebuild.WebhookArgs;
  * import com.pulumi.aws.codebuild.inputs.WebhookFilterGroupArgs;
+ * import com.pulumi.aws.codebuild.inputs.WebhookFilterGroupFilterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

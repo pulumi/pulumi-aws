@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## FIFO queue
+ * ### FIFO queue
  * 
  * <pre>
  * {@code
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## High-throughput FIFO queue
+ * ### High-throughput FIFO queue
  * 
  * <pre>
  * {@code
@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Dead-letter queue
+ * ### Dead-letter queue
  * 
  * <pre>
  * {@code
@@ -191,7 +191,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Server-side encryption (SSE)
+ * ### Server-side encryption (SSE)
  * 
  * Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
  * 

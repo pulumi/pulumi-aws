@@ -675,7 +675,7 @@ class Route(pulumi.CustomResource):
             vpc_peering_connection_id="pcx-45ff3dc1")
         ```
 
-        ## Example IPv6 Usage
+        ### Example IPv6 Usage
 
         ```python
         import pulumi
@@ -784,7 +784,7 @@ class Route(pulumi.CustomResource):
             vpc_peering_connection_id="pcx-45ff3dc1")
         ```
 
-        ## Example IPv6 Usage
+        ### Example IPv6 Usage
 
         ```python
         import pulumi

@@ -48,14 +48,14 @@ public final class MlflowTrackingServerState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A list of Member Definitions that contains objects that identify the workers that make up the work team.
+     * Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
      * 
      */
     @Import(name="automaticModelRegistration")
     private @Nullable Output<Boolean> automaticModelRegistration;
 
     /**
-     * @return A list of Member Definitions that contains objects that identify the workers that make up the work team.
+     * @return Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
      * 
      */
     public Optional<Output<Boolean>> automaticModelRegistration() {
@@ -275,7 +275,7 @@ public final class MlflowTrackingServerState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param automaticModelRegistration A list of Member Definitions that contains objects that identify the workers that make up the work team.
+         * @param automaticModelRegistration Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class MlflowTrackingServerState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param automaticModelRegistration A list of Member Definitions that contains objects that identify the workers that make up the work team.
+         * @param automaticModelRegistration Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
          * 
          * @return builder
          * 

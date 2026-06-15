@@ -90,6 +90,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeExcludePathArgs;
  * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeExcludePathSourceArgs;
  * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgs;
+ * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeExcludePathThroughResourceArgs;
+ * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

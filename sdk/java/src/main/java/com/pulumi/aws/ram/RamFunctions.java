@@ -52,7 +52,7 @@ public final class RamFunctions {
      * }
      * </pre>
      * 
-     * ## Search by filters
+     * ### Search by filters
      * 
      * <pre>
      * {@code
@@ -63,6 +63,7 @@ public final class RamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ram.RamFunctions;
      * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -130,7 +131,7 @@ public final class RamFunctions {
      * }
      * </pre>
      * 
-     * ## Search by filters
+     * ### Search by filters
      * 
      * <pre>
      * {@code
@@ -141,6 +142,7 @@ public final class RamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ram.RamFunctions;
      * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -208,7 +210,7 @@ public final class RamFunctions {
      * }
      * </pre>
      * 
-     * ## Search by filters
+     * ### Search by filters
      * 
      * <pre>
      * {@code
@@ -219,6 +221,7 @@ public final class RamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ram.RamFunctions;
      * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -286,7 +289,7 @@ public final class RamFunctions {
      * }
      * </pre>
      * 
-     * ## Search by filters
+     * ### Search by filters
      * 
      * <pre>
      * {@code
@@ -297,6 +300,7 @@ public final class RamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ram.RamFunctions;
      * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -364,7 +368,7 @@ public final class RamFunctions {
      * }
      * </pre>
      * 
-     * ## Search by filters
+     * ### Search by filters
      * 
      * <pre>
      * {@code
@@ -375,6 +379,7 @@ public final class RamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ram.RamFunctions;
      * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

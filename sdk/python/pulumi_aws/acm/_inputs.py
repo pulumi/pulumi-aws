@@ -28,7 +28,7 @@ __all__ = [
 class CertificateDomainValidationOptionArgsDict(TypedDict):
     domain_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Fully qualified domain name (FQDN) in the certificate.
+    Domain to be validated
     """
     resource_record_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -51,7 +51,7 @@ class CertificateDomainValidationOptionArgs:
                  resource_record_type: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_record_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[_builtins.str] domain_name: Domain to be validated
         :param pulumi.Input[_builtins.str] resource_record_name: The name of the DNS record to create to validate the certificate
         :param pulumi.Input[_builtins.str] resource_record_type: The type of DNS record to create
         :param pulumi.Input[_builtins.str] resource_record_value: The value the DNS record needs to have
@@ -69,7 +69,7 @@ class CertificateDomainValidationOptionArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Fully qualified domain name (FQDN) in the certificate.
+        Domain to be validated
         """
         return pulumi.get(self, "domain_name")
 

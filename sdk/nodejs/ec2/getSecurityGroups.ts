@@ -57,7 +57,7 @@ export function getSecurityGroups(args?: GetSecurityGroupsArgs, opts?: pulumi.In
  */
 export interface GetSecurityGroupsArgs {
     /**
-     * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+     * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html).
      */
     filters?: inputs.ec2.GetSecurityGroupsFilter[];
     /**
@@ -144,7 +144,7 @@ export function getSecurityGroupsOutput(args?: GetSecurityGroupsOutputArgs, opts
  */
 export interface GetSecurityGroupsOutputArgs {
     /**
-     * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+     * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html).
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSecurityGroupsFilterArgs>[] | undefined>;
     /**

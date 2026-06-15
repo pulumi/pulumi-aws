@@ -123,6 +123,10 @@ __all__ = [
     'LogDeliveryS3DeliveryConfigurationArgsDict',
     'LogMetricFilterMetricTransformationArgs',
     'LogMetricFilterMetricTransformationArgsDict',
+    'LogS3TableIntegrationSourceDataSourceArgs',
+    'LogS3TableIntegrationSourceDataSourceArgsDict',
+    'LogS3TableIntegrationSourceTimeoutsArgs',
+    'LogS3TableIntegrationSourceTimeoutsArgsDict',
     'LogTransformerTransformerConfigArgs',
     'LogTransformerTransformerConfigArgsDict',
     'LogTransformerTransformerConfigAddKeysArgs',
@@ -3228,6 +3232,82 @@ class LogMetricFilterMetricTransformationArgs:
     @unit.setter
     def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
+
+
+class LogS3TableIntegrationSourceDataSourceArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the data source. Use `"*"` to match all sources.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of the data source. Use `"*"` to match all types.
+    """
+
+@pulumi.input_type
+class LogS3TableIntegrationSourceDataSourceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the data source. Use `"*"` to match all sources.
+        :param pulumi.Input[_builtins.str] type: Type of the data source. Use `"*"` to match all types.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the data source. Use `"*"` to match all sources.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of the data source. Use `"*"` to match all types.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+class LogS3TableIntegrationSourceTimeoutsArgsDict(TypedDict):
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+
+@pulumi.input_type
+class LogS3TableIntegrationSourceTimeoutsArgs:
+    def __init__(__self__, *,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
 
 
 class LogTransformerTransformerConfigArgsDict(TypedDict):

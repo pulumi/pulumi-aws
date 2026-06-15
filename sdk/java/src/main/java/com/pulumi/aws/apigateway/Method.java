@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Usage with Cognito User Pool Authorizer
+ * ### Usage with Cognito User Pool Authorizer
  * 
  * <pre>
  * {@code

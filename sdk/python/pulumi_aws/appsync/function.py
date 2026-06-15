@@ -527,7 +527,7 @@ class Function(pulumi.CustomResource):
         \"\"\")
         ```
 
-        ### With Code
+        ### Example Usage With Code
 
         ```python
         import pulumi
@@ -633,7 +633,7 @@ class Function(pulumi.CustomResource):
         \"\"\")
         ```
 
-        ### With Code
+        ### Example Usage With Code
 
         ```python
         import pulumi

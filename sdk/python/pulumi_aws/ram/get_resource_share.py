@@ -176,7 +176,7 @@ def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterA
         resource_owner="SELF")
     ```
 
-    ## Search by filters
+    ### Search by filters
 
     ```python
     import pulumi
@@ -239,7 +239,7 @@ def get_resource_share_output(filters: pulumi.Input[Optional[Optional[Sequence[U
         resource_owner="SELF")
     ```
 
-    ## Search by filters
+    ### Search by filters
 
     ```python
     import pulumi

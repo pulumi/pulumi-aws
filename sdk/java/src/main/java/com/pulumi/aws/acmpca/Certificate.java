@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  *         var csr = new CertRequest("csr", CertRequestArgs.builder()
  *             .privateKeyPem(key.privateKeyPem())
- *             .subject(CertRequestSubjectArgs.builder()
+ *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
  *                 .commonName("example")
  *                 .build())
  *             .build());

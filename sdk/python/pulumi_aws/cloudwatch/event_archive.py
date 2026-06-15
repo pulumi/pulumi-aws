@@ -304,7 +304,7 @@ class EventArchive(pulumi.CustomResource):
             event_source_arn=order.arn)
         ```
 
-        ### Optional Arguments
+        ### Example Usage Optional Arguments
 
         ```python
         import pulumi
@@ -322,7 +322,7 @@ class EventArchive(pulumi.CustomResource):
             }))
         ```
 
-        ### CMK Encryption
+        ### Example Usage CMK Encryption
 
         ```python
         import pulumi
@@ -427,7 +427,7 @@ class EventArchive(pulumi.CustomResource):
             event_source_arn=order.arn)
         ```
 
-        ### Optional Arguments
+        ### Example Usage Optional Arguments
 
         ```python
         import pulumi
@@ -445,7 +445,7 @@ class EventArchive(pulumi.CustomResource):
             }))
         ```
 
-        ### CMK Encryption
+        ### Example Usage CMK Encryption
 
         ```python
         import pulumi

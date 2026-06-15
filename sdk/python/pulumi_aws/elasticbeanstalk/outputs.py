@@ -107,7 +107,10 @@ class ConfigurationTemplateSetting(dict):
                  value: _builtins.str,
                  resource: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: A unique name for this Template.
+        :param _builtins.str name: Name of the configuration option
+        :param _builtins.str namespace: Unique namespace identifying the option's associated AWS resource
+        :param _builtins.str value: Value for the configuration option
+        :param _builtins.str resource: resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
@@ -119,23 +122,32 @@ class ConfigurationTemplateSetting(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A unique name for this Template.
+        Name of the configuration option
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> _builtins.str:
+        """
+        Unique namespace identifying the option's associated AWS resource
+        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
+        """
+        Value for the configuration option
+        """
         return pulumi.get(self, "value")
 
     @_builtins.property
     @pulumi.getter
     def resource(self) -> Optional[_builtins.str]:
+        """
+        resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+        """
         return pulumi.get(self, "resource")
 
 
@@ -147,8 +159,10 @@ class EnvironmentAllSetting(dict):
                  value: _builtins.str,
                  resource: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: A unique name for this Environment. This name is used
-               in the application URL
+        :param _builtins.str name: Name of the configuration option
+        :param _builtins.str namespace: Unique namespace identifying the option's associated AWS resource
+        :param _builtins.str value: Value for the configuration option
+        :param _builtins.str resource: resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
@@ -160,24 +174,32 @@ class EnvironmentAllSetting(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A unique name for this Environment. This name is used
-        in the application URL
+        Name of the configuration option
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> _builtins.str:
+        """
+        Unique namespace identifying the option's associated AWS resource
+        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
+        """
+        Value for the configuration option
+        """
         return pulumi.get(self, "value")
 
     @_builtins.property
     @pulumi.getter
     def resource(self) -> Optional[_builtins.str]:
+        """
+        resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+        """
         return pulumi.get(self, "resource")
 
 
@@ -189,8 +211,10 @@ class EnvironmentSetting(dict):
                  value: _builtins.str,
                  resource: Optional[_builtins.str] = None):
         """
-        :param _builtins.str name: A unique name for this Environment. This name is used
-               in the application URL
+        :param _builtins.str name: Name of the configuration option
+        :param _builtins.str namespace: Unique namespace identifying the option's associated AWS resource
+        :param _builtins.str value: Value for the configuration option
+        :param _builtins.str resource: resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace", namespace)
@@ -202,24 +226,32 @@ class EnvironmentSetting(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        A unique name for this Environment. This name is used
-        in the application URL
+        Name of the configuration option
         """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def namespace(self) -> _builtins.str:
+        """
+        Unique namespace identifying the option's associated AWS resource
+        """
         return pulumi.get(self, "namespace")
 
     @_builtins.property
     @pulumi.getter
     def value(self) -> _builtins.str:
+        """
+        Value for the configuration option
+        """
         return pulumi.get(self, "value")
 
     @_builtins.property
     @pulumi.getter
     def resource(self) -> Optional[_builtins.str]:
+        """
+        resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+        """
         return pulumi.get(self, "resource")
 
 

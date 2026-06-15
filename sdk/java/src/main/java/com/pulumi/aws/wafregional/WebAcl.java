@@ -159,6 +159,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafregional.WebAclArgs;
  * import com.pulumi.aws.wafregional.inputs.WebAclLoggingConfigurationArgs;
  * import com.pulumi.aws.wafregional.inputs.WebAclLoggingConfigurationRedactedFieldsArgs;
+ * import com.pulumi.aws.wafregional.inputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

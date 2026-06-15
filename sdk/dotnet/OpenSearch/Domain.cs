@@ -12,22 +12,7 @@ namespace Pulumi.Aws.OpenSearch
     /// <summary>
     /// Manages an Amazon OpenSearch Domain.
     /// 
-    /// ## Elasticsearch vs. OpenSearch
-    /// 
-    /// Amazon OpenSearch Service is the successor to Amazon Elasticsearch Service and supports OpenSearch and legacy Elasticsearch OSS (up to 7.10, the final open source version of the software).
-    /// 
-    /// OpenSearch Domain configurations are similar in many ways to Elasticsearch Domain configurations. However, there are important differences including these:
-    /// 
-    /// * OpenSearch has `EngineVersion` while Elasticsearch has `ElasticsearchVersion`
-    /// * Versions are specified differently - _e.g._, `Elasticsearch_7.10` with OpenSearch vs. `7.10` for Elasticsearch.
-    /// * `InstanceType` argument values end in `Search` for OpenSearch vs. `Elasticsearch` for Elasticsearch (_e.g._, `t2.micro.search` vs. `t2.micro.elasticsearch`).
-    /// * The AWS-managed service-linked role for OpenSearch is called `AWSServiceRoleForAmazonOpenSearchService` instead of `AWSServiceRoleForAmazonElasticsearchService` for Elasticsearch.
-    /// 
-    /// There are also some potentially unexpected similarities in configurations:
-    /// 
-    /// * ARNs for both are prefaced with `arn:aws:es:`.
-    /// * Both OpenSearch and Elasticsearch use assume role policies that refer to the `Principal` `Service` as `es.amazonaws.com`.
-    /// * IAM policy actions, such as those you will find in `AccessPolicies`, are prefaced with `es:` for both.
+    /// Amazon OpenSearch Service is the successor to Amazon Elasticsearch Service and supports OpenSearch and legacy Elasticsearch OSS (up to 7.10, the final open source version of the software). Notable differences from Elasticsearch: OpenSearch uses `EngineVersion` (vs `ElasticsearchVersion`), versions are specified as `Elasticsearch_7.10` (vs `7.10`), `InstanceType` values end in `Search` (vs `Elasticsearch`), and the service-linked role is `AWSServiceRoleForAmazonOpenSearchService`. Similarities: ARNs use `arn:aws:es:`, assume role policies reference `es.amazonaws.com`, and IAM policy actions are prefixed with `es:`.
     /// 
     /// ## Example Usage
     /// 

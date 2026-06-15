@@ -26,6 +26,16 @@ export const ClusterCapacityProviders: typeof import("./clusterCapacityProviders
 utilities.lazyLoad(exports, ["ClusterCapacityProviders"], () => require("./clusterCapacityProviders"));
 
 export * from "./container";
+export { DaemonArgs, DaemonState } from "./daemon";
+export type Daemon = import("./daemon").Daemon;
+export const Daemon: typeof import("./daemon").Daemon = null as any;
+utilities.lazyLoad(exports, ["Daemon"], () => require("./daemon"));
+
+export { DaemonTaskDefinitionArgs, DaemonTaskDefinitionState } from "./daemonTaskDefinition";
+export type DaemonTaskDefinition = import("./daemonTaskDefinition").DaemonTaskDefinition;
+export const DaemonTaskDefinition: typeof import("./daemonTaskDefinition").DaemonTaskDefinition = null as any;
+utilities.lazyLoad(exports, ["DaemonTaskDefinition"], () => require("./daemonTaskDefinition"));
+
 export { ExpressGatewayServiceArgs, ExpressGatewayServiceState } from "./expressGatewayService";
 export type ExpressGatewayService = import("./expressGatewayService").ExpressGatewayService;
 export const ExpressGatewayService: typeof import("./expressGatewayService").ExpressGatewayService = null as any;
@@ -94,6 +104,10 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "aws:ecs/clusterCapacityProviders:ClusterCapacityProviders":
                 return new ClusterCapacityProviders(name, <any>undefined, { urn })
+            case "aws:ecs/daemon:Daemon":
+                return new Daemon(name, <any>undefined, { urn })
+            case "aws:ecs/daemonTaskDefinition:DaemonTaskDefinition":
+                return new DaemonTaskDefinition(name, <any>undefined, { urn })
             case "aws:ecs/expressGatewayService:ExpressGatewayService":
                 return new ExpressGatewayService(name, <any>undefined, { urn })
             case "aws:ecs/service:Service":
@@ -113,6 +127,8 @@ pulumi.runtime.registerResourceModule("aws", "ecs/accountSettingDefault", _modul
 pulumi.runtime.registerResourceModule("aws", "ecs/capacityProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/clusterCapacityProviders", _module)
+pulumi.runtime.registerResourceModule("aws", "ecs/daemon", _module)
+pulumi.runtime.registerResourceModule("aws", "ecs/daemonTaskDefinition", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/expressGatewayService", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/service", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/tag", _module)

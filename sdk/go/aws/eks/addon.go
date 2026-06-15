@@ -41,7 +41,7 @@ import (
 //
 // ```
 //
-// ## Example Update add-on usage with resolveConflictsOnUpdate and PRESERVE
+// ### Example Update add-on usage with resolveConflictsOnUpdate and PRESERVE
 //
 // `resolveConflictsOnUpdate` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
 //
@@ -72,7 +72,7 @@ import (
 //
 // ```
 //
-// ## Example add-on usage with custom configurationValues
+// ### Example add-on usage with custom configurationValues
 //
 // Custom add-on configuration can be passed using `configurationValues` as a single JSON string while creating or updating the add-on.
 //

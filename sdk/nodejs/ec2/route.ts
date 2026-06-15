@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Example IPv6 Usage
+ * ### Example IPv6 Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

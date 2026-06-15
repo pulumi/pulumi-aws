@@ -168,6 +168,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.emrserverless.ApplicationArgs;
  * import com.pulumi.aws.emrserverless.inputs.ApplicationMonitoringConfigurationArgs;
  * import com.pulumi.aws.emrserverless.inputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs;
+ * import com.pulumi.aws.emrserverless.inputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs;
  * import com.pulumi.aws.emrserverless.inputs.ApplicationMonitoringConfigurationManagedPersistenceMonitoringConfigurationArgs;
  * import com.pulumi.aws.emrserverless.inputs.ApplicationMonitoringConfigurationPrometheusMonitoringConfigurationArgs;
  * import java.util.ArrayList;

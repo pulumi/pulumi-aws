@@ -63,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentcoreOauth2CredentialProvider{}
 	case "aws:bedrock/agentcoreOnlineEvaluationConfig:AgentcoreOnlineEvaluationConfig":
 		r = &AgentcoreOnlineEvaluationConfig{}
+	case "aws:bedrock/agentcorePolicy:AgentcorePolicy":
+		r = &AgentcorePolicy{}
 	case "aws:bedrock/agentcorePolicyEngine:AgentcorePolicyEngine":
 		r = &AgentcorePolicyEngine{}
 	case "aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy":
@@ -197,6 +199,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"bedrock/agentcoreOnlineEvaluationConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcorePolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

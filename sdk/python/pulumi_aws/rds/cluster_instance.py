@@ -1080,7 +1080,7 @@ class ClusterInstance(pulumi.CustomResource):
 
         Unlike other RDS resources that support replication, with Amazon Aurora you do
         not designate a primary and subsequent replicas. Instead, you simply add RDS
-        Instances and Aurora manages the replication. You can use the [count][5]
+        Instances and Aurora manages the replication. You can use the count
         meta-parameter to make multiple instances and join them all to the same RDS
         Cluster, or you may specify different Cluster Instance resources with various
         `instance_class` sizes.
@@ -1173,7 +1173,7 @@ class ClusterInstance(pulumi.CustomResource):
 
         Unlike other RDS resources that support replication, with Amazon Aurora you do
         not designate a primary and subsequent replicas. Instead, you simply add RDS
-        Instances and Aurora manages the replication. You can use the [count][5]
+        Instances and Aurora manages the replication. You can use the count
         meta-parameter to make multiple instances and join them all to the same RDS
         Cluster, or you may specify different Cluster Instance resources with various
         `instance_class` sizes.

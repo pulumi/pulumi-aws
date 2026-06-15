@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Ecs
     /// });
     /// ```
     /// 
-    /// ## Service Updates and Deletion
+    /// ### Service Updates and Deletion
     /// 
     /// ### Updates
     /// 

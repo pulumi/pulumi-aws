@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationHttp;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationMcp;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -12,12 +13,24 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfiguration {
     /**
+     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+     * 
+     */
+    private @Nullable AgentcoreGatewayTargetTargetConfigurationHttp http;
+    /**
      * @return Model Context Protocol (MCP) configuration. See `mcp` below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcp mcp;
 
     private AgentcoreGatewayTargetTargetConfiguration() {}
+    /**
+     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+     * 
+     */
+    public Optional<AgentcoreGatewayTargetTargetConfigurationHttp> http() {
+        return Optional.ofNullable(this.http);
+    }
     /**
      * @return Model Context Protocol (MCP) configuration. See `mcp` below.
      * 
@@ -35,13 +48,21 @@ public final class AgentcoreGatewayTargetTargetConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable AgentcoreGatewayTargetTargetConfigurationHttp http;
         private @Nullable AgentcoreGatewayTargetTargetConfigurationMcp mcp;
         public Builder() {}
         public Builder(AgentcoreGatewayTargetTargetConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.http = defaults.http;
     	      this.mcp = defaults.mcp;
         }
 
+        @CustomType.Setter
+        public Builder http(@Nullable AgentcoreGatewayTargetTargetConfigurationHttp http) {
+
+            this.http = http;
+            return this;
+        }
         @CustomType.Setter
         public Builder mcp(@Nullable AgentcoreGatewayTargetTargetConfigurationMcp mcp) {
 
@@ -50,6 +71,7 @@ public final class AgentcoreGatewayTargetTargetConfiguration {
         }
         public AgentcoreGatewayTargetTargetConfiguration build() {
             final var _resultValue = new AgentcoreGatewayTargetTargetConfiguration();
+            _resultValue.http = http;
             _resultValue.mcp = mcp;
             return _resultValue;
         }

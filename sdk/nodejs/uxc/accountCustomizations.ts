@@ -88,11 +88,11 @@ export class AccountCustomizations extends pulumi.CustomResource {
     /**
      * Set of AWS region codes to display in the console. When omitted or empty, all regions are visible.
      */
-    declare public readonly visibleRegions: pulumi.Output<string[] | undefined>;
+    declare public readonly visibleRegions: pulumi.Output<string[]>;
     /**
      * Set of AWS service identifiers to display in the console. When omitted or empty, all services are visible.
      */
-    declare public readonly visibleServices: pulumi.Output<string[] | undefined>;
+    declare public readonly visibleServices: pulumi.Output<string[]>;
 
     /**
      * Create a AccountCustomizations resource with the given unique name, arguments, and options.

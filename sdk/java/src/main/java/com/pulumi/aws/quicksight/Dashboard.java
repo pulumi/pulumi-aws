@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.quicksight.DashboardArgs;
  * import com.pulumi.aws.quicksight.inputs.DashboardSourceEntityArgs;
  * import com.pulumi.aws.quicksight.inputs.DashboardSourceEntitySourceTemplateArgs;
+ * import com.pulumi.aws.quicksight.inputs.DashboardSourceEntitySourceTemplateDataSetReferenceArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

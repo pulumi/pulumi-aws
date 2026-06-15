@@ -430,7 +430,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
+     *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
      *             .build());
@@ -485,7 +485,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
+     *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
      *             .build());
@@ -540,7 +540,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
+     *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
      *             .build());
@@ -595,7 +595,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
+     *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
      *             .build());
@@ -650,7 +650,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
+     *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
      *             .build());
@@ -705,7 +705,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
+     *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
      *             .build());
@@ -760,7 +760,7 @@ public final class IotFunctions {
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
      *             .keyAlgorithm("RSA")
      *             .privateKeyPem(verification.privateKeyPem())
-     *             .subject(CertRequestSubjectArgs.builder()
+     *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
      *             .build());

@@ -31,14 +31,14 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
+     * Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-users.html).
      * 
      */
     @Import(name="pathPrefix")
     private @Nullable Output<String> pathPrefix;
 
     /**
-     * @return Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
+     * @return Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-users.html).
      * 
      */
     public Optional<Output<String>> pathPrefix() {
@@ -92,7 +92,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param pathPrefix Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
+         * @param pathPrefix Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-users.html).
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param pathPrefix Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference][1].
+         * @param pathPrefix Path prefix for filtering the results. For example, the prefix `/division_abc/subdivision_xyz/` gets all users whose path starts with `/division_abc/subdivision_xyz/`. If it is not included, it defaults to a slash (`/`), listing all users. For more details, check out [list-users in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-users.html).
          * 
          * @return builder
          * 

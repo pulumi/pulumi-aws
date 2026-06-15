@@ -35,7 +35,7 @@ public final class GetSolutionStackPlainArgs extends com.pulumi.resources.Invoke
 
     /**
      * Regex string to apply to the solution stack list returned
-     * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+     * by AWS. See [Elastic Beanstalk Supported Platforms](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) from
      * AWS documentation for reference solution stack names.
      * 
      * &gt; **NOTE:** If more or less than a single match is returned by the search,
@@ -48,7 +48,7 @@ public final class GetSolutionStackPlainArgs extends com.pulumi.resources.Invoke
 
     /**
      * @return Regex string to apply to the solution stack list returned
-     * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+     * by AWS. See [Elastic Beanstalk Supported Platforms](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) from
      * AWS documentation for reference solution stack names.
      * 
      * &gt; **NOTE:** If more or less than a single match is returned by the search,
@@ -115,7 +115,7 @@ public final class GetSolutionStackPlainArgs extends com.pulumi.resources.Invoke
 
         /**
          * @param nameRegex Regex string to apply to the solution stack list returned
-         * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+         * by AWS. See [Elastic Beanstalk Supported Platforms](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) from
          * AWS documentation for reference solution stack names.
          * 
          * &gt; **NOTE:** If more or less than a single match is returned by the search,

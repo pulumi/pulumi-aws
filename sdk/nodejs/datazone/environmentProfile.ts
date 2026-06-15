@@ -104,6 +104,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `domainIdentifier` - (String) Identifier of the DataZone domain.
+ * * `id` - (String) ID of the environment profile.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import DataZone Environment Profile using a comma-delimited string combining `id` and `domainIdentifier`. For example:
  *
  * ```sh

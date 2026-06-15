@@ -54,7 +54,7 @@ namespace Pulumi.Aws.SecurityHub
     /// });
     /// ```
     /// 
-    /// ## Disabling security control in all standards
+    /// ### Disabling security control in all standards
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

@@ -134,6 +134,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupActionGroupExecutorArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupFunctionSchemaArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentAgentActionGroupFunctionSchemaMemberFunctionsFunctionParameterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

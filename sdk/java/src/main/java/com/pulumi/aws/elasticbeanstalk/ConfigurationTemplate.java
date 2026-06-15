@@ -63,15 +63,6 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Option Settings
- * 
- * The `setting` field supports the following format:
- * 
- * * `namespace` - (Required) Unique namespace identifying the option&#39;s associated AWS resource
- * * `name` - (Required) Name of the configuration option
- * * `value` - (Required) Value for the configuration option
- * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
- * 
  */
 @ResourceType(type="aws:elasticbeanstalk/configurationTemplate:ConfigurationTemplate")
 public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
@@ -165,7 +156,7 @@ public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
     }
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      * 
      */
     @Export(name="solutionStackName", refs={String.class}, tree="[0]")
@@ -173,7 +164,7 @@ public class ConfigurationTemplate extends com.pulumi.resources.CustomResource {
 
     /**
      * @return A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      * 
      */
     public Output<Optional<String>> solutionStackName() {

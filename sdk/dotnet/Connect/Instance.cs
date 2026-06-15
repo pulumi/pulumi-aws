@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// 
-    /// ### With Existing Active Directory
+    /// ### Example Usage with Existing Active Directory
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Connect
     /// });
     /// ```
     /// 
-    /// ### With SAML
+    /// ### Example Usage with SAML
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

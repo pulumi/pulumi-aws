@@ -167,6 +167,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.EventSourceMapping;
  * import com.pulumi.aws.lambda.EventSourceMappingArgs;
  * import com.pulumi.aws.lambda.inputs.EventSourceMappingFilterCriteriaArgs;
+ * import com.pulumi.aws.lambda.inputs.EventSourceMappingFilterCriteriaFilterArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;

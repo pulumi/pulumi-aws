@@ -878,53 +878,6 @@ class Database(pulumi.CustomResource):
             apply_immediately=True)
         ```
 
-        ## Blueprint IDs
-
-        A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
-
-        ### Examples
-
-        - `mysql_8_0`
-        - `postgres_12`
-
-        ### Prefix
-
-        A Blueprint ID starts with a prefix of the engine type.
-
-        ### Suffix
-
-        A Blueprint ID has a suffix of the engine version.
-
-        ## Bundles
-
-        A list of all available Lightsail Bundles for Relational Databases the [aws lightsail get-relational-database-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-bundles.html) aws cli command.
-
-        ### Examples
-
-        - `small_1_0`
-        - `small_ha_1_0`
-        - `large_1_0`
-        - `large_ha_1_0`
-
-        ### Prefix
-
-        A Bundle ID starts with one of the below size prefixes:
-
-        - `micro_`
-        - `small_`
-        - `medium_`
-        - `large_`
-
-        ### Infixes (Optional for HA Database)
-
-        A Bundle ID can have the following infix added in order to use the HA option of the selected bundle.
-
-        - `ha_`
-
-        ### Suffix
-
-        A Bundle ID ends with one of the following suffix: `1_0`
-
         ## Import
 
         Using `pulumi import`, import Lightsail Databases using their name. For example:
@@ -1059,53 +1012,6 @@ class Database(pulumi.CustomResource):
             bundle_id="micro_1_0",
             apply_immediately=True)
         ```
-
-        ## Blueprint IDs
-
-        A list of all available Lightsail Blueprints for Relational Databases the [aws lightsail get-relational-database-blueprints](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-blueprints.html) aws cli command.
-
-        ### Examples
-
-        - `mysql_8_0`
-        - `postgres_12`
-
-        ### Prefix
-
-        A Blueprint ID starts with a prefix of the engine type.
-
-        ### Suffix
-
-        A Blueprint ID has a suffix of the engine version.
-
-        ## Bundles
-
-        A list of all available Lightsail Bundles for Relational Databases the [aws lightsail get-relational-database-bundles](https://docs.aws.amazon.com/cli/latest/reference/lightsail/get-relational-database-bundles.html) aws cli command.
-
-        ### Examples
-
-        - `small_1_0`
-        - `small_ha_1_0`
-        - `large_1_0`
-        - `large_ha_1_0`
-
-        ### Prefix
-
-        A Bundle ID starts with one of the below size prefixes:
-
-        - `micro_`
-        - `small_`
-        - `medium_`
-        - `large_`
-
-        ### Infixes (Optional for HA Database)
-
-        A Bundle ID can have the following infix added in order to use the HA option of the selected bundle.
-
-        - `ha_`
-
-        ### Suffix
-
-        A Bundle ID ends with one of the following suffix: `1_0`
 
         ## Import
 

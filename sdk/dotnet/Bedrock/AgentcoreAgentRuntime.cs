@@ -176,6 +176,41 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### AG-UI Server
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentcoreAgentRuntime("example", new()
+    ///     {
+    ///         AgentRuntimeName = "example_agui_runtime",
+    ///         Description = "Agent runtime with AG-UI protocol",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         AgentRuntimeArtifact = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs
+    ///         {
+    ///             ContainerConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs
+    ///             {
+    ///                 ContainerUri = $"{exampleAwsEcrRepository.RepositoryUrl}:latest",
+    ///             },
+    ///         },
+    ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs
+    ///         {
+    ///             NetworkMode = "PUBLIC",
+    ///         },
+    ///         ProtocolConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeProtocolConfigurationArgs
+    ///         {
+    ///             ServerProtocol = "AGUI",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Agent runtime artifact from S3 with Code Configuration
     /// 
     /// ```csharp

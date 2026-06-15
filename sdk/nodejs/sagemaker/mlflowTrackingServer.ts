@@ -67,7 +67,7 @@ export class MlflowTrackingServer extends pulumi.CustomResource {
      */
     declare public readonly artifactStoreUri: pulumi.Output<string>;
     /**
-     * A list of Member Definitions that contains objects that identify the workers that make up the work team.
+     * Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
      */
     declare public readonly automaticModelRegistration: pulumi.Output<boolean | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface MlflowTrackingServerState {
      */
     artifactStoreUri?: pulumi.Input<string | undefined>;
     /**
-     * A list of Member Definitions that contains objects that identify the workers that make up the work team.
+     * Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
      */
     automaticModelRegistration?: pulumi.Input<boolean | undefined>;
     /**
@@ -224,7 +224,7 @@ export interface MlflowTrackingServerArgs {
      */
     artifactStoreUri: pulumi.Input<string>;
     /**
-     * A list of Member Definitions that contains objects that identify the workers that make up the work team.
+     * Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
      */
     automaticModelRegistration?: pulumi.Input<boolean | undefined>;
     /**

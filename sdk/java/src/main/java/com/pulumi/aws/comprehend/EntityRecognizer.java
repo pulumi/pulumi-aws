@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.comprehend.EntityRecognizer;
  * import com.pulumi.aws.comprehend.EntityRecognizerArgs;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigArgs;
+ * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigEntityTypeArgs;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigDocumentsArgs;
  * import com.pulumi.aws.comprehend.inputs.EntityRecognizerInputDataConfigEntityListArgs;
  * import com.pulumi.resources.CustomResourceOptions;

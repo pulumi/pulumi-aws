@@ -38,6 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.EventTargetArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.sns.TopicPolicy;
  * import com.pulumi.aws.sns.TopicPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;

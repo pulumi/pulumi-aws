@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +31,26 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs ext
         return this.endpoint;
     }
 
+    /**
+     * Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
+     * 
+     */
+    @Import(name="listingMode")
+    private @Nullable Output<String> listingMode;
+
+    /**
+     * @return Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
+     * 
+     */
+    public Optional<Output<String>> listingMode() {
+        return Optional.ofNullable(this.listingMode);
+    }
+
     private AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs() {}
 
     private AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs $) {
         this.endpoint = $.endpoint;
+        this.listingMode = $.listingMode;
     }
 
     public static Builder builder() {
@@ -72,6 +90,27 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs ext
          */
         public Builder endpoint(String endpoint) {
             return endpoint(Output.of(endpoint));
+        }
+
+        /**
+         * @param listingMode Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder listingMode(@Nullable Output<String> listingMode) {
+            $.listingMode = listingMode;
+            return this;
+        }
+
+        /**
+         * @param listingMode Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder listingMode(String listingMode) {
+            return listingMode(Output.of(listingMode));
         }
 
         public AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs build() {

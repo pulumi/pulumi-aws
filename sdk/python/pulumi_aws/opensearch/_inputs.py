@@ -522,9 +522,13 @@ class DomainAdvancedSecurityOptionsJwtOptionsArgsDict(TypedDict):
     """
     Whether JWT authentication is enabled.
     """
+    jwks_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwks_url` or `public_key` must be specified when `enabled` is set to `true`.
+    """
     public_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    PEM-encoded public key used to verify JWT signatures.
+    PEM-encoded public key used to verify JWT signatures. At least one of `jwks_url` or `public_key` must be specified when `enabled` is set to `true`. If both `jwks_url` and `public_key` are specified, `public_key` is ignored.
     """
     roles_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -539,17 +543,21 @@ class DomainAdvancedSecurityOptionsJwtOptionsArgsDict(TypedDict):
 class DomainAdvancedSecurityOptionsJwtOptionsArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 jwks_url: pulumi.Input[Optional[_builtins.str]] = None,
                  public_key: pulumi.Input[Optional[_builtins.str]] = None,
                  roles_key: pulumi.Input[Optional[_builtins.str]] = None,
                  subject_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Whether JWT authentication is enabled.
-        :param pulumi.Input[_builtins.str] public_key: PEM-encoded public key used to verify JWT signatures.
+        :param pulumi.Input[_builtins.str] jwks_url: URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwks_url` or `public_key` must be specified when `enabled` is set to `true`.
+        :param pulumi.Input[_builtins.str] public_key: PEM-encoded public key used to verify JWT signatures. At least one of `jwks_url` or `public_key` must be specified when `enabled` is set to `true`. If both `jwks_url` and `public_key` are specified, `public_key` is ignored.
         :param pulumi.Input[_builtins.str] roles_key: Element of the JWT assertion to use for roles. Default is `roles`.
         :param pulumi.Input[_builtins.str] subject_key: Element of the JWT assertion to use for the user name. Default is `sub`.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if jwks_url is not None:
+            pulumi.set(__self__, "jwks_url", jwks_url)
         if public_key is not None:
             pulumi.set(__self__, "public_key", public_key)
         if roles_key is not None:
@@ -570,10 +578,22 @@ class DomainAdvancedSecurityOptionsJwtOptionsArgs:
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="jwksUrl")
+    def jwks_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwks_url` or `public_key` must be specified when `enabled` is set to `true`.
+        """
+        return pulumi.get(self, "jwks_url")
+
+    @jwks_url.setter
+    def jwks_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "jwks_url", value)
+
+    @_builtins.property
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        PEM-encoded public key used to verify JWT signatures.
+        PEM-encoded public key used to verify JWT signatures. At least one of `jwks_url` or `public_key` must be specified when `enabled` is set to `true`. If both `jwks_url` and `public_key` are specified, `public_key` is ignored.
         """
         return pulumi.get(self, "public_key")
 

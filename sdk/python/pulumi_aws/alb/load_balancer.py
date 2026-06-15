@@ -32,6 +32,7 @@ class LoadBalancerArgs:
                  enable_cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_prefix_for_ipv6_source_nat: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_tls_version_and_cipher_suite_headers: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_waf_fail_open: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_xff_client_port: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -67,6 +68,7 @@ class LoadBalancerArgs:
         :param pulumi.Input[_builtins.bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_http2: Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] enable_prefix_for_ipv6_source_nat: Whether to use an IPv6 prefix from each subnet for source NAT. `ip_address_type` must be `dualstack`. Valid values: `on`, `off`.
         :param pulumi.Input[_builtins.bool] enable_tls_version_and_cipher_suite_headers: Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         :param pulumi.Input[_builtins.bool] enable_waf_fail_open: Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_xff_client_port: Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
@@ -114,6 +116,8 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "enable_deletion_protection", enable_deletion_protection)
         if enable_http2 is not None:
             pulumi.set(__self__, "enable_http2", enable_http2)
+        if enable_prefix_for_ipv6_source_nat is not None:
+            pulumi.set(__self__, "enable_prefix_for_ipv6_source_nat", enable_prefix_for_ipv6_source_nat)
         if enable_tls_version_and_cipher_suite_headers is not None:
             pulumi.set(__self__, "enable_tls_version_and_cipher_suite_headers", enable_tls_version_and_cipher_suite_headers)
         if enable_waf_fail_open is not None:
@@ -278,6 +282,18 @@ class LoadBalancerArgs:
     @enable_http2.setter
     def enable_http2(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_http2", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enablePrefixForIpv6SourceNat")
+    def enable_prefix_for_ipv6_source_nat(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether to use an IPv6 prefix from each subnet for source NAT. `ip_address_type` must be `dualstack`. Valid values: `on`, `off`.
+        """
+        return pulumi.get(self, "enable_prefix_for_ipv6_source_nat")
+
+    @enable_prefix_for_ipv6_source_nat.setter
+    def enable_prefix_for_ipv6_source_nat(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "enable_prefix_for_ipv6_source_nat", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTlsVersionAndCipherSuiteHeaders")
@@ -564,6 +580,7 @@ class _LoadBalancerState:
                  enable_cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_prefix_for_ipv6_source_nat: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_tls_version_and_cipher_suite_headers: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_waf_fail_open: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_xff_client_port: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -606,6 +623,7 @@ class _LoadBalancerState:
         :param pulumi.Input[_builtins.bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_http2: Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] enable_prefix_for_ipv6_source_nat: Whether to use an IPv6 prefix from each subnet for source NAT. `ip_address_type` must be `dualstack`. Valid values: `on`, `off`.
         :param pulumi.Input[_builtins.bool] enable_tls_version_and_cipher_suite_headers: Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         :param pulumi.Input[_builtins.bool] enable_waf_fail_open: Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_xff_client_port: Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
@@ -661,6 +679,8 @@ class _LoadBalancerState:
             pulumi.set(__self__, "enable_deletion_protection", enable_deletion_protection)
         if enable_http2 is not None:
             pulumi.set(__self__, "enable_http2", enable_http2)
+        if enable_prefix_for_ipv6_source_nat is not None:
+            pulumi.set(__self__, "enable_prefix_for_ipv6_source_nat", enable_prefix_for_ipv6_source_nat)
         if enable_tls_version_and_cipher_suite_headers is not None:
             pulumi.set(__self__, "enable_tls_version_and_cipher_suite_headers", enable_tls_version_and_cipher_suite_headers)
         if enable_waf_fail_open is not None:
@@ -868,6 +888,18 @@ class _LoadBalancerState:
     @enable_http2.setter
     def enable_http2(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_http2", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enablePrefixForIpv6SourceNat")
+    def enable_prefix_for_ipv6_source_nat(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Whether to use an IPv6 prefix from each subnet for source NAT. `ip_address_type` must be `dualstack`. Valid values: `on`, `off`.
+        """
+        return pulumi.get(self, "enable_prefix_for_ipv6_source_nat")
+
+    @enable_prefix_for_ipv6_source_nat.setter
+    def enable_prefix_for_ipv6_source_nat(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "enable_prefix_for_ipv6_source_nat", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTlsVersionAndCipherSuiteHeaders")
@@ -1187,6 +1219,7 @@ class LoadBalancer(pulumi.CustomResource):
                  enable_cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_prefix_for_ipv6_source_nat: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_tls_version_and_cipher_suite_headers: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_waf_fail_open: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_xff_client_port: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1326,6 +1359,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_http2: Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] enable_prefix_for_ipv6_source_nat: Whether to use an IPv6 prefix from each subnet for source NAT. `ip_address_type` must be `dualstack`. Valid values: `on`, `off`.
         :param pulumi.Input[_builtins.bool] enable_tls_version_and_cipher_suite_headers: Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         :param pulumi.Input[_builtins.bool] enable_waf_fail_open: Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_xff_client_port: Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
@@ -1488,6 +1522,7 @@ class LoadBalancer(pulumi.CustomResource):
                  enable_cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_prefix_for_ipv6_source_nat: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_tls_version_and_cipher_suite_headers: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_waf_fail_open: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_xff_client_port: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1529,6 +1564,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["enable_cross_zone_load_balancing"] = enable_cross_zone_load_balancing
             __props__.__dict__["enable_deletion_protection"] = enable_deletion_protection
             __props__.__dict__["enable_http2"] = enable_http2
+            __props__.__dict__["enable_prefix_for_ipv6_source_nat"] = enable_prefix_for_ipv6_source_nat
             __props__.__dict__["enable_tls_version_and_cipher_suite_headers"] = enable_tls_version_and_cipher_suite_headers
             __props__.__dict__["enable_waf_fail_open"] = enable_waf_fail_open
             __props__.__dict__["enable_xff_client_port"] = enable_xff_client_port
@@ -1582,6 +1618,7 @@ class LoadBalancer(pulumi.CustomResource):
             enable_cross_zone_load_balancing: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_http2: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_prefix_for_ipv6_source_nat: pulumi.Input[Optional[_builtins.str]] = None,
             enable_tls_version_and_cipher_suite_headers: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_waf_fail_open: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_xff_client_port: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1628,6 +1665,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled. For `network` and `gateway` type load balancers, this feature is disabled by default (`false`). For `application` load balancer this feature is always enabled (`true`) and cannot be disabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_http2: Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] enable_prefix_for_ipv6_source_nat: Whether to use an IPv6 prefix from each subnet for source NAT. `ip_address_type` must be `dualstack`. Valid values: `on`, `off`.
         :param pulumi.Input[_builtins.bool] enable_tls_version_and_cipher_suite_headers: Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
         :param pulumi.Input[_builtins.bool] enable_waf_fail_open: Whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_xff_client_port: Whether the X-Forwarded-For header should preserve the source port that the client used to connect to the load balancer in `application` load balancers. Defaults to `false`.
@@ -1674,6 +1712,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["enable_cross_zone_load_balancing"] = enable_cross_zone_load_balancing
         __props__.__dict__["enable_deletion_protection"] = enable_deletion_protection
         __props__.__dict__["enable_http2"] = enable_http2
+        __props__.__dict__["enable_prefix_for_ipv6_source_nat"] = enable_prefix_for_ipv6_source_nat
         __props__.__dict__["enable_tls_version_and_cipher_suite_headers"] = enable_tls_version_and_cipher_suite_headers
         __props__.__dict__["enable_waf_fail_open"] = enable_waf_fail_open
         __props__.__dict__["enable_xff_client_port"] = enable_xff_client_port
@@ -1805,6 +1844,14 @@ class LoadBalancer(pulumi.CustomResource):
         Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
         """
         return pulumi.get(self, "enable_http2")
+
+    @_builtins.property
+    @pulumi.getter(name="enablePrefixForIpv6SourceNat")
+    def enable_prefix_for_ipv6_source_nat(self) -> pulumi.Output[_builtins.str]:
+        """
+        Whether to use an IPv6 prefix from each subnet for source NAT. `ip_address_type` must be `dualstack`. Valid values: `on`, `off`.
+        """
+        return pulumi.get(self, "enable_prefix_for_ipv6_source_nat")
 
     @_builtins.property
     @pulumi.getter(name="enableTlsVersionAndCipherSuiteHeaders")

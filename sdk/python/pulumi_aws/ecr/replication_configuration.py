@@ -146,7 +146,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         })
         ```
 
-        ## Multiple Region Usage
+        ### Multiple Region Usage
 
         ```python
         import pulumi
@@ -170,7 +170,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         })
         ```
 
-        ## Repository Filter Usage
+        ### Repository Filter Usage
 
         ```python
         import pulumi
@@ -233,7 +233,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         })
         ```
 
-        ## Multiple Region Usage
+        ### Multiple Region Usage
 
         ```python
         import pulumi
@@ -257,7 +257,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
         })
         ```
 
-        ## Repository Filter Usage
+        ### Repository Filter Usage
 
         ```python
         import pulumi

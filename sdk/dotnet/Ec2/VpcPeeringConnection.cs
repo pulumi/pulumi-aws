@@ -145,12 +145,6 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// ## Notes
-    /// 
-    /// If both VPCs are not in the same AWS account and region do not enable the `AutoAccept` attribute.
-    /// The accepter can manage its side of the connection using the `aws.ec2.VpcPeeringConnectionAccepter` resource
-    /// or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Peering resources using the VPC peering `Id`. For example:
@@ -183,7 +177,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The AWS account ID of the target peer VPC.
-        /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+        /// Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
         /// </summary>
         [Output("peerOwnerId")]
         public Output<string> PeerOwnerId { get; private set; } = null!;
@@ -293,7 +287,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The AWS account ID of the target peer VPC.
-        /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+        /// Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
         /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }
@@ -371,7 +365,7 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The AWS account ID of the target peer VPC.
-        /// Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+        /// Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
         /// </summary>
         [Input("peerOwnerId")]
         public Input<string>? PeerOwnerId { get; set; }

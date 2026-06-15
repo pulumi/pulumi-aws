@@ -10,6 +10,8 @@ from .account_setting_default import *
 from .capacity_provider import *
 from .cluster import *
 from .cluster_capacity_providers import *
+from .daemon import *
+from .daemon_task_definition import *
 from .express_gateway_service import *
 from .get_cluster import *
 from .get_clusters import *

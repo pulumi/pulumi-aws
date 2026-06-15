@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.quicksight.AnalysisArgs;
  * import com.pulumi.aws.quicksight.inputs.AnalysisSourceEntityArgs;
  * import com.pulumi.aws.quicksight.inputs.AnalysisSourceEntitySourceTemplateArgs;
+ * import com.pulumi.aws.quicksight.inputs.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3tables.TableBucketReplication;
  * import com.pulumi.aws.s3tables.TableBucketReplicationArgs;
  * import com.pulumi.aws.s3tables.inputs.TableBucketReplicationRuleArgs;
+ * import com.pulumi.aws.s3tables.inputs.TableBucketReplicationRuleDestinationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

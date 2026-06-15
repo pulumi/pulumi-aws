@@ -17,44 +17,92 @@ public final class LaunchConfigurationRootBlockDeviceArgs extends com.pulumi.res
 
     public static final LaunchConfigurationRootBlockDeviceArgs Empty = new LaunchConfigurationRootBlockDeviceArgs();
 
+    /**
+     * Whether the volume should be destroyed on instance termination. Defaults to `true`.
+     * 
+     */
     @Import(name="deleteOnTermination")
     private @Nullable Output<Boolean> deleteOnTermination;
 
+    /**
+     * @return Whether the volume should be destroyed on instance termination. Defaults to `true`.
+     * 
+     */
     public Optional<Output<Boolean>> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
 
+    /**
+     * Whether the volume should be encrypted or not. Defaults to `false`.
+     * 
+     */
     @Import(name="encrypted")
     private @Nullable Output<Boolean> encrypted;
 
+    /**
+     * @return Whether the volume should be encrypted or not. Defaults to `false`.
+     * 
+     */
     public Optional<Output<Boolean>> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
 
+    /**
+     * The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volumeType` of `io1`.
+     * 
+     */
     @Import(name="iops")
     private @Nullable Output<Integer> iops;
 
+    /**
+     * @return The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volumeType` of `io1`.
+     * 
+     */
     public Optional<Output<Integer>> iops() {
         return Optional.ofNullable(this.iops);
     }
 
+    /**
+     * The throughput (MiBps) to provision for a `gp3` volume.
+     * 
+     */
     @Import(name="throughput")
     private @Nullable Output<Integer> throughput;
 
+    /**
+     * @return The throughput (MiBps) to provision for a `gp3` volume.
+     * 
+     */
     public Optional<Output<Integer>> throughput() {
         return Optional.ofNullable(this.throughput);
     }
 
+    /**
+     * The size of the volume in gigabytes.
+     * 
+     */
     @Import(name="volumeSize")
     private @Nullable Output<Integer> volumeSize;
 
+    /**
+     * @return The size of the volume in gigabytes.
+     * 
+     */
     public Optional<Output<Integer>> volumeSize() {
         return Optional.ofNullable(this.volumeSize);
     }
 
+    /**
+     * The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+     * 
+     */
     @Import(name="volumeType")
     private @Nullable Output<String> volumeType;
 
+    /**
+     * @return The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+     * 
+     */
     public Optional<Output<String>> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }
@@ -88,56 +136,128 @@ public final class LaunchConfigurationRootBlockDeviceArgs extends com.pulumi.res
             $ = new LaunchConfigurationRootBlockDeviceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param deleteOnTermination Whether the volume should be destroyed on instance termination. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deleteOnTermination(@Nullable Output<Boolean> deleteOnTermination) {
             $.deleteOnTermination = deleteOnTermination;
             return this;
         }
 
+        /**
+         * @param deleteOnTermination Whether the volume should be destroyed on instance termination. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder deleteOnTermination(Boolean deleteOnTermination) {
             return deleteOnTermination(Output.of(deleteOnTermination));
         }
 
+        /**
+         * @param encrypted Whether the volume should be encrypted or not. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encrypted(@Nullable Output<Boolean> encrypted) {
             $.encrypted = encrypted;
             return this;
         }
 
+        /**
+         * @param encrypted Whether the volume should be encrypted or not. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder encrypted(Boolean encrypted) {
             return encrypted(Output.of(encrypted));
         }
 
+        /**
+         * @param iops The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volumeType` of `io1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder iops(@Nullable Output<Integer> iops) {
             $.iops = iops;
             return this;
         }
 
+        /**
+         * @param iops The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volumeType` of `io1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder iops(Integer iops) {
             return iops(Output.of(iops));
         }
 
+        /**
+         * @param throughput The throughput (MiBps) to provision for a `gp3` volume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder throughput(@Nullable Output<Integer> throughput) {
             $.throughput = throughput;
             return this;
         }
 
+        /**
+         * @param throughput The throughput (MiBps) to provision for a `gp3` volume.
+         * 
+         * @return builder
+         * 
+         */
         public Builder throughput(Integer throughput) {
             return throughput(Output.of(throughput));
         }
 
+        /**
+         * @param volumeSize The size of the volume in gigabytes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeSize(@Nullable Output<Integer> volumeSize) {
             $.volumeSize = volumeSize;
             return this;
         }
 
+        /**
+         * @param volumeSize The size of the volume in gigabytes.
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeSize(Integer volumeSize) {
             return volumeSize(Output.of(volumeSize));
         }
 
+        /**
+         * @param volumeType The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeType(@Nullable Output<String> volumeType) {
             $.volumeType = volumeType;
             return this;
         }
 
+        /**
+         * @param volumeType The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder volumeType(String volumeType) {
             return volumeType(Output.of(volumeType));
         }

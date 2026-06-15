@@ -925,10 +925,6 @@ class Subnet(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[vpc_vpc_ipam_pool_cidr]))
         ```
 
-        ## GuardDuty Cleanup Permissions
-
-        The following IAM permissions are optional but recommended for automatic cleanup of GuardDuty-managed resources during subnet deletion:
-
         ## Import
 
         ### Identity Schema
@@ -1065,10 +1061,6 @@ class Subnet(pulumi.CustomResource):
             availability_zone=available["names"][0],
             opts = pulumi.ResourceOptions(depends_on=[vpc_vpc_ipam_pool_cidr]))
         ```
-
-        ## GuardDuty Cleanup Permissions
-
-        The following IAM permissions are optional but recommended for automatic cleanup of GuardDuty-managed resources during subnet deletion:
 
         ## Import
 

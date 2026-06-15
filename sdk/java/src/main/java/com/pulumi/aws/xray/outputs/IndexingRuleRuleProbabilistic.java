@@ -12,10 +12,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class IndexingRuleRuleProbabilistic {
-    /**
-     * @return Applied sampling percentage of traceIds.
-     * 
-     */
     private @Nullable Double actualSamplingPercentage;
     /**
      * @return Configured sampling percentage of traceIds.
@@ -24,10 +20,6 @@ public final class IndexingRuleRuleProbabilistic {
     private Double desiredSamplingPercentage;
 
     private IndexingRuleRuleProbabilistic() {}
-    /**
-     * @return Applied sampling percentage of traceIds.
-     * 
-     */
     public Optional<Double> actualSamplingPercentage() {
         return Optional.ofNullable(this.actualSamplingPercentage);
     }

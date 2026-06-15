@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ram
         /// });
         /// ```
         /// 
-        /// ## Search by filters
+        /// ### Search by filters
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Ram
         /// });
         /// ```
         /// 
-        /// ## Search by filters
+        /// ### Search by filters
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Ram
         /// });
         /// ```
         /// 
-        /// ## Search by filters
+        /// ### Search by filters
         /// 
         /// ```csharp
         /// using System.Collections.Generic;

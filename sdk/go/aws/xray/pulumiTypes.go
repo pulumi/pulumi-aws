@@ -307,7 +307,6 @@ func (o IndexingRuleRulePtrOutput) Probabilistic() IndexingRuleRuleProbabilistic
 }
 
 type IndexingRuleRuleProbabilistic struct {
-	// Applied sampling percentage of traceIds.
 	ActualSamplingPercentage *float64 `pulumi:"actualSamplingPercentage"`
 	// Configured sampling percentage of traceIds.
 	DesiredSamplingPercentage float64 `pulumi:"desiredSamplingPercentage"`
@@ -325,7 +324,6 @@ type IndexingRuleRuleProbabilisticInput interface {
 }
 
 type IndexingRuleRuleProbabilisticArgs struct {
-	// Applied sampling percentage of traceIds.
 	ActualSamplingPercentage pulumi.Float64PtrInput `pulumi:"actualSamplingPercentage"`
 	// Configured sampling percentage of traceIds.
 	DesiredSamplingPercentage pulumi.Float64Input `pulumi:"desiredSamplingPercentage"`
@@ -408,7 +406,6 @@ func (o IndexingRuleRuleProbabilisticOutput) ToIndexingRuleRuleProbabilisticPtrO
 	}).(IndexingRuleRuleProbabilisticPtrOutput)
 }
 
-// Applied sampling percentage of traceIds.
 func (o IndexingRuleRuleProbabilisticOutput) ActualSamplingPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IndexingRuleRuleProbabilistic) *float64 { return v.ActualSamplingPercentage }).(pulumi.Float64PtrOutput)
 }
@@ -442,7 +439,6 @@ func (o IndexingRuleRuleProbabilisticPtrOutput) Elem() IndexingRuleRuleProbabili
 	}).(IndexingRuleRuleProbabilisticOutput)
 }
 
-// Applied sampling percentage of traceIds.
 func (o IndexingRuleRuleProbabilisticPtrOutput) ActualSamplingPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IndexingRuleRuleProbabilistic) *float64 {
 		if v == nil {

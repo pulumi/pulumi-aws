@@ -49,7 +49,7 @@ import (
 //
 // ```
 //
-// ### With Existing Active Directory
+// ### Example Usage with Existing Active Directory
 //
 // ```go
 // package main
@@ -79,7 +79,7 @@ import (
 //
 // ```
 //
-// ### With SAML
+// ### Example Usage with SAML
 //
 // ```go
 // package main

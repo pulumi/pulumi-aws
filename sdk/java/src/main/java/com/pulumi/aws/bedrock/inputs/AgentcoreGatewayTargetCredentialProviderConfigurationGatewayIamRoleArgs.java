@@ -3,15 +3,60 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
-
+import com.pulumi.core.Output;
+import com.pulumi.core.annotations.Import;
+import java.lang.String;
+import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs Empty = new AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs();
 
+    /**
+     * AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Only meaningful when `service` is set.
+     * 
+     */
+    @Import(name="region")
+    private @Nullable Output<String> region;
+
+    /**
+     * @return AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Only meaningful when `service` is set.
+     * 
+     */
+    public Optional<Output<String>> region() {
+        return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
+     * 
+     */
+    @Import(name="service")
+    private @Nullable Output<String> service;
+
+    /**
+     * @return The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
+     * 
+     */
+    public Optional<Output<String>> service() {
+        return Optional.ofNullable(this.service);
+    }
+
+    private AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs() {}
+
+    private AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs $) {
+        this.region = $.region;
+        this.service = $.service;
+    }
+
     public static Builder builder() {
         return new Builder();
+    }
+    public static Builder builder(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs defaults) {
+        return new Builder(defaults);
     }
 
     public static final class Builder {
@@ -20,6 +65,53 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayI
         public Builder() {
             $ = new AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs();
         }
+
+        public Builder(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs defaults) {
+            $ = new AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param region AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Only meaningful when `service` is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(@Nullable Output<String> region) {
+            $.region = region;
+            return this;
+        }
+
+        /**
+         * @param region AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway&#39;s Region when omitted. Only meaningful when `service` is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder region(String region) {
+            return region(Output.of(region));
+        }
+
+        /**
+         * @param service The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder service(@Nullable Output<String> service) {
+            $.service = service;
+            return this;
+        }
+
+        /**
+         * @param service The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder service(String service) {
+            return service(Output.of(service));
+        }
+
         public AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs build() {
             return $;
         }

@@ -112,6 +112,10 @@ export interface GetStreamResult {
      * Map of tags to assigned to the stream.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * Warm throughput in MB/s for the stream. Detailed below.
+     */
+    readonly warmThroughputs: outputs.kinesis.GetStreamWarmThroughput[];
 }
 /**
  * Use this data source to get information about a Kinesis Stream for use in other

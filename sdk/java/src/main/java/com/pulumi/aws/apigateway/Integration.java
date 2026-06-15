@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Lambda integration
+ * ### Lambda integration
  * 
  * <pre>
  * {@code
@@ -111,6 +111,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.apigateway.MethodArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.lambda.Function;
@@ -218,7 +220,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Lambda integration with response streaming
+ * ### Lambda integration with response streaming
  * 
  * All other resources and data sources are the same as in the previous example; only the integration configuration differs.
  * Note that the `timeout` of the `aws.lambda.Function` may need to be adjusted.
@@ -261,7 +263,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## VPC Link
+ * ### VPC Link
  * 
  * <pre>
  * {@code
@@ -356,7 +358,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## VPC Link V2 with Application Load Balancer
+ * ### VPC Link V2 with Application Load Balancer
  * 
  * <pre>
  * {@code

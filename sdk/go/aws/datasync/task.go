@@ -45,7 +45,7 @@ import (
 //
 // ```
 //
-// ### With Scheduling
+// ### Example Usage with Scheduling
 //
 // ```go
 // package main
@@ -76,7 +76,7 @@ import (
 //
 // ```
 //
-// ### With Filtering
+// ### Example Usage with Filtering
 //
 // ```go
 // package main
@@ -112,7 +112,7 @@ import (
 //
 // ```
 //
-// ### With Enhanced Task Mode
+// ### Example Usage with Enhanced Task Mode
 //
 // ```go
 // package main

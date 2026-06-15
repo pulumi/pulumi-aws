@@ -29,10 +29,12 @@ class TelemetryRuleForOrganizationArgs:
         """
         The set of arguments for constructing a TelemetryRuleForOrganization resource.
 
-        :param pulumi.Input['TelemetryRuleForOrganizationRuleArgs'] rule: Configuration block for the telemetry rule. See `rule` Block below.
-        :param pulumi.Input[_builtins.str] rule_name: Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
-        :param pulumi.Input[_builtins.str] region: AWS region. If not specified, the provider region is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['TelemetryRuleForOrganizationRuleArgs'] rule: Configuration block for the organization telemetry rule. See `rule` below.
+        :param pulumi.Input[_builtins.str] rule_name: Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "rule", rule)
         pulumi.set(__self__, "rule_name", rule_name)
@@ -47,7 +49,7 @@ class TelemetryRuleForOrganizationArgs:
     @pulumi.getter
     def rule(self) -> pulumi.Input['TelemetryRuleForOrganizationRuleArgs']:
         """
-        Configuration block for the telemetry rule. See `rule` Block below.
+        Configuration block for the organization telemetry rule. See `rule` below.
         """
         return pulumi.get(self, "rule")
 
@@ -59,7 +61,9 @@ class TelemetryRuleForOrganizationArgs:
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+        Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "rule_name")
 
@@ -71,7 +75,7 @@ class TelemetryRuleForOrganizationArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS region. If not specified, the provider region is used.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -83,7 +87,7 @@ class TelemetryRuleForOrganizationArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -114,11 +118,13 @@ class _TelemetryRuleForOrganizationState:
         """
         Input properties used for looking up and filtering TelemetryRuleForOrganization resources.
 
-        :param pulumi.Input[_builtins.str] region: AWS region. If not specified, the provider region is used.
-        :param pulumi.Input['TelemetryRuleForOrganizationRuleArgs'] rule: Configuration block for the telemetry rule. See `rule` Block below.
-        :param pulumi.Input[_builtins.str] rule_arn: ARN of the telemetry rule for organization.
-        :param pulumi.Input[_builtins.str] rule_name: Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input['TelemetryRuleForOrganizationRuleArgs'] rule: Configuration block for the organization telemetry rule. See `rule` below.
+        :param pulumi.Input[_builtins.str] rule_arn: ARN of the organization telemetry rule.
+        :param pulumi.Input[_builtins.str] rule_name: Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if region is not None:
@@ -140,7 +146,7 @@ class _TelemetryRuleForOrganizationState:
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        AWS region. If not specified, the provider region is used.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -152,7 +158,7 @@ class _TelemetryRuleForOrganizationState:
     @pulumi.getter
     def rule(self) -> pulumi.Input[Optional['TelemetryRuleForOrganizationRuleArgs']]:
         """
-        Configuration block for the telemetry rule. See `rule` Block below.
+        Configuration block for the organization telemetry rule. See `rule` below.
         """
         return pulumi.get(self, "rule")
 
@@ -164,7 +170,7 @@ class _TelemetryRuleForOrganizationState:
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the telemetry rule for organization.
+        ARN of the organization telemetry rule.
         """
         return pulumi.get(self, "rule_arn")
 
@@ -176,7 +182,9 @@ class _TelemetryRuleForOrganizationState:
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+        Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "rule_name")
 
@@ -188,7 +196,7 @@ class _TelemetryRuleForOrganizationState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -231,11 +239,13 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['TelemetryRuleForOrganizationTimeoutsArgs', 'TelemetryRuleForOrganizationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Manages an AWS CloudWatch Observability Admin Telemetry Rule for Organization.
+        Manages an AWS CloudWatch Observability Admin Telemetry Rule for an AWS Organization.
 
-        > **NOTE:** Before using this resource, telemetry evaluation for organization must be enabled for your AWS organization. You can use the `observabilityadmin.TelemetryEvaluationForOrganization` resource to enable it.
+        An organization-wide telemetry rule defines how telemetry data (logs, metrics, or traces) should be collected for AWS resources across the accounts in your organization. The rule can target one or more Regions and configure a destination (such as CloudWatch Logs or S3) along with source-specific parameters for VPC flow logs, WAF logs, CloudTrail events, ELB access logs, and more.
 
-        > **NOTE:** This resource can only be used in the organization management account.
+        > **NOTE:** Before using this resource, telemetry evaluation for organization must be enabled. Use the `observabilityadmin.TelemetryEvaluationForOrganization` resource to enable it.
+
+        > **NOTE:** This resource can only be used from the organization management account.
 
         ## Example Usage
 
@@ -255,6 +265,57 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
+        ### VPC Flow Logs to CloudWatch Logs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
+        example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
+            rule_name="org-vpc-flow-logs-rule",
+            rule={
+                "telemetry_type": "Logs",
+                "resource_type": "AWS::EC2::VPC",
+                "telemetry_source_types": ["VPC_FLOW_LOGS"],
+                "all_regions": True,
+                "allow_field_updates": True,
+                "destination_configuration": {
+                    "destination_type": "cloud-watch-logs",
+                    "destination_pattern": "/aws/vpcflowlogs/<resourceId>",
+                    "retention_in_days": 30,
+                    "vpc_flow_log_parameters": {
+                        "traffic_type": "ALL",
+                        "max_aggregation_interval": 60,
+                    },
+                },
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example]))
+        ```
+
+        ### Scoped to Specific Organizational Units
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.organizations.get_organization()
+        example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
+        example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
+            rule_name="org-scoped-rule",
+            rule={
+                "telemetry_type": "Logs",
+                "resource_type": "AWS::EKS::Cluster",
+                "scope": f"OrganizationId = '{current.id}'",
+                "selection_criteria": "ResourceTags.Environment = 'production'",
+                "regions": [
+                    "us-east-1",
+                    "us-west-2",
+                ],
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example]))
+        ```
+
         ### With Tags
 
         ```python
@@ -263,7 +324,7 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
         example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
-            rule_name="vpc-logs-org-rule",
+            rule_name="org-tagged-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
@@ -297,10 +358,12 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: AWS region. If not specified, the provider region is used.
-        :param pulumi.Input[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict']] rule: Configuration block for the telemetry rule. See `rule` Block below.
-        :param pulumi.Input[_builtins.str] rule_name: Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict']] rule: Configuration block for the organization telemetry rule. See `rule` below.
+        :param pulumi.Input[_builtins.str] rule_name: Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -309,11 +372,13 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
                  args: TelemetryRuleForOrganizationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages an AWS CloudWatch Observability Admin Telemetry Rule for Organization.
+        Manages an AWS CloudWatch Observability Admin Telemetry Rule for an AWS Organization.
 
-        > **NOTE:** Before using this resource, telemetry evaluation for organization must be enabled for your AWS organization. You can use the `observabilityadmin.TelemetryEvaluationForOrganization` resource to enable it.
+        An organization-wide telemetry rule defines how telemetry data (logs, metrics, or traces) should be collected for AWS resources across the accounts in your organization. The rule can target one or more Regions and configure a destination (such as CloudWatch Logs or S3) along with source-specific parameters for VPC flow logs, WAF logs, CloudTrail events, ELB access logs, and more.
 
-        > **NOTE:** This resource can only be used in the organization management account.
+        > **NOTE:** Before using this resource, telemetry evaluation for organization must be enabled. Use the `observabilityadmin.TelemetryEvaluationForOrganization` resource to enable it.
+
+        > **NOTE:** This resource can only be used from the organization management account.
 
         ## Example Usage
 
@@ -333,6 +398,57 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
+        ### VPC Flow Logs to CloudWatch Logs
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
+        example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
+            rule_name="org-vpc-flow-logs-rule",
+            rule={
+                "telemetry_type": "Logs",
+                "resource_type": "AWS::EC2::VPC",
+                "telemetry_source_types": ["VPC_FLOW_LOGS"],
+                "all_regions": True,
+                "allow_field_updates": True,
+                "destination_configuration": {
+                    "destination_type": "cloud-watch-logs",
+                    "destination_pattern": "/aws/vpcflowlogs/<resourceId>",
+                    "retention_in_days": 30,
+                    "vpc_flow_log_parameters": {
+                        "traffic_type": "ALL",
+                        "max_aggregation_interval": 60,
+                    },
+                },
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example]))
+        ```
+
+        ### Scoped to Specific Organizational Units
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.organizations.get_organization()
+        example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
+        example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
+            rule_name="org-scoped-rule",
+            rule={
+                "telemetry_type": "Logs",
+                "resource_type": "AWS::EKS::Cluster",
+                "scope": f"OrganizationId = '{current.id}'",
+                "selection_criteria": "ResourceTags.Environment = 'production'",
+                "regions": [
+                    "us-east-1",
+                    "us-west-2",
+                ],
+            },
+            opts = pulumi.ResourceOptions(depends_on=[example]))
+        ```
+
         ### With Tags
 
         ```python
@@ -341,7 +457,7 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
         example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
-            rule_name="vpc-logs-org-rule",
+            rule_name="org-tagged-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
@@ -437,11 +553,13 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: AWS region. If not specified, the provider region is used.
-        :param pulumi.Input[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict']] rule: Configuration block for the telemetry rule. See `rule` Block below.
-        :param pulumi.Input[_builtins.str] rule_arn: ARN of the telemetry rule for organization.
-        :param pulumi.Input[_builtins.str] rule_name: Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Union['TelemetryRuleForOrganizationRuleArgs', 'TelemetryRuleForOrganizationRuleArgsDict']] rule: Configuration block for the organization telemetry rule. See `rule` below.
+        :param pulumi.Input[_builtins.str] rule_arn: ARN of the organization telemetry rule.
+        :param pulumi.Input[_builtins.str] rule_name: Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+               
+               The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -461,7 +579,7 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
         """
-        AWS region. If not specified, the provider region is used.
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -469,7 +587,7 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
     @pulumi.getter
     def rule(self) -> pulumi.Output['outputs.TelemetryRuleForOrganizationRule']:
         """
-        Configuration block for the telemetry rule. See `rule` Block below.
+        Configuration block for the organization telemetry rule. See `rule` below.
         """
         return pulumi.get(self, "rule")
 
@@ -477,7 +595,7 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
     @pulumi.getter(name="ruleArn")
     def rule_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN of the telemetry rule for organization.
+        ARN of the organization telemetry rule.
         """
         return pulumi.get(self, "rule_arn")
 
@@ -485,7 +603,9 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the telemetry rule for organization. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+        Name of the organization telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "rule_name")
 
@@ -493,7 +613,7 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

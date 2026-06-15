@@ -73,6 +73,10 @@ export interface GetServerlessCollectionGroupResult {
      * Description of the collection group.
      */
     readonly description: string;
+    /**
+     * Generation of Amazon OpenSearch Serverless for the collection group.
+     */
+    readonly generation: string;
     readonly id: string;
     readonly name: string;
     readonly region: string;

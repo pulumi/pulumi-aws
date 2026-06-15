@@ -144,7 +144,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+     * Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
      * 
      * The following arguments are optional:
      * 
@@ -153,7 +153,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> pipelineName;
 
     /**
-     * @return The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+     * @return Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
      * 
      * The following arguments are optional:
      * 
@@ -453,7 +453,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipelineName The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+         * @param pipelineName Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
          * 
          * The following arguments are optional:
          * 
@@ -466,7 +466,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipelineName The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+         * @param pipelineName Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
          * 
          * The following arguments are optional:
          * 

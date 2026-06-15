@@ -137,6 +137,12 @@ namespace Pulumi.Aws.Bedrock
         public Output<int> EventExpiryDuration { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `IndexedKey` below.
+        /// </summary>
+        [Output("indexedKeys")]
+        public Output<ImmutableArray<Outputs.AgentcoreMemoryIndexedKey>> IndexedKeys { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
         /// </summary>
         [Output("memoryExecutionRoleArn")]
@@ -153,6 +159,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration for streaming memory record data to external resources. See `StreamDeliveryResources` below.
+        /// </summary>
+        [Output("streamDeliveryResources")]
+        public Output<Outputs.AgentcoreMemoryStreamDeliveryResources?> StreamDeliveryResources { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -235,6 +247,18 @@ namespace Pulumi.Aws.Bedrock
         [Input("eventExpiryDuration", required: true)]
         public Input<int> EventExpiryDuration { get; set; } = null!;
 
+        [Input("indexedKeys")]
+        private InputList<Inputs.AgentcoreMemoryIndexedKeyArgs>? _indexedKeys;
+
+        /// <summary>
+        /// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `IndexedKey` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreMemoryIndexedKeyArgs> IndexedKeys
+        {
+            get => _indexedKeys ?? (_indexedKeys = new InputList<Inputs.AgentcoreMemoryIndexedKeyArgs>());
+            set => _indexedKeys = value;
+        }
+
         /// <summary>
         /// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
         /// </summary>
@@ -252,6 +276,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Configuration for streaming memory record data to external resources. See `StreamDeliveryResources` below.
+        /// </summary>
+        [Input("streamDeliveryResources")]
+        public Input<Inputs.AgentcoreMemoryStreamDeliveryResourcesArgs>? StreamDeliveryResources { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -302,6 +332,18 @@ namespace Pulumi.Aws.Bedrock
         [Input("eventExpiryDuration")]
         public Input<int>? EventExpiryDuration { get; set; }
 
+        [Input("indexedKeys")]
+        private InputList<Inputs.AgentcoreMemoryIndexedKeyGetArgs>? _indexedKeys;
+
+        /// <summary>
+        /// Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `IndexedKey` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreMemoryIndexedKeyGetArgs> IndexedKeys
+        {
+            get => _indexedKeys ?? (_indexedKeys = new InputList<Inputs.AgentcoreMemoryIndexedKeyGetArgs>());
+            set => _indexedKeys = value;
+        }
+
         /// <summary>
         /// ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
         /// </summary>
@@ -319,6 +361,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Configuration for streaming memory record data to external resources. See `StreamDeliveryResources` below.
+        /// </summary>
+        [Input("streamDeliveryResources")]
+        public Input<Inputs.AgentcoreMemoryStreamDeliveryResourcesGetArgs>? StreamDeliveryResources { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Search by filters
+ * ### Search by filters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -128,7 +128,7 @@ export interface GetResourceShareResult {
  * });
  * ```
  *
- * ## Search by filters
+ * ### Search by filters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

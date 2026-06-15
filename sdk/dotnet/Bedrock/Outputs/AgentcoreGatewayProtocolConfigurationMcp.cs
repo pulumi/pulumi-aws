@@ -22,6 +22,14 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? SearchType;
         /// <summary>
+        /// Configuration block for session settings of the MCP gateway. See `SessionConfiguration` below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayProtocolConfigurationMcpSessionConfiguration? SessionConfiguration;
+        /// <summary>
+        /// Configuration block for streaming settings of the MCP gateway. See `StreamingConfiguration` below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration? StreamingConfiguration;
+        /// <summary>
         /// Set of supported MCP protocol versions.
         /// </summary>
         public readonly ImmutableArray<string> SupportedVersions;
@@ -32,10 +40,16 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             string? searchType,
 
+            Outputs.AgentcoreGatewayProtocolConfigurationMcpSessionConfiguration? sessionConfiguration,
+
+            Outputs.AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration? streamingConfiguration,
+
             ImmutableArray<string> supportedVersions)
         {
             Instructions = instructions;
             SearchType = searchType;
+            SessionConfiguration = sessionConfiguration;
+            StreamingConfiguration = streamingConfiguration;
             SupportedVersions = supportedVersions;
         }
     }

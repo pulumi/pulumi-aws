@@ -42,7 +42,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// ### Basic Authorization
+    /// ### Example Usage Basic Authorization
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// ### OAuth Authorization
+    /// ### Example Usage OAuth Authorization
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// ### Invocation Http Parameters
+    /// ### Example Usage Invocation Http Parameters
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// ### OAuth Authorization With Connectivity Parameters
+    /// ### Example Usage OAuth Authorization with Connectivity Parameters
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -249,7 +249,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// ### CMK Encryption
+    /// ### Example Usage CMK Encryption
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

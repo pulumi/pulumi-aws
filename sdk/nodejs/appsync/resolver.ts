@@ -93,7 +93,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### JS
+ * ### Example Usage JS
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

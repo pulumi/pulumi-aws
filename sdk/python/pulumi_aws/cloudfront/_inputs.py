@@ -2690,7 +2690,7 @@ class DistributionOriginArgsDict(TypedDict):
     """
     origin_access_control_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Unique identifier of a [CloudFront origin access control][8] for this origin.
+    Unique identifier of a CloudFront origin access control for this origin.
     """
     origin_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -2734,7 +2734,7 @@ class DistributionOriginArgs:
         :param pulumi.Input[_builtins.int] connection_timeout: Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionOriginCustomHeaderArgs']]] custom_headers: One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
         :param pulumi.Input['DistributionOriginCustomOriginConfigArgs'] custom_origin_config: The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
-        :param pulumi.Input[_builtins.str] origin_access_control_id: Unique identifier of a [CloudFront origin access control][8] for this origin.
+        :param pulumi.Input[_builtins.str] origin_access_control_id: Unique identifier of a CloudFront origin access control for this origin.
         :param pulumi.Input[_builtins.str] origin_path: Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
         :param pulumi.Input['DistributionOriginOriginShieldArgs'] origin_shield: CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
         :param pulumi.Input[_builtins.int] response_completion_timeout: Time (in seconds) that a request from CloudFront to the origin can stay open and wait for a response. Must be integer greater than or equal to the value of `origin_read_timeout`. If omitted or explicitly set to `0`, no maximum value is enforced.
@@ -2837,7 +2837,7 @@ class DistributionOriginArgs:
     @pulumi.getter(name="originAccessControlId")
     def origin_access_control_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Unique identifier of a [CloudFront origin access control][8] for this origin.
+        Unique identifier of a CloudFront origin access control for this origin.
         """
         return pulumi.get(self, "origin_access_control_id")
 
@@ -3350,7 +3350,7 @@ class DistributionRestrictionsGeoRestrictionArgsDict(TypedDict):
     """
     locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+    [ISO 3166-1-alpha-2 codes](http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm) for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
     """
 
 @pulumi.input_type
@@ -3360,7 +3360,7 @@ class DistributionRestrictionsGeoRestrictionArgs:
                  locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] restriction_type: Method that you want to use to restrict distribution of your content by country: `none`, `whitelist`, or `blacklist`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] locations: [ISO 3166-1-alpha-2 codes](http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm) for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
         """
         pulumi.set(__self__, "restriction_type", restriction_type)
         if locations is not None:
@@ -3382,7 +3382,7 @@ class DistributionRestrictionsGeoRestrictionArgs:
     @pulumi.getter
     def locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
+        [ISO 3166-1-alpha-2 codes](http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm) for which you want CloudFront either to distribute your content (`whitelist`) or not distribute your content (`blacklist`). If the type is specified as `none` an empty array can be used.
         """
         return pulumi.get(self, "locations")
 

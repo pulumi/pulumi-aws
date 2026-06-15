@@ -58,7 +58,7 @@ type Group struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Path in which to create the group.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
-	// The [unique ID][1] assigned by AWS.
+	// The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
 }
 
@@ -98,7 +98,7 @@ type groupState struct {
 	Name *string `pulumi:"name"`
 	// Path in which to create the group.
 	Path *string `pulumi:"path"`
-	// The [unique ID][1] assigned by AWS.
+	// The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
 	UniqueId *string `pulumi:"uniqueId"`
 }
 
@@ -109,7 +109,7 @@ type GroupState struct {
 	Name pulumi.StringPtrInput
 	// Path in which to create the group.
 	Path pulumi.StringPtrInput
-	// The [unique ID][1] assigned by AWS.
+	// The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
 	UniqueId pulumi.StringPtrInput
 }
 
@@ -234,7 +234,7 @@ func (o GroupOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// The [unique ID][1] assigned by AWS.
+// The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
 func (o GroupOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
 }

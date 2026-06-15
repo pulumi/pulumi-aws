@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Service Updates and Deletion
+ * ### Service Updates and Deletion
  *
  * ### Updates
  *

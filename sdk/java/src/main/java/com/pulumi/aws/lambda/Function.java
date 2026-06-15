@@ -254,7 +254,7 @@ import javax.annotation.Nullable;
  *             "subnet-12345678",
  *             "subnet-87654321");
  *         // Mount target in each subnet
- *         for (var i = 0; i < subnetIds.length(); i++) {
+ *         for (var i = 0; i < subnetIds.size(); i++) {
  *             new MountTarget("exampleMountTarget-" + i, MountTargetArgs.builder()
  *                 .fileSystemId(example.id())
  *                 .subnetId(subnetIds[range.value()])
@@ -326,6 +326,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.FilesAccessPoint;
  * import com.pulumi.aws.s3.FilesAccessPointArgs;
  * import com.pulumi.aws.s3.inputs.FilesAccessPointRootDirectoryArgs;
+ * import com.pulumi.aws.s3.inputs.FilesAccessPointRootDirectoryCreationPermissionArgs;
  * import com.pulumi.aws.s3.inputs.FilesAccessPointPosixUserArgs;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
@@ -537,6 +538,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.LogGroupArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicy;
@@ -838,7 +841,7 @@ import javax.annotation.Nullable;
  *             .name("example_durable_function")
  *             .role(exampleAwsIamRole.arn())
  *             .handler("index.handler")
- *             .runtime("nodejs22.x")
+ *             .runtime("nodejs24.x")
  *             .memorySize(512)
  *             .timeout(30)
  *             .durableConfig(FunctionDurableConfigArgs.builder()
@@ -922,9 +925,6 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * See the `aws.lambda.CapacityProvider` resource for more details, such as configuring instance requirements and the scaling policy.
- * 
- * ## Specifying the Deployment Package
- * 
  * AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
  * 
  * Once you have created your deployment package you can specify it either directly as a local file (using the `filename` argument) or indirectly via Amazon S3 (using the `s3Bucket`, `s3Key` and `s3ObjectVersion` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.

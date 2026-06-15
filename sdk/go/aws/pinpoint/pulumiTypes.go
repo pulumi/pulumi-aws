@@ -795,6 +795,455 @@ func (o EmailTemplateEmailTemplateHeaderArrayOutput) Index(i pulumi.IntInput) Em
 	}).(EmailTemplateEmailTemplateHeaderOutput)
 }
 
+type Smsvoicev2EventDestinationCloudwatchLogsDestination struct {
+	// ARN of the IAM role that End User Messaging SMS assumes to write to the log group.
+	IamRoleArn string `pulumi:"iamRoleArn"`
+	// ARN of the Amazon CloudWatch log group that receives the events.
+	LogGroupArn string `pulumi:"logGroupArn"`
+}
+
+// Smsvoicev2EventDestinationCloudwatchLogsDestinationInput is an input type that accepts Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs and Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput values.
+// You can construct a concrete instance of `Smsvoicev2EventDestinationCloudwatchLogsDestinationInput` via:
+//
+//	Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs{...}
+type Smsvoicev2EventDestinationCloudwatchLogsDestinationInput interface {
+	pulumi.Input
+
+	ToSmsvoicev2EventDestinationCloudwatchLogsDestinationOutput() Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput
+	ToSmsvoicev2EventDestinationCloudwatchLogsDestinationOutputWithContext(context.Context) Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput
+}
+
+type Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs struct {
+	// ARN of the IAM role that End User Messaging SMS assumes to write to the log group.
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
+	// ARN of the Amazon CloudWatch log group that receives the events.
+	LogGroupArn pulumi.StringInput `pulumi:"logGroupArn"`
+}
+
+func (Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Smsvoicev2EventDestinationCloudwatchLogsDestination)(nil)).Elem()
+}
+
+func (i Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs) ToSmsvoicev2EventDestinationCloudwatchLogsDestinationOutput() Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput {
+	return i.ToSmsvoicev2EventDestinationCloudwatchLogsDestinationOutputWithContext(context.Background())
+}
+
+func (i Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs) ToSmsvoicev2EventDestinationCloudwatchLogsDestinationOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput)
+}
+
+func (i Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs) ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput() Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput {
+	return i.ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs) ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput).ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutputWithContext(ctx)
+}
+
+// Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrInput is an input type that accepts Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs, Smsvoicev2EventDestinationCloudwatchLogsDestinationPtr and Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput values.
+// You can construct a concrete instance of `Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrInput` via:
+//
+//	        Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrInput interface {
+	pulumi.Input
+
+	ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput() Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput
+	ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutputWithContext(context.Context) Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput
+}
+
+type smsvoicev2EventDestinationCloudwatchLogsDestinationPtrType Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs
+
+func Smsvoicev2EventDestinationCloudwatchLogsDestinationPtr(v *Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs) Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrInput {
+	return (*smsvoicev2EventDestinationCloudwatchLogsDestinationPtrType)(v)
+}
+
+func (*smsvoicev2EventDestinationCloudwatchLogsDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Smsvoicev2EventDestinationCloudwatchLogsDestination)(nil)).Elem()
+}
+
+func (i *smsvoicev2EventDestinationCloudwatchLogsDestinationPtrType) ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput() Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput {
+	return i.ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *smsvoicev2EventDestinationCloudwatchLogsDestinationPtrType) ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput)
+}
+
+type Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput struct{ *pulumi.OutputState }
+
+func (Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Smsvoicev2EventDestinationCloudwatchLogsDestination)(nil)).Elem()
+}
+
+func (o Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput) ToSmsvoicev2EventDestinationCloudwatchLogsDestinationOutput() Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput {
+	return o
+}
+
+func (o Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput) ToSmsvoicev2EventDestinationCloudwatchLogsDestinationOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput {
+	return o
+}
+
+func (o Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput) ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput() Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput {
+	return o.ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput) ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Smsvoicev2EventDestinationCloudwatchLogsDestination) *Smsvoicev2EventDestinationCloudwatchLogsDestination {
+		return &v
+	}).(Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput)
+}
+
+// ARN of the IAM role that End User Messaging SMS assumes to write to the log group.
+func (o Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput) IamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v Smsvoicev2EventDestinationCloudwatchLogsDestination) string { return v.IamRoleArn }).(pulumi.StringOutput)
+}
+
+// ARN of the Amazon CloudWatch log group that receives the events.
+func (o Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput) LogGroupArn() pulumi.StringOutput {
+	return o.ApplyT(func(v Smsvoicev2EventDestinationCloudwatchLogsDestination) string { return v.LogGroupArn }).(pulumi.StringOutput)
+}
+
+type Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Smsvoicev2EventDestinationCloudwatchLogsDestination)(nil)).Elem()
+}
+
+func (o Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput) ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput() Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput {
+	return o
+}
+
+func (o Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput) ToSmsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput {
+	return o
+}
+
+func (o Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput) Elem() Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput {
+	return o.ApplyT(func(v *Smsvoicev2EventDestinationCloudwatchLogsDestination) Smsvoicev2EventDestinationCloudwatchLogsDestination {
+		if v != nil {
+			return *v
+		}
+		var ret Smsvoicev2EventDestinationCloudwatchLogsDestination
+		return ret
+	}).(Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput)
+}
+
+// ARN of the IAM role that End User Messaging SMS assumes to write to the log group.
+func (o Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Smsvoicev2EventDestinationCloudwatchLogsDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IamRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the Amazon CloudWatch log group that receives the events.
+func (o Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Smsvoicev2EventDestinationCloudwatchLogsDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LogGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type Smsvoicev2EventDestinationKinesisFirehoseDestination struct {
+	// ARN of the Amazon Data Firehose delivery stream that receives the events.
+	DeliveryStreamArn string `pulumi:"deliveryStreamArn"`
+	// ARN of the IAM role that End User Messaging SMS assumes to write to the delivery stream.
+	IamRoleArn string `pulumi:"iamRoleArn"`
+}
+
+// Smsvoicev2EventDestinationKinesisFirehoseDestinationInput is an input type that accepts Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs and Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput values.
+// You can construct a concrete instance of `Smsvoicev2EventDestinationKinesisFirehoseDestinationInput` via:
+//
+//	Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs{...}
+type Smsvoicev2EventDestinationKinesisFirehoseDestinationInput interface {
+	pulumi.Input
+
+	ToSmsvoicev2EventDestinationKinesisFirehoseDestinationOutput() Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput
+	ToSmsvoicev2EventDestinationKinesisFirehoseDestinationOutputWithContext(context.Context) Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput
+}
+
+type Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs struct {
+	// ARN of the Amazon Data Firehose delivery stream that receives the events.
+	DeliveryStreamArn pulumi.StringInput `pulumi:"deliveryStreamArn"`
+	// ARN of the IAM role that End User Messaging SMS assumes to write to the delivery stream.
+	IamRoleArn pulumi.StringInput `pulumi:"iamRoleArn"`
+}
+
+func (Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Smsvoicev2EventDestinationKinesisFirehoseDestination)(nil)).Elem()
+}
+
+func (i Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs) ToSmsvoicev2EventDestinationKinesisFirehoseDestinationOutput() Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput {
+	return i.ToSmsvoicev2EventDestinationKinesisFirehoseDestinationOutputWithContext(context.Background())
+}
+
+func (i Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs) ToSmsvoicev2EventDestinationKinesisFirehoseDestinationOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput)
+}
+
+func (i Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs) ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput() Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput {
+	return i.ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs) ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput).ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx)
+}
+
+// Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrInput is an input type that accepts Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs, Smsvoicev2EventDestinationKinesisFirehoseDestinationPtr and Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput values.
+// You can construct a concrete instance of `Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrInput` via:
+//
+//	        Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrInput interface {
+	pulumi.Input
+
+	ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput() Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput
+	ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Context) Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput
+}
+
+type smsvoicev2EventDestinationKinesisFirehoseDestinationPtrType Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs
+
+func Smsvoicev2EventDestinationKinesisFirehoseDestinationPtr(v *Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs) Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrInput {
+	return (*smsvoicev2EventDestinationKinesisFirehoseDestinationPtrType)(v)
+}
+
+func (*smsvoicev2EventDestinationKinesisFirehoseDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Smsvoicev2EventDestinationKinesisFirehoseDestination)(nil)).Elem()
+}
+
+func (i *smsvoicev2EventDestinationKinesisFirehoseDestinationPtrType) ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput() Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput {
+	return i.ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *smsvoicev2EventDestinationKinesisFirehoseDestinationPtrType) ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput)
+}
+
+type Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput struct{ *pulumi.OutputState }
+
+func (Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Smsvoicev2EventDestinationKinesisFirehoseDestination)(nil)).Elem()
+}
+
+func (o Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput) ToSmsvoicev2EventDestinationKinesisFirehoseDestinationOutput() Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput {
+	return o
+}
+
+func (o Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput) ToSmsvoicev2EventDestinationKinesisFirehoseDestinationOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput {
+	return o
+}
+
+func (o Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput) ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput() Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o.ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput) ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Smsvoicev2EventDestinationKinesisFirehoseDestination) *Smsvoicev2EventDestinationKinesisFirehoseDestination {
+		return &v
+	}).(Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput)
+}
+
+// ARN of the Amazon Data Firehose delivery stream that receives the events.
+func (o Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput) DeliveryStreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v Smsvoicev2EventDestinationKinesisFirehoseDestination) string { return v.DeliveryStreamArn }).(pulumi.StringOutput)
+}
+
+// ARN of the IAM role that End User Messaging SMS assumes to write to the delivery stream.
+func (o Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput) IamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v Smsvoicev2EventDestinationKinesisFirehoseDestination) string { return v.IamRoleArn }).(pulumi.StringOutput)
+}
+
+type Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Smsvoicev2EventDestinationKinesisFirehoseDestination)(nil)).Elem()
+}
+
+func (o Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput) ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput() Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o
+}
+
+func (o Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput) ToSmsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput {
+	return o
+}
+
+func (o Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput) Elem() Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput {
+	return o.ApplyT(func(v *Smsvoicev2EventDestinationKinesisFirehoseDestination) Smsvoicev2EventDestinationKinesisFirehoseDestination {
+		if v != nil {
+			return *v
+		}
+		var ret Smsvoicev2EventDestinationKinesisFirehoseDestination
+		return ret
+	}).(Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput)
+}
+
+// ARN of the Amazon Data Firehose delivery stream that receives the events.
+func (o Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput) DeliveryStreamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Smsvoicev2EventDestinationKinesisFirehoseDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DeliveryStreamArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM role that End User Messaging SMS assumes to write to the delivery stream.
+func (o Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput) IamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Smsvoicev2EventDestinationKinesisFirehoseDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IamRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type Smsvoicev2EventDestinationSnsDestination struct {
+	// ARN of the Amazon SNS topic that receives the events.
+	TopicArn string `pulumi:"topicArn"`
+}
+
+// Smsvoicev2EventDestinationSnsDestinationInput is an input type that accepts Smsvoicev2EventDestinationSnsDestinationArgs and Smsvoicev2EventDestinationSnsDestinationOutput values.
+// You can construct a concrete instance of `Smsvoicev2EventDestinationSnsDestinationInput` via:
+//
+//	Smsvoicev2EventDestinationSnsDestinationArgs{...}
+type Smsvoicev2EventDestinationSnsDestinationInput interface {
+	pulumi.Input
+
+	ToSmsvoicev2EventDestinationSnsDestinationOutput() Smsvoicev2EventDestinationSnsDestinationOutput
+	ToSmsvoicev2EventDestinationSnsDestinationOutputWithContext(context.Context) Smsvoicev2EventDestinationSnsDestinationOutput
+}
+
+type Smsvoicev2EventDestinationSnsDestinationArgs struct {
+	// ARN of the Amazon SNS topic that receives the events.
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (Smsvoicev2EventDestinationSnsDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Smsvoicev2EventDestinationSnsDestination)(nil)).Elem()
+}
+
+func (i Smsvoicev2EventDestinationSnsDestinationArgs) ToSmsvoicev2EventDestinationSnsDestinationOutput() Smsvoicev2EventDestinationSnsDestinationOutput {
+	return i.ToSmsvoicev2EventDestinationSnsDestinationOutputWithContext(context.Background())
+}
+
+func (i Smsvoicev2EventDestinationSnsDestinationArgs) ToSmsvoicev2EventDestinationSnsDestinationOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationSnsDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Smsvoicev2EventDestinationSnsDestinationOutput)
+}
+
+func (i Smsvoicev2EventDestinationSnsDestinationArgs) ToSmsvoicev2EventDestinationSnsDestinationPtrOutput() Smsvoicev2EventDestinationSnsDestinationPtrOutput {
+	return i.ToSmsvoicev2EventDestinationSnsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i Smsvoicev2EventDestinationSnsDestinationArgs) ToSmsvoicev2EventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationSnsDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Smsvoicev2EventDestinationSnsDestinationOutput).ToSmsvoicev2EventDestinationSnsDestinationPtrOutputWithContext(ctx)
+}
+
+// Smsvoicev2EventDestinationSnsDestinationPtrInput is an input type that accepts Smsvoicev2EventDestinationSnsDestinationArgs, Smsvoicev2EventDestinationSnsDestinationPtr and Smsvoicev2EventDestinationSnsDestinationPtrOutput values.
+// You can construct a concrete instance of `Smsvoicev2EventDestinationSnsDestinationPtrInput` via:
+//
+//	        Smsvoicev2EventDestinationSnsDestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type Smsvoicev2EventDestinationSnsDestinationPtrInput interface {
+	pulumi.Input
+
+	ToSmsvoicev2EventDestinationSnsDestinationPtrOutput() Smsvoicev2EventDestinationSnsDestinationPtrOutput
+	ToSmsvoicev2EventDestinationSnsDestinationPtrOutputWithContext(context.Context) Smsvoicev2EventDestinationSnsDestinationPtrOutput
+}
+
+type smsvoicev2EventDestinationSnsDestinationPtrType Smsvoicev2EventDestinationSnsDestinationArgs
+
+func Smsvoicev2EventDestinationSnsDestinationPtr(v *Smsvoicev2EventDestinationSnsDestinationArgs) Smsvoicev2EventDestinationSnsDestinationPtrInput {
+	return (*smsvoicev2EventDestinationSnsDestinationPtrType)(v)
+}
+
+func (*smsvoicev2EventDestinationSnsDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Smsvoicev2EventDestinationSnsDestination)(nil)).Elem()
+}
+
+func (i *smsvoicev2EventDestinationSnsDestinationPtrType) ToSmsvoicev2EventDestinationSnsDestinationPtrOutput() Smsvoicev2EventDestinationSnsDestinationPtrOutput {
+	return i.ToSmsvoicev2EventDestinationSnsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *smsvoicev2EventDestinationSnsDestinationPtrType) ToSmsvoicev2EventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationSnsDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Smsvoicev2EventDestinationSnsDestinationPtrOutput)
+}
+
+type Smsvoicev2EventDestinationSnsDestinationOutput struct{ *pulumi.OutputState }
+
+func (Smsvoicev2EventDestinationSnsDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Smsvoicev2EventDestinationSnsDestination)(nil)).Elem()
+}
+
+func (o Smsvoicev2EventDestinationSnsDestinationOutput) ToSmsvoicev2EventDestinationSnsDestinationOutput() Smsvoicev2EventDestinationSnsDestinationOutput {
+	return o
+}
+
+func (o Smsvoicev2EventDestinationSnsDestinationOutput) ToSmsvoicev2EventDestinationSnsDestinationOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationSnsDestinationOutput {
+	return o
+}
+
+func (o Smsvoicev2EventDestinationSnsDestinationOutput) ToSmsvoicev2EventDestinationSnsDestinationPtrOutput() Smsvoicev2EventDestinationSnsDestinationPtrOutput {
+	return o.ToSmsvoicev2EventDestinationSnsDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o Smsvoicev2EventDestinationSnsDestinationOutput) ToSmsvoicev2EventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationSnsDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Smsvoicev2EventDestinationSnsDestination) *Smsvoicev2EventDestinationSnsDestination {
+		return &v
+	}).(Smsvoicev2EventDestinationSnsDestinationPtrOutput)
+}
+
+// ARN of the Amazon SNS topic that receives the events.
+func (o Smsvoicev2EventDestinationSnsDestinationOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v Smsvoicev2EventDestinationSnsDestination) string { return v.TopicArn }).(pulumi.StringOutput)
+}
+
+type Smsvoicev2EventDestinationSnsDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (Smsvoicev2EventDestinationSnsDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Smsvoicev2EventDestinationSnsDestination)(nil)).Elem()
+}
+
+func (o Smsvoicev2EventDestinationSnsDestinationPtrOutput) ToSmsvoicev2EventDestinationSnsDestinationPtrOutput() Smsvoicev2EventDestinationSnsDestinationPtrOutput {
+	return o
+}
+
+func (o Smsvoicev2EventDestinationSnsDestinationPtrOutput) ToSmsvoicev2EventDestinationSnsDestinationPtrOutputWithContext(ctx context.Context) Smsvoicev2EventDestinationSnsDestinationPtrOutput {
+	return o
+}
+
+func (o Smsvoicev2EventDestinationSnsDestinationPtrOutput) Elem() Smsvoicev2EventDestinationSnsDestinationOutput {
+	return o.ApplyT(func(v *Smsvoicev2EventDestinationSnsDestination) Smsvoicev2EventDestinationSnsDestination {
+		if v != nil {
+			return *v
+		}
+		var ret Smsvoicev2EventDestinationSnsDestination
+		return ret
+	}).(Smsvoicev2EventDestinationSnsDestinationOutput)
+}
+
+// ARN of the Amazon SNS topic that receives the events.
+func (o Smsvoicev2EventDestinationSnsDestinationPtrOutput) TopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Smsvoicev2EventDestinationSnsDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type Smsvoicev2PhoneNumberTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -981,6 +1430,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailTemplateEmailTemplateArrayInput)(nil)).Elem(), EmailTemplateEmailTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailTemplateEmailTemplateHeaderInput)(nil)).Elem(), EmailTemplateEmailTemplateHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EmailTemplateEmailTemplateHeaderArrayInput)(nil)).Elem(), EmailTemplateEmailTemplateHeaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2EventDestinationCloudwatchLogsDestinationInput)(nil)).Elem(), Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrInput)(nil)).Elem(), Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2EventDestinationKinesisFirehoseDestinationInput)(nil)).Elem(), Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrInput)(nil)).Elem(), Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2EventDestinationSnsDestinationInput)(nil)).Elem(), Smsvoicev2EventDestinationSnsDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2EventDestinationSnsDestinationPtrInput)(nil)).Elem(), Smsvoicev2EventDestinationSnsDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2PhoneNumberTimeoutsInput)(nil)).Elem(), Smsvoicev2PhoneNumberTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Smsvoicev2PhoneNumberTimeoutsPtrInput)(nil)).Elem(), Smsvoicev2PhoneNumberTimeoutsArgs{})
 	pulumi.RegisterOutputType(AppCampaignHookOutput{})
@@ -993,6 +1448,12 @@ func init() {
 	pulumi.RegisterOutputType(EmailTemplateEmailTemplateArrayOutput{})
 	pulumi.RegisterOutputType(EmailTemplateEmailTemplateHeaderOutput{})
 	pulumi.RegisterOutputType(EmailTemplateEmailTemplateHeaderArrayOutput{})
+	pulumi.RegisterOutputType(Smsvoicev2EventDestinationCloudwatchLogsDestinationOutput{})
+	pulumi.RegisterOutputType(Smsvoicev2EventDestinationCloudwatchLogsDestinationPtrOutput{})
+	pulumi.RegisterOutputType(Smsvoicev2EventDestinationKinesisFirehoseDestinationOutput{})
+	pulumi.RegisterOutputType(Smsvoicev2EventDestinationKinesisFirehoseDestinationPtrOutput{})
+	pulumi.RegisterOutputType(Smsvoicev2EventDestinationSnsDestinationOutput{})
+	pulumi.RegisterOutputType(Smsvoicev2EventDestinationSnsDestinationPtrOutput{})
 	pulumi.RegisterOutputType(Smsvoicev2PhoneNumberTimeoutsOutput{})
 	pulumi.RegisterOutputType(Smsvoicev2PhoneNumberTimeoutsPtrOutput{})
 }

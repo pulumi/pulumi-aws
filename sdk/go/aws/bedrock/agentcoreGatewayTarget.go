@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions or APIs, allowing agents to interact with external services through the Model Context Protocol (MCP).
+// Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions, APIs, or AgentCore Runtime agents, allowing agents to interact with external services through the Model Context Protocol (MCP) or by routing HTTP traffic directly to a runtime.
 //
 // ## Example Usage
 //
@@ -315,6 +315,47 @@ import (
 //
 // ```
 //
+// ### Target with IAM SigV4 Authentication (MCP Server)
+//
+// Use this for `mcpServer` targets pointing at AWS-hosted SigV4-protected endpoints (e.g. another Bedrock AgentCore Runtime). The gateway signs upstream requests using its own IAM role.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "sigv4_example", &bedrock.AgentcoreGatewayTargetArgs{
+//				Name:              pulumi.String("sigv4-target"),
+//				GatewayIdentifier: pulumi.Any(example.GatewayId),
+//				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
+//					GatewayIamRole: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{
+//						Service: pulumi.String("bedrock-agentcore"),
+//					},
+//				},
+//				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
+//					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
+//						McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
+//							Endpoint: pulumi.String("https://example-runtime.bedrock-agentcore.us-east-1.amazonaws.com/runtimes/example/invocations?qualifier=DEFAULT"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Complex Schema with JSON Serialization
 //
 // ```go
@@ -454,6 +495,184 @@ import (
 //
 // ```
 //
+// ### HTTP Target Routing to an AgentCore Runtime
+//
+// Routes gateway traffic directly to an AgentCore Runtime agent over HTTP, without MCP aggregation. The gateway must not have a `protocolType` set.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
+//				AgentRuntimeName: pulumi.String("example-runtime"),
+//				RoleArn:          pulumi.Any(runtimeRole.Arn),
+//				AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{
+//					ContainerConfiguration: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{
+//						ContainerUri: pulumi.String("111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest"),
+//					},
+//				},
+//				NetworkConfiguration: &bedrock.AgentcoreAgentRuntimeNetworkConfigurationArgs{
+//					NetworkMode: pulumi.String("PUBLIC"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bedrock.NewAgentcoreGatewayTarget(ctx, "runtime", &bedrock.AgentcoreGatewayTargetArgs{
+//				Name:              pulumi.String("runtime-target"),
+//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+//				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
+//					GatewayIamRole: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{},
+//				},
+//				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
+//					Http: &bedrock.AgentcoreGatewayTargetTargetConfigurationHttpArgs{
+//						AgentcoreRuntime: &bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs{
+//							Arn:       example.AgentRuntimeArn,
+//							Qualifier: pulumi.String("DEFAULT"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Self-hosted MCP server in a VPC (managed Lattice)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := bedrock.NewAgentcoreGatewayTarget(ctx, "example", &bedrock.AgentcoreGatewayTargetArgs{
+// GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+// Name: pulumi.String("my-private-mcp-target"),
+// TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
+// Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
+// McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
+// Endpoint: pulumi.String("https://mcp.internal.example.com/mcp"),
+// },
+// },
+// },
+// PrivateEndpoint: &bedrock.AgentcoreGatewayTargetPrivateEndpointArgs{
+// ManagedVpcResource: &bedrock.AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs{
+// VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:15,31-53)),
+// EndpointIpAddressType: pulumi.String("IPV4"),
+// SecurityGroupIds: pulumi.StringArray{
+// mcpLattice.Id,
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
+// ### Self-hosted MCP server with routing through an internal ALB
+//
+// Use `routingDomain` when the MCP server has a private TLS certificate. Place an internal ALB with a public ACM certificate in front of the server and set `routingDomain` to the ALB DNS name.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := bedrock.NewAgentcoreGatewayTarget(ctx, "example", &bedrock.AgentcoreGatewayTargetArgs{
+// GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+// Name: pulumi.String("my-private-mcp-via-alb"),
+// TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
+// Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
+// McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
+// Endpoint: pulumi.String("https://mcp.example.com/mcp"),
+// },
+// },
+// },
+// PrivateEndpoint: &bedrock.AgentcoreGatewayTargetPrivateEndpointArgs{
+// ManagedVpcResource: &bedrock.AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs{
+// VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:15,31-53)),
+// EndpointIpAddressType: pulumi.String("IPV4"),
+// RoutingDomain: pulumi.Any(mcpAlb.DnsName),
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
+// ### Self-managed VPC Lattice resource configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "example", &bedrock.AgentcoreGatewayTargetArgs{
+//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+//				Name:              pulumi.String("my-private-mcp-self-managed"),
+//				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
+//					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
+//						McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
+//							Endpoint: pulumi.String("https://mcp.internal.example.com/mcp"),
+//						},
+//					},
+//				},
+//				PrivateEndpoint: &bedrock.AgentcoreGatewayTargetPrivateEndpointArgs{
+//					SelfManagedLatticeResource: &bedrock.AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs{
+//						ResourceConfigurationIdentifier: pulumi.Any(mcp.Arn),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
@@ -474,7 +693,9 @@ type AgentcoreGatewayTarget struct {
 	MetadataConfiguration AgentcoreGatewayTargetMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
 	// Name of the gateway target.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	PrivateEndpoint AgentcoreGatewayTargetPrivateEndpointPtrOutput `pulumi:"privateEndpoint"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration for the target endpoint. See `targetConfiguration` below.
 	//
@@ -531,7 +752,9 @@ type agentcoreGatewayTargetState struct {
 	MetadataConfiguration *AgentcoreGatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// Name of the gateway target.
 	Name *string `pulumi:"name"`
-	// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	PrivateEndpoint *AgentcoreGatewayTargetPrivateEndpoint `pulumi:"privateEndpoint"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration for the target endpoint. See `targetConfiguration` below.
 	//
@@ -553,7 +776,9 @@ type AgentcoreGatewayTargetState struct {
 	MetadataConfiguration AgentcoreGatewayTargetMetadataConfigurationPtrInput
 	// Name of the gateway target.
 	Name pulumi.StringPtrInput
-	// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	PrivateEndpoint AgentcoreGatewayTargetPrivateEndpointPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration for the target endpoint. See `targetConfiguration` below.
 	//
@@ -579,7 +804,9 @@ type agentcoreGatewayTargetArgs struct {
 	MetadataConfiguration *AgentcoreGatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// Name of the gateway target.
 	Name *string `pulumi:"name"`
-	// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	PrivateEndpoint *AgentcoreGatewayTargetPrivateEndpoint `pulumi:"privateEndpoint"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration for the target endpoint. See `targetConfiguration` below.
 	//
@@ -600,7 +827,9 @@ type AgentcoreGatewayTargetArgs struct {
 	MetadataConfiguration AgentcoreGatewayTargetMetadataConfigurationPtrInput
 	// Name of the gateway target.
 	Name pulumi.StringPtrInput
-	// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	PrivateEndpoint AgentcoreGatewayTargetPrivateEndpointPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration for the target endpoint. See `targetConfiguration` below.
 	//
@@ -725,7 +954,14 @@ func (o AgentcoreGatewayTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+func (o AgentcoreGatewayTargetOutput) PrivateEndpoint() AgentcoreGatewayTargetPrivateEndpointPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGatewayTarget) AgentcoreGatewayTargetPrivateEndpointPtrOutput {
+		return v.PrivateEndpoint
+	}).(AgentcoreGatewayTargetPrivateEndpointPtrOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o AgentcoreGatewayTargetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

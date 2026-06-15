@@ -106,7 +106,18 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `Id`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the pipeline.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `PipelineName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
@@ -164,7 +175,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Output<string> PipelineConfigurationBody { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        /// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -284,7 +295,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Input<string> PipelineConfigurationBody { get; set; } = null!;
 
         /// <summary>
-        /// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        /// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -387,7 +398,7 @@ namespace Pulumi.Aws.OpenSearchIngest
         public Input<string>? PipelineConfigurationBody { get; set; }
 
         /// <summary>
-        /// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        /// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
         /// 
         /// The following arguments are optional:
         /// </summary>

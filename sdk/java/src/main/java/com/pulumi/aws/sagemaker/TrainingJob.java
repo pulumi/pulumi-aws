@@ -302,6 +302,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.TrainingJob;
  * import com.pulumi.aws.sagemaker.TrainingJobArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobAlgorithmSpecificationArgs;
+ * import com.pulumi.aws.sagemaker.inputs.TrainingJobAlgorithmSpecificationMetricDefinitionArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobOutputDataConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobResourceConfigArgs;
  * import com.pulumi.aws.sagemaker.inputs.TrainingJobRetryStrategyArgs;

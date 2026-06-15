@@ -193,7 +193,7 @@ class VpcOrigin(pulumi.CustomResource):
         Creates an Amazon CloudFront VPC origin.
 
         For information about CloudFront VPC origins, see
-        [Amazon CloudFront Developer Guide - Restrict access with VPC origins][1].
+        [Amazon CloudFront Developer Guide - Restrict access with VPC origins](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-vpc-origins.html).
 
         ## Example Usage
 
@@ -244,7 +244,7 @@ class VpcOrigin(pulumi.CustomResource):
         Creates an Amazon CloudFront VPC origin.
 
         For information about CloudFront VPC origins, see
-        [Amazon CloudFront Developer Guide - Restrict access with VPC origins][1].
+        [Amazon CloudFront Developer Guide - Restrict access with VPC origins](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-vpc-origins.html).
 
         ## Example Usage
 

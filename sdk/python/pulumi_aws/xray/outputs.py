@@ -116,7 +116,6 @@ class IndexingRuleRuleProbabilistic(dict):
                  actual_sampling_percentage: Optional[_builtins.float] = None):
         """
         :param _builtins.float desired_sampling_percentage: Configured sampling percentage of traceIds.
-        :param _builtins.float actual_sampling_percentage: Applied sampling percentage of traceIds.
         """
         pulumi.set(__self__, "desired_sampling_percentage", desired_sampling_percentage)
         if actual_sampling_percentage is not None:
@@ -133,9 +132,6 @@ class IndexingRuleRuleProbabilistic(dict):
     @_builtins.property
     @pulumi.getter(name="actualSamplingPercentage")
     def actual_sampling_percentage(self) -> Optional[_builtins.float]:
-        """
-        Applied sampling percentage of traceIds.
-        """
         return pulumi.get(self, "actual_sampling_percentage")
 
 

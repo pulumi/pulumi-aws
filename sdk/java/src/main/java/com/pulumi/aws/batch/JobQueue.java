@@ -82,6 +82,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.batch.SchedulingPolicy;
  * import com.pulumi.aws.batch.SchedulingPolicyArgs;
  * import com.pulumi.aws.batch.inputs.SchedulingPolicyFairSharePolicyArgs;
+ * import com.pulumi.aws.batch.inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs;
  * import com.pulumi.aws.batch.JobQueue;
  * import com.pulumi.aws.batch.JobQueueArgs;
  * import com.pulumi.aws.batch.inputs.JobQueueComputeEnvironmentOrderArgs;

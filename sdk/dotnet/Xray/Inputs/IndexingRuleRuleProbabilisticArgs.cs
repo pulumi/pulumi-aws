@@ -12,9 +12,6 @@ namespace Pulumi.Aws.Xray.Inputs
 
     public sealed class IndexingRuleRuleProbabilisticArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Applied sampling percentage of traceIds.
-        /// </summary>
         [Input("actualSamplingPercentage")]
         public Input<double>? ActualSamplingPercentage { get; set; }
 

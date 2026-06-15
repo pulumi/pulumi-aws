@@ -14,41 +14,119 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchConfigurationEbsBlockDevice {
+    /**
+     * @return Whether the volume should be destroyed
+     * on instance termination (Default: `true`).
+     * 
+     */
     private @Nullable Boolean deleteOnTermination;
+    /**
+     * @return The name of the device to mount.
+     * 
+     */
     private String deviceName;
+    /**
+     * @return Whether the volume should be encrypted or not. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean encrypted;
+    /**
+     * @return The amount of provisioned
+     * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+     * This must be set with a `volumeType` of `&#34;io1&#34;`.
+     * 
+     */
     private @Nullable Integer iops;
+    /**
+     * @return Whether the device in the block device mapping of the AMI is suppressed.
+     * 
+     */
     private @Nullable Boolean noDevice;
+    /**
+     * @return The Snapshot ID to mount.
+     * 
+     */
     private @Nullable String snapshotId;
+    /**
+     * @return The throughput (MiBps) to provision for a `gp3` volume.
+     * 
+     */
     private @Nullable Integer throughput;
+    /**
+     * @return The size of the volume in gigabytes.
+     * 
+     */
     private @Nullable Integer volumeSize;
+    /**
+     * @return The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+     * 
+     */
     private @Nullable String volumeType;
 
     private LaunchConfigurationEbsBlockDevice() {}
+    /**
+     * @return Whether the volume should be destroyed
+     * on instance termination (Default: `true`).
+     * 
+     */
     public Optional<Boolean> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
+    /**
+     * @return The name of the device to mount.
+     * 
+     */
     public String deviceName() {
         return this.deviceName;
     }
+    /**
+     * @return Whether the volume should be encrypted or not. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
+    /**
+     * @return The amount of provisioned
+     * [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+     * This must be set with a `volumeType` of `&#34;io1&#34;`.
+     * 
+     */
     public Optional<Integer> iops() {
         return Optional.ofNullable(this.iops);
     }
+    /**
+     * @return Whether the device in the block device mapping of the AMI is suppressed.
+     * 
+     */
     public Optional<Boolean> noDevice() {
         return Optional.ofNullable(this.noDevice);
     }
+    /**
+     * @return The Snapshot ID to mount.
+     * 
+     */
     public Optional<String> snapshotId() {
         return Optional.ofNullable(this.snapshotId);
     }
+    /**
+     * @return The throughput (MiBps) to provision for a `gp3` volume.
+     * 
+     */
     public Optional<Integer> throughput() {
         return Optional.ofNullable(this.throughput);
     }
+    /**
+     * @return The size of the volume in gigabytes.
+     * 
+     */
     public Optional<Integer> volumeSize() {
         return Optional.ofNullable(this.volumeSize);
     }
+    /**
+     * @return The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+     * 
+     */
     public Optional<String> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }

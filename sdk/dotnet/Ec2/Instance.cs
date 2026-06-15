@@ -303,17 +303,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// ## Tag Guide
-    /// 
-    /// These are the five types of tags you might encounter relative to an `aws.ec2.Instance`:
-    /// 
-    /// 1. **Instance tags**: Applied to instances but not to `EbsBlockDevice` and `RootBlockDevice` volumes.
-    /// 2. **Default tags**: Applied to the instance and to `EbsBlockDevice` and `RootBlockDevice` volumes.
-    /// 3. **Volume tags**: Applied during creation to `EbsBlockDevice` and `RootBlockDevice` volumes.
-    /// 4. **Root block device tags**: Applied only to the `RootBlockDevice` volume. These conflict with `VolumeTags`.
-    /// 5. **EBS block device tags**: Applied only to the specific `EbsBlockDevice` volume you configure them for and cannot be updated. These conflict with `VolumeTags`.
-    /// 
-    /// Do not use `VolumeTags` if you plan to manage block device tags outside the `aws.ec2.Instance` configuration, such as using `Tags` in an `aws.ebs.Volume` resource attached via `aws.ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+    /// &gt; **Note:** There are five types of tags relevant to an `aws.ec2.Instance`: (1) **instance tags** — applied to instances but not to `EbsBlockDevice` or `RootBlockDevice` volumes; (2) **default tags** — applied to the instance and to those volumes; (3) **volume tags** — applied during creation to `EbsBlockDevice` and `RootBlockDevice` volumes; (4) **root block device tags** — applied only to the `RootBlockDevice` volume (conflicts with `VolumeTags`); (5) **EBS block device tags** — applied only to the specific `EbsBlockDevice` volume and cannot be updated (conflicts with `VolumeTags`). Do not use `VolumeTags` if you manage block device tags outside the `aws.ec2.Instance` configuration (e.g., using `Tags` in an `aws.ebs.Volume` resource) as this causes resource cycling and inconsistent behavior.
     /// 
     /// ## Import
     /// 

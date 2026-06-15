@@ -51,7 +51,7 @@ export function getSnapshot(args?: GetSnapshotArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetSnapshotArgs {
     /**
-     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html).
      */
     filters?: inputs.ebs.GetSnapshotFilter[];
     /**
@@ -199,7 +199,7 @@ export function getSnapshotOutput(args?: GetSnapshotOutputArgs, opts?: pulumi.In
  */
 export interface GetSnapshotOutputArgs {
     /**
-     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference][1].
+     * One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-snapshots in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-snapshots.html).
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetSnapshotFilterArgs>[] | undefined>;
     /**

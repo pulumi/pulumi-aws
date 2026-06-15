@@ -32,7 +32,7 @@ import {RestApi} from "./index";
  * });
  * ```
  *
- * ## Usage with Cognito User Pool Authorizer
+ * ### Usage with Cognito User Pool Authorizer
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

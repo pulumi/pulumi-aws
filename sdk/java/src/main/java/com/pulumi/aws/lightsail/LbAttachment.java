@@ -27,6 +27,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
  * import com.pulumi.aws.lightsail.Lb;
  * import com.pulumi.aws.lightsail.LbArgs;
  * import com.pulumi.aws.lightsail.Instance;

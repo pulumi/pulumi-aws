@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchConfigurationEphemeralBlockDevice
     {
+        /// <summary>
+        /// The name of the block device to mount on the instance.
+        /// </summary>
         public readonly string DeviceName;
+        /// <summary>
+        /// Whether the device in the block device mapping of the AMI is suppressed.
+        /// </summary>
         public readonly bool? NoDevice;
+        /// <summary>
+        /// The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
+        /// </summary>
         public readonly string? VirtualName;
 
         [OutputConstructor]

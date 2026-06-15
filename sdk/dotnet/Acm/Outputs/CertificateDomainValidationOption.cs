@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Acm.Outputs
     public sealed class CertificateDomainValidationOption
     {
         /// <summary>
-        /// Fully qualified domain name (FQDN) in the certificate.
+        /// Domain to be validated
         /// </summary>
         public readonly string? DomainName;
         /// <summary>

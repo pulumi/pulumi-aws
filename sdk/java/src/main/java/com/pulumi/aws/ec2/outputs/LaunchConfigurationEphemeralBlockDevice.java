@@ -13,17 +13,41 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchConfigurationEphemeralBlockDevice {
+    /**
+     * @return The name of the block device to mount on the instance.
+     * 
+     */
     private String deviceName;
+    /**
+     * @return Whether the device in the block device mapping of the AMI is suppressed.
+     * 
+     */
     private @Nullable Boolean noDevice;
+    /**
+     * @return The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
+     * 
+     */
     private @Nullable String virtualName;
 
     private LaunchConfigurationEphemeralBlockDevice() {}
+    /**
+     * @return The name of the block device to mount on the instance.
+     * 
+     */
     public String deviceName() {
         return this.deviceName;
     }
+    /**
+     * @return Whether the device in the block device mapping of the AMI is suppressed.
+     * 
+     */
     public Optional<Boolean> noDevice() {
         return Optional.ofNullable(this.noDevice);
     }
+    /**
+     * @return The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
+     * 
+     */
     public Optional<String> virtualName() {
         return Optional.ofNullable(this.virtualName);
     }

@@ -229,9 +229,9 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     /// });
     /// ```
     /// 
-    /// ## Cluster Type Requirements
+    /// ### Cluster Type Requirements
     /// 
-    /// ### InfluxDB V2 Clusters (default)
+    /// #### InfluxDB V2 Clusters (default)
     /// 
     /// The following arguments are **required** for InfluxDB V2 clusters:
     /// 
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.TimestreamInfluxDB
     /// 
     /// The `DeploymentType` argument defaults to `"MULTI_NODE_READ_REPLICAS"` for InfluxDB V2 clusters when not specified.
     /// 
-    /// ### InfluxDB V3 Clusters (when using V3 parameter groups)
+    /// #### InfluxDB V3 Clusters (when using V3 parameter groups)
     /// 
     /// The following arguments are **forbidden** for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group):
     /// 

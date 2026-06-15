@@ -8,6 +8,7 @@ import com.pulumi.aws.bedrock.AgentcoreGatewayArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayState;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayAuthorizerConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayInterceptorConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayPolicyEngineConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayProtocolConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTimeouts;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayWorkloadIdentityDetail;
@@ -37,6 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.bedrock.AgentcoreGateway;
@@ -372,6 +375,20 @@ public class AgentcoreGateway extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `policyEngineConfiguration` below.
+     * 
+     */
+    @Export(name="policyEngineConfiguration", refs={AgentcoreGatewayPolicyEngineConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ AgentcoreGatewayPolicyEngineConfiguration> policyEngineConfiguration;
+
+    /**
+     * @return Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `policyEngineConfiguration` below.
+     * 
+     */
+    public Output<Optional<AgentcoreGatewayPolicyEngineConfiguration>> policyEngineConfiguration() {
+        return Codegen.optional(this.policyEngineConfiguration);
+    }
+    /**
      * Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
      * 
      */
@@ -386,14 +403,14 @@ public class AgentcoreGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.protocolConfiguration);
     }
     /**
-     * Protocol type for the gateway. Valid values: `MCP`.
+     * Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `aws.bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
      * 
      */
     @Export(name="protocolType", refs={String.class}, tree="[0]")
     private Output<String> protocolType;
 
     /**
-     * @return Protocol type for the gateway. Valid values: `MCP`.
+     * @return Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `aws.bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
      * 
      */
     public Output<String> protocolType() {

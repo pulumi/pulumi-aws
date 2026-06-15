@@ -5,47 +5,50 @@ Subject: [PATCH] Allow creating lambdas without code related properties
 
 
 diff --git a/internal/service/lambda/function.go b/internal/service/lambda/function.go
-index 129dcd71b7d..b28c35e40ad 100644
+index 0f41343e005..a32f6b7234c 100644
 --- a/internal/service/lambda/function.go
 +++ b/internal/service/lambda/function.go
-@@ -235,9 +235,9 @@ func resourceFunction() *schema.Resource {
+@@ -236,9 +236,10 @@ func resourceFunction() *schema.Resource {
+ 					},
  				},
- 			},
- 			"filename": {
--				Type:         schema.TypeString,
--				Optional:     true,
--				ExactlyOneOf: []string{"filename", "image_uri", names.AttrS3Bucket},
-+				Type:          schema.TypeString,
-+				Optional:      true,
-+				ConflictsWith: []string{names.AttrS3Bucket, "s3_key", "s3_object_version", "image_uri"},
- 			},
- 			"function_name": {
- 				Type:         schema.TypeString,
-@@ -298,9 +298,9 @@ func resourceFunction() *schema.Resource {
+ 				"filename": {
+-					Type:         schema.TypeString,
+-					Optional:     true,
+-					ExactlyOneOf: []string{"filename", "image_uri", names.AttrS3Bucket},
++					Type:     schema.TypeString,
++					Optional: true,
++					//ExactlyOneOf: []string{"filename", "image_uri", names.AttrS3Bucket},
++					ConflictsWith: []string{names.AttrS3Bucket, "s3_key", "s3_object_version", "image_uri"},
  				},
- 			},
- 			"image_uri": {
--				Type:         schema.TypeString,
--				Optional:     true,
--				ExactlyOneOf: []string{"filename", "image_uri", names.AttrS3Bucket},
-+				Type:          schema.TypeString,
-+				Optional:      true,
-+				ConflictsWith: []string{"filename", names.AttrS3Bucket, "s3_key", "s3_object_version"},
- 			},
- 			"invoke_arn": {
- 				Type:     schema.TypeString,
-@@ -421,10 +421,10 @@ func resourceFunction() *schema.Resource {
- 				ValidateDiagFunc: enum.Validate[awstypes.Runtime](),
- 			},
- 			names.AttrS3Bucket: {
--				Type:         schema.TypeString,
--				Optional:     true,
--				ExactlyOneOf: []string{"filename", "image_uri", names.AttrS3Bucket},
--				RequiredWith: []string{"s3_key"},
-+				Type:          schema.TypeString,
-+				Optional:      true,
-+				ConflictsWith: []string{"filename", "image_uri"},
-+				RequiredWith:  []string{"s3_key"},
- 			},
- 			"s3_key": {
- 				Type:         schema.TypeString,
+ 				"function_name": {
+ 					Type:         schema.TypeString,
+@@ -299,9 +300,10 @@ func resourceFunction() *schema.Resource {
+ 					},
+ 				},
+ 				"image_uri": {
+-					Type:         schema.TypeString,
+-					Optional:     true,
+-					ExactlyOneOf: []string{"filename", "image_uri", names.AttrS3Bucket},
++					Type:     schema.TypeString,
++					Optional: true,
++					//ExactlyOneOf: []string{"filename", "image_uri", names.AttrS3Bucket},
++					ConflictsWith: []string{"filename", names.AttrS3Bucket, "s3_key", "s3_object_version"},
+ 				},
+ 				"invoke_arn": {
+ 					Type:     schema.TypeString,
+@@ -422,10 +424,11 @@ func resourceFunction() *schema.Resource {
+ 					ValidateDiagFunc: enum.Validate[awstypes.Runtime](),
+ 				},
+ 				names.AttrS3Bucket: {
+-					Type:         schema.TypeString,
+-					Optional:     true,
+-					ExactlyOneOf: []string{"filename", "image_uri", names.AttrS3Bucket},
+-					RequiredWith: []string{"s3_key"},
++					Type:     schema.TypeString,
++					Optional: true,
++					//ExactlyOneOf: []string{"filename", "image_uri", names.AttrS3Bucket},
++					ConflictsWith: []string{"filename", "image_uri"},
++					RequiredWith:  []string{"s3_key"},
+ 				},
+ 				"s3_key": {
+ 					Type:         schema.TypeString,

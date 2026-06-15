@@ -59,7 +59,7 @@ import (
 //
 // ```
 //
-// ## FIFO queue
+// ### FIFO queue
 //
 // ```go
 // package main
@@ -87,7 +87,7 @@ import (
 //
 // ```
 //
-// ## High-throughput FIFO queue
+// ### High-throughput FIFO queue
 //
 // ```go
 // package main
@@ -116,7 +116,7 @@ import (
 //
 // ```
 //
-// ## Dead-letter queue
+// ### Dead-letter queue
 //
 // ```go
 // package main
@@ -176,7 +176,7 @@ import (
 //
 // ```
 //
-// ## Server-side encryption (SSE)
+// ### Server-side encryption (SSE)
 //
 // Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
 //

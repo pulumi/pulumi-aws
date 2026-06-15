@@ -3,11 +3,14 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryIndexedKeyArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStreamDeliveryResourcesArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -83,6 +86,21 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     * 
+     */
+    @Import(name="indexedKeys")
+    private @Nullable Output<List<AgentcoreMemoryIndexedKeyArgs>> indexedKeys;
+
+    /**
+     * @return Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     * 
+     */
+    public Optional<Output<List<AgentcoreMemoryIndexedKeyArgs>>> indexedKeys() {
+        return Optional.ofNullable(this.indexedKeys);
+    }
+
+    /**
      * ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
      * 
      */
@@ -125,6 +143,21 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
+    }
+
+    /**
+     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     * 
+     */
+    @Import(name="streamDeliveryResources")
+    private @Nullable Output<AgentcoreMemoryStreamDeliveryResourcesArgs> streamDeliveryResources;
+
+    /**
+     * @return Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     * 
+     */
+    public Optional<Output<AgentcoreMemoryStreamDeliveryResourcesArgs>> streamDeliveryResources() {
+        return Optional.ofNullable(this.streamDeliveryResources);
     }
 
     /**
@@ -171,9 +204,11 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
         this.description = $.description;
         this.encryptionKeyArn = $.encryptionKeyArn;
         this.eventExpiryDuration = $.eventExpiryDuration;
+        this.indexedKeys = $.indexedKeys;
         this.memoryExecutionRoleArn = $.memoryExecutionRoleArn;
         this.name = $.name;
         this.region = $.region;
+        this.streamDeliveryResources = $.streamDeliveryResources;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timeouts = $.timeouts;
@@ -286,6 +321,37 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param indexedKeys Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder indexedKeys(@Nullable Output<List<AgentcoreMemoryIndexedKeyArgs>> indexedKeys) {
+            $.indexedKeys = indexedKeys;
+            return this;
+        }
+
+        /**
+         * @param indexedKeys Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder indexedKeys(List<AgentcoreMemoryIndexedKeyArgs> indexedKeys) {
+            return indexedKeys(Output.of(indexedKeys));
+        }
+
+        /**
+         * @param indexedKeys Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder indexedKeys(AgentcoreMemoryIndexedKeyArgs... indexedKeys) {
+            return indexedKeys(List.of(indexedKeys));
+        }
+
+        /**
          * @param memoryExecutionRoleArn ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
          * 
          * @return builder
@@ -346,6 +412,27 @@ public final class AgentcoreMemoryState extends com.pulumi.resources.ResourceArg
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param streamDeliveryResources Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamDeliveryResources(@Nullable Output<AgentcoreMemoryStreamDeliveryResourcesArgs> streamDeliveryResources) {
+            $.streamDeliveryResources = streamDeliveryResources;
+            return this;
+        }
+
+        /**
+         * @param streamDeliveryResources Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder streamDeliveryResources(AgentcoreMemoryStreamDeliveryResourcesArgs streamDeliveryResources) {
+            return streamDeliveryResources(Output.of(streamDeliveryResources));
         }
 
         /**

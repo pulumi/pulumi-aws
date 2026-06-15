@@ -502,12 +502,6 @@ class Application(pulumi.CustomResource):
             })
         ```
 
-        ## Additional Information
-
-        For more information about OpenSearch Applications, see the [AWS OpenSearch Service Developer Guide](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html).
-
-        For information about configuring IAM Identity Center with OpenSearch Applications, see [Using AWS IAM Identity Center authentication](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application-getting-started.html#create-application).
-
         ## Import
 
         Using `pulumi import`, import OpenSearch applications using the `id`. For example:
@@ -687,12 +681,6 @@ class Application(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
-
-        ## Additional Information
-
-        For more information about OpenSearch Applications, see the [AWS OpenSearch Service Developer Guide](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application.html).
-
-        For information about configuring IAM Identity Center with OpenSearch Applications, see [Using AWS IAM Identity Center authentication](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/application-getting-started.html#create-application).
 
         ## Import
 

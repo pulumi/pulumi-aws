@@ -469,22 +469,42 @@ __all__ = [
     'AgentcoreGatewayInterceptorConfigurationInterceptorArgsDict',
     'AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs',
     'AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgsDict',
+    'AgentcoreGatewayPolicyEngineConfigurationArgs',
+    'AgentcoreGatewayPolicyEngineConfigurationArgsDict',
     'AgentcoreGatewayProtocolConfigurationArgs',
     'AgentcoreGatewayProtocolConfigurationArgsDict',
     'AgentcoreGatewayProtocolConfigurationMcpArgs',
     'AgentcoreGatewayProtocolConfigurationMcpArgsDict',
+    'AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgs',
+    'AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgsDict',
+    'AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs',
+    'AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgsDict',
     'AgentcoreGatewayTargetCredentialProviderConfigurationArgs',
     'AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict',
     'AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs',
     'AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgsDict',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgsDict',
     'AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs',
     'AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgsDict',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs',
+    'AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgsDict',
     'AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs',
     'AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgsDict',
     'AgentcoreGatewayTargetMetadataConfigurationArgs',
     'AgentcoreGatewayTargetMetadataConfigurationArgsDict',
+    'AgentcoreGatewayTargetPrivateEndpointArgs',
+    'AgentcoreGatewayTargetPrivateEndpointArgsDict',
+    'AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs',
+    'AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgsDict',
+    'AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs',
+    'AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationArgs',
     'AgentcoreGatewayTargetTargetConfigurationArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationHttpArgs',
+    'AgentcoreGatewayTargetTargetConfigurationHttpArgsDict',
+    'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs',
+    'AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpArgs',
     'AgentcoreGatewayTargetTargetConfigurationMcpArgsDict',
     'AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs',
@@ -637,6 +657,8 @@ __all__ = [
     'AgentcoreHarnessTruncationConfigSlidingWindowArgsDict',
     'AgentcoreHarnessTruncationConfigSummarizationArgs',
     'AgentcoreHarnessTruncationConfigSummarizationArgsDict',
+    'AgentcoreMemoryIndexedKeyArgs',
+    'AgentcoreMemoryIndexedKeyArgsDict',
     'AgentcoreMemoryStrategyConfigurationArgs',
     'AgentcoreMemoryStrategyConfigurationArgsDict',
     'AgentcoreMemoryStrategyConfigurationConsolidationArgs',
@@ -645,6 +667,14 @@ __all__ = [
     'AgentcoreMemoryStrategyConfigurationExtractionArgsDict',
     'AgentcoreMemoryStrategyTimeoutsArgs',
     'AgentcoreMemoryStrategyTimeoutsArgsDict',
+    'AgentcoreMemoryStreamDeliveryResourcesArgs',
+    'AgentcoreMemoryStreamDeliveryResourcesArgsDict',
+    'AgentcoreMemoryStreamDeliveryResourcesResourceArgs',
+    'AgentcoreMemoryStreamDeliveryResourcesResourceArgsDict',
+    'AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs',
+    'AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgsDict',
+    'AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs',
+    'AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgsDict',
     'AgentcoreMemoryTimeoutsArgs',
     'AgentcoreMemoryTimeoutsArgsDict',
     'AgentcoreOauth2CredentialProviderClientSecretArnArgs',
@@ -709,8 +739,14 @@ __all__ = [
     'AgentcoreOnlineEvaluationConfigRuleSessionConfigArgsDict',
     'AgentcoreOnlineEvaluationConfigTimeoutsArgs',
     'AgentcoreOnlineEvaluationConfigTimeoutsArgsDict',
+    'AgentcorePolicyDefinitionArgs',
+    'AgentcorePolicyDefinitionArgsDict',
+    'AgentcorePolicyDefinitionCedarArgs',
+    'AgentcorePolicyDefinitionCedarArgsDict',
     'AgentcorePolicyEngineTimeoutsArgs',
     'AgentcorePolicyEngineTimeoutsArgsDict',
+    'AgentcorePolicyTimeoutsArgs',
+    'AgentcorePolicyTimeoutsArgsDict',
     'AgentcoreTokenVaultCmkKmsConfigurationArgs',
     'AgentcoreTokenVaultCmkKmsConfigurationArgsDict',
     'CustomModelOutputDataConfigArgs',
@@ -11642,7 +11678,7 @@ class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs:
 class AgentcoreAgentRuntimeProtocolConfigurationArgsDict(TypedDict):
     server_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+    Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`, `AGUI`.
     """
 
 @pulumi.input_type
@@ -11650,7 +11686,7 @@ class AgentcoreAgentRuntimeProtocolConfigurationArgs:
     def __init__(__self__, *,
                  server_protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] server_protocol: Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+        :param pulumi.Input[_builtins.str] server_protocol: Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`, `AGUI`.
         """
         if server_protocol is not None:
             pulumi.set(__self__, "server_protocol", server_protocol)
@@ -11659,7 +11695,7 @@ class AgentcoreAgentRuntimeProtocolConfigurationArgs:
     @pulumi.getter(name="serverProtocol")
     def server_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+        Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`, `AGUI`.
         """
         return pulumi.get(self, "server_protocol")
 
@@ -12658,6 +12694,53 @@ class AgentcoreGatewayInterceptorConfigurationInterceptorLambdaArgs:
         pulumi.set(self, "arn", value)
 
 
+class AgentcoreGatewayPolicyEngineConfigurationArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+    """
+    mode: pulumi.Input[_builtins.str]
+    """
+    Enforcement mode for the policy engine. Valid values: `LOG_ONLY`, `ENFORCE`. In `LOG_ONLY` mode, the policy engine evaluates actions and records traces but does not enforce decisions. In `ENFORCE` mode, the policy engine evaluates actions and enforces allow/deny decisions.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayPolicyEngineConfigurationArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str],
+                 mode: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] arn: ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+        :param pulumi.Input[_builtins.str] mode: Enforcement mode for the policy engine. Valid values: `LOG_ONLY`, `ENFORCE`. In `LOG_ONLY` mode, the policy engine evaluates actions and records traces but does not enforce decisions. In `ENFORCE` mode, the policy engine evaluates actions and enforces allow/deny decisions.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the policy engine. The policy engine contains Cedar policies that define fine-grained authorization rules specifying who can perform what actions on which resources as agents interact through the gateway.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> pulumi.Input[_builtins.str]:
+        """
+        Enforcement mode for the policy engine. Valid values: `LOG_ONLY`, `ENFORCE`. In `LOG_ONLY` mode, the policy engine evaluates actions and records traces but does not enforce decisions. In `ENFORCE` mode, the policy engine evaluates actions and enforces allow/deny decisions.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "mode", value)
+
+
 class AgentcoreGatewayProtocolConfigurationArgsDict(TypedDict):
     mcp: NotRequired[pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationMcpArgsDict']]]
     """
@@ -12696,6 +12779,14 @@ class AgentcoreGatewayProtocolConfigurationMcpArgsDict(TypedDict):
     """
     Search type for MCP. Valid values: `SEMANTIC`.
     """
+    session_configuration: NotRequired[pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgsDict']]]
+    """
+    Configuration block for session settings of the MCP gateway. See `session_configuration` below.
+    """
+    streaming_configuration: NotRequired[pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgsDict']]]
+    """
+    Configuration block for streaming settings of the MCP gateway. See `streaming_configuration` below.
+    """
     supported_versions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Set of supported MCP protocol versions.
@@ -12706,16 +12797,24 @@ class AgentcoreGatewayProtocolConfigurationMcpArgs:
     def __init__(__self__, *,
                  instructions: pulumi.Input[Optional[_builtins.str]] = None,
                  search_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_configuration: pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgs']] = None,
+                 streaming_configuration: pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs']] = None,
                  supported_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] instructions: Instructions for the MCP protocol configuration.
         :param pulumi.Input[_builtins.str] search_type: Search type for MCP. Valid values: `SEMANTIC`.
+        :param pulumi.Input['AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgs'] session_configuration: Configuration block for session settings of the MCP gateway. See `session_configuration` below.
+        :param pulumi.Input['AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs'] streaming_configuration: Configuration block for streaming settings of the MCP gateway. See `streaming_configuration` below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_versions: Set of supported MCP protocol versions.
         """
         if instructions is not None:
             pulumi.set(__self__, "instructions", instructions)
         if search_type is not None:
             pulumi.set(__self__, "search_type", search_type)
+        if session_configuration is not None:
+            pulumi.set(__self__, "session_configuration", session_configuration)
+        if streaming_configuration is not None:
+            pulumi.set(__self__, "streaming_configuration", streaming_configuration)
         if supported_versions is not None:
             pulumi.set(__self__, "supported_versions", supported_versions)
 
@@ -12744,6 +12843,30 @@ class AgentcoreGatewayProtocolConfigurationMcpArgs:
         pulumi.set(self, "search_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="sessionConfiguration")
+    def session_configuration(self) -> pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgs']]:
+        """
+        Configuration block for session settings of the MCP gateway. See `session_configuration` below.
+        """
+        return pulumi.get(self, "session_configuration")
+
+    @session_configuration.setter
+    def session_configuration(self, value: pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgs']]):
+        pulumi.set(self, "session_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamingConfiguration")
+    def streaming_configuration(self) -> pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs']]:
+        """
+        Configuration block for streaming settings of the MCP gateway. See `streaming_configuration` below.
+        """
+        return pulumi.get(self, "streaming_configuration")
+
+    @streaming_configuration.setter
+    def streaming_configuration(self, value: pulumi.Input[Optional['AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs']]):
+        pulumi.set(self, "streaming_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="supportedVersions")
     def supported_versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -12756,14 +12879,80 @@ class AgentcoreGatewayProtocolConfigurationMcpArgs:
         pulumi.set(self, "supported_versions", value)
 
 
+class AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgsDict(TypedDict):
+    session_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Integer value for session timeout in seconds. Must be between 900 and 28800.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationArgs:
+    def __init__(__self__, *,
+                 session_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] session_timeout_in_seconds: Integer value for session timeout in seconds. Must be between 900 and 28800.
+        """
+        if session_timeout_in_seconds is not None:
+            pulumi.set(__self__, "session_timeout_in_seconds", session_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionTimeoutInSeconds")
+    def session_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Integer value for session timeout in seconds. Must be between 900 and 28800.
+        """
+        return pulumi.get(self, "session_timeout_in_seconds")
+
+    @session_timeout_in_seconds.setter
+    def session_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "session_timeout_in_seconds", value)
+
+
+class AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgsDict(TypedDict):
+    enable_response_streaming: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Boolean indicating whether response streaming is enabled for the gateway.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationArgs:
+    def __init__(__self__, *,
+                 enable_response_streaming: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enable_response_streaming: Boolean indicating whether response streaming is enabled for the gateway.
+        """
+        if enable_response_streaming is not None:
+            pulumi.set(__self__, "enable_response_streaming", enable_response_streaming)
+
+    @_builtins.property
+    @pulumi.getter(name="enableResponseStreaming")
+    def enable_response_streaming(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Boolean indicating whether response streaming is enabled for the gateway.
+        """
+        return pulumi.get(self, "enable_response_streaming")
+
+    @enable_response_streaming.setter
+    def enable_response_streaming(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_response_streaming", value)
+
+
 class AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
     api_key: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgsDict']]]
     """
     API key-based authentication configuration. See `api_key` below.
     """
+    caller_iam_credentials: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgsDict']]]
+    """
+    Caller IAM credentials-based authentication configuration. See `caller_iam_credentials` below.
+    """
     gateway_iam_role: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgsDict']]]
     """
-    Use the gateway's IAM role for authentication. This is an empty configuration block.
+    Use the gateway's IAM role for authentication. See `gateway_iam_role` below.
+    """
+    jwt_passthrough: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgsDict']]]
+    """
+    JWT passthrough-based authentication configuration. This is an empty configuration block.
     """
     oauth: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgsDict']]]
     """
@@ -12774,17 +12963,25 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationArgsDict(TypedDict):
 class AgentcoreGatewayTargetCredentialProviderConfigurationArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs']] = None,
+                 caller_iam_credentials: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs']] = None,
                  gateway_iam_role: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs']] = None,
+                 jwt_passthrough: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs']] = None,
                  oauth: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs']] = None):
         """
         :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs'] api_key: API key-based authentication configuration. See `api_key` below.
-        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs'] gateway_iam_role: Use the gateway's IAM role for authentication. This is an empty configuration block.
+        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs'] caller_iam_credentials: Caller IAM credentials-based authentication configuration. See `caller_iam_credentials` below.
+        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs'] gateway_iam_role: Use the gateway's IAM role for authentication. See `gateway_iam_role` below.
+        :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs'] jwt_passthrough: JWT passthrough-based authentication configuration. This is an empty configuration block.
         :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs'] oauth: OAuth-based authentication configuration. See `oauth` below.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if caller_iam_credentials is not None:
+            pulumi.set(__self__, "caller_iam_credentials", caller_iam_credentials)
         if gateway_iam_role is not None:
             pulumi.set(__self__, "gateway_iam_role", gateway_iam_role)
+        if jwt_passthrough is not None:
+            pulumi.set(__self__, "jwt_passthrough", jwt_passthrough)
         if oauth is not None:
             pulumi.set(__self__, "oauth", oauth)
 
@@ -12801,16 +12998,40 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationArgs:
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
+    @pulumi.getter(name="callerIamCredentials")
+    def caller_iam_credentials(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs']]:
+        """
+        Caller IAM credentials-based authentication configuration. See `caller_iam_credentials` below.
+        """
+        return pulumi.get(self, "caller_iam_credentials")
+
+    @caller_iam_credentials.setter
+    def caller_iam_credentials(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs']]):
+        pulumi.set(self, "caller_iam_credentials", value)
+
+    @_builtins.property
     @pulumi.getter(name="gatewayIamRole")
     def gateway_iam_role(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs']]:
         """
-        Use the gateway's IAM role for authentication. This is an empty configuration block.
+        Use the gateway's IAM role for authentication. See `gateway_iam_role` below.
         """
         return pulumi.get(self, "gateway_iam_role")
 
     @gateway_iam_role.setter
     def gateway_iam_role(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs']]):
         pulumi.set(self, "gateway_iam_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jwtPassthrough")
+    def jwt_passthrough(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs']]:
+        """
+        JWT passthrough-based authentication configuration. This is an empty configuration block.
+        """
+        return pulumi.get(self, "jwt_passthrough")
+
+    @jwt_passthrough.setter
+    def jwt_passthrough(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs']]):
+        pulumi.set(self, "jwt_passthrough", value)
 
     @_builtins.property
     @pulumi.getter
@@ -12913,11 +13134,108 @@ class AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs:
         pulumi.set(self, "credential_prefix", value)
 
 
+class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgsDict(TypedDict):
+    service: pulumi.Input[_builtins.str]
+    """
+    The service name for the credentials.
+    """
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The AWS region for the credentials.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs:
+    def __init__(__self__, *,
+                 service: pulumi.Input[_builtins.str],
+                 region: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] service: The service name for the credentials.
+        :param pulumi.Input[_builtins.str] region: The AWS region for the credentials.
+        """
+        pulumi.set(__self__, "service", service)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[_builtins.str]:
+        """
+        The service name for the credentials.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The AWS region for the credentials.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
+
 class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgsDict(TypedDict):
-    pass
+    region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `service` is set.
+    """
+    service: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gateway_iam_role {}`).
+    """
 
 @pulumi.input_type
 class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[Optional[_builtins.str]] = None,
+                 service: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] region: AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `service` is set.
+        :param pulumi.Input[_builtins.str] service: The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gateway_iam_role {}`).
+        """
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `service` is set.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gateway_iam_role {}`).
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service", value)
+
+
+class AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgsDict(TypedDict):
+    pass
+
+@pulumi.input_type
+class AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthroughArgs:
     def __init__(__self__):
         pass
 
@@ -13104,7 +13422,214 @@ class AgentcoreGatewayTargetMetadataConfigurationArgs:
         pulumi.set(self, "allowed_response_headers", value)
 
 
+class AgentcoreGatewayTargetPrivateEndpointArgsDict(TypedDict):
+    managed_vpc_resource: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgsDict']]]
+    """
+    AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managed_vpc_resource` below.
+    """
+    self_managed_lattice_resource: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgsDict']]]
+    """
+    Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `self_managed_lattice_resource` below.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetPrivateEndpointArgs:
+    def __init__(__self__, *,
+                 managed_vpc_resource: pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs']] = None,
+                 self_managed_lattice_resource: pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs'] managed_vpc_resource: AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managed_vpc_resource` below.
+        :param pulumi.Input['AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs'] self_managed_lattice_resource: Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `self_managed_lattice_resource` below.
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs']]:
+        """
+        AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managed_vpc_resource` below.
+        """
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @managed_vpc_resource.setter
+    def managed_vpc_resource(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs']]):
+        pulumi.set(self, "managed_vpc_resource", value)
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs']]:
+        """
+        Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `self_managed_lattice_resource` below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+    @self_managed_lattice_resource.setter
+    def self_managed_lattice_resource(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs']]):
+        pulumi.set(self, "self_managed_lattice_resource", value)
+
+
+class AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgsDict(TypedDict):
+    endpoint_ip_address_type: pulumi.Input[_builtins.str]
+    """
+    IP address type for the resource configuration endpoint. Valid values: `IPV4`, `IPV6`.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Set of subnet IDs inside the VPC where Lattice ENIs are placed.
+    """
+    vpc_identifier: pulumi.Input[_builtins.str]
+    """
+    ID of the VPC that contains the private resource.
+    """
+    routing_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Intermediate domain (e.g. a VPCE or ALB DNS name) to use instead of the actual target domain. Useful when the MCP server uses a private TLS certificate — place an ALB with a public ACM cert in front and set this to the ALB DNS name.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Set of security group IDs (up to 5) to associate with the Lattice resource gateway. Defaults to the VPC default security group.
+    """
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Map of tags to apply to the managed Lattice resource gateway.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs:
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: pulumi.Input[_builtins.str],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 vpc_identifier: pulumi.Input[_builtins.str],
+                 routing_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] endpoint_ip_address_type: IP address type for the resource configuration endpoint. Valid values: `IPV4`, `IPV6`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Set of subnet IDs inside the VPC where Lattice ENIs are placed.
+        :param pulumi.Input[_builtins.str] vpc_identifier: ID of the VPC that contains the private resource.
+        :param pulumi.Input[_builtins.str] routing_domain: Intermediate domain (e.g. a VPCE or ALB DNS name) to use instead of the actual target domain. Useful when the MCP server uses a private TLS certificate — place an ALB with a public ACM cert in front and set this to the ALB DNS name.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of security group IDs (up to 5) to associate with the Lattice resource gateway. Defaults to the VPC default security group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to apply to the managed Lattice resource gateway.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        IP address type for the resource configuration endpoint. Valid values: `IPV4`, `IPV6`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @endpoint_ip_address_type.setter
+    def endpoint_ip_address_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "endpoint_ip_address_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Set of subnet IDs inside the VPC where Lattice ENIs are placed.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the VPC that contains the private resource.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @vpc_identifier.setter
+    def vpc_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vpc_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Intermediate domain (e.g. a VPCE or ALB DNS name) to use instead of the actual target domain. Useful when the MCP server uses a private TLS certificate — place an ALB with a public ACM cert in front and set this to the ALB DNS name.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @routing_domain.setter
+    def routing_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "routing_domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of security group IDs (up to 5) to associate with the Lattice resource gateway. Defaults to the VPC default security group.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags to apply to the managed Lattice resource gateway.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+class AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgsDict(TypedDict):
+    resource_configuration_identifier: pulumi.Input[_builtins.str]
+    """
+    ARN or ID of the VPC Lattice resource configuration.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs:
+    def __init__(__self__, *,
+                 resource_configuration_identifier: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] resource_configuration_identifier: ARN or ID of the VPC Lattice resource configuration.
+        """
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN or ID of the VPC Lattice resource configuration.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
+
+    @resource_configuration_identifier.setter
+    def resource_configuration_identifier(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_configuration_identifier", value)
+
+
 class AgentcoreGatewayTargetTargetConfigurationArgsDict(TypedDict):
+    http: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpArgsDict']]]
+    """
+    HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+    """
     mcp: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpArgsDict']]]
     """
     Model Context Protocol (MCP) configuration. See `mcp` below.
@@ -13113,12 +13638,28 @@ class AgentcoreGatewayTargetTargetConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class AgentcoreGatewayTargetTargetConfigurationArgs:
     def __init__(__self__, *,
+                 http: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpArgs']] = None,
                  mcp: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpArgs']] = None):
         """
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpArgs'] http: HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpArgs'] mcp: Model Context Protocol (MCP) configuration. See `mcp` below.
         """
+        if http is not None:
+            pulumi.set(__self__, "http", http)
         if mcp is not None:
             pulumi.set(__self__, "mcp", mcp)
+
+    @_builtins.property
+    @pulumi.getter
+    def http(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpArgs']]:
+        """
+        HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+        """
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpArgs']]):
+        pulumi.set(self, "http", value)
 
     @_builtins.property
     @pulumi.getter
@@ -13131,6 +13672,89 @@ class AgentcoreGatewayTargetTargetConfigurationArgs:
     @mcp.setter
     def mcp(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationMcpArgs']]):
         pulumi.set(self, "mcp", value)
+
+
+class AgentcoreGatewayTargetTargetConfigurationHttpArgsDict(TypedDict):
+    agentcore_runtime: NotRequired[pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgsDict']]]
+    """
+    AgentCore Runtime target configuration. See `agentcore_runtime` below.
+
+    > **Note:** HTTP targets can only be attached to gateways that do not have a `protocol_type` set. They are not supported on MCP-protocol gateways.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationHttpArgs:
+    def __init__(__self__, *,
+                 agentcore_runtime: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs'] agentcore_runtime: AgentCore Runtime target configuration. See `agentcore_runtime` below.
+               
+               > **Note:** HTTP targets can only be attached to gateways that do not have a `protocol_type` set. They are not supported on MCP-protocol gateways.
+        """
+        if agentcore_runtime is not None:
+            pulumi.set(__self__, "agentcore_runtime", agentcore_runtime)
+
+    @_builtins.property
+    @pulumi.getter(name="agentcoreRuntime")
+    def agentcore_runtime(self) -> pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs']]:
+        """
+        AgentCore Runtime target configuration. See `agentcore_runtime` below.
+
+        > **Note:** HTTP targets can only be attached to gateways that do not have a `protocol_type` set. They are not supported on MCP-protocol gateways.
+        """
+        return pulumi.get(self, "agentcore_runtime")
+
+    @agentcore_runtime.setter
+    def agentcore_runtime(self, value: pulumi.Input[Optional['AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs']]):
+        pulumi.set(self, "agentcore_runtime", value)
+
+
+class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the AgentCore Runtime agent that the gateway routes requests to.
+    """
+    qualifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Runtime qualifier identifying a specific endpoint version. Defaults to `DEFAULT` when not set.
+    """
+
+@pulumi.input_type
+class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs:
+    def __init__(__self__, *,
+                 arn: pulumi.Input[_builtins.str],
+                 qualifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] arn: ARN of the AgentCore Runtime agent that the gateway routes requests to.
+        :param pulumi.Input[_builtins.str] qualifier: Runtime qualifier identifying a specific endpoint version. Defaults to `DEFAULT` when not set.
+        """
+        pulumi.set(__self__, "arn", arn)
+        if qualifier is not None:
+            pulumi.set(__self__, "qualifier", qualifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the AgentCore Runtime agent that the gateway routes requests to.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def qualifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Runtime qualifier identifying a specific endpoint version. Defaults to `DEFAULT` when not set.
+        """
+        return pulumi.get(self, "qualifier")
+
+    @qualifier.setter
+    def qualifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "qualifier", value)
 
 
 class AgentcoreGatewayTargetTargetConfigurationMcpArgsDict(TypedDict):
@@ -15581,15 +16205,23 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgsDict(TypedDict):
     """
     Endpoint for the MCP server target configuration.
     """
+    listing_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
+    """
 
 @pulumi.input_type
 class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs:
     def __init__(__self__, *,
-                 endpoint: pulumi.Input[_builtins.str]):
+                 endpoint: pulumi.Input[_builtins.str],
+                 listing_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] endpoint: Endpoint for the MCP server target configuration.
+        :param pulumi.Input[_builtins.str] listing_mode: Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
         """
         pulumi.set(__self__, "endpoint", endpoint)
+        if listing_mode is not None:
+            pulumi.set(__self__, "listing_mode", listing_mode)
 
     @_builtins.property
     @pulumi.getter
@@ -15602,6 +16234,18 @@ class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs:
     @endpoint.setter
     def endpoint(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="listingMode")
+    def listing_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
+        """
+        return pulumi.get(self, "listing_mode")
+
+    @listing_mode.setter
+    def listing_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "listing_mode", value)
 
 
 class AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgsDict(TypedDict):
@@ -18268,6 +18912,53 @@ class AgentcoreHarnessTruncationConfigSummarizationArgs:
         pulumi.set(self, "summary_ratio", value)
 
 
+class AgentcoreMemoryIndexedKeyArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Metadata key name to index.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Data type of the indexed key. Valid values are `STRING`, `STRINGLIST`, and `NUMBER`.
+    """
+
+@pulumi.input_type
+class AgentcoreMemoryIndexedKeyArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] key: Metadata key name to index.
+        :param pulumi.Input[_builtins.str] type: Data type of the indexed key. Valid values are `STRING`, `STRINGLIST`, and `NUMBER`.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        Metadata key name to index.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Data type of the indexed key. Valid values are `STRING`, `STRINGLIST`, and `NUMBER`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+
 class AgentcoreMemoryStrategyConfigurationArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
@@ -18497,6 +19188,160 @@ class AgentcoreMemoryStrategyTimeoutsArgs:
     @update.setter
     def update(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "update", value)
+
+
+class AgentcoreMemoryStreamDeliveryResourcesArgsDict(TypedDict):
+    resource: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesResourceArgsDict']]]
+    """
+    List of stream delivery resource configurations. See `resource` below.
+    """
+
+@pulumi.input_type
+class AgentcoreMemoryStreamDeliveryResourcesArgs:
+    def __init__(__self__, *,
+                 resource: pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesResourceArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreMemoryStreamDeliveryResourcesResourceArgs'] resource: List of stream delivery resource configurations. See `resource` below.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @_builtins.property
+    @pulumi.getter
+    def resource(self) -> pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesResourceArgs']]:
+        """
+        List of stream delivery resource configurations. See `resource` below.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesResourceArgs']]):
+        pulumi.set(self, "resource", value)
+
+
+class AgentcoreMemoryStreamDeliveryResourcesResourceArgsDict(TypedDict):
+    kinesis: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgsDict']]]
+    """
+    Kinesis Data Stream configuration. See `kinesis` below.
+    """
+
+@pulumi.input_type
+class AgentcoreMemoryStreamDeliveryResourcesResourceArgs:
+    def __init__(__self__, *,
+                 kinesis: pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs'] kinesis: Kinesis Data Stream configuration. See `kinesis` below.
+        """
+        if kinesis is not None:
+            pulumi.set(__self__, "kinesis", kinesis)
+
+    @_builtins.property
+    @pulumi.getter
+    def kinesis(self) -> pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs']]:
+        """
+        Kinesis Data Stream configuration. See `kinesis` below.
+        """
+        return pulumi.get(self, "kinesis")
+
+    @kinesis.setter
+    def kinesis(self, value: pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs']]):
+        pulumi.set(self, "kinesis", value)
+
+
+class AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgsDict(TypedDict):
+    data_stream_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Kinesis Data Stream.
+    """
+    content_configuration: NotRequired[pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgsDict']]]
+    """
+    Content configurations for stream delivery. See `content_configuration` below.
+    """
+
+@pulumi.input_type
+class AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs:
+    def __init__(__self__, *,
+                 data_stream_arn: pulumi.Input[_builtins.str],
+                 content_configuration: pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] data_stream_arn: ARN of the Kinesis Data Stream.
+        :param pulumi.Input['AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs'] content_configuration: Content configurations for stream delivery. See `content_configuration` below.
+        """
+        pulumi.set(__self__, "data_stream_arn", data_stream_arn)
+        if content_configuration is not None:
+            pulumi.set(__self__, "content_configuration", content_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="dataStreamArn")
+    def data_stream_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Kinesis Data Stream.
+        """
+        return pulumi.get(self, "data_stream_arn")
+
+    @data_stream_arn.setter
+    def data_stream_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_stream_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentConfiguration")
+    def content_configuration(self) -> pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs']]:
+        """
+        Content configurations for stream delivery. See `content_configuration` below.
+        """
+        return pulumi.get(self, "content_configuration")
+
+    @content_configuration.setter
+    def content_configuration(self, value: pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs']]):
+        pulumi.set(self, "content_configuration", value)
+
+
+class AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of content to stream. Valid value is `MEMORY_RECORDS`.
+    """
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Level of detail for streamed content. Valid values are `METADATA_ONLY` and `FULL_CONTENT`. Defaults to `METADATA_ONLY`.
+    """
+
+@pulumi.input_type
+class AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 level: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Type of content to stream. Valid value is `MEMORY_RECORDS`.
+        :param pulumi.Input[_builtins.str] level: Level of detail for streamed content. Valid values are `METADATA_ONLY` and `FULL_CONTENT`. Defaults to `METADATA_ONLY`.
+        """
+        pulumi.set(__self__, "type", type)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of content to stream. Valid value is `MEMORY_RECORDS`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Level of detail for streamed content. Valid values are `METADATA_ONLY` and `FULL_CONTENT`. Defaults to `METADATA_ONLY`.
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
 
 
 class AgentcoreMemoryTimeoutsArgsDict(TypedDict):
@@ -20675,6 +21520,62 @@ class AgentcoreOnlineEvaluationConfigTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
+class AgentcorePolicyDefinitionArgsDict(TypedDict):
+    cedar: pulumi.Input['AgentcorePolicyDefinitionCedarArgsDict']
+    """
+    Inline Cedar policy. See `cedar` Block for details.
+    """
+
+@pulumi.input_type
+class AgentcorePolicyDefinitionArgs:
+    def __init__(__self__, *,
+                 cedar: pulumi.Input['AgentcorePolicyDefinitionCedarArgs']):
+        """
+        :param pulumi.Input['AgentcorePolicyDefinitionCedarArgs'] cedar: Inline Cedar policy. See `cedar` Block for details.
+        """
+        pulumi.set(__self__, "cedar", cedar)
+
+    @_builtins.property
+    @pulumi.getter
+    def cedar(self) -> pulumi.Input['AgentcorePolicyDefinitionCedarArgs']:
+        """
+        Inline Cedar policy. See `cedar` Block for details.
+        """
+        return pulumi.get(self, "cedar")
+
+    @cedar.setter
+    def cedar(self, value: pulumi.Input['AgentcorePolicyDefinitionCedarArgs']):
+        pulumi.set(self, "cedar", value)
+
+
+class AgentcorePolicyDefinitionCedarArgsDict(TypedDict):
+    statement: pulumi.Input[_builtins.str]
+    """
+    Cedar policy statement.
+    """
+
+@pulumi.input_type
+class AgentcorePolicyDefinitionCedarArgs:
+    def __init__(__self__, *,
+                 statement: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] statement: Cedar policy statement.
+        """
+        pulumi.set(__self__, "statement", statement)
+
+    @_builtins.property
+    @pulumi.getter
+    def statement(self) -> pulumi.Input[_builtins.str]:
+        """
+        Cedar policy statement.
+        """
+        return pulumi.get(self, "statement")
+
+    @statement.setter
+    def statement(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "statement", value)
+
+
 class AgentcorePolicyEngineTimeoutsArgsDict(TypedDict):
     create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20691,6 +21592,75 @@ class AgentcorePolicyEngineTimeoutsArgsDict(TypedDict):
 
 @pulumi.input_type
 class AgentcorePolicyEngineTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+class AgentcorePolicyTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class AgentcorePolicyTimeoutsArgs:
     def __init__(__self__, *,
                  create: pulumi.Input[Optional[_builtins.str]] = None,
                  delete: pulumi.Input[Optional[_builtins.str]] = None,

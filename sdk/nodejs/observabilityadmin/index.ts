@@ -10,6 +10,11 @@ export type CentralizationRuleForOrganization = import("./centralizationRuleForO
 export const CentralizationRuleForOrganization: typeof import("./centralizationRuleForOrganization").CentralizationRuleForOrganization = null as any;
 utilities.lazyLoad(exports, ["CentralizationRuleForOrganization"], () => require("./centralizationRuleForOrganization"));
 
+export { S3TableIntegrationArgs, S3TableIntegrationState } from "./s3tableIntegration";
+export type S3TableIntegration = import("./s3tableIntegration").S3TableIntegration;
+export const S3TableIntegration: typeof import("./s3tableIntegration").S3TableIntegration = null as any;
+utilities.lazyLoad(exports, ["S3TableIntegration"], () => require("./s3tableIntegration"));
+
 export { TelemetryEnrichmentArgs, TelemetryEnrichmentState } from "./telemetryEnrichment";
 export type TelemetryEnrichment = import("./telemetryEnrichment").TelemetryEnrichment;
 export const TelemetryEnrichment: typeof import("./telemetryEnrichment").TelemetryEnrichment = null as any;
@@ -47,6 +52,8 @@ const _module = {
         switch (type) {
             case "aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization":
                 return new CentralizationRuleForOrganization(name, <any>undefined, { urn })
+            case "aws:observabilityadmin/s3TableIntegration:S3TableIntegration":
+                return new S3TableIntegration(name, <any>undefined, { urn })
             case "aws:observabilityadmin/telemetryEnrichment:TelemetryEnrichment":
                 return new TelemetryEnrichment(name, <any>undefined, { urn })
             case "aws:observabilityadmin/telemetryEvaluation:TelemetryEvaluation":
@@ -65,6 +72,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/centralizationRuleForOrganization", _module)
+pulumi.runtime.registerResourceModule("aws", "observabilityadmin/s3TableIntegration", _module)
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryEnrichment", _module)
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryEvaluation", _module)
 pulumi.runtime.registerResourceModule("aws", "observabilityadmin/telemetryEvaluationForOrganization", _module)

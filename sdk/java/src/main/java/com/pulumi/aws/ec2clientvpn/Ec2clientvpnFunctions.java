@@ -31,6 +31,7 @@ public final class Ec2clientvpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
      * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
+     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -109,6 +110,7 @@ public final class Ec2clientvpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
      * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
+     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -187,6 +189,7 @@ public final class Ec2clientvpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
      * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
+     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -265,6 +268,7 @@ public final class Ec2clientvpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
      * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
+     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -343,6 +347,7 @@ public final class Ec2clientvpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
      * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
+     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -421,6 +426,7 @@ public final class Ec2clientvpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
      * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
+     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -499,6 +505,7 @@ public final class Ec2clientvpnFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ec2clientvpn.Ec2clientvpnFunctions;
      * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointArgs;
+     * import com.pulumi.aws.ec2clientvpn.inputs.GetEndpointFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

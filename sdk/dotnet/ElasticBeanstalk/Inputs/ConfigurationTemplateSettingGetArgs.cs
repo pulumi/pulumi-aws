@@ -13,17 +13,26 @@ namespace Pulumi.Aws.ElasticBeanstalk.Inputs
     public sealed class ConfigurationTemplateSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique name for this Template.
+        /// Name of the configuration option
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Unique namespace identifying the option's associated AWS resource
+        /// </summary>
         [Input("namespace", required: true)]
         public Input<string> Namespace { get; set; } = null!;
 
+        /// <summary>
+        /// resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+        /// </summary>
         [Input("resource")]
         public Input<string>? Resource { get; set; }
 
+        /// <summary>
+        /// Value for the configuration option
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

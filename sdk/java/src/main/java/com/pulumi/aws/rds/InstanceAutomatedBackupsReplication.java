@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Encrypting the automated backup with KMS
+ * ### Encrypting the automated backup with KMS
  * 
  * <pre>
  * {@code
@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Example including a RDS DB instance
+ * ### Example including a RDS DB instance
  * 
  * <pre>
  * {@code

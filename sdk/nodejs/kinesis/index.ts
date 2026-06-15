@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccountSettingsArgs, AccountSettingsState } from "./accountSettings";
+export type AccountSettings = import("./accountSettings").AccountSettings;
+export const AccountSettings: typeof import("./accountSettings").AccountSettings = null as any;
+utilities.lazyLoad(exports, ["AccountSettings"], () => require("./accountSettings"));
+
 export { AnalyticsApplicationArgs, AnalyticsApplicationState } from "./analyticsApplication";
 export type AnalyticsApplication = import("./analyticsApplication").AnalyticsApplication;
 export const AnalyticsApplication: typeof import("./analyticsApplication").AnalyticsApplication = null as any;
@@ -56,6 +61,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:kinesis/accountSettings:AccountSettings":
+                return new AccountSettings(name, <any>undefined, { urn })
             case "aws:kinesis/analyticsApplication:AnalyticsApplication":
                 return new AnalyticsApplication(name, <any>undefined, { urn })
             case "aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream":
@@ -73,6 +80,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "kinesis/accountSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "kinesis/analyticsApplication", _module)
 pulumi.runtime.registerResourceModule("aws", "kinesis/firehoseDeliveryStream", _module)
 pulumi.runtime.registerResourceModule("aws", "kinesis/resourcePolicy", _module)

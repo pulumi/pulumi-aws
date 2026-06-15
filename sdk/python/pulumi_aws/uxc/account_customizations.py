@@ -323,7 +323,7 @@ class AccountCustomizations(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="visibleRegions")
-    def visible_regions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    def visible_regions(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
         Set of AWS region codes to display in the console. When omitted or empty, all regions are visible.
         """
@@ -331,7 +331,7 @@ class AccountCustomizations(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="visibleServices")
-    def visible_services(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    def visible_services(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
         Set of AWS service identifiers to display in the console. When omitted or empty, all services are visible.
         """

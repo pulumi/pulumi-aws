@@ -571,7 +571,7 @@ class Addon(pulumi.CustomResource):
             addon_name="vpc-cni")
         ```
 
-        ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
+        ### Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
 
         `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
 
@@ -586,7 +586,7 @@ class Addon(pulumi.CustomResource):
             resolve_conflicts_on_update="PRESERVE")
         ```
 
-        ## Example add-on usage with custom configuration_values
+        ### Example add-on usage with custom configuration_values
 
         Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
 
@@ -683,7 +683,7 @@ class Addon(pulumi.CustomResource):
             addon_name="vpc-cni")
         ```
 
-        ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
+        ### Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
 
         `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
 
@@ -698,7 +698,7 @@ class Addon(pulumi.CustomResource):
             resolve_conflicts_on_update="PRESERVE")
         ```
 
-        ## Example add-on usage with custom configuration_values
+        ### Example add-on usage with custom configuration_values
 
         Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
 

@@ -23,8 +23,6 @@ import (
 // ```sh
 // $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name
 // ```
-//
-// [1]: https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociateWebACL.html
 type WebAclAssociation struct {
 	pulumi.CustomResourceState
 

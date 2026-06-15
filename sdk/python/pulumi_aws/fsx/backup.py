@@ -264,7 +264,9 @@ class Backup(pulumi.CustomResource):
         """
         Provides a FSx Backup resource.
 
-        ## Lustre Example
+        ## Example Usage
+
+        ### Lustre Example
 
         ```python
         import pulumi
@@ -278,7 +280,7 @@ class Backup(pulumi.CustomResource):
         example = aws.fsx.Backup("example", file_system_id=example_lustre_file_system.id)
         ```
 
-        ## Windows Example
+        ### Windows Example
 
         ```python
         import pulumi
@@ -293,7 +295,7 @@ class Backup(pulumi.CustomResource):
         example = aws.fsx.Backup("example", file_system_id=example_windows_file_system.id)
         ```
 
-        ## ONTAP Example
+        ### ONTAP Example
 
         ```python
         import pulumi
@@ -308,7 +310,7 @@ class Backup(pulumi.CustomResource):
         example = aws.fsx.Backup("example", volume_id=example_ontap_volume.id)
         ```
 
-        ## OpenZFS Example
+        ### OpenZFS Example
 
         ```python
         import pulumi
@@ -349,7 +351,9 @@ class Backup(pulumi.CustomResource):
         """
         Provides a FSx Backup resource.
 
-        ## Lustre Example
+        ## Example Usage
+
+        ### Lustre Example
 
         ```python
         import pulumi
@@ -363,7 +367,7 @@ class Backup(pulumi.CustomResource):
         example = aws.fsx.Backup("example", file_system_id=example_lustre_file_system.id)
         ```
 
-        ## Windows Example
+        ### Windows Example
 
         ```python
         import pulumi
@@ -378,7 +382,7 @@ class Backup(pulumi.CustomResource):
         example = aws.fsx.Backup("example", file_system_id=example_windows_file_system.id)
         ```
 
-        ## ONTAP Example
+        ### ONTAP Example
 
         ```python
         import pulumi
@@ -393,7 +397,7 @@ class Backup(pulumi.CustomResource):
         example = aws.fsx.Backup("example", volume_id=example_ontap_volume.id)
         ```
 
-        ## OpenZFS Example
+        ### OpenZFS Example
 
         ```python
         import pulumi

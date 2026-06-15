@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssoadmin.PermissionSetArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
  * import com.pulumi.aws.ssoadmin.PermissionSetInlinePolicy;
  * import com.pulumi.aws.ssoadmin.PermissionSetInlinePolicyArgs;
  * import java.util.ArrayList;

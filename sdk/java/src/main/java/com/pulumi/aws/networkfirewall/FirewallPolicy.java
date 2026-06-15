@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.FirewallPolicy;
  * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
  * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -80,7 +81,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Policy with a HOME_NET Override
+ * ### Policy with a HOME_NET Override
  * 
  * <pre>
  * {@code
@@ -93,6 +94,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
  * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
  * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyPolicyVariablesArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyPolicyVariablesRuleVariableIpSetArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -137,7 +141,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Policy with a Custom Action for Stateless Inspection
+ * ### Policy with a Custom Action for Stateless Inspection
  * 
  * <pre>
  * {@code
@@ -149,6 +153,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.FirewallPolicy;
  * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
  * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessCustomActionArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionDimensionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -187,7 +195,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Policy with Active Threat Defense in Action Order
+ * ### Policy with Active Threat Defense in Action Order
  * 
  * <pre>
  * {@code
@@ -202,6 +210,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.FirewallPolicy;
  * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
  * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -238,7 +247,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Policy with Active Threat Defense in Strict Order
+ * ### Policy with Active Threat Defense in Strict Order
  * 
  * <pre>
  * {@code
@@ -254,6 +263,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.FirewallPolicyArgs;
  * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyArgs;
  * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs;
+ * import com.pulumi.aws.networkfirewall.inputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -380,9 +380,6 @@ class ConnectorProfile(pulumi.CustomResource):
         $ pulumi import aws:appflow/connectorProfile:ConnectorProfile example example-profile
         ```
 
-        [1]: https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html
-        [2]: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -480,9 +477,6 @@ class ConnectorProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appflow/connectorProfile:ConnectorProfile example example-profile
         ```
-
-        [1]: https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html
-        [2]: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
 
 
         :param str resource_name: The name of the resource.

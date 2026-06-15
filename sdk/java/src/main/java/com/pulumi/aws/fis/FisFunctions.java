@@ -66,6 +66,7 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -157,6 +158,7 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -248,6 +250,7 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -339,6 +342,7 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -430,6 +434,7 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -521,6 +526,7 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -612,6 +618,7 @@ public final class FisFunctions {
      * import com.pulumi.aws.fis.inputs.GetExperimentTemplatesArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

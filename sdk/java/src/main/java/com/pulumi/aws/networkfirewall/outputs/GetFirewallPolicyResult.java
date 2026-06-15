@@ -22,7 +22,7 @@ public final class GetFirewallPolicyResult {
      */
     private String description;
     /**
-     * @return The [policy][2] for the specified firewall policy.
+     * @return The policy for the specified firewall policy.
      * 
      */
     private List<GetFirewallPolicyFirewallPolicy> firewallPolicies;
@@ -56,7 +56,7 @@ public final class GetFirewallPolicyResult {
         return this.description;
     }
     /**
-     * @return The [policy][2] for the specified firewall policy.
+     * @return The policy for the specified firewall policy.
      * 
      */
     public List<GetFirewallPolicyFirewallPolicy> firewallPolicies() {

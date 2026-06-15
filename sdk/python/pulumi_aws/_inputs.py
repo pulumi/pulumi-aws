@@ -1004,6 +1004,10 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    interconnect: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
     internetmonitor: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
@@ -1794,6 +1798,7 @@ class ProviderEndpointArgs:
                  inspector: pulumi.Input[Optional[_builtins.str]] = None,
                  inspector2: pulumi.Input[Optional[_builtins.str]] = None,
                  inspectorv2: pulumi.Input[Optional[_builtins.str]] = None,
+                 interconnect: pulumi.Input[Optional[_builtins.str]] = None,
                  internetmonitor: pulumi.Input[Optional[_builtins.str]] = None,
                  invoicing: pulumi.Input[Optional[_builtins.str]] = None,
                  iot: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2107,6 +2112,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] inspector: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] inspector2: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] inspectorv2: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] interconnect: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] internetmonitor: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] invoicing: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] iot: Use this to override the default service endpoint URL
@@ -2574,6 +2580,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "inspector2", inspector2)
         if inspectorv2 is not None:
             pulumi.set(__self__, "inspectorv2", inspectorv2)
+        if interconnect is not None:
+            pulumi.set(__self__, "interconnect", interconnect)
         if internetmonitor is not None:
             pulumi.set(__self__, "internetmonitor", internetmonitor)
         if invoicing is not None:
@@ -4741,6 +4749,18 @@ class ProviderEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
+    def interconnect(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "interconnect")
+
+    @interconnect.setter
+    def interconnect(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "interconnect", value)
+
+    @_builtins.property
+    @pulumi.getter
     def internetmonitor(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use this to override the default service endpoint URL
@@ -6782,7 +6802,7 @@ class GetAvailabilityZonesFilterArgs:
 class GetRegionsFilterArgsDict(TypedDict):
     name: _builtins.str
     """
-    Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+    Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-regions.html).
     """
     values: Sequence[_builtins.str]
     """
@@ -6795,7 +6815,7 @@ class GetRegionsFilterArgs:
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+        :param _builtins.str name: Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-regions.html).
         :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -6805,7 +6825,7 @@ class GetRegionsFilterArgs:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+        Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-regions.html).
         """
         return pulumi.get(self, "name")
 

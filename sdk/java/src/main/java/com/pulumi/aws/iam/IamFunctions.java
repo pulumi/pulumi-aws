@@ -2497,6 +2497,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import com.pulumi.aws.iam.Policy;
      * import com.pulumi.aws.iam.PolicyArgs;
      * import java.util.ArrayList;
@@ -2565,6 +2567,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2625,6 +2629,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2675,6 +2681,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2730,6 +2737,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2787,6 +2795,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2841,6 +2850,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2904,6 +2914,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2992,6 +3003,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import com.pulumi.aws.iam.Policy;
      * import com.pulumi.aws.iam.PolicyArgs;
      * import java.util.ArrayList;
@@ -3060,6 +3073,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3120,6 +3135,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3170,6 +3187,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3225,6 +3243,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3282,6 +3301,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3336,6 +3356,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3399,6 +3420,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3487,6 +3509,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import com.pulumi.aws.iam.Policy;
      * import com.pulumi.aws.iam.PolicyArgs;
      * import java.util.ArrayList;
@@ -3555,6 +3579,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3615,6 +3641,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3665,6 +3693,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3720,6 +3749,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3777,6 +3807,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3831,6 +3862,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3894,6 +3926,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3982,6 +4015,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import com.pulumi.aws.iam.Policy;
      * import com.pulumi.aws.iam.PolicyArgs;
      * import java.util.ArrayList;
@@ -4050,6 +4085,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4110,6 +4147,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4160,6 +4199,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4215,6 +4255,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4272,6 +4313,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4326,6 +4368,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4389,6 +4432,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4477,6 +4521,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import com.pulumi.aws.iam.Policy;
      * import com.pulumi.aws.iam.PolicyArgs;
      * import java.util.ArrayList;
@@ -4545,6 +4591,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4605,6 +4653,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4655,6 +4705,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4710,6 +4761,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4767,6 +4819,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4821,6 +4874,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4884,6 +4938,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4972,6 +5027,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import com.pulumi.aws.iam.Policy;
      * import com.pulumi.aws.iam.PolicyArgs;
      * import java.util.ArrayList;
@@ -5040,6 +5097,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5100,6 +5159,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5150,6 +5211,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5205,6 +5267,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5262,6 +5325,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5316,6 +5380,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5379,6 +5444,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5467,6 +5533,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import com.pulumi.aws.iam.Policy;
      * import com.pulumi.aws.iam.PolicyArgs;
      * import java.util.ArrayList;
@@ -5535,6 +5603,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5595,6 +5665,8 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5645,6 +5717,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5700,6 +5773,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5757,6 +5831,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5811,6 +5886,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5874,6 +5950,7 @@ public final class IamFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

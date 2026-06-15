@@ -188,6 +188,21 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A list of EC2 placement group IDs associated with the ODB network.
+     * 
+     */
+    @Import(name="ec2PlacementGroupIds")
+    private @Nullable Output<List<String>> ec2PlacementGroupIds;
+
+    /**
+     * @return A list of EC2 placement group IDs associated with the ODB network.
+     * 
+     */
+    public Optional<Output<List<String>>> ec2PlacementGroupIds() {
+        return Optional.ofNullable(this.ec2PlacementGroupIds);
+    }
+
+    /**
      * Specifies the configuration for KMS access from the ODB network.
      * 
      */
@@ -519,6 +534,7 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         this.defaultDnsPrefix = $.defaultDnsPrefix;
         this.deleteAssociatedResources = $.deleteAssociatedResources;
         this.displayName = $.displayName;
+        this.ec2PlacementGroupIds = $.ec2PlacementGroupIds;
         this.kmsAccess = $.kmsAccess;
         this.kmsPolicyDocument = $.kmsPolicyDocument;
         this.managedServices = $.managedServices;
@@ -800,6 +816,37 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
+        }
+
+        /**
+         * @param ec2PlacementGroupIds A list of EC2 placement group IDs associated with the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ec2PlacementGroupIds(@Nullable Output<List<String>> ec2PlacementGroupIds) {
+            $.ec2PlacementGroupIds = ec2PlacementGroupIds;
+            return this;
+        }
+
+        /**
+         * @param ec2PlacementGroupIds A list of EC2 placement group IDs associated with the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ec2PlacementGroupIds(List<String> ec2PlacementGroupIds) {
+            return ec2PlacementGroupIds(Output.of(ec2PlacementGroupIds));
+        }
+
+        /**
+         * @param ec2PlacementGroupIds A list of EC2 placement group IDs associated with the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ec2PlacementGroupIds(String... ec2PlacementGroupIds) {
+            return ec2PlacementGroupIds(List.of(ec2PlacementGroupIds));
         }
 
         /**

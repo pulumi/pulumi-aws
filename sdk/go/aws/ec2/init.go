@@ -89,6 +89,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LaunchTemplate{}
 	case "aws:ec2/localGatewayRoute:LocalGatewayRoute":
 		r = &LocalGatewayRoute{}
+	case "aws:ec2/localGatewayRouteTable:LocalGatewayRouteTable":
+		r = &LocalGatewayRouteTable{}
+	case "aws:ec2/localGatewayRouteTableVirtualInterfaceGroupAssociation:LocalGatewayRouteTableVirtualInterfaceGroupAssociation":
+		r = &LocalGatewayRouteTableVirtualInterfaceGroupAssociation{}
 	case "aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation":
 		r = &LocalGatewayRouteTableVpcAssociation{}
 	case "aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation":
@@ -420,6 +424,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/localGatewayRoute",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/localGatewayRouteTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/localGatewayRouteTableVirtualInterfaceGroupAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

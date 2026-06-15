@@ -91,6 +91,14 @@ export class Function extends pulumi.CustomResource {
      * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Function resource with the given unique name, arguments, and options.
@@ -115,6 +123,8 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["publish"] = state?.publish;
             resourceInputs["runtime"] = state?.runtime;
             resourceInputs["status"] = state?.status;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
             if (args?.code === undefined && !opts.urn) {
@@ -129,10 +139,12 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["publish"] = args?.publish;
             resourceInputs["runtime"] = args?.runtime;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["liveStageEtag"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Function.__pulumiType, name, resourceInputs, opts);
@@ -185,6 +197,14 @@ export interface FunctionState {
      * Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
      */
     status?: pulumi.Input<string | undefined>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 /**
@@ -217,4 +237,8 @@ export interface FunctionArgs {
      * The following arguments are optional:
      */
     runtime: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Required Services Example
+ * ### Required Services Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

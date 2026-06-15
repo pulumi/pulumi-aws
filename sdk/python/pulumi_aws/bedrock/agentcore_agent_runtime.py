@@ -678,6 +678,29 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             })
         ```
 
+        ### AG-UI Server
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreAgentRuntime("example",
+            agent_runtime_name="example_agui_runtime",
+            description="Agent runtime with AG-UI protocol",
+            role_arn=example_aws_iam_role["arn"],
+            agent_runtime_artifact={
+                "container_configuration": {
+                    "container_uri": f"{example_aws_ecr_repository['repositoryUrl']}:latest",
+                },
+            },
+            network_configuration={
+                "network_mode": "PUBLIC",
+            },
+            protocol_configuration={
+                "server_protocol": "AGUI",
+            })
+        ```
+
         ### Agent runtime artifact from S3 with Code Configuration
 
         ```python
@@ -831,6 +854,29 @@ class AgentcoreAgentRuntime(pulumi.CustomResource):
             },
             protocol_configuration={
                 "server_protocol": "MCP",
+            })
+        ```
+
+        ### AG-UI Server
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreAgentRuntime("example",
+            agent_runtime_name="example_agui_runtime",
+            description="Agent runtime with AG-UI protocol",
+            role_arn=example_aws_iam_role["arn"],
+            agent_runtime_artifact={
+                "container_configuration": {
+                    "container_uri": f"{example_aws_ecr_repository['repositoryUrl']}:latest",
+                },
+            },
+            network_configuration={
+                "network_mode": "PUBLIC",
+            },
+            protocol_configuration={
+                "server_protocol": "AGUI",
             })
         ```
 

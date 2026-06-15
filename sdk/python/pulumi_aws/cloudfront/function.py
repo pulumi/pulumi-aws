@@ -24,7 +24,8 @@ class FunctionArgs:
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  key_value_store_associations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 publish: pulumi.Input[Optional[_builtins.bool]] = None):
+                 publish: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Function resource.
 
@@ -36,6 +37,7 @@ class FunctionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "code", code)
         pulumi.set(__self__, "runtime", runtime)
@@ -47,6 +49,8 @@ class FunctionArgs:
             pulumi.set(__self__, "name", name)
         if publish is not None:
             pulumi.set(__self__, "publish", publish)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -122,6 +126,18 @@ class FunctionArgs:
     def publish(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "publish", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _FunctionState:
@@ -135,7 +151,9 @@ class _FunctionState:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  publish: pulumi.Input[Optional[_builtins.bool]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[_builtins.str]] = None):
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering Function resources.
 
@@ -151,6 +169,8 @@ class _FunctionState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] status: Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -172,6 +192,10 @@ class _FunctionState:
             pulumi.set(__self__, "runtime", runtime)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @_builtins.property
     @pulumi.getter
@@ -295,6 +319,30 @@ class _FunctionState:
     def status(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "status", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.type_token("aws:cloudfront/function:Function")
 class Function(pulumi.CustomResource):
@@ -308,6 +356,7 @@ class Function(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  publish: pulumi.Input[Optional[_builtins.bool]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides a CloudFront Function resource. With CloudFront Functions in Amazon CloudFront, you can write lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations.
@@ -337,6 +386,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] runtime: Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -383,6 +433,7 @@ class Function(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  publish: pulumi.Input[Optional[_builtins.bool]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -402,10 +453,12 @@ class Function(pulumi.CustomResource):
             if runtime is None and not opts.urn:
                 raise TypeError("Missing required property 'runtime'")
             __props__.__dict__["runtime"] = runtime
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["live_stage_etag"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["tags_all"] = None
         super(Function, __self__).__init__(
             'aws:cloudfront/function:Function',
             resource_name,
@@ -425,7 +478,9 @@ class Function(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             publish: pulumi.Input[Optional[_builtins.bool]] = None,
             runtime: pulumi.Input[Optional[_builtins.str]] = None,
-            status: pulumi.Input[Optional[_builtins.str]] = None) -> 'Function':
+            status: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Function':
         """
         Get an existing Function resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -445,6 +500,8 @@ class Function(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] status: Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -460,6 +517,8 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["publish"] = publish
         __props__.__dict__["runtime"] = runtime
         __props__.__dict__["status"] = status
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return Function(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -543,4 +602,20 @@ class Function(pulumi.CustomResource):
         Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        """
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 

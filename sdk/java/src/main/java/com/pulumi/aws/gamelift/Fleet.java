@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.gamelift.Fleet;
  * import com.pulumi.aws.gamelift.FleetArgs;
  * import com.pulumi.aws.gamelift.inputs.FleetRuntimeConfigurationArgs;
+ * import com.pulumi.aws.gamelift.inputs.FleetRuntimeConfigurationServerProcessArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

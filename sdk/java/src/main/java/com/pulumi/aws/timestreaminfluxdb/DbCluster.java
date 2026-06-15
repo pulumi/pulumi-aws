@@ -158,6 +158,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.timestreaminfluxdb.DbCluster;
@@ -269,9 +271,9 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Cluster Type Requirements
+ * ### Cluster Type Requirements
  * 
- * ### InfluxDB V2 Clusters (default)
+ * #### InfluxDB V2 Clusters (default)
  * 
  * The following arguments are **required** for InfluxDB V2 clusters:
  * 
@@ -284,7 +286,7 @@ import javax.annotation.Nullable;
  * 
  * The `deploymentType` argument defaults to `&#34;MULTI_NODE_READ_REPLICAS&#34;` for InfluxDB V2 clusters when not specified.
  * 
- * ### InfluxDB V3 Clusters (when using V3 parameter groups)
+ * #### InfluxDB V3 Clusters (when using V3 parameter groups)
  * 
  * The following arguments are **forbidden** for InfluxDB V3 clusters (when using an InfluxDB V3 db parameter group):
  * 

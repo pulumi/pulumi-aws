@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CertificateDomainValidationOption struct {
-	// Fully qualified domain name (FQDN) in the certificate.
+	// Domain to be validated
 	DomainName *string `pulumi:"domainName"`
 	// The name of the DNS record to create to validate the certificate
 	ResourceRecordName *string `pulumi:"resourceRecordName"`
@@ -36,7 +36,7 @@ type CertificateDomainValidationOptionInput interface {
 }
 
 type CertificateDomainValidationOptionArgs struct {
-	// Fully qualified domain name (FQDN) in the certificate.
+	// Domain to be validated
 	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
 	// The name of the DNS record to create to validate the certificate
 	ResourceRecordName pulumi.StringPtrInput `pulumi:"resourceRecordName"`
@@ -97,7 +97,7 @@ func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOp
 	return o
 }
 
-// Fully qualified domain name (FQDN) in the certificate.
+// Domain to be validated
 func (o CertificateDomainValidationOptionOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }

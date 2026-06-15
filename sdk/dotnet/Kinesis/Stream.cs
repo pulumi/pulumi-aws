@@ -50,21 +50,28 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Kinesis Streams using the `Name`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the stream.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Kinesis Streams using `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
+    /// $ pulumi import aws:kinesis/stream:Stream example example-stream
     /// ```
-    /// 
-    /// [1]: https://aws.amazon.com/documentation/kinesis/
-    /// [2]: https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html
-    /// [3]: https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
     /// </summary>
     [AwsResourceType("aws:kinesis/stream:Stream")]
     public partial class Stream : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the Stream (same as `Id`)
+        /// The Amazon Resource Name (ARN) specifying the stream (same as `Id`).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -112,8 +119,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<int?> RetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required.
-        /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        /// The number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Output("shardCount")]
         public Output<int?> ShardCount { get; private set; } = null!;
@@ -141,6 +147,12 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        /// <summary>
+        /// Target warm throughput in MB/s that the stream should be scaled to handle.
+        /// </summary>
+        [Output("warmThroughputMibPs")]
+        public Output<int?> WarmThroughputMibPs { get; private set; } = null!;
 
 
         /// <summary>
@@ -189,7 +201,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class StreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the Stream (same as `Id`)
+        /// The Amazon Resource Name (ARN) specifying the stream (same as `Id`).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -237,8 +249,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// The number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required.
-        /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        /// The number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Input("shardCount")]
         public Input<int>? ShardCount { get; set; }
@@ -273,6 +284,12 @@ namespace Pulumi.Aws.Kinesis
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Target warm throughput in MB/s that the stream should be scaled to handle.
+        /// </summary>
+        [Input("warmThroughputMibPs")]
+        public Input<int>? WarmThroughputMibPs { get; set; }
+
         public StreamArgs()
         {
         }
@@ -282,7 +299,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class StreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the Stream (same as `Id`)
+        /// The Amazon Resource Name (ARN) specifying the stream (same as `Id`).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -330,8 +347,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// The number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required.
-        /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+        /// The number of shards that the stream will use. If the `StreamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Input("shardCount")]
         public Input<int>? ShardCount { get; set; }
@@ -377,6 +393,12 @@ namespace Pulumi.Aws.Kinesis
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Target warm throughput in MB/s that the stream should be scaled to handle.
+        /// </summary>
+        [Input("warmThroughputMibPs")]
+        public Input<int>? WarmThroughputMibPs { get; set; }
 
         public StreamState()
         {

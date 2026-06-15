@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ses.DomainIdentityArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.ses.IdentityPolicy;
  * import com.pulumi.aws.ses.IdentityPolicyArgs;
  * import java.util.ArrayList;

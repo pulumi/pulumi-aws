@@ -16,17 +16,9 @@ public final class IndexingRuleRuleProbabilisticArgs extends com.pulumi.resource
 
     public static final IndexingRuleRuleProbabilisticArgs Empty = new IndexingRuleRuleProbabilisticArgs();
 
-    /**
-     * Applied sampling percentage of traceIds.
-     * 
-     */
     @Import(name="actualSamplingPercentage")
     private @Nullable Output<Double> actualSamplingPercentage;
 
-    /**
-     * @return Applied sampling percentage of traceIds.
-     * 
-     */
     public Optional<Output<Double>> actualSamplingPercentage() {
         return Optional.ofNullable(this.actualSamplingPercentage);
     }
@@ -71,23 +63,11 @@ public final class IndexingRuleRuleProbabilisticArgs extends com.pulumi.resource
             $ = new IndexingRuleRuleProbabilisticArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param actualSamplingPercentage Applied sampling percentage of traceIds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actualSamplingPercentage(@Nullable Output<Double> actualSamplingPercentage) {
             $.actualSamplingPercentage = actualSamplingPercentage;
             return this;
         }
 
-        /**
-         * @param actualSamplingPercentage Applied sampling percentage of traceIds.
-         * 
-         * @return builder
-         * 
-         */
         public Builder actualSamplingPercentage(Double actualSamplingPercentage) {
             return actualSamplingPercentage(Output.of(actualSamplingPercentage));
         }

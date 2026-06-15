@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Fis
     /// });
     /// ```
     /// 
-    /// ### With Report Configuration
+    /// ### Example Usage with Report Configuration
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

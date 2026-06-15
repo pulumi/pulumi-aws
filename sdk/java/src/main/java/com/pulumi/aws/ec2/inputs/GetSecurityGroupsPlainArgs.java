@@ -18,14 +18,14 @@ public final class GetSecurityGroupsPlainArgs extends com.pulumi.resources.Invok
     public static final GetSecurityGroupsPlainArgs Empty = new GetSecurityGroupsPlainArgs();
 
     /**
-     * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+     * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html).
      * 
      */
     @Import(name="filters")
     private @Nullable List<GetSecurityGroupsFilter> filters;
 
     /**
-     * @return One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+     * @return One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html).
      * 
      */
     public Optional<List<GetSecurityGroupsFilter>> filters() {
@@ -89,7 +89,7 @@ public final class GetSecurityGroupsPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param filters One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html).
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GetSecurityGroupsPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param filters One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+         * @param filters One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html).
          * 
          * @return builder
          * 

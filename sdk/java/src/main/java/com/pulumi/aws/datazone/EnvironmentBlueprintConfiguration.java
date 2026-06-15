@@ -74,6 +74,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `domainId` - (String) ID of the DataZone domain.
+ * * `environmentBlueprintId` - (String) ID of the environment blueprint.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import DataZone Environment Blueprint Configuration using the `domainId` and `environmentBlueprintId`, separated by a `/`. For example:
  * 
  * ```sh
@@ -128,6 +140,20 @@ public class EnvironmentBlueprintConfiguration extends com.pulumi.resources.Cust
      */
     public Output<String> environmentBlueprintId() {
         return this.environmentBlueprintId;
+    }
+    /**
+     * A map of global parameters to configure for the blueprint across all regions.
+     * 
+     */
+    @Export(name="globalParameters", refs={Map.class,String.class}, tree="[0,1,1]")
+    private Output</* @Nullable */ Map<String,String>> globalParameters;
+
+    /**
+     * @return A map of global parameters to configure for the blueprint across all regions.
+     * 
+     */
+    public Output<Optional<Map<String,String>>> globalParameters() {
+        return Codegen.optional(this.globalParameters);
     }
     /**
      * ARN of the manage access role with which this blueprint is created.

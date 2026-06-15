@@ -32,6 +32,8 @@ public final class LoadBalancerHealthCheck {
     /**
      * @return The length of time before the check times out.
      * 
+     * &gt; **Note:** If the ARN of the `sslCertificateId` references a certificate signed by an ECDSA key, ELB only supports the P256 and P384 curves. Using a certificate signed by a different curve could produce `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your browser.
+     * 
      */
     private Integer timeout;
     /**
@@ -67,6 +69,8 @@ public final class LoadBalancerHealthCheck {
     }
     /**
      * @return The length of time before the check times out.
+     * 
+     * &gt; **Note:** If the ARN of the `sslCertificateId` references a certificate signed by an ECDSA key, ELB only supports the P256 and P384 curves. Using a certificate signed by a different curve could produce `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your browser.
      * 
      */
     public Integer timeout() {

@@ -32,6 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.ecr.RepositoryCreationTemplate;
  * import com.pulumi.aws.ecr.RepositoryCreationTemplateArgs;
  * import com.pulumi.aws.ecr.inputs.RepositoryCreationTemplateEncryptionConfigurationArgs;

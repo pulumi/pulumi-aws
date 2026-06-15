@@ -3,10 +3,13 @@
 
 package com.pulumi.aws.observabilityadmin.inputs;
 
+import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleDestinationConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,18 +20,74 @@ public final class TelemetryRuleRuleArgs extends com.pulumi.resources.ResourceAr
     public static final TelemetryRuleRuleArgs Empty = new TelemetryRuleRuleArgs();
 
     /**
-     * AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+     * Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `regions`.
      * 
-     * &gt; **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+     */
+    @Import(name="allRegions")
+    private @Nullable Output<Boolean> allRegions;
+
+    /**
+     * @return Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `regions`.
+     * 
+     */
+    public Optional<Output<Boolean>> allRegions() {
+        return Optional.ofNullable(this.allRegions);
+    }
+
+    /**
+     * Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+     * 
+     */
+    @Import(name="allowFieldUpdates")
+    private @Nullable Output<Boolean> allowFieldUpdates;
+
+    /**
+     * @return Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+     * 
+     */
+    public Optional<Output<Boolean>> allowFieldUpdates() {
+        return Optional.ofNullable(this.allowFieldUpdates);
+    }
+
+    /**
+     * Configuration block specifying where and how the telemetry data is delivered. See `destinationConfiguration` below.
+     * 
+     */
+    @Import(name="destinationConfiguration")
+    private @Nullable Output<TelemetryRuleRuleDestinationConfigurationArgs> destinationConfiguration;
+
+    /**
+     * @return Configuration block specifying where and how the telemetry data is delivered. See `destinationConfiguration` below.
+     * 
+     */
+    public Optional<Output<TelemetryRuleRuleDestinationConfigurationArgs>> destinationConfiguration() {
+        return Optional.ofNullable(this.destinationConfiguration);
+    }
+
+    /**
+     * Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+     * 
+     */
+    @Import(name="regions")
+    private @Nullable Output<List<String>> regions;
+
+    /**
+     * @return Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+     * 
+     */
+    public Optional<Output<List<String>>> regions() {
+        return Optional.ofNullable(this.regions);
+    }
+
+    /**
+     * AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
      * 
      */
     @Import(name="resourceType")
     private @Nullable Output<String> resourceType;
 
     /**
-     * @return AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
-     * 
-     * &gt; **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+     * @return AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
      * 
      */
     public Optional<Output<String>> resourceType() {
@@ -36,14 +95,59 @@ public final class TelemetryRuleRuleArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+     * Organizational scope to which the rule applies, specified using accounts or organizational units.
+     * 
+     */
+    @Import(name="scope")
+    private @Nullable Output<String> scope;
+
+    /**
+     * @return Organizational scope to which the rule applies, specified using accounts or organizational units.
+     * 
+     */
+    public Optional<Output<String>> scope() {
+        return Optional.ofNullable(this.scope);
+    }
+
+    /**
+     * Criteria for selecting which resources the rule applies to, such as resource tags.
+     * 
+     */
+    @Import(name="selectionCriteria")
+    private @Nullable Output<String> selectionCriteria;
+
+    /**
+     * @return Criteria for selecting which resources the rule applies to, such as resource tags.
+     * 
+     */
+    public Optional<Output<String>> selectionCriteria() {
+        return Optional.ofNullable(this.selectionCriteria);
+    }
+
+    /**
+     * List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+     * 
+     */
+    @Import(name="telemetrySourceTypes")
+    private @Nullable Output<List<String>> telemetrySourceTypes;
+
+    /**
+     * @return List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+     * 
+     */
+    public Optional<Output<List<String>>> telemetrySourceTypes() {
+        return Optional.ofNullable(this.telemetrySourceTypes);
+    }
+
+    /**
+     * Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
      * 
      */
     @Import(name="telemetryType", required=true)
     private Output<String> telemetryType;
 
     /**
-     * @return Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+     * @return Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
      * 
      */
     public Output<String> telemetryType() {
@@ -53,7 +157,14 @@ public final class TelemetryRuleRuleArgs extends com.pulumi.resources.ResourceAr
     private TelemetryRuleRuleArgs() {}
 
     private TelemetryRuleRuleArgs(TelemetryRuleRuleArgs $) {
+        this.allRegions = $.allRegions;
+        this.allowFieldUpdates = $.allowFieldUpdates;
+        this.destinationConfiguration = $.destinationConfiguration;
+        this.regions = $.regions;
         this.resourceType = $.resourceType;
+        this.scope = $.scope;
+        this.selectionCriteria = $.selectionCriteria;
+        this.telemetrySourceTypes = $.telemetrySourceTypes;
         this.telemetryType = $.telemetryType;
     }
 
@@ -76,9 +187,101 @@ public final class TelemetryRuleRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceType AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+         * @param allRegions Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `regions`.
          * 
-         * &gt; **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+         * @return builder
+         * 
+         */
+        public Builder allRegions(@Nullable Output<Boolean> allRegions) {
+            $.allRegions = allRegions;
+            return this;
+        }
+
+        /**
+         * @param allRegions Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `regions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allRegions(Boolean allRegions) {
+            return allRegions(Output.of(allRegions));
+        }
+
+        /**
+         * @param allowFieldUpdates Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowFieldUpdates(@Nullable Output<Boolean> allowFieldUpdates) {
+            $.allowFieldUpdates = allowFieldUpdates;
+            return this;
+        }
+
+        /**
+         * @param allowFieldUpdates Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowFieldUpdates(Boolean allowFieldUpdates) {
+            return allowFieldUpdates(Output.of(allowFieldUpdates));
+        }
+
+        /**
+         * @param destinationConfiguration Configuration block specifying where and how the telemetry data is delivered. See `destinationConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationConfiguration(@Nullable Output<TelemetryRuleRuleDestinationConfigurationArgs> destinationConfiguration) {
+            $.destinationConfiguration = destinationConfiguration;
+            return this;
+        }
+
+        /**
+         * @param destinationConfiguration Configuration block specifying where and how the telemetry data is delivered. See `destinationConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationConfiguration(TelemetryRuleRuleDestinationConfigurationArgs destinationConfiguration) {
+            return destinationConfiguration(Output.of(destinationConfiguration));
+        }
+
+        /**
+         * @param regions Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regions(@Nullable Output<List<String>> regions) {
+            $.regions = regions;
+            return this;
+        }
+
+        /**
+         * @param regions Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regions(List<String> regions) {
+            return regions(Output.of(regions));
+        }
+
+        /**
+         * @param regions Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder regions(String... regions) {
+            return regions(List.of(regions));
+        }
+
+        /**
+         * @param resourceType AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
          * 
          * @return builder
          * 
@@ -89,9 +292,7 @@ public final class TelemetryRuleRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param resourceType AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
-         * 
-         * &gt; **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+         * @param resourceType AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
          * 
          * @return builder
          * 
@@ -101,7 +302,80 @@ public final class TelemetryRuleRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param telemetryType Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+         * @param scope Organizational scope to which the rule applies, specified using accounts or organizational units.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(@Nullable Output<String> scope) {
+            $.scope = scope;
+            return this;
+        }
+
+        /**
+         * @param scope Organizational scope to which the rule applies, specified using accounts or organizational units.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder scope(String scope) {
+            return scope(Output.of(scope));
+        }
+
+        /**
+         * @param selectionCriteria Criteria for selecting which resources the rule applies to, such as resource tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selectionCriteria(@Nullable Output<String> selectionCriteria) {
+            $.selectionCriteria = selectionCriteria;
+            return this;
+        }
+
+        /**
+         * @param selectionCriteria Criteria for selecting which resources the rule applies to, such as resource tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selectionCriteria(String selectionCriteria) {
+            return selectionCriteria(Output.of(selectionCriteria));
+        }
+
+        /**
+         * @param telemetrySourceTypes List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder telemetrySourceTypes(@Nullable Output<List<String>> telemetrySourceTypes) {
+            $.telemetrySourceTypes = telemetrySourceTypes;
+            return this;
+        }
+
+        /**
+         * @param telemetrySourceTypes List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder telemetrySourceTypes(List<String> telemetrySourceTypes) {
+            return telemetrySourceTypes(Output.of(telemetrySourceTypes));
+        }
+
+        /**
+         * @param telemetrySourceTypes List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder telemetrySourceTypes(String... telemetrySourceTypes) {
+            return telemetrySourceTypes(List.of(telemetrySourceTypes));
+        }
+
+        /**
+         * @param telemetryType Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
          * 
          * @return builder
          * 
@@ -112,7 +386,7 @@ public final class TelemetryRuleRuleArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param telemetryType Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+         * @param telemetryType Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
          * 
          * @return builder
          * 

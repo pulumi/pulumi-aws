@@ -129,7 +129,7 @@ import (
 //
 // ```
 //
-// ### JS
+// ### Example Usage JS
 //
 // ```go
 // package main

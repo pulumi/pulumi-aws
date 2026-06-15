@@ -191,9 +191,7 @@ def get_customer_gateway(filters: Optional[Sequence[Union['GetCustomerGatewayFil
     ```
 
 
-    :param Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']] filters: One or more [name-value pairs][dcg-filters] to filter by.
-           
-           [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
+    :param Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']] filters: One or more [name-value pairs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html) to filter by.
     :param _builtins.str id: ID of the gateway.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of key-value pairs assigned to the gateway.
@@ -247,9 +245,7 @@ def get_customer_gateway_output(filters: pulumi.Input[Optional[Optional[Sequence
     ```
 
 
-    :param Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']] filters: One or more [name-value pairs][dcg-filters] to filter by.
-           
-           [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
+    :param Sequence[Union['GetCustomerGatewayFilterArgs', 'GetCustomerGatewayFilterArgsDict']] filters: One or more [name-value pairs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html) to filter by.
     :param _builtins.str id: ID of the gateway.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of key-value pairs assigned to the gateway.

@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.backup.Framework;
  * import com.pulumi.aws.backup.FrameworkArgs;
  * import com.pulumi.aws.backup.inputs.FrameworkControlArgs;
+ * import com.pulumi.aws.backup.inputs.FrameworkControlInputParameterArgs;
  * import com.pulumi.aws.backup.inputs.FrameworkControlScopeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

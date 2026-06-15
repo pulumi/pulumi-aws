@@ -61,14 +61,14 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The [unique ID][1] assigned by AWS.
+     * The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      * 
      */
     @Import(name="uniqueId")
     private @Nullable Output<String> uniqueId;
 
     /**
-     * @return The [unique ID][1] assigned by AWS.
+     * @return The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      * 
      */
     public Optional<Output<String>> uniqueId() {
@@ -166,7 +166,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param uniqueId The [unique ID][1] assigned by AWS.
+         * @param uniqueId The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param uniqueId The [unique ID][1] assigned by AWS.
+         * @param uniqueId The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
          * 
          * @return builder
          * 

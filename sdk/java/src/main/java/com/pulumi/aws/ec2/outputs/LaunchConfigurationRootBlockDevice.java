@@ -13,29 +13,77 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LaunchConfigurationRootBlockDevice {
+    /**
+     * @return Whether the volume should be destroyed on instance termination. Defaults to `true`.
+     * 
+     */
     private @Nullable Boolean deleteOnTermination;
+    /**
+     * @return Whether the volume should be encrypted or not. Defaults to `false`.
+     * 
+     */
     private @Nullable Boolean encrypted;
+    /**
+     * @return The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volumeType` of `io1`.
+     * 
+     */
     private @Nullable Integer iops;
+    /**
+     * @return The throughput (MiBps) to provision for a `gp3` volume.
+     * 
+     */
     private @Nullable Integer throughput;
+    /**
+     * @return The size of the volume in gigabytes.
+     * 
+     */
     private @Nullable Integer volumeSize;
+    /**
+     * @return The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+     * 
+     */
     private @Nullable String volumeType;
 
     private LaunchConfigurationRootBlockDevice() {}
+    /**
+     * @return Whether the volume should be destroyed on instance termination. Defaults to `true`.
+     * 
+     */
     public Optional<Boolean> deleteOnTermination() {
         return Optional.ofNullable(this.deleteOnTermination);
     }
+    /**
+     * @return Whether the volume should be encrypted or not. Defaults to `false`.
+     * 
+     */
     public Optional<Boolean> encrypted() {
         return Optional.ofNullable(this.encrypted);
     }
+    /**
+     * @return The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volumeType` of `io1`.
+     * 
+     */
     public Optional<Integer> iops() {
         return Optional.ofNullable(this.iops);
     }
+    /**
+     * @return The throughput (MiBps) to provision for a `gp3` volume.
+     * 
+     */
     public Optional<Integer> throughput() {
         return Optional.ofNullable(this.throughput);
     }
+    /**
+     * @return The size of the volume in gigabytes.
+     * 
+     */
     public Optional<Integer> volumeSize() {
         return Optional.ofNullable(this.volumeSize);
     }
+    /**
+     * @return The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+     * 
+     */
     public Optional<String> volumeType() {
         return Optional.ofNullable(this.volumeType);
     }

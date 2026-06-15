@@ -704,10 +704,6 @@ class Vpc(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
         ```
 
-        ## GuardDuty Cleanup Permissions
-
-        The following IAM permissions are optional but recommended for automatic cleanup of GuardDuty-managed resources during VPC deletion:
-
         ## Import
 
         Using `pulumi import`, import VPCs using the VPC `id`. For example:
@@ -792,10 +788,6 @@ class Vpc(pulumi.CustomResource):
             ipv4_netmask_length=28,
             opts = pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
         ```
-
-        ## GuardDuty Cleanup Permissions
-
-        The following IAM permissions are optional but recommended for automatic cleanup of GuardDuty-managed resources during VPC deletion:
 
         ## Import
 

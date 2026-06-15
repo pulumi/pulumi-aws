@@ -128,7 +128,7 @@ class _InstanceProfileState:
         :param pulumi.Input[_builtins.str] role: Name of the role to add to the profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the IAM Instance Profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] unique_id: [Unique ID][1] assigned by AWS.
+        :param pulumi.Input[_builtins.str] unique_id: [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -249,7 +249,7 @@ class _InstanceProfileState:
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        [Unique ID][1] assigned by AWS.
+        [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         """
         return pulumi.get(self, "unique_id")
 
@@ -450,7 +450,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] role: Name of the role to add to the profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the IAM Instance Profile. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] unique_id: [Unique ID][1] assigned by AWS.
+        :param pulumi.Input[_builtins.str] unique_id: [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -535,7 +535,7 @@ class InstanceProfile(pulumi.CustomResource):
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> pulumi.Output[_builtins.str]:
         """
-        [Unique ID][1] assigned by AWS.
+        [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         """
         return pulumi.get(self, "unique_id")
 

@@ -208,11 +208,14 @@ func (o ApplicationAppversionLifecyclePtrOutput) ServiceRole() pulumi.StringPtrO
 }
 
 type ConfigurationTemplateSetting struct {
-	// A unique name for this Template.
-	Name      string  `pulumi:"name"`
-	Namespace string  `pulumi:"namespace"`
-	Resource  *string `pulumi:"resource"`
-	Value     string  `pulumi:"value"`
+	// Name of the configuration option
+	Name string `pulumi:"name"`
+	// Unique namespace identifying the option's associated AWS resource
+	Namespace string `pulumi:"namespace"`
+	// resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+	Resource *string `pulumi:"resource"`
+	// Value for the configuration option
+	Value string `pulumi:"value"`
 }
 
 // ConfigurationTemplateSettingInput is an input type that accepts ConfigurationTemplateSettingArgs and ConfigurationTemplateSettingOutput values.
@@ -227,11 +230,14 @@ type ConfigurationTemplateSettingInput interface {
 }
 
 type ConfigurationTemplateSettingArgs struct {
-	// A unique name for this Template.
-	Name      pulumi.StringInput    `pulumi:"name"`
-	Namespace pulumi.StringInput    `pulumi:"namespace"`
-	Resource  pulumi.StringPtrInput `pulumi:"resource"`
-	Value     pulumi.StringInput    `pulumi:"value"`
+	// Name of the configuration option
+	Name pulumi.StringInput `pulumi:"name"`
+	// Unique namespace identifying the option's associated AWS resource
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+	Resource pulumi.StringPtrInput `pulumi:"resource"`
+	// Value for the configuration option
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (ConfigurationTemplateSettingArgs) ElementType() reflect.Type {
@@ -285,19 +291,22 @@ func (o ConfigurationTemplateSettingOutput) ToConfigurationTemplateSettingOutput
 	return o
 }
 
-// A unique name for this Template.
+// Name of the configuration option
 func (o ConfigurationTemplateSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationTemplateSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Unique namespace identifying the option's associated AWS resource
 func (o ConfigurationTemplateSettingOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationTemplateSetting) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 func (o ConfigurationTemplateSettingOutput) Resource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationTemplateSetting) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
+// Value for the configuration option
 func (o ConfigurationTemplateSettingOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationTemplateSetting) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -323,12 +332,14 @@ func (o ConfigurationTemplateSettingArrayOutput) Index(i pulumi.IntInput) Config
 }
 
 type EnvironmentAllSetting struct {
-	// A unique name for this Environment. This name is used
-	// in the application URL
-	Name      string  `pulumi:"name"`
-	Namespace string  `pulumi:"namespace"`
-	Resource  *string `pulumi:"resource"`
-	Value     string  `pulumi:"value"`
+	// Name of the configuration option
+	Name string `pulumi:"name"`
+	// Unique namespace identifying the option's associated AWS resource
+	Namespace string `pulumi:"namespace"`
+	// resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+	Resource *string `pulumi:"resource"`
+	// Value for the configuration option
+	Value string `pulumi:"value"`
 }
 
 // EnvironmentAllSettingInput is an input type that accepts EnvironmentAllSettingArgs and EnvironmentAllSettingOutput values.
@@ -343,12 +354,14 @@ type EnvironmentAllSettingInput interface {
 }
 
 type EnvironmentAllSettingArgs struct {
-	// A unique name for this Environment. This name is used
-	// in the application URL
-	Name      pulumi.StringInput    `pulumi:"name"`
-	Namespace pulumi.StringInput    `pulumi:"namespace"`
-	Resource  pulumi.StringPtrInput `pulumi:"resource"`
-	Value     pulumi.StringInput    `pulumi:"value"`
+	// Name of the configuration option
+	Name pulumi.StringInput `pulumi:"name"`
+	// Unique namespace identifying the option's associated AWS resource
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+	Resource pulumi.StringPtrInput `pulumi:"resource"`
+	// Value for the configuration option
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (EnvironmentAllSettingArgs) ElementType() reflect.Type {
@@ -402,20 +415,22 @@ func (o EnvironmentAllSettingOutput) ToEnvironmentAllSettingOutputWithContext(ct
 	return o
 }
 
-// A unique name for this Environment. This name is used
-// in the application URL
+// Name of the configuration option
 func (o EnvironmentAllSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentAllSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Unique namespace identifying the option's associated AWS resource
 func (o EnvironmentAllSettingOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentAllSetting) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 func (o EnvironmentAllSettingOutput) Resource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentAllSetting) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
+// Value for the configuration option
 func (o EnvironmentAllSettingOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentAllSetting) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -441,12 +456,14 @@ func (o EnvironmentAllSettingArrayOutput) Index(i pulumi.IntInput) EnvironmentAl
 }
 
 type EnvironmentSetting struct {
-	// A unique name for this Environment. This name is used
-	// in the application URL
-	Name      string  `pulumi:"name"`
-	Namespace string  `pulumi:"namespace"`
-	Resource  *string `pulumi:"resource"`
-	Value     string  `pulumi:"value"`
+	// Name of the configuration option
+	Name string `pulumi:"name"`
+	// Unique namespace identifying the option's associated AWS resource
+	Namespace string `pulumi:"namespace"`
+	// resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+	Resource *string `pulumi:"resource"`
+	// Value for the configuration option
+	Value string `pulumi:"value"`
 }
 
 // EnvironmentSettingInput is an input type that accepts EnvironmentSettingArgs and EnvironmentSettingOutput values.
@@ -461,12 +478,14 @@ type EnvironmentSettingInput interface {
 }
 
 type EnvironmentSettingArgs struct {
-	// A unique name for this Environment. This name is used
-	// in the application URL
-	Name      pulumi.StringInput    `pulumi:"name"`
-	Namespace pulumi.StringInput    `pulumi:"namespace"`
-	Resource  pulumi.StringPtrInput `pulumi:"resource"`
-	Value     pulumi.StringInput    `pulumi:"value"`
+	// Name of the configuration option
+	Name pulumi.StringInput `pulumi:"name"`
+	// Unique namespace identifying the option's associated AWS resource
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+	Resource pulumi.StringPtrInput `pulumi:"resource"`
+	// Value for the configuration option
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (EnvironmentSettingArgs) ElementType() reflect.Type {
@@ -520,20 +539,22 @@ func (o EnvironmentSettingOutput) ToEnvironmentSettingOutputWithContext(ctx cont
 	return o
 }
 
-// A unique name for this Environment. This name is used
-// in the application URL
+// Name of the configuration option
 func (o EnvironmentSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Unique namespace identifying the option's associated AWS resource
 func (o EnvironmentSettingOutput) Namespace() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentSetting) string { return v.Namespace }).(pulumi.StringOutput)
 }
 
+// resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 func (o EnvironmentSettingOutput) Resource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EnvironmentSetting) *string { return v.Resource }).(pulumi.StringPtrOutput)
 }
 
+// Value for the configuration option
 func (o EnvironmentSettingOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v EnvironmentSetting) string { return v.Value }).(pulumi.StringOutput)
 }

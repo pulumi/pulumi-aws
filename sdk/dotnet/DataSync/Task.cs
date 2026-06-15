@@ -36,7 +36,7 @@ namespace Pulumi.Aws.DataSync
     /// });
     /// ```
     /// 
-    /// ### With Scheduling
+    /// ### Example Usage with Scheduling
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.DataSync
     /// });
     /// ```
     /// 
-    /// ### With Filtering
+    /// ### Example Usage with Filtering
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.DataSync
     /// });
     /// ```
     /// 
-    /// ### With Enhanced Task Mode
+    /// ### Example Usage with Enhanced Task Mode
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

@@ -347,7 +347,7 @@ class ReplicationSet(pulumi.CustomResource):
         }])
         ```
 
-        ## Basic Usage with an AWS Customer Managed Key
+        ### Basic Usage with an AWS Customer Managed Key
 
         Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
 
@@ -450,7 +450,7 @@ class ReplicationSet(pulumi.CustomResource):
         }])
         ```
 
-        ## Basic Usage with an AWS Customer Managed Key
+        ### Basic Usage with an AWS Customer Managed Key
 
         Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
 

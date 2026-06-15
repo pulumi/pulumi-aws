@@ -67,7 +67,7 @@ func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.In
 type LookupVolumeArgs struct {
 	// One or more name/value pairs to filter off of. There are
 	// several valid keys, for a full reference, check out
-	// [describe-volumes in the AWS CLI reference][1].
+	// [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html).
 	Filters []GetVolumeFilter `pulumi:"filters"`
 	// If more than one result is returned, use the most
 	// recent volume.
@@ -130,7 +130,7 @@ func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts .
 type LookupVolumeOutputArgs struct {
 	// One or more name/value pairs to filter off of. There are
 	// several valid keys, for a full reference, check out
-	// [describe-volumes in the AWS CLI reference][1].
+	// [describe-volumes in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-volumes.html).
 	Filters GetVolumeFilterArrayInput `pulumi:"filters"`
 	// If more than one result is returned, use the most
 	// recent volume.

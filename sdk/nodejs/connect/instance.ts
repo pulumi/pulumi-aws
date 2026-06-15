@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Existing Active Directory
+ * ### Example Usage with Existing Active Directory
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With SAML
+ * ### Example Usage with SAML
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

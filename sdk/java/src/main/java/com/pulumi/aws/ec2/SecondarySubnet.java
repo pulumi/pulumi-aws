@@ -80,6 +80,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
  * import com.pulumi.aws.ec2.SecondaryNetwork;
  * import com.pulumi.aws.ec2.SecondaryNetworkArgs;
  * import com.pulumi.aws.ec2.SecondarySubnet;

@@ -14,7 +14,7 @@ According to https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-la
 preferred one.
 
 diff --git a/internal/service/controltower/landing_zone.go b/internal/service/controltower/landing_zone.go
-index 2032a10462f..6915aa3052b 100644
+index fe7051c3c73..a916efeec8e 100644
 --- a/internal/service/controltower/landing_zone.go
 +++ b/internal/service/controltower/landing_zone.go
 @@ -7,8 +7,10 @@ package controltower
@@ -44,22 +44,22 @@ index 2032a10462f..6915aa3052b 100644
  	"github.com/hashicorp/terraform-provider-aws/names"
  )
  
-@@ -86,12 +86,9 @@ func resourceLandingZone() *schema.Resource {
- 				Type:                  schema.TypeString,
- 				Required:              true,
- 				ValidateFunc:          validation.StringIsJSON,
--				DiffSuppressFunc:      verify.SuppressEquivalentJSONDiffs,
-+				DiffSuppressFunc:      resourceLandingZoneManfiestSuppressEquivalentJSONDiffs,
- 				DiffSuppressOnRefresh: true,
--				StateFunc: func(v any) string {
--					json, _ := structure.NormalizeJsonString(v)
--					return json
--				},
-+				StateFunc:             resourceLandingZoneManfiestStateFunc,
- 			},
- 			names.AttrVersion: {
- 				Type:     schema.TypeString,
-@@ -349,3 +346,80 @@ func flattenLandingZoneDriftStatusSummary(apiObject *types.LandingZoneDriftStatu
+@@ -87,12 +87,9 @@ func resourceLandingZone() *schema.Resource {
+ 					Type:                  schema.TypeString,
+ 					Required:              true,
+ 					ValidateFunc:          validation.StringIsJSON,
+-					DiffSuppressFunc:      verify.SuppressEquivalentJSONDiffs,
++					DiffSuppressFunc:      resourceLandingZoneManfiestSuppressEquivalentJSONDiffs,
+ 					DiffSuppressOnRefresh: true,
+-					StateFunc: func(v any) string {
+-						json, _ := structure.NormalizeJsonString(v)
+-						return json
+-					},
++					StateFunc:             resourceLandingZoneManfiestStateFunc,
+ 				},
+ 				names.AttrVersion: {
+ 					Type:     schema.TypeString,
+@@ -351,3 +348,80 @@ func flattenLandingZoneDriftStatusSummary(apiObject *types.LandingZoneDriftStatu
  
  	return tfMap
  }

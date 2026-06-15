@@ -278,6 +278,14 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetDedicatedHostResult
     {
         /// <summary>
+        /// Time that the Dedicated Host was allocated, in RFC3339 format.
+        /// </summary>
+        public readonly string AllocationTime;
+        /// <summary>
+        /// Whether the Dedicated Host supports multiple instance types of the same instance family. Valid values: `On`, `Off`.
+        /// </summary>
+        public readonly string AllowsMultipleInstanceTypes;
+        /// <summary>
         /// ARN of the Dedicated Host.
         /// </summary>
         public readonly string Arn;
@@ -294,15 +302,31 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
+        /// AZ ID of the Availability Zone in which the Dedicated Host is allocated (e.g., `use1-az1`).
+        /// </summary>
+        public readonly string AvailabilityZoneId;
+        /// <summary>
+        /// The number of instances that can be launched onto the Dedicated Host based on the host's available capacity.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDedicatedHostAvailableCapacityResult> AvailableCapacities;
+        /// <summary>
         /// Number of cores on the Dedicated Host.
         /// </summary>
         public readonly int Cores;
         public readonly ImmutableArray<Outputs.GetDedicatedHostFilterResult> Filters;
         public readonly string HostId;
         /// <summary>
+        /// Whether host maintenance is enabled or disabled for the Dedicated Host. Valid values: `On`, `Off`.
+        /// </summary>
+        public readonly string HostMaintenance;
+        /// <summary>
         /// Whether host recovery is enabled or disabled for the Dedicated Host.
         /// </summary>
         public readonly string HostRecovery;
+        /// <summary>
+        /// The reservation ID of the Dedicated Host.
+        /// </summary>
+        public readonly string HostReservationId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -312,22 +336,38 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string InstanceFamily;
         /// <summary>
-        /// Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
+        /// The instance type of the running instance.
         /// </summary>
         public readonly string InstanceType;
+        /// <summary>
+        /// The instances running on the Dedicated Host. See `Instances` below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDedicatedHostInstanceResult> Instances;
+        /// <summary>
+        /// Whether the Dedicated Host is in a host resource group.
+        /// </summary>
+        public readonly bool MemberOfServiceLinkedResourceGroup;
         /// <summary>
         /// ARN of the AWS Outpost on which the Dedicated Host is allocated.
         /// </summary>
         public readonly string OutpostArn;
         /// <summary>
-        /// ID of the AWS account that owns the Dedicated Host.
+        /// The ID of the AWS account that owns the instance.
         /// </summary>
         public readonly string OwnerId;
         public readonly string Region;
         /// <summary>
+        /// Time that the Dedicated Host was released, in RFC3339 format.
+        /// </summary>
+        public readonly string ReleaseTime;
+        /// <summary>
         /// Number of sockets on the Dedicated Host.
         /// </summary>
         public readonly int Sockets;
+        /// <summary>
+        /// Allocation state of the Dedicated Host. Valid values: `Available`, `under-assessment`, `permanent-failure`, `Released`, `released-permanent-failure`, `Pending`.
+        /// </summary>
+        public readonly string State;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Total number of vCPUs on the Dedicated Host.
@@ -336,6 +376,10 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetDedicatedHostResult(
+            string allocationTime,
+
+            string allowsMultipleInstanceTypes,
+
             string arn,
 
             string assetId,
@@ -344,13 +388,21 @@ namespace Pulumi.Aws.Ec2
 
             string availabilityZone,
 
+            string availabilityZoneId,
+
+            ImmutableArray<Outputs.GetDedicatedHostAvailableCapacityResult> availableCapacities,
+
             int cores,
 
             ImmutableArray<Outputs.GetDedicatedHostFilterResult> filters,
 
             string hostId,
 
+            string hostMaintenance,
+
             string hostRecovery,
+
+            string hostReservationId,
 
             string id,
 
@@ -358,33 +410,51 @@ namespace Pulumi.Aws.Ec2
 
             string instanceType,
 
+            ImmutableArray<Outputs.GetDedicatedHostInstanceResult> instances,
+
+            bool memberOfServiceLinkedResourceGroup,
+
             string outpostArn,
 
             string ownerId,
 
             string region,
 
+            string releaseTime,
+
             int sockets,
+
+            string state,
 
             ImmutableDictionary<string, string> tags,
 
             int totalVcpus)
         {
+            AllocationTime = allocationTime;
+            AllowsMultipleInstanceTypes = allowsMultipleInstanceTypes;
             Arn = arn;
             AssetId = assetId;
             AutoPlacement = autoPlacement;
             AvailabilityZone = availabilityZone;
+            AvailabilityZoneId = availabilityZoneId;
+            AvailableCapacities = availableCapacities;
             Cores = cores;
             Filters = filters;
             HostId = hostId;
+            HostMaintenance = hostMaintenance;
             HostRecovery = hostRecovery;
+            HostReservationId = hostReservationId;
             Id = id;
             InstanceFamily = instanceFamily;
             InstanceType = instanceType;
+            Instances = instances;
+            MemberOfServiceLinkedResourceGroup = memberOfServiceLinkedResourceGroup;
             OutpostArn = outpostArn;
             OwnerId = ownerId;
             Region = region;
+            ReleaseTime = releaseTime;
             Sockets = sockets;
+            State = state;
             Tags = tags;
             TotalVcpus = totalVcpus;
         }

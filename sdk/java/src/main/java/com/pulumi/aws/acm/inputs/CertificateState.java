@@ -60,14 +60,14 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified domain name (FQDN) in the certificate.
+     * Domain to be validated
      * 
      */
     @Import(name="domainName")
     private @Nullable Output<String> domainName;
 
     /**
-     * @return Fully qualified domain name (FQDN) in the certificate.
+     * @return Domain to be validated
      * 
      */
     public Optional<Output<String>> domainName() {
@@ -429,7 +429,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName Fully qualified domain name (FQDN) in the certificate.
+         * @param domainName Domain to be validated
          * 
          * @return builder
          * 
@@ -440,7 +440,7 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainName Fully qualified domain name (FQDN) in the certificate.
+         * @param domainName Domain to be validated
          * 
          * @return builder
          * 

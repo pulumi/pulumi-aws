@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Xray
     /// });
     /// ```
     /// 
-    /// ### With KMS Key
+    /// ### Example Usage with KMS Key
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

@@ -74,28 +74,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:wafregional/geoMatchSet:GeoMatchSet")
 public class GeoMatchSet extends com.pulumi.resources.CustomResource {
     /**
-     * The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+     * Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      * 
      */
     @Export(name="geoMatchConstraints", refs={List.class,GeoMatchSetGeoMatchConstraint.class}, tree="[0,1]")
     private Output</* @Nullable */ List<GeoMatchSetGeoMatchConstraint>> geoMatchConstraints;
 
     /**
-     * @return The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+     * @return Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      * 
      */
     public Output<Optional<List<GeoMatchSetGeoMatchConstraint>>> geoMatchConstraints() {
         return Codegen.optional(this.geoMatchConstraints);
     }
     /**
-     * The name or description of the Geo Match Set.
+     * Name or description of the Geo Match Set.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name or description of the Geo Match Set.
+     * @return Name or description of the Geo Match Set.
      * 
      */
     public Output<String> name() {

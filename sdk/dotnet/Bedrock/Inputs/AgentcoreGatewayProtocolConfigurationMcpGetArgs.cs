@@ -24,6 +24,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("searchType")]
         public Input<string>? SearchType { get; set; }
 
+        /// <summary>
+        /// Configuration block for session settings of the MCP gateway. See `SessionConfiguration` below.
+        /// </summary>
+        [Input("sessionConfiguration")]
+        public Input<Inputs.AgentcoreGatewayProtocolConfigurationMcpSessionConfigurationGetArgs>? SessionConfiguration { get; set; }
+
+        /// <summary>
+        /// Configuration block for streaming settings of the MCP gateway. See `StreamingConfiguration` below.
+        /// </summary>
+        [Input("streamingConfiguration")]
+        public Input<Inputs.AgentcoreGatewayProtocolConfigurationMcpStreamingConfigurationGetArgs>? StreamingConfiguration { get; set; }
+
         [Input("supportedVersions")]
         private InputList<string>? _supportedVersions;
 

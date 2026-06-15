@@ -16,7 +16,9 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// &gt; **NOTE:** In general, the `Principal` should _NOT_ be a Lake Formation administrator or the entity (e.g., IAM role) that is running the deployment. Administrators have implicit permissions. These should be managed by granting or not granting administrator rights using `aws.lakeformation.DataLakeSettings`, _not_ with this resource.
     /// 
-    /// ## Default Behavior and `IAMAllowedPrincipals`
+    /// ## Example Usage
+    /// 
+    /// ### Default Behavior and `IAMAllowedPrincipals`
     /// 
     /// **_Lake Formation permissions are not in effect by default within AWS._** `IAMAllowedPrincipals` (i.e., `IAM_ALLOWED_PRINCIPALS`) conflicts with individual Lake Formation permissions (i.e., non-`IAMAllowedPrincipals` permissions), will cause unexpected behavior, and may result in errors.
     /// 
@@ -125,7 +127,7 @@ namespace Pulumi.Aws.LakeFormation
     /// | ---- | ---- |
     /// | `SELECT` column wildcard (i.e., all columns) | `SELECT` on `"event"` (as expected) |
     /// 
-    /// ## `ALLIAMPrincipals` group
+    /// ### `ALLIAMPrincipals` group
     /// 
     /// AllIAMPrincipals is a pseudo-entity group that acts like a Lake Formation principal. The group includes all IAMs in the account that is defined.
     /// 
@@ -158,15 +160,13 @@ namespace Pulumi.Aws.LakeFormation
     /// });
     /// ```
     /// 
-    /// ## Using Lake Formation Permissions
+    /// ### Using Lake Formation Permissions
     /// 
     /// Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. These implicit permissions cannot be revoked _per se_. If this resource reads implicit permissions, it will attempt to revoke them, which causes an error when the resource is destroyed.
     /// 
     /// There are two ways to avoid these errors. First, and the way we recommend, is to avoid using this resource with principals that have implicit permissions. A second, error-prone option, is to grant explicit permissions (and `PermissionsWithGrantOption`) to "overwrite" a principal's implicit permissions, which you can then revoke with this resource. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
     /// 
     /// If the `Principal` is also a data lake administrator, AWS grants implicit permissions that can cause errors using this resource. For example, AWS implicitly grants a `Principal`/administrator `Permissions` and `PermissionsWithGrantOption` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on a table. If you use this resource to explicitly grant the `Principal`/administrator `Permissions` but _not_ `PermissionsWithGrantOption` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on the table, this resource will read the implicit `PermissionsWithGrantOption` and attempt to revoke them when the resource is destroyed. Doing so will cause an `InvalidInputException: No permissions revoked` error because you cannot revoke implicit permissions _per se_. To workaround this problem, explicitly grant the `Principal`/administrator `Permissions` _and_ `PermissionsWithGrantOption`, which can then be revoked. Similarly, granting a `Principal`/administrator permissions on a table with columns and providing `ColumnNames`, will result in a `InvalidInputException: Permissions modification is invalid` error because you are narrowing the implicit permissions. Instead, set `Wildcard` to `True` and remove the `ColumnNames`.
-    /// 
-    /// ## Example Usage
     /// 
     /// ### Grant Permissions For A Lake Formation S3 Resource
     /// 

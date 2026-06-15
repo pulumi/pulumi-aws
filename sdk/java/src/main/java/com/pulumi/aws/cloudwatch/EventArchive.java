@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Optional Arguments
+ * ### Example Usage Optional Arguments
  * 
  * <pre>
  * {@code
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### CMK Encryption
+ * ### Example Usage CMK Encryption
  * 
  * <pre>
  * {@code

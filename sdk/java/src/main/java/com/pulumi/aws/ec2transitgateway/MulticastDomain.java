@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
  * import com.pulumi.aws.ec2.Ec2Functions;
  * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.inputs.GetAmiFilterArgs;
  * import com.pulumi.aws.ec2.Vpc;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.ec2.Subnet;

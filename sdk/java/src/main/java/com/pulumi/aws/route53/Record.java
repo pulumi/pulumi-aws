@@ -134,6 +134,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.route53.Record;
  * import com.pulumi.aws.route53.RecordArgs;
  * import com.pulumi.aws.route53.inputs.RecordGeoproximityRoutingPolicyArgs;
+ * import com.pulumi.aws.route53.inputs.RecordGeoproximityRoutingPolicyCoordinateArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

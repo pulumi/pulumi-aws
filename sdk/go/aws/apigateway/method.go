@@ -58,7 +58,7 @@ import (
 //
 // ```
 //
-// ## Usage with Cognito User Pool Authorizer
+// ### Usage with Cognito User Pool Authorizer
 //
 // ```go
 // package main

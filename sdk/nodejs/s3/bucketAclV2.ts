@@ -161,8 +161,6 @@ import * as utilities from "../utilities";
  * $ pulumi import aws:s3/bucketAclV2:BucketAclV2 example bucket-name,123456789012,private
  * ```
  *
- * [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
- *
  * @deprecated aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl
  */
 export class BucketAclV2 extends pulumi.CustomResource {

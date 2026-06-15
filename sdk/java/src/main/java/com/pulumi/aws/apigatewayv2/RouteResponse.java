@@ -56,11 +56,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Enabling Two-Way Communication
- * 
- * For websocket routes that require two-way communication enabled, an `aws.apigatewayv2.RouteResponse` needs to be added to the route with `routeResponseKey = &#34;$default&#34;`. More information available  is available in [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
- * 
- * You can only define the $default route response for WebSocket APIs. You can use an integration response to manipulate the response from a backend service. For more information, see [Overview of integration responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html#apigateway-websocket-api-integration-response-overview).
+ * &gt; **Note:** For WebSocket routes requiring two-way communication, add an `aws.apigatewayv2.RouteResponse` to the route with `routeResponseKey = &#34;$default&#34;`. Only the `$default` route response is supported. Use an integration response to manipulate backend responses — see [Overview of integration responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html#apigateway-websocket-api-integration-response-overview).
  * 
  * ## Import
  * 

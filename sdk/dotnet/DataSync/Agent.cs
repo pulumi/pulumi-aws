@@ -33,7 +33,7 @@ namespace Pulumi.Aws.DataSync
     /// });
     /// ```
     /// 
-    /// ### With VPC Endpoints
+    /// ### Example Usage with VPC Endpoints
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

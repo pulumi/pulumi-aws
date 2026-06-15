@@ -162,7 +162,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         Provides a resource for managing the main routing table of a VPC.
 
         > **NOTE:** **Do not** use both `ec2.DefaultRouteTable` to manage a default route table **and** `ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See ec2.DefaultRouteTable documentation for more details.
-        For more information, see the Amazon VPC User Guide on [Route Tables][aws-route-tables]. For information about managing normal route tables in Pulumi, see [`ec2.RouteTable`][tf-route-tables].
+        For more information, see the Amazon VPC User Guide on [Route Tables](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table). For information about managing normal route tables in Terraform, see `ec2.RouteTable`.
 
         ## Example Usage
 
@@ -174,15 +174,6 @@ class MainRouteTableAssociation(pulumi.CustomResource):
             vpc_id=foo["id"],
             route_table_id=bar["id"])
         ```
-
-        ## Notes
-
-        On VPC creation, the AWS API always creates an initial Main Route Table. This
-        resource records the ID of that Route Table under `original_route_table_id`.
-        The "Delete" action for a `main_route_table_association` consists of resetting
-        this original table as the Main Route Table for the VPC. You'll see this
-        additional Route Table in the AWS console; it must remain intact in order for
-        the `main_route_table_association` delete to work properly.
 
 
         :param str resource_name: The name of the resource.
@@ -202,7 +193,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         Provides a resource for managing the main routing table of a VPC.
 
         > **NOTE:** **Do not** use both `ec2.DefaultRouteTable` to manage a default route table **and** `ec2.MainRouteTableAssociation` with the same VPC due to possible route conflicts. See ec2.DefaultRouteTable documentation for more details.
-        For more information, see the Amazon VPC User Guide on [Route Tables][aws-route-tables]. For information about managing normal route tables in Pulumi, see [`ec2.RouteTable`][tf-route-tables].
+        For more information, see the Amazon VPC User Guide on [Route Tables](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table). For information about managing normal route tables in Terraform, see `ec2.RouteTable`.
 
         ## Example Usage
 
@@ -214,15 +205,6 @@ class MainRouteTableAssociation(pulumi.CustomResource):
             vpc_id=foo["id"],
             route_table_id=bar["id"])
         ```
-
-        ## Notes
-
-        On VPC creation, the AWS API always creates an initial Main Route Table. This
-        resource records the ID of that Route Table under `original_route_table_id`.
-        The "Delete" action for a `main_route_table_association` consists of resetting
-        this original table as the Main Route Table for the VPC. You'll see this
-        additional Route Table in the AWS console; it must remain intact in order for
-        the `main_route_table_association` delete to work properly.
 
 
         :param str resource_name: The name of the resource.

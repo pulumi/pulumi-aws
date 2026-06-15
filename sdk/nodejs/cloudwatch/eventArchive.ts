@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Optional Arguments
+ * ### Example Usage Optional Arguments
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### CMK Encryption
+ * ### Example Usage CMK Encryption
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

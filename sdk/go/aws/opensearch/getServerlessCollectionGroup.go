@@ -72,9 +72,11 @@ type LookupServerlessCollectionGroupResult struct {
 	CreatedDate string `pulumi:"createdDate"`
 	// Description of the collection group.
 	Description string `pulumi:"description"`
-	Id          string `pulumi:"id"`
-	Name        string `pulumi:"name"`
-	Region      string `pulumi:"region"`
+	// Generation of Amazon OpenSearch Serverless for the collection group.
+	Generation string `pulumi:"generation"`
+	Id         string `pulumi:"id"`
+	Name       string `pulumi:"name"`
+	Region     string `pulumi:"region"`
 	// Indicates whether standby replicas should be used for collections in this group.
 	StandbyReplicas string `pulumi:"standbyReplicas"`
 	// A map of tags assigned to the collection group.
@@ -141,6 +143,11 @@ func (o LookupServerlessCollectionGroupResultOutput) CreatedDate() pulumi.String
 // Description of the collection group.
 func (o LookupServerlessCollectionGroupResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionGroupResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Generation of Amazon OpenSearch Serverless for the collection group.
+func (o LookupServerlessCollectionGroupResultOutput) Generation() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServerlessCollectionGroupResult) string { return v.Generation }).(pulumi.StringOutput)
 }
 
 func (o LookupServerlessCollectionGroupResultOutput) Id() pulumi.StringOutput {

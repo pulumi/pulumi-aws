@@ -767,45 +767,6 @@ class Environment(pulumi.CustomResource):
             solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
         ```
 
-        ## Option Settings
-
-        Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
-        for supported options and examples.
-
-        The `setting` and `all_settings` mappings support the following format:
-
-        * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
-        * `name` - (Required) Name of the configuration option
-        * `value` - (Required) Value for the configuration option
-        * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
-
-        ### Example With Options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        tftest = aws.elasticbeanstalk.Application("tftest",
-            name="tf-test-name",
-            description="tf-test-desc")
-        tfenvtest = aws.elasticbeanstalk.Environment("tfenvtest",
-            name="tf-test-name",
-            application=tftest.name,
-            solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
-            settings=[
-                {
-                    "namespace": "aws:ec2:vpc",
-                    "name": "VPCId",
-                    "value": "vpc-xxxxxxxx",
-                },
-                {
-                    "namespace": "aws:ec2:vpc",
-                    "name": "Subnets",
-                    "value": "subnet-xxxxxxxx",
-                },
-            ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:
@@ -875,45 +836,6 @@ class Environment(pulumi.CustomResource):
             name="tf-test-name",
             application=example_application.name,
             solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4")
-        ```
-
-        ## Option Settings
-
-        Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
-        for supported options and examples.
-
-        The `setting` and `all_settings` mappings support the following format:
-
-        * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
-        * `name` - (Required) Name of the configuration option
-        * `value` - (Required) Value for the configuration option
-        * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
-
-        ### Example With Options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        tftest = aws.elasticbeanstalk.Application("tftest",
-            name="tf-test-name",
-            description="tf-test-desc")
-        tfenvtest = aws.elasticbeanstalk.Environment("tfenvtest",
-            name="tf-test-name",
-            application=tftest.name,
-            solution_stack_name="64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4",
-            settings=[
-                {
-                    "namespace": "aws:ec2:vpc",
-                    "name": "VPCId",
-                    "value": "vpc-xxxxxxxx",
-                },
-                {
-                    "namespace": "aws:ec2:vpc",
-                    "name": "Subnets",
-                    "value": "subnet-xxxxxxxx",
-                },
-            ])
         ```
 
         ## Import

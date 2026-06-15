@@ -53,7 +53,7 @@ import {RestApi} from "./index";
  * });
  * ```
  *
- * ## Lambda integration
+ * ### Lambda integration
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -119,7 +119,7 @@ import {RestApi} from "./index";
  * });
  * ```
  *
- * ## Lambda integration with response streaming
+ * ### Lambda integration with response streaming
  *
  * All other resources and data sources are the same as in the previous example; only the integration configuration differs.
  * Note that the `timeout` of the `aws.lambda.Function` may need to be adjusted.
@@ -140,7 +140,7 @@ import {RestApi} from "./index";
  * });
  * ```
  *
- * ## VPC Link
+ * ### VPC Link
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -197,7 +197,7 @@ import {RestApi} from "./index";
  * });
  * ```
  *
- * ## VPC Link V2 with Application Load Balancer
+ * ### VPC Link V2 with Application Load Balancer
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

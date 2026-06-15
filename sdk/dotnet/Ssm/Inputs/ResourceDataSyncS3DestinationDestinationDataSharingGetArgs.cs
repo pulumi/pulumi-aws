@@ -12,6 +12,10 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class ResourceDataSyncS3DestinationDestinationDataSharingGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Data sharing type.
+        /// Only `Organization` is supported.
+        /// </summary>
         [Input("destinationDataSharingType")]
         public Input<string>? DestinationDataSharingType { get; set; }
 

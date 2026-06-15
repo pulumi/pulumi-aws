@@ -34,7 +34,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string DomainName;
         /// <summary>
-        /// Unique identifier of a [CloudFront origin access control][8] for this origin.
+        /// Unique identifier of a CloudFront origin access control for this origin.
         /// </summary>
         public readonly string? OriginAccessControlId;
         public readonly string OriginId;

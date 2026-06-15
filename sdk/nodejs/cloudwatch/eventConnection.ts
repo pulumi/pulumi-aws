@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Basic Authorization
+ * ### Example Usage Basic Authorization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### OAuth Authorization
+ * ### Example Usage OAuth Authorization
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Invocation Http Parameters
+ * ### Example Usage Invocation Http Parameters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -133,7 +133,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### OAuth Authorization With Connectivity Parameters
+ * ### Example Usage OAuth Authorization with Connectivity Parameters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -168,7 +168,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### CMK Encryption
+ * ### Example Usage CMK Encryption
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

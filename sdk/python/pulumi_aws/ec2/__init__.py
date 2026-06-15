@@ -41,6 +41,7 @@ from .get_customer_gateway import *
 from .get_dedicated_host import *
 from .get_eips import *
 from .get_elastic_ip import *
+from .get_hosts import *
 from .get_instance import *
 from .get_instance_type import *
 from .get_instance_type_offering import *
@@ -107,6 +108,8 @@ from .key_pair import *
 from .launch_configuration import *
 from .launch_template import *
 from .local_gateway_route import *
+from .local_gateway_route_table import *
+from .local_gateway_route_table_virtual_interface_group_association import *
 from .local_gateway_route_table_vpc_association import *
 from .main_route_table_association import *
 from .managed_prefix_list import *
