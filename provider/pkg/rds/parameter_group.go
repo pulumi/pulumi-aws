@@ -25,6 +25,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 var (
@@ -61,13 +62,39 @@ func parameterGroupReconfigure(p *schema.Provider) {
 	if !ok {
 		return
 	}
-	// Need to mark apply_method as Computed so that the diff customizer is allowed to clear it.
-	parameterGroup.Schema["parameter"].Elem.(*schema.Resource).Schema["apply_method"].Computed = true
-	parameterGroup.Schema["parameter"].Elem.(*schema.Resource).Schema["apply_method"].Default = nil
-	// Need to exclude apply_method from the set hash.
-	oldSetFunc := parameterGroup.Schema["parameter"].Set
-	parameterGroup.Schema["parameter"].Set = parameterGroupParameterSetFunc(oldSetFunc)
+	reconfigureSchema(parameterGroup, func(parameterGroupSchema map[string]*schema.Schema) {
+		parameter, ok := parameterGroupSchema["parameter"]
+		contract.Assertf(ok, "Expected a parameter field on the aws_db_parameter_group resource")
+
+		parameterResource, ok := parameter.Elem.(*schema.Resource)
+		contract.Assertf(ok, "Expected parameter on the aws_db_parameter_group resource to have a resource Elem")
+
+		applyMethod, ok := parameterResource.Schema["apply_method"]
+		contract.Assertf(ok, "Expected an apply_method parameter on the aws_db_parameter_group resource")
+
+		// Need to mark apply_method as Computed so that the diff customizer is allowed to clear it.
+		applyMethod.Computed = true
+		applyMethod.Default = nil
+
+		// Need to exclude apply_method from the set hash.
+		oldSetFunc := parameter.Set
+		parameter.Set = parameterGroupParameterSetFunc(oldSetFunc)
+	})
 	addDiffCustomizer(parameterGroup, parameterGroupCustomizeDiff)
+}
+
+func reconfigureSchema(r *schema.Resource, reconfigure func(map[string]*schema.Schema)) {
+	if r.SchemaFunc == nil {
+		reconfigure(r.Schema)
+		return
+	}
+
+	oldSchemaFunc := r.SchemaFunc
+	r.SchemaFunc = func() map[string]*schema.Schema {
+		resourceSchema := oldSchemaFunc()
+		reconfigure(resourceSchema)
+		return resourceSchema
+	}
 }
 
 // Exclude "apply_method" from influencing the set element hash for a parameter.

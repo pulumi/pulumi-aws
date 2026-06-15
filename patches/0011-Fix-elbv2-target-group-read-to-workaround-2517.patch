@@ -5,10 +5,10 @@ Subject: [PATCH] Fix elbv2 target group read to workaround #2517
 
 
 diff --git a/internal/service/elbv2/target_group.go b/internal/service/elbv2/target_group.go
-index 22a59c3023d..86fd05a9277 100644
+index be57b8e37dd..6de3c51cc5f 100644
 --- a/internal/service/elbv2/target_group.go
 +++ b/internal/service/elbv2/target_group.go
-@@ -658,19 +658,19 @@ func resourceTargetGroupFlatten(ctx context.Context, awsClient *conns.AWSClient,
+@@ -660,19 +660,19 @@ func resourceTargetGroupFlatten(ctx context.Context, awsClient *conns.AWSClient,
  		return fmt.Errorf("reading ELBv2 Target Group (%s) attributes: %w", d.Id(), err)
  	}
  
@@ -32,7 +32,7 @@ index 22a59c3023d..86fd05a9277 100644
  		return fmt.Errorf("setting target_health_state: %w", err)
  	}
  
-@@ -1536,3 +1536,13 @@ func targetGroupRuntimeValidation(d *schema.ResourceData, diags *diag.Diagnostic
+@@ -1538,3 +1538,13 @@ func targetGroupRuntimeValidation(d *schema.ResourceData, diags *diag.Diagnostic
  		}
  	}
  }

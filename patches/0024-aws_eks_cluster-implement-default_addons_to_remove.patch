@@ -5,25 +5,25 @@ Subject: [PATCH] aws_eks_cluster: implement default_addons_to_remove
 
 
 diff --git a/internal/service/eks/cluster.go b/internal/service/eks/cluster.go
-index d6dcedefce8..ab4d481a1ea 100644
+index 1b2a2f0e2f6..3a9deb809ba 100644
 --- a/internal/service/eks/cluster.go
 +++ b/internal/service/eks/cluster.go
-@@ -184,6 +184,14 @@ func resourceCluster() *schema.Resource {
- 				Optional: true,
- 				Computed: true,
- 			},
-+			"default_addons_to_remove": {
-+				Type:       schema.TypeList,
-+				Deprecated: "Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider",
-+				Optional:   true,
-+				Elem: &schema.Schema{
-+					Type: schema.TypeString,
+@@ -132,6 +132,14 @@ func resourceCluster() *schema.Resource {
+ 					Type:     schema.TypeString,
+ 					Computed: true,
+ 				},
++				"default_addons_to_remove": {
++					Type:       schema.TypeList,
++					Deprecated: "Configure bootstrap_self_managed_addons instead. This attribute will be removed in the next major version of the provider",
++					Optional:   true,
++					Elem: &schema.Schema{
++						Type: schema.TypeString,
++					},
 +				},
-+			},
- 			"enabled_cluster_log_types": {
- 				Type:     schema.TypeSet,
- 				Optional: true,
-@@ -612,6 +620,10 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta any
+ 				"compute_config": {
+ 					Type:     schema.TypeList,
+ 					Optional: true,
+@@ -614,6 +622,10 @@ func resourceClusterCreate(ctx context.Context, d *schema.ResourceData, meta any
  		return sdkdiag.AppendErrorf(diags, "waiting for EKS Cluster (%s) create: %s", d.Id(), err)
  	}
  
