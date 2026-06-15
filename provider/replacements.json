@@ -140,7 +140,7 @@
     },
     {
       "old": "~> **Note:** Because of backward incompatible API changes ([see issue](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), resource definitions created with provider versions earlier than v2.3.0 must be modified: rename the `service_name` attribute of the `dns` object to `hostname`; replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks, setting `virtual_service_name` to the name of the service. Existing Terraform state is automatically migrated.\n",
-      "new": "~> **Note:** Because of backward incompatible API changes ([see issue](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), resource definitions created with provider versions earlier than v2.3.0 must be modified: rename the `service_name` attribute of the `dns` object to `hostname`; replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks, setting `virtual_service_name` to the name of the service. Existing TODO state is automatically migrated.\n"
+      "new": "~> **Note:** Because of backward incompatible API changes ([see issue](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), resource definitions created with provider versions earlier than v2.3.0 must be modified: rename the `service_name` attribute of the `dns` object to `hostname`; replace the `backends` attribute of the `spec` object with one or more `backend` configuration blocks, setting `virtual_service_name` to the name of the service. Existing Pulumi state is automatically migrated.\n"
     }
   ],
   "appmesh_virtual_router.html.markdown": [
@@ -154,7 +154,7 @@
     },
     {
       "old": "~> **Note:** Because of backward incompatible API changes ([see issue](https://github.com/awslabs/aws-app-mesh-examples/issues/92), [and here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), resource definitions created with provider versions earlier than v2.3.0 must be modified: remove `service_names` from the `spec` argument (AWS created `aws_appmesh_virtual_service` resources for each — import them with `pulumi import`); add a `listener` configuration block to the `spec` argument. Existing Terraform state is automatically migrated.\n",
-      "new": "~> **Note:** Because of backward incompatible API changes ([see issue](https://github.com/awslabs/aws-app-mesh-examples/issues/92), [and here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), resource definitions created with provider versions earlier than v2.3.0 must be modified: remove `service_names` from the `spec` argument (AWS created `aws_appmesh_virtual_service` resources for each — import them with `pulumi import`); add a `listener` configuration block to the `spec` argument. Existing TODO state is automatically migrated.\n"
+      "new": "~> **Note:** Because of backward incompatible API changes ([see issue](https://github.com/awslabs/aws-app-mesh-examples/issues/92), [and here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), resource definitions created with provider versions earlier than v2.3.0 must be modified: remove `service_names` from the `spec` argument (AWS created `aws_appmesh_virtual_service` resources for each — import them with `pulumi import`); add a `listener` configuration block to the `spec` argument. Existing Pulumi state is automatically migrated.\n"
     }
   ],
   "appmesh_virtual_service.html.markdown": [
@@ -400,7 +400,7 @@
     },
     {
       "old": "`aws_s3_bucket` bucket policy, causing spurious diffs in Terraform. If\n",
-      "new": "`aws_s3_bucket` bucket policy, causing spurious diffs in TODO. If\n"
+      "new": "`aws_s3_bucket` bucket policy, causing spurious diffs in Pulumi. If\n"
     }
   ],
   "cloudfront_public_key.html.markdown": [
@@ -1184,7 +1184,7 @@
     },
     {
       "old": "`create_before_destroy` lifecycle block. This will allow Terraform\n",
-      "new": "`create_before_destroy` lifecycle block. This will allow TODO\n"
+      "new": "`create_before_destroy` lifecycle block. This will allow Pulumi\n"
     }
   ],
   "iam_session_context.html.markdown": [
@@ -1568,7 +1568,7 @@
     },
     {
       "old": "for more information or how to launch Spot Instances with Terraform.\n",
-      "new": "for more information or how to launch Spot Instances with TODO.\n"
+      "new": "for more information or how to launch Spot Instances with Pulumi.\n"
     }
   ],
   "launch_template.html.markdown": [
@@ -1656,7 +1656,7 @@
     },
     {
       "old": "For more information, see the Amazon VPC User Guide on [Route Tables](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table). For information about managing normal route tables in Terraform, see `aws_route_table`.\n",
-      "new": "For more information, see the Amazon VPC User Guide on [Route Tables](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table). For information about managing normal route tables in TODO, see `aws_route_table`.\n"
+      "new": "For more information, see the Amazon VPC User Guide on [Route Tables](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html#Route_Replacing_Main_Table). For information about managing normal route tables in Pulumi, see `aws_route_table`.\n"
     }
   ],
   "memorydb_cluster.html.markdown": [
@@ -1908,7 +1908,7 @@
     },
     {
       "old": "~> **Note:** This resource always calls the RDS [`StartActivityStream`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html) API with the `ApplyImmediately` parameter set to `true`. This is because the Terraform needs the activity stream to be started in order for it to get the associated attributes.\n",
-      "new": "~> **Note:** This resource always calls the RDS [`StartActivityStream`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html) API with the `ApplyImmediately` parameter set to `true`. This is because the TODO needs the activity stream to be started in order for it to get the associated attributes.\n"
+      "new": "~> **Note:** This resource always calls the RDS [`StartActivityStream`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html) API with the `ApplyImmediately` parameter set to `true`. This is because the provider needs the activity stream to be started in order for it to get the associated attributes.\n"
     }
   ],
   "rds_cluster_instance.html.markdown": [
