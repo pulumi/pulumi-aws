@@ -437,7 +437,7 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
             }])
         ```
 
-        ## Migrating
+        ### Migrating
 
         Use the following steps to migrate existing Global Secondary Indexes defined inline in `global_secondary_index` on an `dynamodb.Table`.
 
@@ -575,7 +575,7 @@ class GlobalSecondaryIndex(pulumi.CustomResource):
             }])
         ```
 
-        ## Migrating
+        ### Migrating
 
         Use the following steps to migrate existing Global Secondary Indexes defined inline in `global_secondary_index` on an `dynamodb.Table`.
 

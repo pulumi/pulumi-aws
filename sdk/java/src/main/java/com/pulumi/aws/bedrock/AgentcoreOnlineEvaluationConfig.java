@@ -128,6 +128,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigEvaluatorArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleFilterArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleFilterValueArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

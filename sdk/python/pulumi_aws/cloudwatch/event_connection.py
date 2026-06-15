@@ -327,7 +327,7 @@ class EventConnection(pulumi.CustomResource):
             })
         ```
 
-        ### Basic Authorization
+        ### Example Usage Basic Authorization
 
         ```python
         import pulumi
@@ -345,7 +345,7 @@ class EventConnection(pulumi.CustomResource):
             })
         ```
 
-        ### OAuth Authorization
+        ### Example Usage OAuth Authorization
 
         ```python
         import pulumi
@@ -384,7 +384,7 @@ class EventConnection(pulumi.CustomResource):
             })
         ```
 
-        ### Invocation Http Parameters
+        ### Example Usage Invocation Http Parameters
 
         ```python
         import pulumi
@@ -426,7 +426,7 @@ class EventConnection(pulumi.CustomResource):
             })
         ```
 
-        ### OAuth Authorization With Connectivity Parameters
+        ### Example Usage OAuth Authorization with Connectivity Parameters
 
         ```python
         import pulumi
@@ -460,7 +460,7 @@ class EventConnection(pulumi.CustomResource):
             })
         ```
 
-        ### CMK Encryption
+        ### Example Usage CMK Encryption
 
         ```python
         import pulumi
@@ -569,7 +569,7 @@ class EventConnection(pulumi.CustomResource):
             })
         ```
 
-        ### Basic Authorization
+        ### Example Usage Basic Authorization
 
         ```python
         import pulumi
@@ -587,7 +587,7 @@ class EventConnection(pulumi.CustomResource):
             })
         ```
 
-        ### OAuth Authorization
+        ### Example Usage OAuth Authorization
 
         ```python
         import pulumi
@@ -626,7 +626,7 @@ class EventConnection(pulumi.CustomResource):
             })
         ```
 
-        ### Invocation Http Parameters
+        ### Example Usage Invocation Http Parameters
 
         ```python
         import pulumi
@@ -668,7 +668,7 @@ class EventConnection(pulumi.CustomResource):
             })
         ```
 
-        ### OAuth Authorization With Connectivity Parameters
+        ### Example Usage OAuth Authorization with Connectivity Parameters
 
         ```python
         import pulumi
@@ -702,7 +702,7 @@ class EventConnection(pulumi.CustomResource):
             })
         ```
 
-        ### CMK Encryption
+        ### Example Usage CMK Encryption
 
         ```python
         import pulumi

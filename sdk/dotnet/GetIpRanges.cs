@@ -199,7 +199,7 @@ namespace Pulumi.Aws
         /// (for amazon.com), `AmazonConnect`, `ApiGateway`, `Cloud9`, `Cloudfront`,
         /// `Codebuild`, `Dynamodb`, `Ec2`, `Ec2InstanceConnect`, `Globalaccelerator`,
         /// `Route53`, `Route53Healthchecks`, `S3` and `WorkspacesGateways`. See the
-        /// [`Service` attribute][2] documentation for other possible values.
+        /// [`Service` attribute](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html#aws-ip-syntax) documentation for other possible values.
         /// 
         /// &gt; **NOTE:** If the specified combination of regions and services does not yield any
         /// CIDR blocks, this call will fail.
@@ -249,7 +249,7 @@ namespace Pulumi.Aws
         /// (for amazon.com), `AmazonConnect`, `ApiGateway`, `Cloud9`, `Cloudfront`,
         /// `Codebuild`, `Dynamodb`, `Ec2`, `Ec2InstanceConnect`, `Globalaccelerator`,
         /// `Route53`, `Route53Healthchecks`, `S3` and `WorkspacesGateways`. See the
-        /// [`Service` attribute][2] documentation for other possible values.
+        /// [`Service` attribute](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html#aws-ip-syntax) documentation for other possible values.
         /// 
         /// &gt; **NOTE:** If the specified combination of regions and services does not yield any
         /// CIDR blocks, this call will fail.

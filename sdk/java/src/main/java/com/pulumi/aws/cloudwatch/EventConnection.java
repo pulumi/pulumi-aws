@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Basic Authorization
+ * ### Example Usage Basic Authorization
  * 
  * <pre>
  * {@code
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### OAuth Authorization
+ * ### Example Usage OAuth Authorization
  * 
  * <pre>
  * {@code
@@ -122,6 +122,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthClientParametersArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -173,7 +176,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Invocation Http Parameters
+ * ### Example Usage Invocation Http Parameters
  * 
  * <pre>
  * {@code
@@ -187,6 +190,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersBasicArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersInvocationHttpParametersArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersInvocationHttpParametersBodyArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersInvocationHttpParametersHeaderArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -240,7 +246,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### OAuth Authorization With Connectivity Parameters
+ * ### Example Usage OAuth Authorization with Connectivity Parameters
  * 
  * <pre>
  * {@code
@@ -257,6 +263,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthClientParametersArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthOauthHttpParametersArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -303,7 +310,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### CMK Encryption
+ * ### Example Usage CMK Encryption
  * 
  * <pre>
  * {@code

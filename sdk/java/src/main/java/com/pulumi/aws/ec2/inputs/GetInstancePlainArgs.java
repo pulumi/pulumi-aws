@@ -21,7 +21,7 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * One or more filters to apply to the search.
      * If multiple `filter` blocks are provided, they all must be true.
-     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
      * See `filter` Block below.
      * 
      */
@@ -31,7 +31,7 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * @return One or more filters to apply to the search.
      * If multiple `filter` blocks are provided, they all must be true.
-     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
      * See `filter` Block below.
      * 
      */
@@ -176,7 +176,7 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param filters One or more filters to apply to the search.
          * If multiple `filter` blocks are provided, they all must be true.
-         * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+         * For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
          * See `filter` Block below.
          * 
          * @return builder
@@ -190,7 +190,7 @@ public final class GetInstancePlainArgs extends com.pulumi.resources.InvokeArgs 
         /**
          * @param filters One or more filters to apply to the search.
          * If multiple `filter` blocks are provided, they all must be true.
-         * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+         * For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
          * See `filter` Block below.
          * 
          * @return builder

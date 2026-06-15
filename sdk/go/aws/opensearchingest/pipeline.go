@@ -136,7 +136,18 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` (String) Name of the pipeline.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `pipelineName`. For example:
 //
 // ```sh
 // $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
@@ -160,7 +171,7 @@ type Pipeline struct {
 	PipelineArn pulumi.StringOutput `pulumi:"pipelineArn"`
 	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
 	PipelineConfigurationBody pulumi.StringOutput `pulumi:"pipelineConfigurationBody"`
-	// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+	// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	//
 	// The following arguments are optional:
 	PipelineName pulumi.StringOutput `pulumi:"pipelineName"`
@@ -234,7 +245,7 @@ type pipelineState struct {
 	PipelineArn *string `pulumi:"pipelineArn"`
 	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
 	PipelineConfigurationBody *string `pulumi:"pipelineConfigurationBody"`
-	// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+	// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	//
 	// The following arguments are optional:
 	PipelineName *string `pulumi:"pipelineName"`
@@ -267,7 +278,7 @@ type PipelineState struct {
 	PipelineArn pulumi.StringPtrInput
 	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
 	PipelineConfigurationBody pulumi.StringPtrInput
-	// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+	// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	//
 	// The following arguments are optional:
 	PipelineName pulumi.StringPtrInput
@@ -300,7 +311,7 @@ type pipelineArgs struct {
 	MinUnits int `pulumi:"minUnits"`
 	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
 	PipelineConfigurationBody string `pulumi:"pipelineConfigurationBody"`
-	// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+	// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	//
 	// The following arguments are optional:
 	PipelineName string `pulumi:"pipelineName"`
@@ -329,7 +340,7 @@ type PipelineArgs struct {
 	MinUnits pulumi.IntInput
 	// The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \n.
 	PipelineConfigurationBody pulumi.StringInput
-	// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+	// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 	//
 	// The following arguments are optional:
 	PipelineName pulumi.StringInput
@@ -471,7 +482,7 @@ func (o PipelineOutput) PipelineConfigurationBody() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.PipelineConfigurationBody }).(pulumi.StringOutput)
 }
 
-// The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+// Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 //
 // The following arguments are optional:
 func (o PipelineOutput) PipelineName() pulumi.StringOutput {

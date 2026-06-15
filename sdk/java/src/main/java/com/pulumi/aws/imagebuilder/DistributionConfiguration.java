@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionArgs;
  * import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs;
  * import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs;
+ * import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Encrypting the automated backup with KMS
+ * ### Encrypting the automated backup with KMS
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Example including a RDS DB instance
+ * ### Example including a RDS DB instance
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

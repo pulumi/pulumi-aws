@@ -47,6 +47,7 @@ public final class PolicyStepScalingPolicyConfiguration {
      * import com.pulumi.aws.appautoscaling.Policy;
      * import com.pulumi.aws.appautoscaling.PolicyArgs;
      * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
+     * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -126,6 +127,7 @@ public final class PolicyStepScalingPolicyConfiguration {
      * import com.pulumi.aws.appautoscaling.Policy;
      * import com.pulumi.aws.appautoscaling.PolicyArgs;
      * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationArgs;
+     * import com.pulumi.aws.appautoscaling.inputs.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

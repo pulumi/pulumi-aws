@@ -89,7 +89,7 @@ func GetQueryLogConfig(ctx *pulumi.Context, args *GetQueryLogConfigArgs, opts ..
 type GetQueryLogConfigArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
-	// [Route53resolver Filter value in the AWS API reference][1].
+	// [Route53resolver Filter value in the AWS API reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html).
 	Filters []GetQueryLogConfigFilter `pulumi:"filters"`
 	// The name of the query logging configuration.
 	Name *string `pulumi:"name"`
@@ -135,7 +135,7 @@ func GetQueryLogConfigOutput(ctx *pulumi.Context, args GetQueryLogConfigOutputAr
 type GetQueryLogConfigOutputArgs struct {
 	// One or more name/value pairs to use as filters. There are
 	// several valid keys, for a full reference, check out
-	// [Route53resolver Filter value in the AWS API reference][1].
+	// [Route53resolver Filter value in the AWS API reference](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_Filter.html).
 	Filters GetQueryLogConfigFilterArrayInput `pulumi:"filters"`
 	// The name of the query logging configuration.
 	Name pulumi.StringPtrInput `pulumi:"name"`

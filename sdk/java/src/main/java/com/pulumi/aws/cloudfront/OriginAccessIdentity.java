@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * For information about CloudFront distributions, see the
  * [Amazon CloudFront Developer Guide](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html). For more information on generating
  * origin access identities, see
- * [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content][2].
+ * [Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content](http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html).
  * 
  * ## Example Usage
  * 
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Using With CloudFront
+ * ### Using With CloudFront
  * 
  * Normally, when referencing an origin access identity in CloudFront, you need to
  * prefix the ID with the `origin-access-identity/cloudfront/` special path.
@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  * 
  * Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
  * principal into an `AWS` IAM ARN principal when supplied in an
- * `aws.s3.Bucket` bucket policy, causing spurious diffs. If
+ * `aws.s3.Bucket` bucket policy, causing spurious diffs in Terraform. If
  * you see this behavior, use the `iamArn` instead:
  * 
  * <pre>
@@ -118,6 +118,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import java.util.ArrayList;
@@ -153,9 +155,6 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * 
- * [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
- * [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
  * 
  * ## Import
  * 

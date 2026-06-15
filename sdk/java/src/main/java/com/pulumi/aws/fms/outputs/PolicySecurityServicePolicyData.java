@@ -24,7 +24,7 @@ public final class PolicySecurityServicePolicyData {
      */
     private @Nullable PolicySecurityServicePolicyDataPolicyOption policyOption;
     /**
-     * @return An integer value containing ICMP type.
+     * @return The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
      * 
      */
     private String type;
@@ -45,7 +45,7 @@ public final class PolicySecurityServicePolicyData {
         return Optional.ofNullable(this.policyOption);
     }
     /**
-     * @return An integer value containing ICMP type.
+     * @return The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
      * 
      */
     public String type() {

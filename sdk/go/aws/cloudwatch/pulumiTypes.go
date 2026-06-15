@@ -8070,6 +8070,299 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Value() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type LogS3TableIntegrationSourceDataSource struct {
+	// Name of the data source. Use `"*"` to match all sources.
+	Name string `pulumi:"name"`
+	// Type of the data source. Use `"*"` to match all types.
+	Type string `pulumi:"type"`
+}
+
+// LogS3TableIntegrationSourceDataSourceInput is an input type that accepts LogS3TableIntegrationSourceDataSourceArgs and LogS3TableIntegrationSourceDataSourceOutput values.
+// You can construct a concrete instance of `LogS3TableIntegrationSourceDataSourceInput` via:
+//
+//	LogS3TableIntegrationSourceDataSourceArgs{...}
+type LogS3TableIntegrationSourceDataSourceInput interface {
+	pulumi.Input
+
+	ToLogS3TableIntegrationSourceDataSourceOutput() LogS3TableIntegrationSourceDataSourceOutput
+	ToLogS3TableIntegrationSourceDataSourceOutputWithContext(context.Context) LogS3TableIntegrationSourceDataSourceOutput
+}
+
+type LogS3TableIntegrationSourceDataSourceArgs struct {
+	// Name of the data source. Use `"*"` to match all sources.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of the data source. Use `"*"` to match all types.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LogS3TableIntegrationSourceDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogS3TableIntegrationSourceDataSource)(nil)).Elem()
+}
+
+func (i LogS3TableIntegrationSourceDataSourceArgs) ToLogS3TableIntegrationSourceDataSourceOutput() LogS3TableIntegrationSourceDataSourceOutput {
+	return i.ToLogS3TableIntegrationSourceDataSourceOutputWithContext(context.Background())
+}
+
+func (i LogS3TableIntegrationSourceDataSourceArgs) ToLogS3TableIntegrationSourceDataSourceOutputWithContext(ctx context.Context) LogS3TableIntegrationSourceDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogS3TableIntegrationSourceDataSourceOutput)
+}
+
+func (i LogS3TableIntegrationSourceDataSourceArgs) ToLogS3TableIntegrationSourceDataSourcePtrOutput() LogS3TableIntegrationSourceDataSourcePtrOutput {
+	return i.ToLogS3TableIntegrationSourceDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i LogS3TableIntegrationSourceDataSourceArgs) ToLogS3TableIntegrationSourceDataSourcePtrOutputWithContext(ctx context.Context) LogS3TableIntegrationSourceDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogS3TableIntegrationSourceDataSourceOutput).ToLogS3TableIntegrationSourceDataSourcePtrOutputWithContext(ctx)
+}
+
+// LogS3TableIntegrationSourceDataSourcePtrInput is an input type that accepts LogS3TableIntegrationSourceDataSourceArgs, LogS3TableIntegrationSourceDataSourcePtr and LogS3TableIntegrationSourceDataSourcePtrOutput values.
+// You can construct a concrete instance of `LogS3TableIntegrationSourceDataSourcePtrInput` via:
+//
+//	        LogS3TableIntegrationSourceDataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogS3TableIntegrationSourceDataSourcePtrInput interface {
+	pulumi.Input
+
+	ToLogS3TableIntegrationSourceDataSourcePtrOutput() LogS3TableIntegrationSourceDataSourcePtrOutput
+	ToLogS3TableIntegrationSourceDataSourcePtrOutputWithContext(context.Context) LogS3TableIntegrationSourceDataSourcePtrOutput
+}
+
+type logS3TableIntegrationSourceDataSourcePtrType LogS3TableIntegrationSourceDataSourceArgs
+
+func LogS3TableIntegrationSourceDataSourcePtr(v *LogS3TableIntegrationSourceDataSourceArgs) LogS3TableIntegrationSourceDataSourcePtrInput {
+	return (*logS3TableIntegrationSourceDataSourcePtrType)(v)
+}
+
+func (*logS3TableIntegrationSourceDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogS3TableIntegrationSourceDataSource)(nil)).Elem()
+}
+
+func (i *logS3TableIntegrationSourceDataSourcePtrType) ToLogS3TableIntegrationSourceDataSourcePtrOutput() LogS3TableIntegrationSourceDataSourcePtrOutput {
+	return i.ToLogS3TableIntegrationSourceDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *logS3TableIntegrationSourceDataSourcePtrType) ToLogS3TableIntegrationSourceDataSourcePtrOutputWithContext(ctx context.Context) LogS3TableIntegrationSourceDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogS3TableIntegrationSourceDataSourcePtrOutput)
+}
+
+type LogS3TableIntegrationSourceDataSourceOutput struct{ *pulumi.OutputState }
+
+func (LogS3TableIntegrationSourceDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogS3TableIntegrationSourceDataSource)(nil)).Elem()
+}
+
+func (o LogS3TableIntegrationSourceDataSourceOutput) ToLogS3TableIntegrationSourceDataSourceOutput() LogS3TableIntegrationSourceDataSourceOutput {
+	return o
+}
+
+func (o LogS3TableIntegrationSourceDataSourceOutput) ToLogS3TableIntegrationSourceDataSourceOutputWithContext(ctx context.Context) LogS3TableIntegrationSourceDataSourceOutput {
+	return o
+}
+
+func (o LogS3TableIntegrationSourceDataSourceOutput) ToLogS3TableIntegrationSourceDataSourcePtrOutput() LogS3TableIntegrationSourceDataSourcePtrOutput {
+	return o.ToLogS3TableIntegrationSourceDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o LogS3TableIntegrationSourceDataSourceOutput) ToLogS3TableIntegrationSourceDataSourcePtrOutputWithContext(ctx context.Context) LogS3TableIntegrationSourceDataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogS3TableIntegrationSourceDataSource) *LogS3TableIntegrationSourceDataSource {
+		return &v
+	}).(LogS3TableIntegrationSourceDataSourcePtrOutput)
+}
+
+// Name of the data source. Use `"*"` to match all sources.
+func (o LogS3TableIntegrationSourceDataSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LogS3TableIntegrationSourceDataSource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Type of the data source. Use `"*"` to match all types.
+func (o LogS3TableIntegrationSourceDataSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LogS3TableIntegrationSourceDataSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type LogS3TableIntegrationSourceDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (LogS3TableIntegrationSourceDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogS3TableIntegrationSourceDataSource)(nil)).Elem()
+}
+
+func (o LogS3TableIntegrationSourceDataSourcePtrOutput) ToLogS3TableIntegrationSourceDataSourcePtrOutput() LogS3TableIntegrationSourceDataSourcePtrOutput {
+	return o
+}
+
+func (o LogS3TableIntegrationSourceDataSourcePtrOutput) ToLogS3TableIntegrationSourceDataSourcePtrOutputWithContext(ctx context.Context) LogS3TableIntegrationSourceDataSourcePtrOutput {
+	return o
+}
+
+func (o LogS3TableIntegrationSourceDataSourcePtrOutput) Elem() LogS3TableIntegrationSourceDataSourceOutput {
+	return o.ApplyT(func(v *LogS3TableIntegrationSourceDataSource) LogS3TableIntegrationSourceDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret LogS3TableIntegrationSourceDataSource
+		return ret
+	}).(LogS3TableIntegrationSourceDataSourceOutput)
+}
+
+// Name of the data source. Use `"*"` to match all sources.
+func (o LogS3TableIntegrationSourceDataSourcePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogS3TableIntegrationSourceDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the data source. Use `"*"` to match all types.
+func (o LogS3TableIntegrationSourceDataSourcePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogS3TableIntegrationSourceDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type LogS3TableIntegrationSourceTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// LogS3TableIntegrationSourceTimeoutsInput is an input type that accepts LogS3TableIntegrationSourceTimeoutsArgs and LogS3TableIntegrationSourceTimeoutsOutput values.
+// You can construct a concrete instance of `LogS3TableIntegrationSourceTimeoutsInput` via:
+//
+//	LogS3TableIntegrationSourceTimeoutsArgs{...}
+type LogS3TableIntegrationSourceTimeoutsInput interface {
+	pulumi.Input
+
+	ToLogS3TableIntegrationSourceTimeoutsOutput() LogS3TableIntegrationSourceTimeoutsOutput
+	ToLogS3TableIntegrationSourceTimeoutsOutputWithContext(context.Context) LogS3TableIntegrationSourceTimeoutsOutput
+}
+
+type LogS3TableIntegrationSourceTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (LogS3TableIntegrationSourceTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogS3TableIntegrationSourceTimeouts)(nil)).Elem()
+}
+
+func (i LogS3TableIntegrationSourceTimeoutsArgs) ToLogS3TableIntegrationSourceTimeoutsOutput() LogS3TableIntegrationSourceTimeoutsOutput {
+	return i.ToLogS3TableIntegrationSourceTimeoutsOutputWithContext(context.Background())
+}
+
+func (i LogS3TableIntegrationSourceTimeoutsArgs) ToLogS3TableIntegrationSourceTimeoutsOutputWithContext(ctx context.Context) LogS3TableIntegrationSourceTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogS3TableIntegrationSourceTimeoutsOutput)
+}
+
+func (i LogS3TableIntegrationSourceTimeoutsArgs) ToLogS3TableIntegrationSourceTimeoutsPtrOutput() LogS3TableIntegrationSourceTimeoutsPtrOutput {
+	return i.ToLogS3TableIntegrationSourceTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i LogS3TableIntegrationSourceTimeoutsArgs) ToLogS3TableIntegrationSourceTimeoutsPtrOutputWithContext(ctx context.Context) LogS3TableIntegrationSourceTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogS3TableIntegrationSourceTimeoutsOutput).ToLogS3TableIntegrationSourceTimeoutsPtrOutputWithContext(ctx)
+}
+
+// LogS3TableIntegrationSourceTimeoutsPtrInput is an input type that accepts LogS3TableIntegrationSourceTimeoutsArgs, LogS3TableIntegrationSourceTimeoutsPtr and LogS3TableIntegrationSourceTimeoutsPtrOutput values.
+// You can construct a concrete instance of `LogS3TableIntegrationSourceTimeoutsPtrInput` via:
+//
+//	        LogS3TableIntegrationSourceTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LogS3TableIntegrationSourceTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToLogS3TableIntegrationSourceTimeoutsPtrOutput() LogS3TableIntegrationSourceTimeoutsPtrOutput
+	ToLogS3TableIntegrationSourceTimeoutsPtrOutputWithContext(context.Context) LogS3TableIntegrationSourceTimeoutsPtrOutput
+}
+
+type logS3TableIntegrationSourceTimeoutsPtrType LogS3TableIntegrationSourceTimeoutsArgs
+
+func LogS3TableIntegrationSourceTimeoutsPtr(v *LogS3TableIntegrationSourceTimeoutsArgs) LogS3TableIntegrationSourceTimeoutsPtrInput {
+	return (*logS3TableIntegrationSourceTimeoutsPtrType)(v)
+}
+
+func (*logS3TableIntegrationSourceTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogS3TableIntegrationSourceTimeouts)(nil)).Elem()
+}
+
+func (i *logS3TableIntegrationSourceTimeoutsPtrType) ToLogS3TableIntegrationSourceTimeoutsPtrOutput() LogS3TableIntegrationSourceTimeoutsPtrOutput {
+	return i.ToLogS3TableIntegrationSourceTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *logS3TableIntegrationSourceTimeoutsPtrType) ToLogS3TableIntegrationSourceTimeoutsPtrOutputWithContext(ctx context.Context) LogS3TableIntegrationSourceTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LogS3TableIntegrationSourceTimeoutsPtrOutput)
+}
+
+type LogS3TableIntegrationSourceTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (LogS3TableIntegrationSourceTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LogS3TableIntegrationSourceTimeouts)(nil)).Elem()
+}
+
+func (o LogS3TableIntegrationSourceTimeoutsOutput) ToLogS3TableIntegrationSourceTimeoutsOutput() LogS3TableIntegrationSourceTimeoutsOutput {
+	return o
+}
+
+func (o LogS3TableIntegrationSourceTimeoutsOutput) ToLogS3TableIntegrationSourceTimeoutsOutputWithContext(ctx context.Context) LogS3TableIntegrationSourceTimeoutsOutput {
+	return o
+}
+
+func (o LogS3TableIntegrationSourceTimeoutsOutput) ToLogS3TableIntegrationSourceTimeoutsPtrOutput() LogS3TableIntegrationSourceTimeoutsPtrOutput {
+	return o.ToLogS3TableIntegrationSourceTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o LogS3TableIntegrationSourceTimeoutsOutput) ToLogS3TableIntegrationSourceTimeoutsPtrOutputWithContext(ctx context.Context) LogS3TableIntegrationSourceTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogS3TableIntegrationSourceTimeouts) *LogS3TableIntegrationSourceTimeouts {
+		return &v
+	}).(LogS3TableIntegrationSourceTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o LogS3TableIntegrationSourceTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LogS3TableIntegrationSourceTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type LogS3TableIntegrationSourceTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (LogS3TableIntegrationSourceTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LogS3TableIntegrationSourceTimeouts)(nil)).Elem()
+}
+
+func (o LogS3TableIntegrationSourceTimeoutsPtrOutput) ToLogS3TableIntegrationSourceTimeoutsPtrOutput() LogS3TableIntegrationSourceTimeoutsPtrOutput {
+	return o
+}
+
+func (o LogS3TableIntegrationSourceTimeoutsPtrOutput) ToLogS3TableIntegrationSourceTimeoutsPtrOutputWithContext(ctx context.Context) LogS3TableIntegrationSourceTimeoutsPtrOutput {
+	return o
+}
+
+func (o LogS3TableIntegrationSourceTimeoutsPtrOutput) Elem() LogS3TableIntegrationSourceTimeoutsOutput {
+	return o.ApplyT(func(v *LogS3TableIntegrationSourceTimeouts) LogS3TableIntegrationSourceTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret LogS3TableIntegrationSourceTimeouts
+		return ret
+	}).(LogS3TableIntegrationSourceTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o LogS3TableIntegrationSourceTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LogS3TableIntegrationSourceTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type LogTransformerTransformerConfig struct {
 	// Adds new key-value pairs to the log event. See `addKeys` below for details.
 	AddKeys *LogTransformerTransformerConfigAddKeys `pulumi:"addKeys"`
@@ -15622,6 +15915,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogDeliveryS3DeliveryConfigurationArrayInput)(nil)).Elem(), LogDeliveryS3DeliveryConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterMetricTransformationInput)(nil)).Elem(), LogMetricFilterMetricTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterMetricTransformationPtrInput)(nil)).Elem(), LogMetricFilterMetricTransformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogS3TableIntegrationSourceDataSourceInput)(nil)).Elem(), LogS3TableIntegrationSourceDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogS3TableIntegrationSourceDataSourcePtrInput)(nil)).Elem(), LogS3TableIntegrationSourceDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogS3TableIntegrationSourceTimeoutsInput)(nil)).Elem(), LogS3TableIntegrationSourceTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogS3TableIntegrationSourceTimeoutsPtrInput)(nil)).Elem(), LogS3TableIntegrationSourceTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigInput)(nil)).Elem(), LogTransformerTransformerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigArrayInput)(nil)).Elem(), LogTransformerTransformerConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogTransformerTransformerConfigAddKeysInput)(nil)).Elem(), LogTransformerTransformerConfigAddKeysArgs{})
@@ -15841,6 +16138,10 @@ func init() {
 	pulumi.RegisterOutputType(LogDeliveryS3DeliveryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(LogMetricFilterMetricTransformationOutput{})
 	pulumi.RegisterOutputType(LogMetricFilterMetricTransformationPtrOutput{})
+	pulumi.RegisterOutputType(LogS3TableIntegrationSourceDataSourceOutput{})
+	pulumi.RegisterOutputType(LogS3TableIntegrationSourceDataSourcePtrOutput{})
+	pulumi.RegisterOutputType(LogS3TableIntegrationSourceTimeoutsOutput{})
+	pulumi.RegisterOutputType(LogS3TableIntegrationSourceTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(LogTransformerTransformerConfigOutput{})
 	pulumi.RegisterOutputType(LogTransformerTransformerConfigArrayOutput{})
 	pulumi.RegisterOutputType(LogTransformerTransformerConfigAddKeysOutput{})

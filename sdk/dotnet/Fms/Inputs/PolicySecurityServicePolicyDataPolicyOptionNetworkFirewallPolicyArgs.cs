@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Fms.Inputs
     public sealed class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+        /// Defines the deployment model to use for the firewall policy. To use a distributed model, remove the `PolicyOption` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
         /// </summary>
         [Input("firewallDeploymentModel")]
         public Input<string>? FirewallDeploymentModel { get; set; }

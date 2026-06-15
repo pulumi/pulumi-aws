@@ -30,6 +30,7 @@ public final class PricingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.pricing.PricingFunctions;
      * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.pricing.inputs.GetProductFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -90,6 +91,7 @@ public final class PricingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.pricing.PricingFunctions;
      * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.pricing.inputs.GetProductFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -140,6 +142,7 @@ public final class PricingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.pricing.PricingFunctions;
      * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.pricing.inputs.GetProductFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -200,6 +203,7 @@ public final class PricingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.pricing.PricingFunctions;
      * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.pricing.inputs.GetProductFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -250,6 +254,7 @@ public final class PricingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.pricing.PricingFunctions;
      * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.pricing.inputs.GetProductFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -310,6 +315,7 @@ public final class PricingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.pricing.PricingFunctions;
      * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.pricing.inputs.GetProductFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -360,6 +366,7 @@ public final class PricingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.pricing.PricingFunctions;
      * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.pricing.inputs.GetProductFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -420,6 +427,7 @@ public final class PricingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.pricing.PricingFunctions;
      * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.pricing.inputs.GetProductFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -470,6 +478,7 @@ public final class PricingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.pricing.PricingFunctions;
      * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.pricing.inputs.GetProductFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -530,6 +539,7 @@ public final class PricingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.pricing.PricingFunctions;
      * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import com.pulumi.aws.pricing.inputs.GetProductFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

@@ -46,7 +46,7 @@ import (
 //
 // ```
 //
-// ## Example IPv6 Usage
+// ### Example IPv6 Usage
 //
 // ```go
 // package main

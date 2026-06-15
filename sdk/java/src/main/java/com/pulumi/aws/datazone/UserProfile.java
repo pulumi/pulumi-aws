@@ -59,6 +59,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `domainIdentifier` - (String) Identifier of the DataZone domain.
+ * * `userIdentifier` - (String) Identifier of the user.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import DataZone User Profile using the `user_identifier,domain_identifier,type`. For example:
  * 
  * ```sh

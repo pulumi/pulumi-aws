@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
+ * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a Resource Access Manager (RAM) share. In that case specifying `arn`, or `name` and `arn`, is recommended.
  *
  * > **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
  */
@@ -95,7 +95,7 @@ export interface GetFirewallPolicyResult {
      */
     readonly description: string;
     /**
-     * The [policy][2] for the specified firewall policy.
+     * The policy for the specified firewall policy.
      */
     readonly firewallPolicies: outputs.networkfirewall.GetFirewallPolicyFirewallPolicy[];
     /**
@@ -152,7 +152,7 @@ export interface GetFirewallPolicyResult {
  * });
  * ```
  *
- * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a [Resource Access Manager (RAM) share][1]. In that case specifying `arn`, or `name` and `arn`, is recommended.
+ * AWS Network Firewall does not allow multiple firewall policies with the same name to be created in an account. It is possible, however, to have multiple firewall policies available in a single account with identical `name` values but distinct `arn` values, e.g. firewall policies shared via a Resource Access Manager (RAM) share. In that case specifying `arn`, or `name` and `arn`, is recommended.
  *
  * > **Note:** If there are multiple firewall policies in an account with the same `name`, and `arn` is not specified, the default behavior will return the firewall policy with `name` that was created in the account.
  */

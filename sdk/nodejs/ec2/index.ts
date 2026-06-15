@@ -175,6 +175,11 @@ export const getElasticIp: typeof import("./getElasticIp").getElasticIp = null a
 export const getElasticIpOutput: typeof import("./getElasticIp").getElasticIpOutput = null as any;
 utilities.lazyLoad(exports, ["getElasticIp","getElasticIpOutput"], () => require("./getElasticIp"));
 
+export { GetHostsArgs, GetHostsResult, GetHostsOutputArgs } from "./getHosts";
+export const getHosts: typeof import("./getHosts").getHosts = null as any;
+export const getHostsOutput: typeof import("./getHosts").getHostsOutput = null as any;
+utilities.lazyLoad(exports, ["getHosts","getHostsOutput"], () => require("./getHosts"));
+
 export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
 export const getInstance: typeof import("./getInstance").getInstance = null as any;
 export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
@@ -504,6 +509,16 @@ export { LocalGatewayRouteArgs, LocalGatewayRouteState } from "./localGatewayRou
 export type LocalGatewayRoute = import("./localGatewayRoute").LocalGatewayRoute;
 export const LocalGatewayRoute: typeof import("./localGatewayRoute").LocalGatewayRoute = null as any;
 utilities.lazyLoad(exports, ["LocalGatewayRoute"], () => require("./localGatewayRoute"));
+
+export { LocalGatewayRouteTableArgs, LocalGatewayRouteTableState } from "./localGatewayRouteTable";
+export type LocalGatewayRouteTable = import("./localGatewayRouteTable").LocalGatewayRouteTable;
+export const LocalGatewayRouteTable: typeof import("./localGatewayRouteTable").LocalGatewayRouteTable = null as any;
+utilities.lazyLoad(exports, ["LocalGatewayRouteTable"], () => require("./localGatewayRouteTable"));
+
+export { LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs, LocalGatewayRouteTableVirtualInterfaceGroupAssociationState } from "./localGatewayRouteTableVirtualInterfaceGroupAssociation";
+export type LocalGatewayRouteTableVirtualInterfaceGroupAssociation = import("./localGatewayRouteTableVirtualInterfaceGroupAssociation").LocalGatewayRouteTableVirtualInterfaceGroupAssociation;
+export const LocalGatewayRouteTableVirtualInterfaceGroupAssociation: typeof import("./localGatewayRouteTableVirtualInterfaceGroupAssociation").LocalGatewayRouteTableVirtualInterfaceGroupAssociation = null as any;
+utilities.lazyLoad(exports, ["LocalGatewayRouteTableVirtualInterfaceGroupAssociation"], () => require("./localGatewayRouteTableVirtualInterfaceGroupAssociation"));
 
 export { LocalGatewayRouteTableVpcAssociationArgs, LocalGatewayRouteTableVpcAssociationState } from "./localGatewayRouteTableVpcAssociation";
 export type LocalGatewayRouteTableVpcAssociation = import("./localGatewayRouteTableVpcAssociation").LocalGatewayRouteTableVpcAssociation;
@@ -956,6 +971,10 @@ const _module = {
                 return new LaunchTemplate(name, <any>undefined, { urn })
             case "aws:ec2/localGatewayRoute:LocalGatewayRoute":
                 return new LocalGatewayRoute(name, <any>undefined, { urn })
+            case "aws:ec2/localGatewayRouteTable:LocalGatewayRouteTable":
+                return new LocalGatewayRouteTable(name, <any>undefined, { urn })
+            case "aws:ec2/localGatewayRouteTableVirtualInterfaceGroupAssociation:LocalGatewayRouteTableVirtualInterfaceGroupAssociation":
+                return new LocalGatewayRouteTableVirtualInterfaceGroupAssociation(name, <any>undefined, { urn })
             case "aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation":
                 return new LocalGatewayRouteTableVpcAssociation(name, <any>undefined, { urn })
             case "aws:ec2/mainRouteTableAssociation:MainRouteTableAssociation":
@@ -1145,6 +1164,8 @@ pulumi.runtime.registerResourceModule("aws", "ec2/keyPair", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/launchConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/launchTemplate", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/localGatewayRoute", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/localGatewayRouteTable", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/localGatewayRouteTableVirtualInterfaceGroupAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/localGatewayRouteTableVpcAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/mainRouteTableAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/managedPrefixList", _module)

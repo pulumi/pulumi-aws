@@ -406,6 +406,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleActionArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleActionCaptchaArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleActionCaptchaCustomRequestHandlingArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementGeoMatchStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
@@ -531,6 +532,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleActionBlockArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementAndStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementGeoMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementFieldToMatchArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementByteMatchStatementTextTransformationArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -554,26 +560,28 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .andStatement(Map.of("statements", Arrays.asList(                
- *                     WebAclRuleStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes("CN")
- *                             .build())
- *                         .build(),
- *                     WebAclRuleStatementArgs.builder()
- *                         .byteMatchStatement(WebAclRuleStatementByteMatchStatementArgs.builder()
- *                             .searchString("admin")
- *                             .positionalConstraint("CONTAINS")
- *                             .fieldToMatch(WebAclRuleStatementByteMatchStatementFieldToMatchArgs.builder()
- *                                 .uriPath(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs.builder()
+ *                 .andStatement(WebAclRuleStatementAndStatementArgs.builder()
+ *                     .statements(                    
+ *                         WebAclRuleStatementArgs.builder()
+ *                             .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes("CN")
+ *                                 .build())
+ *                             .build(),
+ *                         WebAclRuleStatementArgs.builder()
+ *                             .byteMatchStatement(WebAclRuleStatementByteMatchStatementArgs.builder()
+ *                                 .searchString("admin")
+ *                                 .positionalConstraint("CONTAINS")
+ *                                 .fieldToMatch(WebAclRuleStatementByteMatchStatementFieldToMatchArgs.builder()
+ *                                     .uriPath(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs.builder()
+ *                                         .build())
+ *                                     .build())
+ *                                 .textTransformations(WebAclRuleStatementByteMatchStatementTextTransformationArgs.builder()
+ *                                     .priority(0)
+ *                                     .type("LOWERCASE")
  *                                     .build())
  *                                 .build())
- *                             .textTransformations(WebAclRuleStatementByteMatchStatementTextTransformationArgs.builder()
- *                                 .priority(0)
- *                                 .type("LOWERCASE")
- *                                 .build())
  *                             .build())
- *                         .build())))
+ *                     .build())
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)
@@ -604,6 +612,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleActionBlockArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementOrStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementGeoMatchStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -627,17 +636,19 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .orStatement(Map.of("statements", Arrays.asList(                
- *                     WebAclRuleStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes("CN")
+ *                 .orStatement(WebAclRuleStatementOrStatementArgs.builder()
+ *                     .statements(                    
+ *                         WebAclRuleStatementArgs.builder()
+ *                             .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes("CN")
+ *                                 .build())
+ *                             .build(),
+ *                         WebAclRuleStatementArgs.builder()
+ *                             .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                                 .countryCodes("RU")
+ *                                 .build())
  *                             .build())
- *                         .build(),
- *                     WebAclRuleStatementArgs.builder()
- *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                             .countryCodes("RU")
- *                             .build())
- *                         .build())))
+ *                     .build())
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)

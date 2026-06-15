@@ -8,6 +8,7 @@ import com.pulumi.aws.bedrock.AgentcoreGatewayTargetArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetState;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetCredentialProviderConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetMetadataConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetPrivateEndpoint;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTimeouts;
 import com.pulumi.core.Output;
@@ -19,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions or APIs, allowing agents to interact with external services through the Model Context Protocol (MCP).
+ * Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions, APIs, or AgentCore Runtime agents, allowing agents to interact with external services through the Model Context Protocol (MCP) or by routing HTTP traffic directly to a runtime.
  * 
  * ## Example Usage
  * 
@@ -34,6 +35,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.lambda.Function;
@@ -50,6 +53,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs;
  * import com.pulumi.asset.FileArchive;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -197,6 +206,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -263,6 +274,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -326,6 +341,59 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Target with IAM SigV4 Authentication (MCP Server)
+ * 
+ * Use this for `mcpServer` targets pointing at AWS-hosted SigV4-protected endpoints (e.g. another Bedrock AgentCore Runtime). The gateway signs upstream requests using its own IAM role.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTarget;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTargetArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var sigv4Example = new AgentcoreGatewayTarget("sigv4Example", AgentcoreGatewayTargetArgs.builder()
+ *             .name("sigv4-target")
+ *             .gatewayIdentifier(example.gatewayId())
+ *             .credentialProviderConfiguration(AgentcoreGatewayTargetCredentialProviderConfigurationArgs.builder()
+ *                 .gatewayIamRole(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs.builder()
+ *                     .service("bedrock-agentcore")
+ *                     .build())
+ *                 .build())
+ *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
+ *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
+ *                     .mcpServer(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs.builder()
+ *                         .endpoint("https://example-runtime.bedrock-agentcore.us-east-1.amazonaws.com/runtimes/example/invocations?qualifier=DEFAULT")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Complex Schema with JSON Serialization
  * 
  * <pre>
@@ -343,6 +411,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs;
  * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -469,6 +541,238 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### HTTP Target Routing to an AgentCore Runtime
+ * 
+ * Routes gateway traffic directly to an AgentCore Runtime agent over HTTP, without MCP aggregation. The gateway must not have a `protocolType` set.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreAgentRuntime;
+ * import com.pulumi.aws.bedrock.AgentcoreAgentRuntimeArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTarget;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTargetArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationHttpArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentcoreAgentRuntime("example", AgentcoreAgentRuntimeArgs.builder()
+ *             .agentRuntimeName("example-runtime")
+ *             .roleArn(runtimeRole.arn())
+ *             .agentRuntimeArtifact(AgentcoreAgentRuntimeAgentRuntimeArtifactArgs.builder()
+ *                 .containerConfiguration(AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs.builder()
+ *                     .containerUri("111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest")
+ *                     .build())
+ *                 .build())
+ *             .networkConfiguration(AgentcoreAgentRuntimeNetworkConfigurationArgs.builder()
+ *                 .networkMode("PUBLIC")
+ *                 .build())
+ *             .build());
+ * 
+ *         var runtime = new AgentcoreGatewayTarget("runtime", AgentcoreGatewayTargetArgs.builder()
+ *             .name("runtime-target")
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .credentialProviderConfiguration(AgentcoreGatewayTargetCredentialProviderConfigurationArgs.builder()
+ *                 .gatewayIamRole(AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs.builder()
+ *                     .build())
+ *                 .build())
+ *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
+ *                 .http(AgentcoreGatewayTargetTargetConfigurationHttpArgs.builder()
+ *                     .agentcoreRuntime(AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs.builder()
+ *                         .arn(example.agentRuntimeArn())
+ *                         .qualifier("DEFAULT")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Self-hosted MCP server in a VPC (managed Lattice)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTarget;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTargetArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetPrivateEndpointArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentcoreGatewayTarget("example", AgentcoreGatewayTargetArgs.builder()
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .name("my-private-mcp-target")
+ *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
+ *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
+ *                     .mcpServer(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs.builder()
+ *                         .endpoint("https://mcp.internal.example.com/mcp")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .privateEndpoint(AgentcoreGatewayTargetPrivateEndpointArgs.builder()
+ *                 .managedVpcResource(AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs.builder()
+ *                     .vpcIdentifier(exampleAwsVpc.id())
+ *                     .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *                     .endpointIpAddressType("IPV4")
+ *                     .securityGroupIds(mcpLattice.id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Self-hosted MCP server with routing through an internal ALB
+ * 
+ * Use `routingDomain` when the MCP server has a private TLS certificate. Place an internal ALB with a public ACM certificate in front of the server and set `routingDomain` to the ALB DNS name.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTarget;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTargetArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetPrivateEndpointArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentcoreGatewayTarget("example", AgentcoreGatewayTargetArgs.builder()
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .name("my-private-mcp-via-alb")
+ *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
+ *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
+ *                     .mcpServer(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs.builder()
+ *                         .endpoint("https://mcp.example.com/mcp")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .privateEndpoint(AgentcoreGatewayTargetPrivateEndpointArgs.builder()
+ *                 .managedVpcResource(AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs.builder()
+ *                     .vpcIdentifier(exampleAwsVpc.id())
+ *                     .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *                     .endpointIpAddressType("IPV4")
+ *                     .routingDomain(mcpAlb.dnsName())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Self-managed VPC Lattice resource configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTarget;
+ * import com.pulumi.aws.bedrock.AgentcoreGatewayTargetArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetPrivateEndpointArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentcoreGatewayTarget("example", AgentcoreGatewayTargetArgs.builder()
+ *             .gatewayIdentifier(exampleAwsBedrockagentcoreGateway.gatewayId())
+ *             .name("my-private-mcp-self-managed")
+ *             .targetConfiguration(AgentcoreGatewayTargetTargetConfigurationArgs.builder()
+ *                 .mcp(AgentcoreGatewayTargetTargetConfigurationMcpArgs.builder()
+ *                     .mcpServer(AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs.builder()
+ *                         .endpoint("https://mcp.internal.example.com/mcp")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .privateEndpoint(AgentcoreGatewayTargetPrivateEndpointArgs.builder()
+ *                 .selfManagedLatticeResource(AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs.builder()
+ *                     .resourceConfigurationIdentifier(mcp.arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
@@ -551,14 +855,28 @@ public class AgentcoreGatewayTarget extends com.pulumi.resources.CustomResource 
         return this.name;
     }
     /**
-     * AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+     * 
+     */
+    @Export(name="privateEndpoint", refs={AgentcoreGatewayTargetPrivateEndpoint.class}, tree="[0]")
+    private Output</* @Nullable */ AgentcoreGatewayTargetPrivateEndpoint> privateEndpoint;
+
+    /**
+     * @return Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+     * 
+     */
+    public Output<Optional<AgentcoreGatewayTargetPrivateEndpoint>> privateEndpoint() {
+        return Codegen.optional(this.privateEndpoint);
+    }
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {

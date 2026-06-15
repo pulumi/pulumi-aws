@@ -14,13 +14,21 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfiguration
     {
         /// <summary>
+        /// HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `Http` below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationHttp? Http;
+        /// <summary>
         /// Model Context Protocol (MCP) configuration. See `Mcp` below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcp? Mcp;
 
         [OutputConstructor]
-        private AgentcoreGatewayTargetTargetConfiguration(Outputs.AgentcoreGatewayTargetTargetConfigurationMcp? mcp)
+        private AgentcoreGatewayTargetTargetConfiguration(
+            Outputs.AgentcoreGatewayTargetTargetConfigurationHttp? http,
+
+            Outputs.AgentcoreGatewayTargetTargetConfigurationMcp? mcp)
         {
+            Http = http;
             Mcp = mcp;
         }
     }

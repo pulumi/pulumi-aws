@@ -13,30 +13,52 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EnvironmentAllSetting {
     /**
-     * @return A unique name for this Environment. This name is used
-     * in the application URL
+     * @return Name of the configuration option
      * 
      */
     private String name;
+    /**
+     * @return Unique namespace identifying the option&#39;s associated AWS resource
+     * 
+     */
     private String namespace;
+    /**
+     * @return resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+     * 
+     */
     private @Nullable String resource;
+    /**
+     * @return Value for the configuration option
+     * 
+     */
     private String value;
 
     private EnvironmentAllSetting() {}
     /**
-     * @return A unique name for this Environment. This name is used
-     * in the application URL
+     * @return Name of the configuration option
      * 
      */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Unique namespace identifying the option&#39;s associated AWS resource
+     * 
+     */
     public String namespace() {
         return this.namespace;
     }
+    /**
+     * @return resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+     * 
+     */
     public Optional<String> resource() {
         return Optional.ofNullable(this.resource);
     }
+    /**
+     * @return Value for the configuration option
+     * 
+     */
     public String value() {
         return this.value;
     }

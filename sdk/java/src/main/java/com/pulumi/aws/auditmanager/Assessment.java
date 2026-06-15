@@ -39,6 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.auditmanager.inputs.AssessmentAssessmentReportsDestinationArgs;
  * import com.pulumi.aws.auditmanager.inputs.AssessmentRoleArgs;
  * import com.pulumi.aws.auditmanager.inputs.AssessmentScopeArgs;
+ * import com.pulumi.aws.auditmanager.inputs.AssessmentScopeAwsAccountArgs;
+ * import com.pulumi.aws.auditmanager.inputs.AssessmentScopeAwsServiceArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

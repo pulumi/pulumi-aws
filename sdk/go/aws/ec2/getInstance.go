@@ -66,7 +66,7 @@ func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulum
 type LookupInstanceArgs struct {
 	// One or more filters to apply to the search.
 	// If multiple `filter` blocks are provided, they all must be true.
-	// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+	// For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
 	// See `filter` Block below.
 	Filters []GetInstanceFilter `pulumi:"filters"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -201,7 +201,7 @@ func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, op
 type LookupInstanceOutputArgs struct {
 	// One or more filters to apply to the search.
 	// If multiple `filter` blocks are provided, they all must be true.
-	// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+	// For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
 	// See `filter` Block below.
 	Filters GetInstanceFilterArrayInput `pulumi:"filters"`
 	// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.

@@ -68,7 +68,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Code
+ * ### Example Usage With Code
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

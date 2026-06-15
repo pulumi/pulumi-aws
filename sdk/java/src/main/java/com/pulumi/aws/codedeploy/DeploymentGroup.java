@@ -43,6 +43,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
@@ -54,6 +56,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codedeploy.DeploymentGroup;
  * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEc2TagSetArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEc2TagSetEc2TagFilterArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupTriggerConfigurationArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
@@ -159,6 +162,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -239,6 +243,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupDeploymentStyleArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupLoadBalancerInfoElbInfoArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs;
@@ -299,8 +304,6 @@ import javax.annotation.Nullable;
  * ```sh
  * $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
  * ```
- * 
- * [1]: http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html
  * 
  */
 @ResourceType(type="aws:codedeploy/deploymentGroup:DeploymentGroup")

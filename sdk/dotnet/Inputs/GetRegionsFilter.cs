@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Inputs
     public sealed class GetRegionsFilterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+        /// Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-regions.html).
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;

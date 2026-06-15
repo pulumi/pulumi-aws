@@ -108,9 +108,6 @@ class IndexingRuleRuleProbabilisticArgsDict(TypedDict):
     Configured sampling percentage of traceIds.
     """
     actual_sampling_percentage: NotRequired[pulumi.Input[Optional[_builtins.float]]]
-    """
-    Applied sampling percentage of traceIds.
-    """
 
 @pulumi.input_type
 class IndexingRuleRuleProbabilisticArgs:
@@ -119,7 +116,6 @@ class IndexingRuleRuleProbabilisticArgs:
                  actual_sampling_percentage: pulumi.Input[Optional[_builtins.float]] = None):
         """
         :param pulumi.Input[_builtins.float] desired_sampling_percentage: Configured sampling percentage of traceIds.
-        :param pulumi.Input[_builtins.float] actual_sampling_percentage: Applied sampling percentage of traceIds.
         """
         pulumi.set(__self__, "desired_sampling_percentage", desired_sampling_percentage)
         if actual_sampling_percentage is not None:
@@ -140,9 +136,6 @@ class IndexingRuleRuleProbabilisticArgs:
     @_builtins.property
     @pulumi.getter(name="actualSamplingPercentage")
     def actual_sampling_percentage(self) -> pulumi.Input[Optional[_builtins.float]]:
-        """
-        Applied sampling percentage of traceIds.
-        """
         return pulumi.get(self, "actual_sampling_percentage")
 
     @actual_sampling_percentage.setter

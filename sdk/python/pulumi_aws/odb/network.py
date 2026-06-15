@@ -339,6 +339,7 @@ class _NetworkState:
                  default_dns_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  delete_associated_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ec2_placement_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  kms_access: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_services: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkManagedServiceArgs']]]] = None,
@@ -375,6 +376,7 @@ class _NetworkState:
         :param pulumi.Input[_builtins.str] default_dns_prefix: The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ec2_placement_group_ids: A list of EC2 placement group IDs associated with the ODB network.
         :param pulumi.Input[_builtins.str] kms_access: Specifies the configuration for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]] managed_services: The managed services configuration for the ODB network.
@@ -420,6 +422,8 @@ class _NetworkState:
             pulumi.set(__self__, "delete_associated_resources", delete_associated_resources)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if ec2_placement_group_ids is not None:
+            pulumi.set(__self__, "ec2_placement_group_ids", ec2_placement_group_ids)
         if kms_access is not None:
             pulumi.set(__self__, "kms_access", kms_access)
         if kms_policy_document is not None:
@@ -596,6 +600,18 @@ class _NetworkState:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ec2PlacementGroupIds")
+    def ec2_placement_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of EC2 placement group IDs associated with the ODB network.
+        """
+        return pulumi.get(self, "ec2_placement_group_ids")
+
+    @ec2_placement_group_ids.setter
+    def ec2_placement_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "ec2_placement_group_ids", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsAccess")
@@ -1017,6 +1033,7 @@ class Network(pulumi.CustomResource):
             __props__.__dict__["zero_etl_access"] = zero_etl_access
             __props__.__dict__["arn"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["ec2_placement_group_ids"] = None
             __props__.__dict__["managed_services"] = None
             __props__.__dict__["oci_dns_forwarding_configs"] = None
             __props__.__dict__["oci_network_anchor_id"] = None
@@ -1050,6 +1067,7 @@ class Network(pulumi.CustomResource):
             default_dns_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             delete_associated_resources: pulumi.Input[Optional[_builtins.bool]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ec2_placement_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             kms_access: pulumi.Input[Optional[_builtins.str]] = None,
             kms_policy_document: pulumi.Input[Optional[_builtins.str]] = None,
             managed_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]]] = None,
@@ -1090,6 +1108,7 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_dns_prefix: The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ec2_placement_group_ids: A list of EC2 placement group IDs associated with the ODB network.
         :param pulumi.Input[_builtins.str] kms_access: Specifies the configuration for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]] managed_services: The managed services configuration for the ODB network.
@@ -1128,6 +1147,7 @@ class Network(pulumi.CustomResource):
         __props__.__dict__["default_dns_prefix"] = default_dns_prefix
         __props__.__dict__["delete_associated_resources"] = delete_associated_resources
         __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["ec2_placement_group_ids"] = ec2_placement_group_ids
         __props__.__dict__["kms_access"] = kms_access
         __props__.__dict__["kms_policy_document"] = kms_policy_document
         __props__.__dict__["managed_services"] = managed_services
@@ -1239,6 +1259,14 @@ class Network(pulumi.CustomResource):
         The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
         """
         return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ec2PlacementGroupIds")
+    def ec2_placement_group_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        A list of EC2 placement group IDs associated with the ODB network.
+        """
+        return pulumi.get(self, "ec2_placement_group_ids")
 
     @_builtins.property
     @pulumi.getter(name="kmsAccess")

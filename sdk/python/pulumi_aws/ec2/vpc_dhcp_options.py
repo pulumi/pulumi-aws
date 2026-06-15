@@ -38,6 +38,8 @@ class VpcDhcpOptionsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ntp_servers: List of NTP servers to configure.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -145,6 +147,8 @@ class VpcDhcpOptionsArgs:
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
         """
         return pulumi.get(self, "tags")
 
@@ -180,6 +184,8 @@ class _VpcDhcpOptionsState:
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -318,6 +324,8 @@ class _VpcDhcpOptionsState:
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
         """
         return pulumi.get(self, "tags")
 
@@ -391,14 +399,6 @@ class VpcDhcpOptions(pulumi.CustomResource):
             })
         ```
 
-        ## Remarks
-
-        * Notice that all arguments are optional but you have to specify at least one argument.
-        * `domain_name_servers`, `netbios_name_servers`, `ntp_servers` are limited by AWS to maximum four servers only.
-        * To actually use the DHCP Options Set you need to associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`.
-        * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
-        * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`.
-
         ## Import
 
         Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
@@ -418,6 +418,8 @@ class VpcDhcpOptions(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ntp_servers: List of NTP servers to configure.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
         """
         ...
     @overload
@@ -462,14 +464,6 @@ class VpcDhcpOptions(pulumi.CustomResource):
                 "Name": "foo-name",
             })
         ```
-
-        ## Remarks
-
-        * Notice that all arguments are optional but you have to specify at least one argument.
-        * `domain_name_servers`, `netbios_name_servers`, `ntp_servers` are limited by AWS to maximum four servers only.
-        * To actually use the DHCP Options Set you need to associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`.
-        * If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set.
-        * In most cases unless you're configuring your own DNS you'll want to set `domain_name_servers` to `AmazonProvidedDNS`.
 
         ## Import
 
@@ -561,6 +555,8 @@ class VpcDhcpOptions(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the DHCP options set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+               
+               > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -657,6 +653,8 @@ class VpcDhcpOptions(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
         A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+
+        > **Note:** All arguments are optional but at least one must be specified. `domain_name_servers`, `netbios_name_servers`, and `ntp_servers` are limited to four servers each. To use the DHCP Options Set you must associate it to a VPC using `ec2.VpcDhcpOptionsAssociation`. If you delete a DHCP Options Set, all VPCs using it will be associated to AWS's `default` DHCP Option Set. In most cases, set `domain_name_servers` to `AmazonProvidedDNS` unless configuring your own DNS.
         """
         return pulumi.get(self, "tags")
 

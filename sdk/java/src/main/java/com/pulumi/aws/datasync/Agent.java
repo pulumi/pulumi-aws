@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With VPC Endpoints
+ * ### Example Usage with VPC Endpoints
  * 
  * <pre>
  * {@code

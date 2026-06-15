@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -159,6 +160,36 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         return Optional.ofNullable(this.resourceType);
     }
 
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    /**
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private VpcIpamPoolCidrAllocationState() {}
 
     private VpcIpamPoolCidrAllocationState(VpcIpamPoolCidrAllocationState $) {
@@ -172,6 +203,8 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
         this.resourceId = $.resourceId;
         this.resourceOwner = $.resourceOwner;
         this.resourceType = $.resourceType;
+        this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -398,6 +431,48 @@ public final class VpcIpamPoolCidrAllocationState extends com.pulumi.resources.R
          */
         public Builder resourceType(String resourceType) {
             return resourceType(Output.of(resourceType));
+        }
+
+        /**
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        /**
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public VpcIpamPoolCidrAllocationState build() {

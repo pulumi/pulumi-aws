@@ -327,6 +327,20 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableHttp2);
     }
     /**
+     * Whether to use an IPv6 prefix from each subnet for source NAT. `ipAddressType` must be `dualstack`. Valid values: `on`, `off`.
+     * 
+     */
+    @Export(name="enablePrefixForIpv6SourceNat", refs={String.class}, tree="[0]")
+    private Output<String> enablePrefixForIpv6SourceNat;
+
+    /**
+     * @return Whether to use an IPv6 prefix from each subnet for source NAT. `ipAddressType` must be `dualstack`. Valid values: `on`, `off`.
+     * 
+     */
+    public Output<String> enablePrefixForIpv6SourceNat() {
+        return this.enablePrefixForIpv6SourceNat;
+    }
+    /**
      * Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      * 
      */

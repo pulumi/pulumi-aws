@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AccountSettingsMinimumThroughputBillingCommitment',
     'AnalyticsApplicationCloudwatchLoggingOptions',
     'AnalyticsApplicationInputs',
     'AnalyticsApplicationInputsKinesisFirehose',
@@ -138,7 +139,81 @@ __all__ = [
     'FirehoseDeliveryStreamSplunkConfigurationSecretsManagerConfiguration',
     'StreamStreamModeDetails',
     'GetStreamStreamModeDetailResult',
+    'GetStreamWarmThroughputResult',
 ]
+
+@pulumi.output_type
+class AccountSettingsMinimumThroughputBillingCommitment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "earliestAllowedEndAt":
+            suggest = "earliest_allowed_end_at"
+        elif key == "endedAt":
+            suggest = "ended_at"
+        elif key == "startedAt":
+            suggest = "started_at"
+        elif key == "statusActual":
+            suggest = "status_actual"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountSettingsMinimumThroughputBillingCommitment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountSettingsMinimumThroughputBillingCommitment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountSettingsMinimumThroughputBillingCommitment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: _builtins.str,
+                 earliest_allowed_end_at: Optional[_builtins.str] = None,
+                 ended_at: Optional[_builtins.str] = None,
+                 started_at: Optional[_builtins.str] = None,
+                 status_actual: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str status: Desired status of the minimum throughput billing commitment. Valid values: `ENABLED`, `DISABLED`.
+        """
+        pulumi.set(__self__, "status", status)
+        if earliest_allowed_end_at is not None:
+            pulumi.set(__self__, "earliest_allowed_end_at", earliest_allowed_end_at)
+        if ended_at is not None:
+            pulumi.set(__self__, "ended_at", ended_at)
+        if started_at is not None:
+            pulumi.set(__self__, "started_at", started_at)
+        if status_actual is not None:
+            pulumi.set(__self__, "status_actual", status_actual)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Desired status of the minimum throughput billing commitment. Valid values: `ENABLED`, `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="earliestAllowedEndAt")
+    def earliest_allowed_end_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "earliest_allowed_end_at")
+
+    @_builtins.property
+    @pulumi.getter(name="endedAt")
+    def ended_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "ended_at")
+
+    @_builtins.property
+    @pulumi.getter(name="startedAt")
+    def started_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "started_at")
+
+    @_builtins.property
+    @pulumi.getter(name="statusActual")
+    def status_actual(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "status_actual")
+
 
 @pulumi.output_type
 class AnalyticsApplicationCloudwatchLoggingOptions(dict):
@@ -8863,5 +8938,34 @@ class GetStreamStreamModeDetailResult(dict):
         Capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
         """
         return pulumi.get(self, "stream_mode")
+
+
+@pulumi.output_type
+class GetStreamWarmThroughputResult(dict):
+    def __init__(__self__, *,
+                 current_mib_ps: _builtins.int,
+                 target_mib_ps: _builtins.int):
+        """
+        :param _builtins.int current_mib_ps: Current warm throughput value on the stream.
+        :param _builtins.int target_mib_ps: Target warm throughput value on the stream.
+        """
+        pulumi.set(__self__, "current_mib_ps", current_mib_ps)
+        pulumi.set(__self__, "target_mib_ps", target_mib_ps)
+
+    @_builtins.property
+    @pulumi.getter(name="currentMibPs")
+    def current_mib_ps(self) -> _builtins.int:
+        """
+        Current warm throughput value on the stream.
+        """
+        return pulumi.get(self, "current_mib_ps")
+
+    @_builtins.property
+    @pulumi.getter(name="targetMibPs")
+    def target_mib_ps(self) -> _builtins.int:
+        """
+        Target warm throughput value on the stream.
+        """
+        return pulumi.get(self, "target_mib_ps")
 
 

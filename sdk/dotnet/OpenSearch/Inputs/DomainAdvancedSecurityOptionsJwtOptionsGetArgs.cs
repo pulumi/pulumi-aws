@@ -19,7 +19,13 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// PEM-encoded public key used to verify JWT signatures.
+        /// URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `JwksUrl` or `PublicKey` must be specified when `Enabled` is set to `True`.
+        /// </summary>
+        [Input("jwksUrl")]
+        public Input<string>? JwksUrl { get; set; }
+
+        /// <summary>
+        /// PEM-encoded public key used to verify JWT signatures. At least one of `JwksUrl` or `PublicKey` must be specified when `Enabled` is set to `True`. If both `JwksUrl` and `PublicKey` are specified, `PublicKey` is ignored.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }

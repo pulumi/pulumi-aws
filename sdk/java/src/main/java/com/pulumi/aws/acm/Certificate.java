@@ -31,35 +31,11 @@ import javax.annotation.Nullable;
  * imported certificates, issued by another certificate authority;
  * and private certificates, issued using an ACM Private Certificate Authority.
  * 
- * ## Amazon-Issued Certificates
+ * For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle. It does not wait for a certificate to be issued — use `aws.acm.CertificateValidation` for that. Most commonly used together with `aws.route53.Record` and `aws.acm.CertificateValidation` to request a DNS validated certificate, deploy the required validation records, and wait for validation to complete. It&#39;s recommended to specify `createBeforeDestroy = true` in a lifecycle block to replace a certificate which is currently in use (e.g., by `aws.lb.Listener`).
  * 
- * For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.
- * This resource does not deal with validation of a certificate but can provide inputs
- * for other resources implementing the validation.
- * It does not wait for a certificate to be issued.
- * Use a `aws.acm.CertificateValidation` resource for this.
+ * Imported certificates can be used to make certificates created with an external certificate authority available for AWS services. As they are not managed by AWS, imported certificates are not eligible for automatic renewal. New certificate materials can be supplied to an existing imported certificate to update it in place.
  * 
- * Most commonly, this resource is used together with `aws.route53.Record` and
- * `aws.acm.CertificateValidation` to request a DNS validated certificate,
- * deploy the required validation records and wait for validation to complete.
- * 
- * Domain validation through email is also supported but should be avoided as it requires a manual step outside of this provider.
- * 
- * ## Certificates Imported from Other Certificate Authority
- * 
- * Imported certificates can be used to make certificates created with an external certificate authority available for AWS services.
- * 
- * As they are not managed by AWS, imported certificates are not eligible for automatic renewal.
- * New certificate materials can be supplied to an existing imported certificate to update it in place.
- * 
- * ## Private Certificates
- * 
- * Private certificates are issued by an ACM Private Certificate Authority, which can be created using the resource type `aws.acmpca.CertificateAuthority`.
- * 
- * Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
- * See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.
- * By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration.
- * To renew the certificate earlier than 60 days before expiration, configure `earlyRenewalDuration`.
+ * Private certificates are issued by an ACM Private Certificate Authority, which can be created using `aws.acmpca.CertificateAuthority`. Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service. See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information. By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration. To renew the certificate earlier than 60 days before expiration, configure `earlyRenewalDuration`.
  * 
  * ## Example Usage
  * 
@@ -137,7 +113,7 @@ import javax.annotation.Nullable;
  *         var exampleSelfSignedCert = new SelfSignedCert("exampleSelfSignedCert", SelfSignedCertArgs.builder()
  *             .keyAlgorithm("RSA")
  *             .privateKeyPem(example.privateKeyPem())
- *             .subject(SelfSignedCertSubjectArgs.builder()
+ *             .subject(com.pulumi.tls.inputs.SelfSignedCertSubjectArgs.builder()
  *                 .commonName("example.com")
  *                 .organization("ACME Examples, Inc")
  *                 .build())
@@ -193,7 +169,7 @@ import javax.annotation.Nullable;
  *         var exampleSelfSignedCert = new SelfSignedCert("exampleSelfSignedCert", SelfSignedCertArgs.builder()
  *             .keyAlgorithm("RSA")
  *             .privateKeyPem(example.privateKeyPem())
- *             .subject(SelfSignedCertSubjectArgs.builder()
+ *             .subject(com.pulumi.tls.inputs.SelfSignedCertSubjectArgs.builder()
  *                 .commonName("example.com")
  *                 .organization("ACME Examples, Inc")
  *                 .build())
@@ -269,14 +245,14 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.certificateChain);
     }
     /**
-     * Fully qualified domain name (FQDN) in the certificate.
+     * Domain to be validated
      * 
      */
     @Export(name="domainName", refs={String.class}, tree="[0]")
     private Output<String> domainName;
 
     /**
-     * @return Fully qualified domain name (FQDN) in the certificate.
+     * @return Domain to be validated
      * 
      */
     public Output<String> domainName() {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreAgentRuntimeProtocolConfiguration
     {
         /// <summary>
-        /// Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+        /// Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`, `AGUI`.
         /// </summary>
         public readonly string? ServerProtocol;
 

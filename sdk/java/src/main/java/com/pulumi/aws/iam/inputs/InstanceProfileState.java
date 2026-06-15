@@ -137,14 +137,14 @@ public final class InstanceProfileState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * [Unique ID][1] assigned by AWS.
+     * [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      * 
      */
     @Import(name="uniqueId")
     private @Nullable Output<String> uniqueId;
 
     /**
-     * @return [Unique ID][1] assigned by AWS.
+     * @return [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      * 
      */
     public Optional<Output<String>> uniqueId() {
@@ -352,7 +352,7 @@ public final class InstanceProfileState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param uniqueId [Unique ID][1] assigned by AWS.
+         * @param uniqueId [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class InstanceProfileState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param uniqueId [Unique ID][1] assigned by AWS.
+         * @param uniqueId [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
          * 
          * @return builder
          * 

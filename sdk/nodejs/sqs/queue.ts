@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## FIFO queue
+ * ### FIFO queue
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## High-throughput FIFO queue
+ * ### High-throughput FIFO queue
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Dead-letter queue
+ * ### Dead-letter queue
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Server-side encryption (SSE)
+ * ### Server-side encryption (SSE)
  *
  * Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
  *

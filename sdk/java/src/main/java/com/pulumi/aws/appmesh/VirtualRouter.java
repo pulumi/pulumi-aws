@@ -19,15 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Provides an AWS App Mesh virtual router resource.
  * 
- * ## Breaking Changes
- * 
- * Because of backward incompatible API changes (read [here](https://github.com/awslabs/aws-app-mesh-examples/issues/92) and [here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), `aws.appmesh.VirtualRouter` resource definitions created with provider versions earlier than v2.3.0 will need to be modified:
- * 
- * * Remove service `serviceNames` from the `spec` argument. AWS has created a `aws.appmesh.VirtualService` resource for each service name. Import these resource using `pulumi import`.
- * 
- * * Add a `listener` configuration block to the `spec` argument.
- * 
- * The state associated with existing resources will automatically be migrated.
+ * &gt; **Note:** Because of backward incompatible API changes ([see issue](https://github.com/awslabs/aws-app-mesh-examples/issues/92), [and here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), resource definitions created with provider versions earlier than v2.3.0 must be modified: remove `serviceNames` from the `spec` argument (AWS created `aws.appmesh.VirtualService` resources for each — import them with `pulumi import`); add a `listener` configuration block to the `spec` argument. Existing Terraform state is automatically migrated.
  * 
  * ## Example Usage
  * 
@@ -41,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appmesh.VirtualRouter;
  * import com.pulumi.aws.appmesh.VirtualRouterArgs;
  * import com.pulumi.aws.appmesh.inputs.VirtualRouterSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualRouterSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualRouterSpecListenerPortMappingArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

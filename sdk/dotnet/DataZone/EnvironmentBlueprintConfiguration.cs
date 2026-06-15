@@ -59,6 +59,18 @@ namespace Pulumi.Aws.DataZone
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `DomainId` - (String) ID of the DataZone domain.
+    /// * `EnvironmentBlueprintId` - (String) ID of the environment blueprint.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import DataZone Environment Blueprint Configuration using the `DomainId` and `EnvironmentBlueprintId`, separated by a `/`. For example:
     /// 
     /// ```sh
@@ -87,6 +99,12 @@ namespace Pulumi.Aws.DataZone
         /// </summary>
         [Output("environmentBlueprintId")]
         public Output<string> EnvironmentBlueprintId { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of global parameters to configure for the blueprint across all regions.
+        /// </summary>
+        [Output("globalParameters")]
+        public Output<ImmutableDictionary<string, string>?> GlobalParameters { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the manage access role with which this blueprint is created.
@@ -184,6 +202,18 @@ namespace Pulumi.Aws.DataZone
         [Input("environmentBlueprintId", required: true)]
         public Input<string> EnvironmentBlueprintId { get; set; } = null!;
 
+        [Input("globalParameters")]
+        private InputMap<string>? _globalParameters;
+
+        /// <summary>
+        /// A map of global parameters to configure for the blueprint across all regions.
+        /// </summary>
+        public InputMap<string> GlobalParameters
+        {
+            get => _globalParameters ?? (_globalParameters = new InputMap<string>());
+            set => _globalParameters = value;
+        }
+
         /// <summary>
         /// ARN of the manage access role with which this blueprint is created.
         /// </summary>
@@ -247,6 +277,18 @@ namespace Pulumi.Aws.DataZone
         /// </summary>
         [Input("environmentBlueprintId")]
         public Input<string>? EnvironmentBlueprintId { get; set; }
+
+        [Input("globalParameters")]
+        private InputMap<string>? _globalParameters;
+
+        /// <summary>
+        /// A map of global parameters to configure for the blueprint across all regions.
+        /// </summary>
+        public InputMap<string> GlobalParameters
+        {
+            get => _globalParameters ?? (_globalParameters = new InputMap<string>());
+            set => _globalParameters = value;
+        }
 
         /// <summary>
         /// ARN of the manage access role with which this blueprint is created.

@@ -650,6 +650,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -693,6 +694,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -736,6 +738,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -779,6 +782,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -822,6 +826,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -865,6 +870,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -908,6 +914,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -951,6 +958,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -994,6 +1002,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1037,6 +1046,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1080,6 +1090,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1123,6 +1134,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1166,6 +1178,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1209,6 +1222,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2281,6 +2295,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2363,6 +2378,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2445,6 +2461,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2527,6 +2544,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2609,6 +2627,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2691,6 +2710,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2773,6 +2793,7 @@ public final class SsmFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ssm.SsmFunctions;
      * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesArgs;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

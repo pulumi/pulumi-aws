@@ -55,13 +55,13 @@ namespace Pulumi.Aws.WafRegional
     public partial class GeoMatchSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+        /// Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         /// </summary>
         [Output("geoMatchConstraints")]
         public Output<ImmutableArray<Outputs.GeoMatchSetGeoMatchConstraint>> GeoMatchConstraints { get; private set; } = null!;
 
         /// <summary>
-        /// The name or description of the Geo Match Set.
+        /// Name or description of the Geo Match Set.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.WafRegional
         private InputList<Inputs.GeoMatchSetGeoMatchConstraintArgs>? _geoMatchConstraints;
 
         /// <summary>
-        /// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+        /// Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         /// </summary>
         public InputList<Inputs.GeoMatchSetGeoMatchConstraintArgs> GeoMatchConstraints
         {
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.WafRegional
         }
 
         /// <summary>
-        /// The name or description of the Geo Match Set.
+        /// Name or description of the Geo Match Set.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -154,7 +154,7 @@ namespace Pulumi.Aws.WafRegional
         private InputList<Inputs.GeoMatchSetGeoMatchConstraintGetArgs>? _geoMatchConstraints;
 
         /// <summary>
-        /// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+        /// Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         /// </summary>
         public InputList<Inputs.GeoMatchSetGeoMatchConstraintGetArgs> GeoMatchConstraints
         {
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.WafRegional
         }
 
         /// <summary>
-        /// The name or description of the Geo Match Set.
+        /// Name or description of the Geo Match Set.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

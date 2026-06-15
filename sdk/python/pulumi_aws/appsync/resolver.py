@@ -600,7 +600,7 @@ class Resolver(pulumi.CustomResource):
             })
         ```
 
-        ### JS
+        ### Example Usage JS
 
         ```python
         import pulumi
@@ -736,7 +736,7 @@ class Resolver(pulumi.CustomResource):
             })
         ```
 
-        ### JS
+        ### Example Usage JS
 
         ```python
         import pulumi

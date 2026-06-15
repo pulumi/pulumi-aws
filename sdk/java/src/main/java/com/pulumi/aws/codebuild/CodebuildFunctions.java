@@ -30,6 +30,7 @@ public final class CodebuildFunctions {
      * import com.pulumi.aws.codebuild.Fleet;
      * import com.pulumi.aws.codebuild.FleetArgs;
      * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationArgs;
+     * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
      * import java.util.ArrayList;
@@ -122,6 +123,7 @@ public final class CodebuildFunctions {
      * import com.pulumi.aws.codebuild.Fleet;
      * import com.pulumi.aws.codebuild.FleetArgs;
      * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationArgs;
+     * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
      * import java.util.ArrayList;
@@ -214,6 +216,7 @@ public final class CodebuildFunctions {
      * import com.pulumi.aws.codebuild.Fleet;
      * import com.pulumi.aws.codebuild.FleetArgs;
      * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationArgs;
+     * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
      * import java.util.ArrayList;
@@ -306,6 +309,7 @@ public final class CodebuildFunctions {
      * import com.pulumi.aws.codebuild.Fleet;
      * import com.pulumi.aws.codebuild.FleetArgs;
      * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationArgs;
+     * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
      * import java.util.ArrayList;
@@ -398,6 +402,7 @@ public final class CodebuildFunctions {
      * import com.pulumi.aws.codebuild.Fleet;
      * import com.pulumi.aws.codebuild.FleetArgs;
      * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationArgs;
+     * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs;
      * import com.pulumi.aws.codebuild.CodebuildFunctions;
      * import com.pulumi.aws.codebuild.inputs.GetFleetArgs;
      * import java.util.ArrayList;

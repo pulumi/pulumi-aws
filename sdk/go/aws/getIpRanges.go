@@ -94,7 +94,7 @@ type GetIpRangesArgs struct {
 	// (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
 	// `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
 	// `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
-	// [`service` attribute][2] documentation for other possible values.
+	// [`service` attribute](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html#aws-ip-syntax) documentation for other possible values.
 	//
 	// > **NOTE:** If the specified combination of regions and services does not yield any
 	// CIDR blocks, this call will fail.
@@ -142,7 +142,7 @@ type GetIpRangesOutputArgs struct {
 	// (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
 	// `codebuild`, `dynamodb`, `ec2`, `ec2InstanceConnect`, `globalaccelerator`,
 	// `route53`, `route53Healthchecks`, `s3` and `workspacesGateways`. See the
-	// [`service` attribute][2] documentation for other possible values.
+	// [`service` attribute](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html#aws-ip-syntax) documentation for other possible values.
 	//
 	// > **NOTE:** If the specified combination of regions and services does not yield any
 	// CIDR blocks, this call will fail.

@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssoadmin.InstanceAccessControlAttributes;
  * import com.pulumi.aws.ssoadmin.InstanceAccessControlAttributesArgs;
  * import com.pulumi.aws.ssoadmin.inputs.InstanceAccessControlAttributesAttributeArgs;
+ * import com.pulumi.aws.ssoadmin.inputs.InstanceAccessControlAttributesAttributeValueArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

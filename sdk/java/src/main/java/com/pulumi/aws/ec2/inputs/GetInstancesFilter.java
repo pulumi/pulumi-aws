@@ -16,7 +16,7 @@ public final class GetInstancesFilter extends com.pulumi.resources.InvokeArgs {
 
     /**
      * Name of the filter.
-     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
      * 
      */
     @Import(name="name", required=true)
@@ -24,7 +24,7 @@ public final class GetInstancesFilter extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return Name of the filter.
-     * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+     * For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
      * 
      */
     public String name() {
@@ -73,7 +73,7 @@ public final class GetInstancesFilter extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param name Name of the filter.
-         * For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+         * For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
          * 
          * @return builder
          * 

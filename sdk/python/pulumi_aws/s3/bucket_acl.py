@@ -359,8 +359,6 @@ class BucketAcl(pulumi.CustomResource):
         $ pulumi import aws:s3/bucketAcl:BucketAcl example bucket-name,123456789012,private
         ```
 
-        [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -519,8 +517,6 @@ class BucketAcl(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketAcl:BucketAcl example bucket-name,123456789012,private
         ```
-
-        [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
 
 
         :param str resource_name: The name of the resource.

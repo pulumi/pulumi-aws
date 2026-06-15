@@ -906,6 +906,9 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagEdgeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1017,6 +1020,9 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagEdgeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1137,6 +1143,9 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagEdgeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1248,6 +1257,9 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagEdgeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1368,6 +1380,9 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagEdgeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1479,6 +1494,9 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagEdgeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1599,6 +1617,9 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagEdgeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1710,6 +1731,9 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagEdgeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1830,6 +1854,9 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagEdgeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1941,6 +1968,9 @@ public final class GlueFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.glue.GlueFunctions;
      * import com.pulumi.aws.glue.inputs.GetScriptArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagEdgeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgs;
+     * import com.pulumi.aws.glue.inputs.GetScriptDagNodeArgArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

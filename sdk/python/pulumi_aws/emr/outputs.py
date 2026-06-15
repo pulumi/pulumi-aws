@@ -2225,7 +2225,7 @@ class InstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
     def __init__(__self__, *,
                  allocation_strategy: _builtins.str):
         """
-        :param _builtins.str allocation_strategy: Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
+        :param _builtins.str allocation_strategy: Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
         """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
 
@@ -2233,7 +2233,7 @@ class InstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> _builtins.str:
         """
-        Specifies one of the following strategies to launch Spot Instance fleets: `price-capacity-optimized`, `capacity-optimized`, `lowest-price`, or `diversified`. For more information on the provisioning strategies, see [Allocation strategies for Spot Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html).
+        Specifies the strategy to use in launching On-Demand instance fleets. Currently, the only option is `lowest-price` (the default), which launches the lowest price first.
         """
         return pulumi.get(self, "allocation_strategy")
 

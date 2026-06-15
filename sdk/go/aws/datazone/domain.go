@@ -255,6 +255,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` - (String) ID of the DataZone domain.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import DataZone Domain using the `domainId`. For example:
 //
 // ```sh

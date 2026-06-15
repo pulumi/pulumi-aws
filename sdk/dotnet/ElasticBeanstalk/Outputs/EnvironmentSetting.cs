@@ -14,12 +14,20 @@ namespace Pulumi.Aws.ElasticBeanstalk.Outputs
     public sealed class EnvironmentSetting
     {
         /// <summary>
-        /// A unique name for this Environment. This name is used
-        /// in the application URL
+        /// Name of the configuration option
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Unique namespace identifying the option's associated AWS resource
+        /// </summary>
         public readonly string Namespace;
+        /// <summary>
+        /// resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+        /// </summary>
         public readonly string? Resource;
+        /// <summary>
+        /// Value for the configuration option
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

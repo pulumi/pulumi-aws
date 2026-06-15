@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3control.MultiRegionAccessPoint;
  * import com.pulumi.aws.s3control.MultiRegionAccessPointArgs;
  * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsArgs;
+ * import com.pulumi.aws.s3control.inputs.MultiRegionAccessPointDetailsRegionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

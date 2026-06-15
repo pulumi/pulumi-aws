@@ -55,7 +55,7 @@ import (
 //
 // ```
 //
-// ### With Upstream Repository
+// ### Example Usage with upstream repository
 //
 // ```go
 // package main
@@ -94,7 +94,7 @@ import (
 //
 // ```
 //
-// ### With External Connection
+// ### Example Usage with external connection
 //
 // ```go
 // package main

@@ -113,14 +113,38 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionBlockArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementNotStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementAndStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementGeoMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementByteMatchStatementTextTransformationArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleVisibilityConfigArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionCountArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementOrStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchBodyArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementXssMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchMethodArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementXssMatchStatementTextTransformationArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleCaptchaConfigArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementIpSetReferenceStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs;
  * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -165,8 +189,8 @@ import javax.annotation.Nullable;
  *                         .block(RuleGroupRuleActionBlockArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(Map.of("notStatement", Map.of("statements", Arrays.asList(RuleGroupRuleStatementArgs.builder()
- *                         .andStatement(Map.of("statements", Arrays.asList(                        
+ *                     .statement(RuleGroupRuleStatementArgs.builder()
+ *                         .notStatement(Map.of("statements", Arrays.asList(Map.of("andStatement", Map.of("statements", Arrays.asList(                        
  *                             RuleGroupRuleStatementArgs.builder()
  *                                 .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
  *                                     .countryCodes("US")
@@ -190,8 +214,8 @@ import javax.annotation.Nullable;
  *                                             .type("LOWERCASE")
  *                                             .build())
  *                                     .build())
- *                                 .build())))
- *                         .build()))))
+ *                                 .build()))))))
+ *                         .build())
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-1")
@@ -205,8 +229,8 @@ import javax.annotation.Nullable;
  *                         .count(RuleGroupRuleActionCountArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(RuleGroupRuleStatementArgs.builder()
- *                         .orStatement(Map.of("statements", Arrays.asList(                        
+ *                     .statement(Map.of("orStatement", RuleGroupRuleStatementOrStatementArgs.builder()
+ *                         .statements(                        
  *                             RuleGroupRuleStatementArgs.builder()
  *                                 .regexMatchStatement(RuleGroupRuleStatementRegexMatchStatementArgs.builder()
  *                                     .regexString("a-z?")
@@ -253,8 +277,8 @@ import javax.annotation.Nullable;
  *                                         .type("NONE")
  *                                         .build())
  *                                     .build())
- *                                 .build())))
- *                         .build())
+ *                                 .build())
+ *                         .build()))
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-2")
@@ -301,28 +325,26 @@ import javax.annotation.Nullable;
  *                         .block(RuleGroupRuleActionBlockArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(RuleGroupRuleStatementArgs.builder()
- *                         .orStatement(Map.of("statements", Arrays.asList(                        
- *                             RuleGroupRuleStatementArgs.builder()
- *                                 .ipSetReferenceStatement(RuleGroupRuleStatementIpSetReferenceStatementArgs.builder()
- *                                     .arn(test.arn())
- *                                     .build())
- *                                 .build(),
- *                             RuleGroupRuleStatementArgs.builder()
- *                                 .regexPatternSetReferenceStatement(RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs.builder()
- *                                     .arn(testRegexPatternSet.arn())
- *                                     .fieldToMatch(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs.builder()
- *                                         .singleHeader(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs.builder()
- *                                             .name("referer")
- *                                             .build())
- *                                         .build())
- *                                     .textTransformations(RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs.builder()
- *                                         .priority(2)
- *                                         .type("NONE")
+ *                     .statement(Map.of("orStatement", Map.of("statements", Arrays.asList(                    
+ *                         RuleGroupRuleStatementArgs.builder()
+ *                             .ipSetReferenceStatement(RuleGroupRuleStatementIpSetReferenceStatementArgs.builder()
+ *                                 .arn(test.arn())
+ *                                 .build())
+ *                             .build(),
+ *                         RuleGroupRuleStatementArgs.builder()
+ *                             .regexPatternSetReferenceStatement(RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs.builder()
+ *                                 .arn(testRegexPatternSet.arn())
+ *                                 .fieldToMatch(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs.builder()
+ *                                     .singleHeader(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs.builder()
+ *                                         .name("referer")
  *                                         .build())
  *                                     .build())
- *                                 .build())))
- *                         .build())
+ *                                 .textTransformations(RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs.builder()
+ *                                     .priority(2)
+ *                                     .type("NONE")
+ *                                     .build())
+ *                                 .build())
+ *                             .build()))))
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-4")

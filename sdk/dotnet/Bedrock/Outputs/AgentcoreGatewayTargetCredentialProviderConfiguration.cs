@@ -18,9 +18,17 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationApiKey? ApiKey;
         /// <summary>
-        /// Use the gateway's IAM role for authentication. This is an empty configuration block.
+        /// Caller IAM credentials-based authentication configuration. See `CallerIamCredentials` below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials? CallerIamCredentials;
+        /// <summary>
+        /// Use the gateway's IAM role for authentication. See `GatewayIamRole` below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole? GatewayIamRole;
+        /// <summary>
+        /// JWT passthrough-based authentication configuration. This is an empty configuration block.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough? JwtPassthrough;
         /// <summary>
         /// OAuth-based authentication configuration. See `Oauth` below.
         /// </summary>
@@ -30,12 +38,18 @@ namespace Pulumi.Aws.Bedrock.Outputs
         private AgentcoreGatewayTargetCredentialProviderConfiguration(
             Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationApiKey? apiKey,
 
+            Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials? callerIamCredentials,
+
             Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole? gatewayIamRole,
+
+            Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough? jwtPassthrough,
 
             Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationOauth? oauth)
         {
             ApiKey = apiKey;
+            CallerIamCredentials = callerIamCredentials;
             GatewayIamRole = gatewayIamRole;
+            JwtPassthrough = jwtPassthrough;
             Oauth = oauth;
         }
     }

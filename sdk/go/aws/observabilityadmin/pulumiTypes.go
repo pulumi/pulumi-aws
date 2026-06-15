@@ -1525,6 +1525,318 @@ func (o CentralizationRuleForOrganizationTimeoutsPtrOutput) Update() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+type S3TableIntegrationEncryption struct {
+	// ARN of the KMS key to use for encryption. Required when `sseAlgorithm` is `aws:kms`.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// Server-side encryption algorithm. Valid values: `AES256`, `aws:kms`.
+	SseAlgorithm string `pulumi:"sseAlgorithm"`
+}
+
+// S3TableIntegrationEncryptionInput is an input type that accepts S3TableIntegrationEncryptionArgs and S3TableIntegrationEncryptionOutput values.
+// You can construct a concrete instance of `S3TableIntegrationEncryptionInput` via:
+//
+//	S3TableIntegrationEncryptionArgs{...}
+type S3TableIntegrationEncryptionInput interface {
+	pulumi.Input
+
+	ToS3TableIntegrationEncryptionOutput() S3TableIntegrationEncryptionOutput
+	ToS3TableIntegrationEncryptionOutputWithContext(context.Context) S3TableIntegrationEncryptionOutput
+}
+
+type S3TableIntegrationEncryptionArgs struct {
+	// ARN of the KMS key to use for encryption. Required when `sseAlgorithm` is `aws:kms`.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// Server-side encryption algorithm. Valid values: `AES256`, `aws:kms`.
+	SseAlgorithm pulumi.StringInput `pulumi:"sseAlgorithm"`
+}
+
+func (S3TableIntegrationEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3TableIntegrationEncryption)(nil)).Elem()
+}
+
+func (i S3TableIntegrationEncryptionArgs) ToS3TableIntegrationEncryptionOutput() S3TableIntegrationEncryptionOutput {
+	return i.ToS3TableIntegrationEncryptionOutputWithContext(context.Background())
+}
+
+func (i S3TableIntegrationEncryptionArgs) ToS3TableIntegrationEncryptionOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3TableIntegrationEncryptionOutput)
+}
+
+func (i S3TableIntegrationEncryptionArgs) ToS3TableIntegrationEncryptionPtrOutput() S3TableIntegrationEncryptionPtrOutput {
+	return i.ToS3TableIntegrationEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i S3TableIntegrationEncryptionArgs) ToS3TableIntegrationEncryptionPtrOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3TableIntegrationEncryptionOutput).ToS3TableIntegrationEncryptionPtrOutputWithContext(ctx)
+}
+
+// S3TableIntegrationEncryptionPtrInput is an input type that accepts S3TableIntegrationEncryptionArgs, S3TableIntegrationEncryptionPtr and S3TableIntegrationEncryptionPtrOutput values.
+// You can construct a concrete instance of `S3TableIntegrationEncryptionPtrInput` via:
+//
+//	        S3TableIntegrationEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type S3TableIntegrationEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToS3TableIntegrationEncryptionPtrOutput() S3TableIntegrationEncryptionPtrOutput
+	ToS3TableIntegrationEncryptionPtrOutputWithContext(context.Context) S3TableIntegrationEncryptionPtrOutput
+}
+
+type s3tableIntegrationEncryptionPtrType S3TableIntegrationEncryptionArgs
+
+func S3TableIntegrationEncryptionPtr(v *S3TableIntegrationEncryptionArgs) S3TableIntegrationEncryptionPtrInput {
+	return (*s3tableIntegrationEncryptionPtrType)(v)
+}
+
+func (*s3tableIntegrationEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3TableIntegrationEncryption)(nil)).Elem()
+}
+
+func (i *s3tableIntegrationEncryptionPtrType) ToS3TableIntegrationEncryptionPtrOutput() S3TableIntegrationEncryptionPtrOutput {
+	return i.ToS3TableIntegrationEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *s3tableIntegrationEncryptionPtrType) ToS3TableIntegrationEncryptionPtrOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3TableIntegrationEncryptionPtrOutput)
+}
+
+type S3TableIntegrationEncryptionOutput struct{ *pulumi.OutputState }
+
+func (S3TableIntegrationEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3TableIntegrationEncryption)(nil)).Elem()
+}
+
+func (o S3TableIntegrationEncryptionOutput) ToS3TableIntegrationEncryptionOutput() S3TableIntegrationEncryptionOutput {
+	return o
+}
+
+func (o S3TableIntegrationEncryptionOutput) ToS3TableIntegrationEncryptionOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionOutput {
+	return o
+}
+
+func (o S3TableIntegrationEncryptionOutput) ToS3TableIntegrationEncryptionPtrOutput() S3TableIntegrationEncryptionPtrOutput {
+	return o.ToS3TableIntegrationEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o S3TableIntegrationEncryptionOutput) ToS3TableIntegrationEncryptionPtrOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3TableIntegrationEncryption) *S3TableIntegrationEncryption {
+		return &v
+	}).(S3TableIntegrationEncryptionPtrOutput)
+}
+
+// ARN of the KMS key to use for encryption. Required when `sseAlgorithm` is `aws:kms`.
+func (o S3TableIntegrationEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v S3TableIntegrationEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// Server-side encryption algorithm. Valid values: `AES256`, `aws:kms`.
+func (o S3TableIntegrationEncryptionOutput) SseAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v S3TableIntegrationEncryption) string { return v.SseAlgorithm }).(pulumi.StringOutput)
+}
+
+type S3TableIntegrationEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (S3TableIntegrationEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3TableIntegrationEncryption)(nil)).Elem()
+}
+
+func (o S3TableIntegrationEncryptionPtrOutput) ToS3TableIntegrationEncryptionPtrOutput() S3TableIntegrationEncryptionPtrOutput {
+	return o
+}
+
+func (o S3TableIntegrationEncryptionPtrOutput) ToS3TableIntegrationEncryptionPtrOutputWithContext(ctx context.Context) S3TableIntegrationEncryptionPtrOutput {
+	return o
+}
+
+func (o S3TableIntegrationEncryptionPtrOutput) Elem() S3TableIntegrationEncryptionOutput {
+	return o.ApplyT(func(v *S3TableIntegrationEncryption) S3TableIntegrationEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret S3TableIntegrationEncryption
+		return ret
+	}).(S3TableIntegrationEncryptionOutput)
+}
+
+// ARN of the KMS key to use for encryption. Required when `sseAlgorithm` is `aws:kms`.
+func (o S3TableIntegrationEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3TableIntegrationEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Server-side encryption algorithm. Valid values: `AES256`, `aws:kms`.
+func (o S3TableIntegrationEncryptionPtrOutput) SseAlgorithm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3TableIntegrationEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SseAlgorithm
+	}).(pulumi.StringPtrOutput)
+}
+
+type S3TableIntegrationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// S3TableIntegrationTimeoutsInput is an input type that accepts S3TableIntegrationTimeoutsArgs and S3TableIntegrationTimeoutsOutput values.
+// You can construct a concrete instance of `S3TableIntegrationTimeoutsInput` via:
+//
+//	S3TableIntegrationTimeoutsArgs{...}
+type S3TableIntegrationTimeoutsInput interface {
+	pulumi.Input
+
+	ToS3TableIntegrationTimeoutsOutput() S3TableIntegrationTimeoutsOutput
+	ToS3TableIntegrationTimeoutsOutputWithContext(context.Context) S3TableIntegrationTimeoutsOutput
+}
+
+type S3TableIntegrationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (S3TableIntegrationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3TableIntegrationTimeouts)(nil)).Elem()
+}
+
+func (i S3TableIntegrationTimeoutsArgs) ToS3TableIntegrationTimeoutsOutput() S3TableIntegrationTimeoutsOutput {
+	return i.ToS3TableIntegrationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i S3TableIntegrationTimeoutsArgs) ToS3TableIntegrationTimeoutsOutputWithContext(ctx context.Context) S3TableIntegrationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3TableIntegrationTimeoutsOutput)
+}
+
+func (i S3TableIntegrationTimeoutsArgs) ToS3TableIntegrationTimeoutsPtrOutput() S3TableIntegrationTimeoutsPtrOutput {
+	return i.ToS3TableIntegrationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i S3TableIntegrationTimeoutsArgs) ToS3TableIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) S3TableIntegrationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3TableIntegrationTimeoutsOutput).ToS3TableIntegrationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// S3TableIntegrationTimeoutsPtrInput is an input type that accepts S3TableIntegrationTimeoutsArgs, S3TableIntegrationTimeoutsPtr and S3TableIntegrationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `S3TableIntegrationTimeoutsPtrInput` via:
+//
+//	        S3TableIntegrationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type S3TableIntegrationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToS3TableIntegrationTimeoutsPtrOutput() S3TableIntegrationTimeoutsPtrOutput
+	ToS3TableIntegrationTimeoutsPtrOutputWithContext(context.Context) S3TableIntegrationTimeoutsPtrOutput
+}
+
+type s3tableIntegrationTimeoutsPtrType S3TableIntegrationTimeoutsArgs
+
+func S3TableIntegrationTimeoutsPtr(v *S3TableIntegrationTimeoutsArgs) S3TableIntegrationTimeoutsPtrInput {
+	return (*s3tableIntegrationTimeoutsPtrType)(v)
+}
+
+func (*s3tableIntegrationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3TableIntegrationTimeouts)(nil)).Elem()
+}
+
+func (i *s3tableIntegrationTimeoutsPtrType) ToS3TableIntegrationTimeoutsPtrOutput() S3TableIntegrationTimeoutsPtrOutput {
+	return i.ToS3TableIntegrationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *s3tableIntegrationTimeoutsPtrType) ToS3TableIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) S3TableIntegrationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(S3TableIntegrationTimeoutsPtrOutput)
+}
+
+type S3TableIntegrationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (S3TableIntegrationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*S3TableIntegrationTimeouts)(nil)).Elem()
+}
+
+func (o S3TableIntegrationTimeoutsOutput) ToS3TableIntegrationTimeoutsOutput() S3TableIntegrationTimeoutsOutput {
+	return o
+}
+
+func (o S3TableIntegrationTimeoutsOutput) ToS3TableIntegrationTimeoutsOutputWithContext(ctx context.Context) S3TableIntegrationTimeoutsOutput {
+	return o
+}
+
+func (o S3TableIntegrationTimeoutsOutput) ToS3TableIntegrationTimeoutsPtrOutput() S3TableIntegrationTimeoutsPtrOutput {
+	return o.ToS3TableIntegrationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o S3TableIntegrationTimeoutsOutput) ToS3TableIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) S3TableIntegrationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3TableIntegrationTimeouts) *S3TableIntegrationTimeouts {
+		return &v
+	}).(S3TableIntegrationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o S3TableIntegrationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v S3TableIntegrationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o S3TableIntegrationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v S3TableIntegrationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type S3TableIntegrationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (S3TableIntegrationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**S3TableIntegrationTimeouts)(nil)).Elem()
+}
+
+func (o S3TableIntegrationTimeoutsPtrOutput) ToS3TableIntegrationTimeoutsPtrOutput() S3TableIntegrationTimeoutsPtrOutput {
+	return o
+}
+
+func (o S3TableIntegrationTimeoutsPtrOutput) ToS3TableIntegrationTimeoutsPtrOutputWithContext(ctx context.Context) S3TableIntegrationTimeoutsPtrOutput {
+	return o
+}
+
+func (o S3TableIntegrationTimeoutsPtrOutput) Elem() S3TableIntegrationTimeoutsOutput {
+	return o.ApplyT(func(v *S3TableIntegrationTimeouts) S3TableIntegrationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret S3TableIntegrationTimeouts
+		return ret
+	}).(S3TableIntegrationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o S3TableIntegrationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3TableIntegrationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o S3TableIntegrationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *S3TableIntegrationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type TelemetryEnrichmentTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -2306,11 +2618,23 @@ func (o TelemetryPipelineTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type TelemetryRuleForOrganizationRule struct {
-	// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+	// Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `regions`.
+	AllRegions *bool `pulumi:"allRegions"`
+	// Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+	AllowFieldUpdates *bool `pulumi:"allowFieldUpdates"`
+	// Configuration block specifying where and how the telemetry data is delivered. See `destinationConfiguration` below.
+	DestinationConfiguration *TelemetryRuleForOrganizationRuleDestinationConfiguration `pulumi:"destinationConfiguration"`
+	// Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+	Regions []string `pulumi:"regions"`
+	// AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
 	ResourceType *string `pulumi:"resourceType"`
-	// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
-	//
-	// > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+	// Organizational scope to which the rule applies, specified using accounts or organizational units.
+	Scope *string `pulumi:"scope"`
+	// Criteria for selecting which resources the rule applies to, such as resource tags.
+	SelectionCriteria *string `pulumi:"selectionCriteria"`
+	// List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+	TelemetrySourceTypes []string `pulumi:"telemetrySourceTypes"`
+	// Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
 	TelemetryType string `pulumi:"telemetryType"`
 }
 
@@ -2326,11 +2650,23 @@ type TelemetryRuleForOrganizationRuleInput interface {
 }
 
 type TelemetryRuleForOrganizationRuleArgs struct {
-	// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+	// Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `regions`.
+	AllRegions pulumi.BoolPtrInput `pulumi:"allRegions"`
+	// Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+	AllowFieldUpdates pulumi.BoolPtrInput `pulumi:"allowFieldUpdates"`
+	// Configuration block specifying where and how the telemetry data is delivered. See `destinationConfiguration` below.
+	DestinationConfiguration TelemetryRuleForOrganizationRuleDestinationConfigurationPtrInput `pulumi:"destinationConfiguration"`
+	// Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+	// AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
-	//
-	// > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+	// Organizational scope to which the rule applies, specified using accounts or organizational units.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// Criteria for selecting which resources the rule applies to, such as resource tags.
+	SelectionCriteria pulumi.StringPtrInput `pulumi:"selectionCriteria"`
+	// List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+	TelemetrySourceTypes pulumi.StringArrayInput `pulumi:"telemetrySourceTypes"`
+	// Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
 	TelemetryType pulumi.StringInput `pulumi:"telemetryType"`
 }
 
@@ -2411,14 +2747,49 @@ func (o TelemetryRuleForOrganizationRuleOutput) ToTelemetryRuleForOrganizationRu
 	}).(TelemetryRuleForOrganizationRulePtrOutput)
 }
 
-// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+// Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `regions`.
+func (o TelemetryRuleForOrganizationRuleOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRule) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
+}
+
+// Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+func (o TelemetryRuleForOrganizationRuleOutput) AllowFieldUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRule) *bool { return v.AllowFieldUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration block specifying where and how the telemetry data is delivered. See `destinationConfiguration` below.
+func (o TelemetryRuleForOrganizationRuleOutput) DestinationConfiguration() TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRule) *TelemetryRuleForOrganizationRuleDestinationConfiguration {
+		return v.DestinationConfiguration
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput)
+}
+
+// Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+func (o TelemetryRuleForOrganizationRuleOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRule) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+// AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
 func (o TelemetryRuleForOrganizationRuleOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleForOrganizationRule) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
-//
-// > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+// Organizational scope to which the rule applies, specified using accounts or organizational units.
+func (o TelemetryRuleForOrganizationRuleOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRule) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Criteria for selecting which resources the rule applies to, such as resource tags.
+func (o TelemetryRuleForOrganizationRuleOutput) SelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRule) *string { return v.SelectionCriteria }).(pulumi.StringPtrOutput)
+}
+
+// List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+func (o TelemetryRuleForOrganizationRuleOutput) TelemetrySourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRule) []string { return v.TelemetrySourceTypes }).(pulumi.StringArrayOutput)
+}
+
+// Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
 func (o TelemetryRuleForOrganizationRuleOutput) TelemetryType() pulumi.StringOutput {
 	return o.ApplyT(func(v TelemetryRuleForOrganizationRule) string { return v.TelemetryType }).(pulumi.StringOutput)
 }
@@ -2447,7 +2818,47 @@ func (o TelemetryRuleForOrganizationRulePtrOutput) Elem() TelemetryRuleForOrgani
 	}).(TelemetryRuleForOrganizationRuleOutput)
 }
 
-// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
+// Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `regions`.
+func (o TelemetryRuleForOrganizationRulePtrOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllRegions
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+func (o TelemetryRuleForOrganizationRulePtrOutput) AllowFieldUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowFieldUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configuration block specifying where and how the telemetry data is delivered. See `destinationConfiguration` below.
+func (o TelemetryRuleForOrganizationRulePtrOutput) DestinationConfiguration() TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRule) *TelemetryRuleForOrganizationRuleDestinationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationConfiguration
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput)
+}
+
+// Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+func (o TelemetryRuleForOrganizationRulePtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+// AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
 func (o TelemetryRuleForOrganizationRulePtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleForOrganizationRule) *string {
 		if v == nil {
@@ -2457,15 +2868,2498 @@ func (o TelemetryRuleForOrganizationRulePtrOutput) ResourceType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
-//
-// > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+// Organizational scope to which the rule applies, specified using accounts or organizational units.
+func (o TelemetryRuleForOrganizationRulePtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// Criteria for selecting which resources the rule applies to, such as resource tags.
+func (o TelemetryRuleForOrganizationRulePtrOutput) SelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelectionCriteria
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+func (o TelemetryRuleForOrganizationRulePtrOutput) TelemetrySourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TelemetrySourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
 func (o TelemetryRuleForOrganizationRulePtrOutput) TelemetryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleForOrganizationRule) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.TelemetryType
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfiguration struct {
+	// CloudTrail-specific parameters when CloudTrail is the source. See `cloudtrailParameters` below.
+	CloudtrailParameters *TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters `pulumi:"cloudtrailParameters"`
+	// Pattern used to generate the destination path or name. May contain alphanumeric characters, the macros `<accountId>` and `<resourceId>`, and the symbols `_`, `/`, `-`.
+	DestinationPattern *string `pulumi:"destinationPattern"`
+	// Destination type for the telemetry data (for example `cloud-watch-logs`).
+	DestinationType *string `pulumi:"destinationType"`
+	// ELB load balancer logging parameters when the resource is an ELB. See `elbLoadBalancerLoggingParameters` below.
+	ElbLoadBalancerLoggingParameters *TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters `pulumi:"elbLoadBalancerLoggingParameters"`
+	// Amazon Bedrock AgentCore log delivery parameters. See `logDeliveryParameters` below.
+	LogDeliveryParameters *TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters `pulumi:"logDeliveryParameters"`
+	// Amazon MSK cluster monitoring parameters. See `mskMonitoringParameters` below.
+	MskMonitoringParameters *TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters `pulumi:"mskMonitoringParameters"`
+	// Number of days to retain the telemetry data in the destination.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// VPC Flow Logs-specific parameters when the resource is `AWS::EC2::VPC`. See `vpcFlowLogParameters` below.
+	VpcFlowLogParameters *TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters `pulumi:"vpcFlowLogParameters"`
+	// WAF logging parameters when the resource is `AWS::WAFv2::WebACL`. See `wafLoggingParameters` below.
+	WafLoggingParameters *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters `pulumi:"wafLoggingParameters"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationArgs struct {
+	// CloudTrail-specific parameters when CloudTrail is the source. See `cloudtrailParameters` below.
+	CloudtrailParameters TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrInput `pulumi:"cloudtrailParameters"`
+	// Pattern used to generate the destination path or name. May contain alphanumeric characters, the macros `<accountId>` and `<resourceId>`, and the symbols `_`, `/`, `-`.
+	DestinationPattern pulumi.StringPtrInput `pulumi:"destinationPattern"`
+	// Destination type for the telemetry data (for example `cloud-watch-logs`).
+	DestinationType pulumi.StringPtrInput `pulumi:"destinationType"`
+	// ELB load balancer logging parameters when the resource is an ELB. See `elbLoadBalancerLoggingParameters` below.
+	ElbLoadBalancerLoggingParameters TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrInput `pulumi:"elbLoadBalancerLoggingParameters"`
+	// Amazon Bedrock AgentCore log delivery parameters. See `logDeliveryParameters` below.
+	LogDeliveryParameters TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrInput `pulumi:"logDeliveryParameters"`
+	// Amazon MSK cluster monitoring parameters. See `mskMonitoringParameters` below.
+	MskMonitoringParameters TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrInput `pulumi:"mskMonitoringParameters"`
+	// Number of days to retain the telemetry data in the destination.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	// VPC Flow Logs-specific parameters when the resource is `AWS::EC2::VPC`. See `vpcFlowLogParameters` below.
+	VpcFlowLogParameters TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrInput `pulumi:"vpcFlowLogParameters"`
+	// WAF logging parameters when the resource is `AWS::WAFv2::WebACL`. See `wafLoggingParameters` below.
+	WafLoggingParameters TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrInput `pulumi:"wafLoggingParameters"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfiguration)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationOutput)
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationOutput).ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationPtrInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationArgs, TelemetryRuleForOrganizationRuleDestinationConfigurationPtr and TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationPtrInput` via:
+//
+//	        TelemetryRuleForOrganizationRuleDestinationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationRuleDestinationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput
+}
+
+type telemetryRuleForOrganizationRuleDestinationConfigurationPtrType TelemetryRuleForOrganizationRuleDestinationConfigurationArgs
+
+func TelemetryRuleForOrganizationRuleDestinationConfigurationPtr(v *TelemetryRuleForOrganizationRuleDestinationConfigurationArgs) TelemetryRuleForOrganizationRuleDestinationConfigurationPtrInput {
+	return (*telemetryRuleForOrganizationRuleDestinationConfigurationPtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationRuleDestinationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfiguration)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfiguration)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput {
+	return o.ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfiguration {
+		return &v
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput)
+}
+
+// CloudTrail-specific parameters when CloudTrail is the source. See `cloudtrailParameters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) CloudtrailParameters() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters {
+		return v.CloudtrailParameters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput)
+}
+
+// Pattern used to generate the destination path or name. May contain alphanumeric characters, the macros `<accountId>` and `<resourceId>`, and the symbols `_`, `/`, `-`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) DestinationPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfiguration) *string { return v.DestinationPattern }).(pulumi.StringPtrOutput)
+}
+
+// Destination type for the telemetry data (for example `cloud-watch-logs`).
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) DestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfiguration) *string { return v.DestinationType }).(pulumi.StringPtrOutput)
+}
+
+// ELB load balancer logging parameters when the resource is an ELB. See `elbLoadBalancerLoggingParameters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) ElbLoadBalancerLoggingParameters() TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters {
+		return v.ElbLoadBalancerLoggingParameters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput)
+}
+
+// Amazon Bedrock AgentCore log delivery parameters. See `logDeliveryParameters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) LogDeliveryParameters() TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters {
+		return v.LogDeliveryParameters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput)
+}
+
+// Amazon MSK cluster monitoring parameters. See `mskMonitoringParameters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) MskMonitoringParameters() TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters {
+		return v.MskMonitoringParameters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput)
+}
+
+// Number of days to retain the telemetry data in the destination.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfiguration) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// VPC Flow Logs-specific parameters when the resource is `AWS::EC2::VPC`. See `vpcFlowLogParameters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) VpcFlowLogParameters() TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters {
+		return v.VpcFlowLogParameters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput)
+}
+
+// WAF logging parameters when the resource is `AWS::WAFv2::WebACL`. See `wafLoggingParameters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationOutput) WafLoggingParameters() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters {
+		return v.WafLoggingParameters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfiguration)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) Elem() TelemetryRuleForOrganizationRuleDestinationConfigurationOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfiguration) TelemetryRuleForOrganizationRuleDestinationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationRuleDestinationConfiguration
+		return ret
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationOutput)
+}
+
+// CloudTrail-specific parameters when CloudTrail is the source. See `cloudtrailParameters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) CloudtrailParameters() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters {
+		if v == nil {
+			return nil
+		}
+		return v.CloudtrailParameters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput)
+}
+
+// Pattern used to generate the destination path or name. May contain alphanumeric characters, the macros `<accountId>` and `<resourceId>`, and the symbols `_`, `/`, `-`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) DestinationPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPattern
+	}).(pulumi.StringPtrOutput)
+}
+
+// Destination type for the telemetry data (for example `cloud-watch-logs`).
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) DestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ELB load balancer logging parameters when the resource is an ELB. See `elbLoadBalancerLoggingParameters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) ElbLoadBalancerLoggingParameters() TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters {
+		if v == nil {
+			return nil
+		}
+		return v.ElbLoadBalancerLoggingParameters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput)
+}
+
+// Amazon Bedrock AgentCore log delivery parameters. See `logDeliveryParameters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) LogDeliveryParameters() TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters {
+		if v == nil {
+			return nil
+		}
+		return v.LogDeliveryParameters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput)
+}
+
+// Amazon MSK cluster monitoring parameters. See `mskMonitoringParameters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) MskMonitoringParameters() TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MskMonitoringParameters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput)
+}
+
+// Number of days to retain the telemetry data in the destination.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// VPC Flow Logs-specific parameters when the resource is `AWS::EC2::VPC`. See `vpcFlowLogParameters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) VpcFlowLogParameters() TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters {
+		if v == nil {
+			return nil
+		}
+		return v.VpcFlowLogParameters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput)
+}
+
+// WAF logging parameters when the resource is `AWS::WAFv2::WebACL`. See `wafLoggingParameters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput) WafLoggingParameters() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfiguration) *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters {
+		if v == nil {
+			return nil
+		}
+		return v.WafLoggingParameters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters struct {
+	// List of advanced event selectors used to filter CloudTrail events. See `advancedEventSelectors` below.
+	AdvancedEventSelectors []TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector `pulumi:"advancedEventSelectors"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs struct {
+	// List of advanced event selectors used to filter CloudTrail events. See `advancedEventSelectors` below.
+	AdvancedEventSelectors TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayInput `pulumi:"advancedEventSelectors"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput)
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput).ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs, TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtr and TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrInput` via:
+//
+//	        TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput
+}
+
+type telemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrType TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs
+
+func TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtr(v *TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrInput {
+	return (*telemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return o.ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters) *TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters {
+		return &v
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput)
+}
+
+// List of advanced event selectors used to filter CloudTrail events. See `advancedEventSelectors` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput) AdvancedEventSelectors() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters) []TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector {
+		return v.AdvancedEventSelectors
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput) Elem() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters
+		return ret
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput)
+}
+
+// List of advanced event selectors used to filter CloudTrail events. See `advancedEventSelectors` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput) AdvancedEventSelectors() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParameters) []TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedEventSelectors
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector struct {
+	// List of field selectors that compose the selector statement. See `fieldSelectors` below.
+	FieldSelectors []TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector `pulumi:"fieldSelectors"`
+	// Descriptive name for the advanced event selector.
+	Name *string `pulumi:"name"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs struct {
+	// List of field selectors that compose the selector statement. See `fieldSelectors` below.
+	FieldSelectors TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayInput `pulumi:"fieldSelectors"`
+	// Descriptive name for the advanced event selector.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray and TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray{ TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs{...} }
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray []TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorInput
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput {
+	return o
+}
+
+// List of field selectors that compose the selector statement. See `fieldSelectors` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput) FieldSelectors() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector) []TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector {
+		return v.FieldSelectors
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput)
+}
+
+// Descriptive name for the advanced event selector.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput) Index(i pulumi.IntInput) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector {
+		return vs[0].([]TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector)[vs[1].(int)]
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector struct {
+	// Match if the field value ends with one of the specified values.
+	EndsWiths []string `pulumi:"endsWiths"`
+	// Match if the field value equals one of the specified values.
+	Equals []string `pulumi:"equals"`
+	// Name of the field to use for selection.
+	Field string `pulumi:"field"`
+	// Match if the field value does not end with one of the specified values.
+	NotEndsWiths []string `pulumi:"notEndsWiths"`
+	// Match if the field value does not equal any of the specified values.
+	NotEquals []string `pulumi:"notEquals"`
+	// Match if the field value does not start with any of the specified values.
+	NotStartsWiths []string `pulumi:"notStartsWiths"`
+	// Match if the field value starts with one of the specified values.
+	StartsWiths []string `pulumi:"startsWiths"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs struct {
+	// Match if the field value ends with one of the specified values.
+	EndsWiths pulumi.StringArrayInput `pulumi:"endsWiths"`
+	// Match if the field value equals one of the specified values.
+	Equals pulumi.StringArrayInput `pulumi:"equals"`
+	// Name of the field to use for selection.
+	Field pulumi.StringInput `pulumi:"field"`
+	// Match if the field value does not end with one of the specified values.
+	NotEndsWiths pulumi.StringArrayInput `pulumi:"notEndsWiths"`
+	// Match if the field value does not equal any of the specified values.
+	NotEquals pulumi.StringArrayInput `pulumi:"notEquals"`
+	// Match if the field value does not start with any of the specified values.
+	NotStartsWiths pulumi.StringArrayInput `pulumi:"notStartsWiths"`
+	// Match if the field value starts with one of the specified values.
+	StartsWiths pulumi.StringArrayInput `pulumi:"startsWiths"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray and TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray{ TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs{...} }
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray []TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorInput
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput {
+	return o
+}
+
+// Match if the field value ends with one of the specified values.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) EndsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) []string {
+		return v.EndsWiths
+	}).(pulumi.StringArrayOutput)
+}
+
+// Match if the field value equals one of the specified values.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) Equals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) []string {
+		return v.Equals
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of the field to use for selection.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) Field() pulumi.StringOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) string {
+		return v.Field
+	}).(pulumi.StringOutput)
+}
+
+// Match if the field value does not end with one of the specified values.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) NotEndsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) []string {
+		return v.NotEndsWiths
+	}).(pulumi.StringArrayOutput)
+}
+
+// Match if the field value does not equal any of the specified values.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) NotEquals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) []string {
+		return v.NotEquals
+	}).(pulumi.StringArrayOutput)
+}
+
+// Match if the field value does not start with any of the specified values.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) NotStartsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) []string {
+		return v.NotStartsWiths
+	}).(pulumi.StringArrayOutput)
+}
+
+// Match if the field value starts with one of the specified values.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) StartsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) []string {
+		return v.StartsWiths
+	}).(pulumi.StringArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput) Index(i pulumi.IntInput) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector {
+		return vs[0].([]TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector)[vs[1].(int)]
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters struct {
+	// Delimiter character used to separate fields in ELB access log entries when using plain text format.
+	FieldDelimiter *string `pulumi:"fieldDelimiter"`
+	// Format for ELB access log entries. Valid values: `plain-text`, `json`.
+	OutputFormat *string `pulumi:"outputFormat"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs struct {
+	// Delimiter character used to separate fields in ELB access log entries when using plain text format.
+	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
+	// Format for ELB access log entries. Valid values: `plain-text`, `json`.
+	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput)
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput).ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs, TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtr and TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrInput` via:
+//
+//	        TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput
+}
+
+type telemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrType TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs
+
+func TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtr(v *TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs) TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrInput {
+	return (*telemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return o.ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters) *TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters {
+		return &v
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput)
+}
+
+// Delimiter character used to separate fields in ELB access log entries when using plain text format.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) FieldDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters) *string {
+		return v.FieldDelimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Format for ELB access log entries. Valid values: `plain-text`, `json`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters) *string {
+		return v.OutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput) Elem() TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters) TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters
+		return ret
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput)
+}
+
+// Delimiter character used to separate fields in ELB access log entries when using plain text format.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldDelimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Format for ELB access log entries. Valid values: `plain-text`, `json`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters struct {
+	// List of log types that the source is sending.
+	LogTypes []string `pulumi:"logTypes"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs struct {
+	// List of log types that the source is sending.
+	LogTypes pulumi.StringArrayInput `pulumi:"logTypes"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput)
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput).ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs, TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtr and TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrInput` via:
+//
+//	        TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput
+}
+
+type telemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrType TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs
+
+func TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtr(v *TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs) TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrInput {
+	return (*telemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return o.ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters) *TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters {
+		return &v
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput)
+}
+
+// List of log types that the source is sending.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput) LogTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters) []string {
+		return v.LogTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput) Elem() TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters) TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters
+		return ret
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput)
+}
+
+// List of log types that the source is sending.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput) LogTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParameters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LogTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters struct {
+	// Level of enhanced monitoring for the MSK cluster. Valid values: `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`.
+	EnhancedMonitoring *string `pulumi:"enhancedMonitoring"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs struct {
+	// Level of enhanced monitoring for the MSK cluster. Valid values: `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`.
+	EnhancedMonitoring pulumi.StringPtrInput `pulumi:"enhancedMonitoring"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput)
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput).ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs, TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtr and TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrInput` via:
+//
+//	        TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput
+}
+
+type telemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrType TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs
+
+func TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtr(v *TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs) TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrInput {
+	return (*telemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return o.ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters) *TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters {
+		return &v
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput)
+}
+
+// Level of enhanced monitoring for the MSK cluster. Valid values: `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput) EnhancedMonitoring() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters) *string {
+		return v.EnhancedMonitoring
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput) Elem() TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters) TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters
+		return ret
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput)
+}
+
+// Level of enhanced monitoring for the MSK cluster. Valid values: `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput) EnhancedMonitoring() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnhancedMonitoring
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters struct {
+	// Format string for VPC Flow Log entries.
+	LogFormat *string `pulumi:"logFormat"`
+	// Maximum interval (in seconds) between the capture of flow log records. Valid values: `60`, `600`.
+	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
+	// Type of traffic to log. Valid values: `ACCEPT`, `REJECT`, `ALL`.
+	TrafficType *string `pulumi:"trafficType"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs struct {
+	// Format string for VPC Flow Log entries.
+	LogFormat pulumi.StringPtrInput `pulumi:"logFormat"`
+	// Maximum interval (in seconds) between the capture of flow log records. Valid values: `60`, `600`.
+	MaxAggregationInterval pulumi.IntPtrInput `pulumi:"maxAggregationInterval"`
+	// Type of traffic to log. Valid values: `ACCEPT`, `REJECT`, `ALL`.
+	TrafficType pulumi.StringPtrInput `pulumi:"trafficType"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput)
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput).ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs, TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtr and TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrInput` via:
+//
+//	        TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput
+}
+
+type telemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrType TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs
+
+func TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtr(v *TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs) TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrInput {
+	return (*telemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return o.ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters) *TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters {
+		return &v
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput)
+}
+
+// Format string for VPC Flow Log entries.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput) LogFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters) *string {
+		return v.LogFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum interval (in seconds) between the capture of flow log records. Valid values: `60`, `600`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput) MaxAggregationInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters) *int {
+		return v.MaxAggregationInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Type of traffic to log. Valid values: `ACCEPT`, `REJECT`, `ALL`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput) TrafficType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters) *string {
+		return v.TrafficType
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) Elem() TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters) TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters
+		return ret
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput)
+}
+
+// Format string for VPC Flow Log entries.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) LogFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum interval (in seconds) between the capture of flow log records. Valid values: `60`, `600`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) MaxAggregationInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAggregationInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Type of traffic to log. Valid values: `ACCEPT`, `REJECT`, `ALL`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) TrafficType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrafficType
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters struct {
+	// Type of WAF logs to collect (currently `WAF_LOGS`).
+	LogType *string `pulumi:"logType"`
+	// Filter configuration that determines which WAF log records to include or exclude. See `loggingFilter` below.
+	LoggingFilter *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter `pulumi:"loggingFilter"`
+	// List of fields to redact from WAF logs. See `redactedFields` below.
+	RedactedFields []TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField `pulumi:"redactedFields"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs struct {
+	// Type of WAF logs to collect (currently `WAF_LOGS`).
+	LogType pulumi.StringPtrInput `pulumi:"logType"`
+	// Filter configuration that determines which WAF log records to include or exclude. See `loggingFilter` below.
+	LoggingFilter TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrInput `pulumi:"loggingFilter"`
+	// List of fields to redact from WAF logs. See `redactedFields` below.
+	RedactedFields TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayInput `pulumi:"redactedFields"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput)
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput).ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs, TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtr and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrInput` via:
+//
+//	        TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput
+}
+
+type telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrType TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs
+
+func TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtr(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrInput {
+	return (*telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return o.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters) *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters {
+		return &v
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput)
+}
+
+// Type of WAF logs to collect (currently `WAF_LOGS`).
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput) LogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters) *string {
+		return v.LogType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filter configuration that determines which WAF log records to include or exclude. See `loggingFilter` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput) LoggingFilter() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters) *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter {
+		return v.LoggingFilter
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput)
+}
+
+// List of fields to redact from WAF logs. See `redactedFields` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput) RedactedFields() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters) []TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField {
+		return v.RedactedFields
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput) Elem() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters
+		return ret
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput)
+}
+
+// Type of WAF logs to collect (currently `WAF_LOGS`).
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput) LogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filter configuration that determines which WAF log records to include or exclude. See `loggingFilter` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput) LoggingFilter() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters) *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter {
+		if v == nil {
+			return nil
+		}
+		return v.LoggingFilter
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput)
+}
+
+// List of fields to redact from WAF logs. See `redactedFields` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput) RedactedFields() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParameters) []TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField {
+		if v == nil {
+			return nil
+		}
+		return v.RedactedFields
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter struct {
+	// Default action for log records that do not match any filter. Valid values: `KEEP`, `DROP`.
+	DefaultBehavior *string `pulumi:"defaultBehavior"`
+	// List of filter configurations. See `filters` below.
+	Filters []TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter `pulumi:"filters"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs struct {
+	// Default action for log records that do not match any filter. Valid values: `KEEP`, `DROP`.
+	DefaultBehavior pulumi.StringPtrInput `pulumi:"defaultBehavior"`
+	// List of filter configurations. See `filters` below.
+	Filters TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayInput `pulumi:"filters"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput)
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput).ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs, TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtr and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrInput` via:
+//
+//	        TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput
+}
+
+type telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrType TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs
+
+func TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtr(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrInput {
+	return (*telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return o.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter) *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter {
+		return &v
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput)
+}
+
+// Default action for log records that do not match any filter. Valid values: `KEEP`, `DROP`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) DefaultBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter) *string {
+		return v.DefaultBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of filter configurations. See `filters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) Filters() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter) []TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter {
+		return v.Filters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput) Elem() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter
+		return ret
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput)
+}
+
+// Default action for log records that do not match any filter. Valid values: `KEEP`, `DROP`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput) DefaultBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of filter configurations. See `filters` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput) Filters() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilter) []TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Filters
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter struct {
+	// Action to take for matching log records. Valid values: `KEEP`, `DROP`.
+	Behavior *string `pulumi:"behavior"`
+	// Conditions that determine if a log record matches this filter. See `conditions` below.
+	Conditions []TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition `pulumi:"conditions"`
+	// Whether the log record must meet all conditions or any condition. Valid values: `MEETS_ALL`, `MEETS_ANY`.
+	Requirement *string `pulumi:"requirement"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs struct {
+	// Action to take for matching log records. Valid values: `KEEP`, `DROP`.
+	Behavior pulumi.StringPtrInput `pulumi:"behavior"`
+	// Conditions that determine if a log record matches this filter. See `conditions` below.
+	Conditions TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayInput `pulumi:"conditions"`
+	// Whether the log record must meet all conditions or any condition. Valid values: `MEETS_ALL`, `MEETS_ANY`.
+	Requirement pulumi.StringPtrInput `pulumi:"requirement"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray{ TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs{...} }
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray []TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterInput
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput {
+	return o
+}
+
+// Action to take for matching log records. Valid values: `KEEP`, `DROP`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput) Behavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter) *string {
+		return v.Behavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// Conditions that determine if a log record matches this filter. See `conditions` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput) Conditions() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter) []TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition {
+		return v.Conditions
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput)
+}
+
+// Whether the log record must meet all conditions or any condition. Valid values: `MEETS_ALL`, `MEETS_ANY`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput) Requirement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter) *string {
+		return v.Requirement
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput) Index(i pulumi.IntInput) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter {
+		return vs[0].([]TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter)[vs[1].(int)]
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition struct {
+	// Condition that matches based on the WAF action. See `actionCondition` below.
+	ActionCondition *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition `pulumi:"actionCondition"`
+	// Condition that matches based on WAF rule labels. See `labelNameCondition` below.
+	LabelNameCondition *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition `pulumi:"labelNameCondition"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs struct {
+	// Condition that matches based on the WAF action. See `actionCondition` below.
+	ActionCondition TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrInput `pulumi:"actionCondition"`
+	// Condition that matches based on WAF rule labels. See `labelNameCondition` below.
+	LabelNameCondition TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrInput `pulumi:"labelNameCondition"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray{ TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs{...} }
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray []TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionInput
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput {
+	return o
+}
+
+// Condition that matches based on the WAF action. See `actionCondition` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput) ActionCondition() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition) *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition {
+		return v.ActionCondition
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput)
+}
+
+// Condition that matches based on WAF rule labels. See `labelNameCondition` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput) LabelNameCondition() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition) *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition {
+		return v.LabelNameCondition
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput) Index(i pulumi.IntInput) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition {
+		return vs[0].([]TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition)[vs[1].(int)]
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition struct {
+	// WAF action to match against. Valid values: `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE`, `EXCLUDED_AS_COUNT`.
+	Action string `pulumi:"action"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs struct {
+	// WAF action to match against. Valid values: `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE`, `EXCLUDED_AS_COUNT`.
+	Action pulumi.StringInput `pulumi:"action"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput)
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput).ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs, TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtr and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrInput` via:
+//
+//	        TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput
+}
+
+type telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrType TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs
+
+func TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtr(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrInput {
+	return (*telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return o.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition) *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition {
+		return &v
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput)
+}
+
+// WAF action to match against. Valid values: `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE`, `EXCLUDED_AS_COUNT`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition) string {
+		return v.Action
+	}).(pulumi.StringOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput) Elem() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition
+		return ret
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput)
+}
+
+// WAF action to match against. Valid values: `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE`, `EXCLUDED_AS_COUNT`.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Action
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition struct {
+	// Label name to match (alphanumeric, underscores, hyphens, and colons; up to 1024 characters).
+	LabelName *string `pulumi:"labelName"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs struct {
+	// Label name to match (alphanumeric, underscores, hyphens, and colons; up to 1024 characters).
+	LabelName pulumi.StringPtrInput `pulumi:"labelName"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput)
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput).ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs, TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtr and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrInput` via:
+//
+//	        TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput
+}
+
+type telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrType TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs
+
+func TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtr(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrInput {
+	return (*telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return o.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition) *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition {
+		return &v
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput)
+}
+
+// Label name to match (alphanumeric, underscores, hyphens, and colons; up to 1024 characters).
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput) LabelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition) *string {
+		return v.LabelName
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput) Elem() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition
+		return ret
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput)
+}
+
+// Label name to match (alphanumeric, underscores, hyphens, and colons; up to 1024 characters).
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput) LabelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LabelName
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField struct {
+	// Redact the HTTP method from WAF logs. Set to an empty string to enable redaction.
+	Method *string `pulumi:"method"`
+	// Redact the entire query string from WAF logs. Set to an empty string to enable redaction.
+	QueryString *string `pulumi:"queryString"`
+	// Redact a specific header by name from WAF logs. See `singleHeader` below.
+	SingleHeader *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader `pulumi:"singleHeader"`
+	// Redact the URI path from WAF logs. Set to an empty string to enable redaction.
+	UriPath *string `pulumi:"uriPath"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs struct {
+	// Redact the HTTP method from WAF logs. Set to an empty string to enable redaction.
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// Redact the entire query string from WAF logs. Set to an empty string to enable redaction.
+	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
+	// Redact a specific header by name from WAF logs. See `singleHeader` below.
+	SingleHeader TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrInput `pulumi:"singleHeader"`
+	// Redact the URI path from WAF logs. Set to an empty string to enable redaction.
+	UriPath pulumi.StringPtrInput `pulumi:"uriPath"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray{ TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs{...} }
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray []TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldInput
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput {
+	return o
+}
+
+// Redact the HTTP method from WAF logs. Set to an empty string to enable redaction.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField) *string {
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// Redact the entire query string from WAF logs. Set to an empty string to enable redaction.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField) *string {
+		return v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// Redact a specific header by name from WAF logs. See `singleHeader` below.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) SingleHeader() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField) *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader {
+		return v.SingleHeader
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput)
+}
+
+// Redact the URI path from WAF logs. Set to an empty string to enable redaction.
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) UriPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField) *string {
+		return v.UriPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput) Index(i pulumi.IntInput) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField {
+		return vs[0].([]TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedField)[vs[1].(int)]
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader struct {
+	// Header name to redact (up to 64 characters).
+	Name string `pulumi:"name"`
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderInput` via:
+//
+//	TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs{...}
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs struct {
+	// Header name to redact (up to 64 characters).
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader)(nil)).Elem()
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput)
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput).ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrInput is an input type that accepts TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs, TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtr and TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrInput` via:
+//
+//	        TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput
+	ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput
+}
+
+type telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrType TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs
+
+func TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtr(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrInput {
+	return (*telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrType)(v)
+}
+
+func (*telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader)(nil)).Elem()
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return i.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrType) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return o.ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader) *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader {
+		return &v
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput)
+}
+
+// Header name to redact (up to 64 characters).
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+type TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader)(nil)).Elem()
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput) ToTelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(ctx context.Context) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput) Elem() TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader) TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader
+		return ret
+	}).(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput)
+}
+
+// Header name to redact (up to 64 characters).
+func (o TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2645,11 +5539,23 @@ func (o TelemetryRuleForOrganizationTimeoutsPtrOutput) Update() pulumi.StringPtr
 }
 
 type TelemetryRuleRule struct {
-	// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
-	//
-	// > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+	// Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `regions`.
+	AllRegions *bool `pulumi:"allRegions"`
+	// Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+	AllowFieldUpdates *bool `pulumi:"allowFieldUpdates"`
+	// Configuration block specifying where and how the telemetry data is delivered. See `destinationConfiguration` below.
+	DestinationConfiguration *TelemetryRuleRuleDestinationConfiguration `pulumi:"destinationConfiguration"`
+	// Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+	Regions []string `pulumi:"regions"`
+	// AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
 	ResourceType *string `pulumi:"resourceType"`
-	// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+	// Organizational scope to which the rule applies, specified using accounts or organizational units.
+	Scope *string `pulumi:"scope"`
+	// Criteria for selecting which resources the rule applies to, such as resource tags.
+	SelectionCriteria *string `pulumi:"selectionCriteria"`
+	// List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+	TelemetrySourceTypes []string `pulumi:"telemetrySourceTypes"`
+	// Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
 	TelemetryType string `pulumi:"telemetryType"`
 }
 
@@ -2665,11 +5571,23 @@ type TelemetryRuleRuleInput interface {
 }
 
 type TelemetryRuleRuleArgs struct {
-	// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
-	//
-	// > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+	// Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `regions`.
+	AllRegions pulumi.BoolPtrInput `pulumi:"allRegions"`
+	// Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+	AllowFieldUpdates pulumi.BoolPtrInput `pulumi:"allowFieldUpdates"`
+	// Configuration block specifying where and how the telemetry data is delivered. See `destinationConfiguration` below.
+	DestinationConfiguration TelemetryRuleRuleDestinationConfigurationPtrInput `pulumi:"destinationConfiguration"`
+	// Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+	Regions pulumi.StringArrayInput `pulumi:"regions"`
+	// AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
-	// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+	// Organizational scope to which the rule applies, specified using accounts or organizational units.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// Criteria for selecting which resources the rule applies to, such as resource tags.
+	SelectionCriteria pulumi.StringPtrInput `pulumi:"selectionCriteria"`
+	// List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+	TelemetrySourceTypes pulumi.StringArrayInput `pulumi:"telemetrySourceTypes"`
+	// Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
 	TelemetryType pulumi.StringInput `pulumi:"telemetryType"`
 }
 
@@ -2750,14 +5668,49 @@ func (o TelemetryRuleRuleOutput) ToTelemetryRuleRulePtrOutputWithContext(ctx con
 	}).(TelemetryRuleRulePtrOutput)
 }
 
-// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
-//
-// > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+// Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `regions`.
+func (o TelemetryRuleRuleOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRule) *bool { return v.AllRegions }).(pulumi.BoolPtrOutput)
+}
+
+// Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+func (o TelemetryRuleRuleOutput) AllowFieldUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRule) *bool { return v.AllowFieldUpdates }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration block specifying where and how the telemetry data is delivered. See `destinationConfiguration` below.
+func (o TelemetryRuleRuleOutput) DestinationConfiguration() TelemetryRuleRuleDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRule) *TelemetryRuleRuleDestinationConfiguration {
+		return v.DestinationConfiguration
+	}).(TelemetryRuleRuleDestinationConfigurationPtrOutput)
+}
+
+// Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+func (o TelemetryRuleRuleOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRule) []string { return v.Regions }).(pulumi.StringArrayOutput)
+}
+
+// AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
 func (o TelemetryRuleRuleOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TelemetryRuleRule) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
 }
 
-// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+// Organizational scope to which the rule applies, specified using accounts or organizational units.
+func (o TelemetryRuleRuleOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRule) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// Criteria for selecting which resources the rule applies to, such as resource tags.
+func (o TelemetryRuleRuleOutput) SelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRule) *string { return v.SelectionCriteria }).(pulumi.StringPtrOutput)
+}
+
+// List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+func (o TelemetryRuleRuleOutput) TelemetrySourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRule) []string { return v.TelemetrySourceTypes }).(pulumi.StringArrayOutput)
+}
+
+// Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
 func (o TelemetryRuleRuleOutput) TelemetryType() pulumi.StringOutput {
 	return o.ApplyT(func(v TelemetryRuleRule) string { return v.TelemetryType }).(pulumi.StringOutput)
 }
@@ -2786,9 +5739,47 @@ func (o TelemetryRuleRulePtrOutput) Elem() TelemetryRuleRuleOutput {
 	}).(TelemetryRuleRuleOutput)
 }
 
-// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
-//
-// > **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+// Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `regions`.
+func (o TelemetryRuleRulePtrOutput) AllRegions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllRegions
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+func (o TelemetryRuleRulePtrOutput) AllowFieldUpdates() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRule) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowFieldUpdates
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Configuration block specifying where and how the telemetry data is delivered. See `destinationConfiguration` below.
+func (o TelemetryRuleRulePtrOutput) DestinationConfiguration() TelemetryRuleRuleDestinationConfigurationPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRule) *TelemetryRuleRuleDestinationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationConfiguration
+	}).(TelemetryRuleRuleDestinationConfigurationPtrOutput)
+}
+
+// Set of Regions to replicate the rule to. Mutually exclusive with `allRegions`. Order is not preserved.
+func (o TelemetryRuleRulePtrOutput) Regions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(pulumi.StringArrayOutput)
+}
+
+// AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
 func (o TelemetryRuleRulePtrOutput) ResourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleRule) *string {
 		if v == nil {
@@ -2798,13 +5789,2490 @@ func (o TelemetryRuleRulePtrOutput) ResourceType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+// Organizational scope to which the rule applies, specified using accounts or organizational units.
+func (o TelemetryRuleRulePtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// Criteria for selecting which resources the rule applies to, such as resource tags.
+func (o TelemetryRuleRulePtrOutput) SelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelectionCriteria
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `resourceType`. If not provided, the API may default this value based on `resourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+func (o TelemetryRuleRulePtrOutput) TelemetrySourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TelemetrySourceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
 func (o TelemetryRuleRulePtrOutput) TelemetryType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TelemetryRuleRule) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.TelemetryType
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfiguration struct {
+	// CloudTrail-specific parameters when CloudTrail is the source. See `cloudtrailParameters` below.
+	CloudtrailParameters *TelemetryRuleRuleDestinationConfigurationCloudtrailParameters `pulumi:"cloudtrailParameters"`
+	// Pattern used to generate the destination path or name. May contain alphanumeric characters, the macros `<accountId>` and `<resourceId>`, and the symbols `_`, `/`, `-`.
+	DestinationPattern *string `pulumi:"destinationPattern"`
+	// Destination type for the telemetry data (for example `cloud-watch-logs`).
+	DestinationType *string `pulumi:"destinationType"`
+	// ELB load balancer logging parameters when the resource is an ELB. See `elbLoadBalancerLoggingParameters` below.
+	ElbLoadBalancerLoggingParameters *TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters `pulumi:"elbLoadBalancerLoggingParameters"`
+	// Amazon Bedrock AgentCore log delivery parameters. See `logDeliveryParameters` below.
+	LogDeliveryParameters *TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters `pulumi:"logDeliveryParameters"`
+	// Amazon MSK cluster monitoring parameters. See `mskMonitoringParameters` below.
+	MskMonitoringParameters *TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters `pulumi:"mskMonitoringParameters"`
+	// Number of days to retain the telemetry data in the destination.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// VPC Flow Logs-specific parameters when the resource is `AWS::EC2::VPC`. See `vpcFlowLogParameters` below.
+	VpcFlowLogParameters *TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters `pulumi:"vpcFlowLogParameters"`
+	// WAF logging parameters when the resource is `AWS::WAFv2::WebACL`. See `wafLoggingParameters` below.
+	WafLoggingParameters *TelemetryRuleRuleDestinationConfigurationWafLoggingParameters `pulumi:"wafLoggingParameters"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationArgs and TelemetryRuleRuleDestinationConfigurationOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationArgs{...}
+type TelemetryRuleRuleDestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationOutput() TelemetryRuleRuleDestinationConfigurationOutput
+	ToTelemetryRuleRuleDestinationConfigurationOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationArgs struct {
+	// CloudTrail-specific parameters when CloudTrail is the source. See `cloudtrailParameters` below.
+	CloudtrailParameters TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrInput `pulumi:"cloudtrailParameters"`
+	// Pattern used to generate the destination path or name. May contain alphanumeric characters, the macros `<accountId>` and `<resourceId>`, and the symbols `_`, `/`, `-`.
+	DestinationPattern pulumi.StringPtrInput `pulumi:"destinationPattern"`
+	// Destination type for the telemetry data (for example `cloud-watch-logs`).
+	DestinationType pulumi.StringPtrInput `pulumi:"destinationType"`
+	// ELB load balancer logging parameters when the resource is an ELB. See `elbLoadBalancerLoggingParameters` below.
+	ElbLoadBalancerLoggingParameters TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrInput `pulumi:"elbLoadBalancerLoggingParameters"`
+	// Amazon Bedrock AgentCore log delivery parameters. See `logDeliveryParameters` below.
+	LogDeliveryParameters TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrInput `pulumi:"logDeliveryParameters"`
+	// Amazon MSK cluster monitoring parameters. See `mskMonitoringParameters` below.
+	MskMonitoringParameters TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrInput `pulumi:"mskMonitoringParameters"`
+	// Number of days to retain the telemetry data in the destination.
+	RetentionInDays pulumi.IntPtrInput `pulumi:"retentionInDays"`
+	// VPC Flow Logs-specific parameters when the resource is `AWS::EC2::VPC`. See `vpcFlowLogParameters` below.
+	VpcFlowLogParameters TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrInput `pulumi:"vpcFlowLogParameters"`
+	// WAF logging parameters when the resource is `AWS::WAFv2::WebACL`. See `wafLoggingParameters` below.
+	WafLoggingParameters TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrInput `pulumi:"wafLoggingParameters"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfiguration)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationArgs) ToTelemetryRuleRuleDestinationConfigurationOutput() TelemetryRuleRuleDestinationConfigurationOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationArgs) ToTelemetryRuleRuleDestinationConfigurationOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationOutput)
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationArgs) ToTelemetryRuleRuleDestinationConfigurationPtrOutput() TelemetryRuleRuleDestinationConfigurationPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationArgs) ToTelemetryRuleRuleDestinationConfigurationPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationOutput).ToTelemetryRuleRuleDestinationConfigurationPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleRuleDestinationConfigurationPtrInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationArgs, TelemetryRuleRuleDestinationConfigurationPtr and TelemetryRuleRuleDestinationConfigurationPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationPtrInput` via:
+//
+//	        TelemetryRuleRuleDestinationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleRuleDestinationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationPtrOutput() TelemetryRuleRuleDestinationConfigurationPtrOutput
+	ToTelemetryRuleRuleDestinationConfigurationPtrOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationPtrOutput
+}
+
+type telemetryRuleRuleDestinationConfigurationPtrType TelemetryRuleRuleDestinationConfigurationArgs
+
+func TelemetryRuleRuleDestinationConfigurationPtr(v *TelemetryRuleRuleDestinationConfigurationArgs) TelemetryRuleRuleDestinationConfigurationPtrInput {
+	return (*telemetryRuleRuleDestinationConfigurationPtrType)(v)
+}
+
+func (*telemetryRuleRuleDestinationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfiguration)(nil)).Elem()
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationPtrType) ToTelemetryRuleRuleDestinationConfigurationPtrOutput() TelemetryRuleRuleDestinationConfigurationPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationPtrType) ToTelemetryRuleRuleDestinationConfigurationPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfiguration)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationOutput) ToTelemetryRuleRuleDestinationConfigurationOutput() TelemetryRuleRuleDestinationConfigurationOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationOutput) ToTelemetryRuleRuleDestinationConfigurationOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationOutput) ToTelemetryRuleRuleDestinationConfigurationPtrOutput() TelemetryRuleRuleDestinationConfigurationPtrOutput {
+	return o.ToTelemetryRuleRuleDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationOutput) ToTelemetryRuleRuleDestinationConfigurationPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfiguration {
+		return &v
+	}).(TelemetryRuleRuleDestinationConfigurationPtrOutput)
+}
+
+// CloudTrail-specific parameters when CloudTrail is the source. See `cloudtrailParameters` below.
+func (o TelemetryRuleRuleDestinationConfigurationOutput) CloudtrailParameters() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfigurationCloudtrailParameters {
+		return v.CloudtrailParameters
+	}).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput)
+}
+
+// Pattern used to generate the destination path or name. May contain alphanumeric characters, the macros `<accountId>` and `<resourceId>`, and the symbols `_`, `/`, `-`.
+func (o TelemetryRuleRuleDestinationConfigurationOutput) DestinationPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfiguration) *string { return v.DestinationPattern }).(pulumi.StringPtrOutput)
+}
+
+// Destination type for the telemetry data (for example `cloud-watch-logs`).
+func (o TelemetryRuleRuleDestinationConfigurationOutput) DestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfiguration) *string { return v.DestinationType }).(pulumi.StringPtrOutput)
+}
+
+// ELB load balancer logging parameters when the resource is an ELB. See `elbLoadBalancerLoggingParameters` below.
+func (o TelemetryRuleRuleDestinationConfigurationOutput) ElbLoadBalancerLoggingParameters() TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters {
+		return v.ElbLoadBalancerLoggingParameters
+	}).(TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput)
+}
+
+// Amazon Bedrock AgentCore log delivery parameters. See `logDeliveryParameters` below.
+func (o TelemetryRuleRuleDestinationConfigurationOutput) LogDeliveryParameters() TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters {
+		return v.LogDeliveryParameters
+	}).(TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput)
+}
+
+// Amazon MSK cluster monitoring parameters. See `mskMonitoringParameters` below.
+func (o TelemetryRuleRuleDestinationConfigurationOutput) MskMonitoringParameters() TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters {
+		return v.MskMonitoringParameters
+	}).(TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput)
+}
+
+// Number of days to retain the telemetry data in the destination.
+func (o TelemetryRuleRuleDestinationConfigurationOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfiguration) *int { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// VPC Flow Logs-specific parameters when the resource is `AWS::EC2::VPC`. See `vpcFlowLogParameters` below.
+func (o TelemetryRuleRuleDestinationConfigurationOutput) VpcFlowLogParameters() TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters {
+		return v.VpcFlowLogParameters
+	}).(TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput)
+}
+
+// WAF logging parameters when the resource is `AWS::WAFv2::WebACL`. See `wafLoggingParameters` below.
+func (o TelemetryRuleRuleDestinationConfigurationOutput) WafLoggingParameters() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfigurationWafLoggingParameters {
+		return v.WafLoggingParameters
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfiguration)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationPtrOutput) ToTelemetryRuleRuleDestinationConfigurationPtrOutput() TelemetryRuleRuleDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationPtrOutput) ToTelemetryRuleRuleDestinationConfigurationPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationPtrOutput) Elem() TelemetryRuleRuleDestinationConfigurationOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfiguration) TelemetryRuleRuleDestinationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleRuleDestinationConfiguration
+		return ret
+	}).(TelemetryRuleRuleDestinationConfigurationOutput)
+}
+
+// CloudTrail-specific parameters when CloudTrail is the source. See `cloudtrailParameters` below.
+func (o TelemetryRuleRuleDestinationConfigurationPtrOutput) CloudtrailParameters() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfigurationCloudtrailParameters {
+		if v == nil {
+			return nil
+		}
+		return v.CloudtrailParameters
+	}).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput)
+}
+
+// Pattern used to generate the destination path or name. May contain alphanumeric characters, the macros `<accountId>` and `<resourceId>`, and the symbols `_`, `/`, `-`.
+func (o TelemetryRuleRuleDestinationConfigurationPtrOutput) DestinationPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationPattern
+	}).(pulumi.StringPtrOutput)
+}
+
+// Destination type for the telemetry data (for example `cloud-watch-logs`).
+func (o TelemetryRuleRuleDestinationConfigurationPtrOutput) DestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// ELB load balancer logging parameters when the resource is an ELB. See `elbLoadBalancerLoggingParameters` below.
+func (o TelemetryRuleRuleDestinationConfigurationPtrOutput) ElbLoadBalancerLoggingParameters() TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters {
+		if v == nil {
+			return nil
+		}
+		return v.ElbLoadBalancerLoggingParameters
+	}).(TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput)
+}
+
+// Amazon Bedrock AgentCore log delivery parameters. See `logDeliveryParameters` below.
+func (o TelemetryRuleRuleDestinationConfigurationPtrOutput) LogDeliveryParameters() TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters {
+		if v == nil {
+			return nil
+		}
+		return v.LogDeliveryParameters
+	}).(TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput)
+}
+
+// Amazon MSK cluster monitoring parameters. See `mskMonitoringParameters` below.
+func (o TelemetryRuleRuleDestinationConfigurationPtrOutput) MskMonitoringParameters() TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters {
+		if v == nil {
+			return nil
+		}
+		return v.MskMonitoringParameters
+	}).(TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput)
+}
+
+// Number of days to retain the telemetry data in the destination.
+func (o TelemetryRuleRuleDestinationConfigurationPtrOutput) RetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionInDays
+	}).(pulumi.IntPtrOutput)
+}
+
+// VPC Flow Logs-specific parameters when the resource is `AWS::EC2::VPC`. See `vpcFlowLogParameters` below.
+func (o TelemetryRuleRuleDestinationConfigurationPtrOutput) VpcFlowLogParameters() TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters {
+		if v == nil {
+			return nil
+		}
+		return v.VpcFlowLogParameters
+	}).(TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput)
+}
+
+// WAF logging parameters when the resource is `AWS::WAFv2::WebACL`. See `wafLoggingParameters` below.
+func (o TelemetryRuleRuleDestinationConfigurationPtrOutput) WafLoggingParameters() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfiguration) *TelemetryRuleRuleDestinationConfigurationWafLoggingParameters {
+		if v == nil {
+			return nil
+		}
+		return v.WafLoggingParameters
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParameters struct {
+	// List of advanced event selectors used to filter CloudTrail events. See `advancedEventSelectors` below.
+	AdvancedEventSelectors []TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector `pulumi:"advancedEventSelectors"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationCloudtrailParametersInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs and TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationCloudtrailParametersInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs{...}
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput
+	ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs struct {
+	// List of advanced event selectors used to filter CloudTrail events. See `advancedEventSelectors` below.
+	AdvancedEventSelectors TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayInput `pulumi:"advancedEventSelectors"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationCloudtrailParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput)
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput).ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs, TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtr and TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrInput` via:
+//
+//	        TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput
+	ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput
+}
+
+type telemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrType TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs
+
+func TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtr(v *TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrInput {
+	return (*telemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrType)(v)
+}
+
+func (*telemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationCloudtrailParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrType) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrType) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationCloudtrailParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return o.ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleRuleDestinationConfigurationCloudtrailParameters) *TelemetryRuleRuleDestinationConfigurationCloudtrailParameters {
+		return &v
+	}).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput)
+}
+
+// List of advanced event selectors used to filter CloudTrail events. See `advancedEventSelectors` below.
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput) AdvancedEventSelectors() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationCloudtrailParameters) []TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector {
+		return v.AdvancedEventSelectors
+	}).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationCloudtrailParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput) Elem() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationCloudtrailParameters) TelemetryRuleRuleDestinationConfigurationCloudtrailParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleRuleDestinationConfigurationCloudtrailParameters
+		return ret
+	}).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput)
+}
+
+// List of advanced event selectors used to filter CloudTrail events. See `advancedEventSelectors` below.
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput) AdvancedEventSelectors() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationCloudtrailParameters) []TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector {
+		if v == nil {
+			return nil
+		}
+		return v.AdvancedEventSelectors
+	}).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector struct {
+	// List of field selectors that compose the selector statement. See `fieldSelectors` below.
+	FieldSelectors []TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector `pulumi:"fieldSelectors"`
+	// Descriptive name for the advanced event selector.
+	Name *string `pulumi:"name"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs and TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs{...}
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput
+	ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs struct {
+	// List of field selectors that compose the selector statement. See `fieldSelectors` below.
+	FieldSelectors TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayInput `pulumi:"fieldSelectors"`
+	// Descriptive name for the advanced event selector.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput)
+}
+
+// TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray and TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray{ TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs{...} }
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput
+	ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray []TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorInput
+
+func (TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput {
+	return o
+}
+
+// List of field selectors that compose the selector statement. See `fieldSelectors` below.
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput) FieldSelectors() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector) []TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector {
+		return v.FieldSelectors
+	}).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput)
+}
+
+// Descriptive name for the advanced event selector.
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput) Index(i pulumi.IntInput) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector {
+		return vs[0].([]TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelector)[vs[1].(int)]
+	}).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector struct {
+	// Match if the field value ends with one of the specified values.
+	EndsWiths []string `pulumi:"endsWiths"`
+	// Match if the field value equals one of the specified values.
+	Equals []string `pulumi:"equals"`
+	// Name of the field to use for selection.
+	Field string `pulumi:"field"`
+	// Match if the field value does not end with one of the specified values.
+	NotEndsWiths []string `pulumi:"notEndsWiths"`
+	// Match if the field value does not equal any of the specified values.
+	NotEquals []string `pulumi:"notEquals"`
+	// Match if the field value does not start with any of the specified values.
+	NotStartsWiths []string `pulumi:"notStartsWiths"`
+	// Match if the field value starts with one of the specified values.
+	StartsWiths []string `pulumi:"startsWiths"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs and TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs{...}
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput
+	ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs struct {
+	// Match if the field value ends with one of the specified values.
+	EndsWiths pulumi.StringArrayInput `pulumi:"endsWiths"`
+	// Match if the field value equals one of the specified values.
+	Equals pulumi.StringArrayInput `pulumi:"equals"`
+	// Name of the field to use for selection.
+	Field pulumi.StringInput `pulumi:"field"`
+	// Match if the field value does not end with one of the specified values.
+	NotEndsWiths pulumi.StringArrayInput `pulumi:"notEndsWiths"`
+	// Match if the field value does not equal any of the specified values.
+	NotEquals pulumi.StringArrayInput `pulumi:"notEquals"`
+	// Match if the field value does not start with any of the specified values.
+	NotStartsWiths pulumi.StringArrayInput `pulumi:"notStartsWiths"`
+	// Match if the field value starts with one of the specified values.
+	StartsWiths pulumi.StringArrayInput `pulumi:"startsWiths"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput)
+}
+
+// TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray and TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray{ TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs{...} }
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput
+	ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray []TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorInput
+
+func (TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput {
+	return o
+}
+
+// Match if the field value ends with one of the specified values.
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) EndsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) []string {
+		return v.EndsWiths
+	}).(pulumi.StringArrayOutput)
+}
+
+// Match if the field value equals one of the specified values.
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) Equals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) []string {
+		return v.Equals
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of the field to use for selection.
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) Field() pulumi.StringOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) string {
+		return v.Field
+	}).(pulumi.StringOutput)
+}
+
+// Match if the field value does not end with one of the specified values.
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) NotEndsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) []string {
+		return v.NotEndsWiths
+	}).(pulumi.StringArrayOutput)
+}
+
+// Match if the field value does not equal any of the specified values.
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) NotEquals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) []string {
+		return v.NotEquals
+	}).(pulumi.StringArrayOutput)
+}
+
+// Match if the field value does not start with any of the specified values.
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) NotStartsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) []string {
+		return v.NotStartsWiths
+	}).(pulumi.StringArrayOutput)
+}
+
+// Match if the field value starts with one of the specified values.
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput) StartsWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector) []string {
+		return v.StartsWiths
+	}).(pulumi.StringArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput() TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput) ToTelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput) Index(i pulumi.IntInput) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector {
+		return vs[0].([]TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelector)[vs[1].(int)]
+	}).(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters struct {
+	// Delimiter character used to separate fields in ELB access log entries when using plain text format.
+	FieldDelimiter *string `pulumi:"fieldDelimiter"`
+	// Format for ELB access log entries. Valid values: `plain-text`, `json`.
+	OutputFormat *string `pulumi:"outputFormat"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs and TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs{...}
+type TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput() TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput
+	ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs struct {
+	// Delimiter character used to separate fields in ELB access log entries when using plain text format.
+	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
+	// Format for ELB access log entries. Valid values: `plain-text`, `json`.
+	OutputFormat pulumi.StringPtrInput `pulumi:"outputFormat"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs) ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput() TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs) ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput)
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs) ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs) ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput).ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs, TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtr and TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrInput` via:
+//
+//	        TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput
+	ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput
+}
+
+type telemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrType TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs
+
+func TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtr(v *TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs) TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrInput {
+	return (*telemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrType)(v)
+}
+
+func (*telemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrType) ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrType) ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput() TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return o.ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters) *TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters {
+		return &v
+	}).(TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput)
+}
+
+// Delimiter character used to separate fields in ELB access log entries when using plain text format.
+func (o TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) FieldDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters) *string {
+		return v.FieldDelimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Format for ELB access log entries. Valid values: `plain-text`, `json`.
+func (o TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters) *string {
+		return v.OutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput) ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput) ToTelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput) Elem() TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters) TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters
+		return ret
+	}).(TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput)
+}
+
+// Delimiter character used to separate fields in ELB access log entries when using plain text format.
+func (o TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FieldDelimiter
+	}).(pulumi.StringPtrOutput)
+}
+
+// Format for ELB access log entries. Valid values: `plain-text`, `json`.
+func (o TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput) OutputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters struct {
+	// List of log types that the source is sending.
+	LogTypes []string `pulumi:"logTypes"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs and TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs{...}
+type TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput() TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput
+	ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs struct {
+	// List of log types that the source is sending.
+	LogTypes pulumi.StringArrayInput `pulumi:"logTypes"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs) ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput() TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs) ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput)
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs) ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs) ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput).ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs, TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtr and TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrInput` via:
+//
+//	        TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput
+	ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput
+}
+
+type telemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrType TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs
+
+func TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtr(v *TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs) TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrInput {
+	return (*telemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrType)(v)
+}
+
+func (*telemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrType) ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrType) ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput) ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput() TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput) ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput) ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return o.ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput) ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters) *TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters {
+		return &v
+	}).(TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput)
+}
+
+// List of log types that the source is sending.
+func (o TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput) LogTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters) []string { return v.LogTypes }).(pulumi.StringArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput) ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput) ToTelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput) Elem() TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters) TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters
+		return ret
+	}).(TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput)
+}
+
+// List of log types that the source is sending.
+func (o TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput) LogTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationLogDeliveryParameters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LogTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters struct {
+	// Level of enhanced monitoring for the MSK cluster. Valid values: `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`.
+	EnhancedMonitoring *string `pulumi:"enhancedMonitoring"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs and TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs{...}
+type TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput() TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput
+	ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs struct {
+	// Level of enhanced monitoring for the MSK cluster. Valid values: `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`.
+	EnhancedMonitoring pulumi.StringPtrInput `pulumi:"enhancedMonitoring"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs) ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput() TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs) ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput)
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs) ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs) ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput).ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs, TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtr and TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrInput` via:
+//
+//	        TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput
+	ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput
+}
+
+type telemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrType TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs
+
+func TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtr(v *TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs) TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrInput {
+	return (*telemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrType)(v)
+}
+
+func (*telemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrType) ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrType) ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput) ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput() TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput) ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput) ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return o.ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput) ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters) *TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters {
+		return &v
+	}).(TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput)
+}
+
+// Level of enhanced monitoring for the MSK cluster. Valid values: `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`.
+func (o TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput) EnhancedMonitoring() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters) *string {
+		return v.EnhancedMonitoring
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput) ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput) ToTelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput) Elem() TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters) TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters
+		return ret
+	}).(TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput)
+}
+
+// Level of enhanced monitoring for the MSK cluster. Valid values: `DEFAULT`, `PER_BROKER`, `PER_TOPIC_PER_BROKER`, `PER_TOPIC_PER_PARTITION`.
+func (o TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput) EnhancedMonitoring() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationMskMonitoringParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnhancedMonitoring
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters struct {
+	// Format string for VPC Flow Log entries.
+	LogFormat *string `pulumi:"logFormat"`
+	// Maximum interval (in seconds) between the capture of flow log records. Valid values: `60`, `600`.
+	MaxAggregationInterval *int `pulumi:"maxAggregationInterval"`
+	// Type of traffic to log. Valid values: `ACCEPT`, `REJECT`, `ALL`.
+	TrafficType *string `pulumi:"trafficType"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs and TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs{...}
+type TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput() TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput
+	ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs struct {
+	// Format string for VPC Flow Log entries.
+	LogFormat pulumi.StringPtrInput `pulumi:"logFormat"`
+	// Maximum interval (in seconds) between the capture of flow log records. Valid values: `60`, `600`.
+	MaxAggregationInterval pulumi.IntPtrInput `pulumi:"maxAggregationInterval"`
+	// Type of traffic to log. Valid values: `ACCEPT`, `REJECT`, `ALL`.
+	TrafficType pulumi.StringPtrInput `pulumi:"trafficType"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs) ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput() TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs) ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput)
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs) ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs) ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput).ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs, TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtr and TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrInput` via:
+//
+//	        TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput
+	ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput
+}
+
+type telemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrType TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs
+
+func TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtr(v *TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs) TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrInput {
+	return (*telemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrType)(v)
+}
+
+func (*telemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrType) ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrType) ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput) ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput() TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput) ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput) ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return o.ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput) ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters) *TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters {
+		return &v
+	}).(TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput)
+}
+
+// Format string for VPC Flow Log entries.
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput) LogFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters) *string { return v.LogFormat }).(pulumi.StringPtrOutput)
+}
+
+// Maximum interval (in seconds) between the capture of flow log records. Valid values: `60`, `600`.
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput) MaxAggregationInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters) *int {
+		return v.MaxAggregationInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Type of traffic to log. Valid values: `ACCEPT`, `REJECT`, `ALL`.
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput) TrafficType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters) *string { return v.TrafficType }).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) ToTelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) Elem() TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters) TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters
+		return ret
+	}).(TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput)
+}
+
+// Format string for VPC Flow Log entries.
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) LogFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Maximum interval (in seconds) between the capture of flow log records. Valid values: `60`, `600`.
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) MaxAggregationInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAggregationInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Type of traffic to log. Valid values: `ACCEPT`, `REJECT`, `ALL`.
+func (o TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput) TrafficType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationVpcFlowLogParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TrafficType
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParameters struct {
+	// Type of WAF logs to collect (currently `WAF_LOGS`).
+	LogType *string `pulumi:"logType"`
+	// Filter configuration that determines which WAF log records to include or exclude. See `loggingFilter` below.
+	LoggingFilter *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter `pulumi:"loggingFilter"`
+	// List of fields to redact from WAF logs. See `redactedFields` below.
+	RedactedFields []TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField `pulumi:"redactedFields"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs{...}
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs struct {
+	// Type of WAF logs to collect (currently `WAF_LOGS`).
+	LogType pulumi.StringPtrInput `pulumi:"logType"`
+	// Filter configuration that determines which WAF log records to include or exclude. See `loggingFilter` below.
+	LoggingFilter TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrInput `pulumi:"loggingFilter"`
+	// List of fields to redact from WAF logs. See `redactedFields` below.
+	RedactedFields TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayInput `pulumi:"redactedFields"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParameters)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput)
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput).ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs, TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtr and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrInput` via:
+//
+//	        TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput
+}
+
+type telemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrType TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs
+
+func TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtr(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrInput {
+	return (*telemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrType)(v)
+}
+
+func (*telemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationWafLoggingParameters)(nil)).Elem()
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrType) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrType) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return o.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleRuleDestinationConfigurationWafLoggingParameters) *TelemetryRuleRuleDestinationConfigurationWafLoggingParameters {
+		return &v
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput)
+}
+
+// Type of WAF logs to collect (currently `WAF_LOGS`).
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput) LogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParameters) *string { return v.LogType }).(pulumi.StringPtrOutput)
+}
+
+// Filter configuration that determines which WAF log records to include or exclude. See `loggingFilter` below.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput) LoggingFilter() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParameters) *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter {
+		return v.LoggingFilter
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput)
+}
+
+// List of fields to redact from WAF logs. See `redactedFields` below.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput) RedactedFields() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParameters) []TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField {
+		return v.RedactedFields
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationWafLoggingParameters)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput) Elem() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParameters) TelemetryRuleRuleDestinationConfigurationWafLoggingParameters {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleRuleDestinationConfigurationWafLoggingParameters
+		return ret
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput)
+}
+
+// Type of WAF logs to collect (currently `WAF_LOGS`).
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput) LogType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filter configuration that determines which WAF log records to include or exclude. See `loggingFilter` below.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput) LoggingFilter() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParameters) *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter {
+		if v == nil {
+			return nil
+		}
+		return v.LoggingFilter
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput)
+}
+
+// List of fields to redact from WAF logs. See `redactedFields` below.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput) RedactedFields() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParameters) []TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField {
+		if v == nil {
+			return nil
+		}
+		return v.RedactedFields
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter struct {
+	// Default action for log records that do not match any filter. Valid values: `KEEP`, `DROP`.
+	DefaultBehavior *string `pulumi:"defaultBehavior"`
+	// List of filter configurations. See `filters` below.
+	Filters []TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter `pulumi:"filters"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs{...}
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs struct {
+	// Default action for log records that do not match any filter. Valid values: `KEEP`, `DROP`.
+	DefaultBehavior pulumi.StringPtrInput `pulumi:"defaultBehavior"`
+	// List of filter configurations. See `filters` below.
+	Filters TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayInput `pulumi:"filters"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput)
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput).ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs, TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtr and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrInput` via:
+//
+//	        TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput
+}
+
+type telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrType TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs
+
+func TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtr(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrInput {
+	return (*telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrType)(v)
+}
+
+func (*telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter)(nil)).Elem()
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrType) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrType) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return o.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter) *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter {
+		return &v
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput)
+}
+
+// Default action for log records that do not match any filter. Valid values: `KEEP`, `DROP`.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) DefaultBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter) *string {
+		return v.DefaultBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of filter configurations. See `filters` below.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput) Filters() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter) []TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter {
+		return v.Filters
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput) Elem() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter
+		return ret
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput)
+}
+
+// Default action for log records that do not match any filter. Valid values: `KEEP`, `DROP`.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput) DefaultBehavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultBehavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of filter configurations. See `filters` below.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput) Filters() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilter) []TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter {
+		if v == nil {
+			return nil
+		}
+		return v.Filters
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter struct {
+	// Action to take for matching log records. Valid values: `KEEP`, `DROP`.
+	Behavior *string `pulumi:"behavior"`
+	// Conditions that determine if a log record matches this filter. See `conditions` below.
+	Conditions []TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition `pulumi:"conditions"`
+	// Whether the log record must meet all conditions or any condition. Valid values: `MEETS_ALL`, `MEETS_ANY`.
+	Requirement *string `pulumi:"requirement"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs{...}
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs struct {
+	// Action to take for matching log records. Valid values: `KEEP`, `DROP`.
+	Behavior pulumi.StringPtrInput `pulumi:"behavior"`
+	// Conditions that determine if a log record matches this filter. See `conditions` below.
+	Conditions TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayInput `pulumi:"conditions"`
+	// Whether the log record must meet all conditions or any condition. Valid values: `MEETS_ALL`, `MEETS_ANY`.
+	Requirement pulumi.StringPtrInput `pulumi:"requirement"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput)
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray{ TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs{...} }
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray []TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterInput
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput {
+	return o
+}
+
+// Action to take for matching log records. Valid values: `KEEP`, `DROP`.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput) Behavior() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter) *string {
+		return v.Behavior
+	}).(pulumi.StringPtrOutput)
+}
+
+// Conditions that determine if a log record matches this filter. See `conditions` below.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput) Conditions() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter) []TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition {
+		return v.Conditions
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput)
+}
+
+// Whether the log record must meet all conditions or any condition. Valid values: `MEETS_ALL`, `MEETS_ANY`.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput) Requirement() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter) *string {
+		return v.Requirement
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput) Index(i pulumi.IntInput) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter {
+		return vs[0].([]TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilter)[vs[1].(int)]
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition struct {
+	// Condition that matches based on the WAF action. See `actionCondition` below.
+	ActionCondition *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition `pulumi:"actionCondition"`
+	// Condition that matches based on WAF rule labels. See `labelNameCondition` below.
+	LabelNameCondition *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition `pulumi:"labelNameCondition"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs{...}
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs struct {
+	// Condition that matches based on the WAF action. See `actionCondition` below.
+	ActionCondition TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrInput `pulumi:"actionCondition"`
+	// Condition that matches based on WAF rule labels. See `labelNameCondition` below.
+	LabelNameCondition TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrInput `pulumi:"labelNameCondition"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput)
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray{ TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs{...} }
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray []TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionInput
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput {
+	return o
+}
+
+// Condition that matches based on the WAF action. See `actionCondition` below.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput) ActionCondition() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition) *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition {
+		return v.ActionCondition
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput)
+}
+
+// Condition that matches based on WAF rule labels. See `labelNameCondition` below.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput) LabelNameCondition() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition) *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition {
+		return v.LabelNameCondition
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput) Index(i pulumi.IntInput) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition {
+		return vs[0].([]TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterCondition)[vs[1].(int)]
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition struct {
+	// WAF action to match against. Valid values: `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE`, `EXCLUDED_AS_COUNT`.
+	Action string `pulumi:"action"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs{...}
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs struct {
+	// WAF action to match against. Valid values: `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE`, `EXCLUDED_AS_COUNT`.
+	Action pulumi.StringInput `pulumi:"action"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput)
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput).ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs, TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtr and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrInput` via:
+//
+//	        TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput
+}
+
+type telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrType TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs
+
+func TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtr(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrInput {
+	return (*telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrType)(v)
+}
+
+func (*telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition)(nil)).Elem()
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrType) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrType) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return o.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition) *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition {
+		return &v
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput)
+}
+
+// WAF action to match against. Valid values: `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE`, `EXCLUDED_AS_COUNT`.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition) string {
+		return v.Action
+	}).(pulumi.StringOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput) Elem() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition
+		return ret
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput)
+}
+
+// WAF action to match against. Valid values: `ALLOW`, `BLOCK`, `COUNT`, `CAPTCHA`, `CHALLENGE`, `EXCLUDED_AS_COUNT`.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Action
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition struct {
+	// Label name to match (alphanumeric, underscores, hyphens, and colons; up to 1024 characters).
+	LabelName *string `pulumi:"labelName"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs{...}
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs struct {
+	// Label name to match (alphanumeric, underscores, hyphens, and colons; up to 1024 characters).
+	LabelName pulumi.StringPtrInput `pulumi:"labelName"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput)
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput).ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs, TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtr and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrInput` via:
+//
+//	        TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput
+}
+
+type telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrType TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs
+
+func TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtr(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrInput {
+	return (*telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrType)(v)
+}
+
+func (*telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition)(nil)).Elem()
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrType) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrType) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return o.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition) *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition {
+		return &v
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput)
+}
+
+// Label name to match (alphanumeric, underscores, hyphens, and colons; up to 1024 characters).
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput) LabelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition) *string {
+		return v.LabelName
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput) Elem() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition
+		return ret
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput)
+}
+
+// Label name to match (alphanumeric, underscores, hyphens, and colons; up to 1024 characters).
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput) LabelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameCondition) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LabelName
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField struct {
+	// Redact the HTTP method from WAF logs. Set to an empty string to enable redaction.
+	Method *string `pulumi:"method"`
+	// Redact the entire query string from WAF logs. Set to an empty string to enable redaction.
+	QueryString *string `pulumi:"queryString"`
+	// Redact a specific header by name from WAF logs. See `singleHeader` below.
+	SingleHeader *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader `pulumi:"singleHeader"`
+	// Redact the URI path from WAF logs. Set to an empty string to enable redaction.
+	UriPath *string `pulumi:"uriPath"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs{...}
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs struct {
+	// Redact the HTTP method from WAF logs. Set to an empty string to enable redaction.
+	Method pulumi.StringPtrInput `pulumi:"method"`
+	// Redact the entire query string from WAF logs. Set to an empty string to enable redaction.
+	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
+	// Redact a specific header by name from WAF logs. See `singleHeader` below.
+	SingleHeader TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrInput `pulumi:"singleHeader"`
+	// Redact the URI path from WAF logs. Set to an empty string to enable redaction.
+	UriPath pulumi.StringPtrInput `pulumi:"uriPath"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput)
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray{ TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs{...} }
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray []TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldInput
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput {
+	return o
+}
+
+// Redact the HTTP method from WAF logs. Set to an empty string to enable redaction.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField) *string {
+		return v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+// Redact the entire query string from WAF logs. Set to an empty string to enable redaction.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) QueryString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField) *string {
+		return v.QueryString
+	}).(pulumi.StringPtrOutput)
+}
+
+// Redact a specific header by name from WAF logs. See `singleHeader` below.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) SingleHeader() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField) *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader {
+		return v.SingleHeader
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput)
+}
+
+// Redact the URI path from WAF logs. Set to an empty string to enable redaction.
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput) UriPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField) *string {
+		return v.UriPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput) Index(i pulumi.IntInput) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField {
+		return vs[0].([]TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedField)[vs[1].(int)]
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader struct {
+	// Header name to redact (up to 64 characters).
+	Name string `pulumi:"name"`
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderInput` via:
+//
+//	TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs{...}
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs struct {
+	// Header name to redact (up to 64 characters).
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader)(nil)).Elem()
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput)
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput).ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(ctx)
+}
+
+// TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrInput is an input type that accepts TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs, TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtr and TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput values.
+// You can construct a concrete instance of `TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrInput` via:
+//
+//	        TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrInput interface {
+	pulumi.Input
+
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput
+	ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput
+}
+
+type telemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrType TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs
+
+func TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtr(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrInput {
+	return (*telemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrType)(v)
+}
+
+func (*telemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader)(nil)).Elem()
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrType) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return i.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *telemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrType) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return o.ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader) *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader {
+		return &v
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput)
+}
+
+// Header name to redact (up to 64 characters).
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+type TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader)(nil)).Elem()
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput) ToTelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutputWithContext(ctx context.Context) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput {
+	return o
+}
+
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput) Elem() TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader) TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader {
+		if v != nil {
+			return *v
+		}
+		var ret TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader
+		return ret
+	}).(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput)
+}
+
+// Header name to redact (up to 64 characters).
+func (o TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeader) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3002,6 +8470,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationTimeoutsInput)(nil)).Elem(), CentralizationRuleForOrganizationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationTimeoutsPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3TableIntegrationEncryptionInput)(nil)).Elem(), S3TableIntegrationEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3TableIntegrationEncryptionPtrInput)(nil)).Elem(), S3TableIntegrationEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3TableIntegrationTimeoutsInput)(nil)).Elem(), S3TableIntegrationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3TableIntegrationTimeoutsPtrInput)(nil)).Elem(), S3TableIntegrationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryEnrichmentTimeoutsInput)(nil)).Elem(), TelemetryEnrichmentTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryEnrichmentTimeoutsPtrInput)(nil)).Elem(), TelemetryEnrichmentTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryEvaluationForOrganizationTimeoutsInput)(nil)).Elem(), TelemetryEvaluationForOrganizationTimeoutsArgs{})
@@ -3014,10 +8486,74 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryPipelineTimeoutsPtrInput)(nil)).Elem(), TelemetryPipelineTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRulePtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationTimeoutsInput)(nil)).Elem(), TelemetryRuleForOrganizationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleForOrganizationTimeoutsPtrInput)(nil)).Elem(), TelemetryRuleForOrganizationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleInput)(nil)).Elem(), TelemetryRuleRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRulePtrInput)(nil)).Elem(), TelemetryRuleRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationPtrInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationCloudtrailParametersInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationCloudtrailParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrInput)(nil)).Elem(), TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleTimeoutsInput)(nil)).Elem(), TelemetryRuleTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryRuleTimeoutsPtrInput)(nil)).Elem(), TelemetryRuleTimeoutsArgs{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleOutput{})
@@ -3038,6 +8574,10 @@ func init() {
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationTimeoutsOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(S3TableIntegrationEncryptionOutput{})
+	pulumi.RegisterOutputType(S3TableIntegrationEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(S3TableIntegrationTimeoutsOutput{})
+	pulumi.RegisterOutputType(S3TableIntegrationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryEnrichmentTimeoutsOutput{})
 	pulumi.RegisterOutputType(TelemetryEnrichmentTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryEvaluationForOrganizationTimeoutsOutput{})
@@ -3050,10 +8590,74 @@ func init() {
 	pulumi.RegisterOutputType(TelemetryPipelineTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRulePtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationLogDeliveryParametersPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationMskMonitoringParametersPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleForOrganizationRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleForOrganizationTimeoutsOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleForOrganizationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleRuleOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleRulePtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorArrayOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationCloudtrailParametersAdvancedEventSelectorFieldSelectorArrayOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationElbLoadBalancerLoggingParametersPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationLogDeliveryParametersPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationMskMonitoringParametersPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArrayOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArrayOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionLabelNameConditionPtrOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArrayOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderOutput{})
+	pulumi.RegisterOutputType(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderPtrOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleTimeoutsOutput{})
 	pulumi.RegisterOutputType(TelemetryRuleTimeoutsPtrOutput{})
 }

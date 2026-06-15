@@ -29,6 +29,7 @@ public final class GetLicenseGrantsFilterArgs extends com.pulumi.resources.Resou
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
+     * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -72,6 +73,7 @@ public final class GetLicenseGrantsFilterArgs extends com.pulumi.resources.Resou
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
      * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
+     * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -156,6 +158,7 @@ public final class GetLicenseGrantsFilterArgs extends com.pulumi.resources.Resou
          * import com.pulumi.core.Output;
          * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
          * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
+         * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsFilterArgs;
          * import java.util.ArrayList;
          * import java.util.Arrays;
          * import java.util.Map;
@@ -203,6 +206,7 @@ public final class GetLicenseGrantsFilterArgs extends com.pulumi.resources.Resou
          * import com.pulumi.core.Output;
          * import com.pulumi.aws.licensemanager.LicensemanagerFunctions;
          * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsArgs;
+         * import com.pulumi.aws.licensemanager.inputs.GetLicenseGrantsFilterArgs;
          * import java.util.ArrayList;
          * import java.util.Arrays;
          * import java.util.Map;

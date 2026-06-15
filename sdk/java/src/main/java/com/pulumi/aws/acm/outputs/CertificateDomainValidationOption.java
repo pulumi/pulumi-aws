@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CertificateDomainValidationOption {
     /**
-     * @return Fully qualified domain name (FQDN) in the certificate.
+     * @return Domain to be validated
      * 
      */
     private @Nullable String domainName;
@@ -34,7 +34,7 @@ public final class CertificateDomainValidationOption {
 
     private CertificateDomainValidationOption() {}
     /**
-     * @return Fully qualified domain name (FQDN) in the certificate.
+     * @return Domain to be validated
      * 
      */
     public Optional<String> domainName() {

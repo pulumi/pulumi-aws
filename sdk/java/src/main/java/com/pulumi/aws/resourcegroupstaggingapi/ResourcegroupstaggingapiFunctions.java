@@ -353,6 +353,7 @@ public final class ResourcegroupstaggingapiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
      * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesTagFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -465,6 +466,7 @@ public final class ResourcegroupstaggingapiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
      * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesTagFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -577,6 +579,7 @@ public final class ResourcegroupstaggingapiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
      * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesTagFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -689,6 +692,7 @@ public final class ResourcegroupstaggingapiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
      * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesTagFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -801,6 +805,7 @@ public final class ResourcegroupstaggingapiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
      * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesTagFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -913,6 +918,7 @@ public final class ResourcegroupstaggingapiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
      * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesTagFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1025,6 +1031,7 @@ public final class ResourcegroupstaggingapiFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
      * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesTagFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

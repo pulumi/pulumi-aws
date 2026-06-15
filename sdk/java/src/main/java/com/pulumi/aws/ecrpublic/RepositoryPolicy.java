@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecrpublic.RepositoryArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.ecrpublic.RepositoryPolicy;
  * import com.pulumi.aws.ecrpublic.RepositoryPolicyArgs;
  * import java.util.ArrayList;

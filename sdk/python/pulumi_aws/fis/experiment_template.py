@@ -427,7 +427,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             }])
         ```
 
-        ### With Report Configuration
+        ### Example Usage with Report Configuration
 
         ```python
         import pulumi
@@ -594,7 +594,7 @@ class ExperimentTemplate(pulumi.CustomResource):
             }])
         ```
 
-        ### With Report Configuration
+        ### Example Usage with Report Configuration
 
         ```python
         import pulumi

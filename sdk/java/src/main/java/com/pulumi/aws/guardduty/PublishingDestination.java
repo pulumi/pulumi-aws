@@ -34,6 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.guardduty.Detector;
  * import com.pulumi.aws.guardduty.DetectorArgs;
  * import com.pulumi.aws.s3.BucketAcl;

@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.guardduty.Filter;
  * import com.pulumi.aws.guardduty.FilterArgs;
  * import com.pulumi.aws.guardduty.inputs.FilterFindingCriteriaArgs;
+ * import com.pulumi.aws.guardduty.inputs.FilterFindingCriteriaCriterionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

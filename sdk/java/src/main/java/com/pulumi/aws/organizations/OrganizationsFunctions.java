@@ -997,6 +997,9 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
      * import java.util.ArrayList;
@@ -1105,6 +1108,9 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
      * import java.util.ArrayList;
@@ -1213,6 +1219,9 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
      * import java.util.ArrayList;
@@ -1321,6 +1330,9 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
      * import java.util.ArrayList;
@@ -1429,6 +1441,9 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
      * import java.util.ArrayList;
@@ -1537,6 +1552,9 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
      * import java.util.ArrayList;
@@ -1645,6 +1663,9 @@ public final class OrganizationsFunctions {
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.sns.TopicPolicy;
      * import com.pulumi.aws.sns.TopicPolicyArgs;
      * import java.util.ArrayList;

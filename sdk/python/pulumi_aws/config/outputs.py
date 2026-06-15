@@ -396,6 +396,7 @@ class Endpoints(dict):
                  inspector: Optional[_builtins.str] = None,
                  inspector2: Optional[_builtins.str] = None,
                  inspectorv2: Optional[_builtins.str] = None,
+                 interconnect: Optional[_builtins.str] = None,
                  internetmonitor: Optional[_builtins.str] = None,
                  invoicing: Optional[_builtins.str] = None,
                  iot: Optional[_builtins.str] = None,
@@ -709,6 +710,7 @@ class Endpoints(dict):
         :param _builtins.str inspector: Use this to override the default service endpoint URL
         :param _builtins.str inspector2: Use this to override the default service endpoint URL
         :param _builtins.str inspectorv2: Use this to override the default service endpoint URL
+        :param _builtins.str interconnect: Use this to override the default service endpoint URL
         :param _builtins.str internetmonitor: Use this to override the default service endpoint URL
         :param _builtins.str invoicing: Use this to override the default service endpoint URL
         :param _builtins.str iot: Use this to override the default service endpoint URL
@@ -1176,6 +1178,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "inspector2", inspector2)
         if inspectorv2 is not None:
             pulumi.set(__self__, "inspectorv2", inspectorv2)
+        if interconnect is not None:
+            pulumi.set(__self__, "interconnect", interconnect)
         if internetmonitor is not None:
             pulumi.set(__self__, "internetmonitor", internetmonitor)
         if invoicing is not None:
@@ -2724,6 +2728,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "inspectorv2")
+
+    @_builtins.property
+    @pulumi.getter
+    def interconnect(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "interconnect")
 
     @_builtins.property
     @pulumi.getter

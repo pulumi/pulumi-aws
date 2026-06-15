@@ -78,6 +78,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.transfer.inputs.WorkflowStepArgs;
  * import com.pulumi.aws.transfer.inputs.WorkflowStepCustomStepDetailsArgs;
  * import com.pulumi.aws.transfer.inputs.WorkflowStepTagStepDetailsArgs;
+ * import com.pulumi.aws.transfer.inputs.WorkflowStepTagStepDetailsTagArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -24,17 +24,19 @@ class ServerlessCollectionGroupArgs:
                  standby_replicas: pulumi.Input[_builtins.str],
                  capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionGroupCapacityLimitArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 generation: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerlessCollectionGroup resource.
 
-        :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionGroupCapacityLimitArgs']]] capacity_limits: Configuration block for the collection group's indexing and search capacity limits. See `capacity_limits` below for details.
         :param pulumi.Input[_builtins.str] description: Description of the collection group.
+        :param pulumi.Input[_builtins.str] generation: Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
         :param pulumi.Input[_builtins.str] name: Name of the collection group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -44,6 +46,8 @@ class ServerlessCollectionGroupArgs:
             pulumi.set(__self__, "capacity_limits", capacity_limits)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if generation is not None:
+            pulumi.set(__self__, "generation", generation)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -55,7 +59,7 @@ class ServerlessCollectionGroupArgs:
     @pulumi.getter(name="standbyReplicas")
     def standby_replicas(self) -> pulumi.Input[_builtins.str]:
         """
-        Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+        Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
 
         The following arguments are optional:
         """
@@ -88,6 +92,18 @@ class ServerlessCollectionGroupArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def generation(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+        """
+        return pulumi.get(self, "generation")
+
+    @generation.setter
+    def generation(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "generation", value)
 
     @_builtins.property
     @pulumi.getter
@@ -133,6 +149,7 @@ class _ServerlessCollectionGroupState:
                  capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionGroupCapacityLimitArgs']]]] = None,
                  created_date: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 generation: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  standby_replicas: pulumi.Input[Optional[_builtins.str]] = None,
@@ -145,9 +162,10 @@ class _ServerlessCollectionGroupState:
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionGroupCapacityLimitArgs']]] capacity_limits: Configuration block for the collection group's indexing and search capacity limits. See `capacity_limits` below for details.
         :param pulumi.Input[_builtins.str] created_date: Date the collection group was created.
         :param pulumi.Input[_builtins.str] description: Description of the collection group.
+        :param pulumi.Input[_builtins.str] generation: Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
         :param pulumi.Input[_builtins.str] name: Name of the collection group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -161,6 +179,8 @@ class _ServerlessCollectionGroupState:
             pulumi.set(__self__, "created_date", created_date)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if generation is not None:
+            pulumi.set(__self__, "generation", generation)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -222,6 +242,18 @@ class _ServerlessCollectionGroupState:
 
     @_builtins.property
     @pulumi.getter
+    def generation(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+        """
+        return pulumi.get(self, "generation")
+
+    @generation.setter
+    def generation(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "generation", value)
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the collection group.
@@ -248,7 +280,7 @@ class _ServerlessCollectionGroupState:
     @pulumi.getter(name="standbyReplicas")
     def standby_replicas(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+        Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
 
         The following arguments are optional:
         """
@@ -291,6 +323,7 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 generation: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  standby_replicas: pulumi.Input[Optional[_builtins.str]] = None,
@@ -345,9 +378,10 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict']]]] capacity_limits: Configuration block for the collection group's indexing and search capacity limits. See `capacity_limits` below for details.
         :param pulumi.Input[_builtins.str] description: Description of the collection group.
+        :param pulumi.Input[_builtins.str] generation: Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
         :param pulumi.Input[_builtins.str] name: Name of the collection group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -420,6 +454,7 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 generation: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  standby_replicas: pulumi.Input[Optional[_builtins.str]] = None,
@@ -435,6 +470,7 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
 
             __props__.__dict__["capacity_limits"] = capacity_limits
             __props__.__dict__["description"] = description
+            __props__.__dict__["generation"] = generation
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
             if standby_replicas is None and not opts.urn:
@@ -458,6 +494,7 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
             capacity_limits: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict']]]]] = None,
             created_date: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
+            generation: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             standby_replicas: pulumi.Input[Optional[_builtins.str]] = None,
@@ -474,9 +511,10 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionGroupCapacityLimitArgs', 'ServerlessCollectionGroupCapacityLimitArgsDict']]]] capacity_limits: Configuration block for the collection group's indexing and search capacity limits. See `capacity_limits` below for details.
         :param pulumi.Input[_builtins.str] created_date: Date the collection group was created.
         :param pulumi.Input[_builtins.str] description: Description of the collection group.
+        :param pulumi.Input[_builtins.str] generation: Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
         :param pulumi.Input[_builtins.str] name: Name of the collection group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+        :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection group. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -490,6 +528,7 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
         __props__.__dict__["capacity_limits"] = capacity_limits
         __props__.__dict__["created_date"] = created_date
         __props__.__dict__["description"] = description
+        __props__.__dict__["generation"] = generation
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
         __props__.__dict__["standby_replicas"] = standby_replicas
@@ -531,6 +570,14 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    def generation(self) -> pulumi.Output[_builtins.str]:
+        """
+        Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+        """
+        return pulumi.get(self, "generation")
+
+    @_builtins.property
+    @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         Name of the collection group.
@@ -549,7 +596,7 @@ class ServerlessCollectionGroup(pulumi.CustomResource):
     @pulumi.getter(name="standbyReplicas")
     def standby_replicas(self) -> pulumi.Output[_builtins.str]:
         """
-        Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+        Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
 
         The following arguments are optional:
         """

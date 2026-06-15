@@ -218,6 +218,8 @@ type LoadBalancerHealthCheck struct {
 	// * `TCP`, `SSL` - PORT is required, PATH is not supported
 	Target string `pulumi:"target"`
 	// The length of time before the check times out.
+	//
+	// > **Note:** If the ARN of the `sslCertificateId` references a certificate signed by an ECDSA key, ELB only supports the P256 and P384 curves. Using a certificate signed by a different curve could produce `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your browser.
 	Timeout int `pulumi:"timeout"`
 	// The number of checks before the instance is declared unhealthy.
 	UnhealthyThreshold int `pulumi:"unhealthyThreshold"`
@@ -245,6 +247,8 @@ type LoadBalancerHealthCheckArgs struct {
 	// * `TCP`, `SSL` - PORT is required, PATH is not supported
 	Target pulumi.StringInput `pulumi:"target"`
 	// The length of time before the check times out.
+	//
+	// > **Note:** If the ARN of the `sslCertificateId` references a certificate signed by an ECDSA key, ELB only supports the P256 and P384 curves. Using a certificate signed by a different curve could produce `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your browser.
 	Timeout pulumi.IntInput `pulumi:"timeout"`
 	// The number of checks before the instance is declared unhealthy.
 	UnhealthyThreshold pulumi.IntInput `pulumi:"unhealthyThreshold"`
@@ -346,6 +350,8 @@ func (o LoadBalancerHealthCheckOutput) Target() pulumi.StringOutput {
 }
 
 // The length of time before the check times out.
+//
+// > **Note:** If the ARN of the `sslCertificateId` references a certificate signed by an ECDSA key, ELB only supports the P256 and P384 curves. Using a certificate signed by a different curve could produce `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your browser.
 func (o LoadBalancerHealthCheckOutput) Timeout() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerHealthCheck) int { return v.Timeout }).(pulumi.IntOutput)
 }
@@ -413,6 +419,8 @@ func (o LoadBalancerHealthCheckPtrOutput) Target() pulumi.StringPtrOutput {
 }
 
 // The length of time before the check times out.
+//
+// > **Note:** If the ARN of the `sslCertificateId` references a certificate signed by an ECDSA key, ELB only supports the P256 and P384 curves. Using a certificate signed by a different curve could produce `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your browser.
 func (o LoadBalancerHealthCheckPtrOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerHealthCheck) *int {
 		if v == nil {

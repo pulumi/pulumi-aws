@@ -52,7 +52,7 @@ class GetResourcePolicyResult:
     @pulumi.getter
     def policy(self) -> _builtins.str:
         """
-        The [policy][1] for the resource.
+        The policy for the resource.
         """
         return pulumi.get(self, "policy")
 

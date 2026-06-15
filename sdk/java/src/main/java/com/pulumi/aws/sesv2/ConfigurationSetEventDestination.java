@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sesv2.ConfigurationSetEventDestinationArgs;
  * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationArgs;
  * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs;
+ * import com.pulumi.aws.sesv2.inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

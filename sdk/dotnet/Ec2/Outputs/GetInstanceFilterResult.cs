@@ -15,7 +15,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     {
         /// <summary>
         /// Name of the filter.
-        /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        /// For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
         /// </summary>
         public readonly string Name;
         /// <summary>

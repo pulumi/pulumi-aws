@@ -317,7 +317,7 @@ class FirewallPolicy(pulumi.CustomResource):
             })
         ```
 
-        ## Policy with a HOME_NET Override
+        ### Policy with a HOME_NET Override
 
         ```python
         import pulumi
@@ -350,7 +350,7 @@ class FirewallPolicy(pulumi.CustomResource):
             })
         ```
 
-        ## Policy with a Custom Action for Stateless Inspection
+        ### Policy with a Custom Action for Stateless Inspection
 
         ```python
         import pulumi
@@ -377,7 +377,7 @@ class FirewallPolicy(pulumi.CustomResource):
             })
         ```
 
-        ## Policy with Active Threat Defense in Action Order
+        ### Policy with Active Threat Defense in Action Order
 
         ```python
         import pulumi
@@ -397,7 +397,7 @@ class FirewallPolicy(pulumi.CustomResource):
             })
         ```
 
-        ## Policy with Active Threat Defense in Strict Order
+        ### Policy with Active Threat Defense in Strict Order
 
         ```python
         import pulumi
@@ -474,7 +474,7 @@ class FirewallPolicy(pulumi.CustomResource):
             })
         ```
 
-        ## Policy with a HOME_NET Override
+        ### Policy with a HOME_NET Override
 
         ```python
         import pulumi
@@ -507,7 +507,7 @@ class FirewallPolicy(pulumi.CustomResource):
             })
         ```
 
-        ## Policy with a Custom Action for Stateless Inspection
+        ### Policy with a Custom Action for Stateless Inspection
 
         ```python
         import pulumi
@@ -534,7 +534,7 @@ class FirewallPolicy(pulumi.CustomResource):
             })
         ```
 
-        ## Policy with Active Threat Defense in Action Order
+        ### Policy with Active Threat Defense in Action Order
 
         ```python
         import pulumi
@@ -554,7 +554,7 @@ class FirewallPolicy(pulumi.CustomResource):
             })
         ```
 
-        ## Policy with Active Threat Defense in Strict Order
+        ### Policy with Active Threat Defense in Strict Order
 
         ```python
         import pulumi

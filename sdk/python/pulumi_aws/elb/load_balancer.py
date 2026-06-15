@@ -811,14 +811,6 @@ class LoadBalancer(pulumi.CustomResource):
             })
         ```
 
-        ## Note on ECDSA Key Algorithm
-
-        If the ARN of the `ssl_certificate_id` that is pointed to references a
-        certificate that was signed by an ECDSA key, note that ELB only supports the
-        P256 and P384 curves.  Using a certificate signed by a key using a different
-        curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
-        browser.
-
         ## Import
 
         ### Identity Schema
@@ -935,14 +927,6 @@ class LoadBalancer(pulumi.CustomResource):
                 "Name": "foobar-elb",
             })
         ```
-
-        ## Note on ECDSA Key Algorithm
-
-        If the ARN of the `ssl_certificate_id` that is pointed to references a
-        certificate that was signed by an ECDSA key, note that ELB only supports the
-        P256 and P384 curves.  Using a certificate signed by a key using a different
-        curve could produce the error `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your
-        browser.
 
         ## Import
 

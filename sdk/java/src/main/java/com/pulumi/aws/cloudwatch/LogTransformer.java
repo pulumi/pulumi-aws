@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.LogTransformer;
  * import com.pulumi.aws.cloudwatch.LogTransformerArgs;
  * import com.pulumi.aws.cloudwatch.inputs.LogTransformerTransformerConfigArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.LogTransformerTransformerConfigParseJsonArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

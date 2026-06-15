@@ -711,7 +711,9 @@ class MultitenantDistribution(pulumi.CustomResource):
 
         > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
 
-        ## Multi-tenant Distribution Limitations
+        ## Example Usage
+
+        ### Multi-tenant Distribution Limitations
 
         Multi-tenant distributions have the following limitations compared to standard CloudFront distributions:
 
@@ -737,8 +739,6 @@ class MultitenantDistribution(pulumi.CustomResource):
         - `staging` mode
         - `trusted_signers` in cache behaviors - Use `trusted_key_groups` instead
         - Cache behavior TTL settings (`default_ttl`, `max_ttl`, `min_ttl`) - Use cache policies instead
-
-        ## Example Usage
 
         ```python
         import pulumi
@@ -844,7 +844,9 @@ class MultitenantDistribution(pulumi.CustomResource):
 
         > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
 
-        ## Multi-tenant Distribution Limitations
+        ## Example Usage
+
+        ### Multi-tenant Distribution Limitations
 
         Multi-tenant distributions have the following limitations compared to standard CloudFront distributions:
 
@@ -870,8 +872,6 @@ class MultitenantDistribution(pulumi.CustomResource):
         - `staging` mode
         - `trusted_signers` in cache behaviors - Use `trusted_key_groups` instead
         - Cache behavior TTL settings (`default_ttl`, `max_ttl`, `min_ttl`) - Use cache policies instead
-
-        ## Example Usage
 
         ```python
         import pulumi

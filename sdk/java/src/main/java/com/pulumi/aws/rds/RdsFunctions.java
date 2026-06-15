@@ -1190,6 +1190,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
+     * import com.pulumi.aws.rds.inputs.GetClustersFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1235,6 +1236,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
+     * import com.pulumi.aws.rds.inputs.GetClustersFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1280,6 +1282,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
+     * import com.pulumi.aws.rds.inputs.GetClustersFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1325,6 +1328,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
+     * import com.pulumi.aws.rds.inputs.GetClustersFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1370,6 +1374,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
+     * import com.pulumi.aws.rds.inputs.GetClustersFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1415,6 +1420,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
+     * import com.pulumi.aws.rds.inputs.GetClustersFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1460,6 +1466,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetClustersArgs;
+     * import com.pulumi.aws.rds.inputs.GetClustersFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1541,6 +1548,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1625,6 +1633,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1709,6 +1718,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1793,6 +1803,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1877,6 +1888,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
+     * import com.pulumi.aws.rds.inputs.GetEngineVersionFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2933,6 +2945,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.rds.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3011,6 +3024,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.rds.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3089,6 +3103,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.rds.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3167,6 +3182,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.rds.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3245,6 +3261,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.rds.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3323,6 +3340,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.rds.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3401,6 +3419,7 @@ public final class RdsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetInstancesArgs;
+     * import com.pulumi.aws.rds.inputs.GetInstancesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

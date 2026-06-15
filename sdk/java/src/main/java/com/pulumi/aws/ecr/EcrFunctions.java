@@ -575,6 +575,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
+     * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentRuleArgs;
+     * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentRuleSelectionArgs;
      * import com.pulumi.aws.ecr.LifecyclePolicy;
      * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
      * import java.util.ArrayList;
@@ -633,6 +635,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
+     * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentRuleArgs;
+     * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentRuleSelectionArgs;
      * import com.pulumi.aws.ecr.LifecyclePolicy;
      * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
      * import java.util.ArrayList;
@@ -691,6 +695,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
+     * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentRuleArgs;
+     * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentRuleSelectionArgs;
      * import com.pulumi.aws.ecr.LifecyclePolicy;
      * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
      * import java.util.ArrayList;
@@ -749,6 +755,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
+     * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentRuleArgs;
+     * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentRuleSelectionArgs;
      * import com.pulumi.aws.ecr.LifecyclePolicy;
      * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
      * import java.util.ArrayList;
@@ -807,6 +815,8 @@ public final class EcrFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.ecr.EcrFunctions;
      * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentArgs;
+     * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentRuleArgs;
+     * import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentRuleSelectionArgs;
      * import com.pulumi.aws.ecr.LifecyclePolicy;
      * import com.pulumi.aws.ecr.LifecyclePolicyArgs;
      * import java.util.ArrayList;

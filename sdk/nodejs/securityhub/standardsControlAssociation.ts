@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Disabling security control in all standards
+ * ### Disabling security control in all standards
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

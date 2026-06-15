@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.AccessKeyArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
  * import com.pulumi.aws.iam.UserPolicy;
  * import com.pulumi.aws.iam.UserPolicyArgs;
  * import java.util.ArrayList;
@@ -204,14 +205,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The [unique ID][1] assigned by AWS.
+     * The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      * 
      */
     @Export(name="uniqueId", refs={String.class}, tree="[0]")
     private Output<String> uniqueId;
 
     /**
-     * @return The [unique ID][1] assigned by AWS.
+     * @return The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      * 
      */
     public Output<String> uniqueId() {

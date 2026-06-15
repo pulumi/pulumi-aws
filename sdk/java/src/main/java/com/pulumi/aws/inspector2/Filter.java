@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inspector2.Filter;
  * import com.pulumi.aws.inspector2.FilterArgs;
  * import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaArgs;
+ * import com.pulumi.aws.inspector2.inputs.FilterFilterCriteriaAwsAccountIdArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

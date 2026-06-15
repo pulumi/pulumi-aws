@@ -91,6 +91,18 @@ namespace Pulumi.Aws.CloudFront
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Function resource with the given unique name, arguments, and options.
@@ -181,6 +193,18 @@ namespace Pulumi.Aws.CloudFront
         [Input("runtime", required: true)]
         public Input<string> Runtime { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public FunctionArgs()
         {
         }
@@ -256,6 +280,30 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         public FunctionState()
         {

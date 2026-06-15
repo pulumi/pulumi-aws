@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecr.ReplicationConfiguration;
  * import com.pulumi.aws.ecr.ReplicationConfigurationArgs;
  * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationArgs;
+ * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationRuleArgs;
+ * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -68,7 +70,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Multiple Region Usage
+ * ### Multiple Region Usage
  * 
  * <pre>
  * {@code
@@ -83,6 +85,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecr.ReplicationConfiguration;
  * import com.pulumi.aws.ecr.ReplicationConfigurationArgs;
  * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationArgs;
+ * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationRuleArgs;
+ * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -123,7 +127,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Repository Filter Usage
+ * ### Repository Filter Usage
  * 
  * <pre>
  * {@code
@@ -138,6 +142,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecr.ReplicationConfiguration;
  * import com.pulumi.aws.ecr.ReplicationConfigurationArgs;
  * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationArgs;
+ * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationRuleArgs;
+ * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs;
+ * import com.pulumi.aws.ecr.inputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

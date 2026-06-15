@@ -127,6 +127,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cognito.UserPool;
  * import com.pulumi.aws.cognito.UserPoolArgs;
  * import com.pulumi.aws.cognito.inputs.UserPoolAccountRecoverySettingArgs;
+ * import com.pulumi.aws.cognito.inputs.UserPoolAccountRecoverySettingRecoveryMechanismArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

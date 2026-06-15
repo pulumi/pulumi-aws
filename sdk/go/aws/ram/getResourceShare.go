@@ -40,7 +40,7 @@ import (
 //
 // ```
 //
-// ## Search by filters
+// ### Search by filters
 //
 // ```go
 // package main

@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.backup.VaultArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.backup.VaultPolicy;
  * import com.pulumi.aws.backup.VaultPolicyArgs;
  * import java.util.ArrayList;

@@ -211,12 +211,6 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Notes
- * 
- * If both VPCs are not in the same AWS account and region do not enable the `autoAccept` attribute.
- * The accepter can manage its side of the connection using the `aws.ec2.VpcPeeringConnectionAccepter` resource
- * or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
- * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
@@ -274,7 +268,7 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
     }
     /**
      * The AWS account ID of the target peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+     * Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
      * 
      */
     @Export(name="peerOwnerId", refs={String.class}, tree="[0]")
@@ -282,7 +276,7 @@ public class VpcPeeringConnection extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The AWS account ID of the target peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+     * Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
      * 
      */
     public Output<String> peerOwnerId() {

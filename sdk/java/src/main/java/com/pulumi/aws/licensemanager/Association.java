@@ -29,6 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Ec2Functions;
  * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.inputs.GetAmiFilterArgs;
  * import com.pulumi.aws.ec2.Instance;
  * import com.pulumi.aws.ec2.InstanceArgs;
  * import com.pulumi.aws.licensemanager.LicenseConfiguration;

@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.rds.OptionGroup;
  * import com.pulumi.aws.rds.OptionGroupArgs;
  * import com.pulumi.aws.rds.inputs.OptionGroupOptionArgs;
+ * import com.pulumi.aws.rds.inputs.OptionGroupOptionOptionSettingArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

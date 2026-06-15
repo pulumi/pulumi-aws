@@ -5047,6 +5047,8 @@ func (o ResourceDataSyncS3DestinationPtrOutput) SyncFormat() pulumi.StringPtrOut
 }
 
 type ResourceDataSyncS3DestinationDestinationDataSharing struct {
+	// Data sharing type.
+	// Only `Organization` is supported.
 	DestinationDataSharingType *string `pulumi:"destinationDataSharingType"`
 }
 
@@ -5062,6 +5064,8 @@ type ResourceDataSyncS3DestinationDestinationDataSharingInput interface {
 }
 
 type ResourceDataSyncS3DestinationDestinationDataSharingArgs struct {
+	// Data sharing type.
+	// Only `Organization` is supported.
 	DestinationDataSharingType pulumi.StringPtrInput `pulumi:"destinationDataSharingType"`
 }
 
@@ -5142,6 +5146,8 @@ func (o ResourceDataSyncS3DestinationDestinationDataSharingOutput) ToResourceDat
 	}).(ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput)
 }
 
+// Data sharing type.
+// Only `Organization` is supported.
 func (o ResourceDataSyncS3DestinationDestinationDataSharingOutput) DestinationDataSharingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceDataSyncS3DestinationDestinationDataSharing) *string {
 		return v.DestinationDataSharingType
@@ -5172,6 +5178,8 @@ func (o ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput) Elem() Res
 	}).(ResourceDataSyncS3DestinationDestinationDataSharingOutput)
 }
 
+// Data sharing type.
+// Only `Organization` is supported.
 func (o ResourceDataSyncS3DestinationDestinationDataSharingPtrOutput) DestinationDataSharingType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceDataSyncS3DestinationDestinationDataSharing) *string {
 		if v == nil {

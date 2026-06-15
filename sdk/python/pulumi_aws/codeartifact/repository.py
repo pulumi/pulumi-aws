@@ -371,7 +371,7 @@ class Repository(pulumi.CustomResource):
             domain=example_domain.domain)
         ```
 
-        ### With Upstream Repository
+        ### Example Usage with upstream repository
 
         ```python
         import pulumi
@@ -388,7 +388,7 @@ class Repository(pulumi.CustomResource):
             }])
         ```
 
-        ### With External Connection
+        ### Example Usage with external connection
 
         ```python
         import pulumi
@@ -455,7 +455,7 @@ class Repository(pulumi.CustomResource):
             domain=example_domain.domain)
         ```
 
-        ### With Upstream Repository
+        ### Example Usage with upstream repository
 
         ```python
         import pulumi
@@ -472,7 +472,7 @@ class Repository(pulumi.CustomResource):
             }])
         ```
 
-        ### With External Connection
+        ### Example Usage with external connection
 
         ```python
         import pulumi

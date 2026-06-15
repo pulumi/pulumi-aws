@@ -83,11 +83,13 @@ type ServerlessCollectionGroup struct {
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// Description of the collection group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+	Generation pulumi.StringOutput `pulumi:"generation"`
 	// Name of the collection group.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+	// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
 	//
 	// The following arguments are optional:
 	StandbyReplicas pulumi.StringOutput `pulumi:"standbyReplicas"`
@@ -138,11 +140,13 @@ type serverlessCollectionGroupState struct {
 	CreatedDate *string `pulumi:"createdDate"`
 	// Description of the collection group.
 	Description *string `pulumi:"description"`
+	// Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+	Generation *string `pulumi:"generation"`
 	// Name of the collection group.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+	// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
 	//
 	// The following arguments are optional:
 	StandbyReplicas *string `pulumi:"standbyReplicas"`
@@ -161,11 +165,13 @@ type ServerlessCollectionGroupState struct {
 	CreatedDate pulumi.StringPtrInput
 	// Description of the collection group.
 	Description pulumi.StringPtrInput
+	// Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+	Generation pulumi.StringPtrInput
 	// Name of the collection group.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+	// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
 	//
 	// The following arguments are optional:
 	StandbyReplicas pulumi.StringPtrInput
@@ -184,11 +190,13 @@ type serverlessCollectionGroupArgs struct {
 	CapacityLimits []ServerlessCollectionGroupCapacityLimit `pulumi:"capacityLimits"`
 	// Description of the collection group.
 	Description *string `pulumi:"description"`
+	// Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+	Generation *string `pulumi:"generation"`
 	// Name of the collection group.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+	// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
 	//
 	// The following arguments are optional:
 	StandbyReplicas string `pulumi:"standbyReplicas"`
@@ -202,11 +210,13 @@ type ServerlessCollectionGroupArgs struct {
 	CapacityLimits ServerlessCollectionGroupCapacityLimitArrayInput
 	// Description of the collection group.
 	Description pulumi.StringPtrInput
+	// Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+	Generation pulumi.StringPtrInput
 	// Name of the collection group.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+	// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
 	//
 	// The following arguments are optional:
 	StandbyReplicas pulumi.StringInput
@@ -323,6 +333,11 @@ func (o ServerlessCollectionGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessCollectionGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+func (o ServerlessCollectionGroupOutput) Generation() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessCollectionGroup) pulumi.StringOutput { return v.Generation }).(pulumi.StringOutput)
+}
+
 // Name of the collection group.
 func (o ServerlessCollectionGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollectionGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -333,7 +348,7 @@ func (o ServerlessCollectionGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollectionGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+// Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
 //
 // The following arguments are optional:
 func (o ServerlessCollectionGroupOutput) StandbyReplicas() pulumi.StringOutput {

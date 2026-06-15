@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.appfabric.AppAuthorization;
  * import com.pulumi.aws.appfabric.AppAuthorizationArgs;
  * import com.pulumi.aws.appfabric.inputs.AppAuthorizationCredentialArgs;
+ * import com.pulumi.aws.appfabric.inputs.AppAuthorizationCredentialApiKeyCredentialArgs;
  * import com.pulumi.aws.appfabric.inputs.AppAuthorizationTenantArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

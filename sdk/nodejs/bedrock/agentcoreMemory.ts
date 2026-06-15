@@ -114,6 +114,10 @@ export class AgentcoreMemory extends pulumi.CustomResource {
      */
     declare public readonly eventExpiryDuration: pulumi.Output<number>;
     /**
+     * Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     */
+    declare public readonly indexedKeys: pulumi.Output<outputs.bedrock.AgentcoreMemoryIndexedKey[] | undefined>;
+    /**
      * ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
      */
     declare public readonly memoryExecutionRoleArn: pulumi.Output<string | undefined>;
@@ -125,6 +129,10 @@ export class AgentcoreMemory extends pulumi.CustomResource {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
+    /**
+     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     */
+    declare public readonly streamDeliveryResources: pulumi.Output<outputs.bedrock.AgentcoreMemoryStreamDeliveryResources | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -152,9 +160,11 @@ export class AgentcoreMemory extends pulumi.CustomResource {
             resourceInputs["description"] = state?.description;
             resourceInputs["encryptionKeyArn"] = state?.encryptionKeyArn;
             resourceInputs["eventExpiryDuration"] = state?.eventExpiryDuration;
+            resourceInputs["indexedKeys"] = state?.indexedKeys;
             resourceInputs["memoryExecutionRoleArn"] = state?.memoryExecutionRoleArn;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
+            resourceInputs["streamDeliveryResources"] = state?.streamDeliveryResources;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timeouts"] = state?.timeouts;
@@ -166,9 +176,11 @@ export class AgentcoreMemory extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["encryptionKeyArn"] = args?.encryptionKeyArn;
             resourceInputs["eventExpiryDuration"] = args?.eventExpiryDuration;
+            resourceInputs["indexedKeys"] = args?.indexedKeys;
             resourceInputs["memoryExecutionRoleArn"] = args?.memoryExecutionRoleArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
+            resourceInputs["streamDeliveryResources"] = args?.streamDeliveryResources;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
@@ -202,6 +214,10 @@ export interface AgentcoreMemoryState {
      */
     eventExpiryDuration?: pulumi.Input<number | undefined>;
     /**
+     * Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     */
+    indexedKeys?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreMemoryIndexedKey>[] | undefined>;
+    /**
      * ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
      */
     memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
@@ -213,6 +229,10 @@ export interface AgentcoreMemoryState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     */
+    streamDeliveryResources?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStreamDeliveryResources | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -243,6 +263,10 @@ export interface AgentcoreMemoryArgs {
      */
     eventExpiryDuration: pulumi.Input<number>;
     /**
+     * Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     */
+    indexedKeys?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreMemoryIndexedKey>[] | undefined>;
+    /**
      * ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
      */
     memoryExecutionRoleArn?: pulumi.Input<string | undefined>;
@@ -254,6 +278,10 @@ export interface AgentcoreMemoryArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     */
+    streamDeliveryResources?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStreamDeliveryResources | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Rds
     /// });
     /// ```
     /// 
-    /// ## Encrypting the automated backup with KMS
+    /// ### Encrypting the automated backup with KMS
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Rds
     /// });
     /// ```
     /// 
-    /// ## Example including a RDS DB instance
+    /// ### Example including a RDS DB instance
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

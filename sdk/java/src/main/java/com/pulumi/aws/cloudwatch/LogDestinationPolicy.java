@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudwatch.LogDestinationArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.cloudwatch.LogDestinationPolicy;
  * import com.pulumi.aws.cloudwatch.LogDestinationPolicyArgs;
  * import java.util.ArrayList;

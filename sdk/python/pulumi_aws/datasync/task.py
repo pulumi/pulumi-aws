@@ -495,7 +495,7 @@ class Task(pulumi.CustomResource):
             })
         ```
 
-        ### With Scheduling
+        ### Example Usage with Scheduling
 
         ```python
         import pulumi
@@ -510,7 +510,7 @@ class Task(pulumi.CustomResource):
             })
         ```
 
-        ### With Filtering
+        ### Example Usage with Filtering
 
         ```python
         import pulumi
@@ -530,7 +530,7 @@ class Task(pulumi.CustomResource):
             })
         ```
 
-        ### With Enhanced Task Mode
+        ### Example Usage with Enhanced Task Mode
 
         ```python
         import pulumi
@@ -605,7 +605,7 @@ class Task(pulumi.CustomResource):
             })
         ```
 
-        ### With Scheduling
+        ### Example Usage with Scheduling
 
         ```python
         import pulumi
@@ -620,7 +620,7 @@ class Task(pulumi.CustomResource):
             })
         ```
 
-        ### With Filtering
+        ### Example Usage with Filtering
 
         ```python
         import pulumi
@@ -640,7 +640,7 @@ class Task(pulumi.CustomResource):
             })
         ```
 
-        ### With Enhanced Task Mode
+        ### Example Usage with Enhanced Task Mode
 
         ```python
         import pulumi

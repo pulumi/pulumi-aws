@@ -914,7 +914,9 @@ func (o DomainAdvancedSecurityOptionsPtrOutput) MasterUserOptions() DomainAdvanc
 type DomainAdvancedSecurityOptionsJwtOptions struct {
 	// Whether JWT authentication is enabled.
 	Enabled *bool `pulumi:"enabled"`
-	// PEM-encoded public key used to verify JWT signatures.
+	// URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`.
+	JwksUrl *string `pulumi:"jwksUrl"`
+	// PEM-encoded public key used to verify JWT signatures. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`. If both `jwksUrl` and `publicKey` are specified, `publicKey` is ignored.
 	PublicKey *string `pulumi:"publicKey"`
 	// Element of the JWT assertion to use for roles. Default is `roles`.
 	RolesKey *string `pulumi:"rolesKey"`
@@ -936,7 +938,9 @@ type DomainAdvancedSecurityOptionsJwtOptionsInput interface {
 type DomainAdvancedSecurityOptionsJwtOptionsArgs struct {
 	// Whether JWT authentication is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// PEM-encoded public key used to verify JWT signatures.
+	// URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`.
+	JwksUrl pulumi.StringPtrInput `pulumi:"jwksUrl"`
+	// PEM-encoded public key used to verify JWT signatures. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`. If both `jwksUrl` and `publicKey` are specified, `publicKey` is ignored.
 	PublicKey pulumi.StringPtrInput `pulumi:"publicKey"`
 	// Element of the JWT assertion to use for roles. Default is `roles`.
 	RolesKey pulumi.StringPtrInput `pulumi:"rolesKey"`
@@ -1026,7 +1030,12 @@ func (o DomainAdvancedSecurityOptionsJwtOptionsOutput) Enabled() pulumi.BoolPtrO
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsJwtOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// PEM-encoded public key used to verify JWT signatures.
+// URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`.
+func (o DomainAdvancedSecurityOptionsJwtOptionsOutput) JwksUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAdvancedSecurityOptionsJwtOptions) *string { return v.JwksUrl }).(pulumi.StringPtrOutput)
+}
+
+// PEM-encoded public key used to verify JWT signatures. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`. If both `jwksUrl` and `publicKey` are specified, `publicKey` is ignored.
 func (o DomainAdvancedSecurityOptionsJwtOptionsOutput) PublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptionsJwtOptions) *string { return v.PublicKey }).(pulumi.StringPtrOutput)
 }
@@ -1075,7 +1084,17 @@ func (o DomainAdvancedSecurityOptionsJwtOptionsPtrOutput) Enabled() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// PEM-encoded public key used to verify JWT signatures.
+// URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`.
+func (o DomainAdvancedSecurityOptionsJwtOptionsPtrOutput) JwksUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsJwtOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JwksUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// PEM-encoded public key used to verify JWT signatures. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`. If both `jwksUrl` and `publicKey` are specified, `publicKey` is ignored.
 func (o DomainAdvancedSecurityOptionsJwtOptionsPtrOutput) PublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptionsJwtOptions) *string {
 		if v == nil {
@@ -7716,6 +7735,8 @@ func (o GetDomainAdvancedSecurityOptionArrayOutput) Index(i pulumi.IntInput) Get
 type GetDomainAdvancedSecurityOptionJwtOption struct {
 	// Enabled disabled toggle for off-peak update window
 	Enabled bool `pulumi:"enabled"`
+	// URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures.
+	JwksUrl string `pulumi:"jwksUrl"`
 	// PEM-encoded public key used to verify JWT signatures.
 	PublicKey string `pulumi:"publicKey"`
 	// Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
@@ -7738,6 +7759,8 @@ type GetDomainAdvancedSecurityOptionJwtOptionInput interface {
 type GetDomainAdvancedSecurityOptionJwtOptionArgs struct {
 	// Enabled disabled toggle for off-peak update window
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures.
+	JwksUrl pulumi.StringInput `pulumi:"jwksUrl"`
 	// PEM-encoded public key used to verify JWT signatures.
 	PublicKey pulumi.StringInput `pulumi:"publicKey"`
 	// Attribute that contains the backend role identifier (such as group name or group ID) in IAM Identity Center.
@@ -7800,6 +7823,11 @@ func (o GetDomainAdvancedSecurityOptionJwtOptionOutput) ToGetDomainAdvancedSecur
 // Enabled disabled toggle for off-peak update window
 func (o GetDomainAdvancedSecurityOptionJwtOptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetDomainAdvancedSecurityOptionJwtOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures.
+func (o GetDomainAdvancedSecurityOptionJwtOptionOutput) JwksUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainAdvancedSecurityOptionJwtOption) string { return v.JwksUrl }).(pulumi.StringOutput)
 }
 
 // PEM-encoded public key used to verify JWT signatures.

@@ -42,7 +42,7 @@ import (
 //
 // ```
 //
-// ### With KMS Key
+// ### Example Usage with KMS Key
 //
 // ```go
 // package main

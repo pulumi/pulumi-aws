@@ -70,7 +70,7 @@ class _GroupState:
         :param pulumi.Input[_builtins.str] arn: The ARN assigned by AWS for this group.
         :param pulumi.Input[_builtins.str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
         :param pulumi.Input[_builtins.str] path: Path in which to create the group.
-        :param pulumi.Input[_builtins.str] unique_id: The [unique ID][1] assigned by AWS.
+        :param pulumi.Input[_builtins.str] unique_id: The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -121,7 +121,7 @@ class _GroupState:
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The [unique ID][1] assigned by AWS.
+        The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         """
         return pulumi.get(self, "unique_id")
 
@@ -254,7 +254,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN assigned by AWS for this group.
         :param pulumi.Input[_builtins.str] name: The group's name. The name must consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: `=,.@-_.`. Group names are not distinguished by case. For example, you cannot create groups named both "ADMINS" and "admins".
         :param pulumi.Input[_builtins.str] path: Path in which to create the group.
-        :param pulumi.Input[_builtins.str] unique_id: The [unique ID][1] assigned by AWS.
+        :param pulumi.Input[_builtins.str] unique_id: The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -294,7 +294,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The [unique ID][1] assigned by AWS.
+        The [unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
         """
         return pulumi.get(self, "unique_id")
 

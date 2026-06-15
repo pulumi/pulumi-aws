@@ -46,7 +46,7 @@ import (
 //
 // ```
 //
-// ## Required Services Example
+// ### Required Services Example
 //
 // ```go
 // package main

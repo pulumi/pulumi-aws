@@ -223,7 +223,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             retention_period=14)
         ```
 
-        ## Encrypting the automated backup with KMS
+        ### Encrypting the automated backup with KMS
 
         ```python
         import pulumi
@@ -234,7 +234,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             kms_key_id="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012")
         ```
 
-        ## Example including a RDS DB instance
+        ### Example including a RDS DB instance
 
         ```python
         import pulumi
@@ -299,7 +299,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             retention_period=14)
         ```
 
-        ## Encrypting the automated backup with KMS
+        ### Encrypting the automated backup with KMS
 
         ```python
         import pulumi
@@ -310,7 +310,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             kms_key_id="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012")
         ```
 
-        ## Example including a RDS DB instance
+        ### Example including a RDS DB instance
 
         ```python
         import pulumi

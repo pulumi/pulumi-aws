@@ -743,7 +743,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "example_durable_function",
     ///         Role = exampleAwsIamRole.Arn,
     ///         Handler = "index.handler",
-    ///         Runtime = Aws.Lambda.Runtime.NodeJS22dX,
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS24dX,
     ///         MemorySize = 512,
     ///         Timeout = 30,
     ///         DurableConfig = new Aws.Lambda.Inputs.FunctionDurableConfigArgs
@@ -820,9 +820,6 @@ namespace Pulumi.Aws.Lambda
     /// ```
     /// 
     /// See the `aws.lambda.CapacityProvider` resource for more details, such as configuring instance requirements and the scaling policy.
-    /// 
-    /// ## Specifying the Deployment Package
-    /// 
     /// AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `Runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `Runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
     /// 
     /// Once you have created your deployment package you can specify it either directly as a local file (using the `Filename` argument) or indirectly via Amazon S3 (using the `S3Bucket`, `S3Key` and `S3ObjectVersion` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.

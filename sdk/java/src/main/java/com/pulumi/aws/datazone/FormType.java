@@ -152,6 +152,19 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `domainIdentifier` - (String) Identifier of the DataZone domain.
+ * * `name` - (String) Name of the form type.
+ * * `revision` - (String) Revision of the form type.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import DataZone Form Type using a comma separated value of `domainIdentifier`,`name`,`revision`. For example:
  * 
  * ```sh

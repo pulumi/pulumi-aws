@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.route53.RecordsExclusive;
  * import com.pulumi.aws.route53.RecordsExclusiveArgs;
  * import com.pulumi.aws.route53.inputs.RecordsExclusiveResourceRecordSetArgs;
+ * import com.pulumi.aws.route53.inputs.RecordsExclusiveResourceRecordSetResourceRecordArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

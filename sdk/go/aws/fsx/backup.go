@@ -13,7 +13,9 @@ import (
 
 // Provides a FSx Backup resource.
 //
-// ## Lustre Example
+// ## Example Usage
+//
+// ### Lustre Example
 //
 // ```go
 // package main
@@ -48,7 +50,7 @@ import (
 //
 // ```
 //
-// ## Windows Example
+// ### Windows Example
 //
 // ```go
 // package main
@@ -86,7 +88,7 @@ import (
 //
 // ```
 //
-// ## ONTAP Example
+// ### ONTAP Example
 //
 // ```go
 // package main
@@ -122,7 +124,7 @@ import (
 //
 // ```
 //
-// ## OpenZFS Example
+// ### OpenZFS Example
 //
 // ```go
 // package main

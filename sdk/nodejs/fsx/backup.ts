@@ -7,7 +7,9 @@ import * as utilities from "../utilities";
 /**
  * Provides a FSx Backup resource.
  *
- * ## Lustre Example
+ * ## Example Usage
+ *
+ * ### Lustre Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -22,7 +24,7 @@ import * as utilities from "../utilities";
  * const example = new aws.fsx.Backup("example", {fileSystemId: exampleLustreFileSystem.id});
  * ```
  *
- * ## Windows Example
+ * ### Windows Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,7 +40,7 @@ import * as utilities from "../utilities";
  * const example = new aws.fsx.Backup("example", {fileSystemId: exampleWindowsFileSystem.id});
  * ```
  *
- * ## ONTAP Example
+ * ### ONTAP Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -54,7 +56,7 @@ import * as utilities from "../utilities";
  * const example = new aws.fsx.Backup("example", {volumeId: exampleOntapVolume.id});
  * ```
  *
- * ## OpenZFS Example
+ * ### OpenZFS Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

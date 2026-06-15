@@ -72,7 +72,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) Name of the pipeline.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `pipelineName`. For example:
  *
  * ```sh
  * $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
@@ -139,7 +150,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     declare public readonly pipelineConfigurationBody: pulumi.Output<string>;
     /**
-     * The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+     * Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
      *
      * The following arguments are optional:
      */
@@ -263,7 +274,7 @@ export interface PipelineState {
      */
     pipelineConfigurationBody?: pulumi.Input<string | undefined>;
     /**
-     * The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+     * Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
      *
      * The following arguments are optional:
      */
@@ -317,7 +328,7 @@ export interface PipelineArgs {
      */
     pipelineConfigurationBody: pulumi.Input<string>;
     /**
-     * The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+     * Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
      *
      * The following arguments are optional:
      */

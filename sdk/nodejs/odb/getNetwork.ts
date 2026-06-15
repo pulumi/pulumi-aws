@@ -88,6 +88,10 @@ export interface GetNetworkResult {
      */
     readonly displayName: string;
     /**
+     * A list of EC2 placement group IDs associated with the ODB network.
+     */
+    readonly ec2PlacementGroupIds: string[];
+    /**
      * Unique identifier of the odb network resource.
      */
     readonly id: string;

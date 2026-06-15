@@ -18,6 +18,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
 
+        /// <summary>
+        /// Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
+        /// </summary>
+        [Input("listingMode")]
+        public Input<string>? ListingMode { get; set; }
+
         public AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs()
         {
         }

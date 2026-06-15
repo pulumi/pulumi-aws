@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Policy with a HOME_NET Override
+ * ### Policy with a HOME_NET Override
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Policy with a Custom Action for Stateless Inspection
+ * ### Policy with a Custom Action for Stateless Inspection
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -99,7 +99,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Policy with Active Threat Defense in Action Order
+ * ### Policy with Active Threat Defense in Action Order
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -120,7 +120,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Policy with Active Threat Defense in Strict Order
+ * ### Policy with Active Threat Defense in Strict Order
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

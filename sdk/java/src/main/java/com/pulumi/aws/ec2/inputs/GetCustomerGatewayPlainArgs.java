@@ -18,18 +18,14 @@ public final class GetCustomerGatewayPlainArgs extends com.pulumi.resources.Invo
     public static final GetCustomerGatewayPlainArgs Empty = new GetCustomerGatewayPlainArgs();
 
     /**
-     * One or more [name-value pairs][dcg-filters] to filter by.
-     * 
-     * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
+     * One or more [name-value pairs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html) to filter by.
      * 
      */
     @Import(name="filters")
     private @Nullable List<GetCustomerGatewayFilter> filters;
 
     /**
-     * @return One or more [name-value pairs][dcg-filters] to filter by.
-     * 
-     * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
+     * @return One or more [name-value pairs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html) to filter by.
      * 
      */
     public Optional<List<GetCustomerGatewayFilter>> filters() {
@@ -109,9 +105,7 @@ public final class GetCustomerGatewayPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param filters One or more [name-value pairs][dcg-filters] to filter by.
-         * 
-         * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
+         * @param filters One or more [name-value pairs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html) to filter by.
          * 
          * @return builder
          * 
@@ -122,9 +116,7 @@ public final class GetCustomerGatewayPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param filters One or more [name-value pairs][dcg-filters] to filter by.
-         * 
-         * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
+         * @param filters One or more [name-value pairs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html) to filter by.
          * 
          * @return builder
          * 

@@ -39,7 +39,7 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
 
-        :param pulumi.Input[_builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[_builtins.str] domain_name: Domain to be validated
         :param pulumi.Input[_builtins.str] private_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
                * Creating an Amazon issued certificate
@@ -107,7 +107,7 @@ class CertificateArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Fully qualified domain name (FQDN) in the certificate.
+        Domain to be validated
         """
         return pulumi.get(self, "domain_name")
 
@@ -258,7 +258,7 @@ class _CertificateState:
         Input properties used for looking up and filtering Certificate resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the certificate
-        :param pulumi.Input[_builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[_builtins.str] domain_name: Domain to be validated
         :param pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation.
                Can have more than one element, e.g., if SANs are defined.
                Only set if `DNS`-validation was used.
@@ -372,7 +372,7 @@ class _CertificateState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Fully qualified domain name (FQDN) in the certificate.
+        Domain to be validated
         """
         return pulumi.get(self, "domain_name")
 
@@ -643,35 +643,11 @@ class Certificate(pulumi.CustomResource):
         imported certificates, issued by another certificate authority;
         and private certificates, issued using an ACM Private Certificate Authority.
 
-        ## Amazon-Issued Certificates
+        For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle. It does not wait for a certificate to be issued — use `acm.CertificateValidation` for that. Most commonly used together with `route53.Record` and `acm.CertificateValidation` to request a DNS validated certificate, deploy the required validation records, and wait for validation to complete. It's recommended to specify `create_before_destroy = true` in a lifecycle block to replace a certificate which is currently in use (e.g., by `lb.Listener`).
 
-        For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.
-        This resource does not deal with validation of a certificate but can provide inputs
-        for other resources implementing the validation.
-        It does not wait for a certificate to be issued.
-        Use a `acm.CertificateValidation` resource for this.
+        Imported certificates can be used to make certificates created with an external certificate authority available for AWS services. As they are not managed by AWS, imported certificates are not eligible for automatic renewal. New certificate materials can be supplied to an existing imported certificate to update it in place.
 
-        Most commonly, this resource is used together with `route53.Record` and
-        `acm.CertificateValidation` to request a DNS validated certificate,
-        deploy the required validation records and wait for validation to complete.
-
-        Domain validation through email is also supported but should be avoided as it requires a manual step outside of this provider.
-
-        ## Certificates Imported from Other Certificate Authority
-
-        Imported certificates can be used to make certificates created with an external certificate authority available for AWS services.
-
-        As they are not managed by AWS, imported certificates are not eligible for automatic renewal.
-        New certificate materials can be supplied to an existing imported certificate to update it in place.
-
-        ## Private Certificates
-
-        Private certificates are issued by an ACM Private Certificate Authority, which can be created using the resource type `acmpca.CertificateAuthority`.
-
-        Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
-        See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.
-        By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration.
-        To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
+        Private certificates are issued by an ACM Private Certificate Authority, which can be created using `acmpca.CertificateAuthority`. Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service. See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information. By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration. To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
 
         ## Example Usage
 
@@ -784,7 +760,7 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[_builtins.str] domain_name: Domain to be validated
         :param pulumi.Input[_builtins.str] private_key_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
                * Creating an Amazon issued certificate
@@ -805,35 +781,11 @@ class Certificate(pulumi.CustomResource):
         imported certificates, issued by another certificate authority;
         and private certificates, issued using an ACM Private Certificate Authority.
 
-        ## Amazon-Issued Certificates
+        For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle. It does not wait for a certificate to be issued — use `acm.CertificateValidation` for that. Most commonly used together with `route53.Record` and `acm.CertificateValidation` to request a DNS validated certificate, deploy the required validation records, and wait for validation to complete. It's recommended to specify `create_before_destroy = true` in a lifecycle block to replace a certificate which is currently in use (e.g., by `lb.Listener`).
 
-        For Amazon-issued certificates, this resource deals with requesting certificates and managing their attributes and life-cycle.
-        This resource does not deal with validation of a certificate but can provide inputs
-        for other resources implementing the validation.
-        It does not wait for a certificate to be issued.
-        Use a `acm.CertificateValidation` resource for this.
+        Imported certificates can be used to make certificates created with an external certificate authority available for AWS services. As they are not managed by AWS, imported certificates are not eligible for automatic renewal. New certificate materials can be supplied to an existing imported certificate to update it in place.
 
-        Most commonly, this resource is used together with `route53.Record` and
-        `acm.CertificateValidation` to request a DNS validated certificate,
-        deploy the required validation records and wait for validation to complete.
-
-        Domain validation through email is also supported but should be avoided as it requires a manual step outside of this provider.
-
-        ## Certificates Imported from Other Certificate Authority
-
-        Imported certificates can be used to make certificates created with an external certificate authority available for AWS services.
-
-        As they are not managed by AWS, imported certificates are not eligible for automatic renewal.
-        New certificate materials can be supplied to an existing imported certificate to update it in place.
-
-        ## Private Certificates
-
-        Private certificates are issued by an ACM Private Certificate Authority, which can be created using the resource type `acmpca.CertificateAuthority`.
-
-        Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service.
-        See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information.
-        By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration.
-        To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
+        Private certificates are issued by an ACM Private Certificate Authority, which can be created using `acmpca.CertificateAuthority`. Private certificates created using this resource are eligible for managed renewal if they have been exported or associated with another AWS service. See [managed renewal documentation](https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html) for more information. By default, a certificate is valid for 395 days and the managed renewal process will start 60 days before expiration. To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
 
         ## Example Usage
 
@@ -1055,7 +1007,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the certificate
-        :param pulumi.Input[_builtins.str] domain_name: Fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[_builtins.str] domain_name: Domain to be validated
         :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation.
                Can have more than one element, e.g., if SANs are defined.
                Only set if `DNS`-validation was used.
@@ -1132,7 +1084,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Fully qualified domain name (FQDN) in the certificate.
+        Domain to be validated
         """
         return pulumi.get(self, "domain_name")
 

@@ -265,6 +265,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -309,6 +310,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -353,6 +355,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -397,6 +400,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -441,6 +445,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -485,6 +490,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -529,6 +535,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetComponentsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetComponentsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -773,6 +780,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -817,6 +825,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -861,6 +870,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -905,6 +915,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -949,6 +960,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -993,6 +1005,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1037,6 +1050,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetContainerRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1281,6 +1295,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1324,6 +1339,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1367,6 +1383,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1410,6 +1427,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1453,6 +1471,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1496,6 +1515,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1539,6 +1559,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetDistributionConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1992,6 +2013,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2035,6 +2057,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2078,6 +2101,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2121,6 +2145,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2164,6 +2189,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2207,6 +2233,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2250,6 +2277,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImagePipelinesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2493,6 +2521,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2537,6 +2566,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2581,6 +2611,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2625,6 +2656,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2669,6 +2701,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2713,6 +2746,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -2757,6 +2791,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetImageRecipesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3001,6 +3036,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3044,6 +3080,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3087,6 +3124,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3130,6 +3168,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3173,6 +3212,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3216,6 +3256,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3259,6 +3300,7 @@ public final class ImagebuilderFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.imagebuilder.ImagebuilderFunctions;
      * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsArgs;
+     * import com.pulumi.aws.imagebuilder.inputs.GetInfrastructureConfigurationsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

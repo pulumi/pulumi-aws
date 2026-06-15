@@ -260,13 +260,19 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `PolicyEngineConfiguration` below.
+        /// </summary>
+        [Output("policyEngineConfiguration")]
+        public Output<Outputs.AgentcoreGatewayPolicyEngineConfiguration?> PolicyEngineConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Protocol-specific configuration for the gateway. See `ProtocolConfiguration` below.
         /// </summary>
         [Output("protocolConfiguration")]
         public Output<Outputs.AgentcoreGatewayProtocolConfiguration?> ProtocolConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Protocol type for the gateway. Valid values: `MCP`.
+        /// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `aws.bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         /// </summary>
         [Output("protocolType")]
         public Output<string> ProtocolType { get; private set; } = null!;
@@ -401,16 +407,22 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `PolicyEngineConfiguration` below.
+        /// </summary>
+        [Input("policyEngineConfiguration")]
+        public Input<Inputs.AgentcoreGatewayPolicyEngineConfigurationArgs>? PolicyEngineConfiguration { get; set; }
+
+        /// <summary>
         /// Protocol-specific configuration for the gateway. See `ProtocolConfiguration` below.
         /// </summary>
         [Input("protocolConfiguration")]
         public Input<Inputs.AgentcoreGatewayProtocolConfigurationArgs>? ProtocolConfiguration { get; set; }
 
         /// <summary>
-        /// Protocol type for the gateway. Valid values: `MCP`.
+        /// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `aws.bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         /// </summary>
-        [Input("protocolType", required: true)]
-        public Input<string> ProtocolType { get; set; } = null!;
+        [Input("protocolType")]
+        public Input<string>? ProtocolType { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -516,13 +528,19 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `PolicyEngineConfiguration` below.
+        /// </summary>
+        [Input("policyEngineConfiguration")]
+        public Input<Inputs.AgentcoreGatewayPolicyEngineConfigurationGetArgs>? PolicyEngineConfiguration { get; set; }
+
+        /// <summary>
         /// Protocol-specific configuration for the gateway. See `ProtocolConfiguration` below.
         /// </summary>
         [Input("protocolConfiguration")]
         public Input<Inputs.AgentcoreGatewayProtocolConfigurationGetArgs>? ProtocolConfiguration { get; set; }
 
         /// <summary>
-        /// Protocol type for the gateway. Valid values: `MCP`.
+        /// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `aws.bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
         /// </summary>
         [Input("protocolType")]
         public Input<string>? ProtocolType { get; set; }

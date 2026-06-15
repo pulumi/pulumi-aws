@@ -25,6 +25,12 @@ __all__ = [
     'EmailTemplateEmailTemplateArgsDict',
     'EmailTemplateEmailTemplateHeaderArgs',
     'EmailTemplateEmailTemplateHeaderArgsDict',
+    'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs',
+    'Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict',
+    'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs',
+    'Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict',
+    'Smsvoicev2EventDestinationSnsDestinationArgs',
+    'Smsvoicev2EventDestinationSnsDestinationArgsDict',
     'Smsvoicev2PhoneNumberTimeoutsArgs',
     'Smsvoicev2PhoneNumberTimeoutsArgsDict',
 ]
@@ -432,6 +438,128 @@ class EmailTemplateEmailTemplateHeaderArgs:
     @value.setter
     def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+class Smsvoicev2EventDestinationCloudwatchLogsDestinationArgsDict(TypedDict):
+    iam_role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role that End User Messaging SMS assumes to write to the log group.
+    """
+    log_group_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Amazon CloudWatch log group that receives the events.
+    """
+
+@pulumi.input_type
+class Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs:
+    def __init__(__self__, *,
+                 iam_role_arn: pulumi.Input[_builtins.str],
+                 log_group_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that End User Messaging SMS assumes to write to the log group.
+        :param pulumi.Input[_builtins.str] log_group_arn: ARN of the Amazon CloudWatch log group that receives the events.
+        """
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+        pulumi.set(__self__, "log_group_arn", log_group_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the IAM role that End User Messaging SMS assumes to write to the log group.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @iam_role_arn.setter
+    def iam_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "iam_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupArn")
+    def log_group_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Amazon CloudWatch log group that receives the events.
+        """
+        return pulumi.get(self, "log_group_arn")
+
+    @log_group_arn.setter
+    def log_group_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "log_group_arn", value)
+
+
+class Smsvoicev2EventDestinationKinesisFirehoseDestinationArgsDict(TypedDict):
+    delivery_stream_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Amazon Data Firehose delivery stream that receives the events.
+    """
+    iam_role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role that End User Messaging SMS assumes to write to the delivery stream.
+    """
+
+@pulumi.input_type
+class Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs:
+    def __init__(__self__, *,
+                 delivery_stream_arn: pulumi.Input[_builtins.str],
+                 iam_role_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] delivery_stream_arn: ARN of the Amazon Data Firehose delivery stream that receives the events.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that End User Messaging SMS assumes to write to the delivery stream.
+        """
+        pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
+        pulumi.set(__self__, "iam_role_arn", iam_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="deliveryStreamArn")
+    def delivery_stream_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Amazon Data Firehose delivery stream that receives the events.
+        """
+        return pulumi.get(self, "delivery_stream_arn")
+
+    @delivery_stream_arn.setter
+    def delivery_stream_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "delivery_stream_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleArn")
+    def iam_role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the IAM role that End User Messaging SMS assumes to write to the delivery stream.
+        """
+        return pulumi.get(self, "iam_role_arn")
+
+    @iam_role_arn.setter
+    def iam_role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "iam_role_arn", value)
+
+
+class Smsvoicev2EventDestinationSnsDestinationArgsDict(TypedDict):
+    topic_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Amazon SNS topic that receives the events.
+    """
+
+@pulumi.input_type
+class Smsvoicev2EventDestinationSnsDestinationArgs:
+    def __init__(__self__, *,
+                 topic_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] topic_arn: ARN of the Amazon SNS topic that receives the events.
+        """
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Amazon SNS topic that receives the events.
+        """
+        return pulumi.get(self, "topic_arn")
+
+    @topic_arn.setter
+    def topic_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "topic_arn", value)
 
 
 class Smsvoicev2PhoneNumberTimeoutsArgsDict(TypedDict):

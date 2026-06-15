@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.servicediscovery.Service;
  * import com.pulumi.aws.servicediscovery.ServiceArgs;
  * import com.pulumi.aws.servicediscovery.inputs.ServiceDnsConfigArgs;
+ * import com.pulumi.aws.servicediscovery.inputs.ServiceDnsConfigDnsRecordArgs;
  * import com.pulumi.aws.servicediscovery.inputs.ServiceHealthCheckCustomConfigArgs;
  * import com.pulumi.aws.servicediscovery.Instance;
  * import com.pulumi.aws.servicediscovery.InstanceArgs;

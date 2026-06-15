@@ -49,7 +49,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// Unique identifier of a [CloudFront origin access control][8] for this origin.
+        /// Unique identifier of a CloudFront origin access control for this origin.
         /// </summary>
         [Input("originAccessControlId")]
         public Input<string>? OriginAccessControlId { get; set; }

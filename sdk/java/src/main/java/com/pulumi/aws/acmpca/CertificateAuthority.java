@@ -123,6 +123,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.acmpca.CertificateAuthority;

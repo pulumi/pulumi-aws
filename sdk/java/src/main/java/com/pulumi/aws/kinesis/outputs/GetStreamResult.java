@@ -4,6 +4,7 @@
 package com.pulumi.aws.kinesis.outputs;
 
 import com.pulumi.aws.kinesis.outputs.GetStreamStreamModeDetail;
+import com.pulumi.aws.kinesis.outputs.GetStreamWarmThroughput;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -85,6 +86,11 @@ public final class GetStreamResult {
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return Warm throughput in MB/s for the stream. Detailed below.
+     * 
+     */
+    private List<GetStreamWarmThroughput> warmThroughputs;
 
     private GetStreamResult() {}
     /**
@@ -188,6 +194,13 @@ public final class GetStreamResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return Warm throughput in MB/s for the stream. Detailed below.
+     * 
+     */
+    public List<GetStreamWarmThroughput> warmThroughputs() {
+        return this.warmThroughputs;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -213,6 +226,7 @@ public final class GetStreamResult {
         private String status;
         private List<GetStreamStreamModeDetail> streamModeDetails;
         private Map<String,String> tags;
+        private List<GetStreamWarmThroughput> warmThroughputs;
         public Builder() {}
         public Builder(GetStreamResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -231,6 +245,7 @@ public final class GetStreamResult {
     	      this.status = defaults.status;
     	      this.streamModeDetails = defaults.streamModeDetails;
     	      this.tags = defaults.tags;
+    	      this.warmThroughputs = defaults.warmThroughputs;
         }
 
         @CustomType.Setter
@@ -365,6 +380,17 @@ public final class GetStreamResult {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
+        public Builder warmThroughputs(List<GetStreamWarmThroughput> warmThroughputs) {
+            if (warmThroughputs == null) {
+              throw new MissingRequiredPropertyException("GetStreamResult", "warmThroughputs");
+            }
+            this.warmThroughputs = warmThroughputs;
+            return this;
+        }
+        public Builder warmThroughputs(GetStreamWarmThroughput... warmThroughputs) {
+            return warmThroughputs(List.of(warmThroughputs));
+        }
         public GetStreamResult build() {
             final var _resultValue = new GetStreamResult();
             _resultValue.arn = arn;
@@ -382,6 +408,7 @@ public final class GetStreamResult {
             _resultValue.status = status;
             _resultValue.streamModeDetails = streamModeDetails;
             _resultValue.tags = tags;
+            _resultValue.warmThroughputs = warmThroughputs;
             return _resultValue;
         }
     }

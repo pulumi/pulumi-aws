@@ -191,6 +191,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.rekognition.StreamProcessorArgs;
  * import com.pulumi.aws.rekognition.inputs.StreamProcessorDataSharingPreferenceArgs;
  * import com.pulumi.aws.rekognition.inputs.StreamProcessorRegionsOfInterestArgs;
+ * import com.pulumi.aws.rekognition.inputs.StreamProcessorRegionsOfInterestPolygonArgs;
  * import com.pulumi.aws.rekognition.inputs.StreamProcessorInputArgs;
  * import com.pulumi.aws.rekognition.inputs.StreamProcessorInputKinesisVideoStreamArgs;
  * import com.pulumi.aws.rekognition.inputs.StreamProcessorOutputArgs;

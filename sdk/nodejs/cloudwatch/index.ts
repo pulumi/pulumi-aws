@@ -188,6 +188,11 @@ export type LogResourcePolicy = import("./logResourcePolicy").LogResourcePolicy;
 export const LogResourcePolicy: typeof import("./logResourcePolicy").LogResourcePolicy = null as any;
 utilities.lazyLoad(exports, ["LogResourcePolicy"], () => require("./logResourcePolicy"));
 
+export { LogS3TableIntegrationSourceArgs, LogS3TableIntegrationSourceState } from "./logS3TableIntegrationSource";
+export type LogS3TableIntegrationSource = import("./logS3TableIntegrationSource").LogS3TableIntegrationSource;
+export const LogS3TableIntegrationSource: typeof import("./logS3TableIntegrationSource").LogS3TableIntegrationSource = null as any;
+utilities.lazyLoad(exports, ["LogS3TableIntegrationSource"], () => require("./logS3TableIntegrationSource"));
+
 export { LogStreamArgs, LogStreamState } from "./logStream";
 export type LogStream = import("./logStream").LogStream;
 export const LogStream: typeof import("./logStream").LogStream = null as any;
@@ -284,6 +289,8 @@ const _module = {
                 return new LogMetricFilter(name, <any>undefined, { urn })
             case "aws:cloudwatch/logResourcePolicy:LogResourcePolicy":
                 return new LogResourcePolicy(name, <any>undefined, { urn })
+            case "aws:cloudwatch/logS3TableIntegrationSource:LogS3TableIntegrationSource":
+                return new LogS3TableIntegrationSource(name, <any>undefined, { urn })
             case "aws:cloudwatch/logStream:LogStream":
                 return new LogStream(name, <any>undefined, { urn })
             case "aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter":
@@ -331,6 +338,7 @@ pulumi.runtime.registerResourceModule("aws", "cloudwatch/logGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logIndexPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logMetricFilter", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logResourcePolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudwatch/logS3TableIntegrationSource", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logStream", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logSubscriptionFilter", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudwatch/logTransformer", _module)

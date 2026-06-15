@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With Scheduling
+ * ### Example Usage with Scheduling
  * 
  * <pre>
  * {@code
@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With Filtering
+ * ### Example Usage with Filtering
  * 
  * <pre>
  * {@code
@@ -146,7 +146,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With Enhanced Task Mode
+ * ### Example Usage with Enhanced Task Mode
  * 
  * <pre>
  * {@code

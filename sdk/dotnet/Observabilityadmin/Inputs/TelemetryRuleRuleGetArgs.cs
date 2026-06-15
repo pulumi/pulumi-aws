@@ -13,15 +13,67 @@ namespace Pulumi.Aws.Observabilityadmin.Inputs
     public sealed class TelemetryRuleRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AWS resource type to apply the rule to. Currently supported: `AWS::EC2::VPC` with `Logs`.
-        /// 
-        /// &gt; **Note:** This resource is currently in early development. Additional resource types and configuration options will be added in future releases.
+        /// Whether to replicate the rule to every Region in the partition where CloudWatch Observability Admin is available. Mutually exclusive with `Regions`.
+        /// </summary>
+        [Input("allRegions")]
+        public Input<bool>? AllRegions { get; set; }
+
+        /// <summary>
+        /// Whether CloudWatch Observability Admin should detect and remediate configuration drift in managed telemetry resources. Currently supported for `AWS::EC2::VPC` resources (VPC flow logs).
+        /// </summary>
+        [Input("allowFieldUpdates")]
+        public Input<bool>? AllowFieldUpdates { get; set; }
+
+        /// <summary>
+        /// Configuration block specifying where and how the telemetry data is delivered. See `DestinationConfiguration` below.
+        /// </summary>
+        [Input("destinationConfiguration")]
+        public Input<Inputs.TelemetryRuleRuleDestinationConfigurationGetArgs>? DestinationConfiguration { get; set; }
+
+        [Input("regions")]
+        private InputList<string>? _regions;
+
+        /// <summary>
+        /// Set of Regions to replicate the rule to. Mutually exclusive with `AllRegions`. Order is not preserved.
+        /// </summary>
+        public InputList<string> Regions
+        {
+            get => _regions ?? (_regions = new InputList<string>());
+            set => _regions = value;
+        }
+
+        /// <summary>
+        /// AWS resource type to apply the rule to (for example `AWS::EC2::VPC`, `AWS::EKS::Cluster`, `AWS::WAFv2::WebACL`).
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
 
         /// <summary>
-        /// Type of telemetry data. Valid values: `Logs`, `Metrics`, `Traces`.
+        /// Organizational scope to which the rule applies, specified using accounts or organizational units.
+        /// </summary>
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        /// <summary>
+        /// Criteria for selecting which resources the rule applies to, such as resource tags.
+        /// </summary>
+        [Input("selectionCriteria")]
+        public Input<string>? SelectionCriteria { get; set; }
+
+        [Input("telemetrySourceTypes")]
+        private InputList<string>? _telemetrySourceTypes;
+
+        /// <summary>
+        /// List of telemetry source types to configure for the resource (for example `VPC_FLOW_LOGS`, `EKS_AUDIT_LOGS`). Must correlate with the chosen `ResourceType`. If not provided, the API may default this value based on `ResourceType` (for example `VPC_FLOW_LOGS` for `AWS::EC2::VPC`).
+        /// </summary>
+        public InputList<string> TelemetrySourceTypes
+        {
+            get => _telemetrySourceTypes ?? (_telemetrySourceTypes = new InputList<string>());
+            set => _telemetrySourceTypes = value;
+        }
+
+        /// <summary>
+        /// Type of telemetry data to collect. Valid values: `Logs`, `Metrics`, `Traces`.
         /// </summary>
         [Input("telemetryType", required: true)]
         public Input<string> TelemetryType { get; set; } = null!;

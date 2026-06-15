@@ -226,9 +226,11 @@ type AgentcoreGateway struct {
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// Name of the gateway.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `policyEngineConfiguration` below.
+	PolicyEngineConfiguration AgentcoreGatewayPolicyEngineConfigurationPtrOutput `pulumi:"policyEngineConfiguration"`
 	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
 	ProtocolConfiguration AgentcoreGatewayProtocolConfigurationPtrOutput `pulumi:"protocolConfiguration"`
-	// Protocol type for the gateway. Valid values: `MCP`.
+	// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
 	ProtocolType pulumi.StringOutput `pulumi:"protocolType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -254,9 +256,6 @@ func NewAgentcoreGateway(ctx *pulumi.Context,
 
 	if args.AuthorizerType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizerType'")
-	}
-	if args.ProtocolType == nil {
-		return nil, errors.New("invalid value for required argument 'ProtocolType'")
 	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
@@ -304,9 +303,11 @@ type agentcoreGatewayState struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the gateway.
 	Name *string `pulumi:"name"`
+	// Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `policyEngineConfiguration` below.
+	PolicyEngineConfiguration *AgentcoreGatewayPolicyEngineConfiguration `pulumi:"policyEngineConfiguration"`
 	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
 	ProtocolConfiguration *AgentcoreGatewayProtocolConfiguration `pulumi:"protocolConfiguration"`
-	// Protocol type for the gateway. Valid values: `MCP`.
+	// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
 	ProtocolType *string `pulumi:"protocolType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -344,9 +345,11 @@ type AgentcoreGatewayState struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the gateway.
 	Name pulumi.StringPtrInput
+	// Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `policyEngineConfiguration` below.
+	PolicyEngineConfiguration AgentcoreGatewayPolicyEngineConfigurationPtrInput
 	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
 	ProtocolConfiguration AgentcoreGatewayProtocolConfigurationPtrInput
-	// Protocol type for the gateway. Valid values: `MCP`.
+	// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
 	ProtocolType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -382,10 +385,12 @@ type agentcoreGatewayArgs struct {
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the gateway.
 	Name *string `pulumi:"name"`
+	// Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `policyEngineConfiguration` below.
+	PolicyEngineConfiguration *AgentcoreGatewayPolicyEngineConfiguration `pulumi:"policyEngineConfiguration"`
 	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
 	ProtocolConfiguration *AgentcoreGatewayProtocolConfiguration `pulumi:"protocolConfiguration"`
-	// Protocol type for the gateway. Valid values: `MCP`.
-	ProtocolType string `pulumi:"protocolType"`
+	// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
+	ProtocolType *string `pulumi:"protocolType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of the IAM role that the gateway assumes to access AWS services.
@@ -413,10 +418,12 @@ type AgentcoreGatewayArgs struct {
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the gateway.
 	Name pulumi.StringPtrInput
+	// Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `policyEngineConfiguration` below.
+	PolicyEngineConfiguration AgentcoreGatewayPolicyEngineConfigurationPtrInput
 	// Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
 	ProtocolConfiguration AgentcoreGatewayProtocolConfigurationPtrInput
-	// Protocol type for the gateway. Valid values: `MCP`.
-	ProtocolType pulumi.StringInput
+	// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
+	ProtocolType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of the IAM role that the gateway assumes to access AWS services.
@@ -569,6 +576,13 @@ func (o AgentcoreGatewayOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Configuration for a policy engine associated with the gateway. A policy engine is a collection of policies that evaluates and authorizes agent tool calls. When associated with a gateway, the policy engine intercepts all agent requests and determines whether to allow or deny each action based on the defined policies. See `policyEngineConfiguration` below.
+func (o AgentcoreGatewayOutput) PolicyEngineConfiguration() AgentcoreGatewayPolicyEngineConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentcoreGateway) AgentcoreGatewayPolicyEngineConfigurationPtrOutput {
+		return v.PolicyEngineConfiguration
+	}).(AgentcoreGatewayPolicyEngineConfigurationPtrOutput)
+}
+
 // Protocol-specific configuration for the gateway. See `protocolConfiguration` below.
 func (o AgentcoreGatewayOutput) ProtocolConfiguration() AgentcoreGatewayProtocolConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) AgentcoreGatewayProtocolConfigurationPtrOutput {
@@ -576,7 +590,7 @@ func (o AgentcoreGatewayOutput) ProtocolConfiguration() AgentcoreGatewayProtocol
 	}).(AgentcoreGatewayProtocolConfigurationPtrOutput)
 }
 
-// Protocol type for the gateway. Valid values: `MCP`.
+// Protocol type for the gateway. Valid values: `MCP`. Omit this argument to create a gateway that routes traffic directly to HTTP targets such as AgentCore Runtime agents (see `bedrock.AgentcoreGatewayTarget` `target_configuration.http`).
 func (o AgentcoreGatewayOutput) ProtocolType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGateway) pulumi.StringOutput { return v.ProtocolType }).(pulumi.StringOutput)
 }

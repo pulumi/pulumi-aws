@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class DistributionRestrictionsGeoRestriction
     {
         /// <summary>
-        /// [ISO 3166-1-alpha-2 codes][4] for which you want CloudFront either to distribute your content (`Whitelist`) or not distribute your content (`Blacklist`). If the type is specified as `None` an empty array can be used.
+        /// [ISO 3166-1-alpha-2 codes](http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm) for which you want CloudFront either to distribute your content (`Whitelist`) or not distribute your content (`Blacklist`). If the type is specified as `None` an empty array can be used.
         /// </summary>
         public readonly ImmutableArray<string> Locations;
         /// <summary>

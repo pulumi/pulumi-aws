@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
@@ -15,6 +17,11 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
      * 
      */
     private String endpoint;
+    /**
+     * @return Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
+     * 
+     */
+    private @Nullable String listingMode;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpMcpServer() {}
     /**
@@ -23,6 +30,13 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
      */
     public String endpoint() {
         return this.endpoint;
+    }
+    /**
+     * @return Listing mode for the MCP server target. Valid values are `DEFAULT` and `DYNAMIC`. MCP resources for `DEFAULT` targets are cached at the control plane for faster access, while resources for `DYNAMIC` targets are retrieved dynamically when listing tools.
+     * 
+     */
+    public Optional<String> listingMode() {
+        return Optional.ofNullable(this.listingMode);
     }
 
     public static Builder builder() {
@@ -35,10 +49,12 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
     @CustomType.Builder
     public static final class Builder {
         private String endpoint;
+        private @Nullable String listingMode;
         public Builder() {}
         public Builder(AgentcoreGatewayTargetTargetConfigurationMcpMcpServer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
+    	      this.listingMode = defaults.listingMode;
         }
 
         @CustomType.Setter
@@ -49,9 +65,16 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
             this.endpoint = endpoint;
             return this;
         }
+        @CustomType.Setter
+        public Builder listingMode(@Nullable String listingMode) {
+
+            this.listingMode = listingMode;
+            return this;
+        }
         public AgentcoreGatewayTargetTargetConfigurationMcpMcpServer build() {
             final var _resultValue = new AgentcoreGatewayTargetTargetConfigurationMcpMcpServer();
             _resultValue.endpoint = endpoint;
+            _resultValue.listingMode = listingMode;
             return _resultValue;
         }
     }

@@ -123,6 +123,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
@@ -229,6 +232,17 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * ## Import
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` - (String) ID of the DataZone domain.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import DataZone Domain using the `domainId`. For example:
  * 

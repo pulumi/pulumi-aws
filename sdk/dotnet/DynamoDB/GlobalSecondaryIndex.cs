@@ -76,7 +76,7 @@ namespace Pulumi.Aws.DynamoDB
     /// });
     /// ```
     /// 
-    /// ## Migrating
+    /// ### Migrating
     /// 
     /// Use the following steps to migrate existing Global Secondary Indexes defined inline in `GlobalSecondaryIndex` on an `aws.dynamodb.Table`.
     /// 

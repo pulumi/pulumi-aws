@@ -109,7 +109,7 @@ def get_solution_stack(most_recent: Optional[_builtins.bool] = None,
     :param _builtins.bool most_recent: If more than one result is returned, use the most
            recent solution stack.
     :param _builtins.str name_regex: Regex string to apply to the solution stack list returned
-           by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+           by AWS. See [Elastic Beanstalk Supported Platforms](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) from
            AWS documentation for reference solution stack names.
            
            > **NOTE:** If more or less than a single match is returned by the search,
@@ -151,7 +151,7 @@ def get_solution_stack_output(most_recent: pulumi.Input[Optional[Optional[_built
     :param _builtins.bool most_recent: If more than one result is returned, use the most
            recent solution stack.
     :param _builtins.str name_regex: Regex string to apply to the solution stack list returned
-           by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+           by AWS. See [Elastic Beanstalk Supported Platforms](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) from
            AWS documentation for reference solution stack names.
            
            > **NOTE:** If more or less than a single match is returned by the search,

@@ -80,6 +80,8 @@ type LookupNetworkResult struct {
 	DefaultDnsPrefix string `pulumi:"defaultDnsPrefix"`
 	// Display name for the network resource.
 	DisplayName string `pulumi:"displayName"`
+	// A list of EC2 placement group IDs associated with the ODB network.
+	Ec2PlacementGroupIds []string `pulumi:"ec2PlacementGroupIds"`
 	// Unique identifier of the odb network resource.
 	Id string `pulumi:"id"`
 	// The managed services configuration for the ODB network.
@@ -188,6 +190,11 @@ func (o LookupNetworkResultOutput) DefaultDnsPrefix() pulumi.StringOutput {
 // Display name for the network resource.
 func (o LookupNetworkResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// A list of EC2 placement group IDs associated with the ODB network.
+func (o LookupNetworkResultOutput) Ec2PlacementGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupNetworkResult) []string { return v.Ec2PlacementGroupIds }).(pulumi.StringArrayOutput)
 }
 
 // Unique identifier of the odb network resource.

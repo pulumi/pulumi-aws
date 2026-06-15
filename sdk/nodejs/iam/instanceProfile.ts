@@ -117,7 +117,7 @@ export class InstanceProfile extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * [Unique ID][1] assigned by AWS.
+     * [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      */
     declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
 
@@ -197,7 +197,7 @@ export interface InstanceProfileState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * [Unique ID][1] assigned by AWS.
+     * [Unique ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#GUIDs) assigned by AWS.
      */
     uniqueId?: pulumi.Input<string | undefined>;
 }

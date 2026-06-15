@@ -47,6 +47,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.lambda.Function;
@@ -55,6 +57,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs;
  * import com.pulumi.aws.s3.BucketAcl;
  * import com.pulumi.aws.s3.BucketAclArgs;
  * import com.pulumi.asset.FileArchive;
@@ -160,6 +164,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -235,6 +241,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -375,6 +383,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationS3ConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -441,6 +451,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticsearch.inputs.DomainVpcOptionsArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
  * import com.pulumi.aws.iam.RolePolicy;
  * import com.pulumi.aws.iam.RolePolicyArgs;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
@@ -556,6 +567,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationS3ConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchConfigurationProcessingConfigurationProcessorParameterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -745,6 +758,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationS3ConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationProcessorParameterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -816,11 +831,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.glue.inputs.CatalogTableOpenTableFormatInputArgs;
  * import com.pulumi.aws.glue.inputs.CatalogTableOpenTableFormatInputIcebergInputArgs;
  * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorArgs;
+ * import com.pulumi.aws.glue.inputs.CatalogTableStorageDescriptorColumnArgs;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
  * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamIcebergConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamIcebergConfigurationS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamIcebergConfigurationDestinationTableConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamIcebergConfigurationProcessingConfigurationProcessorParameterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -972,6 +991,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationS3ConfigurationArgs;
  * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationCommonAttributeArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -1079,10 +1099,16 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Kinesis Firehose Delivery streams using the stream ARN. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `arn` (String) ARN of the delivery stream.
+ * 
+ * Using `pulumi import`, import Kinesis Firehose Delivery Streams using `arn`. For example:
  * 
  * ```sh
- * $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
+ * $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream example arn:aws:firehose:us-east-1:123456789012:deliverystream/example-delivery-stream
  * ```
  * 
  * Note: Import does not work for stream destination `s3`. Consider using `extendedS3` since `s3` destination is deprecated.

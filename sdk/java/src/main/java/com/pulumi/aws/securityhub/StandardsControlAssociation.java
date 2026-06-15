@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ## Disabling security control in all standards
+ * ### Disabling security control in all standards
  * 
  * <pre>
  * {@code
@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  *             .securityControlId("IAM.1")
  *             .build());
  * 
- *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(TosetArgs.builder()
+ *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
  *             .input(iam1.standardsControlAssociations().stream().map(element -> element.standardsArn()).collect(toList()))
  *             .build()).result())) {
  *             new StandardsControlAssociation("iam1StandardsControlAssociation-" + range.key(), StandardsControlAssociationArgs.builder()

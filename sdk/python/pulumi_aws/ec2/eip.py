@@ -48,7 +48,7 @@ class EipArgs:
                
                > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
                Including both will **not** return an error from the AWS API, but will have undefined behavior.
-               See the relevant [AssociateAddress API Call][1] for more information.
+               See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
                
                > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         """
@@ -204,7 +204,7 @@ class EipArgs:
 
         > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
         Including both will **not** return an error from the AWS API, but will have undefined behavior.
-        See the relevant [AssociateAddress API Call][1] for more information.
+        See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
 
         > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         """
@@ -267,7 +267,7 @@ class _EipState:
                
                > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
                Including both will **not** return an error from the AWS API, but will have undefined behavior.
-               See the relevant [AssociateAddress API Call][1] for more information.
+               See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
                
                > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -563,7 +563,7 @@ class _EipState:
 
         > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
         Including both will **not** return an error from the AWS API, but will have undefined behavior.
-        See the relevant [AssociateAddress API Call][1] for more information.
+        See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
 
         > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         """
@@ -732,7 +732,7 @@ class Eip(pulumi.CustomResource):
                
                > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
                Including both will **not** return an error from the AWS API, but will have undefined behavior.
-               See the relevant [AssociateAddress API Call][1] for more information.
+               See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
                
                > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         """
@@ -973,7 +973,7 @@ class Eip(pulumi.CustomResource):
                
                > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
                Including both will **not** return an error from the AWS API, but will have undefined behavior.
-               See the relevant [AssociateAddress API Call][1] for more information.
+               See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
                
                > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1172,7 +1172,7 @@ class Eip(pulumi.CustomResource):
 
         > **NOTE:** You can specify either the `instance` ID or the `network_interface` ID, but not both.
         Including both will **not** return an error from the AWS API, but will have undefined behavior.
-        See the relevant [AssociateAddress API Call][1] for more information.
+        See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
 
         > **NOTE:** Specifying both `public_ipv4_pool` and `address` won't cause an error, however, only `address` will be used if both options are defined as the API only requires one of the two.
         """

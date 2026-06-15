@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CloudHsmV2
     /// 
     /// For information about CloudHSM v2, see the
     /// [AWS CloudHSM User Guide](https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html) and the [Amazon
-    /// CloudHSM API Reference][2].
+    /// CloudHSM API Reference](https://docs.aws.amazon.com/cloudhsm/latest/APIReference/Welcome.html).
     /// 
     /// &gt; **NOTE:** A CloudHSM Cluster can take several minutes to set up.
     /// Practically no single attribute can be updated, except for `Tags`.

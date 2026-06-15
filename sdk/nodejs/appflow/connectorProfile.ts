@@ -87,9 +87,6 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:appflow/connectorProfile:ConnectorProfile example example-profile
  * ```
- *
- * [1]: https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html
- * [2]: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html
  */
 export class ConnectorProfile extends pulumi.CustomResource {
     /**

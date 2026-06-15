@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ApiGateway
     /// });
     /// ```
     /// 
-    /// ## Usage with Cognito User Pool Authorizer
+    /// ### Usage with Cognito User Pool Authorizer
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

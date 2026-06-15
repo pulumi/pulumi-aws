@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codepipeline.PipelineArgs;
  * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
  * import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineStageActionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

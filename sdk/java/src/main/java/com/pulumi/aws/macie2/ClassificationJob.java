@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie2.ClassificationJob;
  * import com.pulumi.aws.macie2.ClassificationJobArgs;
  * import com.pulumi.aws.macie2.inputs.ClassificationJobS3JobDefinitionArgs;
+ * import com.pulumi.aws.macie2.inputs.ClassificationJobS3JobDefinitionBucketDefinitionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;

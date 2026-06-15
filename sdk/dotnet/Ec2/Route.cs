@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ec2
     /// });
     /// ```
     /// 
-    /// ## Example IPv6 Usage
+    /// ### Example IPv6 Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

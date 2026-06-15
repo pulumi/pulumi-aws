@@ -140,6 +140,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `domainIdentifier` - (String) Identifier of the DataZone domain.
+ * * `id` - (String) ID of the glossary term.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import DataZone Glossary Term using a comma-delimited string combining the `domainIdentifier`, `id`, and the `glossaryIdentifier`. For example:
  * 
  * ```sh

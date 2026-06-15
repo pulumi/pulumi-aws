@@ -40,7 +40,7 @@ class ConfigurationTemplateArgs:
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[_builtins.str] solution_stack_name: A solution stack to base your Template
-               off of. Example stacks can be found in the [Amazon API documentation][1]
+               off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         """
         pulumi.set(__self__, "application", application)
         if description is not None:
@@ -135,7 +135,7 @@ class ConfigurationTemplateArgs:
     def solution_stack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A solution stack to base your Template
-        off of. Example stacks can be found in the [Amazon API documentation][1]
+        off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         """
         return pulumi.get(self, "solution_stack_name")
 
@@ -166,7 +166,7 @@ class _ConfigurationTemplateState:
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[_builtins.str] solution_stack_name: A solution stack to base your Template
-               off of. Example stacks can be found in the [Amazon API documentation][1]
+               off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         """
         if application is not None:
             pulumi.set(__self__, "application", application)
@@ -262,7 +262,7 @@ class _ConfigurationTemplateState:
     def solution_stack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A solution stack to base your Template
-        off of. Example stacks can be found in the [Amazon API documentation][1]
+        off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         """
         return pulumi.get(self, "solution_stack_name")
 
@@ -305,15 +305,6 @@ class ConfigurationTemplate(pulumi.CustomResource):
             solution_stack_name="64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")
         ```
 
-        ## Option Settings
-
-        The `setting` field supports the following format:
-
-        * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
-        * `name` - (Required) Name of the configuration option
-        * `value` - (Required) Value for the configuration option
-        * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -326,7 +317,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[_builtins.str] solution_stack_name: A solution stack to base your Template
-               off of. Example stacks can be found in the [Amazon API documentation][1]
+               off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         """
         ...
     @overload
@@ -353,15 +344,6 @@ class ConfigurationTemplate(pulumi.CustomResource):
             application=example_application.name,
             solution_stack_name="64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4")
         ```
-
-        ## Option Settings
-
-        The `setting` field supports the following format:
-
-        * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
-        * `name` - (Required) Name of the configuration option
-        * `value` - (Required) Value for the configuration option
-        * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 
 
         :param str resource_name: The name of the resource.
@@ -437,7 +419,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[_builtins.str] solution_stack_name: A solution stack to base your Template
-               off of. Example stacks can be found in the [Amazon API documentation][1]
+               off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -507,7 +489,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
     def solution_stack_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         A solution stack to base your Template
-        off of. Example stacks can be found in the [Amazon API documentation][1]
+        off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
         """
         return pulumi.get(self, "solution_stack_name")
 

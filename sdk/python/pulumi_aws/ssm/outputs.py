@@ -1882,12 +1882,20 @@ class ResourceDataSyncS3DestinationDestinationDataSharing(dict):
 
     def __init__(__self__, *,
                  destination_data_sharing_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str destination_data_sharing_type: Data sharing type.
+               Only `Organization` is supported.
+        """
         if destination_data_sharing_type is not None:
             pulumi.set(__self__, "destination_data_sharing_type", destination_data_sharing_type)
 
     @_builtins.property
     @pulumi.getter(name="destinationDataSharingType")
     def destination_data_sharing_type(self) -> Optional[_builtins.str]:
+        """
+        Data sharing type.
+        Only `Organization` is supported.
+        """
         return pulumi.get(self, "destination_data_sharing_type")
 
 

@@ -588,6 +588,17 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the DataZone domain.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import DataZone Domain using the `domain_id`. For example:
 
         ```sh
@@ -741,6 +752,17 @@ class Domain(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` - (String) ID of the DataZone domain.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import DataZone Domain using the `domain_id`. For example:
 

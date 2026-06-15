@@ -77,6 +77,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `domainIdentifier` - (String) Identifier of the DataZone domain.
+ * * `id` - (String) ID of the environment.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import DataZone Environment using the `domain_idntifier,id`. For example:
  * 
  * ```sh

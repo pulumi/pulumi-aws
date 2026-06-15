@@ -52,6 +52,10 @@ type Function struct {
 	Runtime pulumi.StringOutput `pulumi:"runtime"`
 	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
 	Status pulumi.StringOutput `pulumi:"status"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewFunction registers a new resource with the given unique name, arguments, and options.
@@ -112,6 +116,10 @@ type functionState struct {
 	Runtime *string `pulumi:"runtime"`
 	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
 	Status *string `pulumi:"status"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type FunctionState struct {
@@ -137,6 +145,10 @@ type FunctionState struct {
 	Runtime pulumi.StringPtrInput
 	// Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
 	Status pulumi.StringPtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (FunctionState) ElementType() reflect.Type {
@@ -158,6 +170,8 @@ type functionArgs struct {
 	//
 	// The following arguments are optional:
 	Runtime string `pulumi:"runtime"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Function resource.
@@ -176,6 +190,8 @@ type FunctionArgs struct {
 	//
 	// The following arguments are optional:
 	Runtime pulumi.StringInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (FunctionArgs) ElementType() reflect.Type {
@@ -315,6 +331,16 @@ func (o FunctionOutput) Runtime() pulumi.StringOutput {
 // Status of the function. Can be `UNPUBLISHED`, `UNASSOCIATED` or `ASSOCIATED`.
 func (o FunctionOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o FunctionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o FunctionOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Function) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type FunctionArrayOutput struct{ *pulumi.OutputState }

@@ -32,14 +32,29 @@ public final class DomainAdvancedSecurityOptionsJwtOptionsArgs extends com.pulum
     }
 
     /**
-     * PEM-encoded public key used to verify JWT signatures.
+     * URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`.
+     * 
+     */
+    @Import(name="jwksUrl")
+    private @Nullable Output<String> jwksUrl;
+
+    /**
+     * @return URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`.
+     * 
+     */
+    public Optional<Output<String>> jwksUrl() {
+        return Optional.ofNullable(this.jwksUrl);
+    }
+
+    /**
+     * PEM-encoded public key used to verify JWT signatures. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`. If both `jwksUrl` and `publicKey` are specified, `publicKey` is ignored.
      * 
      */
     @Import(name="publicKey")
     private @Nullable Output<String> publicKey;
 
     /**
-     * @return PEM-encoded public key used to verify JWT signatures.
+     * @return PEM-encoded public key used to verify JWT signatures. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`. If both `jwksUrl` and `publicKey` are specified, `publicKey` is ignored.
      * 
      */
     public Optional<Output<String>> publicKey() {
@@ -80,6 +95,7 @@ public final class DomainAdvancedSecurityOptionsJwtOptionsArgs extends com.pulum
 
     private DomainAdvancedSecurityOptionsJwtOptionsArgs(DomainAdvancedSecurityOptionsJwtOptionsArgs $) {
         this.enabled = $.enabled;
+        this.jwksUrl = $.jwksUrl;
         this.publicKey = $.publicKey;
         this.rolesKey = $.rolesKey;
         this.subjectKey = $.subjectKey;
@@ -125,7 +141,28 @@ public final class DomainAdvancedSecurityOptionsJwtOptionsArgs extends com.pulum
         }
 
         /**
-         * @param publicKey PEM-encoded public key used to verify JWT signatures.
+         * @param jwksUrl URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwksUrl(@Nullable Output<String> jwksUrl) {
+            $.jwksUrl = jwksUrl;
+            return this;
+        }
+
+        /**
+         * @param jwksUrl URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwksUrl(String jwksUrl) {
+            return jwksUrl(Output.of(jwksUrl));
+        }
+
+        /**
+         * @param publicKey PEM-encoded public key used to verify JWT signatures. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`. If both `jwksUrl` and `publicKey` are specified, `publicKey` is ignored.
          * 
          * @return builder
          * 
@@ -136,7 +173,7 @@ public final class DomainAdvancedSecurityOptionsJwtOptionsArgs extends com.pulum
         }
 
         /**
-         * @param publicKey PEM-encoded public key used to verify JWT signatures.
+         * @param publicKey PEM-encoded public key used to verify JWT signatures. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`. If both `jwksUrl` and `publicKey` are specified, `publicKey` is ignored.
          * 
          * @return builder
          * 

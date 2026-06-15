@@ -188,6 +188,18 @@ namespace Pulumi.Aws.Ec2
         [Output("resourceType")]
         public Output<string> ResourceType { get; private set; } = null!;
 
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a VpcIpamPoolCidrAllocation resource with the given unique name, arguments, and options.
@@ -276,6 +288,18 @@ namespace Pulumi.Aws.Ec2
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public VpcIpamPoolCidrAllocationArgs()
         {
         }
@@ -346,6 +370,30 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("resourceType")]
         public Input<string>? ResourceType { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         public VpcIpamPoolCidrAllocationState()
         {

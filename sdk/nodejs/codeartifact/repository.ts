@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Upstream Repository
+ * ### Example Usage with upstream repository
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With External Connection
+ * ### Example Usage with external connection
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

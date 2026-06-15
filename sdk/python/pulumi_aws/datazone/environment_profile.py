@@ -475,6 +475,18 @@ class EnvironmentProfile(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `domain_identifier` - (String) Identifier of the DataZone domain.
+        * `id` - (String) ID of the environment profile.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import DataZone Environment Profile using a comma-delimited string combining `id` and `domain_identifier`. For example:
 
         ```sh
@@ -590,6 +602,18 @@ class EnvironmentProfile(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `domain_identifier` - (String) Identifier of the DataZone domain.
+        * `id` - (String) ID of the environment profile.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import DataZone Environment Profile using a comma-delimited string combining `id` and `domain_identifier`. For example:
 

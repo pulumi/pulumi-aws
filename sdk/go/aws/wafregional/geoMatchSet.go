@@ -59,9 +59,9 @@ import (
 type GeoMatchSet struct {
 	pulumi.CustomResourceState
 
-	// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+	// Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
 	GeoMatchConstraints GeoMatchSetGeoMatchConstraintArrayOutput `pulumi:"geoMatchConstraints"`
-	// The name or description of the Geo Match Set.
+	// Name or description of the Geo Match Set.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -97,18 +97,18 @@ func GetGeoMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GeoMatchSet resources.
 type geoMatchSetState struct {
-	// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+	// Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
 	GeoMatchConstraints []GeoMatchSetGeoMatchConstraint `pulumi:"geoMatchConstraints"`
-	// The name or description of the Geo Match Set.
+	// Name or description of the Geo Match Set.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type GeoMatchSetState struct {
-	// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+	// Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
 	GeoMatchConstraints GeoMatchSetGeoMatchConstraintArrayInput
-	// The name or description of the Geo Match Set.
+	// Name or description of the Geo Match Set.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -119,9 +119,9 @@ func (GeoMatchSetState) ElementType() reflect.Type {
 }
 
 type geoMatchSetArgs struct {
-	// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+	// Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
 	GeoMatchConstraints []GeoMatchSetGeoMatchConstraint `pulumi:"geoMatchConstraints"`
-	// The name or description of the Geo Match Set.
+	// Name or description of the Geo Match Set.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -129,9 +129,9 @@ type geoMatchSetArgs struct {
 
 // The set of arguments for constructing a GeoMatchSet resource.
 type GeoMatchSetArgs struct {
-	// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+	// Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
 	GeoMatchConstraints GeoMatchSetGeoMatchConstraintArrayInput
-	// The name or description of the Geo Match Set.
+	// Name or description of the Geo Match Set.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -224,12 +224,12 @@ func (o GeoMatchSetOutput) ToGeoMatchSetOutputWithContext(ctx context.Context) G
 	return o
 }
 
-// The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+// Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
 func (o GeoMatchSetOutput) GeoMatchConstraints() GeoMatchSetGeoMatchConstraintArrayOutput {
 	return o.ApplyT(func(v *GeoMatchSet) GeoMatchSetGeoMatchConstraintArrayOutput { return v.GeoMatchConstraints }).(GeoMatchSetGeoMatchConstraintArrayOutput)
 }
 
-// The name or description of the Geo Match Set.
+// Name or description of the Geo Match Set.
 func (o GeoMatchSetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeoMatchSet) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

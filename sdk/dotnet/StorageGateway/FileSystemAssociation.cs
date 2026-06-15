@@ -36,7 +36,7 @@ namespace Pulumi.Aws.StorageGateway
     /// });
     /// ```
     /// 
-    /// ## Required Services Example
+    /// ### Required Services Example
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

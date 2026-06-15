@@ -70,28 +70,35 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Kinesis Streams using the `name`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) Name of the stream.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Kinesis Streams using `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
+ * $ pulumi import aws:kinesis/stream:Stream example example-stream
  * ```
- * 
- * [1]: https://aws.amazon.com/documentation/kinesis/
- * [2]: https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html
- * [3]: https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
  * 
  */
 @ResourceType(type="aws:kinesis/stream:Stream")
 public class Stream extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * The Amazon Resource Name (ARN) specifying the stream (same as `id`).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * @return The Amazon Resource Name (ARN) specifying the stream (same as `id`).
      * 
      */
     public Output<String> arn() {
@@ -196,16 +203,14 @@ public class Stream extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retentionPeriod);
     }
     /**
-     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      * 
      */
     @Export(name="shardCount", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> shardCount;
 
     /**
-     * @return The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
-     * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
+     * @return The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required. Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      * 
      */
     public Output<Optional<Integer>> shardCount() {
@@ -266,6 +271,20 @@ public class Stream extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Target warm throughput in MB/s that the stream should be scaled to handle.
+     * 
+     */
+    @Export(name="warmThroughputMibPs", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> warmThroughputMibPs;
+
+    /**
+     * @return Target warm throughput in MB/s that the stream should be scaled to handle.
+     * 
+     */
+    public Output<Optional<Integer>> warmThroughputMibPs() {
+        return Codegen.optional(this.warmThroughputMibPs);
     }
 
     /**

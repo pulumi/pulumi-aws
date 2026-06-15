@@ -15,23 +15,47 @@ public final class RulePredicateArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final RulePredicateArgs Empty = new RulePredicateArgs();
 
+    /**
+     * The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+     * 
+     */
     @Import(name="dataId", required=true)
     private Output<String> dataId;
 
+    /**
+     * @return The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+     * 
+     */
     public Output<String> dataId() {
         return this.dataId;
     }
 
+    /**
+     * Whether to use the settings or the negated settings that you specified in the objects.
+     * 
+     */
     @Import(name="negated", required=true)
     private Output<Boolean> negated;
 
+    /**
+     * @return Whether to use the settings or the negated settings that you specified in the objects.
+     * 
+     */
     public Output<Boolean> negated() {
         return this.negated;
     }
 
+    /**
+     * The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -62,29 +86,65 @@ public final class RulePredicateArgs extends com.pulumi.resources.ResourceArgs {
             $ = new RulePredicateArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dataId The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataId(Output<String> dataId) {
             $.dataId = dataId;
             return this;
         }
 
+        /**
+         * @param dataId The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataId(String dataId) {
             return dataId(Output.of(dataId));
         }
 
+        /**
+         * @param negated Whether to use the settings or the negated settings that you specified in the objects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder negated(Output<Boolean> negated) {
             $.negated = negated;
             return this;
         }
 
+        /**
+         * @param negated Whether to use the settings or the negated settings that you specified in the objects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder negated(Boolean negated) {
             return negated(Output.of(negated));
         }
 
+        /**
+         * @param type The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

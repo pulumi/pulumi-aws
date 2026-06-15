@@ -3,6 +3,8 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayProtocolConfigurationMcpSessionConfiguration;
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -22,6 +24,16 @@ public final class AgentcoreGatewayProtocolConfigurationMcp {
      * 
      */
     private @Nullable String searchType;
+    /**
+     * @return Configuration block for session settings of the MCP gateway. See `sessionConfiguration` below.
+     * 
+     */
+    private @Nullable AgentcoreGatewayProtocolConfigurationMcpSessionConfiguration sessionConfiguration;
+    /**
+     * @return Configuration block for streaming settings of the MCP gateway. See `streamingConfiguration` below.
+     * 
+     */
+    private @Nullable AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration streamingConfiguration;
     /**
      * @return Set of supported MCP protocol versions.
      * 
@@ -44,6 +56,20 @@ public final class AgentcoreGatewayProtocolConfigurationMcp {
         return Optional.ofNullable(this.searchType);
     }
     /**
+     * @return Configuration block for session settings of the MCP gateway. See `sessionConfiguration` below.
+     * 
+     */
+    public Optional<AgentcoreGatewayProtocolConfigurationMcpSessionConfiguration> sessionConfiguration() {
+        return Optional.ofNullable(this.sessionConfiguration);
+    }
+    /**
+     * @return Configuration block for streaming settings of the MCP gateway. See `streamingConfiguration` below.
+     * 
+     */
+    public Optional<AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration> streamingConfiguration() {
+        return Optional.ofNullable(this.streamingConfiguration);
+    }
+    /**
      * @return Set of supported MCP protocol versions.
      * 
      */
@@ -62,12 +88,16 @@ public final class AgentcoreGatewayProtocolConfigurationMcp {
     public static final class Builder {
         private @Nullable String instructions;
         private @Nullable String searchType;
+        private @Nullable AgentcoreGatewayProtocolConfigurationMcpSessionConfiguration sessionConfiguration;
+        private @Nullable AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration streamingConfiguration;
         private @Nullable List<String> supportedVersions;
         public Builder() {}
         public Builder(AgentcoreGatewayProtocolConfigurationMcp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instructions = defaults.instructions;
     	      this.searchType = defaults.searchType;
+    	      this.sessionConfiguration = defaults.sessionConfiguration;
+    	      this.streamingConfiguration = defaults.streamingConfiguration;
     	      this.supportedVersions = defaults.supportedVersions;
         }
 
@@ -84,6 +114,18 @@ public final class AgentcoreGatewayProtocolConfigurationMcp {
             return this;
         }
         @CustomType.Setter
+        public Builder sessionConfiguration(@Nullable AgentcoreGatewayProtocolConfigurationMcpSessionConfiguration sessionConfiguration) {
+
+            this.sessionConfiguration = sessionConfiguration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder streamingConfiguration(@Nullable AgentcoreGatewayProtocolConfigurationMcpStreamingConfiguration streamingConfiguration) {
+
+            this.streamingConfiguration = streamingConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder supportedVersions(@Nullable List<String> supportedVersions) {
 
             this.supportedVersions = supportedVersions;
@@ -96,6 +138,8 @@ public final class AgentcoreGatewayProtocolConfigurationMcp {
             final var _resultValue = new AgentcoreGatewayProtocolConfigurationMcp();
             _resultValue.instructions = instructions;
             _resultValue.searchType = searchType;
+            _resultValue.sessionConfiguration = sessionConfiguration;
+            _resultValue.streamingConfiguration = streamingConfiguration;
             _resultValue.supportedVersions = supportedVersions;
             return _resultValue;
         }

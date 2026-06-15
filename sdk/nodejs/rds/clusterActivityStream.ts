@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * Database Activity Streams have some limits and requirements, refer to the [Monitoring Amazon Aurora using Database Activity Streams](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html) documentation for detailed limitations and requirements.
  *
- * > **Note:** This resource always calls the RDS [`StartActivityStream`][2] API with the `ApplyImmediately` parameter set to `true`. This is because the provider needs the activity stream to be started in order for it to get the associated attributes.
+ * > **Note:** This resource always calls the RDS [`StartActivityStream`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html) API with the `ApplyImmediately` parameter set to `true`. This is because the Terraform needs the activity stream to be started in order for it to get the associated attributes.
  *
  * > **Note:** This resource depends on having at least one `aws.rds.ClusterInstance` created. To avoid race conditions when all resources are being created together, add an explicit resource reference using the resource `dependsOn` meta-argument.
  *
@@ -57,10 +57,6 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
  * ```
- *
- * [1]: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html
- * [2]: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html
- * [3]: https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
  */
 export class ClusterActivityStream extends pulumi.CustomResource {
     /**

@@ -33,6 +33,7 @@ public final class AutoscalingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsFilterArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
      * import java.util.ArrayList;
@@ -94,6 +95,7 @@ public final class AutoscalingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsFilterArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
      * import java.util.ArrayList;
@@ -155,6 +157,7 @@ public final class AutoscalingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsFilterArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
      * import java.util.ArrayList;
@@ -216,6 +219,7 @@ public final class AutoscalingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsFilterArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
      * import java.util.ArrayList;
@@ -277,6 +281,7 @@ public final class AutoscalingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsFilterArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
      * import java.util.ArrayList;
@@ -338,6 +343,7 @@ public final class AutoscalingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsFilterArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
      * import java.util.ArrayList;
@@ -399,6 +405,7 @@ public final class AutoscalingFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
      * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsFilterArgs;
      * import com.pulumi.aws.autoscaling.Notification;
      * import com.pulumi.aws.autoscaling.NotificationArgs;
      * import java.util.ArrayList;

@@ -19,8 +19,8 @@ import javax.annotation.Nullable;
  * secondary ENI or one attached as the primary interface on an instance.
  * 
  * &gt; **NOTE on instances, interfaces, and security groups:** This provider currently
- * provides the capability to assign security groups via the [`aws.ec2.Instance`][1]
- * and the [`aws.ec2.NetworkInterface`][2] resources. Using this resource in
+ * provides the capability to assign security groups via the `aws.ec2.Instance`
+ * and the `aws.ec2.NetworkInterface` resources. Using this resource in
  * conjunction with security groups provided in-line in those resources will cause
  * conflicts, and will lead to spurious diffs and undefined behavior - please use
  * one or the other.
@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.Ec2Functions;
  * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.inputs.GetAmiFilterArgs;
  * import com.pulumi.aws.ec2.Instance;
  * import com.pulumi.aws.ec2.InstanceArgs;
  * import com.pulumi.aws.ec2.SecurityGroup;

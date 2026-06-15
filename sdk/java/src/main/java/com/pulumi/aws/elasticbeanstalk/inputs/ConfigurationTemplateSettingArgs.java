@@ -17,37 +17,61 @@ public final class ConfigurationTemplateSettingArgs extends com.pulumi.resources
     public static final ConfigurationTemplateSettingArgs Empty = new ConfigurationTemplateSettingArgs();
 
     /**
-     * A unique name for this Template.
+     * Name of the configuration option
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A unique name for this Template.
+     * @return Name of the configuration option
      * 
      */
     public Output<String> name() {
         return this.name;
     }
 
+    /**
+     * Unique namespace identifying the option&#39;s associated AWS resource
+     * 
+     */
     @Import(name="namespace", required=true)
     private Output<String> namespace;
 
+    /**
+     * @return Unique namespace identifying the option&#39;s associated AWS resource
+     * 
+     */
     public Output<String> namespace() {
         return this.namespace;
     }
 
+    /**
+     * resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+     * 
+     */
     @Import(name="resource")
     private @Nullable Output<String> resource;
 
+    /**
+     * @return resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+     * 
+     */
     public Optional<Output<String>> resource() {
         return Optional.ofNullable(this.resource);
     }
 
+    /**
+     * Value for the configuration option
+     * 
+     */
     @Import(name="value", required=true)
     private Output<String> value;
 
+    /**
+     * @return Value for the configuration option
+     * 
+     */
     public Output<String> value() {
         return this.value;
     }
@@ -80,7 +104,7 @@ public final class ConfigurationTemplateSettingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name A unique name for this Template.
+         * @param name Name of the configuration option
          * 
          * @return builder
          * 
@@ -91,7 +115,7 @@ public final class ConfigurationTemplateSettingArgs extends com.pulumi.resources
         }
 
         /**
-         * @param name A unique name for this Template.
+         * @param name Name of the configuration option
          * 
          * @return builder
          * 
@@ -100,29 +124,65 @@ public final class ConfigurationTemplateSettingArgs extends com.pulumi.resources
             return name(Output.of(name));
         }
 
+        /**
+         * @param namespace Unique namespace identifying the option&#39;s associated AWS resource
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespace(Output<String> namespace) {
             $.namespace = namespace;
             return this;
         }
 
+        /**
+         * @param namespace Unique namespace identifying the option&#39;s associated AWS resource
+         * 
+         * @return builder
+         * 
+         */
         public Builder namespace(String namespace) {
             return namespace(Output.of(namespace));
         }
 
+        /**
+         * @param resource resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+         * 
+         * @return builder
+         * 
+         */
         public Builder resource(@Nullable Output<String> resource) {
             $.resource = resource;
             return this;
         }
 
+        /**
+         * @param resource resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
+         * 
+         * @return builder
+         * 
+         */
         public Builder resource(String resource) {
             return resource(Output.of(resource));
         }
 
+        /**
+         * @param value Value for the configuration option
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(Output<String> value) {
             $.value = value;
             return this;
         }
 
+        /**
+         * @param value Value for the configuration option
+         * 
+         * @return builder
+         * 
+         */
         public Builder value(String value) {
             return value(Output.of(value));
         }

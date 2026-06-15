@@ -27,7 +27,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, client_keep_alive=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enable_zonal_shift=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, health_check_logs=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, ipam_pools=None, load_balancer_type=None, name=None, preserve_host_header=None, region=None, secondary_ips_auto_assigned_per_subnet=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, client_keep_alive=None, connection_logs=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, dns_record_client_routing_policy=None, drop_invalid_header_fields=None, enable_cross_zone_load_balancing=None, enable_deletion_protection=None, enable_http2=None, enable_prefix_for_ipv6_source_nat=None, enable_tls_version_and_cipher_suite_headers=None, enable_waf_fail_open=None, enable_xff_client_port=None, enable_zonal_shift=None, enforce_security_group_inbound_rules_on_private_link_traffic=None, health_check_logs=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, ipam_pools=None, load_balancer_type=None, name=None, preserve_host_header=None, region=None, secondary_ips_auto_assigned_per_subnet=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, xff_header_processing_mode=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -67,6 +67,9 @@ class GetLoadBalancerResult:
         if enable_http2 and not isinstance(enable_http2, bool):
             raise TypeError("Expected argument 'enable_http2' to be a bool")
         pulumi.set(__self__, "enable_http2", enable_http2)
+        if enable_prefix_for_ipv6_source_nat and not isinstance(enable_prefix_for_ipv6_source_nat, str):
+            raise TypeError("Expected argument 'enable_prefix_for_ipv6_source_nat' to be a str")
+        pulumi.set(__self__, "enable_prefix_for_ipv6_source_nat", enable_prefix_for_ipv6_source_nat)
         if enable_tls_version_and_cipher_suite_headers and not isinstance(enable_tls_version_and_cipher_suite_headers, bool):
             raise TypeError("Expected argument 'enable_tls_version_and_cipher_suite_headers' to be a bool")
         pulumi.set(__self__, "enable_tls_version_and_cipher_suite_headers", enable_tls_version_and_cipher_suite_headers)
@@ -201,6 +204,11 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="enableHttp2")
     def enable_http2(self) -> _builtins.bool:
         return pulumi.get(self, "enable_http2")
+
+    @_builtins.property
+    @pulumi.getter(name="enablePrefixForIpv6SourceNat")
+    def enable_prefix_for_ipv6_source_nat(self) -> _builtins.str:
+        return pulumi.get(self, "enable_prefix_for_ipv6_source_nat")
 
     @_builtins.property
     @pulumi.getter(name="enableTlsVersionAndCipherSuiteHeaders")
@@ -340,6 +348,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             enable_cross_zone_load_balancing=self.enable_cross_zone_load_balancing,
             enable_deletion_protection=self.enable_deletion_protection,
             enable_http2=self.enable_http2,
+            enable_prefix_for_ipv6_source_nat=self.enable_prefix_for_ipv6_source_nat,
             enable_tls_version_and_cipher_suite_headers=self.enable_tls_version_and_cipher_suite_headers,
             enable_waf_fail_open=self.enable_waf_fail_open,
             enable_xff_client_port=self.enable_xff_client_port,
@@ -426,6 +435,7 @@ def get_load_balancer(arn: Optional[_builtins.str] = None,
         enable_cross_zone_load_balancing=pulumi.get(__ret__, 'enable_cross_zone_load_balancing'),
         enable_deletion_protection=pulumi.get(__ret__, 'enable_deletion_protection'),
         enable_http2=pulumi.get(__ret__, 'enable_http2'),
+        enable_prefix_for_ipv6_source_nat=pulumi.get(__ret__, 'enable_prefix_for_ipv6_source_nat'),
         enable_tls_version_and_cipher_suite_headers=pulumi.get(__ret__, 'enable_tls_version_and_cipher_suite_headers'),
         enable_waf_fail_open=pulumi.get(__ret__, 'enable_waf_fail_open'),
         enable_xff_client_port=pulumi.get(__ret__, 'enable_xff_client_port'),
@@ -509,6 +519,7 @@ def get_load_balancer_output(arn: pulumi.Input[Optional[Optional[_builtins.str]]
         enable_cross_zone_load_balancing=pulumi.get(__response__, 'enable_cross_zone_load_balancing'),
         enable_deletion_protection=pulumi.get(__response__, 'enable_deletion_protection'),
         enable_http2=pulumi.get(__response__, 'enable_http2'),
+        enable_prefix_for_ipv6_source_nat=pulumi.get(__response__, 'enable_prefix_for_ipv6_source_nat'),
         enable_tls_version_and_cipher_suite_headers=pulumi.get(__response__, 'enable_tls_version_and_cipher_suite_headers'),
         enable_waf_fail_open=pulumi.get(__response__, 'enable_waf_fail_open'),
         enable_xff_client_port=pulumi.get(__response__, 'enable_xff_client_port'),

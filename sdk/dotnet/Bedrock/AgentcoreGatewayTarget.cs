@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
-    /// Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions or APIs, allowing agents to interact with external services through the Model Context Protocol (MCP).
+    /// Manages an AWS Bedrock AgentCore Gateway Target. Gateway targets define the endpoints and configurations that a gateway can invoke, such as Lambda functions, APIs, or AgentCore Runtime agents, allowing agents to interact with external services through the Model Context Protocol (MCP) or by routing HTTP traffic directly to a runtime.
     /// 
     /// ## Example Usage
     /// 
@@ -339,6 +339,44 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### Target with IAM SigV4 Authentication (MCP Server)
+    /// 
+    /// Use this for `McpServer` targets pointing at AWS-hosted SigV4-protected endpoints (e.g. another Bedrock AgentCore Runtime). The gateway signs upstream requests using its own IAM role.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sigv4Example = new Aws.Bedrock.AgentcoreGatewayTarget("sigv4_example", new()
+    ///     {
+    ///         Name = "sigv4-target",
+    ///         GatewayIdentifier = example.GatewayId,
+    ///         CredentialProviderConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs
+    ///         {
+    ///             GatewayIamRole = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs
+    ///             {
+    ///                 Service = "bedrock-agentcore",
+    ///             },
+    ///         },
+    ///         TargetConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationArgs
+    ///         {
+    ///             Mcp = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs
+    ///             {
+    ///                 McpServer = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs
+    ///                 {
+    ///                     Endpoint = "https://example-runtime.bedrock-agentcore.us-east-1.amazonaws.com/runtimes/example/invocations?qualifier=DEFAULT",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Complex Schema with JSON Serialization
     /// 
     /// ```csharp
@@ -477,6 +515,178 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### HTTP Target Routing to an AgentCore Runtime
+    /// 
+    /// Routes gateway traffic directly to an AgentCore Runtime agent over HTTP, without MCP aggregation. The gateway must not have a `ProtocolType` set.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentcoreAgentRuntime("example", new()
+    ///     {
+    ///         AgentRuntimeName = "example-runtime",
+    ///         RoleArn = runtimeRole.Arn,
+    ///         AgentRuntimeArtifact = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs
+    ///         {
+    ///             ContainerConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs
+    ///             {
+    ///                 ContainerUri = "111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest",
+    ///             },
+    ///         },
+    ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs
+    ///         {
+    ///             NetworkMode = "PUBLIC",
+    ///         },
+    ///     });
+    /// 
+    ///     var runtime = new Aws.Bedrock.AgentcoreGatewayTarget("runtime", new()
+    ///     {
+    ///         Name = "runtime-target",
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
+    ///         CredentialProviderConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs
+    ///         {
+    ///             GatewayIamRole = null,
+    ///         },
+    ///         TargetConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationArgs
+    ///         {
+    ///             Http = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationHttpArgs
+    ///             {
+    ///                 AgentcoreRuntime = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs
+    ///                 {
+    ///                     Arn = example.AgentRuntimeArn,
+    ///                     Qualifier = "DEFAULT",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Self-hosted MCP server in a VPC (managed Lattice)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentcoreGatewayTarget("example", new()
+    ///     {
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
+    ///         Name = "my-private-mcp-target",
+    ///         TargetConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationArgs
+    ///         {
+    ///             Mcp = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs
+    ///             {
+    ///                 McpServer = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs
+    ///                 {
+    ///                     Endpoint = "https://mcp.internal.example.com/mcp",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PrivateEndpoint = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetPrivateEndpointArgs
+    ///         {
+    ///             ManagedVpcResource = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs
+    ///             {
+    ///                 VpcIdentifier = exampleAwsVpc.Id,
+    ///                 SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///                 EndpointIpAddressType = "IPV4",
+    ///                 SecurityGroupIds = new[]
+    ///                 {
+    ///                     mcpLattice.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Self-hosted MCP server with routing through an internal ALB
+    /// 
+    /// Use `RoutingDomain` when the MCP server has a private TLS certificate. Place an internal ALB with a public ACM certificate in front of the server and set `RoutingDomain` to the ALB DNS name.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentcoreGatewayTarget("example", new()
+    ///     {
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
+    ///         Name = "my-private-mcp-via-alb",
+    ///         TargetConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationArgs
+    ///         {
+    ///             Mcp = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs
+    ///             {
+    ///                 McpServer = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs
+    ///                 {
+    ///                     Endpoint = "https://mcp.example.com/mcp",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PrivateEndpoint = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetPrivateEndpointArgs
+    ///         {
+    ///             ManagedVpcResource = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs
+    ///             {
+    ///                 VpcIdentifier = exampleAwsVpc.Id,
+    ///                 SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///                 EndpointIpAddressType = "IPV4",
+    ///                 RoutingDomain = mcpAlb.DnsName,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Self-managed VPC Lattice resource configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentcoreGatewayTarget("example", new()
+    ///     {
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
+    ///         Name = "my-private-mcp-self-managed",
+    ///         TargetConfiguration = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationArgs
+    ///         {
+    ///             Mcp = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpArgs
+    ///             {
+    ///                 McpServer = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs
+    ///                 {
+    ///                     Endpoint = "https://mcp.internal.example.com/mcp",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PrivateEndpoint = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetPrivateEndpointArgs
+    ///         {
+    ///             SelfManagedLatticeResource = new Aws.Bedrock.Inputs.AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResourceArgs
+    ///             {
+    ///                 ResourceConfigurationIdentifier = mcp.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
@@ -519,7 +729,13 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        /// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `PrivateEndpoint` below.
+        /// </summary>
+        [Output("privateEndpoint")]
+        public Output<Outputs.AgentcoreGatewayTargetPrivateEndpoint?> PrivateEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -618,7 +834,13 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        /// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `PrivateEndpoint` below.
+        /// </summary>
+        [Input("privateEndpoint")]
+        public Input<Inputs.AgentcoreGatewayTargetPrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -673,7 +895,13 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+        /// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `PrivateEndpoint` below.
+        /// </summary>
+        [Input("privateEndpoint")]
+        public Input<Inputs.AgentcoreGatewayTargetPrivateEndpointGetArgs>? PrivateEndpoint { get; set; }
+
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

@@ -13,11 +13,29 @@ namespace Pulumi.Aws.Ec2.Outputs
     [OutputType]
     public sealed class LaunchConfigurationRootBlockDevice
     {
+        /// <summary>
+        /// Whether the volume should be destroyed on instance termination. Defaults to `True`.
+        /// </summary>
         public readonly bool? DeleteOnTermination;
+        /// <summary>
+        /// Whether the volume should be encrypted or not. Defaults to `False`.
+        /// </summary>
         public readonly bool? Encrypted;
+        /// <summary>
+        /// The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `VolumeType` of `Io1`.
+        /// </summary>
         public readonly int? Iops;
+        /// <summary>
+        /// The throughput (MiBps) to provision for a `Gp3` volume.
+        /// </summary>
         public readonly int? Throughput;
+        /// <summary>
+        /// The size of the volume in gigabytes.
+        /// </summary>
         public readonly int? VolumeSize;
+        /// <summary>
+        /// The type of volume. Can be `Standard`, `Gp2`, `Gp3`, `St1`, `Sc1` or `Io1`.
+        /// </summary>
         public readonly string? VolumeType;
 
         [OutputConstructor]

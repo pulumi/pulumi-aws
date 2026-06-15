@@ -38,7 +38,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// ### Optional Arguments
+    /// ### Example Usage Optional Arguments
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
-    /// ### CMK Encryption
+    /// ### Example Usage CMK Encryption
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

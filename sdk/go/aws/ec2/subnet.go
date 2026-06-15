@@ -179,10 +179,6 @@ import (
 //
 // ```
 //
-// ## GuardDuty Cleanup Permissions
-//
-// The following IAM permissions are optional but recommended for automatic cleanup of GuardDuty-managed resources during subnet deletion:
-//
 // ## Import
 //
 // ### Identity Schema

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * - AWS OpsWorks
  *
  * For information about server certificates in IAM, see [Managing Server
- * Certificates][2] in AWS Documentation.
+ * Certificates](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html) in AWS Documentation.
  *
  * ## Example Usage
  *
@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  * Some properties of an IAM Server Certificates cannot be updated while they are
  * in use. In order for the provider to effectively manage a Certificate in this situation, it is
  * recommended you utilize the `namePrefix` attribute and enable the
- * `createBeforeDestroy`. This will allow this provider
+ * `createBeforeDestroy` lifecycle block. This will allow Terraform
  * to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
  * dependant resources before attempting to destroy the old version.
  *
@@ -71,9 +71,6 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
  * ```
- *
- * [1]: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
- * [2]: https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
  */
 export class ServerCertificate extends pulumi.CustomResource {
     /**

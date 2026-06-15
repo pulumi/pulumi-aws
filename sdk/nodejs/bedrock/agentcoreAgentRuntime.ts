@@ -112,6 +112,30 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### AG-UI Server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentcoreAgentRuntime("example", {
+ *     agentRuntimeName: "example_agui_runtime",
+ *     description: "Agent runtime with AG-UI protocol",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     agentRuntimeArtifact: {
+ *         containerConfiguration: {
+ *             containerUri: `${exampleAwsEcrRepository.repositoryUrl}:latest`,
+ *         },
+ *     },
+ *     networkConfiguration: {
+ *         networkMode: "PUBLIC",
+ *     },
+ *     protocolConfiguration: {
+ *         serverProtocol: "AGUI",
+ *     },
+ * });
+ * ```
+ *
  * ### Agent runtime artifact from S3 with Code Configuration
  *
  * ```typescript

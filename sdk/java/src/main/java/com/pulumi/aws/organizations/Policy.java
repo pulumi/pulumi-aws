@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
  * import com.pulumi.aws.organizations.Policy;
  * import com.pulumi.aws.organizations.PolicyArgs;
  * import java.util.ArrayList;

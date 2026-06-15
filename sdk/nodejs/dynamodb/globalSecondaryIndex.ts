@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Migrating
+ * ### Migrating
  *
  * Use the following steps to migrate existing Global Secondary Indexes defined inline in `globalSecondaryIndex` on an `aws.dynamodb.Table`.
  *

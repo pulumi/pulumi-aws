@@ -78,8 +78,6 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
  * ```
- *
- * [1]: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
  */
 export class ClusterEndpoint extends pulumi.CustomResource {
     /**

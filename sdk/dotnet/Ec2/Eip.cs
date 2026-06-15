@@ -315,7 +315,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **NOTE:** You can specify either the `Instance` ID or the `NetworkInterface` ID, but not both.
         /// Including both will **not** return an error from the AWS API, but will have undefined behavior.
-        /// See the relevant [AssociateAddress API Call][1] for more information.
+        /// See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
         /// 
         /// &gt; **NOTE:** Specifying both `PublicIpv4Pool` and `Address` won't cause an error, however, only `Address` will be used if both options are defined as the API only requires one of the two.
         /// </summary>
@@ -443,7 +443,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **NOTE:** You can specify either the `Instance` ID or the `NetworkInterface` ID, but not both.
         /// Including both will **not** return an error from the AWS API, but will have undefined behavior.
-        /// See the relevant [AssociateAddress API Call][1] for more information.
+        /// See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
         /// 
         /// &gt; **NOTE:** Specifying both `PublicIpv4Pool` and `Address` won't cause an error, however, only `Address` will be used if both options are defined as the API only requires one of the two.
         /// </summary>
@@ -587,7 +587,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **NOTE:** You can specify either the `Instance` ID or the `NetworkInterface` ID, but not both.
         /// Including both will **not** return an error from the AWS API, but will have undefined behavior.
-        /// See the relevant [AssociateAddress API Call][1] for more information.
+        /// See the relevant [AssociateAddress API Call](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateAddress.html) for more information.
         /// 
         /// &gt; **NOTE:** Specifying both `PublicIpv4Pool` and `Address` won't cause an error, however, only `Address` will be used if both options are defined as the API only requires one of the two.
         /// </summary>

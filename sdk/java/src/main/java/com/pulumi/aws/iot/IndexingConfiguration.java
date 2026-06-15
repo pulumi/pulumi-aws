@@ -31,6 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iot.IndexingConfigurationArgs;
  * import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationArgs;
  * import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationFilterArgs;
+ * import com.pulumi.aws.iot.inputs.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

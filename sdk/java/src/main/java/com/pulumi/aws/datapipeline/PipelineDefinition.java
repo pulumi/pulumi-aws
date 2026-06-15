@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.datapipeline.PipelineDefinition;
  * import com.pulumi.aws.datapipeline.PipelineDefinitionArgs;
  * import com.pulumi.aws.datapipeline.inputs.PipelineDefinitionPipelineObjectArgs;
+ * import com.pulumi.aws.datapipeline.inputs.PipelineDefinitionPipelineObjectFieldArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

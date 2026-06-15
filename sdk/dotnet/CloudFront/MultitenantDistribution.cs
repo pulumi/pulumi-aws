@@ -18,7 +18,9 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// &gt; **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `RetainOnDelete` flag.
     /// 
-    /// ## Multi-tenant Distribution Limitations
+    /// ## Example Usage
+    /// 
+    /// ### Multi-tenant Distribution Limitations
     /// 
     /// Multi-tenant distributions have the following limitations compared to standard CloudFront distributions:
     /// 
@@ -44,8 +46,6 @@ namespace Pulumi.Aws.CloudFront
     /// - `Staging` mode
     /// - `TrustedSigners` in cache behaviors - Use `TrustedKeyGroups` instead
     /// - Cache behavior TTL settings (`DefaultTtl`, `MaxTtl`, `MinTtl`) - Use cache policies instead
-    /// 
-    /// ## Example Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

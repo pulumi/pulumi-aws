@@ -354,7 +354,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             audit_destination_arn=example_aws_s3_bucket["arn"])
         ```
 
-        ## Required Services Example
+        ### Required Services Example
 
         ```python
         import pulumi
@@ -444,7 +444,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             audit_destination_arn=example_aws_s3_bucket["arn"])
         ```
 
-        ## Required Services Example
+        ### Required Services Example
 
         ```python
         import pulumi

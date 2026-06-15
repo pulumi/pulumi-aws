@@ -97,6 +97,10 @@ export class ServerlessCollectionGroup extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+     */
+    declare public readonly generation: pulumi.Output<string>;
+    /**
      * Name of the collection group.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -105,7 +109,7 @@ export class ServerlessCollectionGroup extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+     * Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
      *
      * The following arguments are optional:
      */
@@ -136,6 +140,7 @@ export class ServerlessCollectionGroup extends pulumi.CustomResource {
             resourceInputs["capacityLimits"] = state?.capacityLimits;
             resourceInputs["createdDate"] = state?.createdDate;
             resourceInputs["description"] = state?.description;
+            resourceInputs["generation"] = state?.generation;
             resourceInputs["name"] = state?.name;
             resourceInputs["region"] = state?.region;
             resourceInputs["standbyReplicas"] = state?.standbyReplicas;
@@ -148,6 +153,7 @@ export class ServerlessCollectionGroup extends pulumi.CustomResource {
             }
             resourceInputs["capacityLimits"] = args?.capacityLimits;
             resourceInputs["description"] = args?.description;
+            resourceInputs["generation"] = args?.generation;
             resourceInputs["name"] = args?.name;
             resourceInputs["region"] = args?.region;
             resourceInputs["standbyReplicas"] = args?.standbyReplicas;
@@ -182,6 +188,10 @@ export interface ServerlessCollectionGroupState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
+     * Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+     */
+    generation?: pulumi.Input<string | undefined>;
+    /**
      * Name of the collection group.
      */
     name?: pulumi.Input<string | undefined>;
@@ -190,7 +200,7 @@ export interface ServerlessCollectionGroupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+     * Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
      *
      * The following arguments are optional:
      */
@@ -218,6 +228,10 @@ export interface ServerlessCollectionGroupArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
+     * Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+     */
+    generation?: pulumi.Input<string | undefined>;
+    /**
      * Name of the collection group.
      */
     name?: pulumi.Input<string | undefined>;
@@ -226,7 +240,7 @@ export interface ServerlessCollectionGroupArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+     * Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
      *
      * The following arguments are optional:
      */

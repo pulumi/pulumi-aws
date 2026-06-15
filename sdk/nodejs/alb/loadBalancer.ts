@@ -196,6 +196,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     declare public readonly enableHttp2: pulumi.Output<boolean | undefined>;
     /**
+     * Whether to use an IPv6 prefix from each subnet for source NAT. `ipAddressType` must be `dualstack`. Valid values: `on`, `off`.
+     */
+    declare public readonly enablePrefixForIpv6SourceNat: pulumi.Output<string>;
+    /**
      * Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      */
     declare public readonly enableTlsVersionAndCipherSuiteHeaders: pulumi.Output<boolean | undefined>;
@@ -323,6 +327,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["enableCrossZoneLoadBalancing"] = state?.enableCrossZoneLoadBalancing;
             resourceInputs["enableDeletionProtection"] = state?.enableDeletionProtection;
             resourceInputs["enableHttp2"] = state?.enableHttp2;
+            resourceInputs["enablePrefixForIpv6SourceNat"] = state?.enablePrefixForIpv6SourceNat;
             resourceInputs["enableTlsVersionAndCipherSuiteHeaders"] = state?.enableTlsVersionAndCipherSuiteHeaders;
             resourceInputs["enableWafFailOpen"] = state?.enableWafFailOpen;
             resourceInputs["enableXffClientPort"] = state?.enableXffClientPort;
@@ -360,6 +365,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["enableCrossZoneLoadBalancing"] = args?.enableCrossZoneLoadBalancing;
             resourceInputs["enableDeletionProtection"] = args?.enableDeletionProtection;
             resourceInputs["enableHttp2"] = args?.enableHttp2;
+            resourceInputs["enablePrefixForIpv6SourceNat"] = args?.enablePrefixForIpv6SourceNat;
             resourceInputs["enableTlsVersionAndCipherSuiteHeaders"] = args?.enableTlsVersionAndCipherSuiteHeaders;
             resourceInputs["enableWafFailOpen"] = args?.enableWafFailOpen;
             resourceInputs["enableXffClientPort"] = args?.enableXffClientPort;
@@ -453,6 +459,10 @@ export interface LoadBalancerState {
      * Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
     enableHttp2?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether to use an IPv6 prefix from each subnet for source NAT. `ipAddressType` must be `dualstack`. Valid values: `on`, `off`.
+     */
+    enablePrefixForIpv6SourceNat?: pulumi.Input<string | undefined>;
     /**
      * Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      */
@@ -600,6 +610,10 @@ export interface LoadBalancerArgs {
      * Whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
     enableHttp2?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether to use an IPv6 prefix from each subnet for source NAT. `ipAddressType` must be `dualstack`. Valid values: `on`, `off`.
+     */
+    enablePrefixForIpv6SourceNat?: pulumi.Input<string | undefined>;
     /**
      * Whether the two headers (`x-amzn-tls-version` and `x-amzn-tls-cipher-suite`), which contain information about the negotiated TLS version and cipher suite, are added to the client request before sending it to the target. Only valid for Load Balancers of type `application`. Defaults to `false`
      */

@@ -161,7 +161,7 @@ func GetRoles(ctx *pulumi.Context, args *GetRolesArgs, opts ...pulumi.InvokeOpti
 type GetRolesArgs struct {
 	// Regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
 	NameRegex *string `pulumi:"nameRegex"`
-	// Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+	// Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-roles.html).
 	PathPrefix *string `pulumi:"pathPrefix"`
 }
 
@@ -190,7 +190,7 @@ func GetRolesOutput(ctx *pulumi.Context, args GetRolesOutputArgs, opts ...pulumi
 type GetRolesOutputArgs struct {
 	// Regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
-	// Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+	// Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-roles.html).
 	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
 }
 

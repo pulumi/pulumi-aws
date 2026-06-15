@@ -200,6 +200,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.pipes.PipeArgs;
  * import com.pulumi.aws.pipes.inputs.PipeSourceParametersArgs;
  * import com.pulumi.aws.pipes.inputs.PipeSourceParametersFilterCriteriaArgs;
+ * import com.pulumi.aws.pipes.inputs.PipeSourceParametersFilterCriteriaFilterArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;

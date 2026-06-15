@@ -19,11 +19,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Remarks
- *
- * * You can only associate one DHCP Options Set to a given VPC ID.
- * * Removing the DHCP Options Association automatically sets AWS's `default` DHCP Options Set to the VPC.
- *
  * ## Import
  *
  * Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
@@ -62,6 +57,8 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
 
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
+     *
+     * > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
      */
     declare public readonly dhcpOptionsId: pulumi.Output<string>;
     /**
@@ -112,6 +109,8 @@ export class VpcDhcpOptionsAssociation extends pulumi.CustomResource {
 export interface VpcDhcpOptionsAssociationState {
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
+     *
+     * > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
      */
     dhcpOptionsId?: pulumi.Input<string | undefined>;
     /**
@@ -130,6 +129,8 @@ export interface VpcDhcpOptionsAssociationState {
 export interface VpcDhcpOptionsAssociationArgs {
     /**
      * The ID of the DHCP Options Set to associate to the VPC.
+     *
+     * > **Note:** Only one DHCP Options Set can be associated to a given VPC. Removing the association automatically sets AWS's `default` DHCP Options Set to the VPC.
      */
     dhcpOptionsId: pulumi.Input<string>;
     /**

@@ -18,7 +18,11 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// PEM-encoded public key used to verify JWT signatures.
+        /// URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `JwksUrl` or `PublicKey` must be specified when `Enabled` is set to `True`.
+        /// </summary>
+        public readonly string? JwksUrl;
+        /// <summary>
+        /// PEM-encoded public key used to verify JWT signatures. At least one of `JwksUrl` or `PublicKey` must be specified when `Enabled` is set to `True`. If both `JwksUrl` and `PublicKey` are specified, `PublicKey` is ignored.
         /// </summary>
         public readonly string? PublicKey;
         /// <summary>
@@ -34,6 +38,8 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         private DomainAdvancedSecurityOptionsJwtOptions(
             bool? enabled,
 
+            string? jwksUrl,
+
             string? publicKey,
 
             string? rolesKey,
@@ -41,6 +47,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
             string? subjectKey)
         {
             Enabled = enabled;
+            JwksUrl = jwksUrl;
             PublicKey = publicKey;
             RolesKey = rolesKey;
             SubjectKey = subjectKey;

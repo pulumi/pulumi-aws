@@ -90,7 +90,7 @@ func GetSecurityGroups(ctx *pulumi.Context, args *GetSecurityGroupsArgs, opts ..
 
 // A collection of arguments for invoking getSecurityGroups.
 type GetSecurityGroupsArgs struct {
-	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html).
 	Filters []GetSecurityGroupsFilter `pulumi:"filters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -124,7 +124,7 @@ func GetSecurityGroupsOutput(ctx *pulumi.Context, args GetSecurityGroupsOutputAr
 
 // A collection of arguments for invoking getSecurityGroups.
 type GetSecurityGroupsOutputArgs struct {
-	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+	// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-security-groups.html).
 	Filters GetSecurityGroupsFilterArrayInput `pulumi:"filters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

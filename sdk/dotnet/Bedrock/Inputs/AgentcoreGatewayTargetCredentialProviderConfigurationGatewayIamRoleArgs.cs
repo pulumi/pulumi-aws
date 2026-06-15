@@ -12,6 +12,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AWS Region used for SigV4 signing of upstream requests. Defaults to the gateway's Region when omitted. Only meaningful when `Service` is set.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`GatewayIamRole {}`).
+        /// </summary>
+        [Input("service")]
+        public Input<string>? Service { get; set; }
+
         public AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs()
         {
         }

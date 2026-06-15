@@ -12,7 +12,9 @@ namespace Pulumi.Aws.Fsx
     /// <summary>
     /// Provides a FSx Backup resource.
     /// 
-    /// ## Lustre Example
+    /// ## Example Usage
+    /// 
+    /// ### Lustre Example
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -38,7 +40,7 @@ namespace Pulumi.Aws.Fsx
     /// });
     /// ```
     /// 
-    /// ## Windows Example
+    /// ### Windows Example
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -68,7 +70,7 @@ namespace Pulumi.Aws.Fsx
     /// });
     /// ```
     /// 
-    /// ## ONTAP Example
+    /// ### ONTAP Example
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -95,7 +97,7 @@ namespace Pulumi.Aws.Fsx
     /// });
     /// ```
     /// 
-    /// ## OpenZFS Example
+    /// ### OpenZFS Example
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

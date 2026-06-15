@@ -28,7 +28,13 @@ class GetDedicatedHostResult:
     """
     A collection of values returned by getDedicatedHost.
     """
-    def __init__(__self__, arn=None, asset_id=None, auto_placement=None, availability_zone=None, cores=None, filters=None, host_id=None, host_recovery=None, id=None, instance_family=None, instance_type=None, outpost_arn=None, owner_id=None, region=None, sockets=None, tags=None, total_vcpus=None):
+    def __init__(__self__, allocation_time=None, allows_multiple_instance_types=None, arn=None, asset_id=None, auto_placement=None, availability_zone=None, availability_zone_id=None, available_capacities=None, cores=None, filters=None, host_id=None, host_maintenance=None, host_recovery=None, host_reservation_id=None, id=None, instance_family=None, instance_type=None, instances=None, member_of_service_linked_resource_group=None, outpost_arn=None, owner_id=None, region=None, release_time=None, sockets=None, state=None, tags=None, total_vcpus=None):
+        if allocation_time and not isinstance(allocation_time, str):
+            raise TypeError("Expected argument 'allocation_time' to be a str")
+        pulumi.set(__self__, "allocation_time", allocation_time)
+        if allows_multiple_instance_types and not isinstance(allows_multiple_instance_types, str):
+            raise TypeError("Expected argument 'allows_multiple_instance_types' to be a str")
+        pulumi.set(__self__, "allows_multiple_instance_types", allows_multiple_instance_types)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +47,12 @@ class GetDedicatedHostResult:
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id and not isinstance(availability_zone_id, str):
+            raise TypeError("Expected argument 'availability_zone_id' to be a str")
+        pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+        if available_capacities and not isinstance(available_capacities, list):
+            raise TypeError("Expected argument 'available_capacities' to be a list")
+        pulumi.set(__self__, "available_capacities", available_capacities)
         if cores and not isinstance(cores, int):
             raise TypeError("Expected argument 'cores' to be a int")
         pulumi.set(__self__, "cores", cores)
@@ -50,9 +62,15 @@ class GetDedicatedHostResult:
         if host_id and not isinstance(host_id, str):
             raise TypeError("Expected argument 'host_id' to be a str")
         pulumi.set(__self__, "host_id", host_id)
+        if host_maintenance and not isinstance(host_maintenance, str):
+            raise TypeError("Expected argument 'host_maintenance' to be a str")
+        pulumi.set(__self__, "host_maintenance", host_maintenance)
         if host_recovery and not isinstance(host_recovery, str):
             raise TypeError("Expected argument 'host_recovery' to be a str")
         pulumi.set(__self__, "host_recovery", host_recovery)
+        if host_reservation_id and not isinstance(host_reservation_id, str):
+            raise TypeError("Expected argument 'host_reservation_id' to be a str")
+        pulumi.set(__self__, "host_reservation_id", host_reservation_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -62,6 +80,12 @@ class GetDedicatedHostResult:
         if instance_type and not isinstance(instance_type, str):
             raise TypeError("Expected argument 'instance_type' to be a str")
         pulumi.set(__self__, "instance_type", instance_type)
+        if instances and not isinstance(instances, list):
+            raise TypeError("Expected argument 'instances' to be a list")
+        pulumi.set(__self__, "instances", instances)
+        if member_of_service_linked_resource_group and not isinstance(member_of_service_linked_resource_group, bool):
+            raise TypeError("Expected argument 'member_of_service_linked_resource_group' to be a bool")
+        pulumi.set(__self__, "member_of_service_linked_resource_group", member_of_service_linked_resource_group)
         if outpost_arn and not isinstance(outpost_arn, str):
             raise TypeError("Expected argument 'outpost_arn' to be a str")
         pulumi.set(__self__, "outpost_arn", outpost_arn)
@@ -71,15 +95,37 @@ class GetDedicatedHostResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if release_time and not isinstance(release_time, str):
+            raise TypeError("Expected argument 'release_time' to be a str")
+        pulumi.set(__self__, "release_time", release_time)
         if sockets and not isinstance(sockets, int):
             raise TypeError("Expected argument 'sockets' to be a int")
         pulumi.set(__self__, "sockets", sockets)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if total_vcpus and not isinstance(total_vcpus, int):
             raise TypeError("Expected argument 'total_vcpus' to be a int")
         pulumi.set(__self__, "total_vcpus", total_vcpus)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationTime")
+    def allocation_time(self) -> _builtins.str:
+        """
+        Time that the Dedicated Host was allocated, in RFC3339 format.
+        """
+        return pulumi.get(self, "allocation_time")
+
+    @_builtins.property
+    @pulumi.getter(name="allowsMultipleInstanceTypes")
+    def allows_multiple_instance_types(self) -> _builtins.str:
+        """
+        Whether the Dedicated Host supports multiple instance types of the same instance family. Valid values: `on`, `off`.
+        """
+        return pulumi.get(self, "allows_multiple_instance_types")
 
     @_builtins.property
     @pulumi.getter
@@ -114,6 +160,22 @@ class GetDedicatedHostResult:
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> _builtins.str:
+        """
+        AZ ID of the Availability Zone in which the Dedicated Host is allocated (e.g., `use1-az1`).
+        """
+        return pulumi.get(self, "availability_zone_id")
+
+    @_builtins.property
+    @pulumi.getter(name="availableCapacities")
+    def available_capacities(self) -> Sequence['outputs.GetDedicatedHostAvailableCapacityResult']:
+        """
+        The number of instances that can be launched onto the Dedicated Host based on the host's available capacity.
+        """
+        return pulumi.get(self, "available_capacities")
+
+    @_builtins.property
     @pulumi.getter
     def cores(self) -> _builtins.int:
         """
@@ -132,12 +194,28 @@ class GetDedicatedHostResult:
         return pulumi.get(self, "host_id")
 
     @_builtins.property
+    @pulumi.getter(name="hostMaintenance")
+    def host_maintenance(self) -> _builtins.str:
+        """
+        Whether host maintenance is enabled or disabled for the Dedicated Host. Valid values: `on`, `off`.
+        """
+        return pulumi.get(self, "host_maintenance")
+
+    @_builtins.property
     @pulumi.getter(name="hostRecovery")
     def host_recovery(self) -> _builtins.str:
         """
         Whether host recovery is enabled or disabled for the Dedicated Host.
         """
         return pulumi.get(self, "host_recovery")
+
+    @_builtins.property
+    @pulumi.getter(name="hostReservationId")
+    def host_reservation_id(self) -> _builtins.str:
+        """
+        The reservation ID of the Dedicated Host.
+        """
+        return pulumi.get(self, "host_reservation_id")
 
     @_builtins.property
     @pulumi.getter
@@ -159,9 +237,25 @@ class GetDedicatedHostResult:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> _builtins.str:
         """
-        Instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
+        The instance type of the running instance.
         """
         return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def instances(self) -> Sequence['outputs.GetDedicatedHostInstanceResult']:
+        """
+        The instances running on the Dedicated Host. See `instances` below.
+        """
+        return pulumi.get(self, "instances")
+
+    @_builtins.property
+    @pulumi.getter(name="memberOfServiceLinkedResourceGroup")
+    def member_of_service_linked_resource_group(self) -> _builtins.bool:
+        """
+        Whether the Dedicated Host is in a host resource group.
+        """
+        return pulumi.get(self, "member_of_service_linked_resource_group")
 
     @_builtins.property
     @pulumi.getter(name="outpostArn")
@@ -175,7 +269,7 @@ class GetDedicatedHostResult:
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> _builtins.str:
         """
-        ID of the AWS account that owns the Dedicated Host.
+        The ID of the AWS account that owns the instance.
         """
         return pulumi.get(self, "owner_id")
 
@@ -185,12 +279,28 @@ class GetDedicatedHostResult:
         return pulumi.get(self, "region")
 
     @_builtins.property
+    @pulumi.getter(name="releaseTime")
+    def release_time(self) -> _builtins.str:
+        """
+        Time that the Dedicated Host was released, in RFC3339 format.
+        """
+        return pulumi.get(self, "release_time")
+
+    @_builtins.property
     @pulumi.getter
     def sockets(self) -> _builtins.int:
         """
         Number of sockets on the Dedicated Host.
         """
         return pulumi.get(self, "sockets")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        Allocation state of the Dedicated Host. Valid values: `available`, `under-assessment`, `permanent-failure`, `released`, `released-permanent-failure`, `pending`.
+        """
+        return pulumi.get(self, "state")
 
     @_builtins.property
     @pulumi.getter
@@ -212,21 +322,31 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
         if False:
             yield self
         return GetDedicatedHostResult(
+            allocation_time=self.allocation_time,
+            allows_multiple_instance_types=self.allows_multiple_instance_types,
             arn=self.arn,
             asset_id=self.asset_id,
             auto_placement=self.auto_placement,
             availability_zone=self.availability_zone,
+            availability_zone_id=self.availability_zone_id,
+            available_capacities=self.available_capacities,
             cores=self.cores,
             filters=self.filters,
             host_id=self.host_id,
+            host_maintenance=self.host_maintenance,
             host_recovery=self.host_recovery,
+            host_reservation_id=self.host_reservation_id,
             id=self.id,
             instance_family=self.instance_family,
             instance_type=self.instance_type,
+            instances=self.instances,
+            member_of_service_linked_resource_group=self.member_of_service_linked_resource_group,
             outpost_arn=self.outpost_arn,
             owner_id=self.owner_id,
             region=self.region,
+            release_time=self.release_time,
             sockets=self.sockets,
+            state=self.state,
             tags=self.tags,
             total_vcpus=self.total_vcpus)
 
@@ -280,21 +400,31 @@ def get_dedicated_host(filters: Optional[Sequence[Union['GetDedicatedHostFilterA
     __ret__ = pulumi.runtime.invoke('aws:ec2/getDedicatedHost:getDedicatedHost', __args__, opts=opts, typ=GetDedicatedHostResult).value
 
     return AwaitableGetDedicatedHostResult(
+        allocation_time=pulumi.get(__ret__, 'allocation_time'),
+        allows_multiple_instance_types=pulumi.get(__ret__, 'allows_multiple_instance_types'),
         arn=pulumi.get(__ret__, 'arn'),
         asset_id=pulumi.get(__ret__, 'asset_id'),
         auto_placement=pulumi.get(__ret__, 'auto_placement'),
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        availability_zone_id=pulumi.get(__ret__, 'availability_zone_id'),
+        available_capacities=pulumi.get(__ret__, 'available_capacities'),
         cores=pulumi.get(__ret__, 'cores'),
         filters=pulumi.get(__ret__, 'filters'),
         host_id=pulumi.get(__ret__, 'host_id'),
+        host_maintenance=pulumi.get(__ret__, 'host_maintenance'),
         host_recovery=pulumi.get(__ret__, 'host_recovery'),
+        host_reservation_id=pulumi.get(__ret__, 'host_reservation_id'),
         id=pulumi.get(__ret__, 'id'),
         instance_family=pulumi.get(__ret__, 'instance_family'),
         instance_type=pulumi.get(__ret__, 'instance_type'),
+        instances=pulumi.get(__ret__, 'instances'),
+        member_of_service_linked_resource_group=pulumi.get(__ret__, 'member_of_service_linked_resource_group'),
         outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         region=pulumi.get(__ret__, 'region'),
+        release_time=pulumi.get(__ret__, 'release_time'),
         sockets=pulumi.get(__ret__, 'sockets'),
+        state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         total_vcpus=pulumi.get(__ret__, 'total_vcpus'))
 def get_dedicated_host_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['GetDedicatedHostFilterArgs', 'GetDedicatedHostFilterArgsDict']]]]] = None,
@@ -345,20 +475,30 @@ def get_dedicated_host_output(filters: pulumi.Input[Optional[Optional[Sequence[U
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:ec2/getDedicatedHost:getDedicatedHost', __args__, opts=opts, typ=GetDedicatedHostResult)
     return __ret__.apply(lambda __response__: GetDedicatedHostResult(
+        allocation_time=pulumi.get(__response__, 'allocation_time'),
+        allows_multiple_instance_types=pulumi.get(__response__, 'allows_multiple_instance_types'),
         arn=pulumi.get(__response__, 'arn'),
         asset_id=pulumi.get(__response__, 'asset_id'),
         auto_placement=pulumi.get(__response__, 'auto_placement'),
         availability_zone=pulumi.get(__response__, 'availability_zone'),
+        availability_zone_id=pulumi.get(__response__, 'availability_zone_id'),
+        available_capacities=pulumi.get(__response__, 'available_capacities'),
         cores=pulumi.get(__response__, 'cores'),
         filters=pulumi.get(__response__, 'filters'),
         host_id=pulumi.get(__response__, 'host_id'),
+        host_maintenance=pulumi.get(__response__, 'host_maintenance'),
         host_recovery=pulumi.get(__response__, 'host_recovery'),
+        host_reservation_id=pulumi.get(__response__, 'host_reservation_id'),
         id=pulumi.get(__response__, 'id'),
         instance_family=pulumi.get(__response__, 'instance_family'),
         instance_type=pulumi.get(__response__, 'instance_type'),
+        instances=pulumi.get(__response__, 'instances'),
+        member_of_service_linked_resource_group=pulumi.get(__response__, 'member_of_service_linked_resource_group'),
         outpost_arn=pulumi.get(__response__, 'outpost_arn'),
         owner_id=pulumi.get(__response__, 'owner_id'),
         region=pulumi.get(__response__, 'region'),
+        release_time=pulumi.get(__response__, 'release_time'),
         sockets=pulumi.get(__response__, 'sockets'),
+        state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags'),
         total_vcpus=pulumi.get(__response__, 'total_vcpus')))

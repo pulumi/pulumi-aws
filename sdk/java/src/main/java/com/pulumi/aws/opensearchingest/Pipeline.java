@@ -144,7 +144,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) Name of the pipeline.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `pipelineName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
@@ -266,7 +277,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.pipelineConfigurationBody;
     }
     /**
-     * The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+     * Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
      * 
      * The following arguments are optional:
      * 
@@ -275,7 +286,7 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
     private Output<String> pipelineName;
 
     /**
-     * @return The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+     * @return Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
      * 
      * The following arguments are optional:
      * 

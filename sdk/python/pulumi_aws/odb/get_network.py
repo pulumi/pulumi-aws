@@ -27,7 +27,7 @@ class GetNetworkResult:
     """
     A collection of values returned by getNetwork.
     """
-    def __init__(__self__, arn=None, availability_zone=None, availability_zone_id=None, backup_subnet_cidr=None, client_subnet_cidr=None, created_at=None, custom_domain_name=None, default_dns_prefix=None, display_name=None, id=None, managed_services=None, oci_dns_forwarding_configs=None, oci_network_anchor_id=None, oci_network_anchor_url=None, oci_resource_anchor_name=None, oci_vcn_id=None, oci_vcn_url=None, peered_cidrs=None, percent_progress=None, region=None, status=None, status_reason=None, tags=None):
+    def __init__(__self__, arn=None, availability_zone=None, availability_zone_id=None, backup_subnet_cidr=None, client_subnet_cidr=None, created_at=None, custom_domain_name=None, default_dns_prefix=None, display_name=None, ec2_placement_group_ids=None, id=None, managed_services=None, oci_dns_forwarding_configs=None, oci_network_anchor_id=None, oci_network_anchor_url=None, oci_resource_anchor_name=None, oci_vcn_id=None, oci_vcn_url=None, peered_cidrs=None, percent_progress=None, region=None, status=None, status_reason=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -55,6 +55,9 @@ class GetNetworkResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if ec2_placement_group_ids and not isinstance(ec2_placement_group_ids, list):
+            raise TypeError("Expected argument 'ec2_placement_group_ids' to be a list")
+        pulumi.set(__self__, "ec2_placement_group_ids", ec2_placement_group_ids)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -169,6 +172,14 @@ class GetNetworkResult:
         Display name for the network resource.
         """
         return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ec2PlacementGroupIds")
+    def ec2_placement_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        A list of EC2 placement group IDs associated with the ODB network.
+        """
+        return pulumi.get(self, "ec2_placement_group_ids")
 
     @_builtins.property
     @pulumi.getter
@@ -289,6 +300,7 @@ class AwaitableGetNetworkResult(GetNetworkResult):
             custom_domain_name=self.custom_domain_name,
             default_dns_prefix=self.default_dns_prefix,
             display_name=self.display_name,
+            ec2_placement_group_ids=self.ec2_placement_group_ids,
             id=self.id,
             managed_services=self.managed_services,
             oci_dns_forwarding_configs=self.oci_dns_forwarding_configs,
@@ -344,6 +356,7 @@ def get_network(id: Optional[_builtins.str] = None,
         custom_domain_name=pulumi.get(__ret__, 'custom_domain_name'),
         default_dns_prefix=pulumi.get(__ret__, 'default_dns_prefix'),
         display_name=pulumi.get(__ret__, 'display_name'),
+        ec2_placement_group_ids=pulumi.get(__ret__, 'ec2_placement_group_ids'),
         id=pulumi.get(__ret__, 'id'),
         managed_services=pulumi.get(__ret__, 'managed_services'),
         oci_dns_forwarding_configs=pulumi.get(__ret__, 'oci_dns_forwarding_configs'),
@@ -396,6 +409,7 @@ def get_network_output(id: pulumi.Input[Optional[_builtins.str]] = None,
         custom_domain_name=pulumi.get(__response__, 'custom_domain_name'),
         default_dns_prefix=pulumi.get(__response__, 'default_dns_prefix'),
         display_name=pulumi.get(__response__, 'display_name'),
+        ec2_placement_group_ids=pulumi.get(__response__, 'ec2_placement_group_ids'),
         id=pulumi.get(__response__, 'id'),
         managed_services=pulumi.get(__response__, 'managed_services'),
         oci_dns_forwarding_configs=pulumi.get(__response__, 'oci_dns_forwarding_configs'),

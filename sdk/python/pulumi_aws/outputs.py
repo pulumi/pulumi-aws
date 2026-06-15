@@ -85,7 +85,7 @@ class GetRegionsFilterResult(dict):
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
         """
-        :param _builtins.str name: Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+        :param _builtins.str name: Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-regions.html).
         :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         pulumi.set(__self__, "name", name)
@@ -95,7 +95,7 @@ class GetRegionsFilterResult(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+        Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-regions.html).
         """
         return pulumi.get(self, "name")
 

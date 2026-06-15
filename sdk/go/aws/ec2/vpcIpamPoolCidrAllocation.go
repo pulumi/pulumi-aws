@@ -166,6 +166,10 @@ type VpcIpamPoolCidrAllocation struct {
 	ResourceOwner pulumi.StringOutput `pulumi:"resourceOwner"`
 	// The type of the resource.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewVpcIpamPoolCidrAllocation registers a new resource with the given unique name, arguments, and options.
@@ -220,6 +224,10 @@ type vpcIpamPoolCidrAllocationState struct {
 	ResourceOwner *string `pulumi:"resourceOwner"`
 	// The type of the resource.
 	ResourceType *string `pulumi:"resourceType"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type VpcIpamPoolCidrAllocationState struct {
@@ -242,6 +250,10 @@ type VpcIpamPoolCidrAllocationState struct {
 	ResourceOwner pulumi.StringPtrInput
 	// The type of the resource.
 	ResourceType pulumi.StringPtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (VpcIpamPoolCidrAllocationState) ElementType() reflect.Type {
@@ -261,6 +273,8 @@ type vpcIpamPoolCidrAllocationArgs struct {
 	NetmaskLength *int `pulumi:"netmaskLength"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcIpamPoolCidrAllocation resource.
@@ -277,6 +291,8 @@ type VpcIpamPoolCidrAllocationArgs struct {
 	NetmaskLength pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (VpcIpamPoolCidrAllocationArgs) ElementType() reflect.Type {
@@ -413,6 +429,16 @@ func (o VpcIpamPoolCidrAllocationOutput) ResourceOwner() pulumi.StringOutput {
 // The type of the resource.
 func (o VpcIpamPoolCidrAllocationOutput) ResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringOutput { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o VpcIpamPoolCidrAllocationOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+func (o VpcIpamPoolCidrAllocationOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type VpcIpamPoolCidrAllocationArrayOutput struct{ *pulumi.OutputState }

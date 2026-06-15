@@ -96,14 +96,14 @@ public class MlflowTrackingServer extends com.pulumi.resources.CustomResource {
         return this.artifactStoreUri;
     }
     /**
-     * A list of Member Definitions that contains objects that identify the workers that make up the work team.
+     * Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
      * 
      */
     @Export(name="automaticModelRegistration", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> automaticModelRegistration;
 
     /**
-     * @return A list of Member Definitions that contains objects that identify the workers that make up the work team.
+     * @return Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
      * 
      */
     public Output<Optional<Boolean>> automaticModelRegistration() {

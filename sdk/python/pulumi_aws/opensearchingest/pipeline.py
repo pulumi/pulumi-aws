@@ -39,7 +39,7 @@ class PipelineArgs:
         :param pulumi.Input[_builtins.int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.str] pipeline_configuration_body: The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\n.
-        :param pulumi.Input[_builtins.str] pipeline_name: The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        :param pulumi.Input[_builtins.str] pipeline_name: Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
                
                The following arguments are optional:
         :param pulumi.Input['PipelineBufferOptionsArgs'] buffer_options: Key-value pairs to configure persistent buffering for the pipeline. See `buffer_options` below.
@@ -111,7 +111,7 @@ class PipelineArgs:
     @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 
         The following arguments are optional:
         """
@@ -244,7 +244,7 @@ class _PipelineState:
         :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.str] pipeline_arn: Amazon Resource Name (ARN) of the pipeline.
         :param pulumi.Input[_builtins.str] pipeline_configuration_body: The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\n.
-        :param pulumi.Input[_builtins.str] pipeline_name: The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        :param pulumi.Input[_builtins.str] pipeline_name: Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] pipeline_role_arn: ARN of the IAM role that grants the pipeline permission to access AWS resources.
@@ -383,7 +383,7 @@ class _PipelineState:
     @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 
         The following arguments are optional:
         """
@@ -541,7 +541,18 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the pipeline.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `pipeline_name`. For example:
 
         ```sh
         $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
@@ -556,7 +567,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.str] pipeline_configuration_body: The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\n.
-        :param pulumi.Input[_builtins.str] pipeline_name: The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        :param pulumi.Input[_builtins.str] pipeline_name: Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] pipeline_role_arn: ARN of the IAM role that grants the pipeline permission to access AWS resources.
@@ -632,7 +643,18 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the pipeline.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `pipeline_name`. For example:
 
         ```sh
         $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
@@ -738,7 +760,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.str] pipeline_arn: Amazon Resource Name (ARN) of the pipeline.
         :param pulumi.Input[_builtins.str] pipeline_configuration_body: The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with \\n.
-        :param pulumi.Input[_builtins.str] pipeline_name: The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        :param pulumi.Input[_builtins.str] pipeline_name: Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] pipeline_role_arn: ARN of the IAM role that grants the pipeline permission to access AWS resources.
@@ -835,7 +857,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter(name="pipelineName")
     def pipeline_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the OpenSearch Ingestion pipeline to create. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
+        Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
 
         The following arguments are optional:
         """

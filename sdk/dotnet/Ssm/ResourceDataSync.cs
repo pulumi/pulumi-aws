@@ -113,13 +113,6 @@ namespace Pulumi.Aws.Ssm
     /// });
     /// ```
     /// 
-    /// ## DestinationDataSharing
-    /// 
-    /// `DestinationDataSharing` supports the following:
-    /// 
-    /// * `DestinationDataSharingType` - (Optional) Data sharing type.
-    ///   Only `Organization` is supported.
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM resource data sync using the `Name`. For example:

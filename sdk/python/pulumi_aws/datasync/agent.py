@@ -386,7 +386,7 @@ class Agent(pulumi.CustomResource):
             name="example")
         ```
 
-        ### With VPC Endpoints
+        ### Example Usage with VPC Endpoints
 
         ```python
         import pulumi
@@ -458,7 +458,7 @@ class Agent(pulumi.CustomResource):
             name="example")
         ```
 
-        ### With VPC Endpoints
+        ### Example Usage with VPC Endpoints
 
         ```python
         import pulumi

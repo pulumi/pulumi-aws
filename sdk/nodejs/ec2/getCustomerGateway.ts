@@ -50,9 +50,7 @@ export function getCustomerGateway(args?: GetCustomerGatewayArgs, opts?: pulumi.
  */
 export interface GetCustomerGatewayArgs {
     /**
-     * One or more [name-value pairs][dcg-filters] to filter by.
-     *
-     * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
+     * One or more [name-value pairs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html) to filter by.
      */
     filters?: inputs.ec2.GetCustomerGatewayFilter[];
     /**
@@ -152,9 +150,7 @@ export function getCustomerGatewayOutput(args?: GetCustomerGatewayOutputArgs, op
  */
 export interface GetCustomerGatewayOutputArgs {
     /**
-     * One or more [name-value pairs][dcg-filters] to filter by.
-     *
-     * [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
+     * One or more [name-value pairs](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html) to filter by.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCustomerGatewayFilterArgs>[] | undefined>;
     /**

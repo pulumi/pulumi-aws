@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreAgentRuntimeProtocolConfiguration {
     /**
-     * @return Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+     * @return Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`, `AGUI`.
      * 
      */
     private @Nullable String serverProtocol;
 
     private AgentcoreAgentRuntimeProtocolConfiguration() {}
     /**
-     * @return Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+     * @return Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`, `AGUI`.
      * 
      */
     public Optional<String> serverProtocol() {

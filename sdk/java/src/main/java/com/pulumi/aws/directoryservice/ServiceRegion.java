@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetRegionArgs;
  * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
  * import com.pulumi.aws.ec2.Vpc;
  * import com.pulumi.aws.ec2.VpcArgs;
  * import com.pulumi.aws.ec2.Subnet;

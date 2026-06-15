@@ -222,6 +222,8 @@ __all__ = [
     'LaunchTemplateSecondaryInterfaceArgsDict',
     'LaunchTemplateTagSpecificationArgs',
     'LaunchTemplateTagSpecificationArgsDict',
+    'LocalGatewayRouteTableTimeoutsArgs',
+    'LocalGatewayRouteTableTimeoutsArgsDict',
     'ManagedPrefixListEntryArgs',
     'ManagedPrefixListEntryArgsDict',
     'NatGatewayAvailabilityZoneAddressArgs',
@@ -614,6 +616,8 @@ __all__ = [
     'GetEipsFilterArgsDict',
     'GetElasticIpFilterArgs',
     'GetElasticIpFilterArgsDict',
+    'GetHostsFilterArgs',
+    'GetHostsFilterArgsDict',
     'GetInstanceFilterArgs',
     'GetInstanceFilterArgsDict',
     'GetInstanceTypeOfferingFilterArgs',
@@ -6941,14 +6945,44 @@ class InstanceSecondaryNetworkInterfaceArgs:
 
 class LaunchConfigurationEbsBlockDeviceArgsDict(TypedDict):
     device_name: pulumi.Input[_builtins.str]
+    """
+    The name of the device to mount.
+    """
     delete_on_termination: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the volume should be destroyed
+    on instance termination (Default: `true`).
+    """
     encrypted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the volume should be encrypted or not. Defaults to `false`.
+    """
     iops: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The amount of provisioned
+    [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+    This must be set with a `volume_type` of `"io1"`.
+    """
     no_device: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the device in the block device mapping of the AMI is suppressed.
+    """
     snapshot_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Snapshot ID to mount.
+    """
     throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The throughput (MiBps) to provision for a `gp3` volume.
+    """
     volume_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The size of the volume in gigabytes.
+    """
     volume_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+    """
 
 @pulumi.input_type
 class LaunchConfigurationEbsBlockDeviceArgs:
@@ -6962,6 +6996,20 @@ class LaunchConfigurationEbsBlockDeviceArgs:
                  throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_size: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] device_name: The name of the device to mount.
+        :param pulumi.Input[_builtins.bool] delete_on_termination: Whether the volume should be destroyed
+               on instance termination (Default: `true`).
+        :param pulumi.Input[_builtins.bool] encrypted: Whether the volume should be encrypted or not. Defaults to `false`.
+        :param pulumi.Input[_builtins.int] iops: The amount of provisioned
+               [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+               This must be set with a `volume_type` of `"io1"`.
+        :param pulumi.Input[_builtins.bool] no_device: Whether the device in the block device mapping of the AMI is suppressed.
+        :param pulumi.Input[_builtins.str] snapshot_id: The Snapshot ID to mount.
+        :param pulumi.Input[_builtins.int] throughput: The throughput (MiBps) to provision for a `gp3` volume.
+        :param pulumi.Input[_builtins.int] volume_size: The size of the volume in gigabytes.
+        :param pulumi.Input[_builtins.str] volume_type: The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+        """
         pulumi.set(__self__, "device_name", device_name)
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
@@ -6983,6 +7031,9 @@ class LaunchConfigurationEbsBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the device to mount.
+        """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
@@ -6992,6 +7043,10 @@ class LaunchConfigurationEbsBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the volume should be destroyed
+        on instance termination (Default: `true`).
+        """
         return pulumi.get(self, "delete_on_termination")
 
     @delete_on_termination.setter
@@ -7001,6 +7056,9 @@ class LaunchConfigurationEbsBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the volume should be encrypted or not. Defaults to `false`.
+        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -7010,6 +7068,11 @@ class LaunchConfigurationEbsBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter
     def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The amount of provisioned
+        [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+        This must be set with a `volume_type` of `"io1"`.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -7019,6 +7082,9 @@ class LaunchConfigurationEbsBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="noDevice")
     def no_device(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the device in the block device mapping of the AMI is suppressed.
+        """
         return pulumi.get(self, "no_device")
 
     @no_device.setter
@@ -7028,6 +7094,9 @@ class LaunchConfigurationEbsBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Snapshot ID to mount.
+        """
         return pulumi.get(self, "snapshot_id")
 
     @snapshot_id.setter
@@ -7037,6 +7106,9 @@ class LaunchConfigurationEbsBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter
     def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The throughput (MiBps) to provision for a `gp3` volume.
+        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -7046,6 +7118,9 @@ class LaunchConfigurationEbsBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
@@ -7055,6 +7130,9 @@ class LaunchConfigurationEbsBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+        """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
@@ -7064,8 +7142,17 @@ class LaunchConfigurationEbsBlockDeviceArgs:
 
 class LaunchConfigurationEphemeralBlockDeviceArgsDict(TypedDict):
     device_name: pulumi.Input[_builtins.str]
+    """
+    The name of the block device to mount on the instance.
+    """
     no_device: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the device in the block device mapping of the AMI is suppressed.
+    """
     virtual_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
+    """
 
 @pulumi.input_type
 class LaunchConfigurationEphemeralBlockDeviceArgs:
@@ -7073,6 +7160,11 @@ class LaunchConfigurationEphemeralBlockDeviceArgs:
                  device_name: pulumi.Input[_builtins.str],
                  no_device: pulumi.Input[Optional[_builtins.bool]] = None,
                  virtual_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] device_name: The name of the block device to mount on the instance.
+        :param pulumi.Input[_builtins.bool] no_device: Whether the device in the block device mapping of the AMI is suppressed.
+        :param pulumi.Input[_builtins.str] virtual_name: The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
+        """
         pulumi.set(__self__, "device_name", device_name)
         if no_device is not None:
             pulumi.set(__self__, "no_device", no_device)
@@ -7082,6 +7174,9 @@ class LaunchConfigurationEphemeralBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="deviceName")
     def device_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the block device to mount on the instance.
+        """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
@@ -7091,6 +7186,9 @@ class LaunchConfigurationEphemeralBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="noDevice")
     def no_device(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the device in the block device mapping of the AMI is suppressed.
+        """
         return pulumi.get(self, "no_device")
 
     @no_device.setter
@@ -7100,6 +7198,9 @@ class LaunchConfigurationEphemeralBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames).
+        """
         return pulumi.get(self, "virtual_name")
 
     @virtual_name.setter
@@ -7178,11 +7279,29 @@ class LaunchConfigurationMetadataOptionsArgs:
 
 class LaunchConfigurationRootBlockDeviceArgsDict(TypedDict):
     delete_on_termination: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the volume should be destroyed on instance termination. Defaults to `true`.
+    """
     encrypted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the volume should be encrypted or not. Defaults to `false`.
+    """
     iops: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volume_type` of `io1`.
+    """
     throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The throughput (MiBps) to provision for a `gp3` volume.
+    """
     volume_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The size of the volume in gigabytes.
+    """
     volume_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+    """
 
 @pulumi.input_type
 class LaunchConfigurationRootBlockDeviceArgs:
@@ -7193,6 +7312,14 @@ class LaunchConfigurationRootBlockDeviceArgs:
                  throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_size: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] delete_on_termination: Whether the volume should be destroyed on instance termination. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] encrypted: Whether the volume should be encrypted or not. Defaults to `false`.
+        :param pulumi.Input[_builtins.int] iops: The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volume_type` of `io1`.
+        :param pulumi.Input[_builtins.int] throughput: The throughput (MiBps) to provision for a `gp3` volume.
+        :param pulumi.Input[_builtins.int] volume_size: The size of the volume in gigabytes.
+        :param pulumi.Input[_builtins.str] volume_type: The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+        """
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
         if encrypted is not None:
@@ -7209,6 +7336,9 @@ class LaunchConfigurationRootBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="deleteOnTermination")
     def delete_on_termination(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the volume should be destroyed on instance termination. Defaults to `true`.
+        """
         return pulumi.get(self, "delete_on_termination")
 
     @delete_on_termination.setter
@@ -7218,6 +7348,9 @@ class LaunchConfigurationRootBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter
     def encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the volume should be encrypted or not. Defaults to `false`.
+        """
         return pulumi.get(self, "encrypted")
 
     @encrypted.setter
@@ -7227,6 +7360,9 @@ class LaunchConfigurationRootBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter
     def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). This must be set with a `volume_type` of `io1`.
+        """
         return pulumi.get(self, "iops")
 
     @iops.setter
@@ -7236,6 +7372,9 @@ class LaunchConfigurationRootBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter
     def throughput(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The throughput (MiBps) to provision for a `gp3` volume.
+        """
         return pulumi.get(self, "throughput")
 
     @throughput.setter
@@ -7245,6 +7384,9 @@ class LaunchConfigurationRootBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="volumeSize")
     def volume_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The size of the volume in gigabytes.
+        """
         return pulumi.get(self, "volume_size")
 
     @volume_size.setter
@@ -7254,6 +7396,9 @@ class LaunchConfigurationRootBlockDeviceArgs:
     @_builtins.property
     @pulumi.getter(name="volumeType")
     def volume_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type of volume. Can be `standard`, `gp2`, `gp3`, `st1`, `sc1` or `io1`.
+        """
         return pulumi.get(self, "volume_type")
 
     @volume_type.setter
@@ -10447,6 +10592,55 @@ class LaunchTemplateTagSpecificationArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+
+class LocalGatewayRouteTableTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+
+@pulumi.input_type
+class LocalGatewayRouteTableTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
 
 
 class ManagedPrefixListEntryArgsDict(TypedDict):
@@ -25575,11 +25769,58 @@ class GetElasticIpFilterArgs:
         pulumi.set(self, "values", value)
 
 
+class GetHostsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter.
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of one or more values for the filter.
+    """
+
+@pulumi.input_type
+class GetHostsFilterArgs:
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter.
+        :param Sequence[_builtins.str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the filter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: _builtins.str):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        List of one or more values for the filter.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "values", value)
+
+
 class GetInstanceFilterArgsDict(TypedDict):
     name: _builtins.str
     """
     Name of the filter.
-    For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+    For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
     """
     values: Sequence[_builtins.str]
     """
@@ -25593,7 +25834,7 @@ class GetInstanceFilterArgs:
                  values: Sequence[_builtins.str]):
         """
         :param _builtins.str name: Name of the filter.
-               For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+               For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
         :param Sequence[_builtins.str] values: One or more values to match.
         """
         pulumi.set(__self__, "name", name)
@@ -25604,7 +25845,7 @@ class GetInstanceFilterArgs:
     def name(self) -> _builtins.str:
         """
         Name of the filter.
-        For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
         """
         return pulumi.get(self, "name")
 
@@ -25770,7 +26011,7 @@ class GetInstancesFilterArgsDict(TypedDict):
     name: _builtins.str
     """
     Name of the filter.
-    For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+    For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
     """
     values: Sequence[_builtins.str]
     """
@@ -25784,7 +26025,7 @@ class GetInstancesFilterArgs:
                  values: Sequence[_builtins.str]):
         """
         :param _builtins.str name: Name of the filter.
-               For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+               For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
         :param Sequence[_builtins.str] values: One or more values to match.
         """
         pulumi.set(__self__, "name", name)
@@ -25795,7 +26036,7 @@ class GetInstancesFilterArgs:
     def name(self) -> _builtins.str:
         """
         Name of the filter.
-        For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
         """
         return pulumi.get(self, "name")
 

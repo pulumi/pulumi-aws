@@ -68,11 +68,11 @@ export class GeoMatchSet extends pulumi.CustomResource {
     }
 
     /**
-     * The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+     * Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      */
     declare public readonly geoMatchConstraints: pulumi.Output<outputs.wafregional.GeoMatchSetGeoMatchConstraint[] | undefined>;
     /**
-     * The name or description of the Geo Match Set.
+     * Name or description of the Geo Match Set.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -112,11 +112,11 @@ export class GeoMatchSet extends pulumi.CustomResource {
  */
 export interface GeoMatchSetState {
     /**
-     * The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+     * Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      */
     geoMatchConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.GeoMatchSetGeoMatchConstraint>[] | undefined>;
     /**
-     * The name or description of the Geo Match Set.
+     * Name or description of the Geo Match Set.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -130,11 +130,11 @@ export interface GeoMatchSetState {
  */
 export interface GeoMatchSetArgs {
     /**
-     * The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+     * Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
      */
     geoMatchConstraints?: pulumi.Input<pulumi.Input<inputs.wafregional.GeoMatchSetGeoMatchConstraint>[] | undefined>;
     /**
-     * The name or description of the Geo Match Set.
+     * Name or description of the Geo Match Set.
      */
     name?: pulumi.Input<string | undefined>;
     /**

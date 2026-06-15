@@ -145,6 +145,20 @@ public class ServerlessCollectionGroup extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.description);
     }
     /**
+     * Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+     * 
+     */
+    @Export(name="generation", refs={String.class}, tree="[0]")
+    private Output<String> generation;
+
+    /**
+     * @return Generation of Amazon OpenSearch Serverless for the collection group. Valid values are `CLASSIC` and `NEXTGEN`. Default value is `CLASSIC`.
+     * 
+     */
+    public Output<String> generation() {
+        return this.generation;
+    }
+    /**
      * Name of the collection group.
      * 
      */
@@ -173,7 +187,7 @@ public class ServerlessCollectionGroup extends com.pulumi.resources.CustomResour
         return this.region;
     }
     /**
-     * Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+     * Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
      * 
      * The following arguments are optional:
      * 
@@ -182,7 +196,7 @@ public class ServerlessCollectionGroup extends com.pulumi.resources.CustomResour
     private Output<String> standbyReplicas;
 
     /**
-     * @return Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`.
+     * @return Indicates whether standby replicas should be used for collections in this group. Valid values are `ENABLED` and `DISABLED`. If `generation` is set to `NEXTGEN`, this argument must be set to `ENABLED`.
      * 
      * The following arguments are optional:
      * 

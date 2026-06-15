@@ -99,7 +99,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         /// <summary>
         /// Regex string to apply to the solution stack list returned
-        /// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+        /// by AWS. See [Elastic Beanstalk Supported Platforms](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) from
         /// AWS documentation for reference solution stack names.
         /// 
         /// &gt; **NOTE:** If more or less than a single match is returned by the search,
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
 
         /// <summary>
         /// Regex string to apply to the solution stack list returned
-        /// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+        /// by AWS. See [Elastic Beanstalk Supported Platforms](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html) from
         /// AWS documentation for reference solution stack names.
         /// 
         /// &gt; **NOTE:** If more or less than a single match is returned by the search,

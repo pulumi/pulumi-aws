@@ -2248,6 +2248,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/agentcorePolicy",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcorePolicy:AgentcorePolicy": "AgentcorePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/agentcorePolicyEngine",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -3124,6 +3132,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudwatch",
   "classes": {
    "aws:cloudwatch/logResourcePolicy:LogResourcePolicy": "LogResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudwatch/logS3TableIntegrationSource",
+  "fqn": "pulumi_aws.cloudwatch",
+  "classes": {
+   "aws:cloudwatch/logS3TableIntegrationSource:LogS3TableIntegrationSource": "LogS3TableIntegrationSource"
   }
  },
  {
@@ -4992,6 +5008,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/localGatewayRouteTable",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/localGatewayRouteTable:LocalGatewayRouteTable": "LocalGatewayRouteTable"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/localGatewayRouteTableVirtualInterfaceGroupAssociation",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/localGatewayRouteTableVirtualInterfaceGroupAssociation:LocalGatewayRouteTableVirtualInterfaceGroupAssociation": "LocalGatewayRouteTableVirtualInterfaceGroupAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/localGatewayRouteTableVpcAssociation",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -5940,6 +5972,22 @@ _utilities.register(
   "fqn": "pulumi_aws.ecs",
   "classes": {
    "aws:ecs/clusterCapacityProviders:ClusterCapacityProviders": "ClusterCapacityProviders"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ecs/daemon",
+  "fqn": "pulumi_aws.ecs",
+  "classes": {
+   "aws:ecs/daemon:Daemon": "Daemon"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ecs/daemonTaskDefinition",
+  "fqn": "pulumi_aws.ecs",
+  "classes": {
+   "aws:ecs/daemonTaskDefinition:DaemonTaskDefinition": "DaemonTaskDefinition"
   }
  },
  {
@@ -7792,6 +7840,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "kinesis/accountSettings",
+  "fqn": "pulumi_aws.kinesis",
+  "classes": {
+   "aws:kinesis/accountSettings:AccountSettings": "AccountSettings"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "kinesis/analyticsApplication",
   "fqn": "pulumi_aws.kinesis",
   "classes": {
@@ -9328,6 +9384,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "observabilityadmin/s3TableIntegration",
+  "fqn": "pulumi_aws.observabilityadmin",
+  "classes": {
+   "aws:observabilityadmin/s3TableIntegration:S3TableIntegration": "S3TableIntegration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "observabilityadmin/telemetryEnrichment",
   "fqn": "pulumi_aws.observabilityadmin",
   "classes": {
@@ -9756,6 +9820,14 @@ _utilities.register(
   "fqn": "pulumi_aws.pinpoint",
   "classes": {
    "aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet": "Smsvoicev2ConfigurationSet"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "pinpoint/smsvoicev2EventDestination",
+  "fqn": "pulumi_aws.pinpoint",
+  "classes": {
+   "aws:pinpoint/smsvoicev2EventDestination:Smsvoicev2EventDestination": "Smsvoicev2EventDestination"
   }
  },
  {

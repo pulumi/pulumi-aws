@@ -40,6 +40,29 @@ __all__ = [
     'ClusterConfigurationManagedStorageConfiguration',
     'ClusterServiceConnectDefaults',
     'ClusterSetting',
+    'DaemonDeploymentConfiguration',
+    'DaemonDeploymentConfigurationAlarms',
+    'DaemonTaskDefinitionContainerDefinition',
+    'DaemonTaskDefinitionContainerDefinitionDependsOn',
+    'DaemonTaskDefinitionContainerDefinitionEnvironment',
+    'DaemonTaskDefinitionContainerDefinitionEnvironmentFile',
+    'DaemonTaskDefinitionContainerDefinitionFirelensConfiguration',
+    'DaemonTaskDefinitionContainerDefinitionHealthCheck',
+    'DaemonTaskDefinitionContainerDefinitionLinuxParameters',
+    'DaemonTaskDefinitionContainerDefinitionLinuxParametersCapabilities',
+    'DaemonTaskDefinitionContainerDefinitionLinuxParametersDevice',
+    'DaemonTaskDefinitionContainerDefinitionLinuxParametersTmpf',
+    'DaemonTaskDefinitionContainerDefinitionLogConfiguration',
+    'DaemonTaskDefinitionContainerDefinitionLogConfigurationSecretOption',
+    'DaemonTaskDefinitionContainerDefinitionMountPoint',
+    'DaemonTaskDefinitionContainerDefinitionRepositoryCredentials',
+    'DaemonTaskDefinitionContainerDefinitionRestartPolicy',
+    'DaemonTaskDefinitionContainerDefinitionSecret',
+    'DaemonTaskDefinitionContainerDefinitionSystemControl',
+    'DaemonTaskDefinitionContainerDefinitionUlimit',
+    'DaemonTaskDefinitionVolume',
+    'DaemonTaskDefinitionVolumeHost',
+    'DaemonTimeouts',
     'ExpressGatewayServiceIngressPath',
     'ExpressGatewayServiceNetworkConfiguration',
     'ExpressGatewayServicePrimaryContainer',
@@ -1507,6 +1530,1474 @@ class ClusterSetting(dict):
         Value to assign to the setting. Valid values: `enhanced`, `enabled`, `disabled`.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DaemonDeploymentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bakeTimeInMinutes":
+            suggest = "bake_time_in_minutes"
+        elif key == "drainPercent":
+            suggest = "drain_percent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonDeploymentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonDeploymentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonDeploymentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarms: Optional['outputs.DaemonDeploymentConfigurationAlarms'] = None,
+                 bake_time_in_minutes: Optional[_builtins.int] = None,
+                 drain_percent: Optional[_builtins.float] = None):
+        """
+        :param 'DaemonDeploymentConfigurationAlarmsArgs' alarms: Alarm configuration for deployment monitoring. See Alarms below.
+        :param _builtins.int bake_time_in_minutes: Time in minutes to wait before considering a deployment successful. Valid values are between 0 and 1440. Defaults to `0`.
+        :param _builtins.float drain_percent: Percentage of tasks to drain during deployment. Valid values are between 0.0 and 100.0.
+        """
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+        if bake_time_in_minutes is not None:
+            pulumi.set(__self__, "bake_time_in_minutes", bake_time_in_minutes)
+        if drain_percent is not None:
+            pulumi.set(__self__, "drain_percent", drain_percent)
+
+    @_builtins.property
+    @pulumi.getter
+    def alarms(self) -> Optional['outputs.DaemonDeploymentConfigurationAlarms']:
+        """
+        Alarm configuration for deployment monitoring. See Alarms below.
+        """
+        return pulumi.get(self, "alarms")
+
+    @_builtins.property
+    @pulumi.getter(name="bakeTimeInMinutes")
+    def bake_time_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        Time in minutes to wait before considering a deployment successful. Valid values are between 0 and 1440. Defaults to `0`.
+        """
+        return pulumi.get(self, "bake_time_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="drainPercent")
+    def drain_percent(self) -> Optional[_builtins.float]:
+        """
+        Percentage of tasks to drain during deployment. Valid values are between 0.0 and 100.0.
+        """
+        return pulumi.get(self, "drain_percent")
+
+
+@pulumi.output_type
+class DaemonDeploymentConfigurationAlarms(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmNames":
+            suggest = "alarm_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonDeploymentConfigurationAlarms. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonDeploymentConfigurationAlarms.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonDeploymentConfigurationAlarms.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarm_names: Optional[Sequence[_builtins.str]] = None,
+                 enable: Optional[_builtins.bool] = None):
+        """
+        :param Sequence[_builtins.str] alarm_names: List of CloudWatch alarm names to monitor during deployment.
+        :param _builtins.bool enable: Whether to enable alarm monitoring for deployments. Defaults to `false`.
+        """
+        if alarm_names is not None:
+            pulumi.set(__self__, "alarm_names", alarm_names)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+
+    @_builtins.property
+    @pulumi.getter(name="alarmNames")
+    def alarm_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of CloudWatch alarm names to monitor during deployment.
+        """
+        return pulumi.get(self, "alarm_names")
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable alarm monitoring for deployments. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dependsOns":
+            suggest = "depends_ons"
+        elif key == "entryPoints":
+            suggest = "entry_points"
+        elif key == "environmentFiles":
+            suggest = "environment_files"
+        elif key == "firelensConfiguration":
+            suggest = "firelens_configuration"
+        elif key == "healthCheck":
+            suggest = "health_check"
+        elif key == "linuxParameters":
+            suggest = "linux_parameters"
+        elif key == "logConfiguration":
+            suggest = "log_configuration"
+        elif key == "memoryReservation":
+            suggest = "memory_reservation"
+        elif key == "mountPoints":
+            suggest = "mount_points"
+        elif key == "pseudoTerminal":
+            suggest = "pseudo_terminal"
+        elif key == "readonlyRootFilesystem":
+            suggest = "readonly_root_filesystem"
+        elif key == "repositoryCredentials":
+            suggest = "repository_credentials"
+        elif key == "restartPolicy":
+            suggest = "restart_policy"
+        elif key == "startTimeout":
+            suggest = "start_timeout"
+        elif key == "stopTimeout":
+            suggest = "stop_timeout"
+        elif key == "systemControls":
+            suggest = "system_controls"
+        elif key == "workingDirectory":
+            suggest = "working_directory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image: _builtins.str,
+                 commands: Optional[Sequence[_builtins.str]] = None,
+                 cpu: Optional[_builtins.int] = None,
+                 depends_ons: Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionDependsOn']] = None,
+                 entry_points: Optional[Sequence[_builtins.str]] = None,
+                 environment_files: Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionEnvironmentFile']] = None,
+                 environments: Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionEnvironment']] = None,
+                 essential: Optional[_builtins.bool] = None,
+                 firelens_configuration: Optional['outputs.DaemonTaskDefinitionContainerDefinitionFirelensConfiguration'] = None,
+                 health_check: Optional['outputs.DaemonTaskDefinitionContainerDefinitionHealthCheck'] = None,
+                 interactive: Optional[_builtins.bool] = None,
+                 linux_parameters: Optional['outputs.DaemonTaskDefinitionContainerDefinitionLinuxParameters'] = None,
+                 log_configuration: Optional['outputs.DaemonTaskDefinitionContainerDefinitionLogConfiguration'] = None,
+                 memory: Optional[_builtins.int] = None,
+                 memory_reservation: Optional[_builtins.int] = None,
+                 mount_points: Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionMountPoint']] = None,
+                 name: Optional[_builtins.str] = None,
+                 privileged: Optional[_builtins.bool] = None,
+                 pseudo_terminal: Optional[_builtins.bool] = None,
+                 readonly_root_filesystem: Optional[_builtins.bool] = None,
+                 repository_credentials: Optional['outputs.DaemonTaskDefinitionContainerDefinitionRepositoryCredentials'] = None,
+                 restart_policy: Optional['outputs.DaemonTaskDefinitionContainerDefinitionRestartPolicy'] = None,
+                 secrets: Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionSecret']] = None,
+                 start_timeout: Optional[_builtins.int] = None,
+                 stop_timeout: Optional[_builtins.int] = None,
+                 system_controls: Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionSystemControl']] = None,
+                 ulimits: Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionUlimit']] = None,
+                 user: Optional[_builtins.str] = None,
+                 working_directory: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str image: Image used to start a container.
+        :param Sequence[_builtins.str] commands: Command that is passed to the container.
+        :param _builtins.int cpu: Number of CPU units reserved for the container.
+        :param Sequence['DaemonTaskDefinitionContainerDefinitionDependsOnArgs'] depends_ons: Dependencies defined for container startup and shutdown. Detailed below.
+        :param Sequence[_builtins.str] entry_points: Entry point that is passed to the container.
+        :param Sequence['DaemonTaskDefinitionContainerDefinitionEnvironmentFileArgs'] environment_files: List of files containing the environment variables to pass to a container. Detailed below.
+        :param Sequence['DaemonTaskDefinitionContainerDefinitionEnvironmentArgs'] environments: Environment variables to pass to a container. Detailed below.
+        :param _builtins.bool essential: If the essential parameter of a container is marked as true, and that container fails or stops for any reason, all other containers that are part of the task are stopped.
+        :param 'DaemonTaskDefinitionContainerDefinitionFirelensConfigurationArgs' firelens_configuration: FireLens configuration for the container. Detailed below.
+        :param 'DaemonTaskDefinitionContainerDefinitionHealthCheckArgs' health_check: Container health check command and associated configuration parameters for the container. Detailed below.
+        :param _builtins.bool interactive: When this parameter is true, you can deploy containerized applications that require stdin or a tty to be allocated.
+        :param 'DaemonTaskDefinitionContainerDefinitionLinuxParametersArgs' linux_parameters: Linux-specific modifications that are applied to the container. Detailed below.
+        :param 'DaemonTaskDefinitionContainerDefinitionLogConfigurationArgs' log_configuration: Log configuration specification for the container. Detailed below.
+        :param _builtins.int memory: Amount (in MiB) of memory to present to the container.
+        :param _builtins.int memory_reservation: Soft limit (in MiB) of memory to reserve for the container.
+        :param Sequence['DaemonTaskDefinitionContainerDefinitionMountPointArgs'] mount_points: Mount points for data volumes in your container. Detailed below.
+        :param _builtins.str name: Name of a container.
+        :param _builtins.bool privileged: When this parameter is true, the container is given elevated privileges on the host container instance.
+        :param _builtins.bool pseudo_terminal: When this parameter is true, a TTY is allocated.
+        :param _builtins.bool readonly_root_filesystem: When this parameter is true, the container is given read-only access to its root file system.
+        :param 'DaemonTaskDefinitionContainerDefinitionRepositoryCredentialsArgs' repository_credentials: Private repository authentication credentials to use. Detailed below.
+        :param 'DaemonTaskDefinitionContainerDefinitionRestartPolicyArgs' restart_policy: Restart policy for a container. Detailed below.
+        :param Sequence['DaemonTaskDefinitionContainerDefinitionSecretArgs'] secrets: Secrets to pass to the container. Detailed below.
+        :param _builtins.int start_timeout: Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
+        :param _builtins.int stop_timeout: Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
+        :param Sequence['DaemonTaskDefinitionContainerDefinitionSystemControlArgs'] system_controls: List of namespaced kernel parameters to set in the container. Detailed below.
+        :param Sequence['DaemonTaskDefinitionContainerDefinitionUlimitArgs'] ulimits: List of ulimits to set in the container. Detailed below.
+        :param _builtins.str user: User to use inside the container.
+        :param _builtins.str working_directory: Working directory to run commands inside the container.
+        """
+        pulumi.set(__self__, "image", image)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+        if depends_ons is not None:
+            pulumi.set(__self__, "depends_ons", depends_ons)
+        if entry_points is not None:
+            pulumi.set(__self__, "entry_points", entry_points)
+        if environment_files is not None:
+            pulumi.set(__self__, "environment_files", environment_files)
+        if environments is not None:
+            pulumi.set(__self__, "environments", environments)
+        if essential is not None:
+            pulumi.set(__self__, "essential", essential)
+        if firelens_configuration is not None:
+            pulumi.set(__self__, "firelens_configuration", firelens_configuration)
+        if health_check is not None:
+            pulumi.set(__self__, "health_check", health_check)
+        if interactive is not None:
+            pulumi.set(__self__, "interactive", interactive)
+        if linux_parameters is not None:
+            pulumi.set(__self__, "linux_parameters", linux_parameters)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if memory_reservation is not None:
+            pulumi.set(__self__, "memory_reservation", memory_reservation)
+        if mount_points is not None:
+            pulumi.set(__self__, "mount_points", mount_points)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+        if pseudo_terminal is not None:
+            pulumi.set(__self__, "pseudo_terminal", pseudo_terminal)
+        if readonly_root_filesystem is not None:
+            pulumi.set(__self__, "readonly_root_filesystem", readonly_root_filesystem)
+        if repository_credentials is not None:
+            pulumi.set(__self__, "repository_credentials", repository_credentials)
+        if restart_policy is not None:
+            pulumi.set(__self__, "restart_policy", restart_policy)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if start_timeout is not None:
+            pulumi.set(__self__, "start_timeout", start_timeout)
+        if stop_timeout is not None:
+            pulumi.set(__self__, "stop_timeout", stop_timeout)
+        if system_controls is not None:
+            pulumi.set(__self__, "system_controls", system_controls)
+        if ulimits is not None:
+            pulumi.set(__self__, "ulimits", ulimits)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+        if working_directory is not None:
+            pulumi.set(__self__, "working_directory", working_directory)
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> _builtins.str:
+        """
+        Image used to start a container.
+        """
+        return pulumi.get(self, "image")
+
+    @_builtins.property
+    @pulumi.getter
+    def commands(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Command that is passed to the container.
+        """
+        return pulumi.get(self, "commands")
+
+    @_builtins.property
+    @pulumi.getter
+    def cpu(self) -> Optional[_builtins.int]:
+        """
+        Number of CPU units reserved for the container.
+        """
+        return pulumi.get(self, "cpu")
+
+    @_builtins.property
+    @pulumi.getter(name="dependsOns")
+    def depends_ons(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionDependsOn']]:
+        """
+        Dependencies defined for container startup and shutdown. Detailed below.
+        """
+        return pulumi.get(self, "depends_ons")
+
+    @_builtins.property
+    @pulumi.getter(name="entryPoints")
+    def entry_points(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Entry point that is passed to the container.
+        """
+        return pulumi.get(self, "entry_points")
+
+    @_builtins.property
+    @pulumi.getter(name="environmentFiles")
+    def environment_files(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionEnvironmentFile']]:
+        """
+        List of files containing the environment variables to pass to a container. Detailed below.
+        """
+        return pulumi.get(self, "environment_files")
+
+    @_builtins.property
+    @pulumi.getter
+    def environments(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionEnvironment']]:
+        """
+        Environment variables to pass to a container. Detailed below.
+        """
+        return pulumi.get(self, "environments")
+
+    @_builtins.property
+    @pulumi.getter
+    def essential(self) -> Optional[_builtins.bool]:
+        """
+        If the essential parameter of a container is marked as true, and that container fails or stops for any reason, all other containers that are part of the task are stopped.
+        """
+        return pulumi.get(self, "essential")
+
+    @_builtins.property
+    @pulumi.getter(name="firelensConfiguration")
+    def firelens_configuration(self) -> Optional['outputs.DaemonTaskDefinitionContainerDefinitionFirelensConfiguration']:
+        """
+        FireLens configuration for the container. Detailed below.
+        """
+        return pulumi.get(self, "firelens_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> Optional['outputs.DaemonTaskDefinitionContainerDefinitionHealthCheck']:
+        """
+        Container health check command and associated configuration parameters for the container. Detailed below.
+        """
+        return pulumi.get(self, "health_check")
+
+    @_builtins.property
+    @pulumi.getter
+    def interactive(self) -> Optional[_builtins.bool]:
+        """
+        When this parameter is true, you can deploy containerized applications that require stdin or a tty to be allocated.
+        """
+        return pulumi.get(self, "interactive")
+
+    @_builtins.property
+    @pulumi.getter(name="linuxParameters")
+    def linux_parameters(self) -> Optional['outputs.DaemonTaskDefinitionContainerDefinitionLinuxParameters']:
+        """
+        Linux-specific modifications that are applied to the container. Detailed below.
+        """
+        return pulumi.get(self, "linux_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional['outputs.DaemonTaskDefinitionContainerDefinitionLogConfiguration']:
+        """
+        Log configuration specification for the container. Detailed below.
+        """
+        return pulumi.get(self, "log_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def memory(self) -> Optional[_builtins.int]:
+        """
+        Amount (in MiB) of memory to present to the container.
+        """
+        return pulumi.get(self, "memory")
+
+    @_builtins.property
+    @pulumi.getter(name="memoryReservation")
+    def memory_reservation(self) -> Optional[_builtins.int]:
+        """
+        Soft limit (in MiB) of memory to reserve for the container.
+        """
+        return pulumi.get(self, "memory_reservation")
+
+    @_builtins.property
+    @pulumi.getter(name="mountPoints")
+    def mount_points(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionMountPoint']]:
+        """
+        Mount points for data volumes in your container. Detailed below.
+        """
+        return pulumi.get(self, "mount_points")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of a container.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def privileged(self) -> Optional[_builtins.bool]:
+        """
+        When this parameter is true, the container is given elevated privileges on the host container instance.
+        """
+        return pulumi.get(self, "privileged")
+
+    @_builtins.property
+    @pulumi.getter(name="pseudoTerminal")
+    def pseudo_terminal(self) -> Optional[_builtins.bool]:
+        """
+        When this parameter is true, a TTY is allocated.
+        """
+        return pulumi.get(self, "pseudo_terminal")
+
+    @_builtins.property
+    @pulumi.getter(name="readonlyRootFilesystem")
+    def readonly_root_filesystem(self) -> Optional[_builtins.bool]:
+        """
+        When this parameter is true, the container is given read-only access to its root file system.
+        """
+        return pulumi.get(self, "readonly_root_filesystem")
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryCredentials")
+    def repository_credentials(self) -> Optional['outputs.DaemonTaskDefinitionContainerDefinitionRepositoryCredentials']:
+        """
+        Private repository authentication credentials to use. Detailed below.
+        """
+        return pulumi.get(self, "repository_credentials")
+
+    @_builtins.property
+    @pulumi.getter(name="restartPolicy")
+    def restart_policy(self) -> Optional['outputs.DaemonTaskDefinitionContainerDefinitionRestartPolicy']:
+        """
+        Restart policy for a container. Detailed below.
+        """
+        return pulumi.get(self, "restart_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def secrets(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionSecret']]:
+        """
+        Secrets to pass to the container. Detailed below.
+        """
+        return pulumi.get(self, "secrets")
+
+    @_builtins.property
+    @pulumi.getter(name="startTimeout")
+    def start_timeout(self) -> Optional[_builtins.int]:
+        """
+        Time duration (in seconds) to wait before giving up on resolving dependencies for a container.
+        """
+        return pulumi.get(self, "start_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="stopTimeout")
+    def stop_timeout(self) -> Optional[_builtins.int]:
+        """
+        Time duration (in seconds) to wait before the container is forcefully killed if it doesn't exit normally on its own.
+        """
+        return pulumi.get(self, "stop_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="systemControls")
+    def system_controls(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionSystemControl']]:
+        """
+        List of namespaced kernel parameters to set in the container. Detailed below.
+        """
+        return pulumi.get(self, "system_controls")
+
+    @_builtins.property
+    @pulumi.getter
+    def ulimits(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionUlimit']]:
+        """
+        List of ulimits to set in the container. Detailed below.
+        """
+        return pulumi.get(self, "ulimits")
+
+    @_builtins.property
+    @pulumi.getter
+    def user(self) -> Optional[_builtins.str]:
+        """
+        User to use inside the container.
+        """
+        return pulumi.get(self, "user")
+
+    @_builtins.property
+    @pulumi.getter(name="workingDirectory")
+    def working_directory(self) -> Optional[_builtins.str]:
+        """
+        Working directory to run commands inside the container.
+        """
+        return pulumi.get(self, "working_directory")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionDependsOn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinitionDependsOn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinitionDependsOn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinitionDependsOn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition: _builtins.str,
+                 container_name: _builtins.str):
+        """
+        :param _builtins.str condition: Dependency condition of the container. Valid values: `START`, `COMPLETE`, `SUCCESS`, `HEALTHY`.
+        :param _builtins.str container_name: Name of a container.
+        """
+        pulumi.set(__self__, "condition", condition)
+        pulumi.set(__self__, "container_name", container_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def condition(self) -> _builtins.str:
+        """
+        Dependency condition of the container. Valid values: `START`, `COMPLETE`, `SUCCESS`, `HEALTHY`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> _builtins.str:
+        """
+        Name of a container.
+        """
+        return pulumi.get(self, "container_name")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionEnvironment(dict):
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str name: Name of the environment variable.
+        :param _builtins.str value: Value of the environment variable.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the environment variable.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Value of the environment variable.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionEnvironmentFile(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str type: File type to use. The only supported value is `s3`.
+        :param _builtins.str value: ARN of the Amazon S3 object containing the environment variable file.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        File type to use. The only supported value is `s3`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        ARN of the Amazon S3 object containing the environment variable file.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionFirelensConfiguration(dict):
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 options: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str type: Log router to use. Valid values: `fluentd`, `fluentbit`.
+        :param Mapping[str, _builtins.str] options: Options to use when configuring the log router.
+        """
+        pulumi.set(__self__, "type", type)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Log router to use. Valid values: `fluentd`, `fluentbit`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Options to use when configuring the log router.
+        """
+        return pulumi.get(self, "options")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionHealthCheck(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "startPeriod":
+            suggest = "start_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinitionHealthCheck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinitionHealthCheck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinitionHealthCheck.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 commands: Sequence[_builtins.str],
+                 interval: Optional[_builtins.int] = None,
+                 retries: Optional[_builtins.int] = None,
+                 start_period: Optional[_builtins.int] = None,
+                 timeout: Optional[_builtins.int] = None):
+        """
+        :param Sequence[_builtins.str] commands: String array representing the command that the container runs to determine if it is healthy.
+        :param _builtins.int interval: Time period in seconds between each health check execution. Valid range: 5–300.
+        :param _builtins.int retries: Number of times to retry a failed health check. Valid range: 1–10.
+        :param _builtins.int start_period: Grace period in seconds to provide containers time to bootstrap. Valid range: 0–300.
+        :param _builtins.int timeout: Time period in seconds to wait for a health check to succeed. Valid range: 2–60.
+        """
+        pulumi.set(__self__, "commands", commands)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if retries is not None:
+            pulumi.set(__self__, "retries", retries)
+        if start_period is not None:
+            pulumi.set(__self__, "start_period", start_period)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @_builtins.property
+    @pulumi.getter
+    def commands(self) -> Sequence[_builtins.str]:
+        """
+        String array representing the command that the container runs to determine if it is healthy.
+        """
+        return pulumi.get(self, "commands")
+
+    @_builtins.property
+    @pulumi.getter
+    def interval(self) -> Optional[_builtins.int]:
+        """
+        Time period in seconds between each health check execution. Valid range: 5–300.
+        """
+        return pulumi.get(self, "interval")
+
+    @_builtins.property
+    @pulumi.getter
+    def retries(self) -> Optional[_builtins.int]:
+        """
+        Number of times to retry a failed health check. Valid range: 1–10.
+        """
+        return pulumi.get(self, "retries")
+
+    @_builtins.property
+    @pulumi.getter(name="startPeriod")
+    def start_period(self) -> Optional[_builtins.int]:
+        """
+        Grace period in seconds to provide containers time to bootstrap. Valid range: 0–300.
+        """
+        return pulumi.get(self, "start_period")
+
+    @_builtins.property
+    @pulumi.getter
+    def timeout(self) -> Optional[_builtins.int]:
+        """
+        Time period in seconds to wait for a health check to succeed. Valid range: 2–60.
+        """
+        return pulumi.get(self, "timeout")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionLinuxParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initProcessEnabled":
+            suggest = "init_process_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinitionLinuxParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinitionLinuxParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinitionLinuxParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capabilities: Optional['outputs.DaemonTaskDefinitionContainerDefinitionLinuxParametersCapabilities'] = None,
+                 devices: Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionLinuxParametersDevice']] = None,
+                 init_process_enabled: Optional[_builtins.bool] = None,
+                 tmpfs: Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionLinuxParametersTmpf']] = None):
+        """
+        :param 'DaemonTaskDefinitionContainerDefinitionLinuxParametersCapabilitiesArgs' capabilities: Linux capabilities for the container. Detailed below.
+        :param Sequence['DaemonTaskDefinitionContainerDefinitionLinuxParametersDeviceArgs'] devices: Any host devices to expose to the container. Detailed below.
+        :param _builtins.bool init_process_enabled: Run an init process inside the container that forwards signals and reaps processes.
+        :param Sequence['DaemonTaskDefinitionContainerDefinitionLinuxParametersTmpfArgs'] tmpfs: Container path, mount options, and size of the tmpfs mount. Detailed below.
+        """
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if devices is not None:
+            pulumi.set(__self__, "devices", devices)
+        if init_process_enabled is not None:
+            pulumi.set(__self__, "init_process_enabled", init_process_enabled)
+        if tmpfs is not None:
+            pulumi.set(__self__, "tmpfs", tmpfs)
+
+    @_builtins.property
+    @pulumi.getter
+    def capabilities(self) -> Optional['outputs.DaemonTaskDefinitionContainerDefinitionLinuxParametersCapabilities']:
+        """
+        Linux capabilities for the container. Detailed below.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @_builtins.property
+    @pulumi.getter
+    def devices(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionLinuxParametersDevice']]:
+        """
+        Any host devices to expose to the container. Detailed below.
+        """
+        return pulumi.get(self, "devices")
+
+    @_builtins.property
+    @pulumi.getter(name="initProcessEnabled")
+    def init_process_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Run an init process inside the container that forwards signals and reaps processes.
+        """
+        return pulumi.get(self, "init_process_enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def tmpfs(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionLinuxParametersTmpf']]:
+        """
+        Container path, mount options, and size of the tmpfs mount. Detailed below.
+        """
+        return pulumi.get(self, "tmpfs")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionLinuxParametersCapabilities(dict):
+    def __init__(__self__, *,
+                 adds: Optional[Sequence[_builtins.str]] = None,
+                 drops: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] adds: Linux capabilities for the container that have been added to the default configuration provided by Docker.
+        :param Sequence[_builtins.str] drops: Linux capabilities for the container that have been removed from the default configuration provided by Docker.
+        """
+        if adds is not None:
+            pulumi.set(__self__, "adds", adds)
+        if drops is not None:
+            pulumi.set(__self__, "drops", drops)
+
+    @_builtins.property
+    @pulumi.getter
+    def adds(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Linux capabilities for the container that have been added to the default configuration provided by Docker.
+        """
+        return pulumi.get(self, "adds")
+
+    @_builtins.property
+    @pulumi.getter
+    def drops(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Linux capabilities for the container that have been removed from the default configuration provided by Docker.
+        """
+        return pulumi.get(self, "drops")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionLinuxParametersDevice(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostPath":
+            suggest = "host_path"
+        elif key == "containerPath":
+            suggest = "container_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinitionLinuxParametersDevice. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinitionLinuxParametersDevice.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinitionLinuxParametersDevice.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_path: _builtins.str,
+                 container_path: Optional[_builtins.str] = None,
+                 permissions: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str host_path: Path for the device on the host container instance.
+        :param _builtins.str container_path: Path inside the container at which to expose the host device.
+        :param Sequence[_builtins.str] permissions: Explicit permissions to provide to the container for the device. Valid values: `read`, `write`, `mknod`.
+        """
+        pulumi.set(__self__, "host_path", host_path)
+        if container_path is not None:
+            pulumi.set(__self__, "container_path", container_path)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+
+    @_builtins.property
+    @pulumi.getter(name="hostPath")
+    def host_path(self) -> _builtins.str:
+        """
+        Path for the device on the host container instance.
+        """
+        return pulumi.get(self, "host_path")
+
+    @_builtins.property
+    @pulumi.getter(name="containerPath")
+    def container_path(self) -> Optional[_builtins.str]:
+        """
+        Path inside the container at which to expose the host device.
+        """
+        return pulumi.get(self, "container_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def permissions(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Explicit permissions to provide to the container for the device. Valid values: `read`, `write`, `mknod`.
+        """
+        return pulumi.get(self, "permissions")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionLinuxParametersTmpf(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerPath":
+            suggest = "container_path"
+        elif key == "mountOptions":
+            suggest = "mount_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinitionLinuxParametersTmpf. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinitionLinuxParametersTmpf.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinitionLinuxParametersTmpf.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_path: _builtins.str,
+                 size: _builtins.int,
+                 mount_options: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str container_path: Absolute file path where the tmpfs volume is to be mounted.
+        :param _builtins.int size: Maximum size (in MiB) of the tmpfs volume.
+        :param Sequence[_builtins.str] mount_options: List of tmpfs volume mount options.
+        """
+        pulumi.set(__self__, "container_path", container_path)
+        pulumi.set(__self__, "size", size)
+        if mount_options is not None:
+            pulumi.set(__self__, "mount_options", mount_options)
+
+    @_builtins.property
+    @pulumi.getter(name="containerPath")
+    def container_path(self) -> _builtins.str:
+        """
+        Absolute file path where the tmpfs volume is to be mounted.
+        """
+        return pulumi.get(self, "container_path")
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> _builtins.int:
+        """
+        Maximum size (in MiB) of the tmpfs volume.
+        """
+        return pulumi.get(self, "size")
+
+    @_builtins.property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of tmpfs volume mount options.
+        """
+        return pulumi.get(self, "mount_options")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionLogConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logDriver":
+            suggest = "log_driver"
+        elif key == "secretOptions":
+            suggest = "secret_options"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinitionLogConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinitionLogConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinitionLogConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 log_driver: _builtins.str,
+                 options: Optional[Mapping[str, _builtins.str]] = None,
+                 secret_options: Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionLogConfigurationSecretOption']] = None):
+        """
+        :param _builtins.str log_driver: Log driver to use for the container. Valid values: `json-file`, `syslog`, `journald`, `gelf`, `fluentd`, `awslogs`, `splunk`, `awsfirelens`.
+        :param Mapping[str, _builtins.str] options: Configuration options to send to the log driver.
+        :param Sequence['DaemonTaskDefinitionContainerDefinitionLogConfigurationSecretOptionArgs'] secret_options: Secrets to pass to the log configuration. Detailed below.
+        """
+        pulumi.set(__self__, "log_driver", log_driver)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if secret_options is not None:
+            pulumi.set(__self__, "secret_options", secret_options)
+
+    @_builtins.property
+    @pulumi.getter(name="logDriver")
+    def log_driver(self) -> _builtins.str:
+        """
+        Log driver to use for the container. Valid values: `json-file`, `syslog`, `journald`, `gelf`, `fluentd`, `awslogs`, `splunk`, `awsfirelens`.
+        """
+        return pulumi.get(self, "log_driver")
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Configuration options to send to the log driver.
+        """
+        return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter(name="secretOptions")
+    def secret_options(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionContainerDefinitionLogConfigurationSecretOption']]:
+        """
+        Secrets to pass to the log configuration. Detailed below.
+        """
+        return pulumi.get(self, "secret_options")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionLogConfigurationSecretOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueFrom":
+            suggest = "value_from"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinitionLogConfigurationSecretOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinitionLogConfigurationSecretOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinitionLogConfigurationSecretOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value_from: _builtins.str):
+        """
+        :param _builtins.str name: Name of the secret.
+        :param _builtins.str value_from: Secret to expose to the log configuration.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_from", value_from)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the secret.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> _builtins.str:
+        """
+        Secret to expose to the log configuration.
+        """
+        return pulumi.get(self, "value_from")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionMountPoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerPath":
+            suggest = "container_path"
+        elif key == "readOnly":
+            suggest = "read_only"
+        elif key == "sourceVolume":
+            suggest = "source_volume"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinitionMountPoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinitionMountPoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinitionMountPoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_path: Optional[_builtins.str] = None,
+                 read_only: Optional[_builtins.bool] = None,
+                 source_volume: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str container_path: Path on the container to mount the host volume at.
+        :param _builtins.bool read_only: If this value is true, the container has read-only access to the volume.
+        :param _builtins.str source_volume: Name of the volume to mount.
+        """
+        if container_path is not None:
+            pulumi.set(__self__, "container_path", container_path)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if source_volume is not None:
+            pulumi.set(__self__, "source_volume", source_volume)
+
+    @_builtins.property
+    @pulumi.getter(name="containerPath")
+    def container_path(self) -> Optional[_builtins.str]:
+        """
+        Path on the container to mount the host volume at.
+        """
+        return pulumi.get(self, "container_path")
+
+    @_builtins.property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> Optional[_builtins.bool]:
+        """
+        If this value is true, the container has read-only access to the volume.
+        """
+        return pulumi.get(self, "read_only")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceVolume")
+    def source_volume(self) -> Optional[_builtins.str]:
+        """
+        Name of the volume to mount.
+        """
+        return pulumi.get(self, "source_volume")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionRepositoryCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "credentialsParameter":
+            suggest = "credentials_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinitionRepositoryCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinitionRepositoryCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinitionRepositoryCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credentials_parameter: _builtins.str):
+        """
+        :param _builtins.str credentials_parameter: ARN of the secret containing the private repository credentials.
+        """
+        pulumi.set(__self__, "credentials_parameter", credentials_parameter)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsParameter")
+    def credentials_parameter(self) -> _builtins.str:
+        """
+        ARN of the secret containing the private repository credentials.
+        """
+        return pulumi.get(self, "credentials_parameter")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionRestartPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoredExitCodes":
+            suggest = "ignored_exit_codes"
+        elif key == "restartAttemptPeriod":
+            suggest = "restart_attempt_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinitionRestartPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinitionRestartPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinitionRestartPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 ignored_exit_codes: Optional[Sequence[_builtins.int]] = None,
+                 restart_attempt_period: Optional[_builtins.int] = None):
+        """
+        :param _builtins.bool enabled: Whether a restart policy is enabled for the container.
+        :param Sequence[_builtins.int] ignored_exit_codes: List of exit codes that Amazon ECS will ignore and not attempt a restart on. Maximum of 50.
+        :param _builtins.int restart_attempt_period: Period of time (in seconds) that the container must run for before a restart can be attempted. Valid range: 60–1800.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if ignored_exit_codes is not None:
+            pulumi.set(__self__, "ignored_exit_codes", ignored_exit_codes)
+        if restart_attempt_period is not None:
+            pulumi.set(__self__, "restart_attempt_period", restart_attempt_period)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether a restart policy is enabled for the container.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoredExitCodes")
+    def ignored_exit_codes(self) -> Optional[Sequence[_builtins.int]]:
+        """
+        List of exit codes that Amazon ECS will ignore and not attempt a restart on. Maximum of 50.
+        """
+        return pulumi.get(self, "ignored_exit_codes")
+
+    @_builtins.property
+    @pulumi.getter(name="restartAttemptPeriod")
+    def restart_attempt_period(self) -> Optional[_builtins.int]:
+        """
+        Period of time (in seconds) that the container must run for before a restart can be attempted. Valid range: 60–1800.
+        """
+        return pulumi.get(self, "restart_attempt_period")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueFrom":
+            suggest = "value_from"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinitionSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinitionSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinitionSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value_from: _builtins.str):
+        """
+        :param _builtins.str name: Name of the secret.
+        :param _builtins.str value_from: Secret to expose to the container. The supported values are either the full ARN of the Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_from", value_from)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the secret.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="valueFrom")
+    def value_from(self) -> _builtins.str:
+        """
+        Secret to expose to the container. The supported values are either the full ARN of the Secrets Manager secret or the full ARN of the parameter in the SSM Parameter Store.
+        """
+        return pulumi.get(self, "value_from")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionSystemControl(dict):
+    def __init__(__self__, *,
+                 namespace: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str namespace: Namespaced kernel parameter to set a value for.
+        :param _builtins.str value: Value for the namespaced kernel parameter.
+        """
+        if namespace is not None:
+            pulumi.set(__self__, "namespace", namespace)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> Optional[_builtins.str]:
+        """
+        Namespaced kernel parameter to set a value for.
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Value for the namespaced kernel parameter.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionContainerDefinitionUlimit(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hardLimit":
+            suggest = "hard_limit"
+        elif key == "softLimit":
+            suggest = "soft_limit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionContainerDefinitionUlimit. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionContainerDefinitionUlimit.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionContainerDefinitionUlimit.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hard_limit: _builtins.int,
+                 name: _builtins.str,
+                 soft_limit: _builtins.int):
+        """
+        :param _builtins.int hard_limit: Hard limit for the ulimit type.
+        :param _builtins.str name: Type of the ulimit.
+        :param _builtins.int soft_limit: Soft limit for the ulimit type.
+        """
+        pulumi.set(__self__, "hard_limit", hard_limit)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "soft_limit", soft_limit)
+
+    @_builtins.property
+    @pulumi.getter(name="hardLimit")
+    def hard_limit(self) -> _builtins.int:
+        """
+        Hard limit for the ulimit type.
+        """
+        return pulumi.get(self, "hard_limit")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Type of the ulimit.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="softLimit")
+    def soft_limit(self) -> _builtins.int:
+        """
+        Soft limit for the ulimit type.
+        """
+        return pulumi.get(self, "soft_limit")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionVolume(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 hosts: Optional[Sequence['outputs.DaemonTaskDefinitionVolumeHost']] = None):
+        """
+        :param _builtins.str name: Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
+        :param Sequence['DaemonTaskDefinitionVolumeHostArgs'] hosts: Configuration for a host volume. Detailed below.
+        """
+        pulumi.set(__self__, "name", name)
+        if hosts is not None:
+            pulumi.set(__self__, "hosts", hosts)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the volume. This name is referenced in the `sourceVolume` parameter of container definition in the `mountPoints` section.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def hosts(self) -> Optional[Sequence['outputs.DaemonTaskDefinitionVolumeHost']]:
+        """
+        Configuration for a host volume. Detailed below.
+        """
+        return pulumi.get(self, "hosts")
+
+
+@pulumi.output_type
+class DaemonTaskDefinitionVolumeHost(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourcePath":
+            suggest = "source_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DaemonTaskDefinitionVolumeHost. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DaemonTaskDefinitionVolumeHost.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DaemonTaskDefinitionVolumeHost.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str source_path: Path on the host container instance that is presented to the container. If not set, ECS will create a non-persistent data volume that starts empty and is deleted after the task has finished.
+        """
+        if source_path is not None:
+            pulumi.set(__self__, "source_path", source_path)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePath")
+    def source_path(self) -> Optional[_builtins.str]:
+        """
+        Path on the host container instance that is presented to the container. If not set, ECS will create a non-persistent data volume that starts empty and is deleted after the task has finished.
+        """
+        return pulumi.get(self, "source_path")
+
+
+@pulumi.output_type
+class DaemonTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

@@ -239,8 +239,6 @@ import (
 // ```
 //
 // Deprecated: aws.s3/bucketaclv2.BucketAclV2 has been deprecated in favor of aws.s3/bucketacl.BucketAcl
-//
-// [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
 type BucketAclV2 struct {
 	pulumi.CustomResourceState
 

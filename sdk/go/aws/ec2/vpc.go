@@ -132,10 +132,6 @@ import (
 //
 // ```
 //
-// ## GuardDuty Cleanup Permissions
-//
-// The following IAM permissions are optional but recommended for automatic cleanup of GuardDuty-managed resources during VPC deletion:
-//
 // ## Import
 //
 // Using `pulumi import`, import VPCs using the VPC `id`. For example:

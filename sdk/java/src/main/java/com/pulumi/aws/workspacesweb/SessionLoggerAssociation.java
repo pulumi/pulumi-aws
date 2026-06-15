@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.workspacesweb.SessionLogger;
@@ -85,7 +87,7 @@ import javax.annotation.Nullable;
  *         var exampleSessionLogger = new SessionLogger("exampleSessionLogger", SessionLoggerArgs.builder()
  *             .displayName("example")
  *             .eventFilter(SessionLoggerEventFilterArgs.builder()
- *                 .all(SessionLoggerEventFilterAllArgs.builder()
+ *                 .all(com.pulumi.aws.workspacesweb.inputs.SessionLoggerEventFilterAllArgs.builder()
  *                     .build()[0])
  *                 .build())
  *             .logConfiguration(SessionLoggerLogConfigurationArgs.builder()

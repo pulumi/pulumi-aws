@@ -13,9 +13,6 @@ namespace Pulumi.Aws.Xray.Outputs
     [OutputType]
     public sealed class IndexingRuleRuleProbabilistic
     {
-        /// <summary>
-        /// Applied sampling percentage of traceIds.
-        /// </summary>
         public readonly double? ActualSamplingPercentage;
         /// <summary>
         /// Configured sampling percentage of traceIds.

@@ -12,30 +12,60 @@ namespace Pulumi.Aws.Ec2.Inputs
 
     public sealed class LaunchConfigurationEbsBlockDeviceGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether the volume should be destroyed
+        /// on instance termination (Default: `True`).
+        /// </summary>
         [Input("deleteOnTermination")]
         public Input<bool>? DeleteOnTermination { get; set; }
 
+        /// <summary>
+        /// The name of the device to mount.
+        /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the volume should be encrypted or not. Defaults to `False`.
+        /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
 
+        /// <summary>
+        /// The amount of provisioned
+        /// [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html).
+        /// This must be set with a `VolumeType` of `"io1"`.
+        /// </summary>
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
+        /// <summary>
+        /// Whether the device in the block device mapping of the AMI is suppressed.
+        /// </summary>
         [Input("noDevice")]
         public Input<bool>? NoDevice { get; set; }
 
+        /// <summary>
+        /// The Snapshot ID to mount.
+        /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
 
+        /// <summary>
+        /// The throughput (MiBps) to provision for a `Gp3` volume.
+        /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
 
+        /// <summary>
+        /// The size of the volume in gigabytes.
+        /// </summary>
         [Input("volumeSize")]
         public Input<int>? VolumeSize { get; set; }
 
+        /// <summary>
+        /// The type of volume. Can be `Standard`, `Gp2`, `Gp3`, `St1`, `Sc1` or `Io1`.
+        /// </summary>
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }
 

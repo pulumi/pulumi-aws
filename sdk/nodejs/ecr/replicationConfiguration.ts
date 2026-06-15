@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * }});
  * ```
  *
- * ## Multiple Region Usage
+ * ### Multiple Region Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * }});
  * ```
  *
- * ## Repository Filter Usage
+ * ### Repository Filter Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

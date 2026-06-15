@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetCredentialProviderConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetMetadataConfigurationArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetPrivateEndpointArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTimeoutsArgs;
 import com.pulumi.core.Output;
@@ -95,14 +96,29 @@ public final class AgentcoreGatewayTargetState extends com.pulumi.resources.Reso
     }
 
     /**
-     * AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+     * 
+     */
+    @Import(name="privateEndpoint")
+    private @Nullable Output<AgentcoreGatewayTargetPrivateEndpointArgs> privateEndpoint;
+
+    /**
+     * @return Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+     * 
+     */
+    public Optional<Output<AgentcoreGatewayTargetPrivateEndpointArgs>> privateEndpoint() {
+        return Optional.ofNullable(this.privateEndpoint);
+    }
+
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -158,6 +174,7 @@ public final class AgentcoreGatewayTargetState extends com.pulumi.resources.Reso
         this.gatewayIdentifier = $.gatewayIdentifier;
         this.metadataConfiguration = $.metadataConfiguration;
         this.name = $.name;
+        this.privateEndpoint = $.privateEndpoint;
         this.region = $.region;
         this.targetConfiguration = $.targetConfiguration;
         this.targetId = $.targetId;
@@ -288,7 +305,28 @@ public final class AgentcoreGatewayTargetState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param region AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+         * @param privateEndpoint Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpoint(@Nullable Output<AgentcoreGatewayTargetPrivateEndpointArgs> privateEndpoint) {
+            $.privateEndpoint = privateEndpoint;
+            return this;
+        }
+
+        /**
+         * @param privateEndpoint Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpoint(AgentcoreGatewayTargetPrivateEndpointArgs privateEndpoint) {
+            return privateEndpoint(Output.of(privateEndpoint));
+        }
+
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -299,7 +337,7 @@ public final class AgentcoreGatewayTargetState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param region AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

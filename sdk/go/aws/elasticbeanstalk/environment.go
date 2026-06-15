@@ -54,65 +54,6 @@ import (
 //
 // ```
 //
-// ## Option Settings
-//
-// Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
-// for supported options and examples.
-//
-// The `setting` and `allSettings` mappings support the following format:
-//
-// * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
-// * `name` - (Required) Name of the configuration option
-// * `value` - (Required) Value for the configuration option
-// * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
-//
-// ### Example With Options
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticbeanstalk"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tftest, err := elasticbeanstalk.NewApplication(ctx, "tftest", &elasticbeanstalk.ApplicationArgs{
-//				Name:        pulumi.String("tf-test-name"),
-//				Description: pulumi.String("tf-test-desc"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticbeanstalk.NewEnvironment(ctx, "tfenvtest", &elasticbeanstalk.EnvironmentArgs{
-//				Name:              pulumi.String("tf-test-name"),
-//				Application:       tftest.Name,
-//				SolutionStackName: pulumi.String("64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"),
-//				Settings: elasticbeanstalk.EnvironmentSettingArray{
-//					&elasticbeanstalk.EnvironmentSettingArgs{
-//						Namespace: pulumi.String("aws:ec2:vpc"),
-//						Name:      pulumi.String("VPCId"),
-//						Value:     pulumi.String("vpc-xxxxxxxx"),
-//					},
-//					&elasticbeanstalk.EnvironmentSettingArgs{
-//						Namespace: pulumi.String("aws:ec2:vpc"),
-//						Name:      pulumi.String("Subnets"),
-//						Value:     pulumi.String("subnet-xxxxxxxx"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:

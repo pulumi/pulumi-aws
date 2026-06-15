@@ -939,6 +939,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("interconnect")]
+        public Input<string>? Interconnect { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("internetmonitor")]
         public Input<string>? Internetmonitor { get; set; }
 

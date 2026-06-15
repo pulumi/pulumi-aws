@@ -78,7 +78,7 @@ import (
 //
 // ```
 //
-// ## Lambda integration
+// ### Lambda integration
 //
 // ```go
 // package main
@@ -213,7 +213,7 @@ import (
 //
 // ```
 //
-// ## Lambda integration with response streaming
+// ### Lambda integration with response streaming
 //
 // All other resources and data sources are the same as in the previous example; only the integration configuration differs.
 // Note that the `timeout` of the `lambda.Function` may need to be adjusted.
@@ -249,7 +249,7 @@ import (
 //
 // ```
 //
-// ## VPC Link
+// ### VPC Link
 //
 // ```go
 // package main
@@ -343,7 +343,7 @@ import (
 //
 // ```
 //
-// ## VPC Link V2 with Application Load Balancer
+// ### VPC Link V2 with Application Load Balancer
 //
 // ```go
 // package main

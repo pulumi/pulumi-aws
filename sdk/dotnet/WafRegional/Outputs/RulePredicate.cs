@@ -13,8 +13,17 @@ namespace Pulumi.Aws.WafRegional.Outputs
     [OutputType]
     public sealed class RulePredicate
     {
+        /// <summary>
+        /// The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+        /// </summary>
         public readonly string DataId;
+        /// <summary>
+        /// Whether to use the settings or the negated settings that you specified in the objects.
+        /// </summary>
         public readonly bool Negated;
+        /// <summary>
+        /// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

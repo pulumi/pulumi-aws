@@ -42,6 +42,7 @@ from .log_group import *
 from .log_index_policy import *
 from .log_metric_filter import *
 from .log_resource_policy import *
+from .log_s3_table_integration_source import *
 from .log_stream import *
 from .log_subscription_filter import *
 from .log_transformer import *

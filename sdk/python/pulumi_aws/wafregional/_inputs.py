@@ -206,13 +206,11 @@ class ByteMatchSetByteMatchTupleFieldToMatchArgs:
 class GeoMatchSetGeoMatchConstraintArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
-    The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+    Type of geographical area you want AWS WAF to search for. Currently `Country` is the only valid value.
     """
     value: pulumi.Input[_builtins.str]
     """
-    The country that you want AWS WAF to search for.
-    This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
-    See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
+    Two-letter country code that you want AWS WAF to search for, e.g., `US`, `CA`, `RU`, `CN`. See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
     """
 
 @pulumi.input_type
@@ -221,10 +219,8 @@ class GeoMatchSetGeoMatchConstraintArgs:
                  type: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] type: The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
-        :param pulumi.Input[_builtins.str] value: The country that you want AWS WAF to search for.
-               This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
-               See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
+        :param pulumi.Input[_builtins.str] type: Type of geographical area you want AWS WAF to search for. Currently `Country` is the only valid value.
+        :param pulumi.Input[_builtins.str] value: Two-letter country code that you want AWS WAF to search for, e.g., `US`, `CA`, `RU`, `CN`. See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -233,7 +229,7 @@ class GeoMatchSetGeoMatchConstraintArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
+        Type of geographical area you want AWS WAF to search for. Currently `Country` is the only valid value.
         """
         return pulumi.get(self, "type")
 
@@ -245,9 +241,7 @@ class GeoMatchSetGeoMatchConstraintArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        The country that you want AWS WAF to search for.
-        This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
-        See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
+        Two-letter country code that you want AWS WAF to search for, e.g., `US`, `CA`, `RU`, `CN`. See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
         """
         return pulumi.get(self, "value")
 
@@ -613,8 +607,17 @@ class RuleGroupActivatedRuleActionArgs:
 
 class RulePredicateArgsDict(TypedDict):
     data_id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+    """
     negated: pulumi.Input[_builtins.bool]
+    """
+    Whether to use the settings or the negated settings that you specified in the objects.
+    """
     type: pulumi.Input[_builtins.str]
+    """
+    The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+    """
 
 @pulumi.input_type
 class RulePredicateArgs:
@@ -622,6 +625,11 @@ class RulePredicateArgs:
                  data_id: pulumi.Input[_builtins.str],
                  negated: pulumi.Input[_builtins.bool],
                  type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] data_id: The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+        :param pulumi.Input[_builtins.bool] negated: Whether to use the settings or the negated settings that you specified in the objects.
+        :param pulumi.Input[_builtins.str] type: The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+        """
         pulumi.set(__self__, "data_id", data_id)
         pulumi.set(__self__, "negated", negated)
         pulumi.set(__self__, "type", type)
@@ -629,6 +637,9 @@ class RulePredicateArgs:
     @_builtins.property
     @pulumi.getter(name="dataId")
     def data_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+        """
         return pulumi.get(self, "data_id")
 
     @data_id.setter
@@ -638,6 +649,9 @@ class RulePredicateArgs:
     @_builtins.property
     @pulumi.getter
     def negated(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether to use the settings or the negated settings that you specified in the objects.
+        """
         return pulumi.get(self, "negated")
 
     @negated.setter
@@ -647,6 +661,9 @@ class RulePredicateArgs:
     @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+        """
         return pulumi.get(self, "type")
 
     @type.setter

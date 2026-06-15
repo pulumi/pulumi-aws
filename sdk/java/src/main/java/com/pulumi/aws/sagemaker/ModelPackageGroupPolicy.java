@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.sagemaker.ModelPackageGroupArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.sagemaker.ModelPackageGroupPolicy;
  * import com.pulumi.aws.sagemaker.ModelPackageGroupPolicyArgs;
  * import com.pulumi.std.StdFunctions;

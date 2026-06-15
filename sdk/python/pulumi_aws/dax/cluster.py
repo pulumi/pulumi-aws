@@ -728,8 +728,6 @@ class Cluster(pulumi.CustomResource):
         $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
         ```
 
-        [1]: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
-
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -795,8 +793,6 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
         ```
-
-        [1]: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
 
 
         :param str resource_name: The name of the resource.

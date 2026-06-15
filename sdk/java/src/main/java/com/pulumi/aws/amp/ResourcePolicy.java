@@ -20,6 +20,10 @@ import javax.annotation.Nullable;
  * 
  * Resource-based policies allow you to grant permissions to other AWS accounts or services to access your Prometheus workspace. This enables cross-account access and fine-grained permissions for workspace sharing.
  * 
+ * The following actions are supported in resource policies for Prometheus workspaces: `aps:RemoteWrite`, `aps:QueryMetrics`, `aps:GetSeries`, `aps:GetLabels`, `aps:GetMetricMetadata`.
+ * 
+ * &gt; **Note:** Only Prometheus-compatible APIs can be used for workspace sharing. Non-Prometheus-compatible APIs added to the policy will be ignored. If your workspace uses customer-managed KMS keys for encryption, you must grant the principals in your resource-based policy access to those KMS keys through KMS grants. The resource ARN in the policy document must match the workspace ARN that the policy is being attached to.
+ * 
  * ## Example Usage
  * 
  * ### Basic Resource Policy
@@ -37,6 +41,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.amp.ResourcePolicy;
  * import com.pulumi.aws.amp.ResourcePolicyArgs;
  * import java.util.ArrayList;
@@ -99,6 +105,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.amp.WorkspaceArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.amp.ResourcePolicy;
  * import com.pulumi.aws.amp.ResourcePolicyArgs;
  * import java.util.ArrayList;
@@ -155,6 +163,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.amp.WorkspaceArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.amp.ResourcePolicy;
  * import com.pulumi.aws.amp.ResourcePolicyArgs;
  * import java.util.ArrayList;
@@ -199,23 +209,6 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
- * 
- * ## Supported Actions
- * 
- * The following actions are supported in resource policies for Prometheus workspaces:
- * 
- * * `aps:RemoteWrite` - Allows writing metrics to the workspace
- * * `aps:QueryMetrics` - Allows querying metrics from the workspace
- * * `aps:GetSeries` - Allows retrieving time series data
- * * `aps:GetLabels` - Allows retrieving label names and values
- * * `aps:GetMetricMetadata` - Allows retrieving metric metadata
- * 
- * ## Notes
- * 
- * * Only Prometheus-compatible APIs can be used for workspace sharing. Non-Prometheus-compatible APIs added to the policy will be ignored.
- * * If your workspace uses customer-managed KMS keys for encryption, you must grant the principals in your resource-based policy access to those KMS keys through KMS grants.
- * * The resource ARN in the policy document must match the workspace ARN that the policy is being attached to.
- * * Resource policies enable cross-account access and fine-grained permissions for Prometheus workspaces.
  * 
  * ## Import
  * 

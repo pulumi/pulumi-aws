@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Scheduling
+ * ### Example Usage with Scheduling
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Filtering
+ * ### Example Usage with Filtering
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With Enhanced Task Mode
+ * ### Example Usage with Enhanced Task Mode
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -525,6 +525,7 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
+     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -568,6 +569,7 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
+     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -611,6 +613,7 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
+     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -654,6 +657,7 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
+     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -697,6 +701,7 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
+     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -740,6 +745,7 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
+     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -783,6 +789,7 @@ public final class VpcFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.vpc.VpcFunctions;
      * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesArgs;
+     * import com.pulumi.aws.vpc.inputs.GetSecurityGroupRulesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

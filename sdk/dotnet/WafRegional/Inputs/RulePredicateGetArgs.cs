@@ -12,12 +12,21 @@ namespace Pulumi.Aws.WafRegional.Inputs
 
     public sealed class RulePredicateGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+        /// </summary>
         [Input("dataId", required: true)]
         public Input<string> DataId { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to use the settings or the negated settings that you specified in the objects.
+        /// </summary>
         [Input("negated", required: true)]
         public Input<bool> Negated { get; set; } = null!;
 
+        /// <summary>
+        /// The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

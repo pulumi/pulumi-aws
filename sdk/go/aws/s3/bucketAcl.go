@@ -237,8 +237,6 @@ import (
 // ```sh
 // $ pulumi import aws:s3/bucketAcl:BucketAcl example bucket-name,123456789012,private
 // ```
-//
-// [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
 type BucketAcl struct {
 	pulumi.CustomResourceState
 

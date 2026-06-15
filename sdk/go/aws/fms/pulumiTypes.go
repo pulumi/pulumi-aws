@@ -14,9 +14,9 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type PolicyExcludeMap struct {
-	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+	// A list of AWS Organization member Accounts that you want to exclude from this AWS FMS Policy.
 	Accounts []string `pulumi:"accounts"`
-	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+	// A list of IDs of the AWS Organizational Units that you want to exclude from this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 	//
 	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits []string `pulumi:"orgunits"`
@@ -34,9 +34,9 @@ type PolicyExcludeMapInput interface {
 }
 
 type PolicyExcludeMapArgs struct {
-	// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+	// A list of AWS Organization member Accounts that you want to exclude from this AWS FMS Policy.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+	// A list of IDs of the AWS Organizational Units that you want to exclude from this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 	//
 	// You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 	Orgunits pulumi.StringArrayInput `pulumi:"orgunits"`
@@ -119,12 +119,12 @@ func (o PolicyExcludeMapOutput) ToPolicyExcludeMapPtrOutputWithContext(ctx conte
 	}).(PolicyExcludeMapPtrOutput)
 }
 
-// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+// A list of AWS Organization member Accounts that you want to exclude from this AWS FMS Policy.
 func (o PolicyExcludeMapOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PolicyExcludeMap) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+// A list of IDs of the AWS Organizational Units that you want to exclude from this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 //
 // You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyExcludeMapOutput) Orgunits() pulumi.StringArrayOutput {
@@ -155,7 +155,7 @@ func (o PolicyExcludeMapPtrOutput) Elem() PolicyExcludeMapOutput {
 	}).(PolicyExcludeMapOutput)
 }
 
-// A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+// A list of AWS Organization member Accounts that you want to exclude from this AWS FMS Policy.
 func (o PolicyExcludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PolicyExcludeMap) []string {
 		if v == nil {
@@ -165,7 +165,7 @@ func (o PolicyExcludeMapPtrOutput) Accounts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+// A list of IDs of the AWS Organizational Units that you want to exclude from this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 //
 // You can specify inclusions or exclusions, but not both. If you specify an `includeMap`, AWS Firewall Manager applies the policy to all accounts specified by the `includeMap`, and does not evaluate any `excludeMap` specifications. If you do not specify an `includeMap`, then Firewall Manager applies the policy to all accounts except for those specified by the `excludeMap`.
 func (o PolicyExcludeMapPtrOutput) Orgunits() pulumi.StringArrayOutput {
@@ -346,7 +346,7 @@ type PolicySecurityServicePolicyData struct {
 	ManagedServiceData *string `pulumi:"managedServiceData"`
 	// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
 	PolicyOption *PolicySecurityServicePolicyDataPolicyOption `pulumi:"policyOption"`
-	// An integer value containing ICMP type.
+	// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
 	Type string `pulumi:"type"`
 }
 
@@ -366,7 +366,7 @@ type PolicySecurityServicePolicyDataArgs struct {
 	ManagedServiceData pulumi.StringPtrInput `pulumi:"managedServiceData"`
 	// Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policyOption` block.
 	PolicyOption PolicySecurityServicePolicyDataPolicyOptionPtrInput `pulumi:"policyOption"`
-	// An integer value containing ICMP type.
+	// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -459,7 +459,7 @@ func (o PolicySecurityServicePolicyDataOutput) PolicyOption() PolicySecurityServ
 	}).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
 }
 
-// An integer value containing ICMP type.
+// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
 func (o PolicySecurityServicePolicyDataOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -508,7 +508,7 @@ func (o PolicySecurityServicePolicyDataPtrOutput) PolicyOption() PolicySecurityS
 	}).(PolicySecurityServicePolicyDataPolicyOptionPtrOutput)
 }
 
-// An integer value containing ICMP type.
+// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
 func (o PolicySecurityServicePolicyDataPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *string {
 		if v == nil {
@@ -1807,7 +1807,7 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetwork
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy struct {
-	// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+	// Defines the deployment model to use for the firewall policy. To use a distributed model, remove the `policyOption` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 	FirewallDeploymentModel *string `pulumi:"firewallDeploymentModel"`
 }
 
@@ -1823,7 +1823,7 @@ type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyInput inter
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs struct {
-	// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+	// Defines the deployment model to use for the firewall policy. To use a distributed model, remove the `policyOption` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 	FirewallDeploymentModel pulumi.StringPtrInput `pulumi:"firewallDeploymentModel"`
 }
 
@@ -1904,7 +1904,7 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) 
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput)
 }
 
-// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+// Defines the deployment model to use for the firewall policy. To use a distributed model, remove the `policyOption` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy) *string {
 		return v.FirewallDeploymentModel
@@ -1935,7 +1935,7 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutpu
 	}).(PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyOutput)
 }
 
-// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+// Defines the deployment model to use for the firewall policy. To use a distributed model, remove the `policyOption` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicy) *string {
 		if v == nil {
@@ -1946,7 +1946,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyPtrOutpu
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy struct {
-	// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 	FirewallDeploymentModel *string `pulumi:"firewallDeploymentModel"`
 }
 
@@ -1962,7 +1961,6 @@ type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyInput in
 }
 
 type PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs struct {
-	// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 	FirewallDeploymentModel pulumi.StringPtrInput `pulumi:"firewallDeploymentModel"`
 }
 
@@ -2043,7 +2041,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutpu
 	}).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput)
 }
 
-// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy) *string {
 		return v.FirewallDeploymentModel
@@ -2074,7 +2071,6 @@ func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOu
 	}).(PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyOutput)
 }
 
-// Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
 func (o PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyPtrOutput) FirewallDeploymentModel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicy) *string {
 		if v == nil {

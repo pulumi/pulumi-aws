@@ -110,6 +110,11 @@ export type AgentcoreOnlineEvaluationConfig = import("./agentcoreOnlineEvaluatio
 export const AgentcoreOnlineEvaluationConfig: typeof import("./agentcoreOnlineEvaluationConfig").AgentcoreOnlineEvaluationConfig = null as any;
 utilities.lazyLoad(exports, ["AgentcoreOnlineEvaluationConfig"], () => require("./agentcoreOnlineEvaluationConfig"));
 
+export { AgentcorePolicyArgs, AgentcorePolicyState } from "./agentcorePolicy";
+export type AgentcorePolicy = import("./agentcorePolicy").AgentcorePolicy;
+export const AgentcorePolicy: typeof import("./agentcorePolicy").AgentcorePolicy = null as any;
+utilities.lazyLoad(exports, ["AgentcorePolicy"], () => require("./agentcorePolicy"));
+
 export { AgentcorePolicyEngineArgs, AgentcorePolicyEngineState } from "./agentcorePolicyEngine";
 export type AgentcorePolicyEngine = import("./agentcorePolicyEngine").AgentcorePolicyEngine;
 export const AgentcorePolicyEngine: typeof import("./agentcorePolicyEngine").AgentcorePolicyEngine = null as any;
@@ -227,6 +232,8 @@ const _module = {
                 return new AgentcoreOauth2CredentialProvider(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreOnlineEvaluationConfig:AgentcoreOnlineEvaluationConfig":
                 return new AgentcoreOnlineEvaluationConfig(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcorePolicy:AgentcorePolicy":
+                return new AgentcorePolicy(name, <any>undefined, { urn })
             case "aws:bedrock/agentcorePolicyEngine:AgentcorePolicyEngine":
                 return new AgentcorePolicyEngine(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy":
@@ -271,6 +278,7 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreMemory", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreMemoryStrategy", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreOauth2CredentialProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreOnlineEvaluationConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcorePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcorePolicyEngine", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreResourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreTokenVaultCmk", _module)

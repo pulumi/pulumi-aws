@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ecr
     /// });
     /// ```
     /// 
-    /// ## Multiple Region Usage
+    /// ### Multiple Region Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Ecr
     /// });
     /// ```
     /// 
-    /// ## Repository Filter Usage
+    /// ### Repository Filter Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

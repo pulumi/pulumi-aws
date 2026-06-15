@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
  * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreEncryptionKeyArgs;
  * import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineStageActionArgs;
  * import com.pulumi.aws.codepipeline.Webhook;
  * import com.pulumi.aws.codepipeline.WebhookArgs;
  * import com.pulumi.aws.codepipeline.inputs.WebhookAuthenticationConfigurationArgs;
@@ -116,7 +117,7 @@ import javax.annotation.Nullable;
  *         var barRepositoryWebhook = new RepositoryWebhook("barRepositoryWebhook", RepositoryWebhookArgs.builder()
  *             .repository(repo.name())
  *             .name("web")
- *             .configuration(RepositoryWebhookConfigurationArgs.builder()
+ *             .configuration(com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs.builder()
  *                 .url(barWebhook.url())
  *                 .contentType("json")
  *                 .insecureSsl(true)

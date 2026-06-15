@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lex.V2modelsBotVersion;
  * import com.pulumi.aws.lex.V2modelsBotVersionArgs;
+ * import com.pulumi.aws.lex.inputs.V2modelsBotVersionLocaleSpecificationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

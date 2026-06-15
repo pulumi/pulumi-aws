@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Lambda
         ///     // Create new function with similar configuration
         ///     var example = new Aws.Lambda.Function("example", new()
         ///     {
-        ///         DurableConfig = Enumerable.Single(),
+        ///         DurableConfig = Enumerable.SingleOrDefault(),
         ///         Code = new FileArchive("new-function.zip"),
         ///         Name = "new-function",
         ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.Lambda
         ///     // Create new function with similar configuration
         ///     var example = new Aws.Lambda.Function("example", new()
         ///     {
-        ///         DurableConfig = Enumerable.Single(),
+        ///         DurableConfig = Enumerable.SingleOrDefault(),
         ///         Code = new FileArchive("new-function.zip"),
         ///         Name = "new-function",
         ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),
@@ -453,7 +453,7 @@ namespace Pulumi.Aws.Lambda
         ///     // Create new function with similar configuration
         ///     var example = new Aws.Lambda.Function("example", new()
         ///     {
-        ///         DurableConfig = Enumerable.Single(),
+        ///         DurableConfig = Enumerable.SingleOrDefault(),
         ///         Code = new FileArchive("new-function.zip"),
         ///         Name = "new-function",
         ///         Role = reference.Apply(getFunctionResult =&gt; getFunctionResult.Role),

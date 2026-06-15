@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  *         var ca = new SelfSignedCert("ca", SelfSignedCertArgs.builder()
  *             .privateKeyPem(caPrivateKey.privateKeyPem())
- *             .subject(SelfSignedCertSubjectArgs.builder()
+ *             .subject(com.pulumi.tls.inputs.SelfSignedCertSubjectArgs.builder()
  *                 .commonName("example.com")
  *                 .organization("ACME Examples, Inc")
  *                 .build())
@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  * 
  *         var verification = new CertRequest("verification", CertRequestArgs.builder()
  *             .privateKeyPem(verificationPrivateKey.privateKeyPem())
- *             .subject(CertRequestSubjectArgs.builder()
+ *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
  *                 .commonName(example.registrationCode())
  *                 .build())
  *             .build());

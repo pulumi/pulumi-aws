@@ -30,6 +30,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
  * import com.pulumi.aws.lightsail.Disk;
  * import com.pulumi.aws.lightsail.DiskArgs;
  * import java.util.ArrayList;

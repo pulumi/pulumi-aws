@@ -395,6 +395,7 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyExpressionArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -529,6 +530,7 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyExpressionArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -663,6 +665,7 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyExpressionArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -797,6 +800,7 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyExpressionArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -931,6 +935,7 @@ public final class LakeformationFunctions {
      * import com.pulumi.aws.lakeformation.LakeformationFunctions;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsArgs;
      * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyArgs;
+     * import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicyExpressionArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

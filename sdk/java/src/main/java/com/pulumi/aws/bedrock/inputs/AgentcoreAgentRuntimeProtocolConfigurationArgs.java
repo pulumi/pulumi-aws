@@ -16,14 +16,14 @@ public final class AgentcoreAgentRuntimeProtocolConfigurationArgs extends com.pu
     public static final AgentcoreAgentRuntimeProtocolConfigurationArgs Empty = new AgentcoreAgentRuntimeProtocolConfigurationArgs();
 
     /**
-     * Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+     * Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`, `AGUI`.
      * 
      */
     @Import(name="serverProtocol")
     private @Nullable Output<String> serverProtocol;
 
     /**
-     * @return Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+     * @return Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`, `AGUI`.
      * 
      */
     public Optional<Output<String>> serverProtocol() {
@@ -55,7 +55,7 @@ public final class AgentcoreAgentRuntimeProtocolConfigurationArgs extends com.pu
         }
 
         /**
-         * @param serverProtocol Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+         * @param serverProtocol Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`, `AGUI`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentcoreAgentRuntimeProtocolConfigurationArgs extends com.pu
         }
 
         /**
-         * @param serverProtocol Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`.
+         * @param serverProtocol Server protocol for the agent runtime. Valid values: `HTTP`, `MCP`, `A2A`, `AGUI`.
          * 
          * @return builder
          * 

@@ -83,6 +83,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.lambda.inputs.CapacityProviderPermissionsConfigArgs;
  * import com.pulumi.aws.lambda.inputs.CapacityProviderInstanceRequirementArgs;
  * import com.pulumi.aws.lambda.inputs.CapacityProviderCapacityProviderScalingConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

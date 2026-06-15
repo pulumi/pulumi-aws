@@ -167,6 +167,10 @@ namespace Pulumi.Aws.OpenSearch
         /// Description of the collection group.
         /// </summary>
         public readonly string Description;
+        /// <summary>
+        /// Generation of Amazon OpenSearch Serverless for the collection group.
+        /// </summary>
+        public readonly string Generation;
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;
@@ -189,6 +193,8 @@ namespace Pulumi.Aws.OpenSearch
 
             string description,
 
+            string generation,
+
             string id,
 
             string name,
@@ -203,6 +209,7 @@ namespace Pulumi.Aws.OpenSearch
             CapacityLimits = capacityLimits;
             CreatedDate = createdDate;
             Description = description;
+            Generation = generation;
             Id = id;
             Name = name;
             Region = region;

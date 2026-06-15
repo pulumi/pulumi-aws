@@ -134,6 +134,8 @@ class LoadBalancerHealthCheckArgsDict(TypedDict):
     timeout: pulumi.Input[_builtins.int]
     """
     The length of time before the check times out.
+
+    > **Note:** If the ARN of the `ssl_certificate_id` references a certificate signed by an ECDSA key, ELB only supports the P256 and P384 curves. Using a certificate signed by a different curve could produce `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your browser.
     """
     unhealthy_threshold: pulumi.Input[_builtins.int]
     """
@@ -156,6 +158,8 @@ class LoadBalancerHealthCheckArgs:
                * `HTTP`, `HTTPS` - PORT and PATH are required
                * `TCP`, `SSL` - PORT is required, PATH is not supported
         :param pulumi.Input[_builtins.int] timeout: The length of time before the check times out.
+               
+               > **Note:** If the ARN of the `ssl_certificate_id` references a certificate signed by an ECDSA key, ELB only supports the P256 and P384 curves. Using a certificate signed by a different curve could produce `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your browser.
         :param pulumi.Input[_builtins.int] unhealthy_threshold: The number of checks before the instance is declared unhealthy.
         """
         pulumi.set(__self__, "healthy_threshold", healthy_threshold)
@@ -208,6 +212,8 @@ class LoadBalancerHealthCheckArgs:
     def timeout(self) -> pulumi.Input[_builtins.int]:
         """
         The length of time before the check times out.
+
+        > **Note:** If the ARN of the `ssl_certificate_id` references a certificate signed by an ECDSA key, ELB only supports the P256 and P384 curves. Using a certificate signed by a different curve could produce `ERR_SSL_VERSION_OR_CIPHER_MISMATCH` in your browser.
         """
         return pulumi.get(self, "timeout")
 

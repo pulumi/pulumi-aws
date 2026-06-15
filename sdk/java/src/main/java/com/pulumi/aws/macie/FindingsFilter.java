@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.macie.FindingsFilter;
  * import com.pulumi.aws.macie.FindingsFilterArgs;
  * import com.pulumi.aws.macie.inputs.FindingsFilterFindingCriteriaArgs;
+ * import com.pulumi.aws.macie.inputs.FindingsFilterFindingCriteriaCriterionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;

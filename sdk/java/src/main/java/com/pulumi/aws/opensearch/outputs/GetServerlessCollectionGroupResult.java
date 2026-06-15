@@ -33,6 +33,11 @@ public final class GetServerlessCollectionGroupResult {
      * 
      */
     private String description;
+    /**
+     * @return Generation of Amazon OpenSearch Serverless for the collection group.
+     * 
+     */
+    private String generation;
     private String id;
     private String name;
     private String region;
@@ -76,6 +81,13 @@ public final class GetServerlessCollectionGroupResult {
     public String description() {
         return this.description;
     }
+    /**
+     * @return Generation of Amazon OpenSearch Serverless for the collection group.
+     * 
+     */
+    public String generation() {
+        return this.generation;
+    }
     public String id() {
         return this.id;
     }
@@ -113,6 +125,7 @@ public final class GetServerlessCollectionGroupResult {
         private List<GetServerlessCollectionGroupCapacityLimit> capacityLimits;
         private String createdDate;
         private String description;
+        private String generation;
         private String id;
         private String name;
         private String region;
@@ -125,6 +138,7 @@ public final class GetServerlessCollectionGroupResult {
     	      this.capacityLimits = defaults.capacityLimits;
     	      this.createdDate = defaults.createdDate;
     	      this.description = defaults.description;
+    	      this.generation = defaults.generation;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.region = defaults.region;
@@ -165,6 +179,14 @@ public final class GetServerlessCollectionGroupResult {
               throw new MissingRequiredPropertyException("GetServerlessCollectionGroupResult", "description");
             }
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder generation(String generation) {
+            if (generation == null) {
+              throw new MissingRequiredPropertyException("GetServerlessCollectionGroupResult", "generation");
+            }
+            this.generation = generation;
             return this;
         }
         @CustomType.Setter
@@ -213,6 +235,7 @@ public final class GetServerlessCollectionGroupResult {
             _resultValue.capacityLimits = capacityLimits;
             _resultValue.createdDate = createdDate;
             _resultValue.description = description;
+            _resultValue.generation = generation;
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.region = region;

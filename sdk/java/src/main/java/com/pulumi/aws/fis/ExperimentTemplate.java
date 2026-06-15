@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionTargetArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetResourceTagArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -87,7 +88,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### With Report Configuration
+ * ### Example Usage with Report Configuration
  * 
  * <pre>
  * {@code
@@ -102,6 +103,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
  * import com.pulumi.aws.iam.Policy;
  * import com.pulumi.aws.iam.PolicyArgs;
  * import com.pulumi.aws.iam.RolePolicyAttachment;
@@ -112,8 +114,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionTargetArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetResourceTagArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationOutputsArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;

@@ -151,7 +151,7 @@ def get_roles(name_regex: Optional[_builtins.str] = None,
 
 
     :param _builtins.str name_regex: Regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-    :param _builtins.str path_prefix: Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+    :param _builtins.str path_prefix: Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-roles.html).
     """
     __args__ = dict()
     __args__['nameRegex'] = name_regex
@@ -225,7 +225,7 @@ def get_roles_output(name_regex: pulumi.Input[Optional[Optional[_builtins.str]]]
 
 
     :param _builtins.str name_regex: Regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
-    :param _builtins.str path_prefix: Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+    :param _builtins.str path_prefix: Path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-roles.html).
     """
     __args__ = dict()
     __args__['nameRegex'] = name_regex

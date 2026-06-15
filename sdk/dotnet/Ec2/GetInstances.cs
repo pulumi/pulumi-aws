@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// One or more filters to apply to the search.
         /// If multiple `Filter` blocks are provided, they all must be true.
-        /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        /// For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
         /// See `Filter` Block below.
         /// </summary>
         public List<Inputs.GetInstancesFilterArgs> Filters
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// One or more filters to apply to the search.
         /// If multiple `Filter` blocks are provided, they all must be true.
-        /// For a full reference of filter names, see [describe-instances in the AWS CLI reference][1].
+        /// For a full reference of filter names, see [describe-instances in the AWS CLI reference](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html).
         /// See `Filter` Block below.
         /// </summary>
         public InputList<Inputs.GetInstancesFilterInputArgs> Filters

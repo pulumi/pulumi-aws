@@ -2329,6 +2329,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="interconnect")
+    private @Nullable Output<String> interconnect;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> interconnect() {
+        return Optional.ofNullable(this.interconnect);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="internetmonitor")
     private @Nullable Output<String> internetmonitor;
 
@@ -4852,6 +4867,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.inspector = $.inspector;
         this.inspector2 = $.inspector2;
         this.inspectorv2 = $.inspectorv2;
+        this.interconnect = $.interconnect;
         this.internetmonitor = $.internetmonitor;
         this.invoicing = $.invoicing;
         this.iot = $.iot;
@@ -8262,6 +8278,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder inspectorv2(String inspectorv2) {
             return inspectorv2(Output.of(inspectorv2));
+        }
+
+        /**
+         * @param interconnect Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interconnect(@Nullable Output<String> interconnect) {
+            $.interconnect = interconnect;
+            return this;
+        }
+
+        /**
+         * @param interconnect Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interconnect(String interconnect) {
+            return interconnect(Output.of(interconnect));
         }
 
         /**

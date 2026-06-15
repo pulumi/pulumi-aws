@@ -15,8 +15,7 @@ public final class GetPartitionPlainArgs extends com.pulumi.resources.InvokeArgs
     public static final GetPartitionPlainArgs Empty = new GetPartitionPlainArgs();
 
     /**
-     * (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * Use `partition` instead.
+     * (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China). Use `partition` instead.
      * 
      * @deprecated
      * Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.
@@ -27,8 +26,7 @@ public final class GetPartitionPlainArgs extends com.pulumi.resources.InvokeArgs
     private @Nullable String id;
 
     /**
-     * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-     * Use `partition` instead.
+     * @return (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China). Use `partition` instead.
      * 
      * @deprecated
      * Use &#39;partition&#39; instead. This attribute will be removed in a future version of the provider.
@@ -64,8 +62,7 @@ public final class GetPartitionPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param id (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
-         * Use `partition` instead.
+         * @param id (**Deprecated**) Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China). Use `partition` instead.
          * 
          * @return builder
          * 

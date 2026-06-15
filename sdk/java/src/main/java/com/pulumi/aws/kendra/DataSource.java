@@ -367,6 +367,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationArgs;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationArgs;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs;
+ * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs;
  * import com.pulumi.aws.kendra.inputs.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs;
  * import com.pulumi.resources.CustomResourceOptions;

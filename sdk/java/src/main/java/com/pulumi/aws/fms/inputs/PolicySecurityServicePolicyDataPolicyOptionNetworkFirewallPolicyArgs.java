@@ -16,14 +16,14 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPol
     public static final PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs Empty = new PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs();
 
     /**
-     * Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+     * Defines the deployment model to use for the firewall policy. To use a distributed model, remove the `policyOption` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
      * 
      */
     @Import(name="firewallDeploymentModel")
     private @Nullable Output<String> firewallDeploymentModel;
 
     /**
-     * @return Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+     * @return Defines the deployment model to use for the firewall policy. To use a distributed model, remove the `policyOption` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
      * 
      */
     public Optional<Output<String>> firewallDeploymentModel() {
@@ -55,7 +55,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPol
         }
 
         /**
-         * @param firewallDeploymentModel Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+         * @param firewallDeploymentModel Defines the deployment model to use for the firewall policy. To use a distributed model, remove the `policyOption` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPol
         }
 
         /**
-         * @param firewallDeploymentModel Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+         * @param firewallDeploymentModel Defines the deployment model to use for the firewall policy. To use a distributed model, remove the `policyOption` section. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
          * 
          * @return builder
          * 

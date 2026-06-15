@@ -93,6 +93,10 @@ export class Network extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string>;
     /**
+     * A list of EC2 placement group IDs associated with the ODB network.
+     */
+    declare public /*out*/ readonly ec2PlacementGroupIds: pulumi.Output<string[]>;
+    /**
      * Specifies the configuration for KMS access from the ODB network.
      */
     declare public readonly kmsAccess: pulumi.Output<string>;
@@ -201,6 +205,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["defaultDnsPrefix"] = state?.defaultDnsPrefix;
             resourceInputs["deleteAssociatedResources"] = state?.deleteAssociatedResources;
             resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["ec2PlacementGroupIds"] = state?.ec2PlacementGroupIds;
             resourceInputs["kmsAccess"] = state?.kmsAccess;
             resourceInputs["kmsPolicyDocument"] = state?.kmsPolicyDocument;
             resourceInputs["managedServices"] = state?.managedServices;
@@ -264,6 +269,7 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["zeroEtlAccess"] = args?.zeroEtlAccess;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["ec2PlacementGroupIds"] = undefined /*out*/;
             resourceInputs["managedServices"] = undefined /*out*/;
             resourceInputs["ociDnsForwardingConfigs"] = undefined /*out*/;
             resourceInputs["ociNetworkAnchorId"] = undefined /*out*/;
@@ -330,6 +336,10 @@ export interface NetworkState {
      * The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
      */
     displayName?: pulumi.Input<string | undefined>;
+    /**
+     * A list of EC2 placement group IDs associated with the ODB network.
+     */
+    ec2PlacementGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the configuration for KMS access from the ODB network.
      */

@@ -212,6 +212,7 @@ namespace Pulumi.Aws.Alb
         public readonly bool EnableCrossZoneLoadBalancing;
         public readonly bool EnableDeletionProtection;
         public readonly bool EnableHttp2;
+        public readonly string EnablePrefixForIpv6SourceNat;
         public readonly bool EnableTlsVersionAndCipherSuiteHeaders;
         public readonly bool EnableWafFailOpen;
         public readonly bool EnableXffClientPort;
@@ -266,6 +267,8 @@ namespace Pulumi.Aws.Alb
             bool enableDeletionProtection,
 
             bool enableHttp2,
+
+            string enablePrefixForIpv6SourceNat,
 
             bool enableTlsVersionAndCipherSuiteHeaders,
 
@@ -326,6 +329,7 @@ namespace Pulumi.Aws.Alb
             EnableCrossZoneLoadBalancing = enableCrossZoneLoadBalancing;
             EnableDeletionProtection = enableDeletionProtection;
             EnableHttp2 = enableHttp2;
+            EnablePrefixForIpv6SourceNat = enablePrefixForIpv6SourceNat;
             EnableTlsVersionAndCipherSuiteHeaders = enableTlsVersionAndCipherSuiteHeaders;
             EnableWafFailOpen = enableWafFailOpen;
             EnableXffClientPort = enableXffClientPort;

@@ -28,15 +28,6 @@ import * as utilities from "../utilities";
  *     solutionStackName: "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
  * });
  * ```
- *
- * ## Option Settings
- *
- * The `setting` field supports the following format:
- *
- * * `namespace` - (Required) Unique namespace identifying the option's associated AWS resource
- * * `name` - (Required) Name of the configuration option
- * * `value` - (Required) Value for the configuration option
- * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
  */
 export class ConfigurationTemplate extends pulumi.CustomResource {
     /**
@@ -94,7 +85,7 @@ export class ConfigurationTemplate extends pulumi.CustomResource {
     declare public readonly settings: pulumi.Output<outputs.elasticbeanstalk.ConfigurationTemplateSetting[]>;
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     declare public readonly solutionStackName: pulumi.Output<string | undefined>;
 
@@ -168,7 +159,7 @@ export interface ConfigurationTemplateState {
     settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[] | undefined>;
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     solutionStackName?: pulumi.Input<string | undefined>;
 }
@@ -205,7 +196,7 @@ export interface ConfigurationTemplateArgs {
     settings?: pulumi.Input<pulumi.Input<inputs.elasticbeanstalk.ConfigurationTemplateSetting>[] | undefined>;
     /**
      * A solution stack to base your Template
-     * off of. Example stacks can be found in the [Amazon API documentation][1]
+     * off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
      */
     solutionStackName?: pulumi.Input<string | undefined>;
 }

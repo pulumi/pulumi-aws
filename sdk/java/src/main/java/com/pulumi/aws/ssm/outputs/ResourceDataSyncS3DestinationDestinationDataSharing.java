@@ -11,9 +11,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceDataSyncS3DestinationDestinationDataSharing {
+    /**
+     * @return Data sharing type.
+     * Only `Organization` is supported.
+     * 
+     */
     private @Nullable String destinationDataSharingType;
 
     private ResourceDataSyncS3DestinationDestinationDataSharing() {}
+    /**
+     * @return Data sharing type.
+     * Only `Organization` is supported.
+     * 
+     */
     public Optional<String> destinationDataSharingType() {
         return Optional.ofNullable(this.destinationDataSharingType);
     }

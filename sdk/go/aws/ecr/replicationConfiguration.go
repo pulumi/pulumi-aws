@@ -59,7 +59,7 @@ import (
 //
 // ```
 //
-// ## Multiple Region Usage
+// ### Multiple Region Usage
 //
 // ```go
 // package main
@@ -109,7 +109,7 @@ import (
 //
 // ```
 //
-// ## Repository Filter Usage
+// ### Repository Filter Usage
 //
 // ```go
 // package main

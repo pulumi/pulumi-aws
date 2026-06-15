@@ -15,9 +15,19 @@ public final class ResourceDataSyncS3DestinationDestinationDataSharingArgs exten
 
     public static final ResourceDataSyncS3DestinationDestinationDataSharingArgs Empty = new ResourceDataSyncS3DestinationDestinationDataSharingArgs();
 
+    /**
+     * Data sharing type.
+     * Only `Organization` is supported.
+     * 
+     */
     @Import(name="destinationDataSharingType")
     private @Nullable Output<String> destinationDataSharingType;
 
+    /**
+     * @return Data sharing type.
+     * Only `Organization` is supported.
+     * 
+     */
     public Optional<Output<String>> destinationDataSharingType() {
         return Optional.ofNullable(this.destinationDataSharingType);
     }
@@ -46,11 +56,25 @@ public final class ResourceDataSyncS3DestinationDestinationDataSharingArgs exten
             $ = new ResourceDataSyncS3DestinationDestinationDataSharingArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param destinationDataSharingType Data sharing type.
+         * Only `Organization` is supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationDataSharingType(@Nullable Output<String> destinationDataSharingType) {
             $.destinationDataSharingType = destinationDataSharingType;
             return this;
         }
 
+        /**
+         * @param destinationDataSharingType Data sharing type.
+         * Only `Organization` is supported.
+         * 
+         * @return builder
+         * 
+         */
         public Builder destinationDataSharingType(String destinationDataSharingType) {
             return destinationDataSharingType(Output.of(destinationDataSharingType));
         }

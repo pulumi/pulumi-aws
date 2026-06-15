@@ -990,6 +990,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1029,6 +1030,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1128,6 +1130,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1167,6 +1170,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1266,6 +1270,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1305,6 +1310,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1404,6 +1410,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1443,6 +1450,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1542,6 +1550,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1581,6 +1590,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1680,6 +1690,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1719,6 +1730,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1818,6 +1830,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1857,6 +1870,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+     * import com.pulumi.aws.inputs.GetAvailabilityZonesFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1906,6 +1920,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.ArrayList;
@@ -1991,6 +2007,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.ArrayList;
@@ -2076,6 +2094,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.ArrayList;
@@ -2161,6 +2181,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.ArrayList;
@@ -2246,6 +2268,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.ArrayList;
@@ -2331,6 +2355,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.ArrayList;
@@ -2416,6 +2442,8 @@ public final class AwsFunctions {
      * import com.pulumi.aws.s3.BucketAclArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
      * import com.pulumi.aws.s3.BucketPolicy;
      * import com.pulumi.aws.s3.BucketPolicyArgs;
      * import java.util.ArrayList;
@@ -3419,6 +3447,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3469,6 +3498,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3519,6 +3549,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3569,6 +3600,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3619,6 +3651,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3669,6 +3702,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3719,6 +3753,7 @@ public final class AwsFunctions {
      * import com.pulumi.aws.inputs.GetPartitionArgs;
      * import com.pulumi.aws.iam.IamFunctions;
      * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+     * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4162,6 +4197,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import com.pulumi.aws.inputs.GetRegionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4273,6 +4309,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import com.pulumi.aws.inputs.GetRegionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4384,6 +4421,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import com.pulumi.aws.inputs.GetRegionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4495,6 +4533,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import com.pulumi.aws.inputs.GetRegionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4606,6 +4645,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import com.pulumi.aws.inputs.GetRegionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4717,6 +4757,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import com.pulumi.aws.inputs.GetRegionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4828,6 +4869,7 @@ public final class AwsFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.AwsFunctions;
      * import com.pulumi.aws.inputs.GetRegionsArgs;
+     * import com.pulumi.aws.inputs.GetRegionsFilterArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;

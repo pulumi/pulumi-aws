@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codebuild.Fleet;
  * import com.pulumi.aws.codebuild.FleetArgs;
  * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationArgs;
+ * import com.pulumi.aws.codebuild.inputs.FleetScalingConfigurationTargetTrackingScalingConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -49,7 +49,7 @@ import (
 //
 // ```
 //
-// ### Optional Arguments
+// ### Example Usage Optional Arguments
 //
 // ```go
 // package main
@@ -96,7 +96,7 @@ import (
 //
 // ```
 //
-// ### CMK Encryption
+// ### Example Usage CMK Encryption
 //
 // ```go
 // package main

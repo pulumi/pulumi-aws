@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class RulePredicate {
+    /**
+     * @return The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+     * 
+     */
     private String dataId;
+    /**
+     * @return Whether to use the settings or the negated settings that you specified in the objects.
+     * 
+     */
     private Boolean negated;
+    /**
+     * @return The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+     * 
+     */
     private String type;
 
     private RulePredicate() {}
+    /**
+     * @return The unique identifier of a predicate, such as the ID of a `ByteMatchSet` or `IPSet`.
+     * 
+     */
     public String dataId() {
         return this.dataId;
     }
+    /**
+     * @return Whether to use the settings or the negated settings that you specified in the objects.
+     * 
+     */
     public Boolean negated() {
         return this.negated;
     }
+    /**
+     * @return The type of predicate in a rule. Valid values: `ByteMatch`, `GeoMatch`, `IPMatch`, `RegexMatch`, `SizeConstraint`, `SqlInjectionMatch`, or `XssMatch`
+     * 
+     */
     public String type() {
         return this.type;
     }

@@ -82,7 +82,7 @@ namespace Pulumi.Aws.AppSync
     /// });
     /// ```
     /// 
-    /// ### With Code
+    /// ### Example Usage With Code
     /// 
     /// ```csharp
     /// using System.Collections.Generic;

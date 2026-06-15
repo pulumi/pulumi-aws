@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const example = new aws.xray.EncryptionConfig("example", {type: "NONE"});
  * ```
  *
- * ### With KMS Key
+ * ### Example Usage with KMS Key
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

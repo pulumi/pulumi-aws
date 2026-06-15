@@ -165,7 +165,7 @@ def get_ip_ranges(id: Optional[_builtins.str] = None,
            (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
            `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
            `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
-           [`service` attribute][2] documentation for other possible values.
+           [`service` attribute](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html#aws-ip-syntax) documentation for other possible values.
            
            > **NOTE:** If the specified combination of regions and services does not yield any
            CIDR blocks, this call will fail.
@@ -230,7 +230,7 @@ def get_ip_ranges_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = N
            (for amazon.com), `amazon_connect`, `api_gateway`, `cloud9`, `cloudfront`,
            `codebuild`, `dynamodb`, `ec2`, `ec2_instance_connect`, `globalaccelerator`,
            `route53`, `route53_healthchecks`, `s3` and `workspaces_gateways`. See the
-           [`service` attribute][2] documentation for other possible values.
+           [`service` attribute](https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html#aws-ip-syntax) documentation for other possible values.
            
            > **NOTE:** If the specified combination of regions and services does not yield any
            CIDR blocks, this call will fail.

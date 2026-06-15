@@ -24,9 +24,11 @@ class AgentcoreMemoryArgs:
                  event_expiry_duration: pulumi.Input[_builtins.int],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]]] = None,
                  memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_delivery_resources: pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['AgentcoreMemoryTimeoutsArgs']] = None):
         """
@@ -37,9 +39,11 @@ class AgentcoreMemoryArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the memory.
         :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]] indexed_keys: Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
         :param pulumi.Input[_builtins.str] name: Name of the memory.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input['AgentcoreMemoryStreamDeliveryResourcesArgs'] stream_delivery_resources: Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "event_expiry_duration", event_expiry_duration)
@@ -47,12 +51,16 @@ class AgentcoreMemoryArgs:
             pulumi.set(__self__, "description", description)
         if encryption_key_arn is not None:
             pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
+        if indexed_keys is not None:
+            pulumi.set(__self__, "indexed_keys", indexed_keys)
         if memory_execution_role_arn is not None:
             pulumi.set(__self__, "memory_execution_role_arn", memory_execution_role_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if stream_delivery_resources is not None:
+            pulumi.set(__self__, "stream_delivery_resources", stream_delivery_resources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -97,6 +105,18 @@ class AgentcoreMemoryArgs:
         pulumi.set(self, "encryption_key_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="indexedKeys")
+    def indexed_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]]]:
+        """
+        Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
+        """
+        return pulumi.get(self, "indexed_keys")
+
+    @indexed_keys.setter
+    def indexed_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]]]):
+        pulumi.set(self, "indexed_keys", value)
+
+    @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
     def memory_execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -133,6 +153,18 @@ class AgentcoreMemoryArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="streamDeliveryResources")
+    def stream_delivery_resources(self) -> pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesArgs']]:
+        """
+        Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
+        """
+        return pulumi.get(self, "stream_delivery_resources")
+
+    @stream_delivery_resources.setter
+    def stream_delivery_resources(self, value: pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesArgs']]):
+        pulumi.set(self, "stream_delivery_resources", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -161,9 +193,11 @@ class _AgentcoreMemoryState:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  event_expiry_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]]] = None,
                  memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_delivery_resources: pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['AgentcoreMemoryTimeoutsArgs']] = None):
@@ -176,9 +210,11 @@ class _AgentcoreMemoryState:
         :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]] indexed_keys: Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
         :param pulumi.Input[_builtins.str] name: Name of the memory.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input['AgentcoreMemoryStreamDeliveryResourcesArgs'] stream_delivery_resources: Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -190,12 +226,16 @@ class _AgentcoreMemoryState:
             pulumi.set(__self__, "encryption_key_arn", encryption_key_arn)
         if event_expiry_duration is not None:
             pulumi.set(__self__, "event_expiry_duration", event_expiry_duration)
+        if indexed_keys is not None:
+            pulumi.set(__self__, "indexed_keys", indexed_keys)
         if memory_execution_role_arn is not None:
             pulumi.set(__self__, "memory_execution_role_arn", memory_execution_role_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if stream_delivery_resources is not None:
+            pulumi.set(__self__, "stream_delivery_resources", stream_delivery_resources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -254,6 +294,18 @@ class _AgentcoreMemoryState:
         pulumi.set(self, "event_expiry_duration", value)
 
     @_builtins.property
+    @pulumi.getter(name="indexedKeys")
+    def indexed_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]]]:
+        """
+        Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
+        """
+        return pulumi.get(self, "indexed_keys")
+
+    @indexed_keys.setter
+    def indexed_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]]]):
+        pulumi.set(self, "indexed_keys", value)
+
+    @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
     def memory_execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -288,6 +340,18 @@ class _AgentcoreMemoryState:
     @region.setter
     def region(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="streamDeliveryResources")
+    def stream_delivery_resources(self) -> pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesArgs']]:
+        """
+        Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
+        """
+        return pulumi.get(self, "stream_delivery_resources")
+
+    @stream_delivery_resources.setter
+    def stream_delivery_resources(self, value: pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesArgs']]):
+        pulumi.set(self, "stream_delivery_resources", value)
 
     @_builtins.property
     @pulumi.getter
@@ -332,9 +396,11 @@ class AgentcoreMemory(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  event_expiry_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreMemoryIndexedKeyArgs', 'AgentcoreMemoryIndexedKeyArgsDict']]]]] = None,
                  memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_delivery_resources: pulumi.Input[Optional[Union['AgentcoreMemoryStreamDeliveryResourcesArgs', 'AgentcoreMemoryStreamDeliveryResourcesArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['AgentcoreMemoryTimeoutsArgs', 'AgentcoreMemoryTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -400,9 +466,11 @@ class AgentcoreMemory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreMemoryIndexedKeyArgs', 'AgentcoreMemoryIndexedKeyArgsDict']]]] indexed_keys: Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
         :param pulumi.Input[_builtins.str] name: Name of the memory.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Union['AgentcoreMemoryStreamDeliveryResourcesArgs', 'AgentcoreMemoryStreamDeliveryResourcesArgsDict']] stream_delivery_resources: Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -484,9 +552,11 @@ class AgentcoreMemory(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  event_expiry_duration: pulumi.Input[Optional[_builtins.int]] = None,
+                 indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreMemoryIndexedKeyArgs', 'AgentcoreMemoryIndexedKeyArgsDict']]]]] = None,
                  memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 stream_delivery_resources: pulumi.Input[Optional[Union['AgentcoreMemoryStreamDeliveryResourcesArgs', 'AgentcoreMemoryStreamDeliveryResourcesArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['AgentcoreMemoryTimeoutsArgs', 'AgentcoreMemoryTimeoutsArgsDict']]] = None,
                  __props__=None):
@@ -503,9 +573,11 @@ class AgentcoreMemory(pulumi.CustomResource):
             if event_expiry_duration is None and not opts.urn:
                 raise TypeError("Missing required property 'event_expiry_duration'")
             __props__.__dict__["event_expiry_duration"] = event_expiry_duration
+            __props__.__dict__["indexed_keys"] = indexed_keys
             __props__.__dict__["memory_execution_role_arn"] = memory_execution_role_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
+            __props__.__dict__["stream_delivery_resources"] = stream_delivery_resources
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
@@ -524,9 +596,11 @@ class AgentcoreMemory(pulumi.CustomResource):
             description: pulumi.Input[Optional[_builtins.str]] = None,
             encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
             event_expiry_duration: pulumi.Input[Optional[_builtins.int]] = None,
+            indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreMemoryIndexedKeyArgs', 'AgentcoreMemoryIndexedKeyArgsDict']]]]] = None,
             memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
+            stream_delivery_resources: pulumi.Input[Optional[Union['AgentcoreMemoryStreamDeliveryResourcesArgs', 'AgentcoreMemoryStreamDeliveryResourcesArgsDict']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timeouts: pulumi.Input[Optional[Union['AgentcoreMemoryTimeoutsArgs', 'AgentcoreMemoryTimeoutsArgsDict']]] = None) -> 'AgentcoreMemory':
@@ -543,9 +617,11 @@ class AgentcoreMemory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreMemoryIndexedKeyArgs', 'AgentcoreMemoryIndexedKeyArgsDict']]]] indexed_keys: Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
         :param pulumi.Input[_builtins.str] name: Name of the memory.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[Union['AgentcoreMemoryStreamDeliveryResourcesArgs', 'AgentcoreMemoryStreamDeliveryResourcesArgsDict']] stream_delivery_resources: Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -557,9 +633,11 @@ class AgentcoreMemory(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["encryption_key_arn"] = encryption_key_arn
         __props__.__dict__["event_expiry_duration"] = event_expiry_duration
+        __props__.__dict__["indexed_keys"] = indexed_keys
         __props__.__dict__["memory_execution_role_arn"] = memory_execution_role_arn
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
+        __props__.__dict__["stream_delivery_resources"] = stream_delivery_resources
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -600,6 +678,14 @@ class AgentcoreMemory(pulumi.CustomResource):
         return pulumi.get(self, "event_expiry_duration")
 
     @_builtins.property
+    @pulumi.getter(name="indexedKeys")
+    def indexed_keys(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreMemoryIndexedKey']]]:
+        """
+        Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
+        """
+        return pulumi.get(self, "indexed_keys")
+
+    @_builtins.property
     @pulumi.getter(name="memoryExecutionRoleArn")
     def memory_execution_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -622,6 +708,14 @@ class AgentcoreMemory(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="streamDeliveryResources")
+    def stream_delivery_resources(self) -> pulumi.Output[Optional['outputs.AgentcoreMemoryStreamDeliveryResources']]:
+        """
+        Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
+        """
+        return pulumi.get(self, "stream_delivery_resources")
 
     @_builtins.property
     @pulumi.getter

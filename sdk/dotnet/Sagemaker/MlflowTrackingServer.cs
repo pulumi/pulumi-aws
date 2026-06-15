@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> ArtifactStoreUri { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Member Definitions that contains objects that identify the workers that make up the work team.
+        /// Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
         /// </summary>
         [Output("automaticModelRegistration")]
         public Output<bool?> AutomaticModelRegistration { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string> ArtifactStoreUri { get; set; } = null!;
 
         /// <summary>
-        /// A list of Member Definitions that contains objects that identify the workers that make up the work team.
+        /// Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
         /// </summary>
         [Input("automaticModelRegistration")]
         public Input<bool>? AutomaticModelRegistration { get; set; }
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? ArtifactStoreUri { get; set; }
 
         /// <summary>
-        /// A list of Member Definitions that contains objects that identify the workers that make up the work team.
+        /// Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Defaults to false.
         /// </summary>
         [Input("automaticModelRegistration")]
         public Input<bool>? AutomaticModelRegistration { get; set; }

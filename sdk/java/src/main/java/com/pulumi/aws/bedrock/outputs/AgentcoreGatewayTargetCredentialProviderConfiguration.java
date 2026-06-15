@@ -4,7 +4,9 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetCredentialProviderConfigurationApiKey;
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole;
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetCredentialProviderConfigurationOauth;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -19,10 +21,20 @@ public final class AgentcoreGatewayTargetCredentialProviderConfiguration {
      */
     private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationApiKey apiKey;
     /**
-     * @return Use the gateway&#39;s IAM role for authentication. This is an empty configuration block.
+     * @return Caller IAM credentials-based authentication configuration. See `callerIamCredentials` below.
+     * 
+     */
+    private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials callerIamCredentials;
+    /**
+     * @return Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole gatewayIamRole;
+    /**
+     * @return JWT passthrough-based authentication configuration. This is an empty configuration block.
+     * 
+     */
+    private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough jwtPassthrough;
     /**
      * @return OAuth-based authentication configuration. See `oauth` below.
      * 
@@ -38,11 +50,25 @@ public final class AgentcoreGatewayTargetCredentialProviderConfiguration {
         return Optional.ofNullable(this.apiKey);
     }
     /**
-     * @return Use the gateway&#39;s IAM role for authentication. This is an empty configuration block.
+     * @return Caller IAM credentials-based authentication configuration. See `callerIamCredentials` below.
+     * 
+     */
+    public Optional<AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials> callerIamCredentials() {
+        return Optional.ofNullable(this.callerIamCredentials);
+    }
+    /**
+     * @return Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` below.
      * 
      */
     public Optional<AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole> gatewayIamRole() {
         return Optional.ofNullable(this.gatewayIamRole);
+    }
+    /**
+     * @return JWT passthrough-based authentication configuration. This is an empty configuration block.
+     * 
+     */
+    public Optional<AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough> jwtPassthrough() {
+        return Optional.ofNullable(this.jwtPassthrough);
     }
     /**
      * @return OAuth-based authentication configuration. See `oauth` below.
@@ -62,13 +88,17 @@ public final class AgentcoreGatewayTargetCredentialProviderConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationApiKey apiKey;
+        private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials callerIamCredentials;
         private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole gatewayIamRole;
+        private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough jwtPassthrough;
         private @Nullable AgentcoreGatewayTargetCredentialProviderConfigurationOauth oauth;
         public Builder() {}
         public Builder(AgentcoreGatewayTargetCredentialProviderConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
+    	      this.callerIamCredentials = defaults.callerIamCredentials;
     	      this.gatewayIamRole = defaults.gatewayIamRole;
+    	      this.jwtPassthrough = defaults.jwtPassthrough;
     	      this.oauth = defaults.oauth;
         }
 
@@ -79,9 +109,21 @@ public final class AgentcoreGatewayTargetCredentialProviderConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder callerIamCredentials(@Nullable AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials callerIamCredentials) {
+
+            this.callerIamCredentials = callerIamCredentials;
+            return this;
+        }
+        @CustomType.Setter
         public Builder gatewayIamRole(@Nullable AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole gatewayIamRole) {
 
             this.gatewayIamRole = gatewayIamRole;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jwtPassthrough(@Nullable AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough jwtPassthrough) {
+
+            this.jwtPassthrough = jwtPassthrough;
             return this;
         }
         @CustomType.Setter
@@ -93,7 +135,9 @@ public final class AgentcoreGatewayTargetCredentialProviderConfiguration {
         public AgentcoreGatewayTargetCredentialProviderConfiguration build() {
             final var _resultValue = new AgentcoreGatewayTargetCredentialProviderConfiguration();
             _resultValue.apiKey = apiKey;
+            _resultValue.callerIamCredentials = callerIamCredentials;
             _resultValue.gatewayIamRole = gatewayIamRole;
+            _resultValue.jwtPassthrough = jwtPassthrough;
             _resultValue.oauth = oauth;
             return _resultValue;
         }

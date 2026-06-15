@@ -96,12 +96,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Notes
- *
- * If both VPCs are not in the same AWS account and region do not enable the `autoAccept` attribute.
- * The accepter can manage its side of the connection using the `aws.ec2.VpcPeeringConnectionAccepter` resource
- * or accept the connection manually using the AWS Management Console, AWS CLI, through SDKs, etc.
- *
  * ## Import
  *
  * Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
@@ -153,7 +147,7 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
     declare public readonly autoAccept: pulumi.Output<boolean | undefined>;
     /**
      * The AWS account ID of the target peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+     * Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
      */
     declare public readonly peerOwnerId: pulumi.Output<string>;
     /**
@@ -255,7 +249,7 @@ export interface VpcPeeringConnectionState {
     autoAccept?: pulumi.Input<boolean | undefined>;
     /**
      * The AWS account ID of the target peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+     * Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
      */
     peerOwnerId?: pulumi.Input<string | undefined>;
     /**
@@ -305,7 +299,7 @@ export interface VpcPeeringConnectionArgs {
     autoAccept?: pulumi.Input<boolean | undefined>;
     /**
      * The AWS account ID of the target peer VPC.
-     * Defaults to the account ID the [AWS provider][1] is currently connected to, so must be managed if connecting cross-account.
+     * Defaults to the account ID the AWS provider is currently connected to, so must be managed if connecting cross-account.
      */
     peerOwnerId?: pulumi.Input<string | undefined>;
     /**

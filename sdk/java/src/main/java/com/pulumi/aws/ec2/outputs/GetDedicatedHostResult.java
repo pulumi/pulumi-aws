@@ -3,9 +3,12 @@
 
 package com.pulumi.aws.ec2.outputs;
 
+import com.pulumi.aws.ec2.outputs.GetDedicatedHostAvailableCapacity;
 import com.pulumi.aws.ec2.outputs.GetDedicatedHostFilter;
+import com.pulumi.aws.ec2.outputs.GetDedicatedHostInstance;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -15,6 +18,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDedicatedHostResult {
+    /**
+     * @return Time that the Dedicated Host was allocated, in RFC3339 format.
+     * 
+     */
+    private String allocationTime;
+    /**
+     * @return Whether the Dedicated Host supports multiple instance types of the same instance family. Valid values: `on`, `off`.
+     * 
+     */
+    private String allowsMultipleInstanceTypes;
     /**
      * @return ARN of the Dedicated Host.
      * 
@@ -36,6 +49,16 @@ public final class GetDedicatedHostResult {
      */
     private String availabilityZone;
     /**
+     * @return AZ ID of the Availability Zone in which the Dedicated Host is allocated (e.g., `use1-az1`).
+     * 
+     */
+    private String availabilityZoneId;
+    /**
+     * @return The number of instances that can be launched onto the Dedicated Host based on the host&#39;s available capacity.
+     * 
+     */
+    private List<GetDedicatedHostAvailableCapacity> availableCapacities;
+    /**
      * @return Number of cores on the Dedicated Host.
      * 
      */
@@ -43,10 +66,20 @@ public final class GetDedicatedHostResult {
     private @Nullable List<GetDedicatedHostFilter> filters;
     private String hostId;
     /**
+     * @return Whether host maintenance is enabled or disabled for the Dedicated Host. Valid values: `on`, `off`.
+     * 
+     */
+    private String hostMaintenance;
+    /**
      * @return Whether host recovery is enabled or disabled for the Dedicated Host.
      * 
      */
     private String hostRecovery;
+    /**
+     * @return The reservation ID of the Dedicated Host.
+     * 
+     */
+    private String hostReservationId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -58,26 +91,46 @@ public final class GetDedicatedHostResult {
      */
     private String instanceFamily;
     /**
-     * @return Instance type supported by the Dedicated Host. For example, &#34;m5.large&#34;. If the host supports multiple instance types, no instanceType is returned.
+     * @return The instance type of the running instance.
      * 
      */
     private String instanceType;
+    /**
+     * @return The instances running on the Dedicated Host. See `instances` below.
+     * 
+     */
+    private List<GetDedicatedHostInstance> instances;
+    /**
+     * @return Whether the Dedicated Host is in a host resource group.
+     * 
+     */
+    private Boolean memberOfServiceLinkedResourceGroup;
     /**
      * @return ARN of the AWS Outpost on which the Dedicated Host is allocated.
      * 
      */
     private String outpostArn;
     /**
-     * @return ID of the AWS account that owns the Dedicated Host.
+     * @return The ID of the AWS account that owns the instance.
      * 
      */
     private String ownerId;
     private String region;
     /**
+     * @return Time that the Dedicated Host was released, in RFC3339 format.
+     * 
+     */
+    private String releaseTime;
+    /**
      * @return Number of sockets on the Dedicated Host.
      * 
      */
     private Integer sockets;
+    /**
+     * @return Allocation state of the Dedicated Host. Valid values: `available`, `under-assessment`, `permanent-failure`, `released`, `released-permanent-failure`, `pending`.
+     * 
+     */
+    private String state;
     private Map<String,String> tags;
     /**
      * @return Total number of vCPUs on the Dedicated Host.
@@ -86,6 +139,20 @@ public final class GetDedicatedHostResult {
     private Integer totalVcpus;
 
     private GetDedicatedHostResult() {}
+    /**
+     * @return Time that the Dedicated Host was allocated, in RFC3339 format.
+     * 
+     */
+    public String allocationTime() {
+        return this.allocationTime;
+    }
+    /**
+     * @return Whether the Dedicated Host supports multiple instance types of the same instance family. Valid values: `on`, `off`.
+     * 
+     */
+    public String allowsMultipleInstanceTypes() {
+        return this.allowsMultipleInstanceTypes;
+    }
     /**
      * @return ARN of the Dedicated Host.
      * 
@@ -115,6 +182,20 @@ public final class GetDedicatedHostResult {
         return this.availabilityZone;
     }
     /**
+     * @return AZ ID of the Availability Zone in which the Dedicated Host is allocated (e.g., `use1-az1`).
+     * 
+     */
+    public String availabilityZoneId() {
+        return this.availabilityZoneId;
+    }
+    /**
+     * @return The number of instances that can be launched onto the Dedicated Host based on the host&#39;s available capacity.
+     * 
+     */
+    public List<GetDedicatedHostAvailableCapacity> availableCapacities() {
+        return this.availableCapacities;
+    }
+    /**
      * @return Number of cores on the Dedicated Host.
      * 
      */
@@ -128,11 +209,25 @@ public final class GetDedicatedHostResult {
         return this.hostId;
     }
     /**
+     * @return Whether host maintenance is enabled or disabled for the Dedicated Host. Valid values: `on`, `off`.
+     * 
+     */
+    public String hostMaintenance() {
+        return this.hostMaintenance;
+    }
+    /**
      * @return Whether host recovery is enabled or disabled for the Dedicated Host.
      * 
      */
     public String hostRecovery() {
         return this.hostRecovery;
+    }
+    /**
+     * @return The reservation ID of the Dedicated Host.
+     * 
+     */
+    public String hostReservationId() {
+        return this.hostReservationId;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -149,11 +244,25 @@ public final class GetDedicatedHostResult {
         return this.instanceFamily;
     }
     /**
-     * @return Instance type supported by the Dedicated Host. For example, &#34;m5.large&#34;. If the host supports multiple instance types, no instanceType is returned.
+     * @return The instance type of the running instance.
      * 
      */
     public String instanceType() {
         return this.instanceType;
+    }
+    /**
+     * @return The instances running on the Dedicated Host. See `instances` below.
+     * 
+     */
+    public List<GetDedicatedHostInstance> instances() {
+        return this.instances;
+    }
+    /**
+     * @return Whether the Dedicated Host is in a host resource group.
+     * 
+     */
+    public Boolean memberOfServiceLinkedResourceGroup() {
+        return this.memberOfServiceLinkedResourceGroup;
     }
     /**
      * @return ARN of the AWS Outpost on which the Dedicated Host is allocated.
@@ -163,7 +272,7 @@ public final class GetDedicatedHostResult {
         return this.outpostArn;
     }
     /**
-     * @return ID of the AWS account that owns the Dedicated Host.
+     * @return The ID of the AWS account that owns the instance.
      * 
      */
     public String ownerId() {
@@ -173,11 +282,25 @@ public final class GetDedicatedHostResult {
         return this.region;
     }
     /**
+     * @return Time that the Dedicated Host was released, in RFC3339 format.
+     * 
+     */
+    public String releaseTime() {
+        return this.releaseTime;
+    }
+    /**
      * @return Number of sockets on the Dedicated Host.
      * 
      */
     public Integer sockets() {
         return this.sockets;
+    }
+    /**
+     * @return Allocation state of the Dedicated Host. Valid values: `available`, `under-assessment`, `permanent-failure`, `released`, `released-permanent-failure`, `pending`.
+     * 
+     */
+    public String state() {
+        return this.state;
     }
     public Map<String,String> tags() {
         return this.tags;
@@ -199,45 +322,81 @@ public final class GetDedicatedHostResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String allocationTime;
+        private String allowsMultipleInstanceTypes;
         private String arn;
         private String assetId;
         private String autoPlacement;
         private String availabilityZone;
+        private String availabilityZoneId;
+        private List<GetDedicatedHostAvailableCapacity> availableCapacities;
         private Integer cores;
         private @Nullable List<GetDedicatedHostFilter> filters;
         private String hostId;
+        private String hostMaintenance;
         private String hostRecovery;
+        private String hostReservationId;
         private String id;
         private String instanceFamily;
         private String instanceType;
+        private List<GetDedicatedHostInstance> instances;
+        private Boolean memberOfServiceLinkedResourceGroup;
         private String outpostArn;
         private String ownerId;
         private String region;
+        private String releaseTime;
         private Integer sockets;
+        private String state;
         private Map<String,String> tags;
         private Integer totalVcpus;
         public Builder() {}
         public Builder(GetDedicatedHostResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.allocationTime = defaults.allocationTime;
+    	      this.allowsMultipleInstanceTypes = defaults.allowsMultipleInstanceTypes;
     	      this.arn = defaults.arn;
     	      this.assetId = defaults.assetId;
     	      this.autoPlacement = defaults.autoPlacement;
     	      this.availabilityZone = defaults.availabilityZone;
+    	      this.availabilityZoneId = defaults.availabilityZoneId;
+    	      this.availableCapacities = defaults.availableCapacities;
     	      this.cores = defaults.cores;
     	      this.filters = defaults.filters;
     	      this.hostId = defaults.hostId;
+    	      this.hostMaintenance = defaults.hostMaintenance;
     	      this.hostRecovery = defaults.hostRecovery;
+    	      this.hostReservationId = defaults.hostReservationId;
     	      this.id = defaults.id;
     	      this.instanceFamily = defaults.instanceFamily;
     	      this.instanceType = defaults.instanceType;
+    	      this.instances = defaults.instances;
+    	      this.memberOfServiceLinkedResourceGroup = defaults.memberOfServiceLinkedResourceGroup;
     	      this.outpostArn = defaults.outpostArn;
     	      this.ownerId = defaults.ownerId;
     	      this.region = defaults.region;
+    	      this.releaseTime = defaults.releaseTime;
     	      this.sockets = defaults.sockets;
+    	      this.state = defaults.state;
     	      this.tags = defaults.tags;
     	      this.totalVcpus = defaults.totalVcpus;
         }
 
+        @CustomType.Setter
+        public Builder allocationTime(String allocationTime) {
+            if (allocationTime == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostResult", "allocationTime");
+            }
+            this.allocationTime = allocationTime;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder allowsMultipleInstanceTypes(String allowsMultipleInstanceTypes) {
+            if (allowsMultipleInstanceTypes == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostResult", "allowsMultipleInstanceTypes");
+            }
+            this.allowsMultipleInstanceTypes = allowsMultipleInstanceTypes;
+            return this;
+        }
         @CustomType.Setter
         public Builder arn(String arn) {
             if (arn == null) {
@@ -271,6 +430,25 @@ public final class GetDedicatedHostResult {
             return this;
         }
         @CustomType.Setter
+        public Builder availabilityZoneId(String availabilityZoneId) {
+            if (availabilityZoneId == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostResult", "availabilityZoneId");
+            }
+            this.availabilityZoneId = availabilityZoneId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder availableCapacities(List<GetDedicatedHostAvailableCapacity> availableCapacities) {
+            if (availableCapacities == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostResult", "availableCapacities");
+            }
+            this.availableCapacities = availableCapacities;
+            return this;
+        }
+        public Builder availableCapacities(GetDedicatedHostAvailableCapacity... availableCapacities) {
+            return availableCapacities(List.of(availableCapacities));
+        }
+        @CustomType.Setter
         public Builder cores(Integer cores) {
             if (cores == null) {
               throw new MissingRequiredPropertyException("GetDedicatedHostResult", "cores");
@@ -296,11 +474,27 @@ public final class GetDedicatedHostResult {
             return this;
         }
         @CustomType.Setter
+        public Builder hostMaintenance(String hostMaintenance) {
+            if (hostMaintenance == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostResult", "hostMaintenance");
+            }
+            this.hostMaintenance = hostMaintenance;
+            return this;
+        }
+        @CustomType.Setter
         public Builder hostRecovery(String hostRecovery) {
             if (hostRecovery == null) {
               throw new MissingRequiredPropertyException("GetDedicatedHostResult", "hostRecovery");
             }
             this.hostRecovery = hostRecovery;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hostReservationId(String hostReservationId) {
+            if (hostReservationId == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostResult", "hostReservationId");
+            }
+            this.hostReservationId = hostReservationId;
             return this;
         }
         @CustomType.Setter
@@ -328,6 +522,25 @@ public final class GetDedicatedHostResult {
             return this;
         }
         @CustomType.Setter
+        public Builder instances(List<GetDedicatedHostInstance> instances) {
+            if (instances == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostResult", "instances");
+            }
+            this.instances = instances;
+            return this;
+        }
+        public Builder instances(GetDedicatedHostInstance... instances) {
+            return instances(List.of(instances));
+        }
+        @CustomType.Setter
+        public Builder memberOfServiceLinkedResourceGroup(Boolean memberOfServiceLinkedResourceGroup) {
+            if (memberOfServiceLinkedResourceGroup == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostResult", "memberOfServiceLinkedResourceGroup");
+            }
+            this.memberOfServiceLinkedResourceGroup = memberOfServiceLinkedResourceGroup;
+            return this;
+        }
+        @CustomType.Setter
         public Builder outpostArn(String outpostArn) {
             if (outpostArn == null) {
               throw new MissingRequiredPropertyException("GetDedicatedHostResult", "outpostArn");
@@ -352,11 +565,27 @@ public final class GetDedicatedHostResult {
             return this;
         }
         @CustomType.Setter
+        public Builder releaseTime(String releaseTime) {
+            if (releaseTime == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostResult", "releaseTime");
+            }
+            this.releaseTime = releaseTime;
+            return this;
+        }
+        @CustomType.Setter
         public Builder sockets(Integer sockets) {
             if (sockets == null) {
               throw new MissingRequiredPropertyException("GetDedicatedHostResult", "sockets");
             }
             this.sockets = sockets;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder state(String state) {
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetDedicatedHostResult", "state");
+            }
+            this.state = state;
             return this;
         }
         @CustomType.Setter
@@ -377,21 +606,31 @@ public final class GetDedicatedHostResult {
         }
         public GetDedicatedHostResult build() {
             final var _resultValue = new GetDedicatedHostResult();
+            _resultValue.allocationTime = allocationTime;
+            _resultValue.allowsMultipleInstanceTypes = allowsMultipleInstanceTypes;
             _resultValue.arn = arn;
             _resultValue.assetId = assetId;
             _resultValue.autoPlacement = autoPlacement;
             _resultValue.availabilityZone = availabilityZone;
+            _resultValue.availabilityZoneId = availabilityZoneId;
+            _resultValue.availableCapacities = availableCapacities;
             _resultValue.cores = cores;
             _resultValue.filters = filters;
             _resultValue.hostId = hostId;
+            _resultValue.hostMaintenance = hostMaintenance;
             _resultValue.hostRecovery = hostRecovery;
+            _resultValue.hostReservationId = hostReservationId;
             _resultValue.id = id;
             _resultValue.instanceFamily = instanceFamily;
             _resultValue.instanceType = instanceType;
+            _resultValue.instances = instances;
+            _resultValue.memberOfServiceLinkedResourceGroup = memberOfServiceLinkedResourceGroup;
             _resultValue.outpostArn = outpostArn;
             _resultValue.ownerId = ownerId;
             _resultValue.region = region;
+            _resultValue.releaseTime = releaseTime;
             _resultValue.sockets = sockets;
+            _resultValue.state = state;
             _resultValue.tags = tags;
             _resultValue.totalVcpus = totalVcpus;
             return _resultValue;

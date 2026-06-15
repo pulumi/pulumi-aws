@@ -775,7 +775,7 @@ class Integration(pulumi.CustomResource):
             })
         ```
 
-        ## Lambda integration
+        ### Lambda integration
 
         ```python
         import pulumi
@@ -836,7 +836,7 @@ class Integration(pulumi.CustomResource):
         )
         ```
 
-        ## Lambda integration with response streaming
+        ### Lambda integration with response streaming
 
         All other resources and data sources are the same as in the previous example; only the integration configuration differs.
         Note that the `timeout` of the `lambda.Function` may need to be adjusted.
@@ -856,7 +856,7 @@ class Integration(pulumi.CustomResource):
             timeout_milliseconds=900000)
         ```
 
-        ## VPC Link
+        ### VPC Link
 
         ```python
         import pulumi
@@ -908,7 +908,7 @@ class Integration(pulumi.CustomResource):
             connection_id=test_vpc_link.id)
         ```
 
-        ## VPC Link V2 with Application Load Balancer
+        ### VPC Link V2 with Application Load Balancer
 
         ```python
         import pulumi
@@ -1058,7 +1058,7 @@ class Integration(pulumi.CustomResource):
             })
         ```
 
-        ## Lambda integration
+        ### Lambda integration
 
         ```python
         import pulumi
@@ -1119,7 +1119,7 @@ class Integration(pulumi.CustomResource):
         )
         ```
 
-        ## Lambda integration with response streaming
+        ### Lambda integration with response streaming
 
         All other resources and data sources are the same as in the previous example; only the integration configuration differs.
         Note that the `timeout` of the `lambda.Function` may need to be adjusted.
@@ -1139,7 +1139,7 @@ class Integration(pulumi.CustomResource):
             timeout_milliseconds=900000)
         ```
 
-        ## VPC Link
+        ### VPC Link
 
         ```python
         import pulumi
@@ -1191,7 +1191,7 @@ class Integration(pulumi.CustomResource):
             connection_id=test_vpc_link.id)
         ```
 
-        ## VPC Link V2 with Application Load Balancer
+        ### VPC Link V2 with Application Load Balancer
 
         ```python
         import pulumi

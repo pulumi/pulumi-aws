@@ -189,13 +189,6 @@ class ResourceDataSync(pulumi.CustomResource):
             policy=example.json)
         ```
 
-        ## destination_data_sharing
-
-        `destination_data_sharing` supports the following:
-
-        * `destination_data_sharing_type` - (Optional) Data sharing type.
-          Only `Organization` is supported.
-
         ## Import
 
         Using `pulumi import`, import SSM resource data sync using the `name`. For example:
@@ -264,13 +257,6 @@ class ResourceDataSync(pulumi.CustomResource):
             bucket=example_bucket.bucket,
             policy=example.json)
         ```
-
-        ## destination_data_sharing
-
-        `destination_data_sharing` supports the following:
-
-        * `destination_data_sharing_type` - (Optional) Data sharing type.
-          Only `Organization` is supported.
 
         ## Import
 

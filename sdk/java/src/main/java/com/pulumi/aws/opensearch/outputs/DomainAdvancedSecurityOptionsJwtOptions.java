@@ -18,7 +18,12 @@ public final class DomainAdvancedSecurityOptionsJwtOptions {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return PEM-encoded public key used to verify JWT signatures.
+     * @return URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`.
+     * 
+     */
+    private @Nullable String jwksUrl;
+    /**
+     * @return PEM-encoded public key used to verify JWT signatures. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`. If both `jwksUrl` and `publicKey` are specified, `publicKey` is ignored.
      * 
      */
     private @Nullable String publicKey;
@@ -42,7 +47,14 @@ public final class DomainAdvancedSecurityOptionsJwtOptions {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return PEM-encoded public key used to verify JWT signatures.
+     * @return URL endpoint that hosts the JSON Web Key Set (JWKS) containing public keys used to verify JWT signatures. This argument can be specified only with OpenSearch versions 3.3 and later. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`.
+     * 
+     */
+    public Optional<String> jwksUrl() {
+        return Optional.ofNullable(this.jwksUrl);
+    }
+    /**
+     * @return PEM-encoded public key used to verify JWT signatures. At least one of `jwksUrl` or `publicKey` must be specified when `enabled` is set to `true`. If both `jwksUrl` and `publicKey` are specified, `publicKey` is ignored.
      * 
      */
     public Optional<String> publicKey() {
@@ -73,6 +85,7 @@ public final class DomainAdvancedSecurityOptionsJwtOptions {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
+        private @Nullable String jwksUrl;
         private @Nullable String publicKey;
         private @Nullable String rolesKey;
         private @Nullable String subjectKey;
@@ -80,6 +93,7 @@ public final class DomainAdvancedSecurityOptionsJwtOptions {
         public Builder(DomainAdvancedSecurityOptionsJwtOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
+    	      this.jwksUrl = defaults.jwksUrl;
     	      this.publicKey = defaults.publicKey;
     	      this.rolesKey = defaults.rolesKey;
     	      this.subjectKey = defaults.subjectKey;
@@ -89,6 +103,12 @@ public final class DomainAdvancedSecurityOptionsJwtOptions {
         public Builder enabled(@Nullable Boolean enabled) {
 
             this.enabled = enabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder jwksUrl(@Nullable String jwksUrl) {
+
+            this.jwksUrl = jwksUrl;
             return this;
         }
         @CustomType.Setter
@@ -112,6 +132,7 @@ public final class DomainAdvancedSecurityOptionsJwtOptions {
         public DomainAdvancedSecurityOptionsJwtOptions build() {
             final var _resultValue = new DomainAdvancedSecurityOptionsJwtOptions();
             _resultValue.enabled = enabled;
+            _resultValue.jwksUrl = jwksUrl;
             _resultValue.publicKey = publicKey;
             _resultValue.rolesKey = rolesKey;
             _resultValue.subjectKey = subjectKey;

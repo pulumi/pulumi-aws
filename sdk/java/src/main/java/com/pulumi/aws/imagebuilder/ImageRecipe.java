@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.imagebuilder.inputs.ImageRecipeBlockDeviceMappingArgs;
  * import com.pulumi.aws.imagebuilder.inputs.ImageRecipeBlockDeviceMappingEbsArgs;
  * import com.pulumi.aws.imagebuilder.inputs.ImageRecipeComponentArgs;
+ * import com.pulumi.aws.imagebuilder.inputs.ImageRecipeComponentParameterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

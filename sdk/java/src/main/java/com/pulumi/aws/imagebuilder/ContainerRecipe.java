@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.imagebuilder.ContainerRecipeArgs;
  * import com.pulumi.aws.imagebuilder.inputs.ContainerRecipeTargetRepositoryArgs;
  * import com.pulumi.aws.imagebuilder.inputs.ContainerRecipeComponentArgs;
+ * import com.pulumi.aws.imagebuilder.inputs.ContainerRecipeComponentParameterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

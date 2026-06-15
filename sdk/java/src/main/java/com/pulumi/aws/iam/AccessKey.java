@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.AccessKeyArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
  * import com.pulumi.aws.iam.UserPolicy;
  * import com.pulumi.aws.iam.UserPolicyArgs;
  * import java.util.ArrayList;

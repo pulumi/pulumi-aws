@@ -109,8 +109,6 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
-    /// ## Specifying the Deployment Package
-    /// 
     /// AWS Lambda Layers expect source code to be provided as a deployment package whose structure varies depending on which `CompatibleRuntimes` this layer specifies. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) for the valid values of `CompatibleRuntimes`.
     /// 
     /// Once you have created your deployment package you can specify it either directly as a local file (using the `Filename` argument) or indirectly via Amazon S3 (using the `S3Bucket`, `S3Key` and `S3ObjectVersion` arguments). When providing the deployment package via S3 it may be useful to use the `aws.s3.BucketObjectv2` resource to upload it.

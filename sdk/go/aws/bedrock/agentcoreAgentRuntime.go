@@ -173,6 +173,45 @@ import (
 //
 // ```
 //
+// ### AG-UI Server
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
+//				AgentRuntimeName: pulumi.String("example_agui_runtime"),
+//				Description:      pulumi.String("Agent runtime with AG-UI protocol"),
+//				RoleArn:          pulumi.Any(exampleAwsIamRole.Arn),
+//				AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{
+//					ContainerConfiguration: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{
+//						ContainerUri: pulumi.Sprintf("%v:latest", exampleAwsEcrRepository.RepositoryUrl),
+//					},
+//				},
+//				NetworkConfiguration: &bedrock.AgentcoreAgentRuntimeNetworkConfigurationArgs{
+//					NetworkMode: pulumi.String("PUBLIC"),
+//				},
+//				ProtocolConfiguration: &bedrock.AgentcoreAgentRuntimeProtocolConfigurationArgs{
+//					ServerProtocol: pulumi.String("AGUI"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Agent runtime artifact from S3 with Code Configuration
 //
 // ```go

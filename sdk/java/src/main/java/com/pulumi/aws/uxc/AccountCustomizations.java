@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -130,28 +129,28 @@ public class AccountCustomizations extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="visibleRegions", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> visibleRegions;
+    private Output<List<String>> visibleRegions;
 
     /**
      * @return Set of AWS region codes to display in the console. When omitted or empty, all regions are visible.
      * 
      */
-    public Output<Optional<List<String>>> visibleRegions() {
-        return Codegen.optional(this.visibleRegions);
+    public Output<List<String>> visibleRegions() {
+        return this.visibleRegions;
     }
     /**
      * Set of AWS service identifiers to display in the console. When omitted or empty, all services are visible.
      * 
      */
     @Export(name="visibleServices", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> visibleServices;
+    private Output<List<String>> visibleServices;
 
     /**
      * @return Set of AWS service identifiers to display in the console. When omitted or empty, all services are visible.
      * 
      */
-    public Output<Optional<List<String>>> visibleServices() {
-        return Codegen.optional(this.visibleServices);
+    public Output<List<String>> visibleServices() {
+        return this.visibleServices;
     }
 
     /**

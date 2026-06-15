@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### With VPC Endpoints
+ * ### Example Usage with VPC Endpoints
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

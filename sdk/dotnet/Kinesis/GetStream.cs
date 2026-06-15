@@ -219,6 +219,10 @@ namespace Pulumi.Aws.Kinesis
         /// Map of tags to assigned to the stream.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// Warm throughput in MB/s for the stream. Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetStreamWarmThroughputResult> WarmThroughputs;
 
         [OutputConstructor]
         private GetStreamResult(
@@ -250,7 +254,9 @@ namespace Pulumi.Aws.Kinesis
 
             ImmutableArray<Outputs.GetStreamStreamModeDetailResult> streamModeDetails,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            ImmutableArray<Outputs.GetStreamWarmThroughputResult> warmThroughputs)
         {
             Arn = arn;
             ClosedShards = closedShards;
@@ -267,6 +273,7 @@ namespace Pulumi.Aws.Kinesis
             Status = status;
             StreamModeDetails = streamModeDetails;
             Tags = tags;
+            WarmThroughputs = warmThroughputs;
         }
     }
 }

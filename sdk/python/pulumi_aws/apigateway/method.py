@@ -468,7 +468,7 @@ class Method(pulumi.CustomResource):
             authorization="NONE")
         ```
 
-        ## Usage with Cognito User Pool Authorizer
+        ### Usage with Cognito User Pool Authorizer
 
         ```python
         import pulumi
@@ -567,7 +567,7 @@ class Method(pulumi.CustomResource):
             authorization="NONE")
         ```
 
-        ## Usage with Cognito User Pool Authorizer
+        ### Usage with Cognito User Pool Authorizer
 
         ```python
         import pulumi

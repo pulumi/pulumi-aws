@@ -68,6 +68,21 @@ public final class EnvironmentBlueprintConfigurationArgs extends com.pulumi.reso
     }
 
     /**
+     * A map of global parameters to configure for the blueprint across all regions.
+     * 
+     */
+    @Import(name="globalParameters")
+    private @Nullable Output<Map<String,String>> globalParameters;
+
+    /**
+     * @return A map of global parameters to configure for the blueprint across all regions.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> globalParameters() {
+        return Optional.ofNullable(this.globalParameters);
+    }
+
+    /**
      * ARN of the manage access role with which this blueprint is created.
      * 
      */
@@ -133,6 +148,7 @@ public final class EnvironmentBlueprintConfigurationArgs extends com.pulumi.reso
         this.domainId = $.domainId;
         this.enabledRegions = $.enabledRegions;
         this.environmentBlueprintId = $.environmentBlueprintId;
+        this.globalParameters = $.globalParameters;
         this.manageAccessRoleArn = $.manageAccessRoleArn;
         this.provisioningRoleArn = $.provisioningRoleArn;
         this.region = $.region;
@@ -234,6 +250,27 @@ public final class EnvironmentBlueprintConfigurationArgs extends com.pulumi.reso
          */
         public Builder environmentBlueprintId(String environmentBlueprintId) {
             return environmentBlueprintId(Output.of(environmentBlueprintId));
+        }
+
+        /**
+         * @param globalParameters A map of global parameters to configure for the blueprint across all regions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalParameters(@Nullable Output<Map<String,String>> globalParameters) {
+            $.globalParameters = globalParameters;
+            return this;
+        }
+
+        /**
+         * @param globalParameters A map of global parameters to configure for the blueprint across all regions.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalParameters(Map<String,String> globalParameters) {
+            return globalParameters(Output.of(globalParameters));
         }
 
         /**

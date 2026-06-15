@@ -20,7 +20,9 @@ import javax.annotation.Nullable;
 /**
  * Manages an AWS CloudWatch Observability Admin Telemetry Rule.
  * 
- * &gt; **NOTE:** Before using this resource, telemetry evaluation must be enabled for your AWS account. You can use the `aws.observabilityadmin.TelemetryEvaluation` or `aws.observabilityadmin.TelemetryEvaluationForOrganization` resource to enable it.
+ * A telemetry rule defines how telemetry data (logs, metrics, or traces) should be collected for AWS resources within an AWS account. The rule can target one or more Regions and optionally configure a destination (such as CloudWatch Logs or S3) along with source-specific parameters for VPC flow logs, WAF logs, CloudTrail events, ELB access logs, and more.
+ * 
+ * &gt; **NOTE:** Before using this resource, telemetry evaluation must be enabled for your AWS account. Use the `aws.observabilityadmin.TelemetryEvaluation` resource to enable it.
  * 
  * ## Example Usage
  * 
@@ -68,6 +70,190 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### VPC Flow Logs to CloudWatch Logs
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.observabilityadmin.TelemetryEvaluation;
+ * import com.pulumi.aws.observabilityadmin.TelemetryRule;
+ * import com.pulumi.aws.observabilityadmin.TelemetryRuleArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleDestinationConfigurationArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TelemetryEvaluation("example");
+ * 
+ *         var exampleTelemetryRule = new TelemetryRule("exampleTelemetryRule", TelemetryRuleArgs.builder()
+ *             .ruleName("vpc-flow-logs-rule")
+ *             .rule(TelemetryRuleRuleArgs.builder()
+ *                 .telemetryType("Logs")
+ *                 .resourceType("AWS::EC2::VPC")
+ *                 .telemetrySourceTypes("VPC_FLOW_LOGS")
+ *                 .allRegions(true)
+ *                 .allowFieldUpdates(true)
+ *                 .destinationConfiguration(TelemetryRuleRuleDestinationConfigurationArgs.builder()
+ *                     .destinationType("cloud-watch-logs")
+ *                     .destinationPattern("/aws/vpcflowlogs/<resourceId>")
+ *                     .retentionInDays(30)
+ *                     .vpcFlowLogParameters(TelemetryRuleRuleDestinationConfigurationVpcFlowLogParametersArgs.builder()
+ *                         .trafficType("ALL")
+ *                         .maxAggregationInterval(60)
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Replicated Across Specific Regions
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.observabilityadmin.TelemetryEvaluation;
+ * import com.pulumi.aws.observabilityadmin.TelemetryRule;
+ * import com.pulumi.aws.observabilityadmin.TelemetryRuleArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TelemetryEvaluation("example");
+ * 
+ *         var exampleTelemetryRule = new TelemetryRule("exampleTelemetryRule", TelemetryRuleArgs.builder()
+ *             .ruleName("multi-region-rule")
+ *             .rule(TelemetryRuleRuleArgs.builder()
+ *                 .telemetryType("Logs")
+ *                 .resourceType("AWS::EKS::Cluster")
+ *                 .regions(                
+ *                     "us-east-1",
+ *                     "us-west-2",
+ *                     "eu-west-1")
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### WAF Logging with Filters and Redacted Fields
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.observabilityadmin.TelemetryEvaluation;
+ * import com.pulumi.aws.observabilityadmin.TelemetryRule;
+ * import com.pulumi.aws.observabilityadmin.TelemetryRuleArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleDestinationConfigurationArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new TelemetryEvaluation("example");
+ * 
+ *         var exampleTelemetryRule = new TelemetryRule("exampleTelemetryRule", TelemetryRuleArgs.builder()
+ *             .ruleName("waf-logs-rule")
+ *             .rule(TelemetryRuleRuleArgs.builder()
+ *                 .telemetryType("Logs")
+ *                 .resourceType("AWS::WAFv2::WebACL")
+ *                 .destinationConfiguration(TelemetryRuleRuleDestinationConfigurationArgs.builder()
+ *                     .destinationType("cloud-watch-logs")
+ *                     .destinationPattern("aws-waf-logs-<resourceId>")
+ *                     .retentionInDays(30)
+ *                     .wafLoggingParameters(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersArgs.builder()
+ *                         .logType("WAF_LOGS")
+ *                         .loggingFilter(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterArgs.builder()
+ *                             .defaultBehavior("KEEP")
+ *                             .filters(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterArgs.builder()
+ *                                 .behavior("DROP")
+ *                                 .requirement("MEETS_ANY")
+ *                                 .conditions(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionArgs.builder()
+ *                                     .actionCondition(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersLoggingFilterFilterConditionActionConditionArgs.builder()
+ *                                         .action("ALLOW")
+ *                                         .build())
+ *                                     .build())
+ *                                 .build())
+ *                             .build())
+ *                         .redactedFields(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldArgs.builder()
+ *                             .queryString("")
+ *                             .singleHeader(TelemetryRuleRuleDestinationConfigurationWafLoggingParametersRedactedFieldSingleHeaderArgs.builder()
+ *                                 .name("authorization")
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(example)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### With Tags
  * 
  * <pre>
@@ -98,7 +284,7 @@ import javax.annotation.Nullable;
  *         var example = new TelemetryEvaluation("example");
  * 
  *         var exampleTelemetryRule = new TelemetryRule("exampleTelemetryRule", TelemetryRuleArgs.builder()
- *             .ruleName("vpc-logs-rule")
+ *             .ruleName("tagged-rule")
  *             .rule(TelemetryRuleRuleArgs.builder()
  *                 .telemetryType("Logs")
  *                 .resourceType("AWS::EC2::VPC")
@@ -139,28 +325,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:observabilityadmin/telemetryRule:TelemetryRule")
 public class TelemetryRule extends com.pulumi.resources.CustomResource {
     /**
-     * AWS region. If not specified, the provider region is used.
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
     /**
-     * @return AWS region. If not specified, the provider region is used.
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Output<String> region() {
         return this.region;
     }
     /**
-     * Configuration block for the telemetry rule. See rule below.
+     * Configuration block for the telemetry rule. See `rule` below.
      * 
      */
     @Export(name="rule", refs={TelemetryRuleRule.class}, tree="[0]")
     private Output<TelemetryRuleRule> rule;
 
     /**
-     * @return Configuration block for the telemetry rule. See rule below.
+     * @return Configuration block for the telemetry rule. See `rule` below.
      * 
      */
     public Output<TelemetryRuleRule> rule() {
@@ -181,28 +367,32 @@ public class TelemetryRule extends com.pulumi.resources.CustomResource {
         return this.ruleArn;
     }
     /**
-     * Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+     * Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Export(name="ruleName", refs={String.class}, tree="[0]")
     private Output<String> ruleName;
 
     /**
-     * @return Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes.
+     * @return Name of the telemetry rule. Must be between 1 and 100 characters and contain only alphanumeric characters, hyphens, underscores, periods, hash symbols, and forward slashes. Changing this argument forces a new resource to be created.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> ruleName() {
         return this.ruleName;
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

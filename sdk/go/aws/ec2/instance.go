@@ -329,17 +329,7 @@ import (
 //
 // ```
 //
-// ## Tag Guide
-//
-// These are the five types of tags you might encounter relative to an `ec2.Instance`:
-//
-// 1. **Instance tags**: Applied to instances but not to `ebsBlockDevice` and `rootBlockDevice` volumes.
-// 2. **Default tags**: Applied to the instance and to `ebsBlockDevice` and `rootBlockDevice` volumes.
-// 3. **Volume tags**: Applied during creation to `ebsBlockDevice` and `rootBlockDevice` volumes.
-// 4. **Root block device tags**: Applied only to the `rootBlockDevice` volume. These conflict with `volumeTags`.
-// 5. **EBS block device tags**: Applied only to the specific `ebsBlockDevice` volume you configure them for and cannot be updated. These conflict with `volumeTags`.
-//
-// Do not use `volumeTags` if you plan to manage block device tags outside the `ec2.Instance` configuration, such as using `tags` in an `ebs.Volume` resource attached via `ec2.VolumeAttachment`. Doing so will result in resource cycling and inconsistent behavior.
+// > **Note:** There are five types of tags relevant to an `ec2.Instance`: (1) **instance tags** — applied to instances but not to `ebsBlockDevice` or `rootBlockDevice` volumes; (2) **default tags** — applied to the instance and to those volumes; (3) **volume tags** — applied during creation to `ebsBlockDevice` and `rootBlockDevice` volumes; (4) **root block device tags** — applied only to the `rootBlockDevice` volume (conflicts with `volumeTags`); (5) **EBS block device tags** — applied only to the specific `ebsBlockDevice` volume and cannot be updated (conflicts with `volumeTags`). Do not use `volumeTags` if you manage block device tags outside the `ec2.Instance` configuration (e.g., using `tags` in an `ebs.Volume` resource) as this causes resource cycling and inconsistent behavior.
 //
 // ## Import
 //
