@@ -2,11 +2,14 @@ package provider
 
 import (
 	"context"
+	"regexp"
 	"strings"
 	"testing"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -178,6 +181,120 @@ func TestCustomAutoNameTransforms(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestRdsInstanceIdentifierAutonaming(t *testing.T) {
+	t.Parallel()
+
+	field := Provider().Resources["aws_db_instance"].Fields["identifier"]
+	require.NotNil(t, field.Default)
+	assert.True(t, field.Default.AutoNamed)
+	require.NotNil(t, field.Default.ComputeDefault)
+
+	tests := []struct {
+		name        string
+		opts        tfbridge.ComputeDefaultOptions
+		want        string
+		wantPattern *regexp.Regexp
+		wantErr     string
+	}{
+		{
+			name: "default keeps legacy name shape",
+			opts: rdsIdentifierDefaultOptions("rds", resource.PropertyMap{}),
+			wantPattern: regexp.MustCompile(
+				`^rds[0-9a-f]{7}$`),
+		},
+		{
+			name: "propose uses configured name",
+			opts: withRdsIdentifierAutonaming(
+				rdsIdentifierDefaultOptions("rds", resource.PropertyMap{}),
+				"dev-rds", info.ComputeDefaultAutonamingModePropose),
+			want: "dev-rds",
+		},
+		{
+			name: "enforce uses exact configured name",
+			opts: withRdsIdentifierAutonaming(
+				rdsIdentifierDefaultOptions("rds", resource.PropertyMap{}),
+				"Dev_RDS", info.ComputeDefaultAutonamingModeEnforce),
+			want: "Dev_RDS",
+		},
+		{
+			name: "disable errors when identifier is absent",
+			opts: withRdsIdentifierAutonaming(
+				rdsIdentifierDefaultOptions("rds", resource.PropertyMap{}),
+				"dev-rds", info.ComputeDefaultAutonamingModeDisable),
+			wantErr: "automatic naming is disabled",
+		},
+		{
+			name: "sqlserver default preserves shorter legacy suffix",
+			opts: rdsIdentifierDefaultOptions("sqlserver-db", resource.PropertyMap{
+				"engine": resource.NewStringProperty("sqlserver-ex"),
+			}),
+			wantPattern: regexp.MustCompile(
+				`^sqlserver-db[0-9a-f]{3}$`),
+		},
+		{
+			name: "prior state reuses existing identifier",
+			opts: withRdsIdentifierAutonaming(
+				withRdsIdentifierPriorValue(
+					rdsIdentifierDefaultOptions("rds", resource.PropertyMap{}), "existing-rds"),
+				"dev-rds", info.ComputeDefaultAutonamingModePropose),
+			want: "existing-rds",
+		},
+	}
+
+	for _, tt := range tests {
+		tt := tt
+		t.Run(tt.name, func(t *testing.T) {
+			t.Parallel()
+
+			actual, err := field.Default.ComputeDefault(context.Background(), tt.opts)
+			if tt.wantErr != "" {
+				require.ErrorContains(t, err, tt.wantErr)
+				return
+			}
+			require.NoError(t, err)
+			name, ok := actual.(string)
+			require.Truef(t, ok, "expected string result, got %T", actual)
+			if tt.want != "" {
+				assert.Equal(t, tt.want, name)
+			}
+			if tt.wantPattern != nil {
+				assert.Regexp(t, tt.wantPattern, name)
+			}
+		})
+	}
+}
+
+func rdsIdentifierDefaultOptions(
+	urnName string, properties resource.PropertyMap,
+) tfbridge.ComputeDefaultOptions {
+	return tfbridge.ComputeDefaultOptions{
+		URN:        resource.NewURN("stack", "project", "", "aws:index/resource:Resource", urnName),
+		Properties: properties,
+		Seed:       []byte("test-seed"),
+	}
+}
+
+func withRdsIdentifierAutonaming(
+	opts tfbridge.ComputeDefaultOptions,
+	proposedName string, mode info.ComputeDefaultAutonamingOptionsMode,
+) tfbridge.ComputeDefaultOptions {
+	opts.Autonaming = &info.ComputeDefaultAutonamingOptions{
+		ProposedName: proposedName,
+		Mode:         mode,
+	}
+	return opts
+}
+
+func withRdsIdentifierPriorValue(
+	opts tfbridge.ComputeDefaultOptions, value string,
+) tfbridge.ComputeDefaultOptions {
+	opts.PriorState = resource.PropertyMap{
+		"identifier": resource.NewStringProperty(value),
+	}
+	opts.PriorValue = resource.NewStringProperty(value)
+	return opts
 }
 
 func TestExtractTags(t *testing.T) {

@@ -1,0 +1,70 @@
+name: test
+runtime:
+  name: yaml
+
+config:
+  pulumi:autonaming:
+    value:
+      pattern: ${stack}-${name}
+
+resources:
+  vpc:
+    type: aws:ec2:Vpc
+    properties:
+      cidrBlock: 10.0.0.0/16
+
+  subneta:
+    type: aws:ec2:Subnet
+    properties:
+      vpcId: ${vpc.id}
+      cidrBlock: 10.0.1.0/24
+      availabilityZone: ${azs.names[0]}
+
+  subnetb:
+    type: aws:ec2:Subnet
+    properties:
+      vpcId: ${vpc.id}
+      cidrBlock: 10.0.2.0/24
+      availabilityZone: ${azs.names[1]}
+
+  subnetgroup:
+    type: aws:rds:SubnetGroup
+    properties:
+      subnetIds:
+        - ${subneta.id}
+        - ${subnetb.id}
+
+  securitygroup:
+    type: aws:ec2:SecurityGroup
+    properties:
+      vpcId: ${vpc.id}
+      ingress: []
+      egress: []
+
+  tested-resource:
+    type: aws:rds/instance:Instance
+    properties:
+      engine: postgres
+      instanceClass: db.t4g.micro
+      allocatedStorage: 20
+      storageType: gp3
+      dbName: mydbname
+      username: mydbuser
+      password: mypassword
+      dbSubnetGroupName: ${subnetgroup.name}
+      vpcSecurityGroupIds:
+        - ${securitygroup.id}
+      skipFinalSnapshot: true
+    options:
+      ignoreChanges:
+        - password
+
+outputs:
+  identifier: ${tested-resource.identifier}
+
+variables:
+  azs:
+    fn::invoke:
+      function: aws:getAvailabilityZones
+      arguments:
+        state: available
