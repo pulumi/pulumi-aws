@@ -3233,15 +3233,19 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo { 
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"identifier": {
 						Default: &tfbridge.DefaultInfo{
-							From: func(res *tfbridge.PulumiResource) (interface{}, error) {
-								name, rand, maxlen := res.URN.Name(), 7, 255
-								if engine, ok := res.Properties["engine"]; ok && engine.IsString() {
+							AutoNamed: true,
+							ComputeDefault: func(ctx context.Context, opts tfbridge.ComputeDefaultOptions) (interface{}, error) {
+								rand, maxlen := 7, 255
+								if engine, ok := opts.Properties["engine"]; ok && engine.IsString() {
 									if strings.Contains(strings.ToLower(engine.StringValue()), "sqlserver") {
 										// SQL Server identifiers are capped at 15 characters.
 										rand, maxlen = 3, 15
 									}
 								}
-								return resource.NewUniqueHex(name, rand, maxlen)
+								return tfbridge.ComputeAutoNameDefault(ctx, tfbridge.AutoNameOptions{
+									Randlen: rand,
+									Maxlen:  maxlen,
+								}, opts)
 							},
 						},
 					},
@@ -4060,7 +4064,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo { 
 					"cluster_name": tfbridge.AutoName("clusterName", 255, "-"),
 				},
 			},
-			"aws_msk_configuration":            {Tok: awsResource(mskMod, "Configuration")},
+			"aws_msk_configuration": {Tok: awsResource(mskMod, "Configuration")},
 			"aws_msk_replicator": {
 				Tok: awsResource(mskMod, "Replicator"),
 				Fields: map[string]*tfbridge.SchemaInfo{

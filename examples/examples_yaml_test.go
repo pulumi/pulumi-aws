@@ -54,6 +54,133 @@ func TestRdsInstanceUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "rds-instance"), nil)
 }
 
+func TestRdsInstanceAutonaming(t *testing.T) {
+	t.Parallel()
+
+	test := rdsInstanceAutonamingPreviewTest(t, rdsInstanceAutonamingPreviewYAML)
+	test.Preview(t, optpreview.Diff())
+
+	checks, err := test.GrpcLog(t).Checks()
+	require.NoError(t, err)
+	var found bool
+	for _, check := range checks {
+		if !strings.Contains(check.Request.GetUrn(), "aws:rds/instance:Instance::tested-resource") {
+			continue
+		}
+
+		found = true
+		_, hasIdentifierInput := check.Request.GetNews().GetFields()["identifier"]
+		assert.False(t, hasIdentifierInput, "program should not explicitly set identifier")
+		require.Empty(t, check.Response.GetFailures())
+		assert.Equal(t, "test-tested-resource",
+			check.Response.GetInputs().GetFields()["identifier"].GetStringValue())
+	}
+	require.True(t, found, "expected RDS instance Check call")
+}
+
+func TestRdsInstanceIdentifierPrefixSuppressesAutonaming(t *testing.T) {
+	t.Parallel()
+
+	test := rdsInstanceAutonamingPreviewTest(t, rdsInstanceIdentifierPrefixPreviewYAML)
+	test.Preview(t, optpreview.Diff())
+
+	checks, err := test.GrpcLog(t).Checks()
+	require.NoError(t, err)
+	var found bool
+	for _, check := range checks {
+		if !strings.Contains(check.Request.GetUrn(), "aws:rds/instance:Instance::tested-resource") {
+			continue
+		}
+
+		found = true
+		_, hasIdentifierInput := check.Request.GetNews().GetFields()["identifier"]
+		assert.False(t, hasIdentifierInput, "program should not explicitly set identifier")
+		assert.Equal(t, "prefix-",
+			check.Request.GetNews().GetFields()["identifierPrefix"].GetStringValue())
+		require.Empty(t, check.Response.GetFailures())
+		assert.Nil(t, check.Response.GetInputs().GetFields()["identifier"])
+		assert.Equal(t, "prefix-",
+			check.Response.GetInputs().GetFields()["identifierPrefix"].GetStringValue())
+	}
+	require.True(t, found, "expected RDS instance Check call")
+}
+
+func rdsInstanceAutonamingPreviewTest(t *testing.T, program string) *pulumitest.PulumiTest {
+	t.Helper()
+
+	workdir := t.TempDir()
+	err := os.WriteFile(filepath.Join(workdir, "Pulumi.yaml"), []byte(program), 0o600)
+	require.NoError(t, err)
+
+	test := pulumitest.NewPulumiTest(t, workdir,
+		opttest.SkipInstall(),
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+	test.SetConfig(t, "aws:accessKey", "test")
+	test.SetConfig(t, "aws:secretKey", "test")
+	test.SetConfig(t, "aws:region", "us-west-2")
+	test.SetConfig(t, "aws:skipCredentialsValidation", "true")
+	test.SetConfig(t, "aws:skipRegionValidation", "true")
+	test.SetConfig(t, "aws:skipRequestingAccountId", "true")
+	return test
+}
+
+func TestRdsInstanceAutonamingUpgrade(t *testing.T) {
+	test, _ := testProviderUpgrade(t, filepath.Join("test-programs", "rds-instance-autonaming"),
+		&testProviderUpgradeOptions{
+			skipDefaultPreviewTest: true,
+		},
+	)
+
+	diffs := runPreviewWithPlanDiff(t, test)
+	assert.NotContains(t, diffs, "tested-resource")
+}
+
+const rdsInstanceAutonamingPreviewYAML = `
+name: test
+runtime:
+  name: yaml
+
+config:
+  pulumi:autonaming:
+    value:
+      pattern: ${stack}-${name}
+
+resources:
+  tested-resource:
+    type: aws:rds/instance:Instance
+    properties:
+      engine: postgres
+      instanceClass: db.t4g.micro
+      allocatedStorage: 20
+      username: mydbuser
+      password: mypassword
+      skipFinalSnapshot: true
+`
+
+const rdsInstanceIdentifierPrefixPreviewYAML = `
+name: test
+runtime:
+  name: yaml
+
+config:
+  pulumi:autonaming:
+    value:
+      pattern: ${stack}-${name}
+
+resources:
+  tested-resource:
+    type: aws:rds/instance:Instance
+    properties:
+      identifierPrefix: prefix-
+      engine: postgres
+      instanceClass: db.t4g.micro
+      allocatedStorage: 20
+      username: mydbuser
+      password: mypassword
+      skipFinalSnapshot: true
+`
+
 func TestRoute53ResolverEndpointUpgrade(t *testing.T) {
 	testProviderUpgrade(t, filepath.Join("test-programs", "route53-resolver-endpoint"), nil)
 }
