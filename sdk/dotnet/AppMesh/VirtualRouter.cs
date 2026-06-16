@@ -12,7 +12,7 @@ namespace Pulumi.Aws.AppMesh
     /// <summary>
     /// Provides an AWS App Mesh virtual router resource.
     /// 
-    /// &gt; **Note:** Because of backward incompatible API changes ([see issue](https://github.com/awslabs/aws-app-mesh-examples/issues/92), [and here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), resource definitions created with provider versions earlier than v2.3.0 must be modified: remove `ServiceNames` from the `Spec` argument (AWS created `aws.appmesh.VirtualService` resources for each — import them with `pulumi import`); add a `Listener` configuration block to the `Spec` argument. Existing Terraform state is automatically migrated.
+    /// &gt; **Note:** Because of backward incompatible API changes ([see issue](https://github.com/awslabs/aws-app-mesh-examples/issues/92), [and here](https://github.com/awslabs/aws-app-mesh-examples/issues/94)), resource definitions created with provider versions earlier than v2.3.0 must be modified: remove `ServiceNames` from the `Spec` argument (AWS created `aws.appmesh.VirtualService` resources for each — import them with `pulumi import`); add a `Listener` configuration block to the `Spec` argument. Existing Pulumi state is automatically migrated.
     /// 
     /// ## Example Usage
     /// 

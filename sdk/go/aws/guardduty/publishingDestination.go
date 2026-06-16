@@ -146,7 +146,7 @@ import (
 //			gdBucketPolicy, err := s3.NewBucketPolicy(ctx, "gd_bucket_policy", &s3.BucketPolicyArgs{
 //				Bucket: gdBucket.ID(),
 //				Policy: pulumi.String(bucketPol.ApplyT(func(bucketPol iam.GetPolicyDocumentResult) (*string, error) {
-//					return &bucketPol.Json, nil
+//					return bucketPol.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -155,7 +155,7 @@ import (
 //			gdKey, err := kms.NewKey(ctx, "gd_key", &kms.KeyArgs{
 //				Description:          pulumi.String("Temporary key for AccTest of TF"),
 //				DeletionWindowInDays: pulumi.Int(7),
-//				Policy:               pulumi.String(pulumi.String(kmsPol.Json)),
+//				Policy:               pulumi.String(kmsPol.Json),
 //			})
 //			if err != nil {
 //				return err

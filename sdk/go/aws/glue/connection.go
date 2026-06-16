@@ -71,7 +71,7 @@ import (
 //				Name: pulumi.String("example"),
 //				ConnectionProperties: pulumi.StringMap{
 //					"JDBC_CONNECTION_URL": pulumi.String("jdbc:mysql://example.com/exampledatabase"),
-//					"SECRET_ID":           pulumi.String(pulumi.String(example.Name)),
+//					"SECRET_ID":           pulumi.String(example.Name),
 //				},
 //			})
 //			if err != nil {
@@ -171,7 +171,7 @@ import (
 //					"CONNECTION_TYPE":      pulumi.String("Jdbc"),
 //					"CONNECTOR_URL":        pulumi.String("s3://example/snowflake-jdbc.jar"),
 //					"JDBC_CONNECTION_URL":  pulumi.String("jdbc:snowflake://example.com/?user=${user}&password=${password}"),
-//					"SECRET_ID":            pulumi.String(pulumi.String(example.Name)),
+//					"SECRET_ID":            pulumi.String(example.Name),
 //				},
 //				MatchCriterias: pulumi.StringArray{
 //					pulumi.String("Connection"),
@@ -222,7 +222,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
 //				SecretId:     example.ID(),
-//				SecretString: pulumi.String(pulumi.String(json0)),
+//				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -289,7 +289,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
 //				SecretId:     example.ID(),
-//				SecretString: pulumi.String(pulumi.String(json0)),
+//				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -443,7 +443,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
 //				SecretId:     example.ID(),
-//				SecretString: pulumi.String(pulumi.String(json0)),
+//				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -514,7 +514,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
 //				SecretId:     example.ID(),
-//				SecretString: pulumi.String(pulumi.String(json0)),
+//				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

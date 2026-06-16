@@ -138,7 +138,7 @@ import (
 //			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 //				Bucket: example.ID(),
 //				Policy: pulumi.String(acmpcaBucketAccess.ApplyT(func(acmpcaBucketAccess iam.GetPolicyDocumentResult) (*string, error) {
-//					return &acmpcaBucketAccess.Json, nil
+//					return acmpcaBucketAccess.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

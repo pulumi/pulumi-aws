@@ -61,7 +61,7 @@ import (
 //			}
 //			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				Name:             pulumi.String("example"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -98,7 +98,7 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("example"),
 //				Role:   exampleRole.ID(),
-//				Policy: pulumi.String(pulumi.String(example.Json)),
+//				Policy: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -234,7 +234,7 @@ import (
 //			}
 //			srcRole, err := iam.NewRole(ctx, "src", &iam.RoleArgs{
 //				Name:             pulumi.String("tf-example-mySourceRole"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(srcAssumeRolePolicy.Json)),
+//				AssumeRolePolicy: pulumi.String(srcAssumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -261,7 +261,7 @@ import (
 //			dst, err := iam.NewRole(ctx, "dst", &iam.RoleArgs{
 //				Name: pulumi.String("AWSLogDeliveryFirehoseCrossAccountRole"),
 //				AssumeRolePolicy: pulumi.String(dstAssumeRolePolicy.ApplyT(func(dstAssumeRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return &dstAssumeRolePolicy.Json, nil
+//					return dstAssumeRolePolicy.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -321,7 +321,7 @@ import (
 //				Name: pulumi.String("tf-example-mySourceRolePolicy"),
 //				Role: srcRole.Name,
 //				Policy: pulumi.String(srcRolePolicy.ApplyT(func(srcRolePolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return &srcRolePolicy.Json, nil
+//					return srcRolePolicy.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -366,7 +366,7 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "dst", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("AWSLogDeliveryFirehoseCrossAccountRolePolicy"),
 //				Role:   dst.Name,
-//				Policy: pulumi.String(pulumi.String(dstRolePolicy.Json)),
+//				Policy: pulumi.String(dstRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err

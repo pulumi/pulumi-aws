@@ -55,7 +55,7 @@ import (
 //			// IAM role for Glue jobs
 //			glueJobRole, err := iam.NewRole(ctx, "glue_job_role", &iam.RoleArgs{
 //				Name:             pulumi.String("glue-job-role"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
+//				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -150,7 +150,7 @@ import (
 //			// IAM role for Glue jobs
 //			glueJobRole, err := iam.NewRole(ctx, "glue_job_role", &iam.RoleArgs{
 //				Name:             pulumi.String("glue-job-role"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
+//				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

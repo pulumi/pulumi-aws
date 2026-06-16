@@ -76,7 +76,7 @@ import (
 //				Role:                 pulumi.Any(lambdaRole.Arn),
 //				Handler:              pulumi.String("index.handler"),
 //				Runtime:              pulumi.String(lambda.RuntimeNodeJS24dX),
-//				CodeSigningConfigArn: pulumi.String(pulumi.String(securityConfig.Arn)),
+//				CodeSigningConfigArn: pulumi.String(securityConfig.Arn),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //					"Security":    pulumi.String("code-signed"),
@@ -137,7 +137,7 @@ import (
 //					Role:                 pulumi.Any(lambdaRole.Arn),
 //					Handler:              pulumi.String("index.handler"),
 //					Runtime:              pulumi.String(lambda.RuntimePython3d12),
-//					CodeSigningConfigArn: pulumi.String(pulumi.String(example.Arn)),
+//					CodeSigningConfigArn: pulumi.String(example.Arn),
 //				})
 //				if err != nil {
 //					return err

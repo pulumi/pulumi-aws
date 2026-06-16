@@ -37,7 +37,7 @@ import (
 //			}
 //			identityCenterInstanceArn := example.Arns[0]
 //			_, err = lakeformation.NewIdentityCenterConfiguration(ctx, "example", &lakeformation.IdentityCenterConfigurationArgs{
-//				InstanceArn: pulumi.String(pulumi.String(identityCenterInstanceArn)),
+//				InstanceArn: pulumi.String(identityCenterInstanceArn),
 //			})
 //			if err != nil {
 //				return err

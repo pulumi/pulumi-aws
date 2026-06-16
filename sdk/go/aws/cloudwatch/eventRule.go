@@ -45,7 +45,7 @@ import (
 //			console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
 //				Name:         pulumi.String("capture-aws-sign-in"),
 //				Description:  pulumi.String("Capture each AWS Console Sign In"),
-//				EventPattern: pulumi.String(pulumi.String(json0)),
+//				EventPattern: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -88,7 +88,7 @@ import (
 //			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 //				Arn: awsLogins.Arn,
 //				Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return &snsTopicPolicy.Json, nil
+//					return snsTopicPolicy.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

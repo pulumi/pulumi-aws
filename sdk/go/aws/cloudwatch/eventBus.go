@@ -62,9 +62,9 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewEventBus(ctx, "examplepartner", &cloudwatch.EventBusArgs{
-//				Name:            pulumi.String(pulumi.String(examplepartner.Name)),
+//				Name:            pulumi.String(examplepartner.Name),
 //				Description:     pulumi.String("Event bus for example partner events"),
-//				EventSourceName: pulumi.String(pulumi.String(examplepartner.Name)),
+//				EventSourceName: pulumi.String(examplepartner.Name),
 //			})
 //			if err != nil {
 //				return err
@@ -225,7 +225,7 @@ import (
 //			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 //				Bucket: exampleBucket.Bucket,
 //				Policy: pulumi.String(bucket.ApplyT(func(bucket iam.GetPolicyDocumentResult) (*string, error) {
-//					return &bucket.Json, nil
+//					return bucket.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -320,7 +320,7 @@ import (
 //			}, nil)
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
 //				PolicyDocument: pulumi.String(cwlogs.ApplyT(func(cwlogs iam.GetPolicyDocumentResult) (*string, error) {
-//					return &cwlogs.Json, nil
+//					return cwlogs.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //				PolicyName: example.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf("AWSLogDeliveryWrite-%v", name), nil

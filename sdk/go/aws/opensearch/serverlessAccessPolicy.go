@@ -203,7 +203,7 @@ import (
 //				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("data"),
 //				Description: pulumi.String("saml permissions"),
-//				Policy:      pulumi.String(pulumi.String(json0)),
+//				Policy:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

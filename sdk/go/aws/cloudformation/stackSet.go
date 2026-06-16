@@ -59,7 +59,7 @@ import (
 //				return err
 //			}
 //			aWSCloudFormationStackSetAdministrationRole, err := iam.NewRole(ctx, "AWSCloudFormationStackSetAdministrationRole", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(pulumi.String(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Json)),
+//				AssumeRolePolicy: pulumi.String(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Json),
 //				Name:             pulumi.String("AWSCloudFormationStackSetAdministrationRole"),
 //			})
 //			if err != nil {
@@ -100,7 +100,7 @@ import (
 //				Parameters: pulumi.StringMap{
 //					"VPCCidr": pulumi.String("10.0.0.0/16"),
 //				},
-//				TemplateBody: pulumi.String(pulumi.String(json0)),
+//				TemplateBody: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -123,7 +123,7 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "AWSCloudFormationStackSetAdministrationRole_ExecutionPolicy", &iam.RolePolicyArgs{
 //				Name: pulumi.String("ExecutionPolicy"),
 //				Policy: pulumi.String(aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.ApplyT(func(aWSCloudFormationStackSetAdministrationRoleExecutionPolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return &aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.Json, nil
+//					return aWSCloudFormationStackSetAdministrationRoleExecutionPolicy.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Role: aWSCloudFormationStackSetAdministrationRole.Name,
 //			})

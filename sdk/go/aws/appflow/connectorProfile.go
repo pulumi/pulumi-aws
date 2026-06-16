@@ -66,7 +66,7 @@ import (
 //				ManagedPolicyArns: pulumi.StringArray{
 //					test.Arn,
 //				},
-//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
+//				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

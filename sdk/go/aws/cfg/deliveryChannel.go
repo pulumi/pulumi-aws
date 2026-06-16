@@ -64,7 +64,7 @@ import (
 //			}
 //			r, err := iam.NewRole(ctx, "r", &iam.RoleArgs{
 //				Name:             pulumi.String("awsconfig-example"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -105,7 +105,7 @@ import (
 //				Name: pulumi.String("awsconfig-example"),
 //				Role: r.ID(),
 //				Policy: pulumi.String(p.ApplyT(func(p iam.GetPolicyDocumentResult) (*string, error) {
-//					return &p.Json, nil
+//					return p.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

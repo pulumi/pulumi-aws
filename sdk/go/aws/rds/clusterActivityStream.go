@@ -16,7 +16,7 @@ import (
 //
 // Database Activity Streams have some limits and requirements, refer to the [Monitoring Amazon Aurora using Database Activity Streams](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html) documentation for detailed limitations and requirements.
 //
-// > **Note:** This resource always calls the RDS [`StartActivityStream`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html) API with the `ApplyImmediately` parameter set to `true`. This is because the Terraform needs the activity stream to be started in order for it to get the associated attributes.
+// > **Note:** This resource always calls the RDS [`StartActivityStream`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html) API with the `ApplyImmediately` parameter set to `true`. This is because the provider needs the activity stream to be started in order for it to get the associated attributes.
 //
 // > **Note:** This resource depends on having at least one `rds.ClusterInstance` created. To avoid race conditions when all resources are being created together, add an explicit resource reference using the resource `dependsOn` meta-argument.
 //

@@ -51,7 +51,7 @@ import (
 //			exampleGroup, err := resourcegroups.NewGroup(ctx, "example", &resourcegroups.GroupArgs{
 //				Name: pulumi.String("example"),
 //				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
-//					Query: pulumi.String(pulumi.String(json0)),
+//					Query: pulumi.String(json0),
 //				},
 //			})
 //			if err != nil {

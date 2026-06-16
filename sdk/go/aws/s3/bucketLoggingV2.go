@@ -84,7 +84,7 @@ import (
 //			_, err = s3.NewBucketPolicy(ctx, "logging", &s3.BucketPolicyArgs{
 //				Bucket: logging.Bucket,
 //				Policy: pulumi.String(loggingBucketPolicy.ApplyT(func(loggingBucketPolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return &loggingBucketPolicy.Json, nil
+//					return loggingBucketPolicy.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

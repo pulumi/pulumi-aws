@@ -72,7 +72,7 @@ import (
 //				RuleOrder:   pulumi.Float64(100),
 //				RuleStatus:  pulumi.String("ENABLED"),
 //				Criteria: &securityhub.AutomationRuleV2CriteriaArgs{
-//					OcsfFindingCriteriaJson: pulumi.String(pulumi.String(json0)),
+//					OcsfFindingCriteriaJson: pulumi.String(json0),
 //				},
 //				Action: &securityhub.AutomationRuleV2ActionArgs{
 //					Type: pulumi.String("FINDING_FIELDS_UPDATE"),

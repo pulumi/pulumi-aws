@@ -420,7 +420,7 @@ class ServerCertificate(pulumi.CustomResource):
         Some properties of an IAM Server Certificates cannot be updated while they are
         in use. In order for the provider to effectively manage a Certificate in this situation, it is
         recommended you utilize the `name_prefix` attribute and enable the
-        `create_before_destroy` lifecycle block. This will allow Terraform
+        `create_before_destroy` lifecycle block. This will allow Pulumi
         to create a new, updated `iam.ServerCertificate` resource and replace it in
         dependant resources before attempting to destroy the old version.
 
@@ -508,7 +508,7 @@ class ServerCertificate(pulumi.CustomResource):
         Some properties of an IAM Server Certificates cannot be updated while they are
         in use. In order for the provider to effectively manage a Certificate in this situation, it is
         recommended you utilize the `name_prefix` attribute and enable the
-        `create_before_destroy` lifecycle block. This will allow Terraform
+        `create_before_destroy` lifecycle block. This will allow Pulumi
         to create a new, updated `iam.ServerCertificate` resource and replace it in
         dependant resources before attempting to destroy the old version.
 

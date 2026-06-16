@@ -40,8 +40,8 @@ import (
 //			_, err = medialive.NewMultiplex(ctx, "example", &medialive.MultiplexArgs{
 //				Name: pulumi.String("example-multiplex-changed"),
 //				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String(pulumi.String(available.Names[0])),
-//					pulumi.String(pulumi.String(available.Names[1])),
+//					pulumi.String(available.Names[0]),
+//					pulumi.String(available.Names[1]),
 //				},
 //				MultiplexSettings: &medialive.MultiplexMultiplexSettingsArgs{
 //					TransportStreamBitrate:              pulumi.Int(1000000),

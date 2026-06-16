@@ -66,7 +66,7 @@ import (
 //			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 //				Bucket: exampleBucket.ID(),
 //				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
+//					return example.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -150,7 +150,7 @@ import (
 //			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 //				Bucket: exampleBucket.ID(),
 //				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
+//					return example.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -208,7 +208,7 @@ import (
 //			}
 //			exampleKey, err := kms.NewKey(ctx, "example", &kms.KeyArgs{
 //				Description: pulumi.String("KMS key for WorkSpaces Web Session Logger"),
-//				Policy:      pulumi.String(pulumi.String(kmsKeyPolicy.Json)),
+//				Policy:      pulumi.String(kmsKeyPolicy.Json),
 //			})
 //			if err != nil {
 //				return err

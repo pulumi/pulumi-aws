@@ -88,7 +88,7 @@ import (
 //
 // Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
 // principal into an `AWS` IAM ARN principal when supplied in an
-// `s3.Bucket` bucket policy, causing spurious diffs in Terraform. If
+// `s3.Bucket` bucket policy, causing spurious diffs in Pulumi. If
 // you see this behavior, use the `iamArn` instead:
 //
 // ```go
@@ -131,7 +131,7 @@ import (
 //			}
 //			_, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 //				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
-//				Policy: pulumi.String(pulumi.String(s3Policy.Json)),
+//				Policy: pulumi.String(s3Policy.Json),
 //			})
 //			if err != nil {
 //				return err

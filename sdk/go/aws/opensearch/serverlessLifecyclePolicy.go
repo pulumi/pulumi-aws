@@ -57,7 +57,7 @@ import (
 //			_, err = opensearch.NewServerlessLifecyclePolicy(ctx, "example", &opensearch.ServerlessLifecyclePolicyArgs{
 //				Name:   pulumi.String("example"),
 //				Type:   pulumi.String("retention"),
-//				Policy: pulumi.String(pulumi.String(json0)),
+//				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

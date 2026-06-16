@@ -50,7 +50,7 @@ import (
 //				ApiId:       pulumi.Any(exampleAwsApigatewayv2Api.Id),
 //				ContentType: pulumi.String("application/json"),
 //				Name:        pulumi.String("example"),
-//				Schema:      pulumi.String(pulumi.String(json0)),
+//				Schema:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

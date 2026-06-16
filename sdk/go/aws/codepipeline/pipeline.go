@@ -70,7 +70,7 @@ import (
 //			}
 //			codepipelineRole, err := iam.NewRole(ctx, "codepipeline_role", &iam.RoleArgs{
 //				Name:             pulumi.String("test-role"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -216,7 +216,7 @@ import (
 //				Name: pulumi.String("codepipeline_policy"),
 //				Role: codepipelineRole.ID(),
 //				Policy: pulumi.String(codepipelinePolicy.ApplyT(func(codepipelinePolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return &codepipelinePolicy.Json, nil
+//					return codepipelinePolicy.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

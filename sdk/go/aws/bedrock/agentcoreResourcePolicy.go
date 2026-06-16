@@ -70,7 +70,7 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentcoreResourcePolicy(ctx, "example", &bedrock.AgentcoreResourcePolicyArgs{
-//				Policy:      pulumi.String(pulumi.String(example.Json)),
+//				Policy:      pulumi.String(example.Json),
 //				ResourceArn: exampleAgentcoreAgentRuntime.AgentRuntimeArn,
 //			})
 //			if err != nil {

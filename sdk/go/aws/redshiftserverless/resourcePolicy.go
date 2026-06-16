@@ -53,7 +53,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = redshiftserverless.NewResourcePolicy(ctx, "example", &redshiftserverless.ResourcePolicyArgs{
 //				ResourceArn: pulumi.Any(exampleAwsRedshiftserverlessSnapshot.Arn),
-//				Policy:      pulumi.String(pulumi.String(json0)),
+//				Policy:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

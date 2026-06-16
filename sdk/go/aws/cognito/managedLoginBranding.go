@@ -83,7 +83,7 @@ import (
 //						Extension: pulumi.String("SVG"),
 //					},
 //				},
-//				Settings: pulumi.String(pulumi.String(json0)),
+//				Settings: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

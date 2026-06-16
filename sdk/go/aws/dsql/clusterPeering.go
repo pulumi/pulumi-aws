@@ -52,7 +52,7 @@ import (
 //					example2.Arn,
 //				},
 //				WitnessRegion: pulumi.String(example1.MultiRegionProperties.ApplyT(func(multiRegionProperties dsql.ClusterMultiRegionProperties) (*string, error) {
-//					return &multiRegionProperties.WitnessRegion, nil
+//					return multiRegionProperties.WitnessRegion, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -64,7 +64,7 @@ import (
 //					example1.Arn,
 //				},
 //				WitnessRegion: pulumi.String(example2.MultiRegionProperties.ApplyT(func(multiRegionProperties dsql.ClusterMultiRegionProperties) (*string, error) {
-//					return &multiRegionProperties.WitnessRegion, nil
+//					return multiRegionProperties.WitnessRegion, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

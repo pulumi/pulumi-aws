@@ -146,7 +146,7 @@ import (
 //				Name:        pulumi.String("MyDemoResponseModel"),
 //				Description: pulumi.String("API response for MyDemoMethod"),
 //				ContentType: pulumi.String("application/json"),
-//				Schema:      pulumi.String(pulumi.String(json0)),
+//				Schema:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

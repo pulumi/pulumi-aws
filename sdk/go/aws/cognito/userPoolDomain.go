@@ -87,7 +87,7 @@ import (
 //			_, err = route53.NewRecord(ctx, "auth-cognito-A", &route53.RecordArgs{
 //				Name:   main.Domain,
 //				Type:   pulumi.String(route53.RecordTypeA),
-//				ZoneId: pulumi.String(pulumi.String(example.ZoneId)),
+//				ZoneId: pulumi.String(example.ZoneId),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						EvaluateTargetHealth: pulumi.Bool(false),

@@ -45,7 +45,7 @@ import (
 //			_, err = datazone.NewEnvironmentBlueprintConfiguration(ctx, "example", &datazone.EnvironmentBlueprintConfigurationArgs{
 //				DomainId: example.ID(),
 //				EnvironmentBlueprintId: pulumi.String(defaultDataLake.ApplyT(func(defaultDataLake datazone.GetEnvironmentBlueprintResult) (*string, error) {
-//					return &defaultDataLake.Id, nil
+//					return defaultDataLake.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				EnabledRegions: pulumi.StringArray{
 //					pulumi.String("us-east-1"),

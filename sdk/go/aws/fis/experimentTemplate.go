@@ -172,7 +172,7 @@ import (
 //			}
 //			reportAccessPolicy, err := iam.NewPolicy(ctx, "report_access", &iam.PolicyArgs{
 //				Name:   pulumi.String("report_access"),
-//				Policy: pulumi.String(pulumi.String(reportAccess.Json)),
+//				Policy: pulumi.String(reportAccess.Json),
 //			})
 //			if err != nil {
 //				return err

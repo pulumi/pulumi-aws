@@ -324,7 +324,7 @@ import (
 //			}
 //			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				Name:             pulumi.String("example-sagemaker-algorithm-role"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -365,7 +365,7 @@ import (
 //			exampleRolePolicy, err := iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Role: exampleRole.Name,
 //				Policy: pulumi.String(s3Access.ApplyT(func(s3Access iam.GetPolicyDocumentResult) (*string, error) {
-//					return &s3Access.Json, nil
+//					return s3Access.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

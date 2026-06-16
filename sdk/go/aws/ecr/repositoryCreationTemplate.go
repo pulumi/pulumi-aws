@@ -77,7 +77,7 @@ import (
 //						EncryptionType: pulumi.String("AES256"),
 //					},
 //				},
-//				RepositoryPolicy: pulumi.String(pulumi.String(example.Json)),
+//				RepositoryPolicy: pulumi.String(example.Json),
 //				LifecyclePolicy: pulumi.String(`{
 //	  \"rules\": [
 //	    {

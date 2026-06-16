@@ -56,7 +56,7 @@ import (
 //			}
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				Name:             pulumi.String("bedrock-agentcore-harness-role"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -80,7 +80,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Role:   example.Name,
-//				Policy: pulumi.String(pulumi.String(json0)),
+//				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -168,7 +168,7 @@ import (
 //						Config: &bedrock.AgentcoreHarnessToolConfigArgs{
 //							InlineFunction: &bedrock.AgentcoreHarnessToolConfigInlineFunctionArgs{
 //								Description: pulumi.String("Get the current weather for a location"),
-//								InputSchema: pulumi.String(pulumi.String(json0)),
+//								InputSchema: pulumi.String(json0),
 //							},
 //						},
 //					},

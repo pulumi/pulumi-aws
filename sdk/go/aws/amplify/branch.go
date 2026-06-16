@@ -227,7 +227,7 @@ import (
 //			_, err = sns.NewTopicPolicy(ctx, "amplify_app_master", &sns.TopicPolicyArgs{
 //				Arn: amplifyAppMasterTopic.Arn,
 //				Policy: pulumi.String(amplifyAppMaster.ApplyT(func(amplifyAppMaster iam.GetPolicyDocumentResult) (*string, error) {
-//					return &amplifyAppMaster.Json, nil
+//					return amplifyAppMaster.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

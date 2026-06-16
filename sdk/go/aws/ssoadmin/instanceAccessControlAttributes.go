@@ -33,7 +33,7 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewInstanceAccessControlAttributes(ctx, "example", &ssoadmin.InstanceAccessControlAttributesArgs{
-//				InstanceArn: pulumi.String(pulumi.String(example.Arns[0])),
+//				InstanceArn: pulumi.String(example.Arns[0]),
 //				Attributes: ssoadmin.InstanceAccessControlAttributesAttributeArray{
 //					&ssoadmin.InstanceAccessControlAttributesAttributeArgs{
 //						Key: pulumi.String("name"),

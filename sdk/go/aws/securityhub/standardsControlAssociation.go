@@ -94,8 +94,8 @@ import (
 // Input: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:11,15-64),
 // }, nil).Result) {
 // __res, err := securityhub.NewStandardsControlAssociation(ctx, fmt.Sprintf("iam_1-%v", key0), &securityhub.StandardsControlAssociationArgs{
-// StandardsArn: pulumi.String(pulumi.Int(key0)),
-// SecurityControlId: pulumi.String(pulumi.String(iam1.SecurityControlId)),
+// StandardsArn: pulumi.Int(key0),
+// SecurityControlId: pulumi.String(iam1.SecurityControlId),
 // AssociationStatus: pulumi.String("DISABLED"),
 // UpdatedReason: pulumi.String("Not needed"),
 // })

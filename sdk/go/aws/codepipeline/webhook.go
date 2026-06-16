@@ -93,7 +93,7 @@ import (
 //				TargetAction:   pulumi.String("Source"),
 //				TargetPipeline: bar.Name,
 //				AuthenticationConfiguration: &codepipeline.WebhookAuthenticationConfigurationArgs{
-//					SecretToken: pulumi.String(pulumi.String(webhookSecret)),
+//					SecretToken: pulumi.String(webhookSecret),
 //				},
 //				Filters: codepipeline.WebhookFilterArray{
 //					&codepipeline.WebhookFilterArgs{

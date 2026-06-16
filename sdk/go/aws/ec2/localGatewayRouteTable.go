@@ -35,7 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewLocalGatewayRouteTable(ctx, "example", &ec2.LocalGatewayRouteTableArgs{
-//				LocalGatewayId: pulumi.String(pulumi.String(example.Id)),
+//				LocalGatewayId: pulumi.String(example.Id),
 //				Mode:           pulumi.String("direct-vpc-routing"),
 //			})
 //			if err != nil {

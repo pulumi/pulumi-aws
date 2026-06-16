@@ -59,7 +59,7 @@ import (
 //			}
 //			_, err = schemas.NewRegistryPolicy(ctx, "example", &schemas.RegistryPolicyArgs{
 //				RegistryName: pulumi.String("example"),
-//				Policy:       pulumi.String(pulumi.String(example.Json)),
+//				Policy:       pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

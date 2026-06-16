@@ -53,7 +53,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = notifications.NewEventRule(ctx, "example", &notifications.EventRuleArgs{
-//				EventPattern:                 pulumi.String(pulumi.String(json0)),
+//				EventPattern:                 pulumi.String(json0),
 //				EventType:                    pulumi.String("CloudWatch Alarm State Change"),
 //				NotificationConfigurationArn: example.Arn,
 //				Regions: pulumi.StringArray{

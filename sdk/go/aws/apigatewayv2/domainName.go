@@ -84,10 +84,10 @@ import (
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						Name: example.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
-//							return &domainNameConfiguration.TargetDomainName, nil
+//							return domainNameConfiguration.TargetDomainName, nil
 //						}).(pulumi.StringPtrOutput),
 //						ZoneId: example.DomainNameConfiguration.ApplyT(func(domainNameConfiguration apigatewayv2.DomainNameDomainNameConfiguration) (*string, error) {
-//							return &domainNameConfiguration.HostedZoneId, nil
+//							return domainNameConfiguration.HostedZoneId, nil
 //						}).(pulumi.StringPtrOutput),
 //						EvaluateTargetHealth: pulumi.Bool(false),
 //					},

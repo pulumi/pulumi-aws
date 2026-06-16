@@ -53,7 +53,7 @@ import (
 //				InstanceClass: pulumi.String(rds.InstanceType_T2_Micro),
 //				DbName:        pulumi.String("mydbdev"),
 //				SnapshotIdentifier: pulumi.String(latestProdSnapshot.ApplyT(func(latestProdSnapshot rds.GetSnapshotResult) (*string, error) {
-//					return &latestProdSnapshot.Id, nil
+//					return latestProdSnapshot.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

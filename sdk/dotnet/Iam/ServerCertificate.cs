@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Iam
     /// Some properties of an IAM Server Certificates cannot be updated while they are
     /// in use. In order for the provider to effectively manage a Certificate in this situation, it is
     /// recommended you utilize the `NamePrefix` attribute and enable the
-    /// `CreateBeforeDestroy` lifecycle block. This will allow Terraform
+    /// `CreateBeforeDestroy` lifecycle block. This will allow Pulumi
     /// to create a new, updated `aws.iam.ServerCertificate` resource and replace it in
     /// dependant resources before attempting to destroy the old version.
     /// 

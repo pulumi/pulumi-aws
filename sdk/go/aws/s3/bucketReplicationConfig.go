@@ -62,7 +62,7 @@ import (
 //			}
 //			replicationRole, err := iam.NewRole(ctx, "replication", &iam.RoleArgs{
 //				Name:             pulumi.String("tf-iam-role-replication-12345"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -122,7 +122,7 @@ import (
 //			replicationPolicy, err := iam.NewPolicy(ctx, "replication", &iam.PolicyArgs{
 //				Name: pulumi.String("tf-iam-role-policy-replication-12345"),
 //				Policy: pulumi.String(replication.ApplyT(func(replication iam.GetPolicyDocumentResult) (*string, error) {
-//					return &replication.Json, nil
+//					return replication.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -228,7 +228,7 @@ import (
 //			}
 //			replicationRole, err := iam.NewRole(ctx, "replication", &iam.RoleArgs{
 //				Name:             pulumi.String("tf-iam-role-replication-12345"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -289,7 +289,7 @@ import (
 //			replicationPolicy, err := iam.NewPolicy(ctx, "replication", &iam.PolicyArgs{
 //				Name: pulumi.String("tf-iam-role-policy-replication-12345"),
 //				Policy: pulumi.String(replication.ApplyT(func(replication iam.GetPolicyDocumentResult) (*string, error) {
-//					return &replication.Json, nil
+//					return replication.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

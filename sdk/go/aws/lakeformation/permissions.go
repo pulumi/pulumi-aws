@@ -57,7 +57,7 @@ import (
 //			}
 //			_, err = lakeformation.NewDataLakeSettings(ctx, "test", &lakeformation.DataLakeSettingsArgs{
 //				Admins: pulumi.StringArray{
-//					pulumi.String(pulumi.String(currentGetSessionContext.IssuerArn)),
+//					pulumi.String(currentGetSessionContext.IssuerArn),
 //				},
 //			})
 //			if err != nil {

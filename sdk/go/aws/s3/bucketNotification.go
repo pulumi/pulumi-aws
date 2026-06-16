@@ -75,7 +75,7 @@ import (
 //			topicTopic, err := sns.NewTopic(ctx, "topic", &sns.TopicArgs{
 //				Name: pulumi.String("s3-event-notification-topic"),
 //				Policy: pulumi.String(topic.ApplyT(func(topic iam.GetPolicyDocumentResult) (*string, error) {
-//					return &topic.Json, nil
+//					return topic.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -157,7 +157,7 @@ import (
 //			queueQueue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 //				Name: pulumi.String("s3-event-notification-queue"),
 //				Policy: pulumi.String(queue.ApplyT(func(queue iam.GetPolicyDocumentResult) (*string, error) {
-//					return &queue.Json, nil
+//					return queue.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -223,7 +223,7 @@ import (
 //			}
 //			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -317,7 +317,7 @@ import (
 //			}
 //			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -455,7 +455,7 @@ import (
 //			queueQueue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
 //				Name: pulumi.String("s3-event-notification-queue"),
 //				Policy: pulumi.String(queue.ApplyT(func(queue iam.GetPolicyDocumentResult) (*string, error) {
-//					return &queue.Json, nil
+//					return queue.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

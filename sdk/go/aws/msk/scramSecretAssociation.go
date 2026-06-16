@@ -79,7 +79,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			exampleSecretVersion, err := secretsmanager.NewSecretVersion(ctx, "example", &secretsmanager.SecretVersionArgs{
 //				SecretId:     exampleSecret.ID(),
-//				SecretString: pulumi.String(pulumi.String(json0)),
+//				SecretString: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -120,7 +120,7 @@ import (
 //			_, err = secretsmanager.NewSecretPolicy(ctx, "example", &secretsmanager.SecretPolicyArgs{
 //				SecretArn: exampleSecret.Arn,
 //				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
+//					return example.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

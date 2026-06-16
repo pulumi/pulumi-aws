@@ -66,7 +66,7 @@ import (
 //			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 //				Arn: notif.Arn,
 //				Policy: pulumi.String(notifAccess.ApplyT(func(notifAccess iam.GetPolicyDocumentResult) (*string, error) {
-//					return &notifAccess.Json, nil
+//					return notifAccess.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

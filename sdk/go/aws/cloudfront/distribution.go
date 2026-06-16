@@ -77,7 +77,7 @@ import (
 //					&cloudfront.DistributionOriginArgs{
 //						DomainName:            b.BucketRegionalDomainName,
 //						OriginAccessControlId: _default.ID(),
-//						OriginId:              pulumi.String(pulumi.String(s3OriginId)),
+//						OriginId:              pulumi.String(s3OriginId),
 //					},
 //				},
 //				Enabled:           pulumi.Bool(true),
@@ -102,7 +102,7 @@ import (
 //						pulumi.String("GET"),
 //						pulumi.String("HEAD"),
 //					},
-//					TargetOriginId: pulumi.String(pulumi.String(s3OriginId)),
+//					TargetOriginId: pulumi.String(s3OriginId),
 //					ForwardedValues: &cloudfront.DistributionDefaultCacheBehaviorForwardedValuesArgs{
 //						QueryString: pulumi.Bool(false),
 //						Cookies: &cloudfront.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs{
@@ -127,7 +127,7 @@ import (
 //							pulumi.String("HEAD"),
 //							pulumi.String("OPTIONS"),
 //						},
-//						TargetOriginId: pulumi.String(pulumi.String(s3OriginId)),
+//						TargetOriginId: pulumi.String(s3OriginId),
 //						ForwardedValues: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs{
 //							QueryString: pulumi.Bool(false),
 //							Headers: pulumi.StringArray{
@@ -154,7 +154,7 @@ import (
 //							pulumi.String("GET"),
 //							pulumi.String("HEAD"),
 //						},
-//						TargetOriginId: pulumi.String(pulumi.String(s3OriginId)),
+//						TargetOriginId: pulumi.String(s3OriginId),
 //						ForwardedValues: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesArgs{
 //							QueryString: pulumi.Bool(false),
 //							Cookies: &cloudfront.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs{
@@ -229,7 +229,7 @@ import (
 //			_, err = s3.NewBucketPolicy(ctx, "b", &s3.BucketPolicyArgs{
 //				Bucket: b.Bucket,
 //				Policy: pulumi.String(originBucketPolicy.ApplyT(func(originBucketPolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return &originBucketPolicy.Json, nil
+//					return originBucketPolicy.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -245,8 +245,8 @@ import (
 //			var cloudfront2 []*route53.Record
 //			for key0, val0 := range s3Distribution.Aliases {
 //				__res, err := route53.NewRecord(ctx, fmt.Sprintf("cloudfront-%v", key0), &route53.RecordArgs{
-//					ZoneId: pulumi.String(pulumi.String(myDomainGetZone.ZoneId)),
-//					Name:   pulumi.String(pulumi.String(val0)),
+//					ZoneId: pulumi.String(myDomainGetZone.ZoneId),
+//					Name:   pulumi.String(val0),
 //					Type:   pulumi.String(route53.RecordTypeA),
 //					Aliases: route53.RecordAliasArray{
 //						&route53.RecordAliasArgs{
@@ -376,7 +376,7 @@ import (
 //						pulumi.String("GET"),
 //						pulumi.String("HEAD"),
 //					},
-//					TargetOriginId:       pulumi.String(pulumi.String(s3OriginId)),
+//					TargetOriginId:       pulumi.String(s3OriginId),
 //					ViewerProtocolPolicy: pulumi.String("allow-all"),
 //				},
 //				Restrictions: &cloudfront.DistributionRestrictionsArgs{

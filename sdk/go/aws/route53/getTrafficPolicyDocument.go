@@ -71,7 +71,7 @@ import (
 //			_, err = route53.NewTrafficPolicy(ctx, "example", &route53.TrafficPolicyArgs{
 //				Name:     pulumi.String("example"),
 //				Comment:  pulumi.String("example comment"),
-//				Document: pulumi.String(pulumi.String(example.Json)),
+//				Document: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -166,7 +166,7 @@ import (
 //			_, err = route53.NewTrafficPolicy(ctx, "example", &route53.TrafficPolicyArgs{
 //				Name:     pulumi.String("example"),
 //				Comment:  pulumi.String("example comment"),
-//				Document: pulumi.String(pulumi.String(example.Json)),
+//				Document: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

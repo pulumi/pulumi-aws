@@ -50,7 +50,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = iot.NewPolicy(ctx, "pubsub", &iot.PolicyArgs{
 //				Name:   pulumi.String("PubSubToAnyTopic"),
-//				Policy: pulumi.String(pulumi.String(json0)),
+//				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
