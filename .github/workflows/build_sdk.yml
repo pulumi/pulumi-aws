@@ -105,7 +105,7 @@ jobs:
 
       - name: Check worktree clean
         id: worktreeClean
-        uses: pulumi/git-status-check-action@v1
+        uses: pulumi/git-status-check-action@0d90c81496aa8d6a31d9c6a0d6297feea2f54057 # v2.0.0
         with:
           # Keep these in sync with the Renovate step below to avoid them getting checked in.
           allowed-changes: |

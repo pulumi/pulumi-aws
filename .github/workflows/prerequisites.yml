@@ -70,7 +70,7 @@ jobs:
         app-id: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_APP_ID }}
         private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
         owner: ${{ github.repository_owner }}
-    - uses: pulumi/provider-version-action@3a647064cf4697c7c6352b9a1d9e554450cbe957 # v1.6.1
+    - uses: pulumi/provider-version-action@c4f719182e607d0d8322f148f168d3372838e681 # v2.0.0
       id: provider-version
       with:
         major-version: 7
