@@ -43,6 +43,23 @@ jobs:
     with:
       version: ${{ needs.prerequisites.outputs.version }}
 
+  # Shadow-gen diff: informational, non-blocking comparison of legacy codegen vs
+  # `pulumi package gen-sdk`. The logic lives centrally in pulumi/ci-mgmt; this is
+  # only a thin reference. TEMPORARY - removed once the migration is verified
+  # (pulumi/ci-mgmt#2291).
+  compare_sdk:
+    name: compare_sdk
+    needs: prerequisites
+    uses: pulumi/ci-mgmt/.github/workflows/compare_sdk.yml@master
+    permissions:
+      contents: read
+    with:
+      version: ${{ needs.prerequisites.outputs.version }}
+      languages: '["nodejs","python","dotnet","go","java"]'
+      runs-on: ubuntu-latest
+      mise-version: 2026.3.7
+      checkout-submodules: 'true'
+
   post_build:
     name: post_build
     needs: prerequisites

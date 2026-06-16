@@ -197,7 +197,7 @@ jobs:
         PROVIDER_VERSION: ${{ needs.prerequisites.outputs.version }}
     - name: Check worktree clean
       id: worktreeClean
-      uses: pulumi/git-status-check-action@v1
+      uses: pulumi/git-status-check-action@0d90c81496aa8d6a31d9c6a0d6297feea2f54057 # v2.0.0
     - if: github.event_name == 'pull_request'
       name: Check Schema is Valid
       env:
@@ -233,6 +233,25 @@ jobs:
       id-token: write # For ESC secrets.
     with:
       version: ${{ needs.prerequisites.outputs.version }}
+
+  # Shadow-gen diff: informational, non-blocking comparison of legacy codegen vs
+  # `pulumi package gen-sdk`. The logic lives centrally in pulumi/ci-mgmt; this is
+  # only a thin reference. TEMPORARY - removed once the migration is verified
+  # (pulumi/ci-mgmt#2291).
+  compare_sdk:
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
+    name: compare_sdk
+    needs: prerequisites
+    uses: pulumi/ci-mgmt/.github/workflows/compare_sdk.yml@master
+    permissions:
+      contents: read
+    with:
+      version: ${{ needs.prerequisites.outputs.version }}
+      languages: '["nodejs","python","dotnet","go","java"]'
+      runs-on: ubuntu-latest
+      mise-version: 2026.3.7
+      checkout-submodules: 'true'
 
   comment-notification:
     if: github.event_name == 'repository_dispatch'
