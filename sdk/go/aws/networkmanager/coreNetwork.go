@@ -151,7 +151,7 @@ import (
 // }
 // exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
 // GlobalNetworkId: exampleGlobalNetwork.ID(),
-// BasePolicyDocument: pulumi.String(pulumi.String(base.Json)),
+// BasePolicyDocument: pulumi.String(base.Json),
 // CreateBasePolicy: pulumi.Bool(true),
 // })
 // if err != nil {
@@ -204,7 +204,7 @@ import (
 // _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
 // PolicyDocument: pulumi.String(example.ApplyT(func(example networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
-// return &example.Json, nil
+// return example.Json, nil
 // }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
@@ -292,7 +292,7 @@ import (
 // _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
 // PolicyDocument: pulumi.String(example.ApplyT(func(example networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
-// return &example.Json, nil
+// return example.Json, nil
 // }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
@@ -363,7 +363,7 @@ import (
 // }
 // exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
 // GlobalNetworkId: exampleGlobalNetwork.ID(),
-// BasePolicyDocument: pulumi.String(pulumi.String(base.Json)),
+// BasePolicyDocument: pulumi.String(base.Json),
 // CreateBasePolicy: pulumi.Bool(true),
 // })
 // if err != nil {
@@ -445,7 +445,7 @@ import (
 // _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
 // PolicyDocument: pulumi.String(example.ApplyT(func(example networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
-// return &example.Json, nil
+// return example.Json, nil
 // }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {
@@ -565,7 +565,7 @@ import (
 // _, err = networkmanager.NewCoreNetworkPolicyAttachment(ctx, "example", &networkmanager.CoreNetworkPolicyAttachmentArgs{
 // CoreNetworkId: exampleCoreNetwork.ID(),
 // PolicyDocument: pulumi.String(example.ApplyT(func(example networkmanager.GetCoreNetworkPolicyDocumentResult) (*string, error) {
-// return &example.Json, nil
+// return example.Json, nil
 // }).(pulumi.StringPtrOutput)),
 // })
 // if err != nil {

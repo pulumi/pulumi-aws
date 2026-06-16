@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			_, err = s3tables.NewTableBucketPolicy(ctx, "example", &s3tables.TableBucketPolicyArgs{
-//				ResourcePolicy: pulumi.String(pulumi.String(example.Json)),
+//				ResourcePolicy: pulumi.String(example.Json),
 //				TableBucketArn: exampleTableBucket.Arn,
 //			})
 //			if err != nil {

@@ -50,7 +50,7 @@ import (
 //				ConfigurationProfileId: pulumi.Any(exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId),
 //				Description:            pulumi.String("Example Freeform Hosted Configuration Version"),
 //				ContentType:            pulumi.String("application/json"),
-//				Content:                pulumi.String(pulumi.String(json0)),
+//				Content:                pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -124,7 +124,7 @@ import (
 //				ConfigurationProfileId: pulumi.Any(exampleAwsAppconfigConfigurationProfile.ConfigurationProfileId),
 //				Description:            pulumi.String("Example Feature Flag Configuration Version"),
 //				ContentType:            pulumi.String("application/json"),
-//				Content:                pulumi.String(pulumi.String(json0)),
+//				Content:                pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

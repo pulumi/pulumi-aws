@@ -92,7 +92,7 @@ import (
 //			_, err = s3.NewBucketPolicy(ctx, "allow_billing_logging", &s3.BucketPolicyArgs{
 //				Bucket: billingLogs.ID(),
 //				Policy: pulumi.String(allowBillingLogging.ApplyT(func(allowBillingLogging iam.GetPolicyDocumentResult) (*string, error) {
-//					return &allowBillingLogging.Json, nil
+//					return allowBillingLogging.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

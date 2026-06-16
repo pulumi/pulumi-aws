@@ -47,7 +47,7 @@ import (
 //				ClusterArn:        pulumi.Any(exampleAwsMskCluster.Arn),
 //				PartitionCount:    pulumi.Int(2),
 //				ReplicationFactor: pulumi.Int(2),
-//				Configs:           pulumi.String(pulumi.String(json0)),
+//				Configs:           pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

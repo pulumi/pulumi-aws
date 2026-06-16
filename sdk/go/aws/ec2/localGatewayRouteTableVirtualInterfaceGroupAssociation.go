@@ -41,8 +41,8 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewLocalGatewayRouteTableVirtualInterfaceGroupAssociation(ctx, "example", &ec2.LocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs{
-//				LocalGatewayRouteTableId:            pulumi.String(pulumi.String(example.Id)),
-//				LocalGatewayVirtualInterfaceGroupId: pulumi.String(pulumi.String(exampleGetLocalGatewayVirtualInterfaceGroup.Id)),
+//				LocalGatewayRouteTableId:            pulumi.String(example.Id),
+//				LocalGatewayVirtualInterfaceGroupId: pulumi.String(exampleGetLocalGatewayVirtualInterfaceGroup.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //				},

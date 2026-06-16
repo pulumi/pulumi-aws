@@ -87,7 +87,7 @@ import (
 //				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 //				Name:        pulumi.String("Example"),
 //				Description: pulumi.String("Example Contact Flow Module Description"),
-//				Content:     pulumi.String(pulumi.String(json0)),
+//				Content:     pulumi.String(json0),
 //				Tags: pulumi.StringMap{
 //					"Name":        pulumi.String("Example Contact Flow Module"),
 //					"Application": pulumi.String("Example"),

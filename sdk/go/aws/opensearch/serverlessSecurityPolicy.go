@@ -53,7 +53,7 @@ import (
 //				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("encryption"),
 //				Description: pulumi.String("encryption security policy for example-collection"),
-//				Policy:      pulumi.String(pulumi.String(json0)),
+//				Policy:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -99,7 +99,7 @@ import (
 //				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("encryption"),
 //				Description: pulumi.String("encryption security policy for collections that begin with \"example\""),
-//				Policy:      pulumi.String(pulumi.String(json0)),
+//				Policy:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -146,7 +146,7 @@ import (
 //				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("encryption"),
 //				Description: pulumi.String("encryption security policy using customer KMS key"),
-//				Policy:      pulumi.String(pulumi.String(json0)),
+//				Policy:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -203,7 +203,7 @@ import (
 //				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("network"),
 //				Description: pulumi.String("Public access"),
-//				Policy:      pulumi.String(pulumi.String(json0)),
+//				Policy:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -261,7 +261,7 @@ import (
 //				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("network"),
 //				Description: pulumi.String("VPC access"),
-//				Policy:      pulumi.String(pulumi.String(json0)),
+//				Policy:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -331,7 +331,7 @@ import (
 //				Name:        pulumi.String("example"),
 //				Type:        pulumi.String("network"),
 //				Description: pulumi.String("Mixed access for marketing and sales"),
-//				Policy:      pulumi.String(pulumi.String(json0)),
+//				Policy:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

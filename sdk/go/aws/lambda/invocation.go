@@ -61,7 +61,7 @@ import (
 // // Invoke the function once during resource creation
 // exampleInvocation, err := lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
 // FunctionName: example.Name,
-// Input: pulumi.String(pulumi.String(json0)),
+// Input: pulumi.String(json0),
 // })
 // if err != nil {
 // return err
@@ -122,7 +122,7 @@ import (
 //						return &val, nil
 //					}).(pulumi.StringPtrOutput)),
 //				},
-//				Input: pulumi.String(pulumi.String(json1)),
+//				Input: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err
@@ -163,7 +163,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
 //				FunctionName:   pulumi.Any(exampleAwsLambdaFunction.FunctionName),
-//				Input:          pulumi.String(pulumi.String(json0)),
+//				Input:          pulumi.String(json0),
 //				LifecycleScope: pulumi.String("CRUD"),
 //			})
 //			if err != nil {

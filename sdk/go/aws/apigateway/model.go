@@ -49,7 +49,7 @@ import (
 //				Name:        pulumi.String("user"),
 //				Description: pulumi.String("a JSON schema"),
 //				ContentType: pulumi.String("application/json"),
-//				Schema:      pulumi.String(pulumi.String(json0)),
+//				Schema:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

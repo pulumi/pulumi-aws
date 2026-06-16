@@ -39,7 +39,7 @@ import (
 //				return err
 //			}
 //			_, err = outposts.NewCapacityTask(ctx, "example", &outposts.CapacityTaskArgs{
-//				OutpostIdentifier: pulumi.String(pulumi.String(example.Arns[0])),
+//				OutpostIdentifier: pulumi.String(example.Arns[0]),
 //				InstancePools: outposts.CapacityTaskInstancePoolArray{
 //					&outposts.CapacityTaskInstancePoolArgs{
 //						InstanceType: pulumi.String("m5.large"),
@@ -79,7 +79,7 @@ import (
 //			_, err = outposts.NewCapacityTask(ctx, "example", &outposts.CapacityTaskArgs{
 //				OutpostIdentifier:             pulumi.String("op-1234567890abcdef"),
 //				TaskActionOnBlockingInstances: pulumi.String("WAIT_FOR_EVACUATION"),
-//				AssetId:                       pulumi.String(pulumi.String(example.AssetIds[0])),
+//				AssetId:                       pulumi.String(example.AssetIds[0]),
 //				InstancePools: outposts.CapacityTaskInstancePoolArray{
 //					&outposts.CapacityTaskInstancePoolArgs{
 //						InstanceType: pulumi.String("m5.large"),

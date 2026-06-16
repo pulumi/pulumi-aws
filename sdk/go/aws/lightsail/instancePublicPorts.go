@@ -49,7 +49,7 @@ import (
 //			}
 //			example, err := lightsail.NewInstance(ctx, "example", &lightsail.InstanceArgs{
 //				Name:             pulumi.String("example-instance"),
-//				AvailabilityZone: pulumi.String(pulumi.String(available.Names[0])),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_3_0"),
 //			})

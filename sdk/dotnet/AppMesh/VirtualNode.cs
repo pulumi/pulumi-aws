@@ -12,7 +12,7 @@ namespace Pulumi.Aws.AppMesh
     /// <summary>
     /// Provides an AWS App Mesh virtual node resource.
     /// 
-    /// &gt; **Note:** Because of backward incompatible API changes ([see issue](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), resource definitions created with provider versions earlier than v2.3.0 must be modified: rename the `ServiceName` attribute of the `Dns` object to `Hostname`; replace the `Backends` attribute of the `Spec` object with one or more `Backend` configuration blocks, setting `VirtualServiceName` to the name of the service. Existing Terraform state is automatically migrated.
+    /// &gt; **Note:** Because of backward incompatible API changes ([see issue](https://github.com/awslabs/aws-app-mesh-examples/issues/92)), resource definitions created with provider versions earlier than v2.3.0 must be modified: rename the `ServiceName` attribute of the `Dns` object to `Hostname`; replace the `Backends` attribute of the `Spec` object with one or more `Backend` configuration blocks, setting `VirtualServiceName` to the name of the service. Existing Pulumi state is automatically migrated.
     /// 
     /// ## Example Usage
     /// 

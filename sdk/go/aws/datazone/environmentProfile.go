@@ -85,11 +85,11 @@ import (
 //			json1 := string(tmpJSON1)
 //			domainExecutionRole, err := iam.NewRole(ctx, "domain_execution_role", &iam.RoleArgs{
 //				Name:             pulumi.String("example-name"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
+//				AssumeRolePolicy: pulumi.String(json0),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("example-name"),
-//						Policy: pulumi.String(pulumi.String(json1)),
+//						Policy: pulumi.String(json1),
 //					},
 //				},
 //			})
@@ -137,22 +137,22 @@ import (
 //			_, err = datazone.NewEnvironmentBlueprintConfiguration(ctx, "test", &datazone.EnvironmentBlueprintConfigurationArgs{
 //				DomainId: testDomain.ID(),
 //				EnvironmentBlueprintId: pulumi.String(testGetEnvironmentBlueprint.ApplyT(func(testGetEnvironmentBlueprint datazone.GetEnvironmentBlueprintResult) (*string, error) {
-//					return &testGetEnvironmentBlueprint.Id, nil
+//					return testGetEnvironmentBlueprint.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				ProvisioningRoleArn: domainExecutionRole.Arn,
 //				EnabledRegions: pulumi.StringArray{
-//					pulumi.String(pulumi.String(testGetRegion.Region)),
+//					pulumi.String(testGetRegion.Region),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = datazone.NewEnvironmentProfile(ctx, "test", &datazone.EnvironmentProfileArgs{
-//				AwsAccountId:     pulumi.String(pulumi.String(test.AccountId)),
-//				AwsAccountRegion: pulumi.String(pulumi.String(testGetRegion.Region)),
+//				AwsAccountId:     pulumi.String(test.AccountId),
+//				AwsAccountRegion: pulumi.String(testGetRegion.Region),
 //				Description:      pulumi.String("description"),
 //				EnvironmentBlueprintIdentifier: pulumi.String(testGetEnvironmentBlueprint.ApplyT(func(testGetEnvironmentBlueprint datazone.GetEnvironmentBlueprintResult) (*string, error) {
-//					return &testGetEnvironmentBlueprint.Id, nil
+//					return testGetEnvironmentBlueprint.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Name:              pulumi.String("example-name"),
 //				ProjectIdentifier: testProject.ID(),

@@ -40,7 +40,7 @@ import (
 //				return err
 //			}
 //			_, err = storagegateway.NewUploadBuffer(ctx, "test", &storagegateway.UploadBufferArgs{
-//				DiskPath:   pulumi.String(pulumi.String(test.DiskPath)),
+//				DiskPath:   pulumi.String(test.DiskPath),
 //				GatewayArn: pulumi.Any(testAwsStoragegatewayGateway.Arn),
 //			})
 //			if err != nil {

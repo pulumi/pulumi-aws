@@ -83,7 +83,7 @@ import (
 //			userUpdatesQueue, err := sqs.NewQueue(ctx, "user_updates_queue", &sqs.QueueArgs{
 //				Name: pulumi.String("user-updates-queue"),
 //				Policy: pulumi.String(sqsQueuePolicy.ApplyT(func(sqsQueuePolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return &sqsQueuePolicy.Json, nil
+//					return sqsQueuePolicy.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -252,14 +252,14 @@ import (
 //			snsTopic, err := sns.NewTopic(ctx, "sns_topic", &sns.TopicArgs{
 //				Name:        pulumi.Any(sns2.Name),
 //				DisplayName: pulumi.Any(sns2.Display_name),
-//				Policy:      pulumi.String(pulumi.String(snsTopicPolicy.Json)),
+//				Policy:      pulumi.String(snsTopicPolicy.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			sqsQueue, err := sqs.NewQueue(ctx, "sqs_queue", &sqs.QueueArgs{
 //				Name:   pulumi.Any(sqs2.Name),
-//				Policy: pulumi.String(pulumi.String(sqsQueuePolicy.Json)),
+//				Policy: pulumi.String(sqsQueuePolicy.Json),
 //			})
 //			if err != nil {
 //				return err

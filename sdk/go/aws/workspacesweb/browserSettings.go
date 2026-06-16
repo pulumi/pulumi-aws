@@ -44,7 +44,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = workspacesweb.NewBrowserSettings(ctx, "example", &workspacesweb.BrowserSettingsArgs{
-//				BrowserPolicy: pulumi.String(pulumi.String(json0)),
+//				BrowserPolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -91,7 +91,7 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = workspacesweb.NewBrowserSettings(ctx, "example", &workspacesweb.BrowserSettingsArgs{
-//				BrowserPolicy:      pulumi.String(pulumi.String(json0)),
+//				BrowserPolicy:      pulumi.String(json0),
 //				CustomerManagedKey: example.Arn,
 //				AdditionalEncryptionContext: pulumi.StringMap{
 //					"Environment": pulumi.String("Production"),

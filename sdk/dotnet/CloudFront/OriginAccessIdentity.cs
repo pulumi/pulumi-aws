@@ -74,7 +74,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// Note that the AWS API may translate the `S3CanonicalUserId` `CanonicalUser`
     /// principal into an `AWS` IAM ARN principal when supplied in an
-    /// `aws.s3.Bucket` bucket policy, causing spurious diffs in Terraform. If
+    /// `aws.s3.Bucket` bucket policy, causing spurious diffs in Pulumi. If
     /// you see this behavior, use the `IamArn` instead:
     /// 
     /// ```csharp

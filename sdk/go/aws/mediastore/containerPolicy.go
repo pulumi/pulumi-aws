@@ -86,7 +86,7 @@ import (
 //			_, err = mediastore.NewContainerPolicy(ctx, "example", &mediastore.ContainerPolicyArgs{
 //				ContainerName: exampleContainer.Name,
 //				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
+//					return example.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

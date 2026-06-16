@@ -55,7 +55,7 @@ import (
 //			}
 //			gatewayRole, err := iam.NewRole(ctx, "gateway_role", &iam.RoleArgs{
 //				Name:             pulumi.String("bedrock-gateway-role"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(gatewayAssume.Json)),
+//				AssumeRolePolicy: pulumi.String(gatewayAssume.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -83,7 +83,7 @@ import (
 //			}
 //			lambdaRole, err := iam.NewRole(ctx, "lambda_role", &iam.RoleArgs{
 //				Name:             pulumi.String("example-lambda-role"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(lambdaAssume.Json)),
+//				AssumeRolePolicy: pulumi.String(lambdaAssume.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -421,12 +421,12 @@ import (
 //														&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{
 //															Name:      pulumi.String("nested_tags"),
 //															Type:      pulumi.String("array"),
-//															ItemsJson: pulumi.String(pulumi.String(json0)),
+//															ItemsJson: pulumi.String(json0),
 //														},
 //														&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{
 //															Name:           pulumi.String("metadata"),
 //															Type:           pulumi.String("object"),
-//															PropertiesJson: pulumi.String(pulumi.String(json1)),
+//															PropertiesJson: pulumi.String(json1),
 //														},
 //													},
 //												},

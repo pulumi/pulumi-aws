@@ -61,7 +61,7 @@ import (
 //			invocationRole, err := iam.NewRole(ctx, "invocation_role", &iam.RoleArgs{
 //				Name:             pulumi.String("api_gateway_auth_invocation"),
 //				Path:             pulumi.String("/"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(invocationAssumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(invocationAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -89,7 +89,7 @@ import (
 //			}
 //			lambda2, err := iam.NewRole(ctx, "lambda", &iam.RoleArgs{
 //				Name:             pulumi.String("demo-lambda"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(lambdaAssumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(lambdaAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -136,7 +136,7 @@ import (
 //				Name: pulumi.String("default"),
 //				Role: invocationRole.ID(),
 //				Policy: pulumi.String(invocationPolicy.ApplyT(func(invocationPolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return &invocationPolicy.Json, nil
+//					return invocationPolicy.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

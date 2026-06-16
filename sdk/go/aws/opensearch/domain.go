@@ -118,8 +118,8 @@ import (
 //				return err
 //			}
 //			_, err = opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				DomainName:     pulumi.String(pulumi.String(domain)),
-//				AccessPolicies: pulumi.String(pulumi.String(example.Json)),
+//				DomainName:     pulumi.String(domain),
+//				AccessPolicies: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -180,7 +180,7 @@ import (
 //			}
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
 //				PolicyName:     pulumi.String("example"),
-//				PolicyDocument: pulumi.String(pulumi.String(example.Json)),
+//				PolicyDocument: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -264,7 +264,7 @@ import (
 //			exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
 //				Name:        pulumi.Sprintf("%v-opensearch-%v", vpc, domain),
 //				Description: pulumi.String("Managed by Pulumi"),
-//				VpcId:       pulumi.String(pulumi.String(example.Id)),
+//				VpcId:       pulumi.String(example.Id),
 //				Ingress: ec2.SecurityGroupIngressArray{
 //					&ec2.SecurityGroupIngressArgs{
 //						FromPort: pulumi.Int(443),
@@ -310,7 +310,7 @@ import (
 //				return err
 //			}
 //			_, err = opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				DomainName:    pulumi.String(pulumi.String(domain)),
+//				DomainName:    pulumi.String(domain),
 //				EngineVersion: pulumi.String("OpenSearch_1.0"),
 //				ClusterConfig: &opensearch.DomainClusterConfigArgs{
 //					InstanceType:         pulumi.String("m4.large.search"),
@@ -328,7 +328,7 @@ import (
 //				AdvancedOptions: pulumi.StringMap{
 //					"rest.action.multi.allow_explicit_index": pulumi.String("true"),
 //				},
-//				AccessPolicies: pulumi.String(pulumi.String(exampleGetPolicyDocument.Json)),
+//				AccessPolicies: pulumi.String(exampleGetPolicyDocument.Json),
 //				Tags: pulumi.StringMap{
 //					"Domain": pulumi.String("TestDomain"),
 //				},

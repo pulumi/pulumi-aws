@@ -46,7 +46,7 @@ import (
 //			_, err = lightsail.NewDisk(ctx, "example", &lightsail.DiskArgs{
 //				Name:             pulumi.String("example-disk"),
 //				SizeInGb:         pulumi.Int(8),
-//				AvailabilityZone: pulumi.String(pulumi.String(available.Names[0])),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //			})
 //			if err != nil {
 //				return err

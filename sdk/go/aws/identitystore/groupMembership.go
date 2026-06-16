@@ -34,7 +34,7 @@ import (
 //				return err
 //			}
 //			exampleUser, err := identitystore.NewUser(ctx, "example", &identitystore.UserArgs{
-//				IdentityStoreId: pulumi.String(pulumi.String(example.IdentityStoreIds[0])),
+//				IdentityStoreId: pulumi.String(example.IdentityStoreIds[0]),
 //				DisplayName:     pulumi.String("John Doe"),
 //				UserName:        pulumi.String("john.doe@example.com"),
 //				Name: &identitystore.UserNameArgs{
@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			exampleGroup, err := identitystore.NewGroup(ctx, "example", &identitystore.GroupArgs{
-//				IdentityStoreId: pulumi.String(pulumi.String(example.IdentityStoreIds[0])),
+//				IdentityStoreId: pulumi.String(example.IdentityStoreIds[0]),
 //				DisplayName:     pulumi.String("MyGroup"),
 //				Description:     pulumi.String("Some group name"),
 //			})
@@ -54,7 +54,7 @@ import (
 //				return err
 //			}
 //			_, err = identitystore.NewGroupMembership(ctx, "example", &identitystore.GroupMembershipArgs{
-//				IdentityStoreId: pulumi.String(pulumi.String(example.IdentityStoreIds[0])),
+//				IdentityStoreId: pulumi.String(example.IdentityStoreIds[0]),
 //				GroupId:         exampleGroup.GroupId,
 //				MemberId:        exampleUser.UserId,
 //			})

@@ -80,7 +80,7 @@ import (
 //			_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 //				Arn: test.Arn,
 //				Policy: pulumi.String(snsTopicPolicy.ApplyT(func(snsTopicPolicy iam.GetPolicyDocumentResult) (*string, error) {
-//					return &snsTopicPolicy.Json, nil
+//					return snsTopicPolicy.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

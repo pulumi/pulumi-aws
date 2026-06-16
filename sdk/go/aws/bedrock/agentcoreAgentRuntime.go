@@ -80,14 +80,14 @@ import (
 //			}
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				Name:             pulumi.String("bedrock-agentcore-runtime-role"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 //				Role:   example.ID(),
-//				Policy: pulumi.String(pulumi.String(ecrPermissions.Json)),
+//				Policy: pulumi.String(ecrPermissions.Json),
 //			})
 //			if err != nil {
 //				return err

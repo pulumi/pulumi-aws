@@ -47,7 +47,7 @@ import (
 //				NamePrefix:          pulumi.String("example"),
 //				LaunchConfiguration: pulumi.Any(exampleAwsLaunchConfiguration.Name),
 //				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String(pulumi.String(available.Names[0])),
+//					pulumi.String(available.Names[0]),
 //				},
 //				MinSize: pulumi.Int(0),
 //				MaxSize: pulumi.Int(3),
@@ -136,7 +136,7 @@ import (
 //				NamePrefix:          pulumi.String("example"),
 //				LaunchConfiguration: pulumi.Any(exampleAwsLaunchConfiguration.Name),
 //				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String(pulumi.String(available.Names[0])),
+//					pulumi.String(available.Names[0]),
 //				},
 //				MinSize: pulumi.Int(0),
 //				MaxSize: pulumi.Int(3),

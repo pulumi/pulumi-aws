@@ -45,11 +45,11 @@ import (
 //			}
 //			_, err = workspaces.NewWorkspace(ctx, "example", &workspaces.WorkspaceArgs{
 //				DirectoryId:                 pulumi.Any(exampleAwsWorkspacesDirectory.Id),
-//				BundleId:                    pulumi.String(pulumi.String(valueWindows10.Id)),
+//				BundleId:                    pulumi.String(valueWindows10.Id),
 //				UserName:                    pulumi.String("john.doe"),
 //				RootVolumeEncryptionEnabled: pulumi.Bool(true),
 //				UserVolumeEncryptionEnabled: pulumi.Bool(true),
-//				VolumeEncryptionKey:         pulumi.String(pulumi.String(workspaces2.Arn)),
+//				VolumeEncryptionKey:         pulumi.String(workspaces2.Arn),
 //				WorkspaceProperties: &workspaces.WorkspaceWorkspacePropertiesArgs{
 //					ComputeTypeName:                     pulumi.String("VALUE"),
 //					UserVolumeSizeGib:                   pulumi.Int(10),

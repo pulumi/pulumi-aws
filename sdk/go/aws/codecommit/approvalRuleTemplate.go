@@ -52,7 +52,7 @@ import (
 //			_, err = codecommit.NewApprovalRuleTemplate(ctx, "example", &codecommit.ApprovalRuleTemplateArgs{
 //				Name:        pulumi.String("MyExampleApprovalRuleTemplate"),
 //				Description: pulumi.String("This is an example approval rule template"),
-//				Content:     pulumi.String(pulumi.String(json0)),
+//				Content:     pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

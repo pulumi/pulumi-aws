@@ -52,7 +52,7 @@ import (
 //			}
 //			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				Name:             pulumi.String("redshift_scheduled_action"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(assumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -77,7 +77,7 @@ import (
 //			}
 //			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
 //				Name:   pulumi.String("redshift_scheduled_action"),
-//				Policy: pulumi.String(pulumi.String(example.Json)),
+//				Policy: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

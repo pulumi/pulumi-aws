@@ -173,7 +173,7 @@ import (
 //				OutsideIpAddressType: pulumi.String("PrivateIpv4"),
 //				TransitGatewayId:     exampleTransitGateway.ID(),
 //				TransportTransitGatewayAttachmentId: pulumi.String(example.ApplyT(func(example ec2transitgateway.GetDirectConnectGatewayAttachmentResult) (*string, error) {
-//					return &example.Id, nil
+//					return example.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Type: pulumi.String("ipsec.1"),
 //				Tags: pulumi.StringMap{

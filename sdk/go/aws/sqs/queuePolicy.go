@@ -73,7 +73,7 @@ import (
 //			_, err = sqs.NewQueuePolicy(ctx, "test", &sqs.QueuePolicyArgs{
 //				QueueUrl: q.ID(),
 //				Policy: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
-//					return &test.Json, nil
+//					return test.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

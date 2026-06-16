@@ -63,7 +63,7 @@ import (
 //			}
 //			callAnalyticsRole, err := iam.NewRole(ctx, "call_analytics_role", &iam.RoleArgs{
 //				Name:             pulumi.String("CallAnalyticsRole"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(mediaPipelinesAssumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(mediaPipelinesAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -139,7 +139,7 @@ import (
 //			}
 //			postCallRole, err := iam.NewRole(ctx, "post_call_role", &iam.RoleArgs{
 //				Name:             pulumi.String("PostCallAccessRole"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(transcribeAssumeRole.Json)),
+//				AssumeRolePolicy: pulumi.String(transcribeAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err

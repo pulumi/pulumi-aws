@@ -88,7 +88,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			taskExecution, err := iam.NewRole(ctx, "task_execution", &iam.RoleArgs{
 //				Name:             pulumi.String("daemon-task-execution-role"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
+//				AssumeRolePolicy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
@@ -111,7 +111,7 @@ import (
 //			json1 := string(tmpJSON1)
 //			task, err := iam.NewRole(ctx, "task", &iam.RoleArgs{
 //				Name:             pulumi.String("daemon-task-role"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(json1)),
+//				AssumeRolePolicy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err

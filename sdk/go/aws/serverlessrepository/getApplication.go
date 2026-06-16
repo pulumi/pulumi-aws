@@ -35,8 +35,8 @@ import (
 //			}
 //			_, err = serverlessrepository.NewCloudFormationStack(ctx, "example", &serverlessrepository.CloudFormationStackArgs{
 //				Name:            pulumi.String("Example"),
-//				ApplicationId:   pulumi.String(pulumi.String(example.ApplicationId)),
-//				SemanticVersion: pulumi.String(pulumi.String(example.SemanticVersion)),
+//				ApplicationId:   pulumi.String(example.ApplicationId),
+//				SemanticVersion: pulumi.String(example.SemanticVersion),
 //				Capabilities:    toPulumiStringArray(example.RequiredCapabilities),
 //			})
 //			if err != nil {

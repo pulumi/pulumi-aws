@@ -77,7 +77,7 @@ import (
 //			_, err = s3.NewBucketPolicy(ctx, "allow_elb_logging", &s3.BucketPolicyArgs{
 //				Bucket: elbLogs.ID(),
 //				Policy: pulumi.String(allowElbLogging.ApplyT(func(allowElbLogging iam.GetPolicyDocumentResult) (*string, error) {
-//					return &allowElbLogging.Json, nil
+//					return allowElbLogging.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

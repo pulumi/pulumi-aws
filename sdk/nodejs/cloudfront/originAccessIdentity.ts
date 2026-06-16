@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *
  * Note that the AWS API may translate the `s3CanonicalUserId` `CanonicalUser`
  * principal into an `AWS` IAM ARN principal when supplied in an
- * `aws.s3.Bucket` bucket policy, causing spurious diffs in Terraform. If
+ * `aws.s3.Bucket` bucket policy, causing spurious diffs in Pulumi. If
  * you see this behavior, use the `iamArn` instead:
  *
  * ```typescript

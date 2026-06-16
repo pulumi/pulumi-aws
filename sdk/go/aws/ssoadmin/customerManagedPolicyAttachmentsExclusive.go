@@ -45,7 +45,7 @@ import (
 //			}
 //			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
 //				Name:        pulumi.String("Example"),
-//				InstanceArn: pulumi.String(pulumi.String(example.Arns[0])),
+//				InstanceArn: pulumi.String(example.Arns[0]),
 //			})
 //			if err != nil {
 //				return err
@@ -69,13 +69,13 @@ import (
 //			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
 //				Name:        pulumi.String("TestPolicy"),
 //				Description: pulumi.String("My test policy"),
-//				Policy:      pulumi.String(pulumi.String(json0)),
+//				Policy:      pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ssoadmin.NewCustomerManagedPolicyAttachmentsExclusive(ctx, "example", &ssoadmin.CustomerManagedPolicyAttachmentsExclusiveArgs{
-//				InstanceArn:      pulumi.String(pulumi.String(example.Arns[0])),
+//				InstanceArn:      pulumi.String(example.Arns[0]),
 //				PermissionSetArn: examplePermissionSet.Arn,
 //				CustomerManagedPolicyReferences: ssoadmin.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArray{
 //					&ssoadmin.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs{

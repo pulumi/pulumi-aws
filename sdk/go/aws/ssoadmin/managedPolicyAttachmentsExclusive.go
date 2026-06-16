@@ -42,13 +42,13 @@ import (
 //			}
 //			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
 //				Name:        pulumi.String("Example"),
-//				InstanceArn: pulumi.String(pulumi.String(example.Arns[0])),
+//				InstanceArn: pulumi.String(example.Arns[0]),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ssoadmin.NewManagedPolicyAttachmentsExclusive(ctx, "example", &ssoadmin.ManagedPolicyAttachmentsExclusiveArgs{
-//				InstanceArn:      pulumi.String(pulumi.String(example.Arns[0])),
+//				InstanceArn:      pulumi.String(example.Arns[0]),
 //				PermissionSetArn: examplePermissionSet.Arn,
 //				ManagedPolicyArns: pulumi.StringArray{
 //					pulumi.String("arn:aws:iam::aws:policy/ReadOnlyAccess"),

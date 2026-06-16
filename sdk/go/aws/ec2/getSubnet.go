@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewSecurityGroup(ctx, "subnet_security_group", &ec2.SecurityGroupArgs{
-//				VpcId: pulumi.String(pulumi.String(selected.VpcId)),
+//				VpcId: pulumi.String(selected.VpcId),
 //				Ingress: ec2.SecurityGroupIngressArray{
 //					&ec2.SecurityGroupIngressArgs{
 //						CidrBlocks: pulumi.StringArray{

@@ -98,14 +98,14 @@ import (
 //				return err
 //			}
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: pulumi.String(pulumi.String(exampleAgentTrust.Json)),
+//				AssumeRolePolicy: pulumi.String(exampleAgentTrust.Json),
 //				NamePrefix:       pulumi.String("AmazonBedrockExecutionRoleForAgents_"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
-//				Policy: pulumi.String(pulumi.String(exampleAgentPermissions.Json)),
+//				Policy: pulumi.String(exampleAgentPermissions.Json),
 //				Role:   example.ID(),
 //			})
 //			if err != nil {

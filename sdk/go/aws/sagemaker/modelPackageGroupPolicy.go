@@ -71,7 +71,7 @@ import (
 //				ModelPackageGroupName: exampleModelPackageGroup.ModelPackageGroupName,
 //				ResourcePolicy: std.JsondecodeOutput(ctx, std.JsondecodeOutputArgs{
 //					Input: example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//						return &example.Json, nil
+//						return example.Json, nil
 //					}).(pulumi.StringPtrOutput),
 //				}, nil).ApplyT(func(invoke std.JsondecodeResult) (pulumi.String, error) {
 //					var _zero pulumi.String

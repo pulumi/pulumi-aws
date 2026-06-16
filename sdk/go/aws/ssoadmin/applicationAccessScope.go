@@ -37,7 +37,7 @@ import (
 //			exampleApplication, err := ssoadmin.NewApplication(ctx, "example", &ssoadmin.ApplicationArgs{
 //				Name:                   pulumi.String("example"),
 //				ApplicationProviderArn: pulumi.String("arn:aws:sso::aws:applicationProvider/custom"),
-//				InstanceArn:            pulumi.String(pulumi.String(example.Arns[0])),
+//				InstanceArn:            pulumi.String(example.Arns[0]),
 //			})
 //			if err != nil {
 //				return err

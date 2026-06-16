@@ -53,7 +53,7 @@ import (
 //			example, err := opensearch.NewServerlessSecurityPolicy(ctx, "example", &opensearch.ServerlessSecurityPolicyArgs{
 //				Name:   pulumi.String("example"),
 //				Type:   pulumi.String("encryption"),
-//				Policy: pulumi.String(pulumi.String(json0)),
+//				Policy: pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

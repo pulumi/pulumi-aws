@@ -76,7 +76,7 @@ import (
 //			_, err = amp.NewResourcePolicy(ctx, "example", &amp.ResourcePolicyArgs{
 //				WorkspaceId: exampleWorkspace.ID(),
 //				PolicyDocument: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
+//					return example.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -134,7 +134,7 @@ import (
 //			_, err = amp.NewResourcePolicy(ctx, "cross_account", &amp.ResourcePolicyArgs{
 //				WorkspaceId: example.ID(),
 //				PolicyDocument: pulumi.String(crossAccount.ApplyT(func(crossAccount iam.GetPolicyDocumentResult) (*string, error) {
-//					return &crossAccount.Json, nil
+//					return crossAccount.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -194,7 +194,7 @@ import (
 //			_, err = amp.NewResourcePolicy(ctx, "service_access", &amp.ResourcePolicyArgs{
 //				WorkspaceId: example.ID(),
 //				PolicyDocument: pulumi.String(serviceAccess.ApplyT(func(serviceAccess iam.GetPolicyDocumentResult) (*string, error) {
-//					return &serviceAccess.Json, nil
+//					return serviceAccess.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

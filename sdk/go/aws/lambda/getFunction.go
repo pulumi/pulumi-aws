@@ -73,7 +73,7 @@ import (
 //				HttpMethod:            pulumi.Any(exampleAwsApiGatewayMethod.HttpMethod),
 //				IntegrationHttpMethod: pulumi.String("POST"),
 //				Type:                  pulumi.String("AWS_PROXY"),
-//				Uri:                   pulumi.String(pulumi.String(example.InvokeArn)),
+//				Uri:                   pulumi.String(example.InvokeArn),
 //			})
 //			if err != nil {
 //				return err

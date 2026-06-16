@@ -84,11 +84,11 @@ import (
 //			json1 := string(tmpJSON1)
 //			domainExecutionRole, err := iam.NewRole(ctx, "domain_execution_role", &iam.RoleArgs{
 //				Name:             pulumi.String("example-role"),
-//				AssumeRolePolicy: pulumi.String(pulumi.String(json0)),
+//				AssumeRolePolicy: pulumi.String(json0),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("example-policy"),
-//						Policy: pulumi.String(pulumi.String(json1)),
+//						Policy: pulumi.String(json1),
 //					},
 //				},
 //			})

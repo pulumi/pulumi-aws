@@ -62,7 +62,7 @@ import (
 //			_, err = sns.NewTopicPolicy(ctx, "test", &sns.TopicPolicyArgs{
 //				Arn: testTopic.Arn,
 //				Policy: pulumi.String(test.ApplyT(func(test iam.GetPolicyDocumentResult) (*string, error) {
-//					return &test.Json, nil
+//					return test.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

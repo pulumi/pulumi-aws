@@ -123,7 +123,7 @@ import (
 //								Type: pulumi.String("AWS"),
 //								Identifiers: pulumi.StringArray{
 //									exampleContainerService.PrivateRegistryAccess.ApplyT(func(privateRegistryAccess lightsail.ContainerServicePrivateRegistryAccess) (*string, error) {
-//										return &privateRegistryAccess.EcrImagePullerRole.PrincipalArn, nil
+//										return privateRegistryAccess.EcrImagePullerRole.PrincipalArn, nil
 //									}).(pulumi.StringPtrOutput),
 //								},
 //							},
@@ -138,7 +138,7 @@ import (
 //			_, err = ecr.NewRepositoryPolicy(ctx, "example", &ecr.RepositoryPolicyArgs{
 //				Repository: pulumi.Any(exampleAwsEcrRepository.Name),
 //				Policy: pulumi.String(example.ApplyT(func(example iam.GetPolicyDocumentResult) (*string, error) {
-//					return &example.Json, nil
+//					return example.Json, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
