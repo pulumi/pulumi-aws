@@ -28,7 +28,12 @@ import (
 )
 
 func main() {
-	info := aws.ProviderFromMeta(tfbridge.NewProviderMetadata(locateMetadata()))
+	// Build tfgen metadata from live schemas, then refresh the generated facts consumed by the
+	// runtime provider. Using ProviderFromMeta here would read the previous embedded metadata file
+	// and could leave schema generation one run behind an upstream provider change.
+	info := aws.ProviderFromMetaForTfgen(tfbridge.NewProviderMetadata(locateMetadata()))
+	err := aws.WriteAWSResourceMetadata(info, locateResourceMetadata())
+	contract.AssertNoErrorf(err, "Failed to write aws-resource-metadata.json")
 
 	postProcessor := info.SchemaPostProcessor
 	info.SchemaPostProcessor = func(spec *schema.PackageSpec) {
@@ -50,4 +55,8 @@ func locateMetadata() []byte {
 	bytes, err := os.ReadFile(p)
 	contract.AssertNoErrorf(err, "Failed to read bridge-metadata.json")
 	return bytes
+}
+
+func locateResourceMetadata() string {
+	return filepath.Join(strings.Split("provider/cmd/pulumi-resource-aws/aws-resource-metadata.json", "/")...)
 }

@@ -82,22 +82,11 @@ func TestHasNonComputedTagsAndTagsAllOptimized(t *testing.T) {
 
 	p := Provider()
 	p.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
-		actual := hasNonComputedTagsAndTagsAllOptimized(key, value)
+		actual := awsResourceMetadatas[key].HasTagsAndTagsAll
 		expected := hasNonComputedTagsAndTagsAll(key, value)
 		assert.Equal(t, expected, actual, "%q", key)
 		return true
 	})
-	ctx := context.Background()
-	upstreamProvider := newUpstreamProvider(ctx)
-	for rn, r := range upstreamProvider.SDKV2Provider.ResourcesMap {
-		if r.SchemaFunc != nil {
-			res, ok := p.P.ResourcesMap().GetOk(rn)
-			if ok {
-				v := hasNonComputedTagsAndTagsAll(rn, res)
-				t.Logf("Should cache %v: %s", v, rn)
-			}
-		}
-	}
 }
 
 func TestHasOptionalOrRequiredNamePropertyOptimized(t *testing.T) {
@@ -106,17 +95,151 @@ func TestHasOptionalOrRequiredNamePropertyOptimized(t *testing.T) {
 	p := Provider()
 	p.P.ResourcesMap().Range(func(key string, _ shim.Resource) bool {
 		actual := hasOptionalOrRequiredNameProperty(p.P, key)
-		expected := hasOptionalOrRequiredNamePropertyOptimized(p.P, key)
+		expected := awsResourceMetadatas[key].HasInputName
 		assert.Equal(t, expected, actual, "%q", key)
 		return true
 	})
-	ctx := context.Background()
-	upstreamProvider := newUpstreamProvider(ctx)
-	for rn, r := range upstreamProvider.SDKV2Provider.ResourcesMap {
-		if r.SchemaFunc != nil {
-			v := hasOptionalOrRequiredNameProperty(p.P, rn)
-			t.Logf("Should cache %v: %s", v, rn)
+}
+
+func TestHasUsableRegionMetadata(t *testing.T) {
+	t.Parallel()
+
+	p := Provider()
+	p.P.ResourcesMap().Range(func(key string, value shim.Resource) bool {
+		region, ok := value.Schema().GetOk("region")
+		expected := ok && region.Deprecated() == ""
+		actual := awsResourceMetadatas[key].HasUsableRegion
+		assert.Equal(t, expected, actual, "%q", key)
+		return true
+	})
+}
+
+func TestRegionPreCheckCallbackInstalledFromMetadata(t *testing.T) {
+	t.Parallel()
+
+	p := Provider()
+	key := findProviderResource(t, p, "resource with usable region", func(key string) bool {
+		return awsResourceMetadatas[key].HasUsableRegion
+	})
+
+	callback := p.Resources[key].PreCheckCallback
+	assert.NotNil(t, callback, "%q", key)
+
+	config := resource.PropertyMap{
+		"region": resource.NewStringProperty("us-east-1"),
+	}
+	meta := resource.PropertyMap{
+		"region": resource.NewStringProperty("us-west-2"),
+	}
+	actual, err := callback(context.Background(), config, meta)
+	assert.NoError(t, err, "%q", key)
+	assert.Equal(t, "us-east-1", actual["region"].StringValue(), "%q", key)
+}
+
+func TestTagsPreCheckCallbackAppliesOnlyToSDKV2Resources(t *testing.T) {
+	t.Parallel()
+
+	p := Provider()
+	upstreamProvider := newUpstreamProvider(context.Background())
+
+	sdkv2Key := findProviderResource(t, p, "SDKv2 resource with tags", func(key string) bool {
+		_, isSDKV2 := upstreamProvider.SDKV2Provider.ResourcesMap[key]
+		return isSDKV2 && awsResourceMetadatas[key].HasTagsAndTagsAll
+	})
+	sdkv2Res := p.Resources[sdkv2Key]
+	assert.NotNil(t, sdkv2Res.PreCheckCallback, "%q", sdkv2Key)
+
+	tagsAllField := sdkv2Res.GetFields()["tags_all"]
+	assert.NotNil(t, tagsAllField, "%q", sdkv2Key)
+	assertBoolPtr(t, tagsAllField.MarkAsComputedOnly, true, "%q", sdkv2Key)
+	assertBoolPtr(t, tagsAllField.MarkAsOptional, false, "%q", sdkv2Key)
+
+	config := resource.PropertyMap{
+		"tags": resource.NewObjectProperty(resource.PropertyMap{
+			"explicit": resource.NewStringProperty("from-resource"),
+			"shared":   resource.NewStringProperty("from-resource"),
+		}),
+	}
+	meta := resource.PropertyMap{
+		"defaultTags": resource.NewObjectProperty(resource.PropertyMap{
+			"tags": resource.NewObjectProperty(resource.PropertyMap{
+				"default": resource.NewStringProperty("from-default"),
+				"shared":  resource.NewStringProperty("from-default"),
+			}),
+		}),
+	}
+	actual, err := sdkv2Res.PreCheckCallback(context.Background(), config, meta)
+	assert.NoError(t, err, "%q", sdkv2Key)
+	tagsAll := actual["tagsAll"]
+	assert.True(t, tagsAll.IsObject(), "%q", sdkv2Key)
+	assert.Equal(t, "from-default", tagsAll.ObjectValue()["default"].StringValue(), "%q", sdkv2Key)
+	assert.Equal(t, "from-resource", tagsAll.ObjectValue()["explicit"].StringValue(), "%q", sdkv2Key)
+	assert.Equal(t, "from-resource", tagsAll.ObjectValue()["shared"].StringValue(), "%q", sdkv2Key)
+
+	pfKey := findProviderResource(t, p, "PF resource with tags", func(key string) bool {
+		_, isSDKV2 := upstreamProvider.SDKV2Provider.ResourcesMap[key]
+		return !isSDKV2 && awsResourceMetadatas[key].HasTagsAndTagsAll
+	})
+	pfRes := p.Resources[pfKey]
+	if fields := pfRes.GetFields(); fields != nil {
+		if tagsAllField := fields["tags_all"]; tagsAllField != nil && tagsAllField.MarkAsComputedOnly != nil {
+			assert.False(t, *tagsAllField.MarkAsComputedOnly, "%q", pfKey)
 		}
+	}
+	if pfRes.PreCheckCallback != nil {
+		actual, err := pfRes.PreCheckCallback(context.Background(), config, meta)
+		assert.NoError(t, err, "%q", pfKey)
+		assert.False(t, actual["tagsAll"].IsObject(), "%q", pfKey)
+	}
+}
+
+func TestSetAutonamingAddsGenericNameWithoutOverwritingFields(t *testing.T) {
+	t.Parallel()
+
+	explicitNameField := &tfbridge.SchemaInfo{}
+	p := &tfbridge.ProviderInfo{
+		Resources: map[string]*tfbridge.ResourceInfo{
+			"aws_needs_name": {},
+			"aws_has_name": {
+				Fields: map[string]*tfbridge.SchemaInfo{
+					nameProperty: explicitNameField,
+				},
+			},
+			"aws_no_name": {},
+		},
+	}
+
+	setAutonaming(p, func(_ shim.Provider, key string, _ shim.Resource) awsResourceMetadata {
+		return awsResourceMetadata{HasInputName: key != "aws_no_name"}
+	})
+
+	assert.NotNil(t, p.Resources["aws_needs_name"].Fields[nameProperty].Default)
+	assert.Same(t, explicitNameField, p.Resources["aws_has_name"].Fields[nameProperty])
+	assert.Nil(t, p.Resources["aws_no_name"].Fields)
+}
+
+func findProviderResource(
+	t *testing.T,
+	p *tfbridge.ProviderInfo,
+	description string,
+	predicate func(string) bool,
+) string {
+	t.Helper()
+
+	for key := range p.Resources {
+		if predicate(key) {
+			return key
+		}
+	}
+	t.Fatalf("could not find %s", description)
+	return ""
+}
+
+func assertBoolPtr(t *testing.T, actual *bool, expected bool, msgAndArgs ...interface{}) {
+	t.Helper()
+
+	if assert.NotNil(t, actual, msgAndArgs...) {
+		assert.Equal(t, expected, *actual, msgAndArgs...)
 	}
 }
 

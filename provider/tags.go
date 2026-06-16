@@ -17,24 +17,22 @@ package provider
 import (
 	"context"
 
-	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // This adds special handling for the `tagsAll` properties.
 // We rely on the upstream Terraform provider to correctly handle `tags` and `tagsAll` and it
-// works fine for pf based resources. For SDKv2 resources, terraform relies on two things for tags handling to work:
+// works fine for PF-based resources. For SDKv2 resources, terraform relies on two things for tags handling to work:
 // (note: this is only true for a specific scenario where `defaultTags` was non-empty and is then completely removed)
 //  1. Terraform is run with `--refresh` (default for Terraform)
 //  2. When refresh is run, the latest provider config is used.
 //
 // When you run Pulumi, by default neither of these two things are true which means that to get the same behavior for
-// SKDv2 resources, you would have to:
+// SDKv2 resources, you would have to:
 //  1. Run `pulumi refresh --run-program` (run-program is required to get the latest provider config)
 //  2. Run `pulumi up` to apply the tags changes.
 //
@@ -42,47 +40,43 @@ import (
 // which sets the value of `tagsAll`.
 // This is a workaround that allows the program to have the latest `tagsAll` values without
 // having to run `refresh` or `run-program`.
+//
+// The caller is responsible for applying this only to SDKv2 resources that have non-computed
+// `tags` and a `tags_all` field. ProviderFromMeta enforces that with generated AWS resource
+// metadata. Plugin Framework resources are excluded because upstream handles their tag behavior
+// without this Pulumi-side pre-check callback.
 func applyTagsPreCheckCallback(
 	prov tfbridge.ProviderInfo,
-	upstreamSDKV2Provider *schema.Provider,
 	key string,
-	res shim.Resource,
 ) {
-	if !hasNonComputedTagsAndTagsAllOptimized(key, res) {
-		return
-	}
-
-	// only process sdkv2 resources. pf resources are fine
-	if _, ok := upstreamSDKV2Provider.ResourcesMap[key]; ok {
-		if callback := prov.Resources[key].PreCheckCallback; callback != nil {
-			prov.Resources[key].PreCheckCallback = func(
-				ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
-			) (resource.PropertyMap, error) {
-				config, err := callback(ctx, config, meta)
-				if err != nil {
-					return nil, err
-				}
-				return applyTags(ctx, config, meta)
+	if callback := prov.Resources[key].PreCheckCallback; callback != nil {
+		prov.Resources[key].PreCheckCallback = func(
+			ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+		) (resource.PropertyMap, error) {
+			config, err := callback(ctx, config, meta)
+			if err != nil {
+				return nil, err
 			}
-		} else {
-			prov.Resources[key].PreCheckCallback = applyTags
+			return applyTags(ctx, config, meta)
 		}
-		if prov.Resources[key].GetFields() == nil {
-			prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
-		}
-		fields := prov.Resources[key].GetFields()
-
-		if _, ok := fields["tags_all"]; !ok {
-			fields["tags_all"] = &tfbridge.SchemaInfo{}
-		}
-
-		// `tags_all` is an optional/computed property in TF, but should never
-		// be set by the user (TF internals will set it). We can mark it as only an
-		// output property on our side so that users don't have the option to set it themselves,
-		// but we still can in the callback function
-		fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
-		fields["tags_all"].MarkAsOptional = tfbridge.False()
+	} else {
+		prov.Resources[key].PreCheckCallback = applyTags
 	}
+	if prov.Resources[key].GetFields() == nil {
+		prov.Resources[key].Fields = map[string]*tfbridge.SchemaInfo{}
+	}
+	fields := prov.Resources[key].GetFields()
+
+	if _, ok := fields["tags_all"]; !ok {
+		fields["tags_all"] = &tfbridge.SchemaInfo{}
+	}
+
+	// `tags_all` is an optional/computed property in TF, but should never
+	// be set by the user (TF internals will set it). We can mark it as only an
+	// output property on our side so that users don't have the option to set it themselves,
+	// but we still can in the callback function
+	fields["tags_all"].MarkAsComputedOnly = tfbridge.True()
+	fields["tags_all"].MarkAsOptional = tfbridge.False()
 
 }
 

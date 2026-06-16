@@ -1,0 +1,6148 @@
+{
+  "aws_accessanalyzer_analyzer": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_accessanalyzer_archive_rule": {
+    "hasUsableRegion": true
+  },
+  "aws_account_alternate_contact": {
+    "hasInputName": true
+  },
+  "aws_acm_certificate": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_acm_certificate_validation": {
+    "hasUsableRegion": true
+  },
+  "aws_acmpca_certificate": {
+    "hasUsableRegion": true
+  },
+  "aws_acmpca_certificate_authority": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_acmpca_certificate_authority_certificate": {
+    "hasUsableRegion": true
+  },
+  "aws_acmpca_permission": {
+    "hasUsableRegion": true
+  },
+  "aws_acmpca_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_alb": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_alb_listener": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_alb_listener_certificate": {
+    "hasUsableRegion": true
+  },
+  "aws_alb_listener_rule": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_alb_target_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_alb_target_group_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_ami": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ami_copy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ami_from_instance": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ami_launch_permission": {
+    "hasUsableRegion": true
+  },
+  "aws_amplify_app": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_amplify_backend_environment": {
+    "hasUsableRegion": true
+  },
+  "aws_amplify_branch": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_amplify_domain_association": {
+    "hasUsableRegion": true
+  },
+  "aws_amplify_webhook": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_account": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_api_key": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_api_gateway_authorizer": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_base_path_mapping": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_client_certificate": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_api_gateway_deployment": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_documentation_part": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_documentation_version": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_domain_name": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_api_gateway_domain_name_access_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_api_gateway_gateway_response": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_integration": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_integration_response": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_method": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_method_response": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_method_settings": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_model": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_request_validator": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_resource": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_rest_api": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_api_gateway_rest_api_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_rest_api_put": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_stage": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_api_gateway_usage_plan": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_api_gateway_usage_plan_key": {
+    "hasUsableRegion": true
+  },
+  "aws_api_gateway_vpc_link": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_apigatewayv2_api": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_apigatewayv2_api_mapping": {
+    "hasUsableRegion": true
+  },
+  "aws_apigatewayv2_authorizer": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_apigatewayv2_deployment": {
+    "hasUsableRegion": true
+  },
+  "aws_apigatewayv2_domain_name": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_apigatewayv2_integration": {
+    "hasUsableRegion": true
+  },
+  "aws_apigatewayv2_integration_response": {
+    "hasUsableRegion": true
+  },
+  "aws_apigatewayv2_model": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_apigatewayv2_route": {
+    "hasUsableRegion": true
+  },
+  "aws_apigatewayv2_route_response": {
+    "hasUsableRegion": true
+  },
+  "aws_apigatewayv2_routing_rule": {
+    "hasUsableRegion": true
+  },
+  "aws_apigatewayv2_stage": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_apigatewayv2_vpc_link": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_app_cookie_stickiness_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_appautoscaling_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_appautoscaling_scheduled_action": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_appautoscaling_target": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appconfig_application": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appconfig_configuration_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appconfig_deployment": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appconfig_deployment_strategy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appconfig_environment": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appconfig_extension": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appconfig_extension_association": {
+    "hasUsableRegion": true
+  },
+  "aws_appconfig_hosted_configuration_version": {
+    "hasUsableRegion": true
+  },
+  "aws_appfabric_app_authorization": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appfabric_app_authorization_connection": {
+    "hasUsableRegion": true
+  },
+  "aws_appfabric_app_bundle": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appfabric_ingestion": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appfabric_ingestion_destination": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appflow_connector_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_appflow_flow": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appintegrations_data_integration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appintegrations_event_integration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_applicationinsights_application": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appmesh_gateway_route": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appmesh_mesh": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appmesh_route": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appmesh_virtual_gateway": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appmesh_virtual_node": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appmesh_virtual_router": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appmesh_virtual_service": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_apprunner_auto_scaling_configuration_version": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_apprunner_connection": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_apprunner_custom_domain_association": {
+    "hasUsableRegion": true
+  },
+  "aws_apprunner_default_auto_scaling_configuration_version": {
+    "hasUsableRegion": true
+  },
+  "aws_apprunner_deployment": {
+    "hasUsableRegion": true
+  },
+  "aws_apprunner_observability_configuration": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_apprunner_service": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_apprunner_vpc_connector": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_apprunner_vpc_ingress_connection": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appstream_directory_config": {
+    "hasUsableRegion": true
+  },
+  "aws_appstream_fleet": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appstream_fleet_stack_association": {
+    "hasUsableRegion": true
+  },
+  "aws_appstream_image_builder": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appstream_stack": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appstream_user": {
+    "hasUsableRegion": true
+  },
+  "aws_appstream_user_stack_association": {
+    "hasUsableRegion": true
+  },
+  "aws_appsync_api": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appsync_api_cache": {
+    "hasUsableRegion": true
+  },
+  "aws_appsync_api_key": {
+    "hasUsableRegion": true
+  },
+  "aws_appsync_channel_namespace": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appsync_datasource": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_appsync_domain_name": {
+    "hasUsableRegion": true
+  },
+  "aws_appsync_domain_name_api_association": {
+    "hasUsableRegion": true
+  },
+  "aws_appsync_function": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_appsync_graphql_api": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_appsync_resolver": {
+    "hasUsableRegion": true
+  },
+  "aws_appsync_source_api_association": {
+    "hasUsableRegion": true
+  },
+  "aws_appsync_type": {
+    "hasUsableRegion": true
+  },
+  "aws_arcregionswitch_plan": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_arczonalshift_autoshift_observer_notification_status": {
+    "hasUsableRegion": true
+  },
+  "aws_arczonalshift_zonal_autoshift_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_athena_capacity_reservation": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_athena_data_catalog": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_athena_database": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_athena_named_query": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_athena_prepared_statement": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_athena_workgroup": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_auditmanager_account_registration": {
+    "hasUsableRegion": true
+  },
+  "aws_auditmanager_assessment": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_auditmanager_assessment_delegation": {
+    "hasUsableRegion": true
+  },
+  "aws_auditmanager_assessment_report": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_auditmanager_control": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_auditmanager_framework": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_auditmanager_framework_share": {
+    "hasUsableRegion": true
+  },
+  "aws_auditmanager_organization_admin_account_registration": {
+    "hasUsableRegion": true
+  },
+  "aws_autoscaling_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_autoscaling_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_autoscaling_group_tag": {
+    "hasUsableRegion": true
+  },
+  "aws_autoscaling_lifecycle_hook": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_autoscaling_notification": {
+    "hasUsableRegion": true
+  },
+  "aws_autoscaling_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_autoscaling_schedule": {
+    "hasUsableRegion": true
+  },
+  "aws_autoscaling_traffic_source_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_autoscalingplans_scaling_plan": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_backup_framework": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_backup_logically_air_gapped_vault": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_backup_plan": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_backup_region_settings": {
+    "hasUsableRegion": true
+  },
+  "aws_backup_report_plan": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_backup_restore_testing_plan": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_backup_restore_testing_selection": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_backup_selection": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_backup_vault": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_backup_vault_lock_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_backup_vault_notifications": {
+    "hasUsableRegion": true
+  },
+  "aws_backup_vault_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_batch_compute_environment": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_batch_job_definition": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_batch_job_queue": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_batch_scheduling_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bcmdataexports_export": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrock_custom_model": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrock_guardrail": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrock_guardrail_version": {
+    "hasUsableRegion": true
+  },
+  "aws_bedrock_inference_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrock_model_invocation_logging_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_bedrock_provisioned_model_throughput": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagent_agent": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagent_agent_action_group": {
+    "hasUsableRegion": true
+  },
+  "aws_bedrockagent_agent_alias": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagent_agent_collaborator": {
+    "hasUsableRegion": true
+  },
+  "aws_bedrockagent_agent_knowledge_base_association": {
+    "hasUsableRegion": true
+  },
+  "aws_bedrockagent_data_source": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_bedrockagent_flow": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagent_knowledge_base": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagent_prompt": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_agent_runtime": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_agent_runtime_endpoint": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_api_key_credential_provider": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_browser": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_code_interpreter": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_gateway": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_gateway_target": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_bedrockagentcore_harness": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_memory": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_memory_strategy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_bedrockagentcore_oauth2_credential_provider": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_online_evaluation_config": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_bedrockagentcore_policy_engine": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_bedrockagentcore_token_vault_cmk": {
+    "hasUsableRegion": true
+  },
+  "aws_bedrockagentcore_workload_identity": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_billing_view": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_budgets_budget": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_budgets_budget_action": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ce_anomaly_monitor": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ce_anomaly_subscription": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ce_cost_category": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_chatbot_slack_channel_configuration": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_chatbot_teams_channel_configuration": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_chime_voice_connector": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_chime_voice_connector_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_chime_voice_connector_logging": {
+    "hasUsableRegion": true
+  },
+  "aws_chime_voice_connector_origination": {
+    "hasUsableRegion": true
+  },
+  "aws_chime_voice_connector_streaming": {
+    "hasUsableRegion": true
+  },
+  "aws_chime_voice_connector_termination": {
+    "hasUsableRegion": true
+  },
+  "aws_chime_voice_connector_termination_credentials": {
+    "hasUsableRegion": true
+  },
+  "aws_chimesdkmediapipelines_media_insights_pipeline_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_chimesdkvoice_sip_media_application": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_chimesdkvoice_sip_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_chimesdkvoice_voice_profile_domain": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cleanrooms_collaboration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cleanrooms_configured_table": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cleanrooms_membership": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloud9_environment_ec2": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloud9_environment_membership": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudcontrolapi_resource": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudformation_stack": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudformation_stack_instances": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudformation_stack_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudformation_type": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudfront_anycast_ip_list": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudfront_cache_policy": {
+    "hasInputName": true
+  },
+  "aws_cloudfront_connection_function": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudfront_connection_group": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudfront_distribution": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudfront_distribution_tenant": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudfront_field_level_encryption_profile": {
+    "hasInputName": true
+  },
+  "aws_cloudfront_function": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudfront_key_group": {
+    "hasInputName": true
+  },
+  "aws_cloudfront_key_value_store": {
+    "hasInputName": true
+  },
+  "aws_cloudfront_multitenant_distribution": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudfront_origin_access_control": {
+    "hasInputName": true
+  },
+  "aws_cloudfront_origin_request_policy": {
+    "hasInputName": true
+  },
+  "aws_cloudfront_public_key": {
+    "hasInputName": true
+  },
+  "aws_cloudfront_realtime_log_config": {
+    "hasInputName": true
+  },
+  "aws_cloudfront_response_headers_policy": {
+    "hasInputName": true
+  },
+  "aws_cloudfront_trust_store": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudfront_vpc_origin": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudhsm_v2_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudhsm_v2_hsm": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudsearch_domain": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_cloudsearch_domain_service_access_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudtrail": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudtrail_event_data_store": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_alarm_mute_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_composite_alarm": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_contributor_insight_rule": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_contributor_managed_insight_rule": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_dashboard": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_event_api_destination": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_event_archive": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_event_bus": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_event_bus_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_event_connection": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_event_endpoint": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_event_permission": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_event_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_event_target": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_log_account_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_log_anomaly_detector": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_log_data_protection_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_log_delivery": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_log_delivery_destination": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_log_delivery_destination_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_log_delivery_source": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_log_destination": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_log_destination_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_log_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_log_index_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_log_metric_filter": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_log_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_log_s3_table_integration_source": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_log_stream": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_log_subscription_filter": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_log_transformer": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_metric_alarm": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_metric_stream": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cloudwatch_otel_enrichment": {
+    "hasUsableRegion": true
+  },
+  "aws_cloudwatch_query_definition": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_codeartifact_domain": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codeartifact_domain_permissions_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_codeartifact_repository": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codeartifact_repository_permissions_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_codebuild_fleet": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codebuild_project": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codebuild_report_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codebuild_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_codebuild_source_credential": {
+    "hasUsableRegion": true
+  },
+  "aws_codebuild_webhook": {
+    "hasUsableRegion": true
+  },
+  "aws_codecatalyst_dev_environment": {
+    "hasUsableRegion": true
+  },
+  "aws_codecatalyst_project": {
+    "hasUsableRegion": true
+  },
+  "aws_codecatalyst_source_repository": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_codecommit_approval_rule_template": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_codecommit_approval_rule_template_association": {
+    "hasUsableRegion": true
+  },
+  "aws_codecommit_repository": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codecommit_trigger": {
+    "hasUsableRegion": true
+  },
+  "aws_codeconnections_connection": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codeconnections_host": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codedeploy_app": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codedeploy_deployment_config": {
+    "hasUsableRegion": true
+  },
+  "aws_codedeploy_deployment_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codeguruprofiler_profiling_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codegurureviewer_repository_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codepipeline": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codepipeline_custom_action_type": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codepipeline_webhook": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codestarconnections_connection": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_codestarconnections_host": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_codestarnotifications_notification_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cognito_identity_pool": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cognito_identity_pool_provider_principal_tag": {
+    "hasUsableRegion": true
+  },
+  "aws_cognito_identity_pool_roles_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_cognito_identity_provider": {
+    "hasUsableRegion": true
+  },
+  "aws_cognito_log_delivery_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_cognito_managed_login_branding": {
+    "hasUsableRegion": true
+  },
+  "aws_cognito_managed_user_pool_client": {
+    "hasUsableRegion": true
+  },
+  "aws_cognito_resource_server": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_cognito_risk_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_cognito_user": {
+    "hasUsableRegion": true
+  },
+  "aws_cognito_user_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_cognito_user_in_group": {
+    "hasUsableRegion": true
+  },
+  "aws_cognito_user_pool": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cognito_user_pool_client": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_cognito_user_pool_domain": {
+    "hasUsableRegion": true
+  },
+  "aws_cognito_user_pool_ui_customization": {
+    "hasUsableRegion": true
+  },
+  "aws_comprehend_document_classifier": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_comprehend_entity_recognizer": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_computeoptimizer_enrollment_status": {
+    "hasUsableRegion": true
+  },
+  "aws_computeoptimizer_recommendation_preferences": {
+    "hasUsableRegion": true
+  },
+  "aws_config_aggregate_authorization": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_config_config_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_config_configuration_aggregator": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_config_configuration_recorder": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_config_configuration_recorder_status": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_config_conformance_pack": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_config_delivery_channel": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_config_organization_conformance_pack": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_config_organization_custom_policy_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_config_organization_custom_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_config_organization_managed_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_config_remediation_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_config_retention_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_connect_bot_association": {
+    "hasUsableRegion": true
+  },
+  "aws_connect_contact_flow": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_connect_contact_flow_module": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_connect_hours_of_operation": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_connect_instance": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_connect_instance_storage_config": {
+    "hasUsableRegion": true
+  },
+  "aws_connect_lambda_function_association": {
+    "hasUsableRegion": true
+  },
+  "aws_connect_phone_number": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_connect_phone_number_contact_flow_association": {
+    "hasUsableRegion": true
+  },
+  "aws_connect_queue": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_connect_quick_connect": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_connect_routing_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_connect_security_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_connect_user": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_connect_user_hierarchy_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_connect_user_hierarchy_structure": {
+    "hasUsableRegion": true
+  },
+  "aws_connect_vocabulary": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_controltower_baseline": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_controltower_control": {
+    "hasUsableRegion": true
+  },
+  "aws_controltower_landing_zone": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_cur_report_definition": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_customer_gateway": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_customerprofiles_domain": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_customerprofiles_profile": {
+    "hasUsableRegion": true
+  },
+  "aws_dataexchange_data_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dataexchange_event_action": {
+    "hasUsableRegion": true
+  },
+  "aws_dataexchange_revision": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dataexchange_revision_assets": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datapipeline_pipeline": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datapipeline_pipeline_definition": {
+    "hasUsableRegion": true
+  },
+  "aws_datasync_agent": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datasync_location_azure_blob": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datasync_location_efs": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datasync_location_fsx_lustre_file_system": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datasync_location_fsx_ontap_file_system": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datasync_location_fsx_openzfs_file_system": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datasync_location_fsx_windows_file_system": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datasync_location_hdfs": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datasync_location_nfs": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datasync_location_object_storage": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datasync_location_s3": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datasync_location_smb": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datasync_task": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datazone_asset_type": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_datazone_domain": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_datazone_environment": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_datazone_environment_blueprint_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_datazone_environment_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_datazone_form_type": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_datazone_glossary": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_datazone_glossary_term": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_datazone_project": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_datazone_user_profile": {
+    "hasUsableRegion": true
+  },
+  "aws_dax_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dax_parameter_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_dax_subnet_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_db_cluster_snapshot": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_db_event_subscription": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_db_instance": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_db_instance_automated_backups_replication": {
+    "hasUsableRegion": true
+  },
+  "aws_db_instance_role_association": {
+    "hasUsableRegion": true
+  },
+  "aws_db_option_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_db_parameter_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_db_proxy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_db_proxy_default_target_group": {
+    "hasUsableRegion": true
+  },
+  "aws_db_proxy_endpoint": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_db_proxy_target": {
+    "hasUsableRegion": true
+  },
+  "aws_db_snapshot": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_db_snapshot_copy": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_db_subnet_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_default_network_acl": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_default_route_table": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_default_security_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_default_subnet": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_default_vpc": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_default_vpc_dhcp_options": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_detective_graph": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_detective_invitation_accepter": {
+    "hasUsableRegion": true
+  },
+  "aws_detective_member": {
+    "hasUsableRegion": true
+  },
+  "aws_detective_organization_admin_account": {
+    "hasUsableRegion": true
+  },
+  "aws_detective_organization_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_devicefarm_device_pool": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_devicefarm_instance_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_devicefarm_network_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_devicefarm_project": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_devicefarm_test_grid_project": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_devicefarm_upload": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_devopsguru_event_sources_config": {
+    "hasUsableRegion": true
+  },
+  "aws_devopsguru_notification_channel": {
+    "hasUsableRegion": true
+  },
+  "aws_devopsguru_resource_collection": {
+    "hasUsableRegion": true
+  },
+  "aws_devopsguru_service_integration": {
+    "hasUsableRegion": true
+  },
+  "aws_directory_service_conditional_forwarder": {
+    "hasUsableRegion": true
+  },
+  "aws_directory_service_directory": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_directory_service_log_subscription": {
+    "hasUsableRegion": true
+  },
+  "aws_directory_service_radius_settings": {
+    "hasUsableRegion": true
+  },
+  "aws_directory_service_region": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_directory_service_shared_directory": {
+    "hasUsableRegion": true
+  },
+  "aws_directory_service_shared_directory_accepter": {
+    "hasUsableRegion": true
+  },
+  "aws_directory_service_trust": {
+    "hasUsableRegion": true
+  },
+  "aws_dlm_lifecycle_policy": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dms_certificate": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dms_endpoint": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dms_event_subscription": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dms_replication_config": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dms_replication_instance": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dms_replication_subnet_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dms_replication_task": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dms_s3_endpoint": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_docdb_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_docdb_cluster_instance": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_docdb_cluster_parameter_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_docdb_cluster_snapshot": {
+    "hasUsableRegion": true
+  },
+  "aws_docdb_event_subscription": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_docdb_global_cluster": {
+    "hasUsableRegion": true
+  },
+  "aws_docdb_subnet_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_docdbelastic_cluster": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_drs_replication_configuration_template": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dsql_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dsql_cluster_peering": {
+    "hasUsableRegion": true
+  },
+  "aws_dx_bgp_peer": {
+    "hasUsableRegion": true
+  },
+  "aws_dx_connection": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dx_connection_association": {
+    "hasUsableRegion": true
+  },
+  "aws_dx_connection_confirmation": {
+    "hasUsableRegion": true
+  },
+  "aws_dx_gateway": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dx_gateway_association": {
+    "hasUsableRegion": true
+  },
+  "aws_dx_gateway_association_proposal": {
+    "hasUsableRegion": true
+  },
+  "aws_dx_hosted_connection": {
+    "hasInputName": true
+  },
+  "aws_dx_hosted_private_virtual_interface": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_dx_hosted_private_virtual_interface_accepter": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dx_hosted_public_virtual_interface": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_dx_hosted_public_virtual_interface_accepter": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dx_hosted_transit_virtual_interface": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_dx_hosted_transit_virtual_interface_accepter": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dx_lag": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dx_macsec_key_association": {
+    "hasUsableRegion": true
+  },
+  "aws_dx_private_virtual_interface": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dx_public_virtual_interface": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dx_transit_virtual_interface": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dynamodb_contributor_insights": {
+    "hasUsableRegion": true
+  },
+  "aws_dynamodb_global_secondary_index": {
+    "hasUsableRegion": true
+  },
+  "aws_dynamodb_global_table": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_dynamodb_kinesis_streaming_destination": {
+    "hasUsableRegion": true
+  },
+  "aws_dynamodb_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_dynamodb_table": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dynamodb_table_export": {
+    "hasUsableRegion": true
+  },
+  "aws_dynamodb_table_item": {
+    "hasUsableRegion": true
+  },
+  "aws_dynamodb_table_replica": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dynamodb_tag": {
+    "hasUsableRegion": true
+  },
+  "aws_ebs_default_kms_key": {
+    "hasUsableRegion": true
+  },
+  "aws_ebs_encryption_by_default": {
+    "hasUsableRegion": true
+  },
+  "aws_ebs_fast_snapshot_restore": {
+    "hasUsableRegion": true
+  },
+  "aws_ebs_snapshot": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ebs_snapshot_block_public_access": {
+    "hasUsableRegion": true
+  },
+  "aws_ebs_snapshot_copy": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ebs_snapshot_import": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ebs_volume": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ebs_volume_copy": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_allowed_images_settings": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_availability_zone_group": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_capacity_block_reservation": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_capacity_reservation": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_carrier_gateway": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_client_vpn_authorization_rule": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_client_vpn_endpoint": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_client_vpn_network_association": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_client_vpn_route": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_default_credit_specification": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_fleet": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_host": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_image_block_public_access": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_instance_connect_endpoint": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_instance_metadata_defaults": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_instance_state": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_local_gateway_route": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_local_gateway_route_table": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_local_gateway_route_table_virtual_interface_group_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_local_gateway_route_table_vpc_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_managed_prefix_list": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_managed_prefix_list_entry": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_network_insights_access_scope": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_network_insights_analysis": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_network_insights_path": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_secondary_network": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_secondary_subnet": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_serial_console_access": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_subnet_cidr_reservation": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_tag": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_traffic_mirror_filter": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_traffic_mirror_filter_rule": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_traffic_mirror_session": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_traffic_mirror_target": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_transit_gateway": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_transit_gateway_connect": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_transit_gateway_connect_peer": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_transit_gateway_default_route_table_association": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_transit_gateway_default_route_table_propagation": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_transit_gateway_metering_policy": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_transit_gateway_metering_policy_entry": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_transit_gateway_multicast_domain": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_transit_gateway_multicast_domain_association": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_transit_gateway_multicast_group_member": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_transit_gateway_multicast_group_source": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_transit_gateway_peering_attachment": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_transit_gateway_peering_attachment_accepter": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_transit_gateway_policy_table": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_transit_gateway_policy_table_association": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_transit_gateway_prefix_list_reference": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_transit_gateway_route": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_transit_gateway_route_table": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_transit_gateway_route_table_association": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_transit_gateway_route_table_propagation": {
+    "hasUsableRegion": true
+  },
+  "aws_ec2_transit_gateway_vpc_attachment": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ec2_transit_gateway_vpc_attachment_accepter": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ecr_account_setting": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_ecr_lifecycle_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_ecr_pull_through_cache_rule": {
+    "hasUsableRegion": true
+  },
+  "aws_ecr_pull_time_update_exclusion": {
+    "hasUsableRegion": true
+  },
+  "aws_ecr_registry_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_ecr_registry_scanning_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_ecr_replication_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_ecr_repository": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ecr_repository_creation_template": {
+    "hasUsableRegion": true
+  },
+  "aws_ecr_repository_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_ecrpublic_repository": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ecrpublic_repository_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_ecs_account_setting_default": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_ecs_capacity_provider": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ecs_cluster": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ecs_cluster_capacity_providers": {
+    "hasUsableRegion": true
+  },
+  "aws_ecs_daemon": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ecs_daemon_task_definition": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ecs_express_gateway_service": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ecs_service": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ecs_tag": {
+    "hasUsableRegion": true
+  },
+  "aws_ecs_task_definition": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ecs_task_set": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_efs_access_point": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_efs_backup_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_efs_file_system": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_efs_file_system_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_efs_mount_target": {
+    "hasUsableRegion": true
+  },
+  "aws_efs_replication_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_egress_only_internet_gateway": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_eip": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_eip_association": {
+    "hasUsableRegion": true
+  },
+  "aws_eip_domain_name": {
+    "hasUsableRegion": true
+  },
+  "aws_eks_access_entry": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_eks_access_policy_association": {
+    "hasUsableRegion": true
+  },
+  "aws_eks_addon": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_eks_capability": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_eks_cluster": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_eks_fargate_profile": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_eks_identity_provider_config": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_eks_node_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_eks_pod_identity_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elastic_beanstalk_application": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elastic_beanstalk_application_version": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elastic_beanstalk_configuration_template": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_elastic_beanstalk_environment": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elasticache_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elasticache_global_replication_group": {
+    "hasUsableRegion": true
+  },
+  "aws_elasticache_parameter_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elasticache_replication_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elasticache_reserved_cache_node": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elasticache_serverless_cache": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elasticache_subnet_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elasticache_user": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elasticache_user_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elasticache_user_group_association": {
+    "hasUsableRegion": true
+  },
+  "aws_elasticsearch_domain": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elasticsearch_domain_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_elasticsearch_domain_saml_options": {
+    "hasUsableRegion": true
+  },
+  "aws_elasticsearch_vpc_endpoint": {
+    "hasUsableRegion": true
+  },
+  "aws_elastictranscoder_pipeline": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_elastictranscoder_preset": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_elb": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_elb_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_emr_block_public_access_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_emr_cluster": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_emr_instance_fleet": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_emr_instance_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_emr_managed_scaling_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_emr_security_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_emr_studio": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_emr_studio_session_mapping": {
+    "hasUsableRegion": true
+  },
+  "aws_emrcontainers_job_template": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_emrcontainers_virtual_cluster": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_emrserverless_application": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_evidently_feature": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_evidently_launch": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_evidently_project": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_evidently_segment": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_finspace_kx_cluster": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_finspace_kx_database": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_finspace_kx_dataview": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_finspace_kx_environment": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_finspace_kx_scaling_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_finspace_kx_user": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_finspace_kx_volume": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fis_experiment_template": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fis_target_account_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_flow_log": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fms_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fms_resource_set": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fsx_backup": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fsx_data_repository_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fsx_file_cache": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fsx_lustre_file_system": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fsx_ontap_file_system": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fsx_ontap_storage_virtual_machine": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fsx_ontap_volume": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fsx_openzfs_file_system": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fsx_openzfs_snapshot": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fsx_openzfs_volume": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_fsx_s3_access_point_attachment": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_fsx_windows_file_system": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_gamelift_alias": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_gamelift_build": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_gamelift_fleet": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_gamelift_game_server_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_gamelift_game_session_queue": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_gamelift_script": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glacier_vault": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glacier_vault_lock": {
+    "hasUsableRegion": true
+  },
+  "aws_globalaccelerator_accelerator": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_globalaccelerator_cross_account_attachment": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_globalaccelerator_custom_routing_accelerator": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glue_catalog": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glue_catalog_database": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glue_catalog_table": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_glue_catalog_table_optimizer": {
+    "hasUsableRegion": true
+  },
+  "aws_glue_classifier": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_glue_connection": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glue_crawler": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glue_data_catalog_encryption_settings": {
+    "hasUsableRegion": true
+  },
+  "aws_glue_data_quality_ruleset": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glue_dev_endpoint": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glue_job": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glue_ml_transform": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glue_partition": {
+    "hasUsableRegion": true
+  },
+  "aws_glue_partition_index": {
+    "hasUsableRegion": true
+  },
+  "aws_glue_registry": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glue_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_glue_schema": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glue_security_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_glue_trigger": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_glue_user_defined_function": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_glue_workflow": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_grafana_license_association": {
+    "hasUsableRegion": true
+  },
+  "aws_grafana_role_association": {
+    "hasUsableRegion": true
+  },
+  "aws_grafana_workspace": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_grafana_workspace_api_key": {
+    "hasUsableRegion": true
+  },
+  "aws_grafana_workspace_saml_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_grafana_workspace_service_account": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_grafana_workspace_service_account_token": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_guardduty_detector": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_guardduty_detector_feature": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_guardduty_filter": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_guardduty_invite_accepter": {
+    "hasUsableRegion": true
+  },
+  "aws_guardduty_ipset": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_guardduty_malware_protection_plan": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_guardduty_member": {
+    "hasUsableRegion": true
+  },
+  "aws_guardduty_member_detector_feature": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_guardduty_organization_admin_account": {
+    "hasUsableRegion": true
+  },
+  "aws_guardduty_organization_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_guardduty_organization_configuration_feature": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_guardduty_publishing_destination": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_guardduty_threatintelset": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iam_group": {
+    "hasInputName": true
+  },
+  "aws_iam_group_membership": {
+    "hasInputName": true
+  },
+  "aws_iam_group_policy": {
+    "hasInputName": true
+  },
+  "aws_iam_instance_profile": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iam_openid_connect_provider": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iam_policy": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iam_policy_attachment": {
+    "hasInputName": true
+  },
+  "aws_iam_role": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iam_role_policy": {
+    "hasInputName": true
+  },
+  "aws_iam_saml_provider": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iam_server_certificate": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iam_service_linked_role": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iam_user": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iam_user_policy": {
+    "hasInputName": true
+  },
+  "aws_iam_virtual_mfa_device": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_identitystore_group": {
+    "hasUsableRegion": true
+  },
+  "aws_identitystore_group_membership": {
+    "hasUsableRegion": true
+  },
+  "aws_identitystore_user": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_imagebuilder_component": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_imagebuilder_container_recipe": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_imagebuilder_distribution_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_imagebuilder_image": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_imagebuilder_image_pipeline": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_imagebuilder_image_recipe": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_imagebuilder_infrastructure_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_imagebuilder_lifecycle_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_imagebuilder_workflow": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_inspector2_delegated_admin_account": {
+    "hasUsableRegion": true
+  },
+  "aws_inspector2_enabler": {
+    "hasUsableRegion": true
+  },
+  "aws_inspector2_filter": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_inspector2_member_association": {
+    "hasUsableRegion": true
+  },
+  "aws_inspector2_organization_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_inspector_assessment_target": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_inspector_assessment_template": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_inspector_resource_group": {
+    "hasUsableRegion": true
+  },
+  "aws_instance": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_internet_gateway": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_internet_gateway_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_internetmonitor_monitor": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_invoicing_invoice_unit": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iot_authorizer": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iot_billing_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iot_ca_certificate": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iot_certificate": {
+    "hasUsableRegion": true
+  },
+  "aws_iot_domain_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iot_event_configurations": {
+    "hasUsableRegion": true
+  },
+  "aws_iot_indexing_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_iot_logging_options": {
+    "hasUsableRegion": true
+  },
+  "aws_iot_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iot_policy_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_iot_provisioning_template": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iot_role_alias": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iot_thing": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_iot_thing_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iot_thing_group_membership": {
+    "hasUsableRegion": true
+  },
+  "aws_iot_thing_principal_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_iot_thing_type": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iot_topic_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_iot_topic_rule_destination": {
+    "hasUsableRegion": true
+  },
+  "aws_ivs_channel": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ivs_playback_key_pair": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ivs_recording_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ivschat_logging_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ivschat_room": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kendra_data_source": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kendra_experience": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_kendra_faq": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kendra_index": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kendra_query_suggestions_block_list": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kendra_thesaurus": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_key_pair": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_keyspaces_keyspace": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_keyspaces_table": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kinesis_account_settings": {
+    "hasUsableRegion": true
+  },
+  "aws_kinesis_analytics_application": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kinesis_firehose_delivery_stream": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kinesis_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_kinesis_stream": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kinesis_stream_consumer": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kinesis_video_stream": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kinesisanalyticsv2_application": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kinesisanalyticsv2_application_snapshot": {
+    "hasUsableRegion": true
+  },
+  "aws_kms_alias": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_kms_ciphertext": {
+    "hasUsableRegion": true
+  },
+  "aws_kms_custom_key_store": {
+    "hasUsableRegion": true
+  },
+  "aws_kms_external_key": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kms_grant": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_kms_key": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kms_key_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_kms_replica_external_key": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_kms_replica_key": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lakeformation_data_cells_filter": {
+    "hasUsableRegion": true
+  },
+  "aws_lakeformation_data_lake_settings": {
+    "hasUsableRegion": true
+  },
+  "aws_lakeformation_identity_center_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_lakeformation_lf_tag": {
+    "hasUsableRegion": true
+  },
+  "aws_lakeformation_lf_tag_expression": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lakeformation_opt_in": {
+    "hasUsableRegion": true
+  },
+  "aws_lakeformation_permissions": {
+    "hasUsableRegion": true
+  },
+  "aws_lakeformation_resource": {
+    "hasUsableRegion": true
+  },
+  "aws_lakeformation_resource_lf_tag": {
+    "hasUsableRegion": true
+  },
+  "aws_lakeformation_resource_lf_tags": {
+    "hasUsableRegion": true
+  },
+  "aws_lambda_alias": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lambda_capacity_provider": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lambda_code_signing_config": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lambda_event_source_mapping": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lambda_function": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lambda_function_event_invoke_config": {
+    "hasUsableRegion": true
+  },
+  "aws_lambda_function_recursion_config": {
+    "hasUsableRegion": true
+  },
+  "aws_lambda_function_url": {
+    "hasUsableRegion": true
+  },
+  "aws_lambda_invocation": {
+    "hasUsableRegion": true
+  },
+  "aws_lambda_layer_version": {
+    "hasUsableRegion": true
+  },
+  "aws_lambda_layer_version_permission": {
+    "hasUsableRegion": true
+  },
+  "aws_lambda_permission": {
+    "hasUsableRegion": true
+  },
+  "aws_lambda_provisioned_concurrency_config": {
+    "hasUsableRegion": true
+  },
+  "aws_lambda_runtime_management_config": {
+    "hasUsableRegion": true
+  },
+  "aws_launch_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_launch_template": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lb": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lb_cookie_stickiness_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lb_listener": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lb_listener_certificate": {
+    "hasUsableRegion": true
+  },
+  "aws_lb_listener_rule": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lb_ssl_negotiation_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lb_target_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lb_target_group_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_lb_trust_store": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lb_trust_store_revocation": {
+    "hasUsableRegion": true
+  },
+  "aws_lex_bot": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lex_bot_alias": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lex_intent": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lex_slot_type": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lexv2models_bot": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lexv2models_bot_locale": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lexv2models_bot_version": {
+    "hasUsableRegion": true
+  },
+  "aws_lexv2models_intent": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lexv2models_slot": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lexv2models_slot_type": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_licensemanager_association": {
+    "hasUsableRegion": true
+  },
+  "aws_licensemanager_grant": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_licensemanager_grant_accepter": {
+    "hasUsableRegion": true
+  },
+  "aws_licensemanager_license_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lightsail_bucket": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lightsail_bucket_access_key": {
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_bucket_resource_access": {
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_certificate": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lightsail_container_service": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lightsail_container_service_deployment_version": {
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_database": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lightsail_disk": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lightsail_disk_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_distribution": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lightsail_domain": {
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_domain_entry": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_instance": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lightsail_instance_public_ports": {
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_key_pair": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lightsail_lb": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lightsail_lb_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_lb_certificate": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_lb_certificate_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_lb_https_redirection_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_lb_stickiness_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_static_ip": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_lightsail_static_ip_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_load_balancer_backend_server_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_load_balancer_listener_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_load_balancer_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_location_geofence_collection": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_location_map": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_location_place_index": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_location_route_calculator": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_location_tracker": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_location_tracker_association": {
+    "hasUsableRegion": true
+  },
+  "aws_m2_application": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_m2_deployment": {
+    "hasUsableRegion": true
+  },
+  "aws_m2_environment": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_macie2_account": {
+    "hasUsableRegion": true
+  },
+  "aws_macie2_classification_export_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_macie2_classification_job": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_macie2_custom_data_identifier": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_macie2_findings_filter": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_macie2_invitation_accepter": {
+    "hasUsableRegion": true
+  },
+  "aws_macie2_member": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_macie2_organization_admin_account": {
+    "hasUsableRegion": true
+  },
+  "aws_macie2_organization_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_main_route_table_association": {
+    "hasUsableRegion": true
+  },
+  "aws_media_convert_queue": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_media_package_channel": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_media_packagev2_channel_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_media_store_container": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_media_store_container_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_medialive_channel": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_medialive_input": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_medialive_input_security_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_medialive_multiplex": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_medialive_multiplex_program": {
+    "hasUsableRegion": true
+  },
+  "aws_memorydb_acl": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_memorydb_cluster": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_memorydb_multi_region_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_memorydb_parameter_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_memorydb_snapshot": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_memorydb_subnet_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_memorydb_user": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_mq_broker": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_mq_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_msk_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_msk_cluster_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_msk_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_msk_replicator": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_msk_scram_secret_association": {
+    "hasUsableRegion": true
+  },
+  "aws_msk_serverless_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_msk_single_scram_secret_association": {
+    "hasUsableRegion": true
+  },
+  "aws_msk_topic": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_msk_vpc_connection": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_mskconnect_connector": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_mskconnect_custom_plugin": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_mskconnect_worker_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_mwaa_environment": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_nat_gateway": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_nat_gateway_eip_association": {
+    "hasUsableRegion": true
+  },
+  "aws_neptune_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_neptune_cluster_endpoint": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_neptune_cluster_instance": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_neptune_cluster_parameter_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_neptune_cluster_snapshot": {
+    "hasUsableRegion": true
+  },
+  "aws_neptune_event_subscription": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_neptune_global_cluster": {
+    "hasUsableRegion": true
+  },
+  "aws_neptune_parameter_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_neptune_subnet_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_neptunegraph_graph": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_network_acl": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_network_acl_association": {
+    "hasUsableRegion": true
+  },
+  "aws_network_acl_rule": {
+    "hasUsableRegion": true
+  },
+  "aws_network_interface": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_network_interface_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_network_interface_permission": {
+    "hasUsableRegion": true
+  },
+  "aws_network_interface_sg_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_networkfirewall_firewall": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkfirewall_firewall_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkfirewall_firewall_transit_gateway_attachment_accepter": {
+    "hasUsableRegion": true
+  },
+  "aws_networkfirewall_logging_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_networkfirewall_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_networkfirewall_rule_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkfirewall_tls_inspection_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkfirewall_vpc_endpoint_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkflowmonitor_monitor": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkflowmonitor_scope": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_connect_attachment": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_connect_peer": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_connection": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_core_network": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_device": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_dx_gateway_attachment": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_global_network": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_link": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_site": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_site_to_site_vpn_attachment": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_transit_gateway_peering": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_transit_gateway_route_table_attachment": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmanager_vpc_attachment": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmonitor_monitor": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_networkmonitor_probe": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_notifications_notification_configuration": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_notificationscontacts_email_contact": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_oam_link": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_oam_sink": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_oam_sink_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_observabilityadmin_centralization_rule_for_organization": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_observabilityadmin_s3_table_integration": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_observabilityadmin_telemetry_enrichment": {
+    "hasUsableRegion": true
+  },
+  "aws_observabilityadmin_telemetry_evaluation": {
+    "hasUsableRegion": true
+  },
+  "aws_observabilityadmin_telemetry_evaluation_for_organization": {
+    "hasUsableRegion": true
+  },
+  "aws_observabilityadmin_telemetry_pipeline": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_observabilityadmin_telemetry_rule": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_observabilityadmin_telemetry_rule_for_organization": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_odb_cloud_autonomous_vm_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_odb_cloud_exadata_infrastructure": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_odb_cloud_vm_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_odb_network": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_odb_network_peering_connection": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_opensearch_application": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_opensearch_authorize_vpc_endpoint_access": {
+    "hasUsableRegion": true
+  },
+  "aws_opensearch_domain": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_opensearch_domain_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_opensearch_domain_saml_options": {
+    "hasUsableRegion": true
+  },
+  "aws_opensearch_inbound_connection_accepter": {
+    "hasUsableRegion": true
+  },
+  "aws_opensearch_outbound_connection": {
+    "hasUsableRegion": true
+  },
+  "aws_opensearch_package": {
+    "hasUsableRegion": true
+  },
+  "aws_opensearch_package_association": {
+    "hasUsableRegion": true
+  },
+  "aws_opensearch_vpc_endpoint": {
+    "hasUsableRegion": true
+  },
+  "aws_opensearchserverless_access_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_opensearchserverless_collection": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_opensearchserverless_collection_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_opensearchserverless_lifecycle_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_opensearchserverless_security_config": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_opensearchserverless_security_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_opensearchserverless_vpc_endpoint": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_organizations_account": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_organizations_organizational_unit": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_organizations_policy": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_organizations_resource_policy": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_osis_pipeline": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_outposts_capacity_task": {
+    "hasUsableRegion": true
+  },
+  "aws_paymentcryptography_key": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_paymentcryptography_key_alias": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpoint_adm_channel": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpoint_apns_channel": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpoint_apns_sandbox_channel": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpoint_apns_voip_channel": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpoint_apns_voip_sandbox_channel": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpoint_app": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_pinpoint_baidu_channel": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpoint_email_channel": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpoint_email_template": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_pinpoint_event_stream": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpoint_gcm_channel": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpoint_sms_channel": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpointsmsvoicev2_configuration_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_pinpointsmsvoicev2_event_destination": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpointsmsvoicev2_opt_out_list": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_pinpointsmsvoicev2_phone_number": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_pipes_pipe": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_placement_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_prometheus_alert_manager_definition": {
+    "hasUsableRegion": true
+  },
+  "aws_prometheus_query_logging_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_prometheus_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_prometheus_rule_group_namespace": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_prometheus_scraper": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_prometheus_workspace": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_prometheus_workspace_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_proxy_protocol_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_qbusiness_application": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_qldb_ledger": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_qldb_stream": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_quicksight_account_settings": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_account_subscription": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_analysis": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_quicksight_custom_permissions": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_quicksight_dashboard": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_quicksight_data_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_quicksight_data_source": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_quicksight_folder": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_quicksight_folder_membership": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_group": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_group_membership": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_iam_policy_assignment": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_ingestion": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_ip_restriction": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_key_registration": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_namespace": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_quicksight_refresh_schedule": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_role_custom_permission": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_role_membership": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_template": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_quicksight_template_alias": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_theme": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_quicksight_user": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_user_custom_permission": {
+    "hasUsableRegion": true
+  },
+  "aws_quicksight_vpc_connection": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ram_permission": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ram_principal_association": {
+    "hasUsableRegion": true
+  },
+  "aws_ram_resource_association": {
+    "hasUsableRegion": true
+  },
+  "aws_ram_resource_share": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ram_resource_share_accepter": {
+    "hasUsableRegion": true
+  },
+  "aws_ram_resource_share_associations_exclusive": {
+    "hasUsableRegion": true
+  },
+  "aws_rbin_rule": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rds_certificate": {
+    "hasUsableRegion": true
+  },
+  "aws_rds_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rds_cluster_activity_stream": {
+    "hasUsableRegion": true
+  },
+  "aws_rds_cluster_endpoint": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rds_cluster_instance": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rds_cluster_parameter_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rds_cluster_role_association": {
+    "hasUsableRegion": true
+  },
+  "aws_rds_cluster_snapshot_copy": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rds_custom_db_engine_version": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rds_export_task": {
+    "hasUsableRegion": true
+  },
+  "aws_rds_global_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rds_instance_state": {
+    "hasUsableRegion": true
+  },
+  "aws_rds_integration": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rds_reserved_instance": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rds_shard_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshift_authentication_profile": {
+    "hasUsableRegion": true
+  },
+  "aws_redshift_cluster": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshift_cluster_iam_roles": {
+    "hasUsableRegion": true
+  },
+  "aws_redshift_cluster_snapshot": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshift_data_share_authorization": {
+    "hasUsableRegion": true
+  },
+  "aws_redshift_data_share_consumer_association": {
+    "hasUsableRegion": true
+  },
+  "aws_redshift_endpoint_access": {
+    "hasUsableRegion": true
+  },
+  "aws_redshift_endpoint_authorization": {
+    "hasUsableRegion": true
+  },
+  "aws_redshift_event_subscription": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshift_hsm_client_certificate": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshift_hsm_configuration": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshift_idc_application": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshift_integration": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshift_logging": {
+    "hasUsableRegion": true
+  },
+  "aws_redshift_namespace_registration": {
+    "hasUsableRegion": true
+  },
+  "aws_redshift_parameter_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshift_partner": {
+    "hasUsableRegion": true
+  },
+  "aws_redshift_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_redshift_scheduled_action": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_redshift_snapshot_copy": {
+    "hasUsableRegion": true
+  },
+  "aws_redshift_snapshot_copy_grant": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshift_snapshot_schedule": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshift_snapshot_schedule_association": {
+    "hasUsableRegion": true
+  },
+  "aws_redshift_subnet_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshift_usage_limit": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshiftdata_statement": {
+    "hasUsableRegion": true
+  },
+  "aws_redshiftserverless_custom_domain_association": {
+    "hasUsableRegion": true
+  },
+  "aws_redshiftserverless_endpoint_access": {
+    "hasUsableRegion": true
+  },
+  "aws_redshiftserverless_namespace": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_redshiftserverless_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_redshiftserverless_snapshot": {
+    "hasUsableRegion": true
+  },
+  "aws_redshiftserverless_usage_limit": {
+    "hasUsableRegion": true
+  },
+  "aws_redshiftserverless_workgroup": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rekognition_collection": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rekognition_project": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rekognition_stream_processor": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_resiliencehub_resiliency_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_resourceexplorer2_index": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_resourceexplorer2_view": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_resourcegroups_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_resourcegroups_resource": {
+    "hasUsableRegion": true
+  },
+  "aws_rolesanywhere_profile": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rolesanywhere_trust_anchor": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route": {
+    "hasUsableRegion": true
+  },
+  "aws_route53_cidr_collection": {
+    "hasInputName": true
+  },
+  "aws_route53_cidr_location": {
+    "hasInputName": true
+  },
+  "aws_route53_health_check": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53_key_signing_key": {
+    "hasInputName": true
+  },
+  "aws_route53_record": {
+    "hasInputName": true
+  },
+  "aws_route53_resolver_config": {
+    "hasUsableRegion": true
+  },
+  "aws_route53_resolver_dnssec_config": {
+    "hasUsableRegion": true
+  },
+  "aws_route53_resolver_endpoint": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53_resolver_firewall_config": {
+    "hasUsableRegion": true
+  },
+  "aws_route53_resolver_firewall_domain_list": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53_resolver_firewall_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_route53_resolver_firewall_rule_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53_resolver_firewall_rule_group_association": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53_resolver_query_log_config": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53_resolver_query_log_config_association": {
+    "hasUsableRegion": true
+  },
+  "aws_route53_resolver_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53_resolver_rule_association": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_route53_traffic_policy": {
+    "hasInputName": true
+  },
+  "aws_route53_traffic_policy_instance": {
+    "hasInputName": true
+  },
+  "aws_route53_zone": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53domains_domain": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53domains_registered_domain": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53profiles_association": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53profiles_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53profiles_resource_association": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_route53recoverycontrolconfig_cluster": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53recoverycontrolconfig_control_panel": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53recoverycontrolconfig_routing_control": {
+    "hasInputName": true
+  },
+  "aws_route53recoverycontrolconfig_safety_rule": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53recoveryreadiness_cell": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53recoveryreadiness_readiness_check": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53recoveryreadiness_recovery_group": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route53recoveryreadiness_resource_set": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route_table": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_route_table_association": {
+    "hasUsableRegion": true
+  },
+  "aws_rum_app_monitor": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_rum_metrics_destination": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_access_point": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3_bucket": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3_bucket_abac": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_accelerate_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_accelerate_configuration_legacy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_acl": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_acl_legacy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_analytics_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_cors_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_cors_configuration_legacy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_intelligent_tiering_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_inventory": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_lifecycle_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_lifecycle_configuration_legacy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_logging": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_logging_legacy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_metadata_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_metric": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_notification": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_object": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3_bucket_object_lock_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_object_lock_configuration_legacy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_ownership_controls": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_public_access_block": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_replication_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_request_payment_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_request_payment_configuration_legacy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_server_side_encryption_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_server_side_encryption_configuration_legacy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_v2_compat": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3_bucket_versioning": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_versioning_legacy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_website_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_bucket_website_configuration_legacy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3_directory_bucket": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3_object": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3_object_copy": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3control_access_grant": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3control_access_grants_instance": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3control_access_grants_instance_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3control_access_grants_location": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3control_access_point_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3control_bucket": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3control_bucket_lifecycle_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_s3control_bucket_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3control_directory_bucket_access_point_scope": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_s3control_multi_region_access_point": {
+    "hasUsableRegion": true
+  },
+  "aws_s3control_multi_region_access_point_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3control_multi_region_access_point_routes": {
+    "hasUsableRegion": true
+  },
+  "aws_s3control_object_lambda_access_point": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_s3control_object_lambda_access_point_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_s3control_storage_lens_configuration": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3files_access_point": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3files_file_system": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3files_file_system_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3files_mount_target": {
+    "hasUsableRegion": true
+  },
+  "aws_s3files_synchronization_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_s3outposts_endpoint": {
+    "hasUsableRegion": true
+  },
+  "aws_s3tables_namespace": {
+    "hasUsableRegion": true
+  },
+  "aws_s3tables_table": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3tables_table_bucket": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3tables_table_bucket_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_s3tables_table_bucket_replication": {
+    "hasUsableRegion": true
+  },
+  "aws_s3tables_table_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_s3tables_table_replication": {
+    "hasUsableRegion": true
+  },
+  "aws_s3vectors_index": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3vectors_vector_bucket": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_s3vectors_vector_bucket_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_sagemaker_algorithm": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_app": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_app_image_config": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_code_repository": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_data_quality_job_definition": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_device": {
+    "hasUsableRegion": true
+  },
+  "aws_sagemaker_device_fleet": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_domain": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_endpoint": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_endpoint_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_feature_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_flow_definition": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_hub": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_human_task_ui": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_hyper_parameter_tuning_job": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_image": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_image_version": {
+    "hasUsableRegion": true
+  },
+  "aws_sagemaker_labeling_job": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_mlflow_app": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_mlflow_tracking_server": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_model": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_model_card": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_model_card_export_job": {
+    "hasUsableRegion": true
+  },
+  "aws_sagemaker_model_package_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_model_package_group_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_sagemaker_monitoring_schedule": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_notebook_instance": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_notebook_instance_lifecycle_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_pipeline": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_project": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_servicecatalog_portfolio_status": {
+    "hasUsableRegion": true
+  },
+  "aws_sagemaker_space": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_studio_lifecycle_config": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_training_job": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_user_profile": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_workforce": {
+    "hasUsableRegion": true
+  },
+  "aws_sagemaker_workteam": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_savingsplans_savings_plan": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_scheduler_schedule": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_scheduler_schedule_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_schemas_discoverer": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_schemas_registry": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_schemas_registry_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_schemas_schema": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_secretsmanager_secret": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_secretsmanager_secret_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_secretsmanager_secret_rotation": {
+    "hasUsableRegion": true
+  },
+  "aws_secretsmanager_secret_version": {
+    "hasUsableRegion": true
+  },
+  "aws_secretsmanager_tag": {
+    "hasUsableRegion": true
+  },
+  "aws_security_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_security_group_rule": {
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_account": {
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_account_v2": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_securityhub_action_target": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_aggregator_v2": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_securityhub_automation_rule": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_securityhub_automation_rule_v2": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_securityhub_configuration_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_configuration_policy_association": {
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_connector_v2": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_securityhub_finding_aggregator": {
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_insight": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_invite_accepter": {
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_member": {
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_organization_admin_account": {
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_organization_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_product_subscription": {
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_standards_control": {
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_standards_control_association": {
+    "hasUsableRegion": true
+  },
+  "aws_securityhub_standards_subscription": {
+    "hasUsableRegion": true
+  },
+  "aws_securitylake_aws_log_source": {
+    "hasUsableRegion": true
+  },
+  "aws_securitylake_custom_log_source": {
+    "hasUsableRegion": true
+  },
+  "aws_securitylake_data_lake": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_securitylake_subscriber": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_securitylake_subscriber_notification": {
+    "hasUsableRegion": true
+  },
+  "aws_serverlessapplicationrepository_cloudformation_stack": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_service_discovery_http_namespace": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_service_discovery_instance": {
+    "hasUsableRegion": true
+  },
+  "aws_service_discovery_private_dns_namespace": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_service_discovery_public_dns_namespace": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_service_discovery_service": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_servicecatalog_budget_resource_association": {
+    "hasUsableRegion": true
+  },
+  "aws_servicecatalog_constraint": {
+    "hasUsableRegion": true
+  },
+  "aws_servicecatalog_portfolio": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_servicecatalog_portfolio_share": {
+    "hasUsableRegion": true
+  },
+  "aws_servicecatalog_principal_portfolio_association": {
+    "hasUsableRegion": true
+  },
+  "aws_servicecatalog_product": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_servicecatalog_product_portfolio_association": {
+    "hasUsableRegion": true
+  },
+  "aws_servicecatalog_provisioned_product": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_servicecatalog_provisioning_artifact": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_servicecatalog_service_action": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_servicecatalog_tag_option": {
+    "hasUsableRegion": true
+  },
+  "aws_servicecatalog_tag_option_resource_association": {
+    "hasUsableRegion": true
+  },
+  "aws_servicecatalogappregistry_application": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_servicecatalogappregistry_attribute_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_servicecatalogappregistry_attribute_group_association": {
+    "hasUsableRegion": true
+  },
+  "aws_servicequotas_auto_management": {
+    "hasUsableRegion": true
+  },
+  "aws_servicequotas_service_quota": {
+    "hasUsableRegion": true
+  },
+  "aws_servicequotas_template_association": {
+    "hasUsableRegion": true
+  },
+  "aws_ses_active_receipt_rule_set": {
+    "hasUsableRegion": true
+  },
+  "aws_ses_configuration_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_ses_domain_dkim": {
+    "hasUsableRegion": true
+  },
+  "aws_ses_domain_identity": {
+    "hasUsableRegion": true
+  },
+  "aws_ses_domain_identity_verification": {
+    "hasUsableRegion": true
+  },
+  "aws_ses_domain_mail_from": {
+    "hasUsableRegion": true
+  },
+  "aws_ses_email_identity": {
+    "hasUsableRegion": true
+  },
+  "aws_ses_event_destination": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_ses_identity_notification_topic": {
+    "hasUsableRegion": true
+  },
+  "aws_ses_identity_policy": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_ses_receipt_filter": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_ses_receipt_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_ses_receipt_rule_set": {
+    "hasUsableRegion": true
+  },
+  "aws_ses_template": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_sesv2_account_suppression_attributes": {
+    "hasUsableRegion": true
+  },
+  "aws_sesv2_account_vdm_attributes": {
+    "hasUsableRegion": true
+  },
+  "aws_sesv2_configuration_set": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sesv2_configuration_set_event_destination": {
+    "hasUsableRegion": true
+  },
+  "aws_sesv2_contact_list": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sesv2_dedicated_ip_assignment": {
+    "hasUsableRegion": true
+  },
+  "aws_sesv2_dedicated_ip_pool": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sesv2_email_identity": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sesv2_email_identity_feedback_attributes": {
+    "hasUsableRegion": true
+  },
+  "aws_sesv2_email_identity_mail_from_attributes": {
+    "hasUsableRegion": true
+  },
+  "aws_sesv2_email_identity_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_sesv2_tenant": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sesv2_tenant_resource_association": {
+    "hasUsableRegion": true
+  },
+  "aws_sfn_activity": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sfn_alias": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_sfn_state_machine": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_shield_protection": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_shield_protection_group": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_signer_signing_job": {
+    "hasUsableRegion": true
+  },
+  "aws_signer_signing_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_signer_signing_profile_permission": {
+    "hasUsableRegion": true
+  },
+  "aws_snapshot_create_volume_permission": {
+    "hasUsableRegion": true
+  },
+  "aws_sns_platform_application": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_sns_sms_preferences": {
+    "hasUsableRegion": true
+  },
+  "aws_sns_topic": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sns_topic_data_protection_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_sns_topic_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_sns_topic_subscription": {
+    "hasUsableRegion": true
+  },
+  "aws_spot_datafeed_subscription": {
+    "hasUsableRegion": true
+  },
+  "aws_spot_fleet_request": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_spot_instance_request": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sqs_queue": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sqs_queue_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_sqs_queue_redrive_allow_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_sqs_queue_redrive_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_ssm_activation": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssm_association": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssm_default_patch_baseline": {
+    "hasUsableRegion": true
+  },
+  "aws_ssm_document": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssm_maintenance_window": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssm_maintenance_window_target": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_ssm_maintenance_window_task": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_ssm_parameter": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssm_patch_baseline": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssm_patch_group": {
+    "hasUsableRegion": true
+  },
+  "aws_ssm_resource_data_sync": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_ssm_service_setting": {
+    "hasUsableRegion": true
+  },
+  "aws_ssmcontacts_contact": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssmcontacts_contact_channel": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_ssmcontacts_plan": {
+    "hasUsableRegion": true
+  },
+  "aws_ssmcontacts_rotation": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssmincidents_replication_set": {
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssmincidents_response_plan": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssmquicksetup_configuration_manager": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssoadmin_account_assignment": {
+    "hasUsableRegion": true
+  },
+  "aws_ssoadmin_application": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssoadmin_application_access_scope": {
+    "hasUsableRegion": true
+  },
+  "aws_ssoadmin_application_assignment": {
+    "hasUsableRegion": true
+  },
+  "aws_ssoadmin_application_assignment_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_ssoadmin_customer_managed_policy_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_ssoadmin_customer_managed_policy_attachments_exclusive": {
+    "hasUsableRegion": true
+  },
+  "aws_ssoadmin_instance_access_control_attributes": {
+    "hasUsableRegion": true
+  },
+  "aws_ssoadmin_managed_policy_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_ssoadmin_managed_policy_attachments_exclusive": {
+    "hasUsableRegion": true
+  },
+  "aws_ssoadmin_permission_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_ssoadmin_permission_set_inline_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_ssoadmin_permissions_boundary_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_ssoadmin_trusted_token_issuer": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_storagegateway_cache": {
+    "hasUsableRegion": true
+  },
+  "aws_storagegateway_cached_iscsi_volume": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_storagegateway_file_system_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_storagegateway_gateway": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_storagegateway_nfs_file_share": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_storagegateway_smb_file_share": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_storagegateway_stored_iscsi_volume": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_storagegateway_tape_pool": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_storagegateway_upload_buffer": {
+    "hasUsableRegion": true
+  },
+  "aws_storagegateway_working_storage": {
+    "hasUsableRegion": true
+  },
+  "aws_subnet": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_swf_domain": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_synthetics_canary": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_synthetics_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_synthetics_group_association": {
+    "hasUsableRegion": true
+  },
+  "aws_timestreaminfluxdb_db_cluster": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_timestreaminfluxdb_db_instance": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_timestreamquery_scheduled_query": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_timestreamwrite_database": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_timestreamwrite_table": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transcribe_language_model": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transcribe_medical_vocabulary": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transcribe_vocabulary": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transcribe_vocabulary_filter": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transfer_access": {
+    "hasUsableRegion": true
+  },
+  "aws_transfer_agreement": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transfer_certificate": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transfer_connector": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transfer_host_key": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transfer_profile": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transfer_server": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transfer_ssh_key": {
+    "hasUsableRegion": true
+  },
+  "aws_transfer_tag": {
+    "hasUsableRegion": true
+  },
+  "aws_transfer_user": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transfer_web_app": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_transfer_web_app_customization": {
+    "hasUsableRegion": true
+  },
+  "aws_transfer_workflow": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_verifiedaccess_endpoint": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_verifiedaccess_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_verifiedaccess_instance": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_verifiedaccess_instance_logging_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_verifiedaccess_instance_trust_provider_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_verifiedaccess_trust_provider": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_verifiedpermissions_identity_source": {
+    "hasUsableRegion": true
+  },
+  "aws_verifiedpermissions_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_verifiedpermissions_policy_store": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_verifiedpermissions_policy_template": {
+    "hasUsableRegion": true
+  },
+  "aws_verifiedpermissions_schema": {
+    "hasUsableRegion": true
+  },
+  "aws_volume_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_block_public_access_exclusion": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_block_public_access_options": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_dhcp_options": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_dhcp_options_association": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_encryption_control": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_encryption_control_legacy": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_endpoint": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_endpoint_connection_accepter": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_endpoint_connection_notification": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_endpoint_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_endpoint_private_dns": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_endpoint_route_table_association": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_endpoint_security_group_association": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_endpoint_service": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_endpoint_service_allowed_principal": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_endpoint_service_private_dns_verification": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_endpoint_subnet_association": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_ipam": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_ipam_pool": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_ipam_pool_cidr": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_ipam_pool_cidr_allocation": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_ipam_preview_next_cidr": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_ipam_resource_discovery": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_ipam_resource_discovery_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_ipam_scope": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_ipv4_cidr_block_association": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_ipv6_cidr_block_association": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_network_performance_metric_subscription": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_peering_connection": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_peering_connection_accepter": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_peering_connection_options": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_route_server": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_route_server_endpoint": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_route_server_peer": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_route_server_propagation": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_route_server_vpc_association": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_security_group_egress_rule": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_security_group_ingress_rule": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpc_security_group_rules_exclusive": {
+    "hasUsableRegion": true
+  },
+  "aws_vpc_security_group_vpc_association": {
+    "hasUsableRegion": true
+  },
+  "aws_vpclattice_access_log_subscription": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpclattice_auth_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_vpclattice_domain_verification": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpclattice_listener": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpclattice_listener_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpclattice_resource_configuration": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpclattice_resource_gateway": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpclattice_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_vpclattice_service": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpclattice_service_network": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpclattice_service_network_resource_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpclattice_service_network_service_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpclattice_service_network_vpc_association": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpclattice_target_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpclattice_target_group_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_vpn_concentrator": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpn_connection": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpn_connection_route": {
+    "hasUsableRegion": true
+  },
+  "aws_vpn_gateway": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_vpn_gateway_attachment": {
+    "hasUsableRegion": true
+  },
+  "aws_vpn_gateway_route_propagation": {
+    "hasUsableRegion": true
+  },
+  "aws_waf_byte_match_set": {
+    "hasInputName": true
+  },
+  "aws_waf_geo_match_set": {
+    "hasInputName": true
+  },
+  "aws_waf_ipset": {
+    "hasInputName": true
+  },
+  "aws_waf_rate_based_rule": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_waf_regex_match_set": {
+    "hasInputName": true
+  },
+  "aws_waf_regex_pattern_set": {
+    "hasInputName": true
+  },
+  "aws_waf_rule": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_waf_rule_group": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_waf_size_constraint_set": {
+    "hasInputName": true
+  },
+  "aws_waf_sql_injection_match_set": {
+    "hasInputName": true
+  },
+  "aws_waf_web_acl": {
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_waf_xss_match_set": {
+    "hasInputName": true
+  },
+  "aws_wafregional_byte_match_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_wafregional_geo_match_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_wafregional_ipset": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_wafregional_rate_based_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_wafregional_regex_match_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_wafregional_regex_pattern_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_wafregional_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_wafregional_rule_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_wafregional_size_constraint_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_wafregional_sql_injection_match_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_wafregional_web_acl": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_wafregional_web_acl_association": {
+    "hasUsableRegion": true
+  },
+  "aws_wafregional_xss_match_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_wafv2_api_key": {
+    "hasUsableRegion": true
+  },
+  "aws_wafv2_ip_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_wafv2_regex_pattern_set": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_wafv2_rule_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_wafv2_web_acl": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_wafv2_web_acl_association": {
+    "hasUsableRegion": true
+  },
+  "aws_wafv2_web_acl_logging_configuration": {
+    "hasUsableRegion": true
+  },
+  "aws_wafv2_web_acl_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_wafv2_web_acl_rule_group_association": {
+    "hasUsableRegion": true
+  },
+  "aws_workmail_default_domain": {
+    "hasUsableRegion": true
+  },
+  "aws_workmail_domain": {
+    "hasUsableRegion": true
+  },
+  "aws_workmail_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_workmail_organization": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workmail_user": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_workspaces_connection_alias": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspaces_directory": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspaces_ip_group": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspaces_workspace": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspacesweb_browser_settings": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspacesweb_browser_settings_association": {
+    "hasUsableRegion": true
+  },
+  "aws_workspacesweb_data_protection_settings": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspacesweb_data_protection_settings_association": {
+    "hasUsableRegion": true
+  },
+  "aws_workspacesweb_identity_provider": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspacesweb_ip_access_settings": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspacesweb_ip_access_settings_association": {
+    "hasUsableRegion": true
+  },
+  "aws_workspacesweb_network_settings": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspacesweb_network_settings_association": {
+    "hasUsableRegion": true
+  },
+  "aws_workspacesweb_portal": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspacesweb_session_logger": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspacesweb_session_logger_association": {
+    "hasUsableRegion": true
+  },
+  "aws_workspacesweb_trust_store": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspacesweb_trust_store_association": {
+    "hasUsableRegion": true
+  },
+  "aws_workspacesweb_user_access_logging_settings": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspacesweb_user_access_logging_settings_association": {
+    "hasUsableRegion": true
+  },
+  "aws_workspacesweb_user_settings": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspacesweb_user_settings_association": {
+    "hasUsableRegion": true
+  },
+  "aws_xray_encryption_config": {
+    "hasUsableRegion": true
+  },
+  "aws_xray_group": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_xray_indexing_rule": {
+    "hasInputName": true,
+    "hasUsableRegion": true
+  },
+  "aws_xray_resource_policy": {
+    "hasUsableRegion": true
+  },
+  "aws_xray_sampling_rule": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_xray_trace_segment_destination": {
+    "hasUsableRegion": true
+  }
+}

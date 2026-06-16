@@ -4,7 +4,6 @@ import (
 	"context"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
@@ -13,17 +12,15 @@ import (
 // doesn't work with the way the bridge/pulumi works. The interceptor will add the region after
 // Pulumi runs `Check` which causes issues. This workaround sets the `region` the same way upstream will
 // but does it on the pulumi side before `Check`
+//
+// The caller is responsible for applying this only to resources with a usable, non-deprecated
+// `region` schema field. ProviderFromMeta enforces that with generated AWS resource metadata so
+// this helper does not inspect schemas at runtime.
 // TODO[pulumi/pulumi-aws#5521]
 func applyRegionPreCheckCallback(
 	prov tfbridge.ProviderInfo,
 	key string,
-	res shim.Resource,
 ) {
-	// global resources have a separate region argument (e.g. `stack_set_instance_region`)
-	// and have deprecated the `region` argument if they had one
-	if region, ok := res.Schema().GetOk("region"); !ok || region.Deprecated() != "" {
-		return
-	}
 	if callback := prov.Resources[key].PreCheckCallback; callback != nil {
 		prov.Resources[key].PreCheckCallback = func(
 			ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
