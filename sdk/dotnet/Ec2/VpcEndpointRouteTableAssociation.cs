@@ -33,6 +33,18 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `RouteTableId` (String) Route Table ID.
+    /// * `VpcEndpointId` (String) VPC Endpoint ID.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import VPC Endpoint Route Table Associations using `VpcEndpointId` together with `RouteTableId`. For example:
     /// 
     /// ```sh

@@ -103,10 +103,16 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import MSK replicators using the replicator ARN. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `Arn` (String) ARN of the MSK replicator.
+    /// 
+    /// Using `pulumi import`, import MSK replicators using `Arn`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:configuration/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+    /// $ pulumi import aws:msk/replicator:Replicator example arn:aws:kafka:us-west-2:123456789012:replicator/example-replicator/b3a16098-f408-4995-8e36-482db4f1b46b
     /// ```
     /// </summary>
     [AwsResourceType("aws:msk/replicator:Replicator")]

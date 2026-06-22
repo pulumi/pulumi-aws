@@ -16,14 +16,14 @@ public final class OptInConditionArgs extends com.pulumi.resources.ResourceArgs 
     public static final OptInConditionArgs Empty = new OptInConditionArgs();
 
     /**
-     * List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
+     * Expression written based on the Cedar Policy Language used to match the principal attributes.
      * 
      */
     @Import(name="expression")
     private @Nullable Output<String> expression;
 
     /**
-     * @return List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
+     * @return Expression written based on the Cedar Policy Language used to match the principal attributes.
      * 
      */
     public Optional<Output<String>> expression() {
@@ -55,7 +55,7 @@ public final class OptInConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param expression List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
+         * @param expression Expression written based on the Cedar Policy Language used to match the principal attributes.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class OptInConditionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param expression List of LF-tag conditions or a saved expression that apply to the resource&#39;s LF-Tag policy.
+         * @param expression Expression written based on the Cedar Policy Language used to match the principal attributes.
          * 
          * @return builder
          * 

@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentcoreBrowser{}
 	case "aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter":
 		r = &AgentcoreCodeInterpreter{}
+	case "aws:bedrock/agentcoreEvaluator:AgentcoreEvaluator":
+		r = &AgentcoreEvaluator{}
 	case "aws:bedrock/agentcoreGateway:AgentcoreGateway":
 		r = &AgentcoreGateway{}
 	case "aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget":
@@ -164,6 +166,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"bedrock/agentcoreCodeInterpreter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreEvaluator",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

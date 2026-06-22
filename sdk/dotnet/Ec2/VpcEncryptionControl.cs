@@ -40,6 +40,17 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) VPC Encryption Control ID.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import VPC Encryption Control using the `Id`. For example:
     /// 
     /// ```sh

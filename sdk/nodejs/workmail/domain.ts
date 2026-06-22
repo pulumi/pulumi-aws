@@ -26,6 +26,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `domainName` (String) Mail domain name.
+ * * `organizationId` (String) Identifier of the WorkMail organization.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import WorkMail Domain using `organization_id,domain_name`. For example:
  *
  * ```sh

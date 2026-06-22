@@ -75,7 +75,7 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+    /// - `SecretArn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
     /// 
     /// Using `pulumi import`, import `aws.secretsmanager.SecretPolicy` using the secret Amazon Resource Name (ARN). For example:
     /// 

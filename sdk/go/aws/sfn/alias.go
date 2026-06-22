@@ -66,6 +66,12 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `arn` (String) ARN of the alias.
+//
 // Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
 //
 // ```sh

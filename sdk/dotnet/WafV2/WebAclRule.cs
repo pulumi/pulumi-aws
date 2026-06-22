@@ -577,6 +577,7 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// #### Optional
     /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
     /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import WAFv2 Web ACL Rules using the `WebAclArn` and `Name` separated by a comma (`,`). For example:

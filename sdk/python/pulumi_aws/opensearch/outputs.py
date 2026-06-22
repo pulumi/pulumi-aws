@@ -60,6 +60,7 @@ __all__ = [
     'ServerlessCollectionEncryptionConfig',
     'ServerlessCollectionGroupCapacityLimit',
     'ServerlessCollectionTimeouts',
+    'ServerlessCollectionVectorOption',
     'ServerlessSecurityConfigSamlOptions',
     'ServerlessVpcEndpointTimeouts',
     'VpcEndpointVpcOptions',
@@ -2543,6 +2544,41 @@ class ServerlessCollectionTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class ServerlessCollectionVectorOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverlessVectorAcceleration":
+            suggest = "serverless_vector_acceleration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerlessCollectionVectorOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerlessCollectionVectorOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerlessCollectionVectorOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 serverless_vector_acceleration: _builtins.str):
+        """
+        :param _builtins.str serverless_vector_acceleration: Status of serverless vector acceleration for the collection. One of `ENABLED`, `DISABLED`, or `ALLOWED`.
+        """
+        pulumi.set(__self__, "serverless_vector_acceleration", serverless_vector_acceleration)
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessVectorAcceleration")
+    def serverless_vector_acceleration(self) -> _builtins.str:
+        """
+        Status of serverless vector acceleration for the collection. One of `ENABLED`, `DISABLED`, or `ALLOWED`.
+        """
+        return pulumi.get(self, "serverless_vector_acceleration")
 
 
 @pulumi.output_type

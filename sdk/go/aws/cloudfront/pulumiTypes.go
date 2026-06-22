@@ -5651,6 +5651,8 @@ type DistributionOriginCustomOriginConfig struct {
 	// IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
 	IpAddressType          *string `pulumi:"ipAddressType"`
 	OriginKeepaliveTimeout *int    `pulumi:"originKeepaliveTimeout"`
+	// The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.
+	OriginMtlsConfig *DistributionOriginCustomOriginConfigOriginMtlsConfig `pulumi:"originMtlsConfig"`
 	// Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
 	OriginProtocolPolicy string `pulumi:"originProtocolPolicy"`
 	OriginReadTimeout    *int   `pulumi:"originReadTimeout"`
@@ -5677,6 +5679,8 @@ type DistributionOriginCustomOriginConfigArgs struct {
 	// IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
 	IpAddressType          pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	OriginKeepaliveTimeout pulumi.IntPtrInput    `pulumi:"originKeepaliveTimeout"`
+	// The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.
+	OriginMtlsConfig DistributionOriginCustomOriginConfigOriginMtlsConfigPtrInput `pulumi:"originMtlsConfig"`
 	// Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
 	OriginProtocolPolicy pulumi.StringInput `pulumi:"originProtocolPolicy"`
 	OriginReadTimeout    pulumi.IntPtrInput `pulumi:"originReadTimeout"`
@@ -5780,6 +5784,13 @@ func (o DistributionOriginCustomOriginConfigOutput) OriginKeepaliveTimeout() pul
 	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
 }
 
+// The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.
+func (o DistributionOriginCustomOriginConfigOutput) OriginMtlsConfig() DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) *DistributionOriginCustomOriginConfigOriginMtlsConfig {
+		return v.OriginMtlsConfig
+	}).(DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput)
+}
+
 // Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
 func (o DistributionOriginCustomOriginConfigOutput) OriginProtocolPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionOriginCustomOriginConfig) string { return v.OriginProtocolPolicy }).(pulumi.StringOutput)
@@ -5857,6 +5868,16 @@ func (o DistributionOriginCustomOriginConfigPtrOutput) OriginKeepaliveTimeout() 
 	}).(pulumi.IntPtrOutput)
 }
 
+// The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.
+func (o DistributionOriginCustomOriginConfigPtrOutput) OriginMtlsConfig() DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return o.ApplyT(func(v *DistributionOriginCustomOriginConfig) *DistributionOriginCustomOriginConfigOriginMtlsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.OriginMtlsConfig
+	}).(DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput)
+}
+
 // Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
 func (o DistributionOriginCustomOriginConfigPtrOutput) OriginProtocolPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DistributionOriginCustomOriginConfig) *string {
@@ -5884,6 +5905,143 @@ func (o DistributionOriginCustomOriginConfigPtrOutput) OriginSslProtocols() pulu
 		}
 		return v.OriginSslProtocols
 	}).(pulumi.StringArrayOutput)
+}
+
+type DistributionOriginCustomOriginConfigOriginMtlsConfig struct {
+	// ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.
+	ClientCertificateArn string `pulumi:"clientCertificateArn"`
+}
+
+// DistributionOriginCustomOriginConfigOriginMtlsConfigInput is an input type that accepts DistributionOriginCustomOriginConfigOriginMtlsConfigArgs and DistributionOriginCustomOriginConfigOriginMtlsConfigOutput values.
+// You can construct a concrete instance of `DistributionOriginCustomOriginConfigOriginMtlsConfigInput` via:
+//
+//	DistributionOriginCustomOriginConfigOriginMtlsConfigArgs{...}
+type DistributionOriginCustomOriginConfigOriginMtlsConfigInput interface {
+	pulumi.Input
+
+	ToDistributionOriginCustomOriginConfigOriginMtlsConfigOutput() DistributionOriginCustomOriginConfigOriginMtlsConfigOutput
+	ToDistributionOriginCustomOriginConfigOriginMtlsConfigOutputWithContext(context.Context) DistributionOriginCustomOriginConfigOriginMtlsConfigOutput
+}
+
+type DistributionOriginCustomOriginConfigOriginMtlsConfigArgs struct {
+	// ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.
+	ClientCertificateArn pulumi.StringInput `pulumi:"clientCertificateArn"`
+}
+
+func (DistributionOriginCustomOriginConfigOriginMtlsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOriginCustomOriginConfigOriginMtlsConfig)(nil)).Elem()
+}
+
+func (i DistributionOriginCustomOriginConfigOriginMtlsConfigArgs) ToDistributionOriginCustomOriginConfigOriginMtlsConfigOutput() DistributionOriginCustomOriginConfigOriginMtlsConfigOutput {
+	return i.ToDistributionOriginCustomOriginConfigOriginMtlsConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionOriginCustomOriginConfigOriginMtlsConfigArgs) ToDistributionOriginCustomOriginConfigOriginMtlsConfigOutputWithContext(ctx context.Context) DistributionOriginCustomOriginConfigOriginMtlsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginCustomOriginConfigOriginMtlsConfigOutput)
+}
+
+func (i DistributionOriginCustomOriginConfigOriginMtlsConfigArgs) ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput() DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return i.ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionOriginCustomOriginConfigOriginMtlsConfigArgs) ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginCustomOriginConfigOriginMtlsConfigOutput).ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionOriginCustomOriginConfigOriginMtlsConfigPtrInput is an input type that accepts DistributionOriginCustomOriginConfigOriginMtlsConfigArgs, DistributionOriginCustomOriginConfigOriginMtlsConfigPtr and DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionOriginCustomOriginConfigOriginMtlsConfigPtrInput` via:
+//
+//	        DistributionOriginCustomOriginConfigOriginMtlsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionOriginCustomOriginConfigOriginMtlsConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput() DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput
+	ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(context.Context) DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput
+}
+
+type distributionOriginCustomOriginConfigOriginMtlsConfigPtrType DistributionOriginCustomOriginConfigOriginMtlsConfigArgs
+
+func DistributionOriginCustomOriginConfigOriginMtlsConfigPtr(v *DistributionOriginCustomOriginConfigOriginMtlsConfigArgs) DistributionOriginCustomOriginConfigOriginMtlsConfigPtrInput {
+	return (*distributionOriginCustomOriginConfigOriginMtlsConfigPtrType)(v)
+}
+
+func (*distributionOriginCustomOriginConfigOriginMtlsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOriginCustomOriginConfigOriginMtlsConfig)(nil)).Elem()
+}
+
+func (i *distributionOriginCustomOriginConfigOriginMtlsConfigPtrType) ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput() DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return i.ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionOriginCustomOriginConfigOriginMtlsConfigPtrType) ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput)
+}
+
+type DistributionOriginCustomOriginConfigOriginMtlsConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionOriginCustomOriginConfigOriginMtlsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOriginCustomOriginConfigOriginMtlsConfig)(nil)).Elem()
+}
+
+func (o DistributionOriginCustomOriginConfigOriginMtlsConfigOutput) ToDistributionOriginCustomOriginConfigOriginMtlsConfigOutput() DistributionOriginCustomOriginConfigOriginMtlsConfigOutput {
+	return o
+}
+
+func (o DistributionOriginCustomOriginConfigOriginMtlsConfigOutput) ToDistributionOriginCustomOriginConfigOriginMtlsConfigOutputWithContext(ctx context.Context) DistributionOriginCustomOriginConfigOriginMtlsConfigOutput {
+	return o
+}
+
+func (o DistributionOriginCustomOriginConfigOriginMtlsConfigOutput) ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput() DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return o.ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionOriginCustomOriginConfigOriginMtlsConfigOutput) ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionOriginCustomOriginConfigOriginMtlsConfig) *DistributionOriginCustomOriginConfigOriginMtlsConfig {
+		return &v
+	}).(DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput)
+}
+
+// ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.
+func (o DistributionOriginCustomOriginConfigOriginMtlsConfigOutput) ClientCertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionOriginCustomOriginConfigOriginMtlsConfig) string { return v.ClientCertificateArn }).(pulumi.StringOutput)
+}
+
+type DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOriginCustomOriginConfigOriginMtlsConfig)(nil)).Elem()
+}
+
+func (o DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput) ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput() DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return o
+}
+
+func (o DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput) ToDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(ctx context.Context) DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return o
+}
+
+func (o DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput) Elem() DistributionOriginCustomOriginConfigOriginMtlsConfigOutput {
+	return o.ApplyT(func(v *DistributionOriginCustomOriginConfigOriginMtlsConfig) DistributionOriginCustomOriginConfigOriginMtlsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionOriginCustomOriginConfigOriginMtlsConfig
+		return ret
+	}).(DistributionOriginCustomOriginConfigOriginMtlsConfigOutput)
+}
+
+// ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.
+func (o DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput) ClientCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionOriginCustomOriginConfigOriginMtlsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientCertificateArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type DistributionOriginGroup struct {
@@ -12886,6 +13044,8 @@ type MultitenantDistributionOriginCustomOriginConfig struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// Custom keep-alive timeout, in seconds. Default: 5.
 	OriginKeepaliveTimeout *int `pulumi:"originKeepaliveTimeout"`
+	// Origin mTLS configuration for mutual TLS authentication between CloudFront and your origin. See Origin mTLS Config below.
+	OriginMtlsConfig *MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig `pulumi:"originMtlsConfig"`
 	// Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
 	OriginProtocolPolicy string `pulumi:"originProtocolPolicy"`
 	// Custom read timeout, in seconds. Default: 30.
@@ -12914,6 +13074,8 @@ type MultitenantDistributionOriginCustomOriginConfigArgs struct {
 	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// Custom keep-alive timeout, in seconds. Default: 5.
 	OriginKeepaliveTimeout pulumi.IntPtrInput `pulumi:"originKeepaliveTimeout"`
+	// Origin mTLS configuration for mutual TLS authentication between CloudFront and your origin. See Origin mTLS Config below.
+	OriginMtlsConfig MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrInput `pulumi:"originMtlsConfig"`
 	// Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
 	OriginProtocolPolicy pulumi.StringInput `pulumi:"originProtocolPolicy"`
 	// Custom read timeout, in seconds. Default: 30.
@@ -12993,6 +13155,13 @@ func (o MultitenantDistributionOriginCustomOriginConfigOutput) OriginKeepaliveTi
 	return o.ApplyT(func(v MultitenantDistributionOriginCustomOriginConfig) *int { return v.OriginKeepaliveTimeout }).(pulumi.IntPtrOutput)
 }
 
+// Origin mTLS configuration for mutual TLS authentication between CloudFront and your origin. See Origin mTLS Config below.
+func (o MultitenantDistributionOriginCustomOriginConfigOutput) OriginMtlsConfig() MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginCustomOriginConfig) *MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig {
+		return v.OriginMtlsConfig
+	}).(MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput)
+}
+
 // Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
 func (o MultitenantDistributionOriginCustomOriginConfigOutput) OriginProtocolPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v MultitenantDistributionOriginCustomOriginConfig) string { return v.OriginProtocolPolicy }).(pulumi.StringOutput)
@@ -13026,6 +13195,145 @@ func (o MultitenantDistributionOriginCustomOriginConfigArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultitenantDistributionOriginCustomOriginConfig {
 		return vs[0].([]MultitenantDistributionOriginCustomOriginConfig)[vs[1].(int)]
 	}).(MultitenantDistributionOriginCustomOriginConfigOutput)
+}
+
+type MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig struct {
+	// ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.
+	ClientCertificateArn string `pulumi:"clientCertificateArn"`
+}
+
+// MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigInput is an input type that accepts MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs and MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigInput` via:
+//
+//	MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs{...}
+type MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput() MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput
+	ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutputWithContext(context.Context) MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput
+}
+
+type MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs struct {
+	// ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.
+	ClientCertificateArn pulumi.StringInput `pulumi:"clientCertificateArn"`
+}
+
+func (MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig)(nil)).Elem()
+}
+
+func (i MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs) ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput() MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput {
+	return i.ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs) ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput)
+}
+
+func (i MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs) ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput() MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return i.ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs) ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput).ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(ctx)
+}
+
+// MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrInput is an input type that accepts MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs, MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtr and MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput values.
+// You can construct a concrete instance of `MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrInput` via:
+//
+//	        MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrInput interface {
+	pulumi.Input
+
+	ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput() MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput
+	ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(context.Context) MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput
+}
+
+type multitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrType MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs
+
+func MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtr(v *MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs) MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrInput {
+	return (*multitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrType)(v)
+}
+
+func (*multitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig)(nil)).Elem()
+}
+
+func (i *multitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrType) ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput() MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return i.ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *multitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrType) ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput)
+}
+
+type MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput) ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput() MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput) ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput) ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput() MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return o.ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput) ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig) *MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig {
+		return &v
+	}).(MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput)
+}
+
+// ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.
+func (o MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput) ClientCertificateArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig) string {
+		return v.ClientCertificateArn
+	}).(pulumi.StringOutput)
+}
+
+type MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig)(nil)).Elem()
+}
+
+func (o MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput) ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput() MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput) ToMultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutputWithContext(ctx context.Context) MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput {
+	return o
+}
+
+func (o MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput) Elem() MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput {
+	return o.ApplyT(func(v *MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig) MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig
+		return ret
+	}).(MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput)
+}
+
+// ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.
+func (o MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput) ClientCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientCertificateArn
+	}).(pulumi.StringPtrOutput)
 }
 
 type MultitenantDistributionOriginGroup struct {
@@ -23777,6 +24085,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginCustomHeaderArrayInput)(nil)).Elem(), DistributionOriginCustomHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginCustomOriginConfigInput)(nil)).Elem(), DistributionOriginCustomOriginConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginCustomOriginConfigPtrInput)(nil)).Elem(), DistributionOriginCustomOriginConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginCustomOriginConfigOriginMtlsConfigInput)(nil)).Elem(), DistributionOriginCustomOriginConfigOriginMtlsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginCustomOriginConfigOriginMtlsConfigPtrInput)(nil)).Elem(), DistributionOriginCustomOriginConfigOriginMtlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupInput)(nil)).Elem(), DistributionOriginGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupArrayInput)(nil)).Elem(), DistributionOriginGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupFailoverCriteriaInput)(nil)).Elem(), DistributionOriginGroupFailoverCriteriaArgs{})
@@ -23878,6 +24188,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginCustomHeaderArrayInput)(nil)).Elem(), MultitenantDistributionOriginCustomHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginCustomOriginConfigInput)(nil)).Elem(), MultitenantDistributionOriginCustomOriginConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginCustomOriginConfigArrayInput)(nil)).Elem(), MultitenantDistributionOriginCustomOriginConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigInput)(nil)).Elem(), MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrInput)(nil)).Elem(), MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupInput)(nil)).Elem(), MultitenantDistributionOriginGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupArrayInput)(nil)).Elem(), MultitenantDistributionOriginGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupFailoverCriteriaInput)(nil)).Elem(), MultitenantDistributionOriginGroupFailoverCriteriaArgs{})
@@ -24113,6 +24425,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionOriginCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(DistributionOriginCustomOriginConfigOutput{})
 	pulumi.RegisterOutputType(DistributionOriginCustomOriginConfigPtrOutput{})
+	pulumi.RegisterOutputType(DistributionOriginCustomOriginConfigOriginMtlsConfigOutput{})
+	pulumi.RegisterOutputType(DistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupArrayOutput{})
 	pulumi.RegisterOutputType(DistributionOriginGroupFailoverCriteriaOutput{})
@@ -24214,6 +24528,8 @@ func init() {
 	pulumi.RegisterOutputType(MultitenantDistributionOriginCustomHeaderArrayOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionOriginCustomOriginConfigOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionOriginCustomOriginConfigArrayOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigOutput{})
+	pulumi.RegisterOutputType(MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupArrayOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupFailoverCriteriaOutput{})

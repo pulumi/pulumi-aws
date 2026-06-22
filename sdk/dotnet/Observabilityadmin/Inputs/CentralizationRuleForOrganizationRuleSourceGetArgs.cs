@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Observabilityadmin.Inputs
         private InputList<string>? _regions;
 
         /// <summary>
-        /// Set of AWS regions from which to centralize logs. Must contain at least one region.
+        /// Set of AWS regions from which to centralize telemetry. Must contain at least one region.
         /// </summary>
         public InputList<string> Regions
         {
@@ -35,6 +35,12 @@ namespace Pulumi.Aws.Observabilityadmin.Inputs
         /// </summary>
         [Input("sourceLogsConfiguration")]
         public Input<Inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationGetArgs>? SourceLogsConfiguration { get; set; }
+
+        /// <summary>
+        /// Configuration block for source metrics settings. See `SourceMetricsConfiguration` below.
+        /// </summary>
+        [Input("sourceMetricsConfiguration")]
+        public Input<Inputs.CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationGetArgs>? SourceMetricsConfiguration { get; set; }
 
         public CentralizationRuleForOrganizationRuleSourceGetArgs()
         {

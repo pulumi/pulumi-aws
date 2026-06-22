@@ -7051,6 +7051,103 @@ func (o ServerlessCollectionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServerlessCollectionVectorOption struct {
+	// Status of serverless vector acceleration for the collection. One of `ENABLED`, `DISABLED`, or `ALLOWED`.
+	ServerlessVectorAcceleration string `pulumi:"serverlessVectorAcceleration"`
+}
+
+// ServerlessCollectionVectorOptionInput is an input type that accepts ServerlessCollectionVectorOptionArgs and ServerlessCollectionVectorOptionOutput values.
+// You can construct a concrete instance of `ServerlessCollectionVectorOptionInput` via:
+//
+//	ServerlessCollectionVectorOptionArgs{...}
+type ServerlessCollectionVectorOptionInput interface {
+	pulumi.Input
+
+	ToServerlessCollectionVectorOptionOutput() ServerlessCollectionVectorOptionOutput
+	ToServerlessCollectionVectorOptionOutputWithContext(context.Context) ServerlessCollectionVectorOptionOutput
+}
+
+type ServerlessCollectionVectorOptionArgs struct {
+	// Status of serverless vector acceleration for the collection. One of `ENABLED`, `DISABLED`, or `ALLOWED`.
+	ServerlessVectorAcceleration pulumi.StringInput `pulumi:"serverlessVectorAcceleration"`
+}
+
+func (ServerlessCollectionVectorOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCollectionVectorOption)(nil)).Elem()
+}
+
+func (i ServerlessCollectionVectorOptionArgs) ToServerlessCollectionVectorOptionOutput() ServerlessCollectionVectorOptionOutput {
+	return i.ToServerlessCollectionVectorOptionOutputWithContext(context.Background())
+}
+
+func (i ServerlessCollectionVectorOptionArgs) ToServerlessCollectionVectorOptionOutputWithContext(ctx context.Context) ServerlessCollectionVectorOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionVectorOptionOutput)
+}
+
+// ServerlessCollectionVectorOptionArrayInput is an input type that accepts ServerlessCollectionVectorOptionArray and ServerlessCollectionVectorOptionArrayOutput values.
+// You can construct a concrete instance of `ServerlessCollectionVectorOptionArrayInput` via:
+//
+//	ServerlessCollectionVectorOptionArray{ ServerlessCollectionVectorOptionArgs{...} }
+type ServerlessCollectionVectorOptionArrayInput interface {
+	pulumi.Input
+
+	ToServerlessCollectionVectorOptionArrayOutput() ServerlessCollectionVectorOptionArrayOutput
+	ToServerlessCollectionVectorOptionArrayOutputWithContext(context.Context) ServerlessCollectionVectorOptionArrayOutput
+}
+
+type ServerlessCollectionVectorOptionArray []ServerlessCollectionVectorOptionInput
+
+func (ServerlessCollectionVectorOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCollectionVectorOption)(nil)).Elem()
+}
+
+func (i ServerlessCollectionVectorOptionArray) ToServerlessCollectionVectorOptionArrayOutput() ServerlessCollectionVectorOptionArrayOutput {
+	return i.ToServerlessCollectionVectorOptionArrayOutputWithContext(context.Background())
+}
+
+func (i ServerlessCollectionVectorOptionArray) ToServerlessCollectionVectorOptionArrayOutputWithContext(ctx context.Context) ServerlessCollectionVectorOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServerlessCollectionVectorOptionArrayOutput)
+}
+
+type ServerlessCollectionVectorOptionOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCollectionVectorOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerlessCollectionVectorOption)(nil)).Elem()
+}
+
+func (o ServerlessCollectionVectorOptionOutput) ToServerlessCollectionVectorOptionOutput() ServerlessCollectionVectorOptionOutput {
+	return o
+}
+
+func (o ServerlessCollectionVectorOptionOutput) ToServerlessCollectionVectorOptionOutputWithContext(ctx context.Context) ServerlessCollectionVectorOptionOutput {
+	return o
+}
+
+// Status of serverless vector acceleration for the collection. One of `ENABLED`, `DISABLED`, or `ALLOWED`.
+func (o ServerlessCollectionVectorOptionOutput) ServerlessVectorAcceleration() pulumi.StringOutput {
+	return o.ApplyT(func(v ServerlessCollectionVectorOption) string { return v.ServerlessVectorAcceleration }).(pulumi.StringOutput)
+}
+
+type ServerlessCollectionVectorOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (ServerlessCollectionVectorOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServerlessCollectionVectorOption)(nil)).Elem()
+}
+
+func (o ServerlessCollectionVectorOptionArrayOutput) ToServerlessCollectionVectorOptionArrayOutput() ServerlessCollectionVectorOptionArrayOutput {
+	return o
+}
+
+func (o ServerlessCollectionVectorOptionArrayOutput) ToServerlessCollectionVectorOptionArrayOutputWithContext(ctx context.Context) ServerlessCollectionVectorOptionArrayOutput {
+	return o
+}
+
+func (o ServerlessCollectionVectorOptionArrayOutput) Index(i pulumi.IntInput) ServerlessCollectionVectorOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServerlessCollectionVectorOption {
+		return vs[0].([]ServerlessCollectionVectorOption)[vs[1].(int)]
+	}).(ServerlessCollectionVectorOptionOutput)
+}
+
 type ServerlessSecurityConfigSamlOptions struct {
 	// Group attribute for this SAML integration.
 	GroupAttribute *string `pulumi:"groupAttribute"`
@@ -10838,6 +10935,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionGroupCapacityLimitArrayInput)(nil)).Elem(), ServerlessCollectionGroupCapacityLimitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionTimeoutsPtrInput)(nil)).Elem(), ServerlessCollectionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionVectorOptionInput)(nil)).Elem(), ServerlessCollectionVectorOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessCollectionVectorOptionArrayInput)(nil)).Elem(), ServerlessCollectionVectorOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessSecurityConfigSamlOptionsPtrInput)(nil)).Elem(), ServerlessSecurityConfigSamlOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServerlessVpcEndpointTimeoutsInput)(nil)).Elem(), ServerlessVpcEndpointTimeoutsArgs{})
@@ -10984,6 +11083,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerlessCollectionGroupCapacityLimitArrayOutput{})
 	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsOutput{})
 	pulumi.RegisterOutputType(ServerlessCollectionTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ServerlessCollectionVectorOptionOutput{})
+	pulumi.RegisterOutputType(ServerlessCollectionVectorOptionArrayOutput{})
 	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsOutput{})
 	pulumi.RegisterOutputType(ServerlessSecurityConfigSamlOptionsPtrOutput{})
 	pulumi.RegisterOutputType(ServerlessVpcEndpointTimeoutsOutput{})

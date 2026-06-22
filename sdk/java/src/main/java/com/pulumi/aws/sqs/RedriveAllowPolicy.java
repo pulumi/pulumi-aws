@@ -72,6 +72,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `queueUrl` (String) URL of the SQS Queue.
+ * 
  * Using `pulumi import`, import SQS Queue Redrive Allow Policies using the queue URL. For example:
  * 
  * ```sh

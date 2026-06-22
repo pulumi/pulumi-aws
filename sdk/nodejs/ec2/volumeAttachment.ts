@@ -37,6 +37,19 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `deviceName` (String) Device name exposed to the instance.
+ * * `instanceId` (String) ID of the Instance.
+ * * `volumeId` (String) ID of the Volume.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
  *
  * ```sh

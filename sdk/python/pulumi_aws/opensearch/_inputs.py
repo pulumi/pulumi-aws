@@ -103,6 +103,8 @@ __all__ = [
     'ServerlessCollectionGroupCapacityLimitArgsDict',
     'ServerlessCollectionTimeoutsArgs',
     'ServerlessCollectionTimeoutsArgsDict',
+    'ServerlessCollectionVectorOptionArgs',
+    'ServerlessCollectionVectorOptionArgsDict',
     'ServerlessSecurityConfigSamlOptionsArgs',
     'ServerlessSecurityConfigSamlOptionsArgsDict',
     'ServerlessVpcEndpointTimeoutsArgs',
@@ -2950,6 +2952,34 @@ class ServerlessCollectionTimeoutsArgs:
     @delete.setter
     def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
+
+
+class ServerlessCollectionVectorOptionArgsDict(TypedDict):
+    serverless_vector_acceleration: pulumi.Input[_builtins.str]
+    """
+    Status of serverless vector acceleration for the collection. One of `ENABLED`, `DISABLED`, or `ALLOWED`.
+    """
+
+@pulumi.input_type
+class ServerlessCollectionVectorOptionArgs:
+    def __init__(__self__, *,
+                 serverless_vector_acceleration: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] serverless_vector_acceleration: Status of serverless vector acceleration for the collection. One of `ENABLED`, `DISABLED`, or `ALLOWED`.
+        """
+        pulumi.set(__self__, "serverless_vector_acceleration", serverless_vector_acceleration)
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessVectorAcceleration")
+    def serverless_vector_acceleration(self) -> pulumi.Input[_builtins.str]:
+        """
+        Status of serverless vector acceleration for the collection. One of `ENABLED`, `DISABLED`, or `ALLOWED`.
+        """
+        return pulumi.get(self, "serverless_vector_acceleration")
+
+    @serverless_vector_acceleration.setter
+    def serverless_vector_acceleration(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "serverless_vector_acceleration", value)
 
 
 class ServerlessSecurityConfigSamlOptionsArgsDict(TypedDict):

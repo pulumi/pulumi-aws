@@ -210,6 +210,21 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+     * 
+     */
+    @Import(name="durability")
+    private @Nullable Output<String> durability;
+
+    /**
+     * @return Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+     * 
+     */
+    public Optional<Output<String>> durability() {
+        return Optional.ofNullable(this.durability);
+    }
+
+    /**
      * Name of the cache engine to be used for the clusters in this replication group.
      * Valid values are `redis` or `valkey`.
      * Default is `redis`.
@@ -837,6 +852,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         this.configurationEndpointAddress = $.configurationEndpointAddress;
         this.dataTieringEnabled = $.dataTieringEnabled;
         this.description = $.description;
+        this.durability = $.durability;
         this.engine = $.engine;
         this.engineVersion = $.engineVersion;
         this.engineVersionActual = $.engineVersionActual;
@@ -1152,6 +1168,27 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param durability Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder durability(@Nullable Output<String> durability) {
+            $.durability = durability;
+            return this;
+        }
+
+        /**
+         * @param durability Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder durability(String durability) {
+            return durability(Output.of(durability));
         }
 
         /**

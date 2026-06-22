@@ -15,6 +15,11 @@ public final class GetClusterOutpostConfigControlPlanePlacement {
      * 
      */
     private String groupName;
+    /**
+     * @return Placement group spread level for etcd instances.
+     * 
+     */
+    private String spreadLevel;
 
     private GetClusterOutpostConfigControlPlanePlacement() {}
     /**
@@ -23,6 +28,13 @@ public final class GetClusterOutpostConfigControlPlanePlacement {
      */
     public String groupName() {
         return this.groupName;
+    }
+    /**
+     * @return Placement group spread level for etcd instances.
+     * 
+     */
+    public String spreadLevel() {
+        return this.spreadLevel;
     }
 
     public static Builder builder() {
@@ -35,10 +47,12 @@ public final class GetClusterOutpostConfigControlPlanePlacement {
     @CustomType.Builder
     public static final class Builder {
         private String groupName;
+        private String spreadLevel;
         public Builder() {}
         public Builder(GetClusterOutpostConfigControlPlanePlacement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groupName = defaults.groupName;
+    	      this.spreadLevel = defaults.spreadLevel;
         }
 
         @CustomType.Setter
@@ -49,9 +63,18 @@ public final class GetClusterOutpostConfigControlPlanePlacement {
             this.groupName = groupName;
             return this;
         }
+        @CustomType.Setter
+        public Builder spreadLevel(String spreadLevel) {
+            if (spreadLevel == null) {
+              throw new MissingRequiredPropertyException("GetClusterOutpostConfigControlPlanePlacement", "spreadLevel");
+            }
+            this.spreadLevel = spreadLevel;
+            return this;
+        }
         public GetClusterOutpostConfigControlPlanePlacement build() {
             final var _resultValue = new GetClusterOutpostConfigControlPlanePlacement();
             _resultValue.groupName = groupName;
+            _resultValue.spreadLevel = spreadLevel;
             return _resultValue;
         }
     }

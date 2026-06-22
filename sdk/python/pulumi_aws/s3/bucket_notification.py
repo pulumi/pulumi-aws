@@ -485,6 +485,17 @@ class BucketNotification(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `bucket` (String) Name of the bucket.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
 
         ```sh
@@ -745,6 +756,17 @@ class BucketNotification(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `bucket` (String) Name of the bucket.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
 

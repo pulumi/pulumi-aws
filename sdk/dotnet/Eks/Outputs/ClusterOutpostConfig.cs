@@ -31,6 +31,15 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly Outputs.ClusterOutpostConfigControlPlanePlacement? ControlPlanePlacement;
         /// <summary>
+        /// Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+        /// </summary>
+        public readonly string? EtcdInstanceType;
+        /// <summary>
+        /// Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+        /// The `EtcdPlacement` configuration block supports the following arguments:
+        /// </summary>
+        public readonly Outputs.ClusterOutpostConfigEtcdPlacement? EtcdPlacement;
+        /// <summary>
         /// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
         /// </summary>
         public readonly ImmutableArray<string> OutpostArns;
@@ -41,10 +50,16 @@ namespace Pulumi.Aws.Eks.Outputs
 
             Outputs.ClusterOutpostConfigControlPlanePlacement? controlPlanePlacement,
 
+            string? etcdInstanceType,
+
+            Outputs.ClusterOutpostConfigEtcdPlacement? etcdPlacement,
+
             ImmutableArray<string> outpostArns)
         {
             ControlPlaneInstanceType = controlPlaneInstanceType;
             ControlPlanePlacement = controlPlanePlacement;
+            EtcdInstanceType = etcdInstanceType;
+            EtcdPlacement = etcdPlacement;
             OutpostArns = outpostArns;
         }
     }

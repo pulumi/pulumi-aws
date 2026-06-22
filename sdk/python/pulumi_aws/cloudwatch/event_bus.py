@@ -367,7 +367,7 @@ class EventBus(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+        examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/example.com")
         examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartner",
             name=examplepartner.name,
             description="Event bus for example partner events",
@@ -611,7 +611,7 @@ class EventBus(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+        examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/example.com")
         examplepartner_event_bus = aws.cloudwatch.EventBus("examplepartner",
             name=examplepartner.name,
             description="Event bus for example partner events",

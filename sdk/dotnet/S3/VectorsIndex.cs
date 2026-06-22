@@ -38,6 +38,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `IndexArn` (String) ARN of the S3 Vectors Index.
+    /// 
     /// Using `pulumi import`, import S3 Vectors Index using the `IndexArn`. For example:
     /// 
     /// ```sh

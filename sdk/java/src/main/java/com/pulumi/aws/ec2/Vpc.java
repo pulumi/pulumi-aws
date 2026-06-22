@@ -160,6 +160,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) VPC ID.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import VPCs using the VPC `id`. For example:
  * 
  * ```sh

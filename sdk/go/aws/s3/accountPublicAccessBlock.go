@@ -46,6 +46,12 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `accountId` (String) AWS account ID.
+//
 // Using `pulumi import`, import `s3.AccountPublicAccessBlock` using the AWS account ID. For example:
 //
 // ```sh

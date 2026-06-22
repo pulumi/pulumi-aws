@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policyStoreId`. For example:
  *
  * ```sh
- *  $ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
+ * $ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
  * ```
  */
 export class Schema extends pulumi.CustomResource {

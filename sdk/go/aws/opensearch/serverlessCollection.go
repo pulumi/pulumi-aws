@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS OpenSearch Serverless Collection.
+// Manages an AWS OpenSearch Serverless Collection.
 //
 // > **NOTE:** An `opensearch.ServerlessCollection` must have encryption configured either by an applicable encryption security policy or by setting `encryptionConfig` directly on the resource.
 //
@@ -153,7 +153,7 @@ type ServerlessCollection struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
 	EncryptionConfigs ServerlessCollectionEncryptionConfigArrayOutput `pulumi:"encryptionConfigs"`
-	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+	// ARN of the Amazon Web Services KMS key used to encrypt the collection.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Name of the collection.
 	//
@@ -161,15 +161,17 @@ type ServerlessCollection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	// Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas pulumi.StringOutput `pulumi:"standbyReplicas"`
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput                `pulumi:"tagsAll"`
 	Timeouts ServerlessCollectionTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+	VectorOptions ServerlessCollectionVectorOptionArrayOutput `pulumi:"vectorOptions"`
 }
 
 // NewServerlessCollection registers a new resource with the given unique name, arguments, and options.
@@ -214,7 +216,7 @@ type serverlessCollectionState struct {
 	Description *string `pulumi:"description"`
 	// Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
 	EncryptionConfigs []ServerlessCollectionEncryptionConfig `pulumi:"encryptionConfigs"`
-	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+	// ARN of the Amazon Web Services KMS key used to encrypt the collection.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Name of the collection.
 	//
@@ -222,15 +224,17 @@ type serverlessCollectionState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	// Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas *string `pulumi:"standbyReplicas"`
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string             `pulumi:"tagsAll"`
 	Timeouts *ServerlessCollectionTimeouts `pulumi:"timeouts"`
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type *string `pulumi:"type"`
+	// Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+	VectorOptions []ServerlessCollectionVectorOption `pulumi:"vectorOptions"`
 }
 
 type ServerlessCollectionState struct {
@@ -246,7 +250,7 @@ type ServerlessCollectionState struct {
 	Description pulumi.StringPtrInput
 	// Configuration block for direct collection encryption settings. See `encryptionConfig` below for details.
 	EncryptionConfigs ServerlessCollectionEncryptionConfigArrayInput
-	// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+	// ARN of the Amazon Web Services KMS key used to encrypt the collection.
 	KmsKeyArn pulumi.StringPtrInput
 	// Name of the collection.
 	//
@@ -254,15 +258,17 @@ type ServerlessCollectionState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	// Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas pulumi.StringPtrInput
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts ServerlessCollectionTimeoutsPtrInput
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type pulumi.StringPtrInput
+	// Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+	VectorOptions ServerlessCollectionVectorOptionArrayInput
 }
 
 func (ServerlessCollectionState) ElementType() reflect.Type {
@@ -282,13 +288,15 @@ type serverlessCollectionArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	// Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas *string `pulumi:"standbyReplicas"`
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string             `pulumi:"tags"`
 	Timeouts *ServerlessCollectionTimeouts `pulumi:"timeouts"`
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type *string `pulumi:"type"`
+	// Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+	VectorOptions []ServerlessCollectionVectorOption `pulumi:"vectorOptions"`
 }
 
 // The set of arguments for constructing a ServerlessCollection resource.
@@ -305,13 +313,15 @@ type ServerlessCollectionArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+	// Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 	StandbyReplicas pulumi.StringPtrInput
-	// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts ServerlessCollectionTimeoutsPtrInput
 	// Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 	Type pulumi.StringPtrInput
+	// Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+	VectorOptions ServerlessCollectionVectorOptionArrayInput
 }
 
 func (ServerlessCollectionArgs) ElementType() reflect.Type {
@@ -433,7 +443,7 @@ func (o ServerlessCollectionOutput) EncryptionConfigs() ServerlessCollectionEncr
 	}).(ServerlessCollectionEncryptionConfigArrayOutput)
 }
 
-// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+// ARN of the Amazon Web Services KMS key used to encrypt the collection.
 func (o ServerlessCollectionOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -450,17 +460,17 @@ func (o ServerlessCollectionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+// Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
 func (o ServerlessCollectionOutput) StandbyReplicas() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.StandbyReplicas }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ServerlessCollectionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ServerlessCollectionOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
@@ -472,6 +482,11 @@ func (o ServerlessCollectionOutput) Timeouts() ServerlessCollectionTimeoutsPtrOu
 // Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
 func (o ServerlessCollectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+func (o ServerlessCollectionOutput) VectorOptions() ServerlessCollectionVectorOptionArrayOutput {
+	return o.ApplyT(func(v *ServerlessCollection) ServerlessCollectionVectorOptionArrayOutput { return v.VectorOptions }).(ServerlessCollectionVectorOptionArrayOutput)
 }
 
 type ServerlessCollectionArrayOutput struct{ *pulumi.OutputState }

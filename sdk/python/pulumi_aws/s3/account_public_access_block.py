@@ -246,6 +246,12 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `account_id` (String) AWS account ID.
+
         Using `pulumi import`, import `s3.AccountPublicAccessBlock` using the AWS account ID. For example:
 
         ```sh
@@ -291,6 +297,12 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `account_id` (String) AWS account ID.
 
         Using `pulumi import`, import `s3.AccountPublicAccessBlock` using the AWS account ID. For example:
 

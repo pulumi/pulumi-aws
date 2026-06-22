@@ -64,6 +64,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `bucket` (String) Name of the bucket.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
  * 
  * ```sh

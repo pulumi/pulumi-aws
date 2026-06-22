@@ -560,28 +560,26 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .andStatement(WebAclRuleStatementAndStatementArgs.builder()
- *                     .statements(                    
- *                         WebAclRuleStatementArgs.builder()
- *                             .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
- *                                 .countryCodes("CN")
+ *                 .andStatement(Map.of("statements", Arrays.asList(                
+ *                     WebAclRuleStatementArgs.builder()
+ *                         .geoMatchStatement(WebAclRuleStatementGeoMatchStatementArgs.builder()
+ *                             .countryCodes("CN")
+ *                             .build())
+ *                         .build(),
+ *                     WebAclRuleStatementArgs.builder()
+ *                         .byteMatchStatement(WebAclRuleStatementByteMatchStatementArgs.builder()
+ *                             .searchString("admin")
+ *                             .positionalConstraint("CONTAINS")
+ *                             .fieldToMatch(WebAclRuleStatementByteMatchStatementFieldToMatchArgs.builder()
+ *                                 .uriPath(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs.builder()
+ *                                     .build())
  *                                 .build())
- *                             .build(),
- *                         WebAclRuleStatementArgs.builder()
- *                             .byteMatchStatement(WebAclRuleStatementByteMatchStatementArgs.builder()
- *                                 .searchString("admin")
- *                                 .positionalConstraint("CONTAINS")
- *                                 .fieldToMatch(WebAclRuleStatementByteMatchStatementFieldToMatchArgs.builder()
- *                                     .uriPath(WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs.builder()
- *                                         .build())
- *                                     .build())
- *                                 .textTransformations(WebAclRuleStatementByteMatchStatementTextTransformationArgs.builder()
- *                                     .priority(0)
- *                                     .type("LOWERCASE")
- *                                     .build())
+ *                             .textTransformations(WebAclRuleStatementByteMatchStatementTextTransformationArgs.builder()
+ *                                 .priority(0)
+ *                                 .type("LOWERCASE")
  *                                 .build())
  *                             .build())
- *                     .build())
+ *                         .build())))
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)
@@ -704,13 +702,15 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .build())
  *             .statement(WebAclRuleStatementArgs.builder()
- *                 .notStatement(Map.of("statement", WebAclRuleStatementNotStatementStatementArgs.builder()
- *                     .geoMatchStatement(WebAclRuleStatementNotStatementStatementGeoMatchStatementArgs.builder()
- *                         .countryCodes(                        
- *                             "US",
- *                             "CA")
+ *                 .notStatement(WebAclRuleStatementNotStatementArgs.builder()
+ *                     .statement(WebAclRuleStatementNotStatementStatementArgs.builder()
+ *                         .geoMatchStatement(WebAclRuleStatementNotStatementStatementGeoMatchStatementArgs.builder()
+ *                             .countryCodes(                            
+ *                                 "US",
+ *                                 "CA")
+ *                             .build())
  *                         .build())
- *                     .build()))
+ *                     .build())
  *                 .build())
  *             .visibilityConfig(WebAclRuleVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)
@@ -735,6 +735,7 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
+ * * `accountId` (String) Account ID where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import WAFv2 Web ACL Rules using the `webAclArn` and `name` separated by a comma (`,`). For example:

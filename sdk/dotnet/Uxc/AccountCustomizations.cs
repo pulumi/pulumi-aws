@@ -70,6 +70,12 @@ namespace Pulumi.Aws.Uxc
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// 
     /// Using `pulumi import`, import UXC Account Customizations using the AWS account ID. For example:
     /// 
     /// ```sh

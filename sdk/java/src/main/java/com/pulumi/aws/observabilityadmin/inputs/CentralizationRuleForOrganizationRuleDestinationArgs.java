@@ -4,6 +4,7 @@
 package com.pulumi.aws.observabilityadmin.inputs;
 
 import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs;
+import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -18,14 +19,14 @@ public final class CentralizationRuleForOrganizationRuleDestinationArgs extends 
     public static final CentralizationRuleForOrganizationRuleDestinationArgs Empty = new CentralizationRuleForOrganizationRuleDestinationArgs();
 
     /**
-     * AWS account ID where logs will be centralized.
+     * AWS account ID where telemetry will be centralized.
      * 
      */
     @Import(name="account", required=true)
     private Output<String> account;
 
     /**
-     * @return AWS account ID where logs will be centralized.
+     * @return AWS account ID where telemetry will be centralized.
      * 
      */
     public Output<String> account() {
@@ -48,14 +49,29 @@ public final class CentralizationRuleForOrganizationRuleDestinationArgs extends 
     }
 
     /**
-     * AWS region where logs will be centralized.
+     * Configuration block for destination metrics settings. See `destinationMetricsConfiguration` below.
+     * 
+     */
+    @Import(name="destinationMetricsConfiguration")
+    private @Nullable Output<CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs> destinationMetricsConfiguration;
+
+    /**
+     * @return Configuration block for destination metrics settings. See `destinationMetricsConfiguration` below.
+     * 
+     */
+    public Optional<Output<CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs>> destinationMetricsConfiguration() {
+        return Optional.ofNullable(this.destinationMetricsConfiguration);
+    }
+
+    /**
+     * AWS region where telemetry will be centralized.
      * 
      */
     @Import(name="region", required=true)
     private Output<String> region;
 
     /**
-     * @return AWS region where logs will be centralized.
+     * @return AWS region where telemetry will be centralized.
      * 
      */
     public Output<String> region() {
@@ -67,6 +83,7 @@ public final class CentralizationRuleForOrganizationRuleDestinationArgs extends 
     private CentralizationRuleForOrganizationRuleDestinationArgs(CentralizationRuleForOrganizationRuleDestinationArgs $) {
         this.account = $.account;
         this.destinationLogsConfiguration = $.destinationLogsConfiguration;
+        this.destinationMetricsConfiguration = $.destinationMetricsConfiguration;
         this.region = $.region;
     }
 
@@ -89,7 +106,7 @@ public final class CentralizationRuleForOrganizationRuleDestinationArgs extends 
         }
 
         /**
-         * @param account AWS account ID where logs will be centralized.
+         * @param account AWS account ID where telemetry will be centralized.
          * 
          * @return builder
          * 
@@ -100,7 +117,7 @@ public final class CentralizationRuleForOrganizationRuleDestinationArgs extends 
         }
 
         /**
-         * @param account AWS account ID where logs will be centralized.
+         * @param account AWS account ID where telemetry will be centralized.
          * 
          * @return builder
          * 
@@ -131,7 +148,28 @@ public final class CentralizationRuleForOrganizationRuleDestinationArgs extends 
         }
 
         /**
-         * @param region AWS region where logs will be centralized.
+         * @param destinationMetricsConfiguration Configuration block for destination metrics settings. See `destinationMetricsConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationMetricsConfiguration(@Nullable Output<CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs> destinationMetricsConfiguration) {
+            $.destinationMetricsConfiguration = destinationMetricsConfiguration;
+            return this;
+        }
+
+        /**
+         * @param destinationMetricsConfiguration Configuration block for destination metrics settings. See `destinationMetricsConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder destinationMetricsConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs destinationMetricsConfiguration) {
+            return destinationMetricsConfiguration(Output.of(destinationMetricsConfiguration));
+        }
+
+        /**
+         * @param region AWS region where telemetry will be centralized.
          * 
          * @return builder
          * 
@@ -142,7 +180,7 @@ public final class CentralizationRuleForOrganizationRuleDestinationArgs extends 
         }
 
         /**
-         * @param region AWS region where logs will be centralized.
+         * @param region AWS region where telemetry will be centralized.
          * 
          * @return builder
          * 

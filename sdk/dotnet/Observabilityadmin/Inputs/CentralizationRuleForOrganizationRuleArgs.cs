@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Observabilityadmin.Inputs
     public sealed class CentralizationRuleForOrganizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block for the destination where logs will be centralized. See `Destination` below.
+        /// Configuration block for the destination where telemetry will be centralized. See `Destination` below.
         /// </summary>
         [Input("destination", required: true)]
         public Input<Inputs.CentralizationRuleForOrganizationRuleDestinationArgs> Destination { get; set; } = null!;

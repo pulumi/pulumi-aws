@@ -1152,7 +1152,7 @@ func (o LfTagExpressionExpressionArrayOutput) Index(i pulumi.IntInput) LfTagExpr
 }
 
 type OptInCondition struct {
-	// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+	// Expression written based on the Cedar Policy Language used to match the principal attributes.
 	Expression *string `pulumi:"expression"`
 }
 
@@ -1168,7 +1168,7 @@ type OptInConditionInput interface {
 }
 
 type OptInConditionArgs struct {
-	// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+	// Expression written based on the Cedar Policy Language used to match the principal attributes.
 	Expression pulumi.StringPtrInput `pulumi:"expression"`
 }
 
@@ -1223,7 +1223,7 @@ func (o OptInConditionOutput) ToOptInConditionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+// Expression written based on the Cedar Policy Language used to match the principal attributes.
 func (o OptInConditionOutput) Expression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptInCondition) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
@@ -1249,6 +1249,7 @@ func (o OptInConditionArrayOutput) Index(i pulumi.IntInput) OptInConditionOutput
 }
 
 type OptInPrincipal struct {
+	// Identifier for the Lake Formation principal.
 	DataLakePrincipalIdentifier string `pulumi:"dataLakePrincipalIdentifier"`
 }
 
@@ -1264,6 +1265,7 @@ type OptInPrincipalInput interface {
 }
 
 type OptInPrincipalArgs struct {
+	// Identifier for the Lake Formation principal.
 	DataLakePrincipalIdentifier pulumi.StringInput `pulumi:"dataLakePrincipalIdentifier"`
 }
 
@@ -1318,6 +1320,7 @@ func (o OptInPrincipalOutput) ToOptInPrincipalOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Identifier for the Lake Formation principal.
 func (o OptInPrincipalOutput) DataLakePrincipalIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v OptInPrincipal) string { return v.DataLakePrincipalIdentifier }).(pulumi.StringOutput)
 }
@@ -1343,23 +1346,23 @@ func (o OptInPrincipalArrayOutput) Index(i pulumi.IntInput) OptInPrincipalOutput
 }
 
 type OptInResourceData struct {
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See `catalog` Block for more details.
 	Catalogs []OptInResourceDataCatalog `pulumi:"catalogs"`
-	// Data cell filter. See Data Cells Filter for more details.
+	// Data cell filter. See `dataCellsFilter` Block for more details.
 	DataCellsFilters []OptInResourceDataDataCellsFilter `pulumi:"dataCellsFilters"`
-	// Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+	// Location of an Amazon S3 path where permissions are granted or revoked. See `dataLocation` Block for more details.
 	DataLocations []OptInResourceDataDataLocation `pulumi:"dataLocations"`
-	// Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+	// Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See `database` Block for more details.
 	Database *OptInResourceDataDatabase `pulumi:"database"`
 	// LF-tag key and values attached to a resource.
 	LfTag *OptInResourceDataLfTag `pulumi:"lfTag"`
-	// Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+	// Logical expression composed of one or more LF-Tag key:value pairs. See `lfTagExpression` Block for more details.
 	LfTagExpressions []OptInResourceDataLfTagExpression `pulumi:"lfTagExpressions"`
-	// List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
+	// List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See `lfTagPolicy` Block for more details.
 	LfTagPolicies []OptInResourceDataLfTagPolicy `pulumi:"lfTagPolicies"`
-	// Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+	// Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See `table` Block for more details.
 	Table *OptInResourceDataTable `pulumi:"table"`
-	// Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+	// Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See `tableWithColumns` Block for more details.
 	TableWithColumns *OptInResourceDataTableWithColumns `pulumi:"tableWithColumns"`
 }
 
@@ -1375,23 +1378,23 @@ type OptInResourceDataInput interface {
 }
 
 type OptInResourceDataArgs struct {
-	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+	// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See `catalog` Block for more details.
 	Catalogs OptInResourceDataCatalogArrayInput `pulumi:"catalogs"`
-	// Data cell filter. See Data Cells Filter for more details.
+	// Data cell filter. See `dataCellsFilter` Block for more details.
 	DataCellsFilters OptInResourceDataDataCellsFilterArrayInput `pulumi:"dataCellsFilters"`
-	// Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+	// Location of an Amazon S3 path where permissions are granted or revoked. See `dataLocation` Block for more details.
 	DataLocations OptInResourceDataDataLocationArrayInput `pulumi:"dataLocations"`
-	// Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+	// Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See `database` Block for more details.
 	Database OptInResourceDataDatabasePtrInput `pulumi:"database"`
 	// LF-tag key and values attached to a resource.
 	LfTag OptInResourceDataLfTagPtrInput `pulumi:"lfTag"`
-	// Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+	// Logical expression composed of one or more LF-Tag key:value pairs. See `lfTagExpression` Block for more details.
 	LfTagExpressions OptInResourceDataLfTagExpressionArrayInput `pulumi:"lfTagExpressions"`
-	// List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
+	// List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See `lfTagPolicy` Block for more details.
 	LfTagPolicies OptInResourceDataLfTagPolicyArrayInput `pulumi:"lfTagPolicies"`
-	// Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+	// Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See `table` Block for more details.
 	Table OptInResourceDataTablePtrInput `pulumi:"table"`
-	// Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+	// Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See `tableWithColumns` Block for more details.
 	TableWithColumns OptInResourceDataTableWithColumnsPtrInput `pulumi:"tableWithColumns"`
 }
 
@@ -1446,22 +1449,22 @@ func (o OptInResourceDataOutput) ToOptInResourceDataOutputWithContext(ctx contex
 	return o
 }
 
-// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+// Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See `catalog` Block for more details.
 func (o OptInResourceDataOutput) Catalogs() OptInResourceDataCatalogArrayOutput {
 	return o.ApplyT(func(v OptInResourceData) []OptInResourceDataCatalog { return v.Catalogs }).(OptInResourceDataCatalogArrayOutput)
 }
 
-// Data cell filter. See Data Cells Filter for more details.
+// Data cell filter. See `dataCellsFilter` Block for more details.
 func (o OptInResourceDataOutput) DataCellsFilters() OptInResourceDataDataCellsFilterArrayOutput {
 	return o.ApplyT(func(v OptInResourceData) []OptInResourceDataDataCellsFilter { return v.DataCellsFilters }).(OptInResourceDataDataCellsFilterArrayOutput)
 }
 
-// Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+// Location of an Amazon S3 path where permissions are granted or revoked. See `dataLocation` Block for more details.
 func (o OptInResourceDataOutput) DataLocations() OptInResourceDataDataLocationArrayOutput {
 	return o.ApplyT(func(v OptInResourceData) []OptInResourceDataDataLocation { return v.DataLocations }).(OptInResourceDataDataLocationArrayOutput)
 }
 
-// Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+// Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See `database` Block for more details.
 func (o OptInResourceDataOutput) Database() OptInResourceDataDatabasePtrOutput {
 	return o.ApplyT(func(v OptInResourceData) *OptInResourceDataDatabase { return v.Database }).(OptInResourceDataDatabasePtrOutput)
 }
@@ -1471,22 +1474,22 @@ func (o OptInResourceDataOutput) LfTag() OptInResourceDataLfTagPtrOutput {
 	return o.ApplyT(func(v OptInResourceData) *OptInResourceDataLfTag { return v.LfTag }).(OptInResourceDataLfTagPtrOutput)
 }
 
-// Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+// Logical expression composed of one or more LF-Tag key:value pairs. See `lfTagExpression` Block for more details.
 func (o OptInResourceDataOutput) LfTagExpressions() OptInResourceDataLfTagExpressionArrayOutput {
 	return o.ApplyT(func(v OptInResourceData) []OptInResourceDataLfTagExpression { return v.LfTagExpressions }).(OptInResourceDataLfTagExpressionArrayOutput)
 }
 
-// List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
+// List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See `lfTagPolicy` Block for more details.
 func (o OptInResourceDataOutput) LfTagPolicies() OptInResourceDataLfTagPolicyArrayOutput {
 	return o.ApplyT(func(v OptInResourceData) []OptInResourceDataLfTagPolicy { return v.LfTagPolicies }).(OptInResourceDataLfTagPolicyArrayOutput)
 }
 
-// Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+// Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See `table` Block for more details.
 func (o OptInResourceDataOutput) Table() OptInResourceDataTablePtrOutput {
 	return o.ApplyT(func(v OptInResourceData) *OptInResourceDataTable { return v.Table }).(OptInResourceDataTablePtrOutput)
 }
 
-// Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+// Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See `tableWithColumns` Block for more details.
 func (o OptInResourceDataOutput) TableWithColumns() OptInResourceDataTableWithColumnsPtrOutput {
 	return o.ApplyT(func(v OptInResourceData) *OptInResourceDataTableWithColumns { return v.TableWithColumns }).(OptInResourceDataTableWithColumnsPtrOutput)
 }
@@ -1609,9 +1612,9 @@ func (o OptInResourceDataCatalogArrayOutput) Index(i pulumi.IntInput) OptInResou
 }
 
 type OptInResourceDataDataCellsFilter struct {
-	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	// Database in the Glue Data Catalog.
 	DatabaseName *string `pulumi:"databaseName"`
-	// Name of the table.
+	// Name of the data cells filter.
 	Name *string `pulumi:"name"`
 	// ID of the catalog to which the table belongs.
 	TableCatalogId *string `pulumi:"tableCatalogId"`
@@ -1631,9 +1634,9 @@ type OptInResourceDataDataCellsFilterInput interface {
 }
 
 type OptInResourceDataDataCellsFilterArgs struct {
-	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	// Database in the Glue Data Catalog.
 	DatabaseName pulumi.StringPtrInput `pulumi:"databaseName"`
-	// Name of the table.
+	// Name of the data cells filter.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// ID of the catalog to which the table belongs.
 	TableCatalogId pulumi.StringPtrInput `pulumi:"tableCatalogId"`
@@ -1692,12 +1695,12 @@ func (o OptInResourceDataDataCellsFilterOutput) ToOptInResourceDataDataCellsFilt
 	return o
 }
 
-// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+// Database in the Glue Data Catalog.
 func (o OptInResourceDataDataCellsFilterOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptInResourceDataDataCellsFilter) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
 }
 
-// Name of the table.
+// Name of the data cells filter.
 func (o OptInResourceDataDataCellsFilterOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptInResourceDataDataCellsFilter) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -1733,7 +1736,7 @@ func (o OptInResourceDataDataCellsFilterArrayOutput) Index(i pulumi.IntInput) Op
 }
 
 type OptInResourceDataDataLocation struct {
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
 	// ARN that uniquely identifies the data location resource.
 	ResourceArn string `pulumi:"resourceArn"`
@@ -1751,7 +1754,7 @@ type OptInResourceDataDataLocationInput interface {
 }
 
 type OptInResourceDataDataLocationArgs struct {
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 	// ARN that uniquely identifies the data location resource.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
@@ -1808,7 +1811,7 @@ func (o OptInResourceDataDataLocationOutput) ToOptInResourceDataDataLocationOutp
 	return o
 }
 
-// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
 func (o OptInResourceDataDataLocationOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptInResourceDataDataLocation) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
@@ -1841,7 +1844,7 @@ func (o OptInResourceDataDataLocationArrayOutput) Index(i pulumi.IntInput) OptIn
 type OptInResourceDataDatabase struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
-	// Name of the table.
+	// Name of the database resource. Unique to the Data Catalog.
 	Name string `pulumi:"name"`
 }
 
@@ -1859,7 +1862,7 @@ type OptInResourceDataDatabaseInput interface {
 type OptInResourceDataDatabaseArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// Name of the table.
+	// Name of the database resource. Unique to the Data Catalog.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -1945,7 +1948,7 @@ func (o OptInResourceDataDatabaseOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptInResourceDataDatabase) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the table.
+// Name of the database resource. Unique to the Data Catalog.
 func (o OptInResourceDataDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OptInResourceDataDatabase) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1984,7 +1987,7 @@ func (o OptInResourceDataDatabasePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Name of the table.
+// Name of the database resource. Unique to the Data Catalog.
 func (o OptInResourceDataDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OptInResourceDataDatabase) *string {
 		if v == nil {
@@ -1997,9 +2000,9 @@ func (o OptInResourceDataDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 type OptInResourceDataLfTag struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
-	// (Required) Key name for the LF-Tag.
+	// Key name for the LF-Tag.
 	Key string `pulumi:"key"`
-	// (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+	// Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
 	Values []string `pulumi:"values"`
 }
 
@@ -2017,9 +2020,9 @@ type OptInResourceDataLfTagInput interface {
 type OptInResourceDataLfTagArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// (Required) Key name for the LF-Tag.
+	// Key name for the LF-Tag.
 	Key pulumi.StringInput `pulumi:"key"`
-	// (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+	// Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -2105,12 +2108,12 @@ func (o OptInResourceDataLfTagOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptInResourceDataLfTag) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// (Required) Key name for the LF-Tag.
+// Key name for the LF-Tag.
 func (o OptInResourceDataLfTagOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v OptInResourceDataLfTag) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+// Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
 func (o OptInResourceDataLfTagOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OptInResourceDataLfTag) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -2149,7 +2152,7 @@ func (o OptInResourceDataLfTagPtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Required) Key name for the LF-Tag.
+// Key name for the LF-Tag.
 func (o OptInResourceDataLfTagPtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OptInResourceDataLfTag) *string {
 		if v == nil {
@@ -2159,7 +2162,7 @@ func (o OptInResourceDataLfTagPtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+// Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
 func (o OptInResourceDataLfTagPtrOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OptInResourceDataLfTag) []string {
 		if v == nil {
@@ -2172,7 +2175,7 @@ func (o OptInResourceDataLfTagPtrOutput) Values() pulumi.StringArrayOutput {
 type OptInResourceDataLfTagExpression struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
-	// Name of the table.
+	// Name of the LF-Tag expression to grant permissions on.
 	Name string `pulumi:"name"`
 }
 
@@ -2190,7 +2193,7 @@ type OptInResourceDataLfTagExpressionInput interface {
 type OptInResourceDataLfTagExpressionArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// Name of the table.
+	// Name of the LF-Tag expression to grant permissions on.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -2250,7 +2253,7 @@ func (o OptInResourceDataLfTagExpressionOutput) CatalogId() pulumi.StringPtrOutp
 	return o.ApplyT(func(v OptInResourceDataLfTagExpression) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// Name of the table.
+// Name of the LF-Tag expression to grant permissions on.
 func (o OptInResourceDataLfTagExpressionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v OptInResourceDataLfTagExpression) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2276,9 +2279,9 @@ func (o OptInResourceDataLfTagExpressionArrayOutput) Index(i pulumi.IntInput) Op
 }
 
 type OptInResourceDataLfTagPolicy struct {
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	CatalogId *string `pulumi:"catalogId"`
-	// If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+	// Name of the saved expression to match. If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided expression name.
 	ExpressionName *string `pulumi:"expressionName"`
 	// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
 	Expressions []string `pulumi:"expressions"`
@@ -2298,9 +2301,9 @@ type OptInResourceDataLfTagPolicyInput interface {
 }
 
 type OptInResourceDataLfTagPolicyArgs struct {
-	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+	// Name of the saved expression to match. If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided expression name.
 	ExpressionName pulumi.StringPtrInput `pulumi:"expressionName"`
 	// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
 	Expressions pulumi.StringArrayInput `pulumi:"expressions"`
@@ -2359,12 +2362,12 @@ func (o OptInResourceDataLfTagPolicyOutput) ToOptInResourceDataLfTagPolicyOutput
 	return o
 }
 
-// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+// Identifier for the Data Catalog. By default, it is the account ID of the caller. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
 func (o OptInResourceDataLfTagPolicyOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptInResourceDataLfTagPolicy) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+// Name of the saved expression to match. If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided expression name.
 func (o OptInResourceDataLfTagPolicyOutput) ExpressionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptInResourceDataLfTagPolicy) *string { return v.ExpressionName }).(pulumi.StringPtrOutput)
 }
@@ -2402,7 +2405,7 @@ func (o OptInResourceDataLfTagPolicyArrayOutput) Index(i pulumi.IntInput) OptInR
 type OptInResourceDataTable struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
-	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	// Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the table.
 	Name *string `pulumi:"name"`
@@ -2424,7 +2427,7 @@ type OptInResourceDataTableInput interface {
 type OptInResourceDataTableArgs struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
-	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	// Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the table.
 	Name pulumi.StringPtrInput `pulumi:"name"`
@@ -2514,7 +2517,7 @@ func (o OptInResourceDataTableOutput) CatalogId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptInResourceDataTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
 }
 
-// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+// Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 func (o OptInResourceDataTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v OptInResourceDataTable) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
@@ -2563,7 +2566,7 @@ func (o OptInResourceDataTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+// Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 func (o OptInResourceDataTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OptInResourceDataTable) *string {
 		if v == nil {
@@ -2598,9 +2601,9 @@ type OptInResourceDataTableWithColumns struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
 	ColumnNames []string `pulumi:"columnNames"`
-	// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+	// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required. See `columnWildcard` Block for more details.
 	ColumnWildcard *OptInResourceDataTableWithColumnsColumnWildcard `pulumi:"columnWildcard"`
-	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	// Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 	DatabaseName string `pulumi:"databaseName"`
 	// Name of the table.
 	Name string `pulumi:"name"`
@@ -2622,9 +2625,9 @@ type OptInResourceDataTableWithColumnsArgs struct {
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 	// List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
 	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
-	// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+	// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required. See `columnWildcard` Block for more details.
 	ColumnWildcard OptInResourceDataTableWithColumnsColumnWildcardPtrInput `pulumi:"columnWildcard"`
-	// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+	// Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Name of the table.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2717,14 +2720,14 @@ func (o OptInResourceDataTableWithColumnsOutput) ColumnNames() pulumi.StringArra
 	return o.ApplyT(func(v OptInResourceDataTableWithColumns) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
 }
 
-// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required. See `columnWildcard` Block for more details.
 func (o OptInResourceDataTableWithColumnsOutput) ColumnWildcard() OptInResourceDataTableWithColumnsColumnWildcardPtrOutput {
 	return o.ApplyT(func(v OptInResourceDataTableWithColumns) *OptInResourceDataTableWithColumnsColumnWildcard {
 		return v.ColumnWildcard
 	}).(OptInResourceDataTableWithColumnsColumnWildcardPtrOutput)
 }
 
-// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+// Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 func (o OptInResourceDataTableWithColumnsOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v OptInResourceDataTableWithColumns) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
@@ -2778,7 +2781,7 @@ func (o OptInResourceDataTableWithColumnsPtrOutput) ColumnNames() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required. See `columnWildcard` Block for more details.
 func (o OptInResourceDataTableWithColumnsPtrOutput) ColumnWildcard() OptInResourceDataTableWithColumnsColumnWildcardPtrOutput {
 	return o.ApplyT(func(v *OptInResourceDataTableWithColumns) *OptInResourceDataTableWithColumnsColumnWildcard {
 		if v == nil {
@@ -2788,7 +2791,7 @@ func (o OptInResourceDataTableWithColumnsPtrOutput) ColumnWildcard() OptInResour
 	}).(OptInResourceDataTableWithColumnsColumnWildcardPtrOutput)
 }
 
-// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+// Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
 func (o OptInResourceDataTableWithColumnsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OptInResourceDataTableWithColumns) *string {
 		if v == nil {
@@ -2809,6 +2812,7 @@ func (o OptInResourceDataTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutpu
 }
 
 type OptInResourceDataTableWithColumnsColumnWildcard struct {
+	// Excludes column names. Any column with this name will be excluded.
 	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
 }
 
@@ -2824,6 +2828,7 @@ type OptInResourceDataTableWithColumnsColumnWildcardInput interface {
 }
 
 type OptInResourceDataTableWithColumnsColumnWildcardArgs struct {
+	// Excludes column names. Any column with this name will be excluded.
 	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
 }
 
@@ -2904,6 +2909,7 @@ func (o OptInResourceDataTableWithColumnsColumnWildcardOutput) ToOptInResourceDa
 	}).(OptInResourceDataTableWithColumnsColumnWildcardPtrOutput)
 }
 
+// Excludes column names. Any column with this name will be excluded.
 func (o OptInResourceDataTableWithColumnsColumnWildcardOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OptInResourceDataTableWithColumnsColumnWildcard) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
 }
@@ -2932,6 +2938,7 @@ func (o OptInResourceDataTableWithColumnsColumnWildcardPtrOutput) Elem() OptInRe
 	}).(OptInResourceDataTableWithColumnsColumnWildcardOutput)
 }
 
+// Excludes column names. Any column with this name will be excluded.
 func (o OptInResourceDataTableWithColumnsColumnWildcardPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OptInResourceDataTableWithColumnsColumnWildcard) []string {
 		if v == nil {

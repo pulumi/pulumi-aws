@@ -87,6 +87,12 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `queueUrl` (String) URL of the SQS Queue.
+//
 // Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
 //
 // ```sh

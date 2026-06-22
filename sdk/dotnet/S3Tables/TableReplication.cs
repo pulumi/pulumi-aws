@@ -45,6 +45,12 @@ namespace Pulumi.Aws.S3Tables
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `TableArn` (String) ARN of the S3 Tables Table.
+    /// 
     /// Using `pulumi import`, import S3 Tables Table Replication using the `TableArn`. For example:
     /// 
     /// ```sh

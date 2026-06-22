@@ -24,7 +24,27 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.LakeFormation.OptIn("example");
+    ///     var example = new Aws.LakeFormation.OptIn("example", new()
+    ///     {
+    ///         Principals = new[]
+    ///         {
+    ///             new Aws.LakeFormation.Inputs.OptInPrincipalArgs
+    ///             {
+    ///                 DataLakePrincipalIdentifier = exampleAwsIamRole.Arn,
+    ///             },
+    ///         },
+    ///         ResourceDatas = new[]
+    ///         {
+    ///             new Aws.LakeFormation.Inputs.OptInResourceDataArgs
+    ///             {
+    ///                 Database = new Aws.LakeFormation.Inputs.OptInResourceDataDatabaseArgs
+    ///                 {
+    ///                     Name = exampleAwsGlueCatalogDatabase.Name,
+    ///                     CatalogId = current.AccountId,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
     /// });
     /// ```
@@ -33,7 +53,7 @@ namespace Pulumi.Aws.LakeFormation
     public partial class OptIn : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+        /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `Condition` Block for more details.
         /// </summary>
         [Output("conditions")]
         public Output<ImmutableArray<Outputs.OptInCondition>> Conditions { get; private set; } = null!;
@@ -44,11 +64,14 @@ namespace Pulumi.Aws.LakeFormation
         [Output("lastModified")]
         public Output<string> LastModified { get; private set; } = null!;
 
+        /// <summary>
+        /// User who updated the record.
+        /// </summary>
         [Output("lastUpdatedBy")]
         public Output<string> LastUpdatedBy { get; private set; } = null!;
 
         /// <summary>
-        /// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+        /// Lake Formation principal. Supported principals are IAM users or IAM roles. See `Principal` Block for more details.
         /// </summary>
         [Output("principals")]
         public Output<ImmutableArray<Outputs.OptInPrincipal>> Principals { get; private set; } = null!;
@@ -60,7 +83,7 @@ namespace Pulumi.Aws.LakeFormation
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Structure for the resource. See Resource for more details.
+        /// Structure for the resource. See `ResourceData` Block for more details.
         /// </summary>
         [Output("resourceDatas")]
         public Output<ImmutableArray<Outputs.OptInResourceData>> ResourceDatas { get; private set; } = null!;
@@ -73,7 +96,7 @@ namespace Pulumi.Aws.LakeFormation
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public OptIn(string name, OptInArgs? args = null, CustomResourceOptions? options = null)
+        public OptIn(string name, OptInArgs args, CustomResourceOptions? options = null)
             : base("aws:lakeformation/optIn:OptIn", name, args ?? new OptInArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -115,7 +138,7 @@ namespace Pulumi.Aws.LakeFormation
         private InputList<Inputs.OptInConditionArgs>? _conditions;
 
         /// <summary>
-        /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+        /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `Condition` Block for more details.
         /// </summary>
         public InputList<Inputs.OptInConditionArgs> Conditions
         {
@@ -123,11 +146,11 @@ namespace Pulumi.Aws.LakeFormation
             set => _conditions = value;
         }
 
-        [Input("principals")]
+        [Input("principals", required: true)]
         private InputList<Inputs.OptInPrincipalArgs>? _principals;
 
         /// <summary>
-        /// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+        /// Lake Formation principal. Supported principals are IAM users or IAM roles. See `Principal` Block for more details.
         /// </summary>
         public InputList<Inputs.OptInPrincipalArgs> Principals
         {
@@ -145,7 +168,7 @@ namespace Pulumi.Aws.LakeFormation
         private InputList<Inputs.OptInResourceDataArgs>? _resourceDatas;
 
         /// <summary>
-        /// Structure for the resource. See Resource for more details.
+        /// Structure for the resource. See `ResourceData` Block for more details.
         /// </summary>
         public InputList<Inputs.OptInResourceDataArgs> ResourceDatas
         {
@@ -165,7 +188,7 @@ namespace Pulumi.Aws.LakeFormation
         private InputList<Inputs.OptInConditionGetArgs>? _conditions;
 
         /// <summary>
-        /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+        /// Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `Condition` Block for more details.
         /// </summary>
         public InputList<Inputs.OptInConditionGetArgs> Conditions
         {
@@ -179,6 +202,9 @@ namespace Pulumi.Aws.LakeFormation
         [Input("lastModified")]
         public Input<string>? LastModified { get; set; }
 
+        /// <summary>
+        /// User who updated the record.
+        /// </summary>
         [Input("lastUpdatedBy")]
         public Input<string>? LastUpdatedBy { get; set; }
 
@@ -186,7 +212,7 @@ namespace Pulumi.Aws.LakeFormation
         private InputList<Inputs.OptInPrincipalGetArgs>? _principals;
 
         /// <summary>
-        /// Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+        /// Lake Formation principal. Supported principals are IAM users or IAM roles. See `Principal` Block for more details.
         /// </summary>
         public InputList<Inputs.OptInPrincipalGetArgs> Principals
         {
@@ -204,7 +230,7 @@ namespace Pulumi.Aws.LakeFormation
         private InputList<Inputs.OptInResourceDataGetArgs>? _resourceDatas;
 
         /// <summary>
-        /// Structure for the resource. See Resource for more details.
+        /// Structure for the resource. See `ResourceData` Block for more details.
         /// </summary>
         public InputList<Inputs.OptInResourceDataGetArgs> ResourceDatas
         {

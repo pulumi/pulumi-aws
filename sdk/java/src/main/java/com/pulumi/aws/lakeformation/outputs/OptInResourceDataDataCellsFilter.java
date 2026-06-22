@@ -12,12 +12,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OptInResourceDataDataCellsFilter {
     /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+     * @return Database in the Glue Data Catalog.
      * 
      */
     private @Nullable String databaseName;
     /**
-     * @return Name of the table.
+     * @return Name of the data cells filter.
      * 
      */
     private @Nullable String name;
@@ -34,14 +34,14 @@ public final class OptInResourceDataDataCellsFilter {
 
     private OptInResourceDataDataCellsFilter() {}
     /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+     * @return Database in the Glue Data Catalog.
      * 
      */
     public Optional<String> databaseName() {
         return Optional.ofNullable(this.databaseName);
     }
     /**
-     * @return Name of the table.
+     * @return Name of the data cells filter.
      * 
      */
     public Optional<String> name() {

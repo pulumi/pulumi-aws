@@ -2192,6 +2192,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/agentcoreEvaluator",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreEvaluator:AgentcoreEvaluator": "AgentcoreEvaluator"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/agentcoreGateway",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -11716,6 +11724,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/hub:Hub": "Hub"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/hubContentReference",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/hubContentReference:HubContentReference": "HubContentReference"
   }
  },
  {

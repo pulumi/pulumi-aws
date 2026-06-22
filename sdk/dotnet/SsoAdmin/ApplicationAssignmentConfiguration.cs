@@ -44,7 +44,11 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the SSO application.
+    /// - `ApplicationArn` (String) Amazon Resource Name (ARN) of the SSO application.
+    /// 
+    /// #### Optional
+    /// 
+    /// - `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `Id`. For example:
     /// 

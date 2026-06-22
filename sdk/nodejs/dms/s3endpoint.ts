@@ -278,6 +278,8 @@ export class S3Endpoint extends pulumi.CustomResource {
     declare public readonly includeOpForFullLoad: pulumi.Output<boolean | undefined>;
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     *
+     * @deprecated kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string>;
     /**
@@ -642,6 +644,8 @@ export interface S3EndpointState {
     includeOpForFullLoad?: pulumi.Input<boolean | undefined>;
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     *
+     * @deprecated kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -854,6 +858,8 @@ export interface S3EndpointArgs {
     includeOpForFullLoad?: pulumi.Input<boolean | undefined>;
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+     *
+     * @deprecated kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**

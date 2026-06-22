@@ -52,6 +52,12 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `tableArn` (String) ARN of the S3 Tables Table.
+//
 // Using `pulumi import`, import S3 Tables Table Replication using the `tableArn`. For example:
 //
 // ```sh

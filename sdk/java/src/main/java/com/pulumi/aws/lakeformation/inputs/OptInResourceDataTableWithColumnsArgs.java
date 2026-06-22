@@ -49,14 +49,14 @@ public final class OptInResourceDataTableWithColumnsArgs extends com.pulumi.reso
     }
 
     /**
-     * Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+     * Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required. See `columnWildcard` Block for more details.
      * 
      */
     @Import(name="columnWildcard")
     private @Nullable Output<OptInResourceDataTableWithColumnsColumnWildcardArgs> columnWildcard;
 
     /**
-     * @return Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+     * @return Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required. See `columnWildcard` Block for more details.
      * 
      */
     public Optional<Output<OptInResourceDataTableWithColumnsColumnWildcardArgs>> columnWildcard() {
@@ -64,14 +64,14 @@ public final class OptInResourceDataTableWithColumnsArgs extends com.pulumi.reso
     }
 
     /**
-     * The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+     * Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
      * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+     * @return Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
      * 
      */
     public Output<String> databaseName() {
@@ -174,7 +174,7 @@ public final class OptInResourceDataTableWithColumnsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param columnWildcard Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+         * @param columnWildcard Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required. See `columnWildcard` Block for more details.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class OptInResourceDataTableWithColumnsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param columnWildcard Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+         * @param columnWildcard Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required. See `columnWildcard` Block for more details.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class OptInResourceDataTableWithColumnsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param databaseName The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+         * @param databaseName Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class OptInResourceDataTableWithColumnsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param databaseName The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+         * @param databaseName Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
          * 
          * @return builder
          * 

@@ -56,7 +56,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			examplepartner, err := cloudwatch.GetEventSource(ctx, &cloudwatch.GetEventSourceArgs{
-//				NamePrefix: pulumi.StringRef("aws.partner/examplepartner.com"),
+//				NamePrefix: pulumi.StringRef("aws.partner/example.com"),
 //			}, nil)
 //			if err != nil {
 //				return err

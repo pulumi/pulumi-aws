@@ -170,6 +170,12 @@ class RedrivePolicy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `queue_url` (String) URL of the SQS Queue.
+
         Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
 
         ```sh
@@ -220,6 +226,12 @@ class RedrivePolicy(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `queue_url` (String) URL of the SQS Queue.
 
         Using `pulumi import`, import SQS Queue Redrive Policies using the queue URL. For example:
 

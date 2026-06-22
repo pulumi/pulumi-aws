@@ -319,6 +319,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string>;
     /**
+     * Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+     */
+    declare public readonly durability: pulumi.Output<string>;
+    /**
      * Name of the cache engine to be used for the clusters in this replication group.
      * Valid values are `redis` or `valkey`.
      * Default is `redis`.
@@ -521,6 +525,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["configurationEndpointAddress"] = state?.configurationEndpointAddress;
             resourceInputs["dataTieringEnabled"] = state?.dataTieringEnabled;
             resourceInputs["description"] = state?.description;
+            resourceInputs["durability"] = state?.durability;
             resourceInputs["engine"] = state?.engine;
             resourceInputs["engineVersion"] = state?.engineVersion;
             resourceInputs["engineVersionActual"] = state?.engineVersionActual;
@@ -572,6 +577,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["clusterMode"] = args?.clusterMode;
             resourceInputs["dataTieringEnabled"] = args?.dataTieringEnabled;
             resourceInputs["description"] = args?.description;
+            resourceInputs["durability"] = args?.durability;
             resourceInputs["engine"] = args?.engine;
             resourceInputs["engineVersion"] = args?.engineVersion;
             resourceInputs["finalSnapshotIdentifier"] = args?.finalSnapshotIdentifier;
@@ -676,6 +682,10 @@ export interface ReplicationGroupState {
      * User-created description for the replication group. Must not be empty.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+     */
+    durability?: pulumi.Input<string | undefined>;
     /**
      * Name of the cache engine to be used for the clusters in this replication group.
      * Valid values are `redis` or `valkey`.
@@ -899,6 +909,10 @@ export interface ReplicationGroupArgs {
      * User-created description for the replication group. Must not be empty.
      */
     description: pulumi.Input<string>;
+    /**
+     * Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+     */
+    durability?: pulumi.Input<string | undefined>;
     /**
      * Name of the cache engine to be used for the clusters in this replication group.
      * Valid values are `redis` or `valkey`.

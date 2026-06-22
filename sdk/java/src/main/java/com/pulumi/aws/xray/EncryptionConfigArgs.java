@@ -17,14 +17,14 @@ public final class EncryptionConfigArgs extends com.pulumi.resources.ResourceArg
     public static final EncryptionConfigArgs Empty = new EncryptionConfigArgs();
 
     /**
-     * An AWS KMS customer master key (CMK) ARN.
+     * AWS KMS customer master key (CMK) ARN.
      * 
      */
     @Import(name="keyId")
     private @Nullable Output<String> keyId;
 
     /**
-     * @return An AWS KMS customer master key (CMK) ARN.
+     * @return AWS KMS customer master key (CMK) ARN.
      * 
      */
     public Optional<Output<String>> keyId() {
@@ -47,14 +47,14 @@ public final class EncryptionConfigArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+     * Type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+     * @return Type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      * 
      */
     public Output<String> type() {
@@ -88,7 +88,7 @@ public final class EncryptionConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyId An AWS KMS customer master key (CMK) ARN.
+         * @param keyId AWS KMS customer master key (CMK) ARN.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class EncryptionConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param keyId An AWS KMS customer master key (CMK) ARN.
+         * @param keyId AWS KMS customer master key (CMK) ARN.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class EncryptionConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+         * @param type Type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class EncryptionConfigArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param type The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+         * @param type Type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
          * 
          * @return builder
          * 

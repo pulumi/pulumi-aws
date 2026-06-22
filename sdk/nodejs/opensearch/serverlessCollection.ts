@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS OpenSearch Serverless Collection.
+ * Manages an AWS OpenSearch Serverless Collection.
  *
  * > **NOTE:** An `aws.opensearch.ServerlessCollection` must have encryption configured either by an applicable encryption security policy or by setting `encryptionConfig` directly on the resource.
  *
@@ -134,7 +134,7 @@ export class ServerlessCollection extends pulumi.CustomResource {
      */
     declare public readonly encryptionConfigs: pulumi.Output<outputs.opensearch.ServerlessCollectionEncryptionConfig[]>;
     /**
-     * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+     * ARN of the Amazon Web Services KMS key used to encrypt the collection.
      */
     declare public /*out*/ readonly kmsKeyArn: pulumi.Output<string>;
     /**
@@ -148,15 +148,15 @@ export class ServerlessCollection extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
     declare public readonly standbyReplicas: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.opensearch.ServerlessCollectionTimeouts | undefined>;
@@ -164,6 +164,10 @@ export class ServerlessCollection extends pulumi.CustomResource {
      * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      */
     declare public readonly type: pulumi.Output<string>;
+    /**
+     * Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+     */
+    declare public readonly vectorOptions: pulumi.Output<outputs.opensearch.ServerlessCollectionVectorOption[]>;
 
     /**
      * Create a ServerlessCollection resource with the given unique name, arguments, and options.
@@ -192,6 +196,7 @@ export class ServerlessCollection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timeouts"] = state?.timeouts;
             resourceInputs["type"] = state?.type;
+            resourceInputs["vectorOptions"] = state?.vectorOptions;
         } else {
             const args = argsOrState as ServerlessCollectionArgs | undefined;
             resourceInputs["collectionGroupName"] = args?.collectionGroupName;
@@ -203,6 +208,7 @@ export class ServerlessCollection extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["type"] = args?.type;
+            resourceInputs["vectorOptions"] = args?.vectorOptions;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["collectionEndpoint"] = undefined /*out*/;
             resourceInputs["dashboardEndpoint"] = undefined /*out*/;
@@ -243,7 +249,7 @@ export interface ServerlessCollectionState {
      */
     encryptionConfigs?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionEncryptionConfig>[] | undefined>;
     /**
-     * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+     * ARN of the Amazon Web Services KMS key used to encrypt the collection.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -257,15 +263,15 @@ export interface ServerlessCollectionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
     standbyReplicas?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.opensearch.ServerlessCollectionTimeouts | undefined>;
@@ -273,6 +279,10 @@ export interface ServerlessCollectionState {
      * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      */
     type?: pulumi.Input<string | undefined>;
+    /**
+     * Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+     */
+    vectorOptions?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionVectorOption>[] | undefined>;
 }
 
 /**
@@ -302,11 +312,11 @@ export interface ServerlessCollectionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      */
     standbyReplicas?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.opensearch.ServerlessCollectionTimeouts | undefined>;
@@ -314,4 +324,8 @@ export interface ServerlessCollectionArgs {
      * Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
      */
     type?: pulumi.Input<string | undefined>;
+    /**
+     * Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+     */
+    vectorOptions?: pulumi.Input<pulumi.Input<inputs.opensearch.ServerlessCollectionVectorOption>[] | undefined>;
 }

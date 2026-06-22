@@ -393,6 +393,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the durability mode for the replication group. Valid values are `Default`, `Async`, `Sync`, or `Disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+        /// </summary>
+        [Output("durability")]
+        public Output<string> Durability { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the cache engine to be used for the clusters in this replication group.
         /// Valid values are `Redis` or `Valkey`.
         /// Default is `Redis`.
@@ -762,6 +768,12 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string> Description { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the durability mode for the replication group. Valid values are `Default`, `Async`, `Sync`, or `Disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+        /// </summary>
+        [Input("durability")]
+        public Input<string>? Durability { get; set; }
+
+        /// <summary>
         /// Name of the cache engine to be used for the clusters in this replication group.
         /// Valid values are `Redis` or `Valkey`.
         /// Default is `Redis`.
@@ -1123,6 +1135,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Specifies the durability mode for the replication group. Valid values are `Default`, `Async`, `Sync`, or `Disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+        /// </summary>
+        [Input("durability")]
+        public Input<string>? Durability { get; set; }
 
         /// <summary>
         /// Name of the cache engine to be used for the clusters in this replication group.

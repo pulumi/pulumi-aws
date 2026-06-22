@@ -58,6 +58,16 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `arn` (String) ARN of the Trusted Token Issuer.
+//
+// #### Optional
+//
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `id`. For example:
 //
 // ```sh

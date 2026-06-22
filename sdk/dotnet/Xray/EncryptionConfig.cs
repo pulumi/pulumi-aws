@@ -93,6 +93,13 @@ namespace Pulumi.Aws.Xray
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import XRay Encryption Config using the region name. For example:
     /// 
     /// ```sh
@@ -103,7 +110,7 @@ namespace Pulumi.Aws.Xray
     public partial class EncryptionConfig : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An AWS KMS customer master key (CMK) ARN.
+        /// AWS KMS customer master key (CMK) ARN.
         /// </summary>
         [Output("keyId")]
         public Output<string?> KeyId { get; private set; } = null!;
@@ -115,7 +122,7 @@ namespace Pulumi.Aws.Xray
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+        /// Type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -167,7 +174,7 @@ namespace Pulumi.Aws.Xray
     public sealed class EncryptionConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An AWS KMS customer master key (CMK) ARN.
+        /// AWS KMS customer master key (CMK) ARN.
         /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
@@ -179,7 +186,7 @@ namespace Pulumi.Aws.Xray
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+        /// Type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -193,7 +200,7 @@ namespace Pulumi.Aws.Xray
     public sealed class EncryptionConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An AWS KMS customer master key (CMK) ARN.
+        /// AWS KMS customer master key (CMK) ARN.
         /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
@@ -205,7 +212,7 @@ namespace Pulumi.Aws.Xray
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+        /// Type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

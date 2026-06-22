@@ -76,6 +76,12 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `arn` (String) ARN of the activity.
+//
 // Using `pulumi import`, import activities using the `arn`. For example:
 //
 // ```sh

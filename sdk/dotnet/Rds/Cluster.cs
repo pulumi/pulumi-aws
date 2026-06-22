@@ -726,7 +726,7 @@ namespace Pulumi.Aws.Rds
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `StorageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `Iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `Io1`, `Io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `Io1` (Multi-AZ DB Clusters).
+        /// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `StorageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `Iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `Io1`, `Io2`, `Gp3` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `Io1` (Multi-AZ DB Clusters).
         /// </summary>
         [Output("storageType")]
         public Output<string> StorageType { get; private set; } = null!;
@@ -1234,7 +1234,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `StorageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `Iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `Io1`, `Io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `Io1` (Multi-AZ DB Clusters).
+        /// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `StorageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `Iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `Io1`, `Io2`, `Gp3` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `Io1` (Multi-AZ DB Clusters).
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }
@@ -1754,7 +1754,7 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? StorageEncrypted { get; set; }
 
         /// <summary>
-        /// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `StorageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `Iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `Io1`, `Io2` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `Io1` (Multi-AZ DB Clusters).
+        /// (Forces new for Multi-AZ DB clusters) Specifies the storage type to be associated with the DB cluster. For Aurora DB clusters, `StorageType` modifications can be done in-place. For Multi-AZ DB Clusters, the `Iops` argument must also be set. Valid values are: `""`, `aurora-iopt1` (Aurora DB Clusters); `Io1`, `Io2`, `Gp3` (Multi-AZ DB Clusters). Default: `""` (Aurora DB Clusters); `Io1` (Multi-AZ DB Clusters).
         /// </summary>
         [Input("storageType")]
         public Input<string>? StorageType { get; set; }

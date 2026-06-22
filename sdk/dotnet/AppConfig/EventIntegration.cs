@@ -29,7 +29,7 @@ namespace Pulumi.Aws.AppConfig
     ///         EventbridgeBus = "default",
     ///         EventFilter = new Aws.AppConfig.Inputs.EventIntegrationEventFilterArgs
     ///         {
-    ///             Source = "aws.partner/examplepartner.com",
+    ///             Source = "aws.partner/example.com",
     ///         },
     ///         Tags = 
     ///         {

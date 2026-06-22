@@ -355,6 +355,39 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
             })
         ```
 
+        ### Metrics Centralization with Backup
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        current_get_organization = aws.organizations.get_organization()
+        metrics = aws.observabilityadmin.CentralizationRuleForOrganization("metrics",
+            rule_name="metrics-centralization-rule",
+            rule={
+                "destination": {
+                    "region": "eu-west-1",
+                    "account": current.account_id,
+                    "destination_metrics_configuration": {
+                        "backup_configuration": {
+                            "region": "us-west-1",
+                        },
+                    },
+                },
+                "source": {
+                    "regions": [
+                        "ap-southeast-1",
+                        "us-east-1",
+                    ],
+                    "scope": f"OrganizationId = '{current_get_organization.id}'",
+                    "source_metrics_configuration": {
+                        "metrics_selection_criteria": "*",
+                    },
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `rule_name`. For example:
@@ -493,6 +526,39 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
             tags={
                 "Name": "filtered-centralization-rule",
                 "Filter": "lambda-logs",
+            })
+        ```
+
+        ### Metrics Centralization with Backup
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_caller_identity()
+        current_get_organization = aws.organizations.get_organization()
+        metrics = aws.observabilityadmin.CentralizationRuleForOrganization("metrics",
+            rule_name="metrics-centralization-rule",
+            rule={
+                "destination": {
+                    "region": "eu-west-1",
+                    "account": current.account_id,
+                    "destination_metrics_configuration": {
+                        "backup_configuration": {
+                            "region": "us-west-1",
+                        },
+                    },
+                },
+                "source": {
+                    "regions": [
+                        "ap-southeast-1",
+                        "us-east-1",
+                    ],
+                    "scope": f"OrganizationId = '{current_get_organization.id}'",
+                    "source_metrics_configuration": {
+                        "metrics_selection_criteria": "*",
+                    },
+                },
             })
         ```
 

@@ -48,6 +48,12 @@ namespace Pulumi.Aws.S3Tables
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `TableBucketArn` (String) ARN of the S3 Tables Table Bucket.
+    /// 
     /// Using `pulumi import`, import S3 Tables Table Bucket Policy using the `TableBucketArn`. For example:
     /// 
     /// ```sh

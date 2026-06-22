@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FlowDefinition{}
 	case "aws:sagemaker/hub:Hub":
 		r = &Hub{}
+	case "aws:sagemaker/hubContentReference:HubContentReference":
+		r = &HubContentReference{}
 	case "aws:sagemaker/humanTaskUI:HumanTaskUI":
 		r = &HumanTaskUI{}
 	case "aws:sagemaker/hyperParameterTuningJob:HyperParameterTuningJob":
@@ -171,6 +173,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/hub",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/hubContentReference",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

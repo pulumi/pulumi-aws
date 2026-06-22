@@ -16,9 +16,17 @@ public final class OptInResourceDataTableWithColumnsColumnWildcardArgs extends c
 
     public static final OptInResourceDataTableWithColumnsColumnWildcardArgs Empty = new OptInResourceDataTableWithColumnsColumnWildcardArgs();
 
+    /**
+     * Excludes column names. Any column with this name will be excluded.
+     * 
+     */
     @Import(name="excludedColumnNames")
     private @Nullable Output<List<String>> excludedColumnNames;
 
+    /**
+     * @return Excludes column names. Any column with this name will be excluded.
+     * 
+     */
     public Optional<Output<List<String>>> excludedColumnNames() {
         return Optional.ofNullable(this.excludedColumnNames);
     }
@@ -47,15 +55,33 @@ public final class OptInResourceDataTableWithColumnsColumnWildcardArgs extends c
             $ = new OptInResourceDataTableWithColumnsColumnWildcardArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param excludedColumnNames Excludes column names. Any column with this name will be excluded.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedColumnNames(@Nullable Output<List<String>> excludedColumnNames) {
             $.excludedColumnNames = excludedColumnNames;
             return this;
         }
 
+        /**
+         * @param excludedColumnNames Excludes column names. Any column with this name will be excluded.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedColumnNames(List<String> excludedColumnNames) {
             return excludedColumnNames(Output.of(excludedColumnNames));
         }
 
+        /**
+         * @param excludedColumnNames Excludes column names. Any column with this name will be excluded.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedColumnNames(String... excludedColumnNames) {
             return excludedColumnNames(List.of(excludedColumnNames));
         }

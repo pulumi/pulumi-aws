@@ -66,6 +66,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) VPC Encryption Control ID.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import VPC Encryption Control using the `id`. For example:
  * 
  * ```sh

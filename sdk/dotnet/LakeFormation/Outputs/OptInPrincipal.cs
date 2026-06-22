@@ -13,6 +13,9 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class OptInPrincipal
     {
+        /// <summary>
+        /// Identifier for the Lake Formation principal.
+        /// </summary>
         public readonly string DataLakePrincipalIdentifier;
 
         [OutputConstructor]

@@ -33,7 +33,7 @@ import (
 //				Description:    pulumi.String("Example Description"),
 //				EventbridgeBus: pulumi.String("default"),
 //				EventFilter: &appconfig.EventIntegrationEventFilterArgs{
-//					Source: pulumi.String("aws.partner/examplepartner.com"),
+//					Source: pulumi.String("aws.partner/example.com"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Event Integration"),

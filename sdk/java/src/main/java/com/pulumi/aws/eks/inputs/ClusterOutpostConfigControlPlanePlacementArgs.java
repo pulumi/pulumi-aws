@@ -5,9 +5,10 @@ package com.pulumi.aws.eks.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ClusterOutpostConfigControlPlanePlacementArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,24 +16,40 @@ public final class ClusterOutpostConfigControlPlanePlacementArgs extends com.pul
     public static final ClusterOutpostConfigControlPlanePlacementArgs Empty = new ClusterOutpostConfigControlPlanePlacementArgs();
 
     /**
-     * The name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
+     * Name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
      * 
      */
-    @Import(name="groupName", required=true)
-    private Output<String> groupName;
+    @Import(name="groupName")
+    private @Nullable Output<String> groupName;
 
     /**
-     * @return The name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
+     * @return Name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
      * 
      */
-    public Output<String> groupName() {
-        return this.groupName;
+    public Optional<Output<String>> groupName() {
+        return Optional.ofNullable(this.groupName);
+    }
+
+    /**
+     * Placement group spread level for control plane instances. Valid values: `host`, `rack`.
+     * 
+     */
+    @Import(name="spreadLevel")
+    private @Nullable Output<String> spreadLevel;
+
+    /**
+     * @return Placement group spread level for control plane instances. Valid values: `host`, `rack`.
+     * 
+     */
+    public Optional<Output<String>> spreadLevel() {
+        return Optional.ofNullable(this.spreadLevel);
     }
 
     private ClusterOutpostConfigControlPlanePlacementArgs() {}
 
     private ClusterOutpostConfigControlPlanePlacementArgs(ClusterOutpostConfigControlPlanePlacementArgs $) {
         this.groupName = $.groupName;
+        this.spreadLevel = $.spreadLevel;
     }
 
     public static Builder builder() {
@@ -54,18 +71,18 @@ public final class ClusterOutpostConfigControlPlanePlacementArgs extends com.pul
         }
 
         /**
-         * @param groupName The name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
+         * @param groupName Name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
          * 
          * @return builder
          * 
          */
-        public Builder groupName(Output<String> groupName) {
+        public Builder groupName(@Nullable Output<String> groupName) {
             $.groupName = groupName;
             return this;
         }
 
         /**
-         * @param groupName The name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
+         * @param groupName Name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
          * 
          * @return builder
          * 
@@ -74,10 +91,28 @@ public final class ClusterOutpostConfigControlPlanePlacementArgs extends com.pul
             return groupName(Output.of(groupName));
         }
 
+        /**
+         * @param spreadLevel Placement group spread level for control plane instances. Valid values: `host`, `rack`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spreadLevel(@Nullable Output<String> spreadLevel) {
+            $.spreadLevel = spreadLevel;
+            return this;
+        }
+
+        /**
+         * @param spreadLevel Placement group spread level for control plane instances. Valid values: `host`, `rack`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spreadLevel(String spreadLevel) {
+            return spreadLevel(Output.of(spreadLevel));
+        }
+
         public ClusterOutpostConfigControlPlanePlacementArgs build() {
-            if ($.groupName == null) {
-                throw new MissingRequiredPropertyException("ClusterOutpostConfigControlPlanePlacementArgs", "groupName");
-            }
             return $;
         }
     }

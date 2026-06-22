@@ -16,14 +16,14 @@ public final class OptInResourceDataDataCellsFilterArgs extends com.pulumi.resou
     public static final OptInResourceDataDataCellsFilterArgs Empty = new OptInResourceDataDataCellsFilterArgs();
 
     /**
-     * The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+     * Database in the Glue Data Catalog.
      * 
      */
     @Import(name="databaseName")
     private @Nullable Output<String> databaseName;
 
     /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+     * @return Database in the Glue Data Catalog.
      * 
      */
     public Optional<Output<String>> databaseName() {
@@ -31,14 +31,14 @@ public final class OptInResourceDataDataCellsFilterArgs extends com.pulumi.resou
     }
 
     /**
-     * Name of the table.
+     * Name of the data cells filter.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the table.
+     * @return Name of the data cells filter.
      * 
      */
     public Optional<Output<String>> name() {
@@ -103,7 +103,7 @@ public final class OptInResourceDataDataCellsFilterArgs extends com.pulumi.resou
         }
 
         /**
-         * @param databaseName The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+         * @param databaseName Database in the Glue Data Catalog.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class OptInResourceDataDataCellsFilterArgs extends com.pulumi.resou
         }
 
         /**
-         * @param databaseName The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+         * @param databaseName Database in the Glue Data Catalog.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class OptInResourceDataDataCellsFilterArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name Name of the table.
+         * @param name Name of the data cells filter.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class OptInResourceDataDataCellsFilterArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name Name of the table.
+         * @param name Name of the data cells filter.
          * 
          * @return builder
          * 

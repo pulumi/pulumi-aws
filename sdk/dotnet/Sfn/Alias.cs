@@ -60,6 +60,12 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Arn` (String) ARN of the alias.
+    /// 
     /// Using `pulumi import`, import SFN (Step Functions) Alias using the `Arn`. For example:
     /// 
     /// ```sh

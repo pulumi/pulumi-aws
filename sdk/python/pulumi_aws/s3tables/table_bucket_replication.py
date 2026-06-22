@@ -208,6 +208,12 @@ class TableBucketReplication(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `table_bucket_arn` (String) ARN of the S3 Tables Table Bucket.
+
         Using `pulumi import`, import S3 Tables Table Bucket Replication using the `table_bucket_arn`. For example:
 
         ```sh
@@ -250,6 +256,12 @@ class TableBucketReplication(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `table_bucket_arn` (String) ARN of the S3 Tables Table Bucket.
 
         Using `pulumi import`, import S3 Tables Table Bucket Replication using the `table_bucket_arn`. For example:
 

@@ -182,6 +182,12 @@ class AccountCustomizations(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+
         Using `pulumi import`, import UXC Account Customizations using the AWS account ID. For example:
 
         ```sh
@@ -242,6 +248,12 @@ class AccountCustomizations(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
 
         Using `pulumi import`, import UXC Account Customizations using the AWS account ID. For example:
 

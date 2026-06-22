@@ -64,7 +64,11 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
+ * - `applicationArn` (String) Amazon Resource Name (ARN) of the SSO application.
+ * 
+ * #### Optional
+ * 
+ * - `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
  * 

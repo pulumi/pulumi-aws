@@ -48,6 +48,16 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Arn` (String) ARN of the Trusted Token Issuer.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `Id`. For example:
     /// 
     /// ```sh

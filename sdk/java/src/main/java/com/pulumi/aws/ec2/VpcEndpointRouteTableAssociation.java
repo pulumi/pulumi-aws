@@ -52,6 +52,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `routeTableId` (String) Route Table ID.
+ * * `vpcEndpointId` (String) VPC Endpoint ID.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpcEndpointId` together with `routeTableId`. For example:
  * 
  * ```sh

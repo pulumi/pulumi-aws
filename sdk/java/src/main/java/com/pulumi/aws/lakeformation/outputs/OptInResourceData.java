@@ -21,22 +21,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OptInResourceData {
     /**
-     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See `catalog` Block for more details.
      * 
      */
     private @Nullable List<OptInResourceDataCatalog> catalogs;
     /**
-     * @return Data cell filter. See Data Cells Filter for more details.
+     * @return Data cell filter. See `dataCellsFilter` Block for more details.
      * 
      */
     private @Nullable List<OptInResourceDataDataCellsFilter> dataCellsFilters;
     /**
-     * @return Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+     * @return Location of an Amazon S3 path where permissions are granted or revoked. See `dataLocation` Block for more details.
      * 
      */
     private @Nullable List<OptInResourceDataDataLocation> dataLocations;
     /**
-     * @return Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+     * @return Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See `database` Block for more details.
      * 
      */
     private @Nullable OptInResourceDataDatabase database;
@@ -46,50 +46,50 @@ public final class OptInResourceData {
      */
     private @Nullable OptInResourceDataLfTag lfTag;
     /**
-     * @return Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+     * @return Logical expression composed of one or more LF-Tag key:value pairs. See `lfTagExpression` Block for more details.
      * 
      */
     private @Nullable List<OptInResourceDataLfTagExpression> lfTagExpressions;
     /**
-     * @return List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See LF-Tag Policy for more details.
+     * @return List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See `lfTagPolicy` Block for more details.
      * 
      */
     private @Nullable List<OptInResourceDataLfTagPolicy> lfTagPolicies;
     /**
-     * @return Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+     * @return Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See `table` Block for more details.
      * 
      */
     private @Nullable OptInResourceDataTable table;
     /**
-     * @return Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+     * @return Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See `tableWithColumns` Block for more details.
      * 
      */
     private @Nullable OptInResourceDataTableWithColumns tableWithColumns;
 
     private OptInResourceData() {}
     /**
-     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See `catalog` Block for more details.
      * 
      */
     public List<OptInResourceDataCatalog> catalogs() {
         return this.catalogs == null ? List.of() : this.catalogs;
     }
     /**
-     * @return Data cell filter. See Data Cells Filter for more details.
+     * @return Data cell filter. See `dataCellsFilter` Block for more details.
      * 
      */
     public List<OptInResourceDataDataCellsFilter> dataCellsFilters() {
         return this.dataCellsFilters == null ? List.of() : this.dataCellsFilters;
     }
     /**
-     * @return Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+     * @return Location of an Amazon S3 path where permissions are granted or revoked. See `dataLocation` Block for more details.
      * 
      */
     public List<OptInResourceDataDataLocation> dataLocations() {
         return this.dataLocations == null ? List.of() : this.dataLocations;
     }
     /**
-     * @return Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+     * @return Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See `database` Block for more details.
      * 
      */
     public Optional<OptInResourceDataDatabase> database() {
@@ -103,28 +103,28 @@ public final class OptInResourceData {
         return Optional.ofNullable(this.lfTag);
     }
     /**
-     * @return Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+     * @return Logical expression composed of one or more LF-Tag key:value pairs. See `lfTagExpression` Block for more details.
      * 
      */
     public List<OptInResourceDataLfTagExpression> lfTagExpressions() {
         return this.lfTagExpressions == null ? List.of() : this.lfTagExpressions;
     }
     /**
-     * @return List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See LF-Tag Policy for more details.
+     * @return List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See `lfTagPolicy` Block for more details.
      * 
      */
     public List<OptInResourceDataLfTagPolicy> lfTagPolicies() {
         return this.lfTagPolicies == null ? List.of() : this.lfTagPolicies;
     }
     /**
-     * @return Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+     * @return Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See `table` Block for more details.
      * 
      */
     public Optional<OptInResourceDataTable> table() {
         return Optional.ofNullable(this.table);
     }
     /**
-     * @return Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+     * @return Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See `tableWithColumns` Block for more details.
      * 
      */
     public Optional<OptInResourceDataTableWithColumns> tableWithColumns() {

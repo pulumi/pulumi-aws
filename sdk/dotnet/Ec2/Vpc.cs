@@ -110,6 +110,17 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) VPC ID.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import VPCs using the VPC `Id`. For example:
     /// 
     /// ```sh

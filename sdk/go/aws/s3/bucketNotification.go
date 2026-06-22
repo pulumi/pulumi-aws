@@ -528,6 +528,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `bucket` (String) Name of the bucket.
+//
+// #### Optional
+//
+// * `accountId` (String) Account ID where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
 //
 // ```sh

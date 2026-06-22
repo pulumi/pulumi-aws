@@ -33,6 +33,19 @@ namespace Pulumi.Aws.Eks.Inputs
         [Input("controlPlanePlacement")]
         public Input<Inputs.ClusterOutpostConfigControlPlanePlacementArgs>? ControlPlanePlacement { get; set; }
 
+        /// <summary>
+        /// Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+        /// </summary>
+        [Input("etcdInstanceType")]
+        public Input<string>? EtcdInstanceType { get; set; }
+
+        /// <summary>
+        /// Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+        /// The `EtcdPlacement` configuration block supports the following arguments:
+        /// </summary>
+        [Input("etcdPlacement")]
+        public Input<Inputs.ClusterOutpostConfigEtcdPlacementArgs>? EtcdPlacement { get; set; }
+
         [Input("outpostArns", required: true)]
         private InputList<string>? _outpostArns;
 

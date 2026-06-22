@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .phoneNumber("+64211111111")
  *             .postalCode("98101")
  *             .stateOrRegion("WA")
- *             .websiteUrl("https://www.examplecorp.com")
+ *             .websiteUrl("https://www.example.com")
  *             .build());
  * 
  *     }

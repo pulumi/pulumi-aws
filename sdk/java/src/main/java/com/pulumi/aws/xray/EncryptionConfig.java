@@ -118,6 +118,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import XRay Encryption Config using the region name. For example:
  * 
  * ```sh
@@ -128,14 +135,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:xray/encryptionConfig:EncryptionConfig")
 public class EncryptionConfig extends com.pulumi.resources.CustomResource {
     /**
-     * An AWS KMS customer master key (CMK) ARN.
+     * AWS KMS customer master key (CMK) ARN.
      * 
      */
     @Export(name="keyId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> keyId;
 
     /**
-     * @return An AWS KMS customer master key (CMK) ARN.
+     * @return AWS KMS customer master key (CMK) ARN.
      * 
      */
     public Output<Optional<String>> keyId() {
@@ -156,14 +163,14 @@ public class EncryptionConfig extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+     * Type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+     * @return Type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      * 
      */
     public Output<String> type() {

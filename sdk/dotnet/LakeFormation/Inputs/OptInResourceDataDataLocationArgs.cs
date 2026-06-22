@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
     public sealed class OptInResourceDataDataLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        /// Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
         /// </summary>
         [Input("catalogId")]
         public Input<string>? CatalogId { get; set; }

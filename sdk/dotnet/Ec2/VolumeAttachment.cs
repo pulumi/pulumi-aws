@@ -54,6 +54,19 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `DeviceName` (String) Device name exposed to the instance.
+    /// * `InstanceId` (String) ID of the Instance.
+    /// * `VolumeId` (String) ID of the Volume.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
     /// 
     /// ```sh

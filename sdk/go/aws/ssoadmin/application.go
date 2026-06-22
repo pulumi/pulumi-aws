@@ -99,6 +99,10 @@ import (
 //
 // - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
 //
+// #### Optional
+//
+// - `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import SSO Admin Application using the `id`. For example:
 //
 // ```sh

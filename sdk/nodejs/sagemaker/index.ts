@@ -75,6 +75,11 @@ export type Hub = import("./hub").Hub;
 export const Hub: typeof import("./hub").Hub = null as any;
 utilities.lazyLoad(exports, ["Hub"], () => require("./hub"));
 
+export { HubContentReferenceArgs, HubContentReferenceState } from "./hubContentReference";
+export type HubContentReference = import("./hubContentReference").HubContentReference;
+export const HubContentReference: typeof import("./hubContentReference").HubContentReference = null as any;
+utilities.lazyLoad(exports, ["HubContentReference"], () => require("./hubContentReference"));
+
 export { HumanTaskUIArgs, HumanTaskUIState } from "./humanTaskUI";
 export type HumanTaskUI = import("./humanTaskUI").HumanTaskUI;
 export const HumanTaskUI: typeof import("./humanTaskUI").HumanTaskUI = null as any;
@@ -226,6 +231,8 @@ const _module = {
                 return new FlowDefinition(name, <any>undefined, { urn })
             case "aws:sagemaker/hub:Hub":
                 return new Hub(name, <any>undefined, { urn })
+            case "aws:sagemaker/hubContentReference:HubContentReference":
+                return new HubContentReference(name, <any>undefined, { urn })
             case "aws:sagemaker/humanTaskUI:HumanTaskUI":
                 return new HumanTaskUI(name, <any>undefined, { urn })
             case "aws:sagemaker/hyperParameterTuningJob:HyperParameterTuningJob":
@@ -292,6 +299,7 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/endpointConfiguration", 
 pulumi.runtime.registerResourceModule("aws", "sagemaker/featureGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/flowDefinition", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/hub", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/hubContentReference", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/humanTaskUI", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/hyperParameterTuningJob", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)

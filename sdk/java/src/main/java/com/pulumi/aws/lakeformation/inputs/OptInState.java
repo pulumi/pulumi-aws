@@ -20,14 +20,14 @@ public final class OptInState extends com.pulumi.resources.ResourceArgs {
     public static final OptInState Empty = new OptInState();
 
     /**
-     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
      * 
      */
     @Import(name="conditions")
     private @Nullable Output<List<OptInConditionArgs>> conditions;
 
     /**
-     * @return Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+     * @return Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
      * 
      */
     public Optional<Output<List<OptInConditionArgs>>> conditions() {
@@ -49,22 +49,30 @@ public final class OptInState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.lastModified);
     }
 
+    /**
+     * User who updated the record.
+     * 
+     */
     @Import(name="lastUpdatedBy")
     private @Nullable Output<String> lastUpdatedBy;
 
+    /**
+     * @return User who updated the record.
+     * 
+     */
     public Optional<Output<String>> lastUpdatedBy() {
         return Optional.ofNullable(this.lastUpdatedBy);
     }
 
     /**
-     * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+     * Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
      * 
      */
     @Import(name="principals")
     private @Nullable Output<List<OptInPrincipalArgs>> principals;
 
     /**
-     * @return Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+     * @return Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
      * 
      */
     public Optional<Output<List<OptInPrincipalArgs>>> principals() {
@@ -87,14 +95,14 @@ public final class OptInState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Structure for the resource. See Resource for more details.
+     * Structure for the resource. See `resourceData` Block for more details.
      * 
      */
     @Import(name="resourceDatas")
     private @Nullable Output<List<OptInResourceDataArgs>> resourceDatas;
 
     /**
-     * @return Structure for the resource. See Resource for more details.
+     * @return Structure for the resource. See `resourceData` Block for more details.
      * 
      */
     public Optional<Output<List<OptInResourceDataArgs>>> resourceDatas() {
@@ -131,7 +139,7 @@ public final class OptInState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+         * @param conditions Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
          * 
          * @return builder
          * 
@@ -142,7 +150,7 @@ public final class OptInState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+         * @param conditions Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
          * 
          * @return builder
          * 
@@ -152,7 +160,7 @@ public final class OptInState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+         * @param conditions Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
          * 
          * @return builder
          * 
@@ -182,17 +190,29 @@ public final class OptInState extends com.pulumi.resources.ResourceArgs {
             return lastModified(Output.of(lastModified));
         }
 
+        /**
+         * @param lastUpdatedBy User who updated the record.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastUpdatedBy(@Nullable Output<String> lastUpdatedBy) {
             $.lastUpdatedBy = lastUpdatedBy;
             return this;
         }
 
+        /**
+         * @param lastUpdatedBy User who updated the record.
+         * 
+         * @return builder
+         * 
+         */
         public Builder lastUpdatedBy(String lastUpdatedBy) {
             return lastUpdatedBy(Output.of(lastUpdatedBy));
         }
 
         /**
-         * @param principals Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+         * @param principals Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
          * 
          * @return builder
          * 
@@ -203,7 +223,7 @@ public final class OptInState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principals Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+         * @param principals Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
          * 
          * @return builder
          * 
@@ -213,7 +233,7 @@ public final class OptInState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principals Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+         * @param principals Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
          * 
          * @return builder
          * 
@@ -244,7 +264,7 @@ public final class OptInState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceDatas Structure for the resource. See Resource for more details.
+         * @param resourceDatas Structure for the resource. See `resourceData` Block for more details.
          * 
          * @return builder
          * 
@@ -255,7 +275,7 @@ public final class OptInState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceDatas Structure for the resource. See Resource for more details.
+         * @param resourceDatas Structure for the resource. See `resourceData` Block for more details.
          * 
          * @return builder
          * 
@@ -265,7 +285,7 @@ public final class OptInState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceDatas Structure for the resource. See Resource for more details.
+         * @param resourceDatas Structure for the resource. See `resourceData` Block for more details.
          * 
          * @return builder
          * 

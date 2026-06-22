@@ -18,7 +18,7 @@ public final class OptInResourceDataDatabase {
      */
     private @Nullable String catalogId;
     /**
-     * @return Name of the table.
+     * @return Name of the database resource. Unique to the Data Catalog.
      * 
      */
     private String name;
@@ -32,7 +32,7 @@ public final class OptInResourceDataDatabase {
         return Optional.ofNullable(this.catalogId);
     }
     /**
-     * @return Name of the table.
+     * @return Name of the database resource. Unique to the Data Catalog.
      * 
      */
     public String name() {

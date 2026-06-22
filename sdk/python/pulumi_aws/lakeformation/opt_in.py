@@ -21,22 +21,21 @@ __all__ = ['OptInArgs', 'OptIn']
 @pulumi.input_type
 class OptInArgs:
     def __init__(__self__, *,
+                 principals: pulumi.Input[Sequence[pulumi.Input['OptInPrincipalArgs']]],
                  conditions: pulumi.Input[Optional[Sequence[pulumi.Input['OptInConditionArgs']]]] = None,
-                 principals: pulumi.Input[Optional[Sequence[pulumi.Input['OptInPrincipalArgs']]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_datas: pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataArgs']]]] = None):
         """
         The set of arguments for constructing a OptIn resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input['OptInConditionArgs']]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
-        :param pulumi.Input[Sequence[pulumi.Input['OptInPrincipalArgs']]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['OptInPrincipalArgs']]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['OptInConditionArgs']]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['OptInResourceDataArgs']]] resource_datas: Structure for the resource. See Resource for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['OptInResourceDataArgs']]] resource_datas: Structure for the resource. See `resource_data` Block for more details.
         """
+        pulumi.set(__self__, "principals", principals)
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
-        if principals is not None:
-            pulumi.set(__self__, "principals", principals)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if resource_datas is not None:
@@ -44,27 +43,27 @@ class OptInArgs:
 
     @_builtins.property
     @pulumi.getter
+    def principals(self) -> pulumi.Input[Sequence[pulumi.Input['OptInPrincipalArgs']]]:
+        """
+        Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
+        """
+        return pulumi.get(self, "principals")
+
+    @principals.setter
+    def principals(self, value: pulumi.Input[Sequence[pulumi.Input['OptInPrincipalArgs']]]):
+        pulumi.set(self, "principals", value)
+
+    @_builtins.property
+    @pulumi.getter
     def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptInConditionArgs']]]]:
         """
-        Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+        Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
     def conditions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OptInConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptInPrincipalArgs']]]]:
-        """
-        Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
-        """
-        return pulumi.get(self, "principals")
-
-    @principals.setter
-    def principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OptInPrincipalArgs']]]]):
-        pulumi.set(self, "principals", value)
 
     @_builtins.property
     @pulumi.getter
@@ -82,7 +81,7 @@ class OptInArgs:
     @pulumi.getter(name="resourceDatas")
     def resource_datas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataArgs']]]]:
         """
-        Structure for the resource. See Resource for more details.
+        Structure for the resource. See `resource_data` Block for more details.
         """
         return pulumi.get(self, "resource_datas")
 
@@ -103,11 +102,12 @@ class _OptInState:
         """
         Input properties used for looking up and filtering OptIn resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input['OptInConditionArgs']]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+        :param pulumi.Input[Sequence[pulumi.Input['OptInConditionArgs']]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
         :param pulumi.Input[_builtins.str] last_modified: Last modified date and time of the record.
-        :param pulumi.Input[Sequence[pulumi.Input['OptInPrincipalArgs']]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+        :param pulumi.Input[_builtins.str] last_updated_by: User who updated the record.
+        :param pulumi.Input[Sequence[pulumi.Input['OptInPrincipalArgs']]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['OptInResourceDataArgs']]] resource_datas: Structure for the resource. See Resource for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['OptInResourceDataArgs']]] resource_datas: Structure for the resource. See `resource_data` Block for more details.
         """
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -126,7 +126,7 @@ class _OptInState:
     @pulumi.getter
     def conditions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptInConditionArgs']]]]:
         """
-        Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+        Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
         """
         return pulumi.get(self, "conditions")
 
@@ -149,6 +149,9 @@ class _OptInState:
     @_builtins.property
     @pulumi.getter(name="lastUpdatedBy")
     def last_updated_by(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        User who updated the record.
+        """
         return pulumi.get(self, "last_updated_by")
 
     @last_updated_by.setter
@@ -159,7 +162,7 @@ class _OptInState:
     @pulumi.getter
     def principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptInPrincipalArgs']]]]:
         """
-        Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+        Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
         """
         return pulumi.get(self, "principals")
 
@@ -183,7 +186,7 @@ class _OptInState:
     @pulumi.getter(name="resourceDatas")
     def resource_datas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptInResourceDataArgs']]]]:
         """
-        Structure for the resource. See Resource for more details.
+        Structure for the resource. See `resource_data` Block for more details.
         """
         return pulumi.get(self, "resource_datas")
 
@@ -214,22 +217,31 @@ class OptIn(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lakeformation.OptIn("example")
+        example = aws.lakeformation.OptIn("example",
+            principals=[{
+                "data_lake_principal_identifier": example_aws_iam_role["arn"],
+            }],
+            resource_datas=[{
+                "database": {
+                    "name": example_aws_glue_catalog_database["name"],
+                    "catalog_id": current["accountId"],
+                },
+            }])
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptInConditionArgs', 'OptInConditionArgsDict']]]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptInPrincipalArgs', 'OptInPrincipalArgsDict']]]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptInConditionArgs', 'OptInConditionArgsDict']]]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptInPrincipalArgs', 'OptInPrincipalArgsDict']]]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptInResourceDataArgs', 'OptInResourceDataArgsDict']]]] resource_datas: Structure for the resource. See Resource for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptInResourceDataArgs', 'OptInResourceDataArgsDict']]]] resource_datas: Structure for the resource. See `resource_data` Block for more details.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[OptInArgs] = None,
+                 args: OptInArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Lake Formation Opt In.
@@ -242,7 +254,16 @@ class OptIn(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.lakeformation.OptIn("example")
+        example = aws.lakeformation.OptIn("example",
+            principals=[{
+                "data_lake_principal_identifier": example_aws_iam_role["arn"],
+            }],
+            resource_datas=[{
+                "database": {
+                    "name": example_aws_glue_catalog_database["name"],
+                    "catalog_id": current["accountId"],
+                },
+            }])
         ```
 
 
@@ -275,6 +296,8 @@ class OptIn(pulumi.CustomResource):
             __props__ = OptInArgs.__new__(OptInArgs)
 
             __props__.__dict__["conditions"] = conditions
+            if principals is None and not opts.urn:
+                raise TypeError("Missing required property 'principals'")
             __props__.__dict__["principals"] = principals
             __props__.__dict__["region"] = region
             __props__.__dict__["resource_datas"] = resource_datas
@@ -303,11 +326,12 @@ class OptIn(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptInConditionArgs', 'OptInConditionArgsDict']]]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptInConditionArgs', 'OptInConditionArgsDict']]]] conditions: Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
         :param pulumi.Input[_builtins.str] last_modified: Last modified date and time of the record.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptInPrincipalArgs', 'OptInPrincipalArgsDict']]]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+        :param pulumi.Input[_builtins.str] last_updated_by: User who updated the record.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptInPrincipalArgs', 'OptInPrincipalArgsDict']]]] principals: Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OptInResourceDataArgs', 'OptInResourceDataArgsDict']]]] resource_datas: Structure for the resource. See Resource for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OptInResourceDataArgs', 'OptInResourceDataArgsDict']]]] resource_datas: Structure for the resource. See `resource_data` Block for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -325,7 +349,7 @@ class OptIn(pulumi.CustomResource):
     @pulumi.getter
     def conditions(self) -> pulumi.Output[Optional[Sequence['outputs.OptInCondition']]]:
         """
-        Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+        Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
         """
         return pulumi.get(self, "conditions")
 
@@ -340,13 +364,16 @@ class OptIn(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="lastUpdatedBy")
     def last_updated_by(self) -> pulumi.Output[_builtins.str]:
+        """
+        User who updated the record.
+        """
         return pulumi.get(self, "last_updated_by")
 
     @_builtins.property
     @pulumi.getter
-    def principals(self) -> pulumi.Output[Optional[Sequence['outputs.OptInPrincipal']]]:
+    def principals(self) -> pulumi.Output[Sequence['outputs.OptInPrincipal']]:
         """
-        Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+        Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
         """
         return pulumi.get(self, "principals")
 
@@ -362,7 +389,7 @@ class OptIn(pulumi.CustomResource):
     @pulumi.getter(name="resourceDatas")
     def resource_datas(self) -> pulumi.Output[Optional[Sequence['outputs.OptInResourceData']]]:
         """
-        Structure for the resource. See Resource for more details.
+        Structure for the resource. See `resource_data` Block for more details.
         """
         return pulumi.get(self, "resource_datas")
 

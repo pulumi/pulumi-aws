@@ -18,7 +18,7 @@ public final class OptInResourceDataLfTagExpression {
      */
     private @Nullable String catalogId;
     /**
-     * @return Name of the table.
+     * @return Name of the LF-Tag expression to grant permissions on.
      * 
      */
     private String name;
@@ -32,7 +32,7 @@ public final class OptInResourceDataLfTagExpression {
         return Optional.ofNullable(this.catalogId);
     }
     /**
-     * @return Name of the table.
+     * @return Name of the LF-Tag expression to grant permissions on.
      * 
      */
     public String name() {

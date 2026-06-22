@@ -68,6 +68,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `tableBucketArn` (String) ARN of the S3 Tables Table Bucket.
+ * 
  * Using `pulumi import`, import S3 Tables Table Bucket Policy using the `tableBucketArn`. For example:
  * 
  * ```sh

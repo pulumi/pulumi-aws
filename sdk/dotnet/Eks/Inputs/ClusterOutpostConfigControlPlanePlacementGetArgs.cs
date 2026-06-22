@@ -13,10 +13,16 @@ namespace Pulumi.Aws.Eks.Inputs
     public sealed class ClusterOutpostConfigControlPlanePlacementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+        /// Name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
         /// </summary>
-        [Input("groupName", required: true)]
-        public Input<string> GroupName { get; set; } = null!;
+        [Input("groupName")]
+        public Input<string>? GroupName { get; set; }
+
+        /// <summary>
+        /// Placement group spread level for control plane instances. Valid values: `Host`, `Rack`.
+        /// </summary>
+        [Input("spreadLevel")]
+        public Input<string>? SpreadLevel { get; set; }
 
         public ClusterOutpostConfigControlPlanePlacementGetArgs()
         {

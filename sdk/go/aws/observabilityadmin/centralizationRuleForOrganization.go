@@ -202,6 +202,63 @@ import (
 //
 // ```
 //
+// ### Metrics Centralization with Backup
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/observabilityadmin"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetCallerIdentity(ctx, &aws.GetCallerIdentityArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			currentGetOrganization, err := organizations.LookupOrganization(ctx, &organizations.LookupOrganizationArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = observabilityadmin.NewCentralizationRuleForOrganization(ctx, "metrics", &observabilityadmin.CentralizationRuleForOrganizationArgs{
+//				RuleName: pulumi.String("metrics-centralization-rule"),
+//				Rule: &observabilityadmin.CentralizationRuleForOrganizationRuleArgs{
+//					Destination: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationArgs{
+//						Region:  pulumi.String("eu-west-1"),
+//						Account: pulumi.String(current.AccountId),
+//						DestinationMetricsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs{
+//							BackupConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs{
+//								Region: pulumi.String("us-west-1"),
+//							},
+//						},
+//					},
+//					Source: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceArgs{
+//						Regions: pulumi.StringArray{
+//							pulumi.String("ap-southeast-1"),
+//							pulumi.String("us-east-1"),
+//						},
+//						Scope: pulumi.Sprintf("OrganizationId = '%v'", currentGetOrganization.Id),
+//						SourceMetricsConfiguration: &observabilityadmin.CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs{
+//							MetricsSelectionCriteria: pulumi.String("*"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `ruleName`. For example:

@@ -591,6 +591,20 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
+     * Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+     * 
+     */
+    @Export(name="durability", refs={String.class}, tree="[0]")
+    private Output<String> durability;
+
+    /**
+     * @return Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+     * 
+     */
+    public Output<String> durability() {
+        return this.durability;
+    }
+    /**
      * Name of the cache engine to be used for the clusters in this replication group.
      * Valid values are `redis` or `valkey`.
      * Default is `redis`.

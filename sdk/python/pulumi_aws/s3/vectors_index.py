@@ -412,6 +412,12 @@ class VectorsIndex(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `index_arn` (String) ARN of the S3 Vectors Index.
+
         Using `pulumi import`, import S3 Vectors Index using the `index_arn`. For example:
 
         ```sh
@@ -459,6 +465,12 @@ class VectorsIndex(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `index_arn` (String) ARN of the S3 Vectors Index.
 
         Using `pulumi import`, import S3 Vectors Index using the `index_arn`. For example:
 

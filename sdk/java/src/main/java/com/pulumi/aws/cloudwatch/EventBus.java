@@ -82,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
- *             .namePrefix("aws.partner/examplepartner.com")
+ *             .namePrefix("aws.partner/example.com")
  *             .build());
  * 
  *         var examplepartnerEventBus = new EventBus("examplepartnerEventBus", EventBusArgs.builder()

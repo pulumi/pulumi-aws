@@ -13,6 +13,9 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class OptInResourceDataTableWithColumnsColumnWildcard
     {
+        /// <summary>
+        /// Excludes column names. Any column with this name will be excluded.
+        /// </summary>
         public readonly ImmutableArray<string> ExcludedColumnNames;
 
         [OutputConstructor]

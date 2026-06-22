@@ -63,6 +63,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `indexArn` (String) ARN of the S3 Vectors Index.
+ * 
  * Using `pulumi import`, import S3 Vectors Index using the `indexArn`. For example:
  * 
  * ```sh

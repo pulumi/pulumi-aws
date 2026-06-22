@@ -217,6 +217,8 @@ type ServerlessCache struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+	NetworkType pulumi.StringOutput `pulumi:"networkType"`
 	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoints ServerlessCacheReaderEndpointArrayOutput `pulumi:"readerEndpoints"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -297,6 +299,8 @@ type serverlessCacheState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+	NetworkType *string `pulumi:"networkType"`
 	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoints []ServerlessCacheReaderEndpoint `pulumi:"readerEndpoints"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -345,6 +349,8 @@ type ServerlessCacheState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+	NetworkType pulumi.StringPtrInput
 	// Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
 	ReaderEndpoints ServerlessCacheReaderEndpointArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -389,6 +395,8 @@ type serverlessCacheArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+	NetworkType *string `pulumi:"networkType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
@@ -425,6 +433,8 @@ type ServerlessCacheArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+	NetworkType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
@@ -585,6 +595,11 @@ func (o ServerlessCacheOutput) MajorEngineVersion() pulumi.StringOutput {
 // The following arguments are optional:
 func (o ServerlessCacheOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+func (o ServerlessCacheOutput) NetworkType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.NetworkType }).(pulumi.StringOutput)
 }
 
 // Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.

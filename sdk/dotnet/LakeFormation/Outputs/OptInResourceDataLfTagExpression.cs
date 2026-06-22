@@ -18,7 +18,7 @@ namespace Pulumi.Aws.LakeFormation.Outputs
         /// </summary>
         public readonly string? CatalogId;
         /// <summary>
-        /// Name of the table.
+        /// Name of the LF-Tag expression to grant permissions on.
         /// </summary>
         public readonly string Name;
 

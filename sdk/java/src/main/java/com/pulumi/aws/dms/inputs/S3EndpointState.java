@@ -576,14 +576,22 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
+     * @deprecated
+     * kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
+     * 
      */
+    @Deprecated /* kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead. */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
      * @return ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
+     * @deprecated
+     * kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
+     * 
      */
+    @Deprecated /* kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead. */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
     }
@@ -1691,7 +1699,11 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
+         * 
          */
+        @Deprecated /* kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead. */
         public Builder kmsKeyArn(@Nullable Output<String> kmsKeyArn) {
             $.kmsKeyArn = kmsKeyArn;
             return this;
@@ -1702,7 +1714,11 @@ public final class S3EndpointState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
+         * 
          */
+        @Deprecated /* kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead. */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
         }

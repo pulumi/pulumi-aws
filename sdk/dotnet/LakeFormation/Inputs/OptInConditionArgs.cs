@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LakeFormation.Inputs
     public sealed class OptInConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+        /// Expression written based on the Cedar Policy Language used to match the principal attributes.
         /// </summary>
         [Input("expression")]
         public Input<string>? Expression { get; set; }

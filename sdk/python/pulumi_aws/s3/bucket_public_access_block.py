@@ -315,6 +315,17 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `bucket` (String) Name of the bucket.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import `s3.BucketPublicAccessBlock` using the bucket name. For example:
 
         ```sh
@@ -366,6 +377,17 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `bucket` (String) Name of the bucket.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import `s3.BucketPublicAccessBlock` using the bucket name. For example:
 

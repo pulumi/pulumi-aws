@@ -33,14 +33,14 @@ public final class OptInResourceDataLfTagArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * (Required) Key name for the LF-Tag.
+     * Key name for the LF-Tag.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return (Required) Key name for the LF-Tag.
+     * @return Key name for the LF-Tag.
      * 
      */
     public Output<String> key() {
@@ -48,14 +48,14 @@ public final class OptInResourceDataLfTagArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+     * Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
      * 
      */
     @Import(name="values", required=true)
     private Output<List<String>> values;
 
     /**
-     * @return (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+     * @return Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
      * 
      */
     public Output<List<String>> values() {
@@ -110,7 +110,7 @@ public final class OptInResourceDataLfTagArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param key (Required) Key name for the LF-Tag.
+         * @param key Key name for the LF-Tag.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class OptInResourceDataLfTagArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param key (Required) Key name for the LF-Tag.
+         * @param key Key name for the LF-Tag.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class OptInResourceDataLfTagArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param values (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+         * @param values Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class OptInResourceDataLfTagArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param values (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+         * @param values Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class OptInResourceDataLfTagArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param values (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+         * @param values Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
          * 
          * @return builder
          * 

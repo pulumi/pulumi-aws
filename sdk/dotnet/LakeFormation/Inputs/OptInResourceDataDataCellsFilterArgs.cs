@@ -13,13 +13,13 @@ namespace Pulumi.Aws.LakeFormation.Inputs
     public sealed class OptInResourceDataDataCellsFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        /// Database in the Glue Data Catalog.
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// Name of the table.
+        /// Name of the data cells filter.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

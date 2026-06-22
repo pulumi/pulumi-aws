@@ -2926,6 +2926,11 @@ type ClusterOutpostConfig struct {
 	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
 	// The `controlPlanePlacement` configuration block supports the following arguments:
 	ControlPlanePlacement *ClusterOutpostConfigControlPlanePlacement `pulumi:"controlPlanePlacement"`
+	// Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+	EtcdInstanceType *string `pulumi:"etcdInstanceType"`
+	// Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+	// The `etcdPlacement` configuration block supports the following arguments:
+	EtcdPlacement *ClusterOutpostConfigEtcdPlacement `pulumi:"etcdPlacement"`
 	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
 	OutpostArns []string `pulumi:"outpostArns"`
 }
@@ -2955,6 +2960,11 @@ type ClusterOutpostConfigArgs struct {
 	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
 	// The `controlPlanePlacement` configuration block supports the following arguments:
 	ControlPlanePlacement ClusterOutpostConfigControlPlanePlacementPtrInput `pulumi:"controlPlanePlacement"`
+	// Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+	EtcdInstanceType pulumi.StringPtrInput `pulumi:"etcdInstanceType"`
+	// Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+	// The `etcdPlacement` configuration block supports the following arguments:
+	EtcdPlacement ClusterOutpostConfigEtcdPlacementPtrInput `pulumi:"etcdPlacement"`
 	// The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
 	OutpostArns pulumi.StringArrayInput `pulumi:"outpostArns"`
 }
@@ -3057,6 +3067,17 @@ func (o ClusterOutpostConfigOutput) ControlPlanePlacement() ClusterOutpostConfig
 	}).(ClusterOutpostConfigControlPlanePlacementPtrOutput)
 }
 
+// Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+func (o ClusterOutpostConfigOutput) EtcdInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterOutpostConfig) *string { return v.EtcdInstanceType }).(pulumi.StringPtrOutput)
+}
+
+// Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+// The `etcdPlacement` configuration block supports the following arguments:
+func (o ClusterOutpostConfigOutput) EtcdPlacement() ClusterOutpostConfigEtcdPlacementPtrOutput {
+	return o.ApplyT(func(v ClusterOutpostConfig) *ClusterOutpostConfigEtcdPlacement { return v.EtcdPlacement }).(ClusterOutpostConfigEtcdPlacementPtrOutput)
+}
+
 // The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
 func (o ClusterOutpostConfigOutput) OutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterOutpostConfig) []string { return v.OutpostArns }).(pulumi.StringArrayOutput)
@@ -3115,6 +3136,27 @@ func (o ClusterOutpostConfigPtrOutput) ControlPlanePlacement() ClusterOutpostCon
 	}).(ClusterOutpostConfigControlPlanePlacementPtrOutput)
 }
 
+// Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+func (o ClusterOutpostConfigPtrOutput) EtcdInstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EtcdInstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+// The `etcdPlacement` configuration block supports the following arguments:
+func (o ClusterOutpostConfigPtrOutput) EtcdPlacement() ClusterOutpostConfigEtcdPlacementPtrOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfig) *ClusterOutpostConfigEtcdPlacement {
+		if v == nil {
+			return nil
+		}
+		return v.EtcdPlacement
+	}).(ClusterOutpostConfigEtcdPlacementPtrOutput)
+}
+
 // The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
 func (o ClusterOutpostConfigPtrOutput) OutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterOutpostConfig) []string {
@@ -3126,8 +3168,10 @@ func (o ClusterOutpostConfigPtrOutput) OutpostArns() pulumi.StringArrayOutput {
 }
 
 type ClusterOutpostConfigControlPlanePlacement struct {
-	// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
-	GroupName string `pulumi:"groupName"`
+	// Name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+	GroupName *string `pulumi:"groupName"`
+	// Placement group spread level for control plane instances. Valid values: `host`, `rack`.
+	SpreadLevel *string `pulumi:"spreadLevel"`
 }
 
 // ClusterOutpostConfigControlPlanePlacementInput is an input type that accepts ClusterOutpostConfigControlPlanePlacementArgs and ClusterOutpostConfigControlPlanePlacementOutput values.
@@ -3142,8 +3186,10 @@ type ClusterOutpostConfigControlPlanePlacementInput interface {
 }
 
 type ClusterOutpostConfigControlPlanePlacementArgs struct {
-	// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
-	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// Name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+	// Placement group spread level for control plane instances. Valid values: `host`, `rack`.
+	SpreadLevel pulumi.StringPtrInput `pulumi:"spreadLevel"`
 }
 
 func (ClusterOutpostConfigControlPlanePlacementArgs) ElementType() reflect.Type {
@@ -3223,9 +3269,14 @@ func (o ClusterOutpostConfigControlPlanePlacementOutput) ToClusterOutpostConfigC
 	}).(ClusterOutpostConfigControlPlanePlacementPtrOutput)
 }
 
-// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
-func (o ClusterOutpostConfigControlPlanePlacementOutput) GroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterOutpostConfigControlPlanePlacement) string { return v.GroupName }).(pulumi.StringOutput)
+// Name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+func (o ClusterOutpostConfigControlPlanePlacementOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterOutpostConfigControlPlanePlacement) *string { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+// Placement group spread level for control plane instances. Valid values: `host`, `rack`.
+func (o ClusterOutpostConfigControlPlanePlacementOutput) SpreadLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterOutpostConfigControlPlanePlacement) *string { return v.SpreadLevel }).(pulumi.StringPtrOutput)
 }
 
 type ClusterOutpostConfigControlPlanePlacementPtrOutput struct{ *pulumi.OutputState }
@@ -3252,13 +3303,160 @@ func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) Elem() ClusterOutpos
 	}).(ClusterOutpostConfigControlPlanePlacementOutput)
 }
 
-// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+// Name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
 func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterOutpostConfigControlPlanePlacement) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.GroupName
+		return v.GroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Placement group spread level for control plane instances. Valid values: `host`, `rack`.
+func (o ClusterOutpostConfigControlPlanePlacementPtrOutput) SpreadLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfigControlPlanePlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpreadLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterOutpostConfigEtcdPlacement struct {
+	// Placement group spread level for etcd instances. Valid values: `host`, `rack`.
+	SpreadLevel *string `pulumi:"spreadLevel"`
+}
+
+// ClusterOutpostConfigEtcdPlacementInput is an input type that accepts ClusterOutpostConfigEtcdPlacementArgs and ClusterOutpostConfigEtcdPlacementOutput values.
+// You can construct a concrete instance of `ClusterOutpostConfigEtcdPlacementInput` via:
+//
+//	ClusterOutpostConfigEtcdPlacementArgs{...}
+type ClusterOutpostConfigEtcdPlacementInput interface {
+	pulumi.Input
+
+	ToClusterOutpostConfigEtcdPlacementOutput() ClusterOutpostConfigEtcdPlacementOutput
+	ToClusterOutpostConfigEtcdPlacementOutputWithContext(context.Context) ClusterOutpostConfigEtcdPlacementOutput
+}
+
+type ClusterOutpostConfigEtcdPlacementArgs struct {
+	// Placement group spread level for etcd instances. Valid values: `host`, `rack`.
+	SpreadLevel pulumi.StringPtrInput `pulumi:"spreadLevel"`
+}
+
+func (ClusterOutpostConfigEtcdPlacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOutpostConfigEtcdPlacement)(nil)).Elem()
+}
+
+func (i ClusterOutpostConfigEtcdPlacementArgs) ToClusterOutpostConfigEtcdPlacementOutput() ClusterOutpostConfigEtcdPlacementOutput {
+	return i.ToClusterOutpostConfigEtcdPlacementOutputWithContext(context.Background())
+}
+
+func (i ClusterOutpostConfigEtcdPlacementArgs) ToClusterOutpostConfigEtcdPlacementOutputWithContext(ctx context.Context) ClusterOutpostConfigEtcdPlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigEtcdPlacementOutput)
+}
+
+func (i ClusterOutpostConfigEtcdPlacementArgs) ToClusterOutpostConfigEtcdPlacementPtrOutput() ClusterOutpostConfigEtcdPlacementPtrOutput {
+	return i.ToClusterOutpostConfigEtcdPlacementPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterOutpostConfigEtcdPlacementArgs) ToClusterOutpostConfigEtcdPlacementPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigEtcdPlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigEtcdPlacementOutput).ToClusterOutpostConfigEtcdPlacementPtrOutputWithContext(ctx)
+}
+
+// ClusterOutpostConfigEtcdPlacementPtrInput is an input type that accepts ClusterOutpostConfigEtcdPlacementArgs, ClusterOutpostConfigEtcdPlacementPtr and ClusterOutpostConfigEtcdPlacementPtrOutput values.
+// You can construct a concrete instance of `ClusterOutpostConfigEtcdPlacementPtrInput` via:
+//
+//	        ClusterOutpostConfigEtcdPlacementArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterOutpostConfigEtcdPlacementPtrInput interface {
+	pulumi.Input
+
+	ToClusterOutpostConfigEtcdPlacementPtrOutput() ClusterOutpostConfigEtcdPlacementPtrOutput
+	ToClusterOutpostConfigEtcdPlacementPtrOutputWithContext(context.Context) ClusterOutpostConfigEtcdPlacementPtrOutput
+}
+
+type clusterOutpostConfigEtcdPlacementPtrType ClusterOutpostConfigEtcdPlacementArgs
+
+func ClusterOutpostConfigEtcdPlacementPtr(v *ClusterOutpostConfigEtcdPlacementArgs) ClusterOutpostConfigEtcdPlacementPtrInput {
+	return (*clusterOutpostConfigEtcdPlacementPtrType)(v)
+}
+
+func (*clusterOutpostConfigEtcdPlacementPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOutpostConfigEtcdPlacement)(nil)).Elem()
+}
+
+func (i *clusterOutpostConfigEtcdPlacementPtrType) ToClusterOutpostConfigEtcdPlacementPtrOutput() ClusterOutpostConfigEtcdPlacementPtrOutput {
+	return i.ToClusterOutpostConfigEtcdPlacementPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterOutpostConfigEtcdPlacementPtrType) ToClusterOutpostConfigEtcdPlacementPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigEtcdPlacementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterOutpostConfigEtcdPlacementPtrOutput)
+}
+
+type ClusterOutpostConfigEtcdPlacementOutput struct{ *pulumi.OutputState }
+
+func (ClusterOutpostConfigEtcdPlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterOutpostConfigEtcdPlacement)(nil)).Elem()
+}
+
+func (o ClusterOutpostConfigEtcdPlacementOutput) ToClusterOutpostConfigEtcdPlacementOutput() ClusterOutpostConfigEtcdPlacementOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigEtcdPlacementOutput) ToClusterOutpostConfigEtcdPlacementOutputWithContext(ctx context.Context) ClusterOutpostConfigEtcdPlacementOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigEtcdPlacementOutput) ToClusterOutpostConfigEtcdPlacementPtrOutput() ClusterOutpostConfigEtcdPlacementPtrOutput {
+	return o.ToClusterOutpostConfigEtcdPlacementPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterOutpostConfigEtcdPlacementOutput) ToClusterOutpostConfigEtcdPlacementPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigEtcdPlacementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterOutpostConfigEtcdPlacement) *ClusterOutpostConfigEtcdPlacement {
+		return &v
+	}).(ClusterOutpostConfigEtcdPlacementPtrOutput)
+}
+
+// Placement group spread level for etcd instances. Valid values: `host`, `rack`.
+func (o ClusterOutpostConfigEtcdPlacementOutput) SpreadLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterOutpostConfigEtcdPlacement) *string { return v.SpreadLevel }).(pulumi.StringPtrOutput)
+}
+
+type ClusterOutpostConfigEtcdPlacementPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterOutpostConfigEtcdPlacementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterOutpostConfigEtcdPlacement)(nil)).Elem()
+}
+
+func (o ClusterOutpostConfigEtcdPlacementPtrOutput) ToClusterOutpostConfigEtcdPlacementPtrOutput() ClusterOutpostConfigEtcdPlacementPtrOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigEtcdPlacementPtrOutput) ToClusterOutpostConfigEtcdPlacementPtrOutputWithContext(ctx context.Context) ClusterOutpostConfigEtcdPlacementPtrOutput {
+	return o
+}
+
+func (o ClusterOutpostConfigEtcdPlacementPtrOutput) Elem() ClusterOutpostConfigEtcdPlacementOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfigEtcdPlacement) ClusterOutpostConfigEtcdPlacement {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterOutpostConfigEtcdPlacement
+		return ret
+	}).(ClusterOutpostConfigEtcdPlacementOutput)
+}
+
+// Placement group spread level for etcd instances. Valid values: `host`, `rack`.
+func (o ClusterOutpostConfigEtcdPlacementPtrOutput) SpreadLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterOutpostConfigEtcdPlacement) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpreadLevel
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7177,6 +7375,10 @@ type GetClusterOutpostConfig struct {
 	ControlPlaneInstanceType string `pulumi:"controlPlaneInstanceType"`
 	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
 	ControlPlanePlacements []GetClusterOutpostConfigControlPlanePlacement `pulumi:"controlPlanePlacements"`
+	// Amazon EC2 instance type for etcd instances.
+	EtcdInstanceType string `pulumi:"etcdInstanceType"`
+	// Placement configuration for the etcd instances.
+	EtcdPlacements []GetClusterOutpostConfigEtcdPlacement `pulumi:"etcdPlacements"`
 	// List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
 	OutpostArns []string `pulumi:"outpostArns"`
 }
@@ -7197,6 +7399,10 @@ type GetClusterOutpostConfigArgs struct {
 	ControlPlaneInstanceType pulumi.StringInput `pulumi:"controlPlaneInstanceType"`
 	// An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
 	ControlPlanePlacements GetClusterOutpostConfigControlPlanePlacementArrayInput `pulumi:"controlPlanePlacements"`
+	// Amazon EC2 instance type for etcd instances.
+	EtcdInstanceType pulumi.StringInput `pulumi:"etcdInstanceType"`
+	// Placement configuration for the etcd instances.
+	EtcdPlacements GetClusterOutpostConfigEtcdPlacementArrayInput `pulumi:"etcdPlacements"`
 	// List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
 	OutpostArns pulumi.StringArrayInput `pulumi:"outpostArns"`
 }
@@ -7264,6 +7470,16 @@ func (o GetClusterOutpostConfigOutput) ControlPlanePlacements() GetClusterOutpos
 	}).(GetClusterOutpostConfigControlPlanePlacementArrayOutput)
 }
 
+// Amazon EC2 instance type for etcd instances.
+func (o GetClusterOutpostConfigOutput) EtcdInstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterOutpostConfig) string { return v.EtcdInstanceType }).(pulumi.StringOutput)
+}
+
+// Placement configuration for the etcd instances.
+func (o GetClusterOutpostConfigOutput) EtcdPlacements() GetClusterOutpostConfigEtcdPlacementArrayOutput {
+	return o.ApplyT(func(v GetClusterOutpostConfig) []GetClusterOutpostConfigEtcdPlacement { return v.EtcdPlacements }).(GetClusterOutpostConfigEtcdPlacementArrayOutput)
+}
+
 // List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
 func (o GetClusterOutpostConfigOutput) OutpostArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetClusterOutpostConfig) []string { return v.OutpostArns }).(pulumi.StringArrayOutput)
@@ -7292,6 +7508,8 @@ func (o GetClusterOutpostConfigArrayOutput) Index(i pulumi.IntInput) GetClusterO
 type GetClusterOutpostConfigControlPlanePlacement struct {
 	// The name of the placement group for the Kubernetes control plane instances.
 	GroupName string `pulumi:"groupName"`
+	// Placement group spread level for etcd instances.
+	SpreadLevel string `pulumi:"spreadLevel"`
 }
 
 // GetClusterOutpostConfigControlPlanePlacementInput is an input type that accepts GetClusterOutpostConfigControlPlanePlacementArgs and GetClusterOutpostConfigControlPlanePlacementOutput values.
@@ -7308,6 +7526,8 @@ type GetClusterOutpostConfigControlPlanePlacementInput interface {
 type GetClusterOutpostConfigControlPlanePlacementArgs struct {
 	// The name of the placement group for the Kubernetes control plane instances.
 	GroupName pulumi.StringInput `pulumi:"groupName"`
+	// Placement group spread level for etcd instances.
+	SpreadLevel pulumi.StringInput `pulumi:"spreadLevel"`
 }
 
 func (GetClusterOutpostConfigControlPlanePlacementArgs) ElementType() reflect.Type {
@@ -7366,6 +7586,11 @@ func (o GetClusterOutpostConfigControlPlanePlacementOutput) GroupName() pulumi.S
 	return o.ApplyT(func(v GetClusterOutpostConfigControlPlanePlacement) string { return v.GroupName }).(pulumi.StringOutput)
 }
 
+// Placement group spread level for etcd instances.
+func (o GetClusterOutpostConfigControlPlanePlacementOutput) SpreadLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterOutpostConfigControlPlanePlacement) string { return v.SpreadLevel }).(pulumi.StringOutput)
+}
+
 type GetClusterOutpostConfigControlPlanePlacementArrayOutput struct{ *pulumi.OutputState }
 
 func (GetClusterOutpostConfigControlPlanePlacementArrayOutput) ElementType() reflect.Type {
@@ -7384,6 +7609,103 @@ func (o GetClusterOutpostConfigControlPlanePlacementArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterOutpostConfigControlPlanePlacement {
 		return vs[0].([]GetClusterOutpostConfigControlPlanePlacement)[vs[1].(int)]
 	}).(GetClusterOutpostConfigControlPlanePlacementOutput)
+}
+
+type GetClusterOutpostConfigEtcdPlacement struct {
+	// Placement group spread level for etcd instances.
+	SpreadLevel string `pulumi:"spreadLevel"`
+}
+
+// GetClusterOutpostConfigEtcdPlacementInput is an input type that accepts GetClusterOutpostConfigEtcdPlacementArgs and GetClusterOutpostConfigEtcdPlacementOutput values.
+// You can construct a concrete instance of `GetClusterOutpostConfigEtcdPlacementInput` via:
+//
+//	GetClusterOutpostConfigEtcdPlacementArgs{...}
+type GetClusterOutpostConfigEtcdPlacementInput interface {
+	pulumi.Input
+
+	ToGetClusterOutpostConfigEtcdPlacementOutput() GetClusterOutpostConfigEtcdPlacementOutput
+	ToGetClusterOutpostConfigEtcdPlacementOutputWithContext(context.Context) GetClusterOutpostConfigEtcdPlacementOutput
+}
+
+type GetClusterOutpostConfigEtcdPlacementArgs struct {
+	// Placement group spread level for etcd instances.
+	SpreadLevel pulumi.StringInput `pulumi:"spreadLevel"`
+}
+
+func (GetClusterOutpostConfigEtcdPlacementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterOutpostConfigEtcdPlacement)(nil)).Elem()
+}
+
+func (i GetClusterOutpostConfigEtcdPlacementArgs) ToGetClusterOutpostConfigEtcdPlacementOutput() GetClusterOutpostConfigEtcdPlacementOutput {
+	return i.ToGetClusterOutpostConfigEtcdPlacementOutputWithContext(context.Background())
+}
+
+func (i GetClusterOutpostConfigEtcdPlacementArgs) ToGetClusterOutpostConfigEtcdPlacementOutputWithContext(ctx context.Context) GetClusterOutpostConfigEtcdPlacementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterOutpostConfigEtcdPlacementOutput)
+}
+
+// GetClusterOutpostConfigEtcdPlacementArrayInput is an input type that accepts GetClusterOutpostConfigEtcdPlacementArray and GetClusterOutpostConfigEtcdPlacementArrayOutput values.
+// You can construct a concrete instance of `GetClusterOutpostConfigEtcdPlacementArrayInput` via:
+//
+//	GetClusterOutpostConfigEtcdPlacementArray{ GetClusterOutpostConfigEtcdPlacementArgs{...} }
+type GetClusterOutpostConfigEtcdPlacementArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterOutpostConfigEtcdPlacementArrayOutput() GetClusterOutpostConfigEtcdPlacementArrayOutput
+	ToGetClusterOutpostConfigEtcdPlacementArrayOutputWithContext(context.Context) GetClusterOutpostConfigEtcdPlacementArrayOutput
+}
+
+type GetClusterOutpostConfigEtcdPlacementArray []GetClusterOutpostConfigEtcdPlacementInput
+
+func (GetClusterOutpostConfigEtcdPlacementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterOutpostConfigEtcdPlacement)(nil)).Elem()
+}
+
+func (i GetClusterOutpostConfigEtcdPlacementArray) ToGetClusterOutpostConfigEtcdPlacementArrayOutput() GetClusterOutpostConfigEtcdPlacementArrayOutput {
+	return i.ToGetClusterOutpostConfigEtcdPlacementArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterOutpostConfigEtcdPlacementArray) ToGetClusterOutpostConfigEtcdPlacementArrayOutputWithContext(ctx context.Context) GetClusterOutpostConfigEtcdPlacementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterOutpostConfigEtcdPlacementArrayOutput)
+}
+
+type GetClusterOutpostConfigEtcdPlacementOutput struct{ *pulumi.OutputState }
+
+func (GetClusterOutpostConfigEtcdPlacementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterOutpostConfigEtcdPlacement)(nil)).Elem()
+}
+
+func (o GetClusterOutpostConfigEtcdPlacementOutput) ToGetClusterOutpostConfigEtcdPlacementOutput() GetClusterOutpostConfigEtcdPlacementOutput {
+	return o
+}
+
+func (o GetClusterOutpostConfigEtcdPlacementOutput) ToGetClusterOutpostConfigEtcdPlacementOutputWithContext(ctx context.Context) GetClusterOutpostConfigEtcdPlacementOutput {
+	return o
+}
+
+// Placement group spread level for etcd instances.
+func (o GetClusterOutpostConfigEtcdPlacementOutput) SpreadLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterOutpostConfigEtcdPlacement) string { return v.SpreadLevel }).(pulumi.StringOutput)
+}
+
+type GetClusterOutpostConfigEtcdPlacementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterOutpostConfigEtcdPlacementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterOutpostConfigEtcdPlacement)(nil)).Elem()
+}
+
+func (o GetClusterOutpostConfigEtcdPlacementArrayOutput) ToGetClusterOutpostConfigEtcdPlacementArrayOutput() GetClusterOutpostConfigEtcdPlacementArrayOutput {
+	return o
+}
+
+func (o GetClusterOutpostConfigEtcdPlacementArrayOutput) ToGetClusterOutpostConfigEtcdPlacementArrayOutputWithContext(ctx context.Context) GetClusterOutpostConfigEtcdPlacementArrayOutput {
+	return o
+}
+
+func (o GetClusterOutpostConfigEtcdPlacementArrayOutput) Index(i pulumi.IntInput) GetClusterOutpostConfigEtcdPlacementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterOutpostConfigEtcdPlacement {
+		return vs[0].([]GetClusterOutpostConfigEtcdPlacement)[vs[1].(int)]
+	}).(GetClusterOutpostConfigEtcdPlacementOutput)
 }
 
 type GetClusterRemoteNetworkConfig struct {
@@ -9164,6 +9486,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigPtrInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigControlPlanePlacementInput)(nil)).Elem(), ClusterOutpostConfigControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigControlPlanePlacementPtrInput)(nil)).Elem(), ClusterOutpostConfigControlPlanePlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigEtcdPlacementInput)(nil)).Elem(), ClusterOutpostConfigEtcdPlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigEtcdPlacementPtrInput)(nil)).Elem(), ClusterOutpostConfigEtcdPlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemoteNetworkConfigInput)(nil)).Elem(), ClusterRemoteNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemoteNetworkConfigPtrInput)(nil)).Elem(), ClusterRemoteNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemoteNetworkConfigRemoteNodeNetworksInput)(nil)).Elem(), ClusterRemoteNetworkConfigRemoteNodeNetworksArgs{})
@@ -9224,6 +9548,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigArrayInput)(nil)).Elem(), GetClusterOutpostConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigControlPlanePlacementInput)(nil)).Elem(), GetClusterOutpostConfigControlPlanePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigControlPlanePlacementArrayInput)(nil)).Elem(), GetClusterOutpostConfigControlPlanePlacementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigEtcdPlacementInput)(nil)).Elem(), GetClusterOutpostConfigEtcdPlacementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterOutpostConfigEtcdPlacementArrayInput)(nil)).Elem(), GetClusterOutpostConfigEtcdPlacementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRemoteNetworkConfigInput)(nil)).Elem(), GetClusterRemoteNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRemoteNetworkConfigArrayInput)(nil)).Elem(), GetClusterRemoteNetworkConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterRemoteNetworkConfigRemoteNodeNetworkInput)(nil)).Elem(), GetClusterRemoteNetworkConfigRemoteNodeNetworkArgs{})
@@ -9299,6 +9625,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOutpostConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigControlPlanePlacementOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigControlPlanePlacementPtrOutput{})
+	pulumi.RegisterOutputType(ClusterOutpostConfigEtcdPlacementOutput{})
+	pulumi.RegisterOutputType(ClusterOutpostConfigEtcdPlacementPtrOutput{})
 	pulumi.RegisterOutputType(ClusterRemoteNetworkConfigOutput{})
 	pulumi.RegisterOutputType(ClusterRemoteNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterRemoteNetworkConfigRemoteNodeNetworksOutput{})
@@ -9359,6 +9687,8 @@ func init() {
 	pulumi.RegisterOutputType(GetClusterOutpostConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterOutpostConfigControlPlanePlacementOutput{})
 	pulumi.RegisterOutputType(GetClusterOutpostConfigControlPlanePlacementArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterOutpostConfigEtcdPlacementOutput{})
+	pulumi.RegisterOutputType(GetClusterOutpostConfigEtcdPlacementArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterRemoteNetworkConfigOutput{})
 	pulumi.RegisterOutputType(GetClusterRemoteNetworkConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterRemoteNetworkConfigRemoteNodeNetworkOutput{})

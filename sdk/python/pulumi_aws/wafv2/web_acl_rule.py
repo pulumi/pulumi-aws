@@ -828,6 +828,7 @@ class WebAclRule(pulumi.CustomResource):
 
         #### Optional
 
+        * `account_id` (String) Account ID where this resource is managed.
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import WAFv2 Web ACL Rules using the `web_acl_arn` and `name` separated by a comma (`,`). For example:
@@ -1250,6 +1251,7 @@ class WebAclRule(pulumi.CustomResource):
 
         #### Optional
 
+        * `account_id` (String) Account ID where this resource is managed.
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import WAFv2 Web ACL Rules using the `web_acl_arn` and `name` separated by a comma (`,`). For example:

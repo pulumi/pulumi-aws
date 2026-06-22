@@ -159,6 +159,17 @@ class DefaultDomain(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `organization_id` (String) Identifier of the WorkMail organization.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import WorkMail Default Domain using the organization ID. For example:
 
         ```sh
@@ -198,6 +209,17 @@ class DefaultDomain(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `organization_id` (String) Identifier of the WorkMail organization.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import WorkMail Default Domain using the organization ID. For example:
 

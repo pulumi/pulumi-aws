@@ -4,6 +4,7 @@
 package com.pulumi.aws.observabilityadmin.outputs;
 
 import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration;
+import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -14,7 +15,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CentralizationRuleForOrganizationRuleDestination {
     /**
-     * @return AWS account ID where logs will be centralized.
+     * @return AWS account ID where telemetry will be centralized.
      * 
      */
     private String account;
@@ -24,14 +25,19 @@ public final class CentralizationRuleForOrganizationRuleDestination {
      */
     private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration destinationLogsConfiguration;
     /**
-     * @return AWS region where logs will be centralized.
+     * @return Configuration block for destination metrics settings. See `destinationMetricsConfiguration` below.
+     * 
+     */
+    private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration destinationMetricsConfiguration;
+    /**
+     * @return AWS region where telemetry will be centralized.
      * 
      */
     private String region;
 
     private CentralizationRuleForOrganizationRuleDestination() {}
     /**
-     * @return AWS account ID where logs will be centralized.
+     * @return AWS account ID where telemetry will be centralized.
      * 
      */
     public String account() {
@@ -45,7 +51,14 @@ public final class CentralizationRuleForOrganizationRuleDestination {
         return Optional.ofNullable(this.destinationLogsConfiguration);
     }
     /**
-     * @return AWS region where logs will be centralized.
+     * @return Configuration block for destination metrics settings. See `destinationMetricsConfiguration` below.
+     * 
+     */
+    public Optional<CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration> destinationMetricsConfiguration() {
+        return Optional.ofNullable(this.destinationMetricsConfiguration);
+    }
+    /**
+     * @return AWS region where telemetry will be centralized.
      * 
      */
     public String region() {
@@ -63,12 +76,14 @@ public final class CentralizationRuleForOrganizationRuleDestination {
     public static final class Builder {
         private String account;
         private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration destinationLogsConfiguration;
+        private @Nullable CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration destinationMetricsConfiguration;
         private String region;
         public Builder() {}
         public Builder(CentralizationRuleForOrganizationRuleDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.account = defaults.account;
     	      this.destinationLogsConfiguration = defaults.destinationLogsConfiguration;
+    	      this.destinationMetricsConfiguration = defaults.destinationMetricsConfiguration;
     	      this.region = defaults.region;
         }
 
@@ -87,6 +102,12 @@ public final class CentralizationRuleForOrganizationRuleDestination {
             return this;
         }
         @CustomType.Setter
+        public Builder destinationMetricsConfiguration(@Nullable CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration destinationMetricsConfiguration) {
+
+            this.destinationMetricsConfiguration = destinationMetricsConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder region(String region) {
             if (region == null) {
               throw new MissingRequiredPropertyException("CentralizationRuleForOrganizationRuleDestination", "region");
@@ -98,6 +119,7 @@ public final class CentralizationRuleForOrganizationRuleDestination {
             final var _resultValue = new CentralizationRuleForOrganizationRuleDestination();
             _resultValue.account = account;
             _resultValue.destinationLogsConfiguration = destinationLogsConfiguration;
+            _resultValue.destinationMetricsConfiguration = destinationMetricsConfiguration;
             _resultValue.region = region;
             return _resultValue;
         }
