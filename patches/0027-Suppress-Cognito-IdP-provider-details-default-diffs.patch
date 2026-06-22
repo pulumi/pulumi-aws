@@ -323,7 +323,7 @@ index 00000000000..ff216a7eba0
 +	}
 +}
 diff --git a/internal/service/cognitoidp/identity_provider_test.go b/internal/service/cognitoidp/identity_provider_test.go
-index 658c9e8680f..7fbba244bad 100644
+index 7d775cb6f16..07e84ee34f1 100644
 --- a/internal/service/cognitoidp/identity_provider_test.go
 +++ b/internal/service/cognitoidp/identity_provider_test.go
 @@ -81,6 +81,48 @@ func TestAccCognitoIDPIdentityProvider_basic(t *testing.T) {
@@ -375,7 +375,7 @@ index 658c9e8680f..7fbba244bad 100644
  func TestAccCognitoIDPIdentityProvider_idpIdentifiers(t *testing.T) {
  	ctx := acctest.Context(t)
  	var identityProvider awstypes.IdentityProviderType
-@@ -188,6 +230,32 @@ func TestAccCognitoIDPIdentityProvider_saml(t *testing.T) {
+@@ -190,6 +232,32 @@ func TestAccCognitoIDPIdentityProvider_saml(t *testing.T) {
  	})
  }
  
@@ -408,7 +408,7 @@ index 658c9e8680f..7fbba244bad 100644
  func TestAccCognitoIDPIdentityProvider_disappears(t *testing.T) {
  	ctx := acctest.Context(t)
  	var identityProvider awstypes.IdentityProviderType
-@@ -299,6 +367,48 @@ func testAccCheckIdentityProviderExists(ctx context.Context, t *testing.T, n str
+@@ -301,6 +369,48 @@ func testAccCheckIdentityProviderExists(ctx context.Context, t *testing.T, n str
  	}
  }
  
@@ -457,7 +457,7 @@ index 658c9e8680f..7fbba244bad 100644
  func testAccIdentityProviderConfig_basic(rName string) string {
  	return fmt.Sprintf(`
  resource "aws_cognito_user_pool" "test" {
-@@ -387,6 +497,25 @@ resource "aws_cognito_identity_provider" "test" {
+@@ -389,6 +499,25 @@ resource "aws_cognito_identity_provider" "test" {
  `, rName, attribute)
  }
  
@@ -480,6 +480,6 @@ index 658c9e8680f..7fbba244bad 100644
 +`, rName)
 +}
 +
- func testAccIdentityProviderConfig_saml(rName, userPoolName, encryptedResponses string) string {
+ func testAccIdentityProviderConfig_saml(rName, userPoolName, idpEntityId, encryptedResponses string) string {
  	return fmt.Sprintf(`
  resource "aws_cognito_user_pool" "test" {
