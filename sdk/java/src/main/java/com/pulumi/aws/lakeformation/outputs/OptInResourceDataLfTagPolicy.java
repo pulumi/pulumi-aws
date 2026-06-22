@@ -14,12 +14,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OptInResourceDataLfTagPolicy {
     /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
     private @Nullable String catalogId;
     /**
-     * @return If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+     * @return Name of the saved expression to match. If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided expression name.
      * 
      */
     private @Nullable String expressionName;
@@ -36,14 +36,14 @@ public final class OptInResourceDataLfTagPolicy {
 
     private OptInResourceDataLfTagPolicy() {}
     /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
     public Optional<String> catalogId() {
         return Optional.ofNullable(this.catalogId);
     }
     /**
-     * @return If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+     * @return Name of the saved expression to match. If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided expression name.
      * 
      */
     public Optional<String> expressionName() {

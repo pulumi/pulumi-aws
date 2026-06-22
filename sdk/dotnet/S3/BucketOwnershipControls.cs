@@ -43,6 +43,17 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Bucket` (String) Name of the bucket.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
     /// 
     /// ```sh

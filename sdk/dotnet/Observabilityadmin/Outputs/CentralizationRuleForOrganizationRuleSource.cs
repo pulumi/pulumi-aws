@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
     public sealed class CentralizationRuleForOrganizationRuleSource
     {
         /// <summary>
-        /// Set of AWS regions from which to centralize logs. Must contain at least one region.
+        /// Set of AWS regions from which to centralize telemetry. Must contain at least one region.
         /// </summary>
         public readonly ImmutableArray<string> Regions;
         /// <summary>
@@ -25,6 +25,10 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
         /// Configuration block for source logs settings. See `SourceLogsConfiguration` below.
         /// </summary>
         public readonly Outputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration? SourceLogsConfiguration;
+        /// <summary>
+        /// Configuration block for source metrics settings. See `SourceMetricsConfiguration` below.
+        /// </summary>
+        public readonly Outputs.CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration? SourceMetricsConfiguration;
 
         [OutputConstructor]
         private CentralizationRuleForOrganizationRuleSource(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
 
             string scope,
 
-            Outputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration? sourceLogsConfiguration)
+            Outputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration? sourceLogsConfiguration,
+
+            Outputs.CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration? sourceMetricsConfiguration)
         {
             Regions = regions;
             Scope = scope;
             SourceLogsConfiguration = sourceLogsConfiguration;
+            SourceMetricsConfiguration = sourceMetricsConfiguration;
         }
     }
 }

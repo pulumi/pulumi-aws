@@ -25,12 +25,12 @@ public final class OptInResourceDataTableWithColumns {
      */
     private @Nullable List<String> columnNames;
     /**
-     * @return Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+     * @return Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required. See `columnWildcard` Block for more details.
      * 
      */
     private @Nullable OptInResourceDataTableWithColumnsColumnWildcard columnWildcard;
     /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+     * @return Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
      * 
      */
     private String databaseName;
@@ -56,14 +56,14 @@ public final class OptInResourceDataTableWithColumns {
         return this.columnNames == null ? List.of() : this.columnNames;
     }
     /**
-     * @return Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+     * @return Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required. See `columnWildcard` Block for more details.
      * 
      */
     public Optional<OptInResourceDataTableWithColumnsColumnWildcard> columnWildcard() {
         return Optional.ofNullable(this.columnWildcard);
     }
     /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+     * @return Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
      * 
      */
     public String databaseName() {

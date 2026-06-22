@@ -20,6 +20,7 @@ from .agentcore_agent_runtime_endpoint import *
 from .agentcore_api_key_credential_provider import *
 from .agentcore_browser import *
 from .agentcore_code_interpreter import *
+from .agentcore_evaluator import *
 from .agentcore_gateway import *
 from .agentcore_gateway_target import *
 from .agentcore_harness import *

@@ -19,12 +19,12 @@ public final class OptInResourceDataLfTag {
      */
     private @Nullable String catalogId;
     /**
-     * @return (Required) Key name for the LF-Tag.
+     * @return Key name for the LF-Tag.
      * 
      */
     private String key;
     /**
-     * @return (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+     * @return Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
      * 
      */
     private List<String> values;
@@ -38,14 +38,14 @@ public final class OptInResourceDataLfTag {
         return Optional.ofNullable(this.catalogId);
     }
     /**
-     * @return (Required) Key name for the LF-Tag.
+     * @return Key name for the LF-Tag.
      * 
      */
     public String key() {
         return this.key;
     }
     /**
-     * @return (Required) Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
+     * @return Set of tag values for the LF-Tag key. At least one value is required. Each value can be 1-255 characters.
      * 
      */
     public List<String> values() {

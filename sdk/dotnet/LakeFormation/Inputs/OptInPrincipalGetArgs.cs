@@ -12,6 +12,9 @@ namespace Pulumi.Aws.LakeFormation.Inputs
 
     public sealed class OptInPrincipalGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Identifier for the Lake Formation principal.
+        /// </summary>
         [Input("dataLakePrincipalIdentifier", required: true)]
         public Input<string> DataLakePrincipalIdentifier { get; set; } = null!;
 

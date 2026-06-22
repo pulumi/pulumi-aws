@@ -133,6 +133,21 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+     * 
+     */
+    @Import(name="networkType")
+    private @Nullable Output<String> networkType;
+
+    /**
+     * @return IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+     * 
+     */
+    public Optional<Output<String>> networkType() {
+        return Optional.ofNullable(this.networkType);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -254,6 +269,7 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
         this.kmsKeyId = $.kmsKeyId;
         this.majorEngineVersion = $.majorEngineVersion;
         this.name = $.name;
+        this.networkType = $.networkType;
         this.region = $.region;
         this.securityGroupIds = $.securityGroupIds;
         this.snapshotArnsToRestores = $.snapshotArnsToRestores;
@@ -433,6 +449,27 @@ public final class ServerlessCacheArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param networkType IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(@Nullable Output<String> networkType) {
+            $.networkType = networkType;
+            return this;
+        }
+
+        /**
+         * @param networkType IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkType(String networkType) {
+            return networkType(Output.of(networkType));
         }
 
         /**

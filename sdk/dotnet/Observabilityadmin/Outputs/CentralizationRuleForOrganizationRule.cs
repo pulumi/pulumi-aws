@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
     public sealed class CentralizationRuleForOrganizationRule
     {
         /// <summary>
-        /// Configuration block for the destination where logs will be centralized. See `Destination` below.
+        /// Configuration block for the destination where telemetry will be centralized. See `Destination` below.
         /// </summary>
         public readonly Outputs.CentralizationRuleForOrganizationRuleDestination Destination;
         /// <summary>

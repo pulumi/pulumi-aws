@@ -33,14 +33,14 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * ARN of the behavior graph.
+     * ARN of the Detective behavior graph.
      * 
      */
     @Import(name="graphArn", required=true)
     private Output<String> graphArn;
 
     /**
-     * @return ARN of the behavior graph.
+     * @return ARN of the Detective behavior graph.
      * 
      */
     public Output<String> graphArn() {
@@ -110,7 +110,7 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param graphArn ARN of the behavior graph.
+         * @param graphArn ARN of the Detective behavior graph.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param graphArn ARN of the behavior graph.
+         * @param graphArn ARN of the Detective behavior graph.
          * 
          * @return builder
          * 

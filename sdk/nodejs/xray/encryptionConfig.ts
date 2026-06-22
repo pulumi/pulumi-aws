@@ -50,6 +50,13 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import XRay Encryption Config using the region name. For example:
  *
  * ```sh
@@ -85,7 +92,7 @@ export class EncryptionConfig extends pulumi.CustomResource {
     }
 
     /**
-     * An AWS KMS customer master key (CMK) ARN.
+     * AWS KMS customer master key (CMK) ARN.
      */
     declare public readonly keyId: pulumi.Output<string | undefined>;
     /**
@@ -93,7 +100,7 @@ export class EncryptionConfig extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+     * Type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      */
     declare public readonly type: pulumi.Output<string>;
 
@@ -132,7 +139,7 @@ export class EncryptionConfig extends pulumi.CustomResource {
  */
 export interface EncryptionConfigState {
     /**
-     * An AWS KMS customer master key (CMK) ARN.
+     * AWS KMS customer master key (CMK) ARN.
      */
     keyId?: pulumi.Input<string | undefined>;
     /**
@@ -140,7 +147,7 @@ export interface EncryptionConfigState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+     * Type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      */
     type?: pulumi.Input<string | undefined>;
 }
@@ -150,7 +157,7 @@ export interface EncryptionConfigState {
  */
 export interface EncryptionConfigArgs {
     /**
-     * An AWS KMS customer master key (CMK) ARN.
+     * AWS KMS customer master key (CMK) ARN.
      */
     keyId?: pulumi.Input<string | undefined>;
     /**
@@ -158,7 +165,7 @@ export interface EncryptionConfigArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
+     * Type of encryption. Set to `KMS` to use your own key for encryption. Set to `NONE` for default encryption.
      */
     type: pulumi.Input<string>;
 }

@@ -4,25 +4,38 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ClusterOutpostConfigControlPlanePlacement {
     /**
-     * @return The name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
+     * @return Name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
      * 
      */
-    private String groupName;
+    private @Nullable String groupName;
+    /**
+     * @return Placement group spread level for control plane instances. Valid values: `host`, `rack`.
+     * 
+     */
+    private @Nullable String spreadLevel;
 
     private ClusterOutpostConfigControlPlanePlacement() {}
     /**
-     * @return The name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
+     * @return Name of the placement group for the Kubernetes control plane instances. This setting can&#39;t be changed after cluster creation.
      * 
      */
-    public String groupName() {
-        return this.groupName;
+    public Optional<String> groupName() {
+        return Optional.ofNullable(this.groupName);
+    }
+    /**
+     * @return Placement group spread level for control plane instances. Valid values: `host`, `rack`.
+     * 
+     */
+    public Optional<String> spreadLevel() {
+        return Optional.ofNullable(this.spreadLevel);
     }
 
     public static Builder builder() {
@@ -34,24 +47,31 @@ public final class ClusterOutpostConfigControlPlanePlacement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String groupName;
+        private @Nullable String groupName;
+        private @Nullable String spreadLevel;
         public Builder() {}
         public Builder(ClusterOutpostConfigControlPlanePlacement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.groupName = defaults.groupName;
+    	      this.spreadLevel = defaults.spreadLevel;
         }
 
         @CustomType.Setter
-        public Builder groupName(String groupName) {
-            if (groupName == null) {
-              throw new MissingRequiredPropertyException("ClusterOutpostConfigControlPlanePlacement", "groupName");
-            }
+        public Builder groupName(@Nullable String groupName) {
+
             this.groupName = groupName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder spreadLevel(@Nullable String spreadLevel) {
+
+            this.spreadLevel = spreadLevel;
             return this;
         }
         public ClusterOutpostConfigControlPlanePlacement build() {
             final var _resultValue = new ClusterOutpostConfigControlPlanePlacement();
             _resultValue.groupName = groupName;
+            _resultValue.spreadLevel = spreadLevel;
             return _resultValue;
         }
     }

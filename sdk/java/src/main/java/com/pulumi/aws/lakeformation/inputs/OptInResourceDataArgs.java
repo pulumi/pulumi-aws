@@ -25,14 +25,14 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
     public static final OptInResourceDataArgs Empty = new OptInResourceDataArgs();
 
     /**
-     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+     * Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See `catalog` Block for more details.
      * 
      */
     @Import(name="catalogs")
     private @Nullable Output<List<OptInResourceDataCatalogArgs>> catalogs;
 
     /**
-     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+     * @return Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See `catalog` Block for more details.
      * 
      */
     public Optional<Output<List<OptInResourceDataCatalogArgs>>> catalogs() {
@@ -40,14 +40,14 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Data cell filter. See Data Cells Filter for more details.
+     * Data cell filter. See `dataCellsFilter` Block for more details.
      * 
      */
     @Import(name="dataCellsFilters")
     private @Nullable Output<List<OptInResourceDataDataCellsFilterArgs>> dataCellsFilters;
 
     /**
-     * @return Data cell filter. See Data Cells Filter for more details.
+     * @return Data cell filter. See `dataCellsFilter` Block for more details.
      * 
      */
     public Optional<Output<List<OptInResourceDataDataCellsFilterArgs>>> dataCellsFilters() {
@@ -55,14 +55,14 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+     * Location of an Amazon S3 path where permissions are granted or revoked. See `dataLocation` Block for more details.
      * 
      */
     @Import(name="dataLocations")
     private @Nullable Output<List<OptInResourceDataDataLocationArgs>> dataLocations;
 
     /**
-     * @return Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+     * @return Location of an Amazon S3 path where permissions are granted or revoked. See `dataLocation` Block for more details.
      * 
      */
     public Optional<Output<List<OptInResourceDataDataLocationArgs>>> dataLocations() {
@@ -70,14 +70,14 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+     * Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See `database` Block for more details.
      * 
      */
     @Import(name="database")
     private @Nullable Output<OptInResourceDataDatabaseArgs> database;
 
     /**
-     * @return Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+     * @return Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See `database` Block for more details.
      * 
      */
     public Optional<Output<OptInResourceDataDatabaseArgs>> database() {
@@ -100,14 +100,14 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+     * Logical expression composed of one or more LF-Tag key:value pairs. See `lfTagExpression` Block for more details.
      * 
      */
     @Import(name="lfTagExpressions")
     private @Nullable Output<List<OptInResourceDataLfTagExpressionArgs>> lfTagExpressions;
 
     /**
-     * @return Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+     * @return Logical expression composed of one or more LF-Tag key:value pairs. See `lfTagExpression` Block for more details.
      * 
      */
     public Optional<Output<List<OptInResourceDataLfTagExpressionArgs>>> lfTagExpressions() {
@@ -115,14 +115,14 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See LF-Tag Policy for more details.
+     * List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See `lfTagPolicy` Block for more details.
      * 
      */
     @Import(name="lfTagPolicies")
     private @Nullable Output<List<OptInResourceDataLfTagPolicyArgs>> lfTagPolicies;
 
     /**
-     * @return List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See LF-Tag Policy for more details.
+     * @return List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See `lfTagPolicy` Block for more details.
      * 
      */
     public Optional<Output<List<OptInResourceDataLfTagPolicyArgs>>> lfTagPolicies() {
@@ -130,14 +130,14 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+     * Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See `table` Block for more details.
      * 
      */
     @Import(name="table")
     private @Nullable Output<OptInResourceDataTableArgs> table;
 
     /**
-     * @return Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+     * @return Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See `table` Block for more details.
      * 
      */
     public Optional<Output<OptInResourceDataTableArgs>> table() {
@@ -145,14 +145,14 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+     * Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See `tableWithColumns` Block for more details.
      * 
      */
     @Import(name="tableWithColumns")
     private @Nullable Output<OptInResourceDataTableWithColumnsArgs> tableWithColumns;
 
     /**
-     * @return Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+     * @return Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See `tableWithColumns` Block for more details.
      * 
      */
     public Optional<Output<OptInResourceDataTableWithColumnsArgs>> tableWithColumns() {
@@ -192,7 +192,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param catalogs Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+         * @param catalogs Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See `catalog` Block for more details.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param catalogs Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+         * @param catalogs Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See `catalog` Block for more details.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param catalogs Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+         * @param catalogs Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See `catalog` Block for more details.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataCellsFilters Data cell filter. See Data Cells Filter for more details.
+         * @param dataCellsFilters Data cell filter. See `dataCellsFilter` Block for more details.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataCellsFilters Data cell filter. See Data Cells Filter for more details.
+         * @param dataCellsFilters Data cell filter. See `dataCellsFilter` Block for more details.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataCellsFilters Data cell filter. See Data Cells Filter for more details.
+         * @param dataCellsFilters Data cell filter. See `dataCellsFilter` Block for more details.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataLocations Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+         * @param dataLocations Location of an Amazon S3 path where permissions are granted or revoked. See `dataLocation` Block for more details.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataLocations Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+         * @param dataLocations Location of an Amazon S3 path where permissions are granted or revoked. See `dataLocation` Block for more details.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataLocations Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+         * @param dataLocations Location of an Amazon S3 path where permissions are granted or revoked. See `dataLocation` Block for more details.
          * 
          * @return builder
          * 
@@ -285,7 +285,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param database Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+         * @param database Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See `database` Block for more details.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param database Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+         * @param database Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See `database` Block for more details.
          * 
          * @return builder
          * 
@@ -327,7 +327,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param lfTagExpressions Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+         * @param lfTagExpressions Logical expression composed of one or more LF-Tag key:value pairs. See `lfTagExpression` Block for more details.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param lfTagExpressions Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+         * @param lfTagExpressions Logical expression composed of one or more LF-Tag key:value pairs. See `lfTagExpression` Block for more details.
          * 
          * @return builder
          * 
@@ -348,7 +348,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param lfTagExpressions Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+         * @param lfTagExpressions Logical expression composed of one or more LF-Tag key:value pairs. See `lfTagExpression` Block for more details.
          * 
          * @return builder
          * 
@@ -358,7 +358,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param lfTagPolicies List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See LF-Tag Policy for more details.
+         * @param lfTagPolicies List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See `lfTagPolicy` Block for more details.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param lfTagPolicies List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See LF-Tag Policy for more details.
+         * @param lfTagPolicies List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See `lfTagPolicy` Block for more details.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param lfTagPolicies List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See LF-Tag Policy for more details.
+         * @param lfTagPolicies List of LF-Tag conditions or saved LF-Tag expressions that define a resource&#39;s LF-Tag policy. See `lfTagPolicy` Block for more details.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param table Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+         * @param table Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See `table` Block for more details.
          * 
          * @return builder
          * 
@@ -400,7 +400,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param table Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+         * @param table Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See `table` Block for more details.
          * 
          * @return builder
          * 
@@ -410,7 +410,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tableWithColumns Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+         * @param tableWithColumns Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See `tableWithColumns` Block for more details.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class OptInResourceDataArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tableWithColumns Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+         * @param tableWithColumns Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See `tableWithColumns` Block for more details.
          * 
          * @return builder
          * 

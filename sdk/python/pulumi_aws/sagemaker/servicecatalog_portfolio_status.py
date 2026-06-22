@@ -122,6 +122,13 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import models using the `id`. For example:
 
         ```sh
@@ -155,6 +162,13 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import models using the `id`. For example:
 

@@ -29,7 +29,8 @@ class ServerlessCollectionArgs:
                  standby_replicas: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['ServerlessCollectionTimeoutsArgs']] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vector_options: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionVectorOptionArgs']]]] = None):
         """
         The set of arguments for constructing a ServerlessCollection resource.
 
@@ -40,9 +41,10 @@ class ServerlessCollectionArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] standby_replicas: Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionVectorOptionArgs']]] vector_options: Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vector_options` below for details.
         """
         if collection_group_name is not None:
             pulumi.set(__self__, "collection_group_name", collection_group_name)
@@ -62,6 +64,8 @@ class ServerlessCollectionArgs:
             pulumi.set(__self__, "timeouts", timeouts)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if vector_options is not None:
+            pulumi.set(__self__, "vector_options", vector_options)
 
     @_builtins.property
     @pulumi.getter(name="collectionGroupName")
@@ -129,7 +133,7 @@ class ServerlessCollectionArgs:
     @pulumi.getter(name="standbyReplicas")
     def standby_replicas(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         """
         return pulumi.get(self, "standby_replicas")
 
@@ -141,7 +145,7 @@ class ServerlessCollectionArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -170,6 +174,18 @@ class ServerlessCollectionArgs:
     def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
+    @_builtins.property
+    @pulumi.getter(name="vectorOptions")
+    def vector_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionVectorOptionArgs']]]]:
+        """
+        Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vector_options` below for details.
+        """
+        return pulumi.get(self, "vector_options")
+
+    @vector_options.setter
+    def vector_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionVectorOptionArgs']]]]):
+        pulumi.set(self, "vector_options", value)
+
 
 @pulumi.input_type
 class _ServerlessCollectionState:
@@ -187,7 +203,8 @@ class _ServerlessCollectionState:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['ServerlessCollectionTimeoutsArgs']] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vector_options: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionVectorOptionArgs']]]] = None):
         """
         Input properties used for looking up and filtering ServerlessCollection resources.
 
@@ -197,15 +214,16 @@ class _ServerlessCollectionState:
         :param pulumi.Input[_builtins.str] dashboard_endpoint: Collection-specific endpoint used to access OpenSearch Dashboards.
         :param pulumi.Input[_builtins.str] description: Description of the collection.
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionEncryptionConfigArgs']]] encryption_configs: Configuration block for direct collection encryption settings. See `encryption_config` below for details.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the Amazon Web Services KMS key used to encrypt the collection.
         :param pulumi.Input[_builtins.str] name: Name of the collection.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] standby_replicas: Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
+        :param pulumi.Input[Sequence[pulumi.Input['ServerlessCollectionVectorOptionArgs']]] vector_options: Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vector_options` below for details.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -235,6 +253,8 @@ class _ServerlessCollectionState:
             pulumi.set(__self__, "timeouts", timeouts)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if vector_options is not None:
+            pulumi.set(__self__, "vector_options", vector_options)
 
     @_builtins.property
     @pulumi.getter
@@ -312,7 +332,7 @@ class _ServerlessCollectionState:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+        ARN of the Amazon Web Services KMS key used to encrypt the collection.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -350,7 +370,7 @@ class _ServerlessCollectionState:
     @pulumi.getter(name="standbyReplicas")
     def standby_replicas(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         """
         return pulumi.get(self, "standby_replicas")
 
@@ -362,7 +382,7 @@ class _ServerlessCollectionState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -374,7 +394,7 @@ class _ServerlessCollectionState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -403,6 +423,18 @@ class _ServerlessCollectionState:
     def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
+    @_builtins.property
+    @pulumi.getter(name="vectorOptions")
+    def vector_options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionVectorOptionArgs']]]]:
+        """
+        Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vector_options` below for details.
+        """
+        return pulumi.get(self, "vector_options")
+
+    @vector_options.setter
+    def vector_options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCollectionVectorOptionArgs']]]]):
+        pulumi.set(self, "vector_options", value)
+
 
 @pulumi.type_token("aws:opensearch/serverlessCollection:ServerlessCollection")
 class ServerlessCollection(pulumi.CustomResource):
@@ -419,9 +451,10 @@ class ServerlessCollection(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['ServerlessCollectionTimeoutsArgs', 'ServerlessCollectionTimeoutsArgsDict']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vector_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionVectorOptionArgs', 'ServerlessCollectionVectorOptionArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS OpenSearch Serverless Collection.
+        Manages an AWS OpenSearch Serverless Collection.
 
         > **NOTE:** An `opensearch.ServerlessCollection` must have encryption configured either by an applicable encryption security policy or by setting `encryption_config` directly on the resource.
 
@@ -500,9 +533,10 @@ class ServerlessCollection(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[_builtins.str] standby_replicas: Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionVectorOptionArgs', 'ServerlessCollectionVectorOptionArgsDict']]]] vector_options: Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vector_options` below for details.
         """
         ...
     @overload
@@ -511,7 +545,7 @@ class ServerlessCollection(pulumi.CustomResource):
                  args: Optional[ServerlessCollectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS OpenSearch Serverless Collection.
+        Manages an AWS OpenSearch Serverless Collection.
 
         > **NOTE:** An `opensearch.ServerlessCollection` must have encryption configured either by an applicable encryption security policy or by setting `encryption_config` directly on the resource.
 
@@ -605,6 +639,7 @@ class ServerlessCollection(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['ServerlessCollectionTimeoutsArgs', 'ServerlessCollectionTimeoutsArgsDict']]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
+                 vector_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionVectorOptionArgs', 'ServerlessCollectionVectorOptionArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -623,6 +658,7 @@ class ServerlessCollection(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["type"] = type
+            __props__.__dict__["vector_options"] = vector_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["collection_endpoint"] = None
             __props__.__dict__["dashboard_endpoint"] = None
@@ -651,7 +687,8 @@ class ServerlessCollection(pulumi.CustomResource):
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timeouts: pulumi.Input[Optional[Union['ServerlessCollectionTimeoutsArgs', 'ServerlessCollectionTimeoutsArgsDict']]] = None,
-            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerlessCollection':
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            vector_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCollectionVectorOptionArgs', 'ServerlessCollectionVectorOptionArgsDict']]]]] = None) -> 'ServerlessCollection':
         """
         Get an existing ServerlessCollection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -665,15 +702,16 @@ class ServerlessCollection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dashboard_endpoint: Collection-specific endpoint used to access OpenSearch Dashboards.
         :param pulumi.Input[_builtins.str] description: Description of the collection.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionEncryptionConfigArgs', 'ServerlessCollectionEncryptionConfigArgsDict']]]] encryption_configs: Configuration block for direct collection encryption settings. See `encryption_config` below for details.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the Amazon Web Services KMS key used to encrypt the collection.
         :param pulumi.Input[_builtins.str] name: Name of the collection.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] standby_replicas: Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] standby_replicas: Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] type: Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCollectionVectorOptionArgs', 'ServerlessCollectionVectorOptionArgsDict']]]] vector_options: Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vector_options` below for details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -693,6 +731,7 @@ class ServerlessCollection(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["type"] = type
+        __props__.__dict__["vector_options"] = vector_options
         return ServerlessCollection(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -747,7 +786,7 @@ class ServerlessCollection(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+        ARN of the Amazon Web Services KMS key used to encrypt the collection.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -773,7 +812,7 @@ class ServerlessCollection(pulumi.CustomResource):
     @pulumi.getter(name="standbyReplicas")
     def standby_replicas(self) -> pulumi.Output[_builtins.str]:
         """
-        Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         """
         return pulumi.get(self, "standby_replicas")
 
@@ -781,7 +820,7 @@ class ServerlessCollection(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the collection. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -789,7 +828,7 @@ class ServerlessCollection(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -805,4 +844,12 @@ class ServerlessCollection(pulumi.CustomResource):
         Type of collection. One of `SEARCH`, `TIMESERIES`, or `VECTORSEARCH`. Defaults to `TIMESERIES`.
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="vectorOptions")
+    def vector_options(self) -> pulumi.Output[Sequence['outputs.ServerlessCollectionVectorOption']]:
+        """
+        Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vector_options` below for details.
+        """
+        return pulumi.get(self, "vector_options")
 

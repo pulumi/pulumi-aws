@@ -28,7 +28,7 @@ namespace Pulumi.Aws.CloudWatch
         /// {
         ///     var examplepartner = Aws.CloudWatch.GetEventSource.Invoke(new()
         ///     {
-        ///         NamePrefix = "aws.partner/examplepartner.com",
+        ///         NamePrefix = "aws.partner/example.com",
         ///     });
         /// 
         /// });
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.CloudWatch
         /// {
         ///     var examplepartner = Aws.CloudWatch.GetEventSource.Invoke(new()
         ///     {
-        ///         NamePrefix = "aws.partner/examplepartner.com",
+        ///         NamePrefix = "aws.partner/example.com",
         ///     });
         /// 
         /// });
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.CloudWatch
         /// {
         ///     var examplepartner = Aws.CloudWatch.GetEventSource.Invoke(new()
         ///     {
-        ///         NamePrefix = "aws.partner/examplepartner.com",
+        ///         NamePrefix = "aws.partner/example.com",
         ///     });
         /// 
         /// });

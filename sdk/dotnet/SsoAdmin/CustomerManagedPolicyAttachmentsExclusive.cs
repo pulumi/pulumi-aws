@@ -112,6 +112,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// #### Optional
     /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
     /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import SSO Admin Customer Managed Policy Attachments Exclusive using the `InstanceArn` and `PermissionSetArn` arguments, separated by a comma (`,`). For example:

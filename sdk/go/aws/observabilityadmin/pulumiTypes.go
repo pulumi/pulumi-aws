@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CentralizationRuleForOrganizationRule struct {
-	// Configuration block for the destination where logs will be centralized. See `destination` below.
+	// Configuration block for the destination where telemetry will be centralized. See `destination` below.
 	Destination CentralizationRuleForOrganizationRuleDestination `pulumi:"destination"`
 	// Configuration block for the source of logs to be centralized. See `source` below.
 	Source CentralizationRuleForOrganizationRuleSource `pulumi:"source"`
@@ -32,7 +32,7 @@ type CentralizationRuleForOrganizationRuleInput interface {
 }
 
 type CentralizationRuleForOrganizationRuleArgs struct {
-	// Configuration block for the destination where logs will be centralized. See `destination` below.
+	// Configuration block for the destination where telemetry will be centralized. See `destination` below.
 	Destination CentralizationRuleForOrganizationRuleDestinationInput `pulumi:"destination"`
 	// Configuration block for the source of logs to be centralized. See `source` below.
 	Source CentralizationRuleForOrganizationRuleSourceInput `pulumi:"source"`
@@ -115,7 +115,7 @@ func (o CentralizationRuleForOrganizationRuleOutput) ToCentralizationRuleForOrga
 	}).(CentralizationRuleForOrganizationRulePtrOutput)
 }
 
-// Configuration block for the destination where logs will be centralized. See `destination` below.
+// Configuration block for the destination where telemetry will be centralized. See `destination` below.
 func (o CentralizationRuleForOrganizationRuleOutput) Destination() CentralizationRuleForOrganizationRuleDestinationOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRule) CentralizationRuleForOrganizationRuleDestination {
 		return v.Destination
@@ -153,7 +153,7 @@ func (o CentralizationRuleForOrganizationRulePtrOutput) Elem() CentralizationRul
 	}).(CentralizationRuleForOrganizationRuleOutput)
 }
 
-// Configuration block for the destination where logs will be centralized. See `destination` below.
+// Configuration block for the destination where telemetry will be centralized. See `destination` below.
 func (o CentralizationRuleForOrganizationRulePtrOutput) Destination() CentralizationRuleForOrganizationRuleDestinationPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRule) *CentralizationRuleForOrganizationRuleDestination {
 		if v == nil {
@@ -174,11 +174,13 @@ func (o CentralizationRuleForOrganizationRulePtrOutput) Source() CentralizationR
 }
 
 type CentralizationRuleForOrganizationRuleDestination struct {
-	// AWS account ID where logs will be centralized.
+	// AWS account ID where telemetry will be centralized.
 	Account string `pulumi:"account"`
 	// Configuration block for destination logs settings. See `destinationLogsConfiguration` below.
 	DestinationLogsConfiguration *CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration `pulumi:"destinationLogsConfiguration"`
-	// AWS region where logs will be centralized.
+	// Configuration block for destination metrics settings. See `destinationMetricsConfiguration` below.
+	DestinationMetricsConfiguration *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration `pulumi:"destinationMetricsConfiguration"`
+	// AWS region where telemetry will be centralized.
 	Region string `pulumi:"region"`
 }
 
@@ -194,11 +196,13 @@ type CentralizationRuleForOrganizationRuleDestinationInput interface {
 }
 
 type CentralizationRuleForOrganizationRuleDestinationArgs struct {
-	// AWS account ID where logs will be centralized.
+	// AWS account ID where telemetry will be centralized.
 	Account pulumi.StringInput `pulumi:"account"`
 	// Configuration block for destination logs settings. See `destinationLogsConfiguration` below.
 	DestinationLogsConfiguration CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationPtrInput `pulumi:"destinationLogsConfiguration"`
-	// AWS region where logs will be centralized.
+	// Configuration block for destination metrics settings. See `destinationMetricsConfiguration` below.
+	DestinationMetricsConfiguration CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrInput `pulumi:"destinationMetricsConfiguration"`
+	// AWS region where telemetry will be centralized.
 	Region pulumi.StringInput `pulumi:"region"`
 }
 
@@ -279,7 +283,7 @@ func (o CentralizationRuleForOrganizationRuleDestinationOutput) ToCentralization
 	}).(CentralizationRuleForOrganizationRuleDestinationPtrOutput)
 }
 
-// AWS account ID where logs will be centralized.
+// AWS account ID where telemetry will be centralized.
 func (o CentralizationRuleForOrganizationRuleDestinationOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestination) string { return v.Account }).(pulumi.StringOutput)
 }
@@ -291,7 +295,14 @@ func (o CentralizationRuleForOrganizationRuleDestinationOutput) DestinationLogsC
 	}).(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationPtrOutput)
 }
 
-// AWS region where logs will be centralized.
+// Configuration block for destination metrics settings. See `destinationMetricsConfiguration` below.
+func (o CentralizationRuleForOrganizationRuleDestinationOutput) DestinationMetricsConfiguration() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput {
+	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestination) *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration {
+		return v.DestinationMetricsConfiguration
+	}).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput)
+}
+
+// AWS region where telemetry will be centralized.
 func (o CentralizationRuleForOrganizationRuleDestinationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestination) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -320,7 +331,7 @@ func (o CentralizationRuleForOrganizationRuleDestinationPtrOutput) Elem() Centra
 	}).(CentralizationRuleForOrganizationRuleDestinationOutput)
 }
 
-// AWS account ID where logs will be centralized.
+// AWS account ID where telemetry will be centralized.
 func (o CentralizationRuleForOrganizationRuleDestinationPtrOutput) Account() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestination) *string {
 		if v == nil {
@@ -340,7 +351,17 @@ func (o CentralizationRuleForOrganizationRuleDestinationPtrOutput) DestinationLo
 	}).(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationPtrOutput)
 }
 
-// AWS region where logs will be centralized.
+// Configuration block for destination metrics settings. See `destinationMetricsConfiguration` below.
+func (o CentralizationRuleForOrganizationRuleDestinationPtrOutput) DestinationMetricsConfiguration() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestination) *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationMetricsConfiguration
+	}).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput)
+}
+
+// AWS region where telemetry will be centralized.
 func (o CentralizationRuleForOrganizationRuleDestinationPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestination) *string {
 		if v == nil {
@@ -1011,13 +1032,293 @@ func (o CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigura
 	}).(pulumi.StringPtrOutput)
 }
 
+type CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration struct {
+	// Configuration block for metrics backup settings. See `destinationMetricsBackupConfiguration` below.
+	BackupConfiguration *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration `pulumi:"backupConfiguration"`
+}
+
+// CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationInput is an input type that accepts CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs and CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput values.
+// You can construct a concrete instance of `CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationInput` via:
+//
+//	CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs{...}
+type CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationInput interface {
+	pulumi.Input
+
+	ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput
+	ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutputWithContext(context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput
+}
+
+type CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs struct {
+	// Configuration block for metrics backup settings. See `destinationMetricsBackupConfiguration` below.
+	BackupConfiguration CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrInput `pulumi:"backupConfiguration"`
+}
+
+func (CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration)(nil)).Elem()
+}
+
+func (i CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput {
+	return i.ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutputWithContext(context.Background())
+}
+
+func (i CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput)
+}
+
+func (i CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput {
+	return i.ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput).ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutputWithContext(ctx)
+}
+
+// CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrInput is an input type that accepts CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs, CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtr and CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput values.
+// You can construct a concrete instance of `CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrInput` via:
+//
+//	        CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput
+	ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutputWithContext(context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput
+}
+
+type centralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrType CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs
+
+func CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtr(v *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrInput {
+	return (*centralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrType)(v)
+}
+
+func (*centralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration)(nil)).Elem()
+}
+
+func (i *centralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrType) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput {
+	return i.ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *centralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrType) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput)
+}
+
+type CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration)(nil)).Elem()
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput {
+	return o
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput {
+	return o
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput {
+	return o.ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration) *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration {
+		return &v
+	}).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput)
+}
+
+// Configuration block for metrics backup settings. See `destinationMetricsBackupConfiguration` below.
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput) BackupConfiguration() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput {
+	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration) *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration {
+		return v.BackupConfiguration
+	}).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput)
+}
+
+type CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration)(nil)).Elem()
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput {
+	return o
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput {
+	return o
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput) Elem() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration
+		return ret
+	}).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput)
+}
+
+// Configuration block for metrics backup settings. See `destinationMetricsBackupConfiguration` below.
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput) BackupConfiguration() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration) *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BackupConfiguration
+	}).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput)
+}
+
+type CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration struct {
+	// AWS region for backup storage.
+	Region string `pulumi:"region"`
+}
+
+// CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationInput is an input type that accepts CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs and CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput values.
+// You can construct a concrete instance of `CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationInput` via:
+//
+//	CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs{...}
+type CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationInput interface {
+	pulumi.Input
+
+	ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput
+	ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutputWithContext(context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput
+}
+
+type CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs struct {
+	// AWS region for backup storage.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration)(nil)).Elem()
+}
+
+func (i CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput {
+	return i.ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutputWithContext(context.Background())
+}
+
+func (i CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput)
+}
+
+func (i CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput {
+	return i.ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput).ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutputWithContext(ctx)
+}
+
+// CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrInput is an input type that accepts CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs, CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtr and CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput values.
+// You can construct a concrete instance of `CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrInput` via:
+//
+//	        CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput
+	ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutputWithContext(context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput
+}
+
+type centralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrType CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs
+
+func CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtr(v *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrInput {
+	return (*centralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrType)(v)
+}
+
+func (*centralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration)(nil)).Elem()
+}
+
+func (i *centralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrType) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput {
+	return i.ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *centralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrType) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput)
+}
+
+type CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration)(nil)).Elem()
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput {
+	return o
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput {
+	return o
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput {
+	return o.ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration) *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration {
+		return &v
+	}).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput)
+}
+
+// AWS region for backup storage.
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration) string {
+		return v.Region
+	}).(pulumi.StringOutput)
+}
+
+type CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration)(nil)).Elem()
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput {
+	return o
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput) ToCentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput {
+	return o
+}
+
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput) Elem() CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration) CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration
+		return ret
+	}).(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput)
+}
+
+// AWS region for backup storage.
+func (o CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
 type CentralizationRuleForOrganizationRuleSource struct {
-	// Set of AWS regions from which to centralize logs. Must contain at least one region.
+	// Set of AWS regions from which to centralize telemetry. Must contain at least one region.
 	Regions []string `pulumi:"regions"`
 	// Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
 	Scope string `pulumi:"scope"`
 	// Configuration block for source logs settings. See `sourceLogsConfiguration` below.
 	SourceLogsConfiguration *CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration `pulumi:"sourceLogsConfiguration"`
+	// Configuration block for source metrics settings. See `sourceMetricsConfiguration` below.
+	SourceMetricsConfiguration *CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration `pulumi:"sourceMetricsConfiguration"`
 }
 
 // CentralizationRuleForOrganizationRuleSourceInput is an input type that accepts CentralizationRuleForOrganizationRuleSourceArgs and CentralizationRuleForOrganizationRuleSourceOutput values.
@@ -1032,12 +1333,14 @@ type CentralizationRuleForOrganizationRuleSourceInput interface {
 }
 
 type CentralizationRuleForOrganizationRuleSourceArgs struct {
-	// Set of AWS regions from which to centralize logs. Must contain at least one region.
+	// Set of AWS regions from which to centralize telemetry. Must contain at least one region.
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
 	Scope pulumi.StringInput `pulumi:"scope"`
 	// Configuration block for source logs settings. See `sourceLogsConfiguration` below.
 	SourceLogsConfiguration CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrInput `pulumi:"sourceLogsConfiguration"`
+	// Configuration block for source metrics settings. See `sourceMetricsConfiguration` below.
+	SourceMetricsConfiguration CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrInput `pulumi:"sourceMetricsConfiguration"`
 }
 
 func (CentralizationRuleForOrganizationRuleSourceArgs) ElementType() reflect.Type {
@@ -1117,7 +1420,7 @@ func (o CentralizationRuleForOrganizationRuleSourceOutput) ToCentralizationRuleF
 	}).(CentralizationRuleForOrganizationRuleSourcePtrOutput)
 }
 
-// Set of AWS regions from which to centralize logs. Must contain at least one region.
+// Set of AWS regions from which to centralize telemetry. Must contain at least one region.
 func (o CentralizationRuleForOrganizationRuleSourceOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSource) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }
@@ -1132,6 +1435,13 @@ func (o CentralizationRuleForOrganizationRuleSourceOutput) SourceLogsConfigurati
 	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSource) *CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration {
 		return v.SourceLogsConfiguration
 	}).(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput)
+}
+
+// Configuration block for source metrics settings. See `sourceMetricsConfiguration` below.
+func (o CentralizationRuleForOrganizationRuleSourceOutput) SourceMetricsConfiguration() CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput {
+	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSource) *CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration {
+		return v.SourceMetricsConfiguration
+	}).(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput)
 }
 
 type CentralizationRuleForOrganizationRuleSourcePtrOutput struct{ *pulumi.OutputState }
@@ -1158,7 +1468,7 @@ func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) Elem() Centralizat
 	}).(CentralizationRuleForOrganizationRuleSourceOutput)
 }
 
-// Set of AWS regions from which to centralize logs. Must contain at least one region.
+// Set of AWS regions from which to centralize telemetry. Must contain at least one region.
 func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleSource) []string {
 		if v == nil {
@@ -1186,6 +1496,16 @@ func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) SourceLogsConfigur
 		}
 		return v.SourceLogsConfiguration
 	}).(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput)
+}
+
+// Configuration block for source metrics settings. See `sourceMetricsConfiguration` below.
+func (o CentralizationRuleForOrganizationRuleSourcePtrOutput) SourceMetricsConfiguration() CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleSource) *CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SourceMetricsConfiguration
+	}).(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput)
 }
 
 type CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration struct {
@@ -1366,6 +1686,145 @@ func (o CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOut
 			return nil
 		}
 		return v.LogGroupSelectionCriteria
+	}).(pulumi.StringPtrOutput)
+}
+
+type CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration struct {
+	// Filter expression that selects which source metrics to centralize. Currently, only `*` (all metrics) is supported.
+	MetricsSelectionCriteria string `pulumi:"metricsSelectionCriteria"`
+}
+
+// CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationInput is an input type that accepts CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs and CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput values.
+// You can construct a concrete instance of `CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationInput` via:
+//
+//	CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs{...}
+type CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationInput interface {
+	pulumi.Input
+
+	ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput() CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput
+	ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutputWithContext(context.Context) CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput
+}
+
+type CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs struct {
+	// Filter expression that selects which source metrics to centralize. Currently, only `*` (all metrics) is supported.
+	MetricsSelectionCriteria pulumi.StringInput `pulumi:"metricsSelectionCriteria"`
+}
+
+func (CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration)(nil)).Elem()
+}
+
+func (i CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs) ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput() CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput {
+	return i.ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutputWithContext(context.Background())
+}
+
+func (i CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs) ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput)
+}
+
+func (i CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs) ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput() CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput {
+	return i.ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs) ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput).ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutputWithContext(ctx)
+}
+
+// CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrInput is an input type that accepts CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs, CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtr and CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput values.
+// You can construct a concrete instance of `CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrInput` via:
+//
+//	        CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput() CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput
+	ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutputWithContext(context.Context) CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput
+}
+
+type centralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrType CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs
+
+func CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtr(v *CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs) CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrInput {
+	return (*centralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrType)(v)
+}
+
+func (*centralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration)(nil)).Elem()
+}
+
+func (i *centralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrType) ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput() CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput {
+	return i.ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *centralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrType) ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput)
+}
+
+type CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration)(nil)).Elem()
+}
+
+func (o CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput) ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput() CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput {
+	return o
+}
+
+func (o CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput) ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput {
+	return o
+}
+
+func (o CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput) ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput() CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput {
+	return o.ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput) ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration) *CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration {
+		return &v
+	}).(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput)
+}
+
+// Filter expression that selects which source metrics to centralize. Currently, only `*` (all metrics) is supported.
+func (o CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput) MetricsSelectionCriteria() pulumi.StringOutput {
+	return o.ApplyT(func(v CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration) string {
+		return v.MetricsSelectionCriteria
+	}).(pulumi.StringOutput)
+}
+
+type CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration)(nil)).Elem()
+}
+
+func (o CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput) ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput() CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput {
+	return o
+}
+
+func (o CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput) ToCentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutputWithContext(ctx context.Context) CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput {
+	return o
+}
+
+func (o CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput) Elem() CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration) CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration
+		return ret
+	}).(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput)
+}
+
+// Filter expression that selects which source metrics to centralize. Currently, only `*` (all metrics) is supported.
+func (o CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput) MetricsSelectionCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MetricsSelectionCriteria
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8464,10 +8923,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleSourceInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleSourcePtrInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationTimeoutsInput)(nil)).Elem(), CentralizationRuleForOrganizationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CentralizationRuleForOrganizationTimeoutsPtrInput)(nil)).Elem(), CentralizationRuleForOrganizationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3TableIntegrationEncryptionInput)(nil)).Elem(), S3TableIntegrationEncryptionArgs{})
@@ -8568,10 +9033,16 @@ func init() {
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationOutput{})
+	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationOutput{})
+	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleSourceOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleSourcePtrOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationOutput{})
+	pulumi.RegisterOutputType(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationTimeoutsOutput{})
 	pulumi.RegisterOutputType(CentralizationRuleForOrganizationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(S3TableIntegrationEncryptionOutput{})

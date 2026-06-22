@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class CentralizationRuleForOrganizationRule {
     /**
-     * @return Configuration block for the destination where logs will be centralized. See `destination` below.
+     * @return Configuration block for the destination where telemetry will be centralized. See `destination` below.
      * 
      */
     private CentralizationRuleForOrganizationRuleDestination destination;
@@ -24,7 +24,7 @@ public final class CentralizationRuleForOrganizationRule {
 
     private CentralizationRuleForOrganizationRule() {}
     /**
-     * @return Configuration block for the destination where logs will be centralized. See `destination` below.
+     * @return Configuration block for the destination where telemetry will be centralized. See `destination` below.
      * 
      */
     public CentralizationRuleForOrganizationRuleDestination destination() {

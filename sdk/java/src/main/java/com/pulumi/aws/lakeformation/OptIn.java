@@ -33,6 +33,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lakeformation.OptIn;
+ * import com.pulumi.aws.lakeformation.OptInArgs;
+ * import com.pulumi.aws.lakeformation.inputs.OptInPrincipalArgs;
+ * import com.pulumi.aws.lakeformation.inputs.OptInResourceDataArgs;
+ * import com.pulumi.aws.lakeformation.inputs.OptInResourceDataDatabaseArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -46,7 +50,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new OptIn("example");
+ *         var example = new OptIn("example", OptInArgs.builder()
+ *             .principals(OptInPrincipalArgs.builder()
+ *                 .dataLakePrincipalIdentifier(exampleAwsIamRole.arn())
+ *                 .build())
+ *             .resourceDatas(OptInResourceDataArgs.builder()
+ *                 .database(OptInResourceDataDatabaseArgs.builder()
+ *                     .name(exampleAwsGlueCatalogDatabase.name())
+ *                     .catalogId(current.accountId())
+ *                     .build())
+ *                 .build())
+ *             .build());
  * 
  *     }
  * }
@@ -57,14 +71,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:lakeformation/optIn:OptIn")
 public class OptIn extends com.pulumi.resources.CustomResource {
     /**
-     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
      * 
      */
     @Export(name="conditions", refs={List.class,OptInCondition.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OptInCondition>> conditions;
 
     /**
-     * @return Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+     * @return Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
      * 
      */
     public Output<Optional<List<OptInCondition>>> conditions() {
@@ -84,25 +98,33 @@ public class OptIn extends com.pulumi.resources.CustomResource {
     public Output<String> lastModified() {
         return this.lastModified;
     }
+    /**
+     * User who updated the record.
+     * 
+     */
     @Export(name="lastUpdatedBy", refs={String.class}, tree="[0]")
     private Output<String> lastUpdatedBy;
 
+    /**
+     * @return User who updated the record.
+     * 
+     */
     public Output<String> lastUpdatedBy() {
         return this.lastUpdatedBy;
     }
     /**
-     * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+     * Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
      * 
      */
     @Export(name="principals", refs={List.class,OptInPrincipal.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<OptInPrincipal>> principals;
+    private Output<List<OptInPrincipal>> principals;
 
     /**
-     * @return Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+     * @return Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
      * 
      */
-    public Output<Optional<List<OptInPrincipal>>> principals() {
-        return Codegen.optional(this.principals);
+    public Output<List<OptInPrincipal>> principals() {
+        return this.principals;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -119,14 +141,14 @@ public class OptIn extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Structure for the resource. See Resource for more details.
+     * Structure for the resource. See `resourceData` Block for more details.
      * 
      */
     @Export(name="resourceDatas", refs={List.class,OptInResourceData.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OptInResourceData>> resourceDatas;
 
     /**
-     * @return Structure for the resource. See Resource for more details.
+     * @return Structure for the resource. See `resourceData` Block for more details.
      * 
      */
     public Output<Optional<List<OptInResourceData>>> resourceDatas() {
@@ -145,7 +167,7 @@ public class OptIn extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public OptIn(java.lang.String name, @Nullable OptInArgs args) {
+    public OptIn(java.lang.String name, OptInArgs args) {
         this(name, args, null);
     }
     /**
@@ -154,7 +176,7 @@ public class OptIn extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public OptIn(java.lang.String name, @Nullable OptInArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public OptIn(java.lang.String name, OptInArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lakeformation/optIn:OptIn", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -162,7 +184,7 @@ public class OptIn extends com.pulumi.resources.CustomResource {
         super("aws:lakeformation/optIn:OptIn", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static OptInArgs makeArgs(@Nullable OptInArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static OptInArgs makeArgs(OptInArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

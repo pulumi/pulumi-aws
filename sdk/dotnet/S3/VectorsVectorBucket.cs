@@ -60,6 +60,12 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `VectorBucketArn` (String) ARN of the S3 Vectors Vector Bucket.
+    /// 
     /// Using `pulumi import`, import S3 Vectors Vector Bucket using the `VectorBucketArn`. For example:
     /// 
     /// ```sh

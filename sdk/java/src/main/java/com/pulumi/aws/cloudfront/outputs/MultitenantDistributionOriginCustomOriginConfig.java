@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudfront.outputs;
 
+import com.pulumi.aws.cloudfront.outputs.MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
@@ -34,6 +35,11 @@ public final class MultitenantDistributionOriginCustomOriginConfig {
      * 
      */
     private @Nullable Integer originKeepaliveTimeout;
+    /**
+     * @return Origin mTLS configuration for mutual TLS authentication between CloudFront and your origin. See Origin mTLS Config below.
+     * 
+     */
+    private @Nullable MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig originMtlsConfig;
     /**
      * @return Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
      * 
@@ -80,6 +86,13 @@ public final class MultitenantDistributionOriginCustomOriginConfig {
         return Optional.ofNullable(this.originKeepaliveTimeout);
     }
     /**
+     * @return Origin mTLS configuration for mutual TLS authentication between CloudFront and your origin. See Origin mTLS Config below.
+     * 
+     */
+    public Optional<MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig> originMtlsConfig() {
+        return Optional.ofNullable(this.originMtlsConfig);
+    }
+    /**
      * @return Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
      * 
      */
@@ -114,6 +127,7 @@ public final class MultitenantDistributionOriginCustomOriginConfig {
         private Integer httpsPort;
         private @Nullable String ipAddressType;
         private @Nullable Integer originKeepaliveTimeout;
+        private @Nullable MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig originMtlsConfig;
         private String originProtocolPolicy;
         private @Nullable Integer originReadTimeout;
         private List<String> originSslProtocols;
@@ -124,6 +138,7 @@ public final class MultitenantDistributionOriginCustomOriginConfig {
     	      this.httpsPort = defaults.httpsPort;
     	      this.ipAddressType = defaults.ipAddressType;
     	      this.originKeepaliveTimeout = defaults.originKeepaliveTimeout;
+    	      this.originMtlsConfig = defaults.originMtlsConfig;
     	      this.originProtocolPolicy = defaults.originProtocolPolicy;
     	      this.originReadTimeout = defaults.originReadTimeout;
     	      this.originSslProtocols = defaults.originSslProtocols;
@@ -158,6 +173,12 @@ public final class MultitenantDistributionOriginCustomOriginConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder originMtlsConfig(@Nullable MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig originMtlsConfig) {
+
+            this.originMtlsConfig = originMtlsConfig;
+            return this;
+        }
+        @CustomType.Setter
         public Builder originProtocolPolicy(String originProtocolPolicy) {
             if (originProtocolPolicy == null) {
               throw new MissingRequiredPropertyException("MultitenantDistributionOriginCustomOriginConfig", "originProtocolPolicy");
@@ -188,6 +209,7 @@ public final class MultitenantDistributionOriginCustomOriginConfig {
             _resultValue.httpsPort = httpsPort;
             _resultValue.ipAddressType = ipAddressType;
             _resultValue.originKeepaliveTimeout = originKeepaliveTimeout;
+            _resultValue.originMtlsConfig = originMtlsConfig;
             _resultValue.originProtocolPolicy = originProtocolPolicy;
             _resultValue.originReadTimeout = originReadTimeout;
             _resultValue.originSslProtocols = originSslProtocols;

@@ -17,11 +17,19 @@ namespace Pulumi.Aws.Eks.Outputs
         /// The name of the placement group for the Kubernetes control plane instances.
         /// </summary>
         public readonly string GroupName;
+        /// <summary>
+        /// Placement group spread level for etcd instances.
+        /// </summary>
+        public readonly string SpreadLevel;
 
         [OutputConstructor]
-        private GetClusterOutpostConfigControlPlanePlacementResult(string groupName)
+        private GetClusterOutpostConfigControlPlanePlacementResult(
+            string groupName,
+
+            string spreadLevel)
         {
             GroupName = groupName;
+            SpreadLevel = spreadLevel;
         }
     }
 }

@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+ * - `secretId` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
  * 
  * Using `pulumi import`, import `aws.secretsmanager.SecretRotation` using the secret Amazon Resource Name (ARN). For example:
  * 

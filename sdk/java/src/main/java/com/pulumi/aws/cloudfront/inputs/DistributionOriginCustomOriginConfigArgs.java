@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudfront.inputs;
 
+import com.pulumi.aws.cloudfront.inputs.DistributionOriginCustomOriginConfigOriginMtlsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -71,6 +72,21 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
     }
 
     /**
+     * The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.
+     * 
+     */
+    @Import(name="originMtlsConfig")
+    private @Nullable Output<DistributionOriginCustomOriginConfigOriginMtlsConfigArgs> originMtlsConfig;
+
+    /**
+     * @return The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.
+     * 
+     */
+    public Optional<Output<DistributionOriginCustomOriginConfigOriginMtlsConfigArgs>> originMtlsConfig() {
+        return Optional.ofNullable(this.originMtlsConfig);
+    }
+
+    /**
      * Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
      * 
      */
@@ -114,6 +130,7 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
         this.httpsPort = $.httpsPort;
         this.ipAddressType = $.ipAddressType;
         this.originKeepaliveTimeout = $.originKeepaliveTimeout;
+        this.originMtlsConfig = $.originMtlsConfig;
         this.originProtocolPolicy = $.originProtocolPolicy;
         this.originReadTimeout = $.originReadTimeout;
         this.originSslProtocols = $.originSslProtocols;
@@ -207,6 +224,27 @@ public final class DistributionOriginCustomOriginConfigArgs extends com.pulumi.r
 
         public Builder originKeepaliveTimeout(Integer originKeepaliveTimeout) {
             return originKeepaliveTimeout(Output.of(originKeepaliveTimeout));
+        }
+
+        /**
+         * @param originMtlsConfig The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder originMtlsConfig(@Nullable Output<DistributionOriginCustomOriginConfigOriginMtlsConfigArgs> originMtlsConfig) {
+            $.originMtlsConfig = originMtlsConfig;
+            return this;
+        }
+
+        /**
+         * @param originMtlsConfig The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder originMtlsConfig(DistributionOriginCustomOriginConfigOriginMtlsConfigArgs originMtlsConfig) {
+            return originMtlsConfig(Output.of(originMtlsConfig));
         }
 
         /**

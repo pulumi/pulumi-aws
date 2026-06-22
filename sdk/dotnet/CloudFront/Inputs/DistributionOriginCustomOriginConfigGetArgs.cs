@@ -34,6 +34,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<int>? OriginKeepaliveTimeout { get; set; }
 
         /// <summary>
+        /// The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.
+        /// </summary>
+        [Input("originMtlsConfig")]
+        public Input<Inputs.DistributionOriginCustomOriginConfigOriginMtlsConfigGetArgs>? OriginMtlsConfig { get; set; }
+
+        /// <summary>
         /// Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
         /// </summary>
         [Input("originProtocolPolicy", required: true)]

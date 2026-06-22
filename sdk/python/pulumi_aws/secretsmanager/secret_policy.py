@@ -212,7 +212,7 @@ class SecretPolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+        - `secret_arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
 
         Using `pulumi import`, import `secretsmanager.SecretPolicy` using the secret Amazon Resource Name (ARN). For example:
 
@@ -269,7 +269,7 @@ class SecretPolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+        - `secret_arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
 
         Using `pulumi import`, import `secretsmanager.SecretPolicy` using the secret Amazon Resource Name (ARN). For example:
 

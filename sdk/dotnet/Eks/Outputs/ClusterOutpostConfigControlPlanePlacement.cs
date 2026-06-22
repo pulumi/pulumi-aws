@@ -14,14 +14,22 @@ namespace Pulumi.Aws.Eks.Outputs
     public sealed class ClusterOutpostConfigControlPlanePlacement
     {
         /// <summary>
-        /// The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+        /// Name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
         /// </summary>
-        public readonly string GroupName;
+        public readonly string? GroupName;
+        /// <summary>
+        /// Placement group spread level for control plane instances. Valid values: `Host`, `Rack`.
+        /// </summary>
+        public readonly string? SpreadLevel;
 
         [OutputConstructor]
-        private ClusterOutpostConfigControlPlanePlacement(string groupName)
+        private ClusterOutpostConfigControlPlanePlacement(
+            string? groupName,
+
+            string? spreadLevel)
         {
             GroupName = groupName;
+            SpreadLevel = spreadLevel;
         }
     }
 }

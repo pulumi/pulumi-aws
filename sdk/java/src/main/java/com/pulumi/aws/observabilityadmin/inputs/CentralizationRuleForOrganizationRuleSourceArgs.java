@@ -4,6 +4,7 @@
 package com.pulumi.aws.observabilityadmin.inputs;
 
 import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs;
+import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -19,14 +20,14 @@ public final class CentralizationRuleForOrganizationRuleSourceArgs extends com.p
     public static final CentralizationRuleForOrganizationRuleSourceArgs Empty = new CentralizationRuleForOrganizationRuleSourceArgs();
 
     /**
-     * Set of AWS regions from which to centralize logs. Must contain at least one region.
+     * Set of AWS regions from which to centralize telemetry. Must contain at least one region.
      * 
      */
     @Import(name="regions", required=true)
     private Output<List<String>> regions;
 
     /**
-     * @return Set of AWS regions from which to centralize logs. Must contain at least one region.
+     * @return Set of AWS regions from which to centralize telemetry. Must contain at least one region.
      * 
      */
     public Output<List<String>> regions() {
@@ -63,12 +64,28 @@ public final class CentralizationRuleForOrganizationRuleSourceArgs extends com.p
         return Optional.ofNullable(this.sourceLogsConfiguration);
     }
 
+    /**
+     * Configuration block for source metrics settings. See `sourceMetricsConfiguration` below.
+     * 
+     */
+    @Import(name="sourceMetricsConfiguration")
+    private @Nullable Output<CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs> sourceMetricsConfiguration;
+
+    /**
+     * @return Configuration block for source metrics settings. See `sourceMetricsConfiguration` below.
+     * 
+     */
+    public Optional<Output<CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs>> sourceMetricsConfiguration() {
+        return Optional.ofNullable(this.sourceMetricsConfiguration);
+    }
+
     private CentralizationRuleForOrganizationRuleSourceArgs() {}
 
     private CentralizationRuleForOrganizationRuleSourceArgs(CentralizationRuleForOrganizationRuleSourceArgs $) {
         this.regions = $.regions;
         this.scope = $.scope;
         this.sourceLogsConfiguration = $.sourceLogsConfiguration;
+        this.sourceMetricsConfiguration = $.sourceMetricsConfiguration;
     }
 
     public static Builder builder() {
@@ -90,7 +107,7 @@ public final class CentralizationRuleForOrganizationRuleSourceArgs extends com.p
         }
 
         /**
-         * @param regions Set of AWS regions from which to centralize logs. Must contain at least one region.
+         * @param regions Set of AWS regions from which to centralize telemetry. Must contain at least one region.
          * 
          * @return builder
          * 
@@ -101,7 +118,7 @@ public final class CentralizationRuleForOrganizationRuleSourceArgs extends com.p
         }
 
         /**
-         * @param regions Set of AWS regions from which to centralize logs. Must contain at least one region.
+         * @param regions Set of AWS regions from which to centralize telemetry. Must contain at least one region.
          * 
          * @return builder
          * 
@@ -111,7 +128,7 @@ public final class CentralizationRuleForOrganizationRuleSourceArgs extends com.p
         }
 
         /**
-         * @param regions Set of AWS regions from which to centralize logs. Must contain at least one region.
+         * @param regions Set of AWS regions from which to centralize telemetry. Must contain at least one region.
          * 
          * @return builder
          * 
@@ -160,6 +177,27 @@ public final class CentralizationRuleForOrganizationRuleSourceArgs extends com.p
          */
         public Builder sourceLogsConfiguration(CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs sourceLogsConfiguration) {
             return sourceLogsConfiguration(Output.of(sourceLogsConfiguration));
+        }
+
+        /**
+         * @param sourceMetricsConfiguration Configuration block for source metrics settings. See `sourceMetricsConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceMetricsConfiguration(@Nullable Output<CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs> sourceMetricsConfiguration) {
+            $.sourceMetricsConfiguration = sourceMetricsConfiguration;
+            return this;
+        }
+
+        /**
+         * @param sourceMetricsConfiguration Configuration block for source metrics settings. See `sourceMetricsConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceMetricsConfiguration(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs sourceMetricsConfiguration) {
+            return sourceMetricsConfiguration(Output.of(sourceMetricsConfiguration));
         }
 
         public CentralizationRuleForOrganizationRuleSourceArgs build() {

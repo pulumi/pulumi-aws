@@ -22,6 +22,14 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterOutpostConfigControlPlanePlacementResult> ControlPlanePlacements;
         /// <summary>
+        /// Amazon EC2 instance type for etcd instances.
+        /// </summary>
+        public readonly string EtcdInstanceType;
+        /// <summary>
+        /// Placement configuration for the etcd instances.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterOutpostConfigEtcdPlacementResult> EtcdPlacements;
+        /// <summary>
         /// List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
         /// </summary>
         public readonly ImmutableArray<string> OutpostArns;
@@ -32,10 +40,16 @@ namespace Pulumi.Aws.Eks.Outputs
 
             ImmutableArray<Outputs.GetClusterOutpostConfigControlPlanePlacementResult> controlPlanePlacements,
 
+            string etcdInstanceType,
+
+            ImmutableArray<Outputs.GetClusterOutpostConfigEtcdPlacementResult> etcdPlacements,
+
             ImmutableArray<string> outpostArns)
         {
             ControlPlaneInstanceType = controlPlaneInstanceType;
             ControlPlanePlacements = controlPlanePlacements;
+            EtcdInstanceType = etcdInstanceType;
+            EtcdPlacements = etcdPlacements;
             OutpostArns = outpostArns;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.inputs;
 
 import com.pulumi.aws.eks.inputs.ClusterOutpostConfigControlPlanePlacementArgs;
+import com.pulumi.aws.eks.inputs.ClusterOutpostConfigEtcdPlacementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -67,6 +68,38 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+     * 
+     */
+    @Import(name="etcdInstanceType")
+    private @Nullable Output<String> etcdInstanceType;
+
+    /**
+     * @return Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+     * 
+     */
+    public Optional<Output<String>> etcdInstanceType() {
+        return Optional.ofNullable(this.etcdInstanceType);
+    }
+
+    /**
+     * Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+     * The `etcdPlacement` configuration block supports the following arguments:
+     * 
+     */
+    @Import(name="etcdPlacement")
+    private @Nullable Output<ClusterOutpostConfigEtcdPlacementArgs> etcdPlacement;
+
+    /**
+     * @return Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+     * The `etcdPlacement` configuration block supports the following arguments:
+     * 
+     */
+    public Optional<Output<ClusterOutpostConfigEtcdPlacementArgs>> etcdPlacement() {
+        return Optional.ofNullable(this.etcdPlacement);
+    }
+
+    /**
      * The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
      * 
      */
@@ -86,6 +119,8 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
     private ClusterOutpostConfigArgs(ClusterOutpostConfigArgs $) {
         this.controlPlaneInstanceType = $.controlPlaneInstanceType;
         this.controlPlanePlacement = $.controlPlanePlacement;
+        this.etcdInstanceType = $.etcdInstanceType;
+        this.etcdPlacement = $.etcdPlacement;
         this.outpostArns = $.outpostArns;
     }
 
@@ -165,6 +200,50 @@ public final class ClusterOutpostConfigArgs extends com.pulumi.resources.Resourc
          */
         public Builder controlPlanePlacement(ClusterOutpostConfigControlPlanePlacementArgs controlPlanePlacement) {
             return controlPlanePlacement(Output.of(controlPlanePlacement));
+        }
+
+        /**
+         * @param etcdInstanceType Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder etcdInstanceType(@Nullable Output<String> etcdInstanceType) {
+            $.etcdInstanceType = etcdInstanceType;
+            return this;
+        }
+
+        /**
+         * @param etcdInstanceType Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder etcdInstanceType(String etcdInstanceType) {
+            return etcdInstanceType(Output.of(etcdInstanceType));
+        }
+
+        /**
+         * @param etcdPlacement Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+         * The `etcdPlacement` configuration block supports the following arguments:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder etcdPlacement(@Nullable Output<ClusterOutpostConfigEtcdPlacementArgs> etcdPlacement) {
+            $.etcdPlacement = etcdPlacement;
+            return this;
+        }
+
+        /**
+         * @param etcdPlacement Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+         * The `etcdPlacement` configuration block supports the following arguments:
+         * 
+         * @return builder
+         * 
+         */
+        public Builder etcdPlacement(ClusterOutpostConfigEtcdPlacementArgs etcdPlacement) {
+            return etcdPlacement(Output.of(etcdPlacement));
         }
 
         /**

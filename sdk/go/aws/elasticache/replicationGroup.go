@@ -397,6 +397,8 @@ type ReplicationGroup struct {
 	DataTieringEnabled pulumi.BoolOutput `pulumi:"dataTieringEnabled"`
 	// User-created description for the replication group. Must not be empty.
 	Description pulumi.StringOutput `pulumi:"description"`
+	// Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+	Durability pulumi.StringOutput `pulumi:"durability"`
 	// Name of the cache engine to be used for the clusters in this replication group.
 	// Valid values are `redis` or `valkey`.
 	// Default is `redis`.
@@ -570,6 +572,8 @@ type replicationGroupState struct {
 	DataTieringEnabled *bool `pulumi:"dataTieringEnabled"`
 	// User-created description for the replication group. Must not be empty.
 	Description *string `pulumi:"description"`
+	// Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+	Durability *string `pulumi:"durability"`
 	// Name of the cache engine to be used for the clusters in this replication group.
 	// Valid values are `redis` or `valkey`.
 	// Default is `redis`.
@@ -704,6 +708,8 @@ type ReplicationGroupState struct {
 	DataTieringEnabled pulumi.BoolPtrInput
 	// User-created description for the replication group. Must not be empty.
 	Description pulumi.StringPtrInput
+	// Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+	Durability pulumi.StringPtrInput
 	// Name of the cache engine to be used for the clusters in this replication group.
 	// Valid values are `redis` or `valkey`.
 	// Default is `redis`.
@@ -836,6 +842,8 @@ type replicationGroupArgs struct {
 	DataTieringEnabled *bool `pulumi:"dataTieringEnabled"`
 	// User-created description for the replication group. Must not be empty.
 	Description string `pulumi:"description"`
+	// Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+	Durability *string `pulumi:"durability"`
 	// Name of the cache engine to be used for the clusters in this replication group.
 	// Valid values are `redis` or `valkey`.
 	// Default is `redis`.
@@ -955,6 +963,8 @@ type ReplicationGroupArgs struct {
 	DataTieringEnabled pulumi.BoolPtrInput
 	// User-created description for the replication group. Must not be empty.
 	Description pulumi.StringInput
+	// Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+	Durability pulumi.StringPtrInput
 	// Name of the cache engine to be used for the clusters in this replication group.
 	// Valid values are `redis` or `valkey`.
 	// Default is `redis`.
@@ -1199,6 +1209,11 @@ func (o ReplicationGroupOutput) DataTieringEnabled() pulumi.BoolOutput {
 // User-created description for the replication group. Must not be empty.
 func (o ReplicationGroupOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Specifies the durability mode for the replication group. Valid values are `default`, `async`, `sync`, or `disabled`. Requires cluster mode enabled and Valkey 9.0 or higher.
+func (o ReplicationGroupOutput) Durability() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.Durability }).(pulumi.StringOutput)
 }
 
 // Name of the cache engine to be used for the clusters in this replication group.

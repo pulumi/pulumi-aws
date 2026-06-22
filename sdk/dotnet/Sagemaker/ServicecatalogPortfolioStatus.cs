@@ -34,6 +34,13 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import models using the `Id`. For example:
     /// 
     /// ```sh

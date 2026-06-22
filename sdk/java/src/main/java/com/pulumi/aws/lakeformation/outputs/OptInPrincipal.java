@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class OptInPrincipal {
+    /**
+     * @return Identifier for the Lake Formation principal.
+     * 
+     */
     private String dataLakePrincipalIdentifier;
 
     private OptInPrincipal() {}
+    /**
+     * @return Identifier for the Lake Formation principal.
+     * 
+     */
     public String dataLakePrincipalIdentifier() {
         return this.dataLakePrincipalIdentifier;
     }

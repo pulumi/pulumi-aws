@@ -31,13 +31,13 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         }
 
         /// <summary>
-        /// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+        /// Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required. See `ColumnWildcard` Block for more details.
         /// </summary>
         [Input("columnWildcard")]
         public Input<Inputs.OptInResourceDataTableWithColumnsColumnWildcardArgs>? ColumnWildcard { get; set; }
 
         /// <summary>
-        /// The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+        /// Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;

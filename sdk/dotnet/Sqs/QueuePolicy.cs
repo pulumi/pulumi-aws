@@ -141,6 +141,12 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `QueueUrl` (String) URL of the SQS Queue.
+    /// 
     /// Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
     /// 
     /// ```sh

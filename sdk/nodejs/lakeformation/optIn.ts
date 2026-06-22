@@ -18,7 +18,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.lakeformation.OptIn("example", {});
+ * const example = new aws.lakeformation.OptIn("example", {
+ *     principals: [{
+ *         dataLakePrincipalIdentifier: exampleAwsIamRole.arn,
+ *     }],
+ *     resourceDatas: [{
+ *         database: {
+ *             name: exampleAwsGlueCatalogDatabase.name,
+ *             catalogId: current.accountId,
+ *         },
+ *     }],
+ * });
  * ```
  */
 export class OptIn extends pulumi.CustomResource {
@@ -50,24 +60,27 @@ export class OptIn extends pulumi.CustomResource {
     }
 
     /**
-     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
      */
     declare public readonly conditions: pulumi.Output<outputs.lakeformation.OptInCondition[] | undefined>;
     /**
      * Last modified date and time of the record.
      */
     declare public /*out*/ readonly lastModified: pulumi.Output<string>;
+    /**
+     * User who updated the record.
+     */
     declare public /*out*/ readonly lastUpdatedBy: pulumi.Output<string>;
     /**
-     * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+     * Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
      */
-    declare public readonly principals: pulumi.Output<outputs.lakeformation.OptInPrincipal[] | undefined>;
+    declare public readonly principals: pulumi.Output<outputs.lakeformation.OptInPrincipal[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Structure for the resource. See Resource for more details.
+     * Structure for the resource. See `resourceData` Block for more details.
      */
     declare public readonly resourceDatas: pulumi.Output<outputs.lakeformation.OptInResourceData[] | undefined>;
 
@@ -78,7 +91,7 @@ export class OptIn extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: OptInArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: OptInArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OptInArgs | OptInState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -92,6 +105,9 @@ export class OptIn extends pulumi.CustomResource {
             resourceInputs["resourceDatas"] = state?.resourceDatas;
         } else {
             const args = argsOrState as OptInArgs | undefined;
+            if (args?.principals === undefined && !opts.urn) {
+                throw new Error("Missing required property 'principals'");
+            }
             resourceInputs["conditions"] = args?.conditions;
             resourceInputs["principals"] = args?.principals;
             resourceInputs["region"] = args?.region;
@@ -109,16 +125,19 @@ export class OptIn extends pulumi.CustomResource {
  */
 export interface OptInState {
     /**
-     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInCondition>[] | undefined>;
     /**
      * Last modified date and time of the record.
      */
     lastModified?: pulumi.Input<string | undefined>;
+    /**
+     * User who updated the record.
+     */
     lastUpdatedBy?: pulumi.Input<string | undefined>;
     /**
-     * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+     * Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
      */
     principals?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInPrincipal>[] | undefined>;
     /**
@@ -126,7 +145,7 @@ export interface OptInState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Structure for the resource. See Resource for more details.
+     * Structure for the resource. See `resourceData` Block for more details.
      */
     resourceDatas?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInResourceData>[] | undefined>;
 }
@@ -136,19 +155,19 @@ export interface OptInState {
  */
 export interface OptInArgs {
     /**
-     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
      */
     conditions?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInCondition>[] | undefined>;
     /**
-     * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+     * Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
      */
-    principals?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInPrincipal>[] | undefined>;
+    principals: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInPrincipal>[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Structure for the resource. See Resource for more details.
+     * Structure for the resource. See `resourceData` Block for more details.
      */
     resourceDatas?: pulumi.Input<pulumi.Input<inputs.lakeformation.OptInResourceData>[] | undefined>;
 }

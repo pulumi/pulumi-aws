@@ -38,7 +38,7 @@ import (
 //				PhoneNumber:      pulumi.String("+64211111111"),
 //				PostalCode:       pulumi.String("98101"),
 //				StateOrRegion:    pulumi.String("WA"),
-//				WebsiteUrl:       pulumi.String("https://www.examplecorp.com"),
+//				WebsiteUrl:       pulumi.String("https://www.example.com"),
 //			})
 //			if err != nil {
 //				return err

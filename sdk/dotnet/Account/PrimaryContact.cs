@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Account
     ///         PhoneNumber = "+64211111111",
     ///         PostalCode = "98101",
     ///         StateOrRegion = "WA",
-    ///         WebsiteUrl = "https://www.examplecorp.com",
+    ///         WebsiteUrl = "https://www.example.com",
     ///     });
     /// 
     /// });

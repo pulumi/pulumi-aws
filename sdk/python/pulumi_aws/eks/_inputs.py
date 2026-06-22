@@ -59,6 +59,8 @@ __all__ = [
     'ClusterOutpostConfigArgsDict',
     'ClusterOutpostConfigControlPlanePlacementArgs',
     'ClusterOutpostConfigControlPlanePlacementArgsDict',
+    'ClusterOutpostConfigEtcdPlacementArgs',
+    'ClusterOutpostConfigEtcdPlacementArgsDict',
     'ClusterRemoteNetworkConfigArgs',
     'ClusterRemoteNetworkConfigArgsDict',
     'ClusterRemoteNetworkConfigRemoteNodeNetworksArgs',
@@ -1080,13 +1082,24 @@ class ClusterOutpostConfigArgsDict(TypedDict):
     An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
     The `control_plane_placement` configuration block supports the following arguments:
     """
+    etcd_instance_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+    """
+    etcd_placement: NotRequired[pulumi.Input[Optional['ClusterOutpostConfigEtcdPlacementArgsDict']]]
+    """
+    Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+    The `etcd_placement` configuration block supports the following arguments:
+    """
 
 @pulumi.input_type
 class ClusterOutpostConfigArgs:
     def __init__(__self__, *,
                  control_plane_instance_type: pulumi.Input[_builtins.str],
                  outpost_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 control_plane_placement: pulumi.Input[Optional['ClusterOutpostConfigControlPlanePlacementArgs']] = None):
+                 control_plane_placement: pulumi.Input[Optional['ClusterOutpostConfigControlPlanePlacementArgs']] = None,
+                 etcd_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 etcd_placement: pulumi.Input[Optional['ClusterOutpostConfigEtcdPlacementArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] control_plane_instance_type: The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
                
@@ -1100,11 +1113,18 @@ class ClusterOutpostConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] outpost_arns: The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
         :param pulumi.Input['ClusterOutpostConfigControlPlanePlacementArgs'] control_plane_placement: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
                The `control_plane_placement` configuration block supports the following arguments:
+        :param pulumi.Input[_builtins.str] etcd_instance_type: Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+        :param pulumi.Input['ClusterOutpostConfigEtcdPlacementArgs'] etcd_placement: Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+               The `etcd_placement` configuration block supports the following arguments:
         """
         pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
         pulumi.set(__self__, "outpost_arns", outpost_arns)
         if control_plane_placement is not None:
             pulumi.set(__self__, "control_plane_placement", control_plane_placement)
+        if etcd_instance_type is not None:
+            pulumi.set(__self__, "etcd_instance_type", etcd_instance_type)
+        if etcd_placement is not None:
+            pulumi.set(__self__, "etcd_placement", etcd_placement)
 
     @_builtins.property
     @pulumi.getter(name="controlPlaneInstanceType")
@@ -1151,33 +1171,108 @@ class ClusterOutpostConfigArgs:
     def control_plane_placement(self, value: pulumi.Input[Optional['ClusterOutpostConfigControlPlanePlacementArgs']]):
         pulumi.set(self, "control_plane_placement", value)
 
+    @_builtins.property
+    @pulumi.getter(name="etcdInstanceType")
+    def etcd_instance_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+        """
+        return pulumi.get(self, "etcd_instance_type")
+
+    @etcd_instance_type.setter
+    def etcd_instance_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "etcd_instance_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="etcdPlacement")
+    def etcd_placement(self) -> pulumi.Input[Optional['ClusterOutpostConfigEtcdPlacementArgs']]:
+        """
+        Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+        The `etcd_placement` configuration block supports the following arguments:
+        """
+        return pulumi.get(self, "etcd_placement")
+
+    @etcd_placement.setter
+    def etcd_placement(self, value: pulumi.Input[Optional['ClusterOutpostConfigEtcdPlacementArgs']]):
+        pulumi.set(self, "etcd_placement", value)
+
 
 class ClusterOutpostConfigControlPlanePlacementArgsDict(TypedDict):
-    group_name: pulumi.Input[_builtins.str]
+    group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+    Name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+    """
+    spread_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Placement group spread level for control plane instances. Valid values: `host`, `rack`.
     """
 
 @pulumi.input_type
 class ClusterOutpostConfigControlPlanePlacementArgs:
     def __init__(__self__, *,
-                 group_name: pulumi.Input[_builtins.str]):
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spread_level: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] group_name: The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+        :param pulumi.Input[_builtins.str] group_name: Name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+        :param pulumi.Input[_builtins.str] spread_level: Placement group spread level for control plane instances. Valid values: `host`, `rack`.
         """
-        pulumi.set(__self__, "group_name", group_name)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+        if spread_level is not None:
+            pulumi.set(__self__, "spread_level", spread_level)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
-    def group_name(self) -> pulumi.Input[_builtins.str]:
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
+        Name of the placement group for the Kubernetes control plane instances. This setting can't be changed after cluster creation.
         """
         return pulumi.get(self, "group_name")
 
     @group_name.setter
-    def group_name(self, value: pulumi.Input[_builtins.str]):
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spreadLevel")
+    def spread_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Placement group spread level for control plane instances. Valid values: `host`, `rack`.
+        """
+        return pulumi.get(self, "spread_level")
+
+    @spread_level.setter
+    def spread_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "spread_level", value)
+
+
+class ClusterOutpostConfigEtcdPlacementArgsDict(TypedDict):
+    spread_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Placement group spread level for etcd instances. Valid values: `host`, `rack`.
+    """
+
+@pulumi.input_type
+class ClusterOutpostConfigEtcdPlacementArgs:
+    def __init__(__self__, *,
+                 spread_level: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] spread_level: Placement group spread level for etcd instances. Valid values: `host`, `rack`.
+        """
+        if spread_level is not None:
+            pulumi.set(__self__, "spread_level", spread_level)
+
+    @_builtins.property
+    @pulumi.getter(name="spreadLevel")
+    def spread_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Placement group spread level for etcd instances. Valid values: `host`, `rack`.
+        """
+        return pulumi.get(self, "spread_level")
+
+    @spread_level.setter
+    def spread_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "spread_level", value)
 
 
 class ClusterRemoteNetworkConfigArgsDict(TypedDict):

@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OptInResourceDataTableWithColumnsColumnWildcard {
+    /**
+     * @return Excludes column names. Any column with this name will be excluded.
+     * 
+     */
     private @Nullable List<String> excludedColumnNames;
 
     private OptInResourceDataTableWithColumnsColumnWildcard() {}
+    /**
+     * @return Excludes column names. Any column with this name will be excluded.
+     * 
+     */
     public List<String> excludedColumnNames() {
         return this.excludedColumnNames == null ? List.of() : this.excludedColumnNames;
     }

@@ -990,7 +990,7 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix("aws.partner/examplepartner.com")
+     *             .namePrefix("aws.partner/example.com")
      *             .build());
      * 
      *     }
@@ -1032,7 +1032,7 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix("aws.partner/examplepartner.com")
+     *             .namePrefix("aws.partner/example.com")
      *             .build());
      * 
      *     }
@@ -1074,7 +1074,7 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix("aws.partner/examplepartner.com")
+     *             .namePrefix("aws.partner/example.com")
      *             .build());
      * 
      *     }
@@ -1116,7 +1116,7 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix("aws.partner/examplepartner.com")
+     *             .namePrefix("aws.partner/example.com")
      *             .build());
      * 
      *     }
@@ -1158,7 +1158,7 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix("aws.partner/examplepartner.com")
+     *             .namePrefix("aws.partner/example.com")
      *             .build());
      * 
      *     }
@@ -1200,7 +1200,7 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix("aws.partner/examplepartner.com")
+     *             .namePrefix("aws.partner/example.com")
      *             .build());
      * 
      *     }
@@ -1242,7 +1242,7 @@ public final class CloudwatchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
-     *             .namePrefix("aws.partner/examplepartner.com")
+     *             .namePrefix("aws.partner/example.com")
      *             .build());
      * 
      *     }

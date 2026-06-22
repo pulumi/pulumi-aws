@@ -256,6 +256,12 @@ class Activity(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `arn` (String) ARN of the activity.
+
         Using `pulumi import`, import activities using the `arn`. For example:
 
         ```sh
@@ -308,6 +314,12 @@ class Activity(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `arn` (String) ARN of the activity.
 
         Using `pulumi import`, import activities using the `arn`. For example:
 

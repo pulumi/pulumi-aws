@@ -35,6 +35,18 @@ namespace Pulumi.Aws.WorkMail
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `DomainName` (String) Mail domain name.
+    /// * `OrganizationId` (String) Identifier of the WorkMail organization.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import WorkMail Domain using `organization_id,domain_name`. For example:
     /// 
     /// ```sh

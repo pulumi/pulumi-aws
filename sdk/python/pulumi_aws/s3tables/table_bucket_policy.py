@@ -158,6 +158,12 @@ class TableBucketPolicy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `table_bucket_arn` (String) ARN of the S3 Tables Table Bucket.
+
         Using `pulumi import`, import S3 Tables Table Bucket Policy using the `table_bucket_arn`. For example:
 
         ```sh
@@ -196,6 +202,12 @@ class TableBucketPolicy(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `table_bucket_arn` (String) ARN of the S3 Tables Table Bucket.
 
         Using `pulumi import`, import S3 Tables Table Bucket Policy using the `table_bucket_arn`. For example:
 

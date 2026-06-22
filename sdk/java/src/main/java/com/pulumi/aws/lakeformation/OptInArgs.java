@@ -8,6 +8,7 @@ import com.pulumi.aws.lakeformation.inputs.OptInPrincipalArgs;
 import com.pulumi.aws.lakeformation.inputs.OptInResourceDataArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -20,14 +21,14 @@ public final class OptInArgs extends com.pulumi.resources.ResourceArgs {
     public static final OptInArgs Empty = new OptInArgs();
 
     /**
-     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+     * Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
      * 
      */
     @Import(name="conditions")
     private @Nullable Output<List<OptInConditionArgs>> conditions;
 
     /**
-     * @return Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+     * @return Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
      * 
      */
     public Optional<Output<List<OptInConditionArgs>>> conditions() {
@@ -35,18 +36,18 @@ public final class OptInArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+     * Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
      * 
      */
-    @Import(name="principals")
-    private @Nullable Output<List<OptInPrincipalArgs>> principals;
+    @Import(name="principals", required=true)
+    private Output<List<OptInPrincipalArgs>> principals;
 
     /**
-     * @return Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+     * @return Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
      * 
      */
-    public Optional<Output<List<OptInPrincipalArgs>>> principals() {
-        return Optional.ofNullable(this.principals);
+    public Output<List<OptInPrincipalArgs>> principals() {
+        return this.principals;
     }
 
     /**
@@ -65,14 +66,14 @@ public final class OptInArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Structure for the resource. See Resource for more details.
+     * Structure for the resource. See `resourceData` Block for more details.
      * 
      */
     @Import(name="resourceDatas")
     private @Nullable Output<List<OptInResourceDataArgs>> resourceDatas;
 
     /**
-     * @return Structure for the resource. See Resource for more details.
+     * @return Structure for the resource. See `resourceData` Block for more details.
      * 
      */
     public Optional<Output<List<OptInResourceDataArgs>>> resourceDatas() {
@@ -107,7 +108,7 @@ public final class OptInArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+         * @param conditions Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
          * 
          * @return builder
          * 
@@ -118,7 +119,7 @@ public final class OptInArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+         * @param conditions Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
          * 
          * @return builder
          * 
@@ -128,7 +129,7 @@ public final class OptInArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param conditions Lake Formation condition, which applies to permissions and opt-ins that contain an expression.
+         * @param conditions Lake Formation condition, which applies to permissions and opt-ins that contain an expression. See `condition` Block for more details.
          * 
          * @return builder
          * 
@@ -138,18 +139,18 @@ public final class OptInArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principals Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+         * @param principals Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
          * 
          * @return builder
          * 
          */
-        public Builder principals(@Nullable Output<List<OptInPrincipalArgs>> principals) {
+        public Builder principals(Output<List<OptInPrincipalArgs>> principals) {
             $.principals = principals;
             return this;
         }
 
         /**
-         * @param principals Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+         * @param principals Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
          * 
          * @return builder
          * 
@@ -159,7 +160,7 @@ public final class OptInArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param principals Lake Formation principal. Supported principals are IAM users or IAM roles. See Principal for more details.
+         * @param principals Lake Formation principal. Supported principals are IAM users or IAM roles. See `principal` Block for more details.
          * 
          * @return builder
          * 
@@ -190,7 +191,7 @@ public final class OptInArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceDatas Structure for the resource. See Resource for more details.
+         * @param resourceDatas Structure for the resource. See `resourceData` Block for more details.
          * 
          * @return builder
          * 
@@ -201,7 +202,7 @@ public final class OptInArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceDatas Structure for the resource. See Resource for more details.
+         * @param resourceDatas Structure for the resource. See `resourceData` Block for more details.
          * 
          * @return builder
          * 
@@ -211,7 +212,7 @@ public final class OptInArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceDatas Structure for the resource. See Resource for more details.
+         * @param resourceDatas Structure for the resource. See `resourceData` Block for more details.
          * 
          * @return builder
          * 
@@ -221,6 +222,9 @@ public final class OptInArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public OptInArgs build() {
+            if ($.principals == null) {
+                throw new MissingRequiredPropertyException("OptInArgs", "principals");
+            }
             return $;
         }
     }

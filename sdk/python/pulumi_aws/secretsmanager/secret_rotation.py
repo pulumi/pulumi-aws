@@ -255,7 +255,7 @@ class SecretRotation(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+        - `secret_id` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
 
         Using `pulumi import`, import `secretsmanager.SecretRotation` using the secret Amazon Resource Name (ARN). For example:
 
@@ -311,7 +311,7 @@ class SecretRotation(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+        - `secret_id` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
 
         Using `pulumi import`, import `secretsmanager.SecretRotation` using the secret Amazon Resource Name (ARN). For example:
 

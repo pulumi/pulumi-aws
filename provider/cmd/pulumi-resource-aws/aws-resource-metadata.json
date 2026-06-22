@@ -722,6 +722,10 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_bedrockagentcore_evaluator": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_bedrockagentcore_gateway": {
     "hasInputName": true,
     "hasUsableRegion": true,
@@ -4846,6 +4850,10 @@
     "hasTagsAndTagsAll": true
   },
   "aws_sagemaker_hub": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_sagemaker_hub_content_reference": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },

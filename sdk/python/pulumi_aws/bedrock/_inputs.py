@@ -451,6 +451,28 @@ __all__ = [
     'AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgsDict',
     'AgentcoreCodeInterpreterTimeoutsArgs',
     'AgentcoreCodeInterpreterTimeoutsArgsDict',
+    'AgentcoreEvaluatorEvaluatorConfigArgs',
+    'AgentcoreEvaluatorEvaluatorConfigArgsDict',
+    'AgentcoreEvaluatorEvaluatorConfigCodeBasedArgs',
+    'AgentcoreEvaluatorEvaluatorConfigCodeBasedArgsDict',
+    'AgentcoreEvaluatorEvaluatorConfigCodeBasedLambdaConfigArgs',
+    'AgentcoreEvaluatorEvaluatorConfigCodeBasedLambdaConfigArgsDict',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgs',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgsDict',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigArgs',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigArgsDict',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigArgs',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigArgsDict',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgs',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgsDict',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgs',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgsDict',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleCategoricalArgs',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleCategoricalArgsDict',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgs',
+    'AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgsDict',
+    'AgentcoreEvaluatorTimeoutsArgs',
+    'AgentcoreEvaluatorTimeoutsArgsDict',
     'AgentcoreGatewayAuthorizerConfigurationArgs',
     'AgentcoreGatewayAuthorizerConfigurationArgsDict',
     'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs',
@@ -12240,6 +12262,615 @@ class AgentcoreCodeInterpreterTimeoutsArgs:
     @delete.setter
     def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
+
+
+class AgentcoreEvaluatorEvaluatorConfigArgsDict(TypedDict):
+    code_based: NotRequired[pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigCodeBasedArgsDict']]]
+    """
+    Configuration that runs a Lambda function you provide to score the agent. See `code_based` below.
+    """
+    llm_as_a_judge: NotRequired[pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgsDict']]]
+    """
+    Configuration that uses a Bedrock model to score the agent. See `llm_as_a_judge` below.
+    """
+
+@pulumi.input_type
+class AgentcoreEvaluatorEvaluatorConfigArgs:
+    def __init__(__self__, *,
+                 code_based: pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigCodeBasedArgs']] = None,
+                 llm_as_a_judge: pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreEvaluatorEvaluatorConfigCodeBasedArgs'] code_based: Configuration that runs a Lambda function you provide to score the agent. See `code_based` below.
+        :param pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgs'] llm_as_a_judge: Configuration that uses a Bedrock model to score the agent. See `llm_as_a_judge` below.
+        """
+        if code_based is not None:
+            pulumi.set(__self__, "code_based", code_based)
+        if llm_as_a_judge is not None:
+            pulumi.set(__self__, "llm_as_a_judge", llm_as_a_judge)
+
+    @_builtins.property
+    @pulumi.getter(name="codeBased")
+    def code_based(self) -> pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigCodeBasedArgs']]:
+        """
+        Configuration that runs a Lambda function you provide to score the agent. See `code_based` below.
+        """
+        return pulumi.get(self, "code_based")
+
+    @code_based.setter
+    def code_based(self, value: pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigCodeBasedArgs']]):
+        pulumi.set(self, "code_based", value)
+
+    @_builtins.property
+    @pulumi.getter(name="llmAsAJudge")
+    def llm_as_a_judge(self) -> pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgs']]:
+        """
+        Configuration that uses a Bedrock model to score the agent. See `llm_as_a_judge` below.
+        """
+        return pulumi.get(self, "llm_as_a_judge")
+
+    @llm_as_a_judge.setter
+    def llm_as_a_judge(self, value: pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgs']]):
+        pulumi.set(self, "llm_as_a_judge", value)
+
+
+class AgentcoreEvaluatorEvaluatorConfigCodeBasedArgsDict(TypedDict):
+    lambda_config: NotRequired[pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigCodeBasedLambdaConfigArgsDict']]]
+    """
+    Lambda function configuration. See `lambda_config` below.
+    """
+
+@pulumi.input_type
+class AgentcoreEvaluatorEvaluatorConfigCodeBasedArgs:
+    def __init__(__self__, *,
+                 lambda_config: pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigCodeBasedLambdaConfigArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreEvaluatorEvaluatorConfigCodeBasedLambdaConfigArgs'] lambda_config: Lambda function configuration. See `lambda_config` below.
+        """
+        if lambda_config is not None:
+            pulumi.set(__self__, "lambda_config", lambda_config)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaConfig")
+    def lambda_config(self) -> pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigCodeBasedLambdaConfigArgs']]:
+        """
+        Lambda function configuration. See `lambda_config` below.
+        """
+        return pulumi.get(self, "lambda_config")
+
+    @lambda_config.setter
+    def lambda_config(self, value: pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigCodeBasedLambdaConfigArgs']]):
+        pulumi.set(self, "lambda_config", value)
+
+
+class AgentcoreEvaluatorEvaluatorConfigCodeBasedLambdaConfigArgsDict(TypedDict):
+    lambda_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Lambda function that runs the evaluation.
+    """
+    lambda_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Time in seconds to wait for the Lambda function before timing out. Defaults to 60. Range 1–300.
+    """
+
+@pulumi.input_type
+class AgentcoreEvaluatorEvaluatorConfigCodeBasedLambdaConfigArgs:
+    def __init__(__self__, *,
+                 lambda_arn: pulumi.Input[_builtins.str],
+                 lambda_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] lambda_arn: ARN of the Lambda function that runs the evaluation.
+        :param pulumi.Input[_builtins.int] lambda_timeout_in_seconds: Time in seconds to wait for the Lambda function before timing out. Defaults to 60. Range 1–300.
+        """
+        pulumi.set(__self__, "lambda_arn", lambda_arn)
+        if lambda_timeout_in_seconds is not None:
+            pulumi.set(__self__, "lambda_timeout_in_seconds", lambda_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaArn")
+    def lambda_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the Lambda function that runs the evaluation.
+        """
+        return pulumi.get(self, "lambda_arn")
+
+    @lambda_arn.setter
+    def lambda_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "lambda_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaTimeoutInSeconds")
+    def lambda_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Time in seconds to wait for the Lambda function before timing out. Defaults to 60. Range 1–300.
+        """
+        return pulumi.get(self, "lambda_timeout_in_seconds")
+
+    @lambda_timeout_in_seconds.setter
+    def lambda_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "lambda_timeout_in_seconds", value)
+
+
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgsDict(TypedDict):
+    instructions: pulumi.Input[_builtins.str]
+    """
+    Instructions that tell the model how to score the agent.
+    """
+    model_config: pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigArgsDict']
+    """
+    Which Bedrock model to use. See `model_config` below.
+    """
+    rating_scale: pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgsDict']
+    """
+    Scale used to score the agent. See `rating_scale` below.
+    """
+
+@pulumi.input_type
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgs:
+    def __init__(__self__, *,
+                 instructions: pulumi.Input[_builtins.str],
+                 model_config: pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigArgs'],
+                 rating_scale: pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgs']):
+        """
+        :param pulumi.Input[_builtins.str] instructions: Instructions that tell the model how to score the agent.
+        :param pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigArgs'] model_config: Which Bedrock model to use. See `model_config` below.
+        :param pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgs'] rating_scale: Scale used to score the agent. See `rating_scale` below.
+        """
+        pulumi.set(__self__, "instructions", instructions)
+        pulumi.set(__self__, "model_config", model_config)
+        pulumi.set(__self__, "rating_scale", rating_scale)
+
+    @_builtins.property
+    @pulumi.getter
+    def instructions(self) -> pulumi.Input[_builtins.str]:
+        """
+        Instructions that tell the model how to score the agent.
+        """
+        return pulumi.get(self, "instructions")
+
+    @instructions.setter
+    def instructions(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "instructions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelConfig")
+    def model_config(self) -> pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigArgs']:
+        """
+        Which Bedrock model to use. See `model_config` below.
+        """
+        return pulumi.get(self, "model_config")
+
+    @model_config.setter
+    def model_config(self, value: pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigArgs']):
+        pulumi.set(self, "model_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ratingScale")
+    def rating_scale(self) -> pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgs']:
+        """
+        Scale used to score the agent. See `rating_scale` below.
+        """
+        return pulumi.get(self, "rating_scale")
+
+    @rating_scale.setter
+    def rating_scale(self, value: pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgs']):
+        pulumi.set(self, "rating_scale", value)
+
+
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigArgsDict(TypedDict):
+    bedrock_evaluator_model_config: NotRequired[pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigArgsDict']]]
+    """
+    Amazon Bedrock model configuration. See `bedrock_evaluator_model_config` below.
+    """
+
+@pulumi.input_type
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigArgs:
+    def __init__(__self__, *,
+                 bedrock_evaluator_model_config: pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigArgs'] bedrock_evaluator_model_config: Amazon Bedrock model configuration. See `bedrock_evaluator_model_config` below.
+        """
+        if bedrock_evaluator_model_config is not None:
+            pulumi.set(__self__, "bedrock_evaluator_model_config", bedrock_evaluator_model_config)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockEvaluatorModelConfig")
+    def bedrock_evaluator_model_config(self) -> pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigArgs']]:
+        """
+        Amazon Bedrock model configuration. See `bedrock_evaluator_model_config` below.
+        """
+        return pulumi.get(self, "bedrock_evaluator_model_config")
+
+    @bedrock_evaluator_model_config.setter
+    def bedrock_evaluator_model_config(self, value: pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigArgs']]):
+        pulumi.set(self, "bedrock_evaluator_model_config", value)
+
+
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigArgsDict(TypedDict):
+    model_id: pulumi.Input[_builtins.str]
+    """
+    Identifier of the Amazon Bedrock model to use for evaluation.
+    """
+    additional_model_request_fields: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    JSON-encoded model-specific request fields, for settings not covered by `inference_config`.
+    """
+    inference_config: NotRequired[pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgsDict']]]
+    """
+    Settings that control how the model generates its response. See `inference_config` below.
+    """
+
+@pulumi.input_type
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigArgs:
+    def __init__(__self__, *,
+                 model_id: pulumi.Input[_builtins.str],
+                 additional_model_request_fields: pulumi.Input[Optional[_builtins.str]] = None,
+                 inference_config: pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgs']] = None):
+        """
+        :param pulumi.Input[_builtins.str] model_id: Identifier of the Amazon Bedrock model to use for evaluation.
+        :param pulumi.Input[_builtins.str] additional_model_request_fields: JSON-encoded model-specific request fields, for settings not covered by `inference_config`.
+        :param pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgs'] inference_config: Settings that control how the model generates its response. See `inference_config` below.
+        """
+        pulumi.set(__self__, "model_id", model_id)
+        if additional_model_request_fields is not None:
+            pulumi.set(__self__, "additional_model_request_fields", additional_model_request_fields)
+        if inference_config is not None:
+            pulumi.set(__self__, "inference_config", inference_config)
+
+    @_builtins.property
+    @pulumi.getter(name="modelId")
+    def model_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the Amazon Bedrock model to use for evaluation.
+        """
+        return pulumi.get(self, "model_id")
+
+    @model_id.setter
+    def model_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalModelRequestFields")
+    def additional_model_request_fields(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        JSON-encoded model-specific request fields, for settings not covered by `inference_config`.
+        """
+        return pulumi.get(self, "additional_model_request_fields")
+
+    @additional_model_request_fields.setter
+    def additional_model_request_fields(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "additional_model_request_fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inferenceConfig")
+    def inference_config(self) -> pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgs']]:
+        """
+        Settings that control how the model generates its response. See `inference_config` below.
+        """
+        return pulumi.get(self, "inference_config")
+
+    @inference_config.setter
+    def inference_config(self, value: pulumi.Input[Optional['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgs']]):
+        pulumi.set(self, "inference_config", value)
+
+
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgsDict(TypedDict):
+    max_tokens: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum number of tokens to generate in the model response. Must be at least 1.
+    """
+    stop_sequences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of sequences that cause the model to stop generating tokens.
+    """
+    temperature: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Temperature value that controls randomness. Range 0–1.
+    """
+    top_p: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Top-p sampling parameter. Range 0–1.
+    """
+
+@pulumi.input_type
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgs:
+    def __init__(__self__, *,
+                 max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
+                 stop_sequences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 temperature: pulumi.Input[Optional[_builtins.float]] = None,
+                 top_p: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_tokens: Maximum number of tokens to generate in the model response. Must be at least 1.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] stop_sequences: List of sequences that cause the model to stop generating tokens.
+        :param pulumi.Input[_builtins.float] temperature: Temperature value that controls randomness. Range 0–1.
+        :param pulumi.Input[_builtins.float] top_p: Top-p sampling parameter. Range 0–1.
+        """
+        if max_tokens is not None:
+            pulumi.set(__self__, "max_tokens", max_tokens)
+        if stop_sequences is not None:
+            pulumi.set(__self__, "stop_sequences", stop_sequences)
+        if temperature is not None:
+            pulumi.set(__self__, "temperature", temperature)
+        if top_p is not None:
+            pulumi.set(__self__, "top_p", top_p)
+
+    @_builtins.property
+    @pulumi.getter(name="maxTokens")
+    def max_tokens(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum number of tokens to generate in the model response. Must be at least 1.
+        """
+        return pulumi.get(self, "max_tokens")
+
+    @max_tokens.setter
+    def max_tokens(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_tokens", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stopSequences")
+    def stop_sequences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of sequences that cause the model to stop generating tokens.
+        """
+        return pulumi.get(self, "stop_sequences")
+
+    @stop_sequences.setter
+    def stop_sequences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "stop_sequences", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def temperature(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Temperature value that controls randomness. Range 0–1.
+        """
+        return pulumi.get(self, "temperature")
+
+    @temperature.setter
+    def temperature(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "temperature", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topP")
+    def top_p(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Top-p sampling parameter. Range 0–1.
+        """
+        return pulumi.get(self, "top_p")
+
+    @top_p.setter
+    def top_p(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "top_p", value)
+
+
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgsDict(TypedDict):
+    categoricals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleCategoricalArgsDict']]]]]
+    """
+    One or more categorical rating scale definitions. See `categorical` below.
+    """
+    numericals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgsDict']]]]]
+    """
+    One or more numerical rating scale definitions. See `numerical` below.
+    """
+
+@pulumi.input_type
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgs:
+    def __init__(__self__, *,
+                 categoricals: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleCategoricalArgs']]]] = None,
+                 numericals: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleCategoricalArgs']]] categoricals: One or more categorical rating scale definitions. See `categorical` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgs']]] numericals: One or more numerical rating scale definitions. See `numerical` below.
+        """
+        if categoricals is not None:
+            pulumi.set(__self__, "categoricals", categoricals)
+        if numericals is not None:
+            pulumi.set(__self__, "numericals", numericals)
+
+    @_builtins.property
+    @pulumi.getter
+    def categoricals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleCategoricalArgs']]]]:
+        """
+        One or more categorical rating scale definitions. See `categorical` below.
+        """
+        return pulumi.get(self, "categoricals")
+
+    @categoricals.setter
+    def categoricals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleCategoricalArgs']]]]):
+        pulumi.set(self, "categoricals", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def numericals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgs']]]]:
+        """
+        One or more numerical rating scale definitions. See `numerical` below.
+        """
+        return pulumi.get(self, "numericals")
+
+    @numericals.setter
+    def numericals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgs']]]]):
+        pulumi.set(self, "numericals", value)
+
+
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleCategoricalArgsDict(TypedDict):
+    definition: pulumi.Input[_builtins.str]
+    """
+    Description that explains what this categorical rating represents.
+    """
+    label: pulumi.Input[_builtins.str]
+    """
+    Label for this categorical rating option. Length 1–100.
+    """
+
+@pulumi.input_type
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleCategoricalArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input[_builtins.str],
+                 label: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] definition: Description that explains what this categorical rating represents.
+        :param pulumi.Input[_builtins.str] label: Label for this categorical rating option. Length 1–100.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "label", label)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input[_builtins.str]:
+        """
+        Description that explains what this categorical rating represents.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "definition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[_builtins.str]:
+        """
+        Label for this categorical rating option. Length 1–100.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "label", value)
+
+
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgsDict(TypedDict):
+    definition: pulumi.Input[_builtins.str]
+    """
+    Description that explains what this numerical rating represents.
+    """
+    label: pulumi.Input[_builtins.str]
+    """
+    Label for this numerical rating option. Length 1–100.
+    """
+    value: pulumi.Input[_builtins.float]
+    """
+    Numerical value for this rating option. Must be at least 0.
+    """
+
+@pulumi.input_type
+class AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleNumericalArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input[_builtins.str],
+                 label: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.float]):
+        """
+        :param pulumi.Input[_builtins.str] definition: Description that explains what this numerical rating represents.
+        :param pulumi.Input[_builtins.str] label: Label for this numerical rating option. Length 1–100.
+        :param pulumi.Input[_builtins.float] value: Numerical value for this rating option. Must be at least 0.
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "label", label)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input[_builtins.str]:
+        """
+        Description that explains what this numerical rating represents.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "definition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def label(self) -> pulumi.Input[_builtins.str]:
+        """
+        Label for this numerical rating option. Length 1–100.
+        """
+        return pulumi.get(self, "label")
+
+    @label.setter
+    def label(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "label", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.float]:
+        """
+        Numerical value for this rating option. Must be at least 0.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.float]):
+        pulumi.set(self, "value", value)
+
+
+class AgentcoreEvaluatorTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class AgentcoreEvaluatorTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 class AgentcoreGatewayAuthorizerConfigurationArgsDict(TypedDict):

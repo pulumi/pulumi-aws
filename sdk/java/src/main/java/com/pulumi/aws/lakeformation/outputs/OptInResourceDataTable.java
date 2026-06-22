@@ -19,7 +19,7 @@ public final class OptInResourceDataTable {
      */
     private @Nullable String catalogId;
     /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+     * @return Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
      * 
      */
     private String databaseName;
@@ -43,7 +43,7 @@ public final class OptInResourceDataTable {
         return Optional.ofNullable(this.catalogId);
     }
     /**
-     * @return The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+     * @return Name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
      * 
      */
     public String databaseName() {

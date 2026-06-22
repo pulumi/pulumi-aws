@@ -683,7 +683,11 @@ public class S3Endpoint extends com.pulumi.resources.CustomResource {
     /**
      * ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
      * 
+     * @deprecated
+     * kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
+     * 
      */
+    @Deprecated /* kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead. */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 

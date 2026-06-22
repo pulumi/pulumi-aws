@@ -483,7 +483,7 @@ class PrimaryContact(pulumi.CustomResource):
             phone_number="+64211111111",
             postal_code="98101",
             state_or_region="WA",
-            website_url="https://www.examplecorp.com")
+            website_url="https://www.example.com")
         ```
 
         ## Import
@@ -536,7 +536,7 @@ class PrimaryContact(pulumi.CustomResource):
             phone_number="+64211111111",
             postal_code="98101",
             state_or_region="WA",
-            website_url="https://www.examplecorp.com")
+            website_url="https://www.example.com")
         ```
 
         ## Import

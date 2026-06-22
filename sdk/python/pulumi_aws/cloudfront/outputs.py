@@ -51,6 +51,7 @@ __all__ = [
     'DistributionOrigin',
     'DistributionOriginCustomHeader',
     'DistributionOriginCustomOriginConfig',
+    'DistributionOriginCustomOriginConfigOriginMtlsConfig',
     'DistributionOriginGroup',
     'DistributionOriginGroupFailoverCriteria',
     'DistributionOriginGroupMember',
@@ -103,6 +104,7 @@ __all__ = [
     'MultitenantDistributionOrigin',
     'MultitenantDistributionOriginCustomHeader',
     'MultitenantDistributionOriginCustomOriginConfig',
+    'MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig',
     'MultitenantDistributionOriginGroup',
     'MultitenantDistributionOriginGroupFailoverCriteria',
     'MultitenantDistributionOriginGroupMember',
@@ -2359,6 +2361,8 @@ class DistributionOriginCustomOriginConfig(dict):
             suggest = "ip_address_type"
         elif key == "originKeepaliveTimeout":
             suggest = "origin_keepalive_timeout"
+        elif key == "originMtlsConfig":
+            suggest = "origin_mtls_config"
         elif key == "originReadTimeout":
             suggest = "origin_read_timeout"
 
@@ -2380,6 +2384,7 @@ class DistributionOriginCustomOriginConfig(dict):
                  origin_ssl_protocols: Sequence[_builtins.str],
                  ip_address_type: Optional[_builtins.str] = None,
                  origin_keepalive_timeout: Optional[_builtins.int] = None,
+                 origin_mtls_config: Optional['outputs.DistributionOriginCustomOriginConfigOriginMtlsConfig'] = None,
                  origin_read_timeout: Optional[_builtins.int] = None):
         """
         :param _builtins.int http_port: HTTP port the custom origin listens on.
@@ -2387,6 +2392,7 @@ class DistributionOriginCustomOriginConfig(dict):
         :param _builtins.str origin_protocol_policy: Origin protocol policy to apply to your origin. One of `http-only`, `https-only`, or `match-viewer`.
         :param Sequence[_builtins.str] origin_ssl_protocols: List of SSL/TLS protocols that CloudFront can use when connecting to your origin over HTTPS. Valid values: `SSLv3`, `TLSv1`, `TLSv1.1`, `TLSv1.2`. For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the Amazon CloudFront Developer Guide.
         :param _builtins.str ip_address_type: IP protocol CloudFront uses when connecting to your origin. Valid values: `ipv4`, `ipv6`, `dualstack`.
+        :param 'DistributionOriginCustomOriginConfigOriginMtlsConfigArgs' origin_mtls_config: The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.
         """
         pulumi.set(__self__, "http_port", http_port)
         pulumi.set(__self__, "https_port", https_port)
@@ -2396,6 +2402,8 @@ class DistributionOriginCustomOriginConfig(dict):
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if origin_keepalive_timeout is not None:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
+        if origin_mtls_config is not None:
+            pulumi.set(__self__, "origin_mtls_config", origin_mtls_config)
         if origin_read_timeout is not None:
             pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
 
@@ -2445,9 +2453,52 @@ class DistributionOriginCustomOriginConfig(dict):
         return pulumi.get(self, "origin_keepalive_timeout")
 
     @_builtins.property
+    @pulumi.getter(name="originMtlsConfig")
+    def origin_mtls_config(self) -> Optional['outputs.DistributionOriginCustomOriginConfigOriginMtlsConfig']:
+        """
+        The origin mTLS configuration for mutual TLS authentication between CloudFront and your origin.
+        """
+        return pulumi.get(self, "origin_mtls_config")
+
+    @_builtins.property
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "origin_read_timeout")
+
+
+@pulumi.output_type
+class DistributionOriginCustomOriginConfigOriginMtlsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertificateArn":
+            suggest = "client_certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionOriginCustomOriginConfigOriginMtlsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionOriginCustomOriginConfigOriginMtlsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionOriginCustomOriginConfigOriginMtlsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_certificate_arn: _builtins.str):
+        """
+        :param _builtins.str client_certificate_arn: ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.
+        """
+        pulumi.set(__self__, "client_certificate_arn", client_certificate_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificateArn")
+    def client_certificate_arn(self) -> _builtins.str:
+        """
+        ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.
+        """
+        return pulumi.get(self, "client_certificate_arn")
 
 
 @pulumi.output_type
@@ -5050,6 +5101,8 @@ class MultitenantDistributionOriginCustomOriginConfig(dict):
             suggest = "ip_address_type"
         elif key == "originKeepaliveTimeout":
             suggest = "origin_keepalive_timeout"
+        elif key == "originMtlsConfig":
+            suggest = "origin_mtls_config"
         elif key == "originReadTimeout":
             suggest = "origin_read_timeout"
 
@@ -5071,6 +5124,7 @@ class MultitenantDistributionOriginCustomOriginConfig(dict):
                  origin_ssl_protocols: Sequence[_builtins.str],
                  ip_address_type: Optional[_builtins.str] = None,
                  origin_keepalive_timeout: Optional[_builtins.int] = None,
+                 origin_mtls_config: Optional['outputs.MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig'] = None,
                  origin_read_timeout: Optional[_builtins.int] = None):
         """
         :param _builtins.int http_port: HTTP port the custom origin listens on.
@@ -5079,6 +5133,7 @@ class MultitenantDistributionOriginCustomOriginConfig(dict):
         :param Sequence[_builtins.str] origin_ssl_protocols: List of SSL/TLS protocols that you want CloudFront to use when communicating with your origin over HTTPS.
         :param _builtins.str ip_address_type: Type of IP addresses used by your origins. Valid values are `ipv4` and `dualstack`.
         :param _builtins.int origin_keepalive_timeout: Custom keep-alive timeout, in seconds. Default: 5.
+        :param 'MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs' origin_mtls_config: Origin mTLS configuration for mutual TLS authentication between CloudFront and your origin. See Origin mTLS Config below.
         :param _builtins.int origin_read_timeout: Custom read timeout, in seconds. Default: 30.
         """
         pulumi.set(__self__, "http_port", http_port)
@@ -5089,6 +5144,8 @@ class MultitenantDistributionOriginCustomOriginConfig(dict):
             pulumi.set(__self__, "ip_address_type", ip_address_type)
         if origin_keepalive_timeout is not None:
             pulumi.set(__self__, "origin_keepalive_timeout", origin_keepalive_timeout)
+        if origin_mtls_config is not None:
+            pulumi.set(__self__, "origin_mtls_config", origin_mtls_config)
         if origin_read_timeout is not None:
             pulumi.set(__self__, "origin_read_timeout", origin_read_timeout)
 
@@ -5141,12 +5198,55 @@ class MultitenantDistributionOriginCustomOriginConfig(dict):
         return pulumi.get(self, "origin_keepalive_timeout")
 
     @_builtins.property
+    @pulumi.getter(name="originMtlsConfig")
+    def origin_mtls_config(self) -> Optional['outputs.MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig']:
+        """
+        Origin mTLS configuration for mutual TLS authentication between CloudFront and your origin. See Origin mTLS Config below.
+        """
+        return pulumi.get(self, "origin_mtls_config")
+
+    @_builtins.property
     @pulumi.getter(name="originReadTimeout")
     def origin_read_timeout(self) -> Optional[_builtins.int]:
         """
         Custom read timeout, in seconds. Default: 30.
         """
         return pulumi.get(self, "origin_read_timeout")
+
+
+@pulumi.output_type
+class MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertificateArn":
+            suggest = "client_certificate_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_certificate_arn: _builtins.str):
+        """
+        :param _builtins.str client_certificate_arn: ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.
+        """
+        pulumi.set(__self__, "client_certificate_arn", client_certificate_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificateArn")
+    def client_certificate_arn(self) -> _builtins.str:
+        """
+        ARN of the ACM certificate to use for mutual TLS authentication with the origin. The certificate must have Extended Key Usage set to TLS Client Authentication.
+        """
+        return pulumi.get(self, "client_certificate_arn")
 
 
 @pulumi.output_type

@@ -285,7 +285,7 @@ class EventIntegration(pulumi.CustomResource):
             description="Example Description",
             eventbridge_bus="default",
             event_filter={
-                "source": "aws.partner/examplepartner.com",
+                "source": "aws.partner/example.com",
             },
             tags={
                 "Name": "Example Event Integration",
@@ -330,7 +330,7 @@ class EventIntegration(pulumi.CustomResource):
             description="Example Description",
             eventbridge_bus="default",
             event_filter={
-                "source": "aws.partner/examplepartner.com",
+                "source": "aws.partner/example.com",
             },
             tags={
                 "Name": "Example Event Integration",

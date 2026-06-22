@@ -20,6 +20,7 @@ from .feature_group import *
 from .flow_definition import *
 from .get_prebuilt_ecr_image import *
 from .hub import *
+from .hub_content_reference import *
 from .human_task_ui import *
 from .hyper_parameter_tuning_job import *
 from .image import *

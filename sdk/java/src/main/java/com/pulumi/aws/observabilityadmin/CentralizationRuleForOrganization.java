@@ -241,6 +241,75 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Metrics Centralization with Backup
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
+ * import com.pulumi.aws.organizations.OrganizationsFunctions;
+ * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
+ * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganization;
+ * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganizationArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceArgs;
+ * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
+ *             .build());
+ * 
+ *         final var currentGetOrganization = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+ *             .build());
+ * 
+ *         var metrics = new CentralizationRuleForOrganization("metrics", CentralizationRuleForOrganizationArgs.builder()
+ *             .ruleName("metrics-centralization-rule")
+ *             .rule(CentralizationRuleForOrganizationRuleArgs.builder()
+ *                 .destination(CentralizationRuleForOrganizationRuleDestinationArgs.builder()
+ *                     .region("eu-west-1")
+ *                     .account(current.accountId())
+ *                     .destinationMetricsConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs.builder()
+ *                         .backupConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs.builder()
+ *                             .region("us-west-1")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .source(CentralizationRuleForOrganizationRuleSourceArgs.builder()
+ *                     .regions(                    
+ *                         "ap-southeast-1",
+ *                         "us-east-1")
+ *                     .scope(String.format("OrganizationId = '%s'", currentGetOrganization.id()))
+ *                     .sourceMetricsConfiguration(CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs.builder()
+ *                         .metricsSelectionCriteria("*")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `ruleName`. For example:

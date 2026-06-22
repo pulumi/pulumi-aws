@@ -24,10 +24,16 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.detective.OrganizationAdminAccount` using the behavior graph ARN. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `graphArn` (String) ARN of the Detective behavior graph.
+ *
+ * Using `pulumi import`, import Detective organization configurations using `graphArn`. For example:
  *
  * ```sh
- * $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example arn:aws:detective:us-east-1:123456789012:graph:00b00fd5aecc0ab60a708659477e9617
+ * $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example arn:aws:detective:us-east-1:187416307283:graph:f0bfed23303d420e838158775713bcb2
  * ```
  */
 export class OrganizationConfiguration extends pulumi.CustomResource {
@@ -63,7 +69,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      */
     declare public readonly autoEnable: pulumi.Output<boolean>;
     /**
-     * ARN of the behavior graph.
+     * ARN of the Detective behavior graph.
      */
     declare public readonly graphArn: pulumi.Output<string>;
     /**
@@ -113,7 +119,7 @@ export interface OrganizationConfigurationState {
      */
     autoEnable?: pulumi.Input<boolean | undefined>;
     /**
-     * ARN of the behavior graph.
+     * ARN of the Detective behavior graph.
      */
     graphArn?: pulumi.Input<string | undefined>;
     /**
@@ -131,7 +137,7 @@ export interface OrganizationConfigurationArgs {
      */
     autoEnable: pulumi.Input<boolean>;
     /**
-     * ARN of the behavior graph.
+     * ARN of the Detective behavior graph.
      */
     graphArn: pulumi.Input<string>;
     /**

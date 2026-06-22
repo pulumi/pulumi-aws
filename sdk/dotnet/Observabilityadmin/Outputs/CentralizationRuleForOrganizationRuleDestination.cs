@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
     public sealed class CentralizationRuleForOrganizationRuleDestination
     {
         /// <summary>
-        /// AWS account ID where logs will be centralized.
+        /// AWS account ID where telemetry will be centralized.
         /// </summary>
         public readonly string Account;
         /// <summary>
@@ -22,7 +22,11 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
         /// </summary>
         public readonly Outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration? DestinationLogsConfiguration;
         /// <summary>
-        /// AWS region where logs will be centralized.
+        /// Configuration block for destination metrics settings. See `DestinationMetricsConfiguration` below.
+        /// </summary>
+        public readonly Outputs.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration? DestinationMetricsConfiguration;
+        /// <summary>
+        /// AWS region where telemetry will be centralized.
         /// </summary>
         public readonly string Region;
 
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.Observabilityadmin.Outputs
 
             Outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration? destinationLogsConfiguration,
 
+            Outputs.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration? destinationMetricsConfiguration,
+
             string region)
         {
             Account = account;
             DestinationLogsConfiguration = destinationLogsConfiguration;
+            DestinationMetricsConfiguration = destinationMetricsConfiguration;
             Region = region;
         }
     }

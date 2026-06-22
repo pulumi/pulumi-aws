@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .description("Example Description")
  *             .eventbridgeBus("default")
  *             .eventFilter(EventIntegrationEventFilterArgs.builder()
- *                 .source("aws.partner/examplepartner.com")
+ *                 .source("aws.partner/example.com")
  *                 .build())
  *             .tags(Map.of("Name", "Example Event Integration"))
  *             .build());

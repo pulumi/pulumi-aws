@@ -29,6 +29,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `bucket` (String) Name of the bucket.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import `aws.s3.BucketPublicAccessBlock` using the bucket name. For example:
  *
  * ```sh

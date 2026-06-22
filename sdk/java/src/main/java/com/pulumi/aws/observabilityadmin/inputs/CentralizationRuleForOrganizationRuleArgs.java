@@ -16,14 +16,14 @@ public final class CentralizationRuleForOrganizationRuleArgs extends com.pulumi.
     public static final CentralizationRuleForOrganizationRuleArgs Empty = new CentralizationRuleForOrganizationRuleArgs();
 
     /**
-     * Configuration block for the destination where logs will be centralized. See `destination` below.
+     * Configuration block for the destination where telemetry will be centralized. See `destination` below.
      * 
      */
     @Import(name="destination", required=true)
     private Output<CentralizationRuleForOrganizationRuleDestinationArgs> destination;
 
     /**
-     * @return Configuration block for the destination where logs will be centralized. See `destination` below.
+     * @return Configuration block for the destination where telemetry will be centralized. See `destination` below.
      * 
      */
     public Output<CentralizationRuleForOrganizationRuleDestinationArgs> destination() {
@@ -71,7 +71,7 @@ public final class CentralizationRuleForOrganizationRuleArgs extends com.pulumi.
         }
 
         /**
-         * @param destination Configuration block for the destination where logs will be centralized. See `destination` below.
+         * @param destination Configuration block for the destination where telemetry will be centralized. See `destination` below.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class CentralizationRuleForOrganizationRuleArgs extends com.pulumi.
         }
 
         /**
-         * @param destination Configuration block for the destination where logs will be centralized. See `destination` below.
+         * @param destination Configuration block for the destination where telemetry will be centralized. See `destination` below.
          * 
          * @return builder
          * 

@@ -180,6 +180,56 @@ namespace Pulumi.Aws.Observabilityadmin
     /// });
     /// ```
     /// 
+    /// ### Metrics Centralization with Backup
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetCallerIdentity.Invoke();
+    /// 
+    ///     var currentGetOrganization = Aws.Organizations.GetOrganization.Invoke();
+    /// 
+    ///     var metrics = new Aws.Observabilityadmin.CentralizationRuleForOrganization("metrics", new()
+    ///     {
+    ///         RuleName = "metrics-centralization-rule",
+    ///         Rule = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleArgs
+    ///         {
+    ///             Destination = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationArgs
+    ///             {
+    ///                 Region = "eu-west-1",
+    ///                 Account = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                 DestinationMetricsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs
+    ///                 {
+    ///                     BackupConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs
+    ///                     {
+    ///                         Region = "us-west-1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Source = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceArgs
+    ///             {
+    ///                 Regions = new[]
+    ///                 {
+    ///                     "ap-southeast-1",
+    ///                     "us-east-1",
+    ///                 },
+    ///                 Scope = $"OrganizationId = '{currentGetOrganization.Apply(getOrganizationResult =&gt; getOrganizationResult.Id)}'",
+    ///                 SourceMetricsConfiguration = new Aws.Observabilityadmin.Inputs.CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs
+    ///                 {
+    ///                     MetricsSelectionCriteria = "*",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `RuleName`. For example:

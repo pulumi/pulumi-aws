@@ -225,6 +225,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// IP protocol version used by the serverless cache. Valid values are `Ipv4`, `Ipv6`, or `DualStack`. `Ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `Ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `Ipv6`.
+        /// </summary>
+        [Output("networkType")]
+        public Output<string> NetworkType { get; private set; } = null!;
+
+        /// <summary>
         /// Represents the information required for client programs to connect to a cache node. See `ReaderEndpoint` Block for details.
         /// </summary>
         [Output("readerEndpoints")]
@@ -374,6 +380,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// IP protocol version used by the serverless cache. Valid values are `Ipv4`, `Ipv6`, or `DualStack`. `Ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `Ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `Ipv6`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -526,6 +538,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// IP protocol version used by the serverless cache. Valid values are `Ipv4`, `Ipv6`, or `DualStack`. `Ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `Ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `Ipv6`.
+        /// </summary>
+        [Input("networkType")]
+        public Input<string>? NetworkType { get; set; }
 
         [Input("readerEndpoints")]
         private InputList<Inputs.ServerlessCacheReaderEndpointGetArgs>? _readerEndpoints;

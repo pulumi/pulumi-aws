@@ -190,6 +190,9 @@ class S3EndpointArgs:
         if include_op_for_full_load is not None:
             pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
         if kms_key_arn is not None:
+            warnings.warn("""kms_key_arn is deprecated. Use server_side_encryption_kms_key_id instead.""", DeprecationWarning)
+            pulumi.log.warn("""kms_key_arn is deprecated: kms_key_arn is deprecated. Use server_side_encryption_kms_key_id instead.""")
+        if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if max_file_size is not None:
             pulumi.set(__self__, "max_file_size", max_file_size)
@@ -642,6 +645,7 @@ class S3EndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
+    @_utilities.deprecated("""kms_key_arn is deprecated. Use server_side_encryption_kms_key_id instead.""")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -1000,6 +1004,9 @@ class _S3EndpointState:
             pulumi.set(__self__, "ignore_header_rows", ignore_header_rows)
         if include_op_for_full_load is not None:
             pulumi.set(__self__, "include_op_for_full_load", include_op_for_full_load)
+        if kms_key_arn is not None:
+            warnings.warn("""kms_key_arn is deprecated. Use server_side_encryption_kms_key_id instead.""", DeprecationWarning)
+            pulumi.log.warn("""kms_key_arn is deprecated: kms_key_arn is deprecated. Use server_side_encryption_kms_key_id instead.""")
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if max_file_size is not None:
@@ -1481,6 +1488,7 @@ class _S3EndpointState:
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
+    @_utilities.deprecated("""kms_key_arn is deprecated. Use server_side_encryption_kms_key_id instead.""")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
@@ -2609,6 +2617,7 @@ class S3Endpoint(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyArn")
+    @_utilities.deprecated("""kms_key_arn is deprecated. Use server_side_encryption_kms_key_id instead.""")
     def kms_key_arn(self) -> pulumi.Output[_builtins.str]:
         """
         ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.

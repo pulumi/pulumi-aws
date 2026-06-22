@@ -178,6 +178,10 @@ export class ServerlessCache extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+     */
+    declare public readonly networkType: pulumi.Output<string>;
+    /**
      * Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
      */
     declare public /*out*/ readonly readerEndpoints: pulumi.Output<outputs.elasticache.ServerlessCacheReaderEndpoint[]>;
@@ -240,6 +244,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = state?.kmsKeyId;
             resourceInputs["majorEngineVersion"] = state?.majorEngineVersion;
             resourceInputs["name"] = state?.name;
+            resourceInputs["networkType"] = state?.networkType;
             resourceInputs["readerEndpoints"] = state?.readerEndpoints;
             resourceInputs["region"] = state?.region;
             resourceInputs["securityGroupIds"] = state?.securityGroupIds;
@@ -263,6 +268,7 @@ export class ServerlessCache extends pulumi.CustomResource {
             resourceInputs["kmsKeyId"] = args?.kmsKeyId;
             resourceInputs["majorEngineVersion"] = args?.majorEngineVersion;
             resourceInputs["name"] = args?.name;
+            resourceInputs["networkType"] = args?.networkType;
             resourceInputs["region"] = args?.region;
             resourceInputs["securityGroupIds"] = args?.securityGroupIds;
             resourceInputs["snapshotArnsToRestores"] = args?.snapshotArnsToRestores;
@@ -335,6 +341,10 @@ export interface ServerlessCacheState {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+     */
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
      */
@@ -410,6 +420,10 @@ export interface ServerlessCacheArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+     */
+    networkType?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

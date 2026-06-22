@@ -61,10 +61,16 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.detective.OrganizationAdminAccount` using the behavior graph ARN. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `graphArn` (String) ARN of the Detective behavior graph.
+ * 
+ * Using `pulumi import`, import Detective organization configurations using `graphArn`. For example:
  * 
  * ```sh
- * $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example arn:aws:detective:us-east-1:123456789012:graph:00b00fd5aecc0ab60a708659477e9617
+ * $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example arn:aws:detective:us-east-1:187416307283:graph:f0bfed23303d420e838158775713bcb2
  * ```
  * 
  */
@@ -85,14 +91,14 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
         return this.autoEnable;
     }
     /**
-     * ARN of the behavior graph.
+     * ARN of the Detective behavior graph.
      * 
      */
     @Export(name="graphArn", refs={String.class}, tree="[0]")
     private Output<String> graphArn;
 
     /**
-     * @return ARN of the behavior graph.
+     * @return ARN of the Detective behavior graph.
      * 
      */
     public Output<String> graphArn() {

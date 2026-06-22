@@ -32,14 +32,14 @@ public final class OptInResourceDataLfTagExpressionArgs extends com.pulumi.resou
     }
 
     /**
-     * Name of the table.
+     * Name of the LF-Tag expression to grant permissions on.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the table.
+     * @return Name of the LF-Tag expression to grant permissions on.
      * 
      */
     public Output<String> name() {
@@ -93,7 +93,7 @@ public final class OptInResourceDataLfTagExpressionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name Name of the table.
+         * @param name Name of the LF-Tag expression to grant permissions on.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class OptInResourceDataLfTagExpressionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name Name of the table.
+         * @param name Name of the LF-Tag expression to grant permissions on.
          * 
          * @return builder
          * 

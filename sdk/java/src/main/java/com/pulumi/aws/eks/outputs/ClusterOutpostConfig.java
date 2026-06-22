@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.aws.eks.outputs.ClusterOutpostConfigControlPlanePlacement;
+import com.pulumi.aws.eks.outputs.ClusterOutpostConfigEtcdPlacement;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -33,6 +34,17 @@ public final class ClusterOutpostConfig {
      * 
      */
     private @Nullable ClusterOutpostConfigControlPlanePlacement controlPlanePlacement;
+    /**
+     * @return Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+     * 
+     */
+    private @Nullable String etcdInstanceType;
+    /**
+     * @return Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+     * The `etcdPlacement` configuration block supports the following arguments:
+     * 
+     */
+    private @Nullable ClusterOutpostConfigEtcdPlacement etcdPlacement;
     /**
      * @return The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
      * 
@@ -64,6 +76,21 @@ public final class ClusterOutpostConfig {
         return Optional.ofNullable(this.controlPlanePlacement);
     }
     /**
+     * @return Amazon EC2 instance type for etcd instances of your local Amazon EKS cluster on AWS Outposts.
+     * 
+     */
+    public Optional<String> etcdInstanceType() {
+        return Optional.ofNullable(this.etcdInstanceType);
+    }
+    /**
+     * @return Placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
+     * The `etcdPlacement` configuration block supports the following arguments:
+     * 
+     */
+    public Optional<ClusterOutpostConfigEtcdPlacement> etcdPlacement() {
+        return Optional.ofNullable(this.etcdPlacement);
+    }
+    /**
      * @return The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
      * 
      */
@@ -82,12 +109,16 @@ public final class ClusterOutpostConfig {
     public static final class Builder {
         private String controlPlaneInstanceType;
         private @Nullable ClusterOutpostConfigControlPlanePlacement controlPlanePlacement;
+        private @Nullable String etcdInstanceType;
+        private @Nullable ClusterOutpostConfigEtcdPlacement etcdPlacement;
         private List<String> outpostArns;
         public Builder() {}
         public Builder(ClusterOutpostConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.controlPlaneInstanceType = defaults.controlPlaneInstanceType;
     	      this.controlPlanePlacement = defaults.controlPlanePlacement;
+    	      this.etcdInstanceType = defaults.etcdInstanceType;
+    	      this.etcdPlacement = defaults.etcdPlacement;
     	      this.outpostArns = defaults.outpostArns;
         }
 
@@ -106,6 +137,18 @@ public final class ClusterOutpostConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder etcdInstanceType(@Nullable String etcdInstanceType) {
+
+            this.etcdInstanceType = etcdInstanceType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder etcdPlacement(@Nullable ClusterOutpostConfigEtcdPlacement etcdPlacement) {
+
+            this.etcdPlacement = etcdPlacement;
+            return this;
+        }
+        @CustomType.Setter
         public Builder outpostArns(List<String> outpostArns) {
             if (outpostArns == null) {
               throw new MissingRequiredPropertyException("ClusterOutpostConfig", "outpostArns");
@@ -120,6 +163,8 @@ public final class ClusterOutpostConfig {
             final var _resultValue = new ClusterOutpostConfig();
             _resultValue.controlPlaneInstanceType = controlPlaneInstanceType;
             _resultValue.controlPlanePlacement = controlPlanePlacement;
+            _resultValue.etcdInstanceType = etcdInstanceType;
+            _resultValue.etcdPlacement = etcdPlacement;
             _resultValue.outpostArns = outpostArns;
             return _resultValue;
         }

@@ -129,7 +129,7 @@ def get_event_source(name_prefix: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+    examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/example.com")
     ```
 
 
@@ -164,7 +164,7 @@ def get_event_source_output(name_prefix: pulumi.Input[Optional[Optional[_builtin
     import pulumi
     import pulumi_aws as aws
 
-    examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
+    examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/example.com")
     ```
 
 

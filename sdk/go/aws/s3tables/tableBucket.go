@@ -43,6 +43,12 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `arn` (String) ARN of the S3 Tables Table Bucket.
+//
 // Using `pulumi import`, import S3 Tables Table Bucket using the `arn`. For example:
 //
 // ```sh

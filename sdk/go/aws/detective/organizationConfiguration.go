@@ -51,17 +51,23 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `detective.OrganizationAdminAccount` using the behavior graph ARN. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// - `graphArn` (String) ARN of the Detective behavior graph.
+//
+// Using `pulumi import`, import Detective organization configurations using `graphArn`. For example:
 //
 // ```sh
-// $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example arn:aws:detective:us-east-1:123456789012:graph:00b00fd5aecc0ab60a708659477e9617
+// $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example arn:aws:detective:us-east-1:187416307283:graph:f0bfed23303d420e838158775713bcb2
 // ```
 type OrganizationConfiguration struct {
 	pulumi.CustomResourceState
 
 	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
 	AutoEnable pulumi.BoolOutput `pulumi:"autoEnable"`
-	// ARN of the behavior graph.
+	// ARN of the Detective behavior graph.
 	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -105,7 +111,7 @@ func GetOrganizationConfiguration(ctx *pulumi.Context,
 type organizationConfigurationState struct {
 	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
 	AutoEnable *bool `pulumi:"autoEnable"`
-	// ARN of the behavior graph.
+	// ARN of the Detective behavior graph.
 	GraphArn *string `pulumi:"graphArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -114,7 +120,7 @@ type organizationConfigurationState struct {
 type OrganizationConfigurationState struct {
 	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
 	AutoEnable pulumi.BoolPtrInput
-	// ARN of the behavior graph.
+	// ARN of the Detective behavior graph.
 	GraphArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -127,7 +133,7 @@ func (OrganizationConfigurationState) ElementType() reflect.Type {
 type organizationConfigurationArgs struct {
 	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
 	AutoEnable bool `pulumi:"autoEnable"`
-	// ARN of the behavior graph.
+	// ARN of the Detective behavior graph.
 	GraphArn string `pulumi:"graphArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -137,7 +143,7 @@ type organizationConfigurationArgs struct {
 type OrganizationConfigurationArgs struct {
 	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s Detective delegated administrator and Detective is enabled in that AWS Region.
 	AutoEnable pulumi.BoolInput
-	// ARN of the behavior graph.
+	// ARN of the Detective behavior graph.
 	GraphArn pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -235,7 +241,7 @@ func (o OrganizationConfigurationOutput) AutoEnable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.BoolOutput { return v.AutoEnable }).(pulumi.BoolOutput)
 }
 
-// ARN of the behavior graph.
+// ARN of the Detective behavior graph.
 func (o OrganizationConfigurationOutput) GraphArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.GraphArn }).(pulumi.StringOutput)
 }

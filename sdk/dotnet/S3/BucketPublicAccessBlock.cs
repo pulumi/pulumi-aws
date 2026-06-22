@@ -45,6 +45,17 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Bucket` (String) Name of the bucket.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import `aws.s3.BucketPublicAccessBlock` using the bucket name. For example:
     /// 
     /// ```sh

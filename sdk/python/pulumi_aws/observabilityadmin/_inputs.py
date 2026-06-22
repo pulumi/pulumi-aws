@@ -27,10 +27,16 @@ __all__ = [
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgsDict',
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs',
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict',
+    'CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs',
+    'CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgsDict',
+    'CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs',
+    'CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgsDict',
     'CentralizationRuleForOrganizationRuleSourceArgs',
     'CentralizationRuleForOrganizationRuleSourceArgsDict',
     'CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs',
     'CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict',
+    'CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs',
+    'CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgsDict',
     'CentralizationRuleForOrganizationTimeoutsArgs',
     'CentralizationRuleForOrganizationTimeoutsArgsDict',
     'S3TableIntegrationEncryptionArgs',
@@ -124,7 +130,7 @@ __all__ = [
 class CentralizationRuleForOrganizationRuleArgsDict(TypedDict):
     destination: pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgsDict']
     """
-    Configuration block for the destination where logs will be centralized. See `destination` below.
+    Configuration block for the destination where telemetry will be centralized. See `destination` below.
     """
     source: pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgsDict']
     """
@@ -137,7 +143,7 @@ class CentralizationRuleForOrganizationRuleArgs:
                  destination: pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs'],
                  source: pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgs']):
         """
-        :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs'] destination: Configuration block for the destination where logs will be centralized. See `destination` below.
+        :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs'] destination: Configuration block for the destination where telemetry will be centralized. See `destination` below.
         :param pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgs'] source: Configuration block for the source of logs to be centralized. See `source` below.
         """
         pulumi.set(__self__, "destination", destination)
@@ -147,7 +153,7 @@ class CentralizationRuleForOrganizationRuleArgs:
     @pulumi.getter
     def destination(self) -> pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgs']:
         """
-        Configuration block for the destination where logs will be centralized. See `destination` below.
+        Configuration block for the destination where telemetry will be centralized. See `destination` below.
         """
         return pulumi.get(self, "destination")
 
@@ -171,15 +177,19 @@ class CentralizationRuleForOrganizationRuleArgs:
 class CentralizationRuleForOrganizationRuleDestinationArgsDict(TypedDict):
     account: pulumi.Input[_builtins.str]
     """
-    AWS account ID where logs will be centralized.
+    AWS account ID where telemetry will be centralized.
     """
     region: pulumi.Input[_builtins.str]
     """
-    AWS region where logs will be centralized.
+    AWS region where telemetry will be centralized.
     """
     destination_logs_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict']]]
     """
     Configuration block for destination logs settings. See `destination_logs_configuration` below.
+    """
+    destination_metrics_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgsDict']]]
+    """
+    Configuration block for destination metrics settings. See `destination_metrics_configuration` below.
     """
 
 @pulumi.input_type
@@ -187,22 +197,26 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
     def __init__(__self__, *,
                  account: pulumi.Input[_builtins.str],
                  region: pulumi.Input[_builtins.str],
-                 destination_logs_configuration: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']] = None):
+                 destination_logs_configuration: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']] = None,
+                 destination_metrics_configuration: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] account: AWS account ID where logs will be centralized.
-        :param pulumi.Input[_builtins.str] region: AWS region where logs will be centralized.
+        :param pulumi.Input[_builtins.str] account: AWS account ID where telemetry will be centralized.
+        :param pulumi.Input[_builtins.str] region: AWS region where telemetry will be centralized.
         :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs'] destination_logs_configuration: Configuration block for destination logs settings. See `destination_logs_configuration` below.
+        :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs'] destination_metrics_configuration: Configuration block for destination metrics settings. See `destination_metrics_configuration` below.
         """
         pulumi.set(__self__, "account", account)
         pulumi.set(__self__, "region", region)
         if destination_logs_configuration is not None:
             pulumi.set(__self__, "destination_logs_configuration", destination_logs_configuration)
+        if destination_metrics_configuration is not None:
+            pulumi.set(__self__, "destination_metrics_configuration", destination_metrics_configuration)
 
     @_builtins.property
     @pulumi.getter
     def account(self) -> pulumi.Input[_builtins.str]:
         """
-        AWS account ID where logs will be centralized.
+        AWS account ID where telemetry will be centralized.
         """
         return pulumi.get(self, "account")
 
@@ -214,7 +228,7 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[_builtins.str]:
         """
-        AWS region where logs will be centralized.
+        AWS region where telemetry will be centralized.
         """
         return pulumi.get(self, "region")
 
@@ -233,6 +247,18 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
     @destination_logs_configuration.setter
     def destination_logs_configuration(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs']]):
         pulumi.set(self, "destination_logs_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationMetricsConfiguration")
+    def destination_metrics_configuration(self) -> pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs']]:
+        """
+        Configuration block for destination metrics settings. See `destination_metrics_configuration` below.
+        """
+        return pulumi.get(self, "destination_metrics_configuration")
+
+    @destination_metrics_configuration.setter
+    def destination_metrics_configuration(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs']]):
+        pulumi.set(self, "destination_metrics_configuration", value)
 
 
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict(TypedDict):
@@ -449,10 +475,67 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
         pulumi.set(self, "kms_key_arn", value)
 
 
+class CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgsDict(TypedDict):
+    backup_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgsDict']]]
+    """
+    Configuration block for metrics backup settings. See `destination_metrics_backup_configuration` below.
+    """
+
+@pulumi.input_type
+class CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationArgs:
+    def __init__(__self__, *,
+                 backup_configuration: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs'] backup_configuration: Configuration block for metrics backup settings. See `destination_metrics_backup_configuration` below.
+        """
+        if backup_configuration is not None:
+            pulumi.set(__self__, "backup_configuration", backup_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="backupConfiguration")
+    def backup_configuration(self) -> pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs']]:
+        """
+        Configuration block for metrics backup settings. See `destination_metrics_backup_configuration` below.
+        """
+        return pulumi.get(self, "backup_configuration")
+
+    @backup_configuration.setter
+    def backup_configuration(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs']]):
+        pulumi.set(self, "backup_configuration", value)
+
+
+class CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+    """
+    AWS region for backup storage.
+    """
+
+@pulumi.input_type
+class CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfigurationArgs:
+    def __init__(__self__, *,
+                 region: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] region: AWS region for backup storage.
+        """
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS region for backup storage.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
+
+
 class CentralizationRuleForOrganizationRuleSourceArgsDict(TypedDict):
     regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    Set of AWS regions from which to centralize logs. Must contain at least one region.
+    Set of AWS regions from which to centralize telemetry. Must contain at least one region.
     """
     scope: pulumi.Input[_builtins.str]
     """
@@ -462,28 +545,36 @@ class CentralizationRuleForOrganizationRuleSourceArgsDict(TypedDict):
     """
     Configuration block for source logs settings. See `source_logs_configuration` below.
     """
+    source_metrics_configuration: NotRequired[pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgsDict']]]
+    """
+    Configuration block for source metrics settings. See `source_metrics_configuration` below.
+    """
 
 @pulumi.input_type
 class CentralizationRuleForOrganizationRuleSourceArgs:
     def __init__(__self__, *,
                  regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  scope: pulumi.Input[_builtins.str],
-                 source_logs_configuration: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']] = None):
+                 source_logs_configuration: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']] = None,
+                 source_metrics_configuration: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Set of AWS regions from which to centralize logs. Must contain at least one region.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: Set of AWS regions from which to centralize telemetry. Must contain at least one region.
         :param pulumi.Input[_builtins.str] scope: Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
         :param pulumi.Input['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs'] source_logs_configuration: Configuration block for source logs settings. See `source_logs_configuration` below.
+        :param pulumi.Input['CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs'] source_metrics_configuration: Configuration block for source metrics settings. See `source_metrics_configuration` below.
         """
         pulumi.set(__self__, "regions", regions)
         pulumi.set(__self__, "scope", scope)
         if source_logs_configuration is not None:
             pulumi.set(__self__, "source_logs_configuration", source_logs_configuration)
+        if source_metrics_configuration is not None:
+            pulumi.set(__self__, "source_metrics_configuration", source_metrics_configuration)
 
     @_builtins.property
     @pulumi.getter
     def regions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        Set of AWS regions from which to centralize logs. Must contain at least one region.
+        Set of AWS regions from which to centralize telemetry. Must contain at least one region.
         """
         return pulumi.get(self, "regions")
 
@@ -514,6 +605,18 @@ class CentralizationRuleForOrganizationRuleSourceArgs:
     @source_logs_configuration.setter
     def source_logs_configuration(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs']]):
         pulumi.set(self, "source_logs_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceMetricsConfiguration")
+    def source_metrics_configuration(self) -> pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs']]:
+        """
+        Configuration block for source metrics settings. See `source_metrics_configuration` below.
+        """
+        return pulumi.get(self, "source_metrics_configuration")
+
+    @source_metrics_configuration.setter
+    def source_metrics_configuration(self, value: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs']]):
+        pulumi.set(self, "source_metrics_configuration", value)
 
 
 class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict(TypedDict):
@@ -582,6 +685,34 @@ class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs:
     @log_group_selection_criteria.setter
     def log_group_selection_criteria(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_group_selection_criteria", value)
+
+
+class CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgsDict(TypedDict):
+    metrics_selection_criteria: pulumi.Input[_builtins.str]
+    """
+    Filter expression that selects which source metrics to centralize. Currently, only `*` (all metrics) is supported.
+    """
+
+@pulumi.input_type
+class CentralizationRuleForOrganizationRuleSourceSourceMetricsConfigurationArgs:
+    def __init__(__self__, *,
+                 metrics_selection_criteria: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] metrics_selection_criteria: Filter expression that selects which source metrics to centralize. Currently, only `*` (all metrics) is supported.
+        """
+        pulumi.set(__self__, "metrics_selection_criteria", metrics_selection_criteria)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsSelectionCriteria")
+    def metrics_selection_criteria(self) -> pulumi.Input[_builtins.str]:
+        """
+        Filter expression that selects which source metrics to centralize. Currently, only `*` (all metrics) is supported.
+        """
+        return pulumi.get(self, "metrics_selection_criteria")
+
+    @metrics_selection_criteria.setter
+    def metrics_selection_criteria(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "metrics_selection_criteria", value)
 
 
 class CentralizationRuleForOrganizationTimeoutsArgsDict(TypedDict):

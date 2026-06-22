@@ -106,6 +106,7 @@ import (
 //
 // #### Optional
 //
+// * `accountId` (String) Account ID where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import SSO Admin Managed Policy Attachments Exclusive using the `instanceArn` and `permissionSetArn` arguments, separated by a comma (`,`). For example:

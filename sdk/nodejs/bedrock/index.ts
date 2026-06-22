@@ -75,6 +75,11 @@ export type AgentcoreCodeInterpreter = import("./agentcoreCodeInterpreter").Agen
 export const AgentcoreCodeInterpreter: typeof import("./agentcoreCodeInterpreter").AgentcoreCodeInterpreter = null as any;
 utilities.lazyLoad(exports, ["AgentcoreCodeInterpreter"], () => require("./agentcoreCodeInterpreter"));
 
+export { AgentcoreEvaluatorArgs, AgentcoreEvaluatorState } from "./agentcoreEvaluator";
+export type AgentcoreEvaluator = import("./agentcoreEvaluator").AgentcoreEvaluator;
+export const AgentcoreEvaluator: typeof import("./agentcoreEvaluator").AgentcoreEvaluator = null as any;
+utilities.lazyLoad(exports, ["AgentcoreEvaluator"], () => require("./agentcoreEvaluator"));
+
 export { AgentcoreGatewayArgs, AgentcoreGatewayState } from "./agentcoreGateway";
 export type AgentcoreGateway = import("./agentcoreGateway").AgentcoreGateway;
 export const AgentcoreGateway: typeof import("./agentcoreGateway").AgentcoreGateway = null as any;
@@ -218,6 +223,8 @@ const _module = {
                 return new AgentcoreBrowser(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter":
                 return new AgentcoreCodeInterpreter(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreEvaluator:AgentcoreEvaluator":
+                return new AgentcoreEvaluator(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreGateway:AgentcoreGateway":
                 return new AgentcoreGateway(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget":
@@ -271,6 +278,7 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreAgentRuntimeEndpo
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreApiKeyCredentialProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreBrowser", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreCodeInterpreter", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreEvaluator", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreGatewayTarget", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreHarness", _module)

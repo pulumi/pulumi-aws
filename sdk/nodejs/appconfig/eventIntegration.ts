@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     description: "Example Description",
  *     eventbridgeBus: "default",
  *     eventFilter: {
- *         source: "aws.partner/examplepartner.com",
+ *         source: "aws.partner/example.com",
  *     },
  *     tags: {
  *         Name: "Example Event Integration",

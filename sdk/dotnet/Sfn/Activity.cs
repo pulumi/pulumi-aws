@@ -60,6 +60,12 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Arn` (String) ARN of the activity.
+    /// 
     /// Using `pulumi import`, import activities using the `Arn`. For example:
     /// 
     /// ```sh

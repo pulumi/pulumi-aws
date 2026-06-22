@@ -28,6 +28,7 @@ class ServerlessCacheArgs:
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  snapshot_arns_to_restores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -49,6 +50,7 @@ class ServerlessCacheArgs:
         :param pulumi.Input[_builtins.str] name: The Cluster name which serves as a unique identifier to the serverless cache
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] network_type: IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dual_stack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
@@ -70,6 +72,8 @@ class ServerlessCacheArgs:
             pulumi.set(__self__, "major_engine_version", major_engine_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if security_group_ids is not None:
@@ -173,6 +177,18 @@ class ServerlessCacheArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dual_stack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
 
     @_builtins.property
     @pulumi.getter
@@ -282,6 +298,7 @@ class _ServerlessCacheState:
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  reader_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -310,6 +327,7 @@ class _ServerlessCacheState:
         :param pulumi.Input[_builtins.str] name: The Cluster name which serves as a unique identifier to the serverless cache
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] network_type: IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dual_stack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
@@ -342,6 +360,8 @@ class _ServerlessCacheState:
             pulumi.set(__self__, "major_engine_version", major_engine_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if reader_endpoints is not None:
             pulumi.set(__self__, "reader_endpoints", reader_endpoints)
         if region is not None:
@@ -501,6 +521,18 @@ class _ServerlessCacheState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dual_stack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+        """
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="readerEndpoints")
     def reader_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]]]:
         """
@@ -640,6 +672,7 @@ class ServerlessCache(pulumi.CustomResource):
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  snapshot_arns_to_restores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -754,6 +787,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The Cluster name which serves as a unique identifier to the serverless cache
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] network_type: IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dual_stack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
@@ -883,6 +917,7 @@ class ServerlessCache(pulumi.CustomResource):
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_type: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  snapshot_arns_to_restores: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -909,6 +944,7 @@ class ServerlessCache(pulumi.CustomResource):
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["major_engine_version"] = major_engine_version
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["region"] = region
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["snapshot_arns_to_restores"] = snapshot_arns_to_restores
@@ -945,6 +981,7 @@ class ServerlessCache(pulumi.CustomResource):
             kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             major_engine_version: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_type: pulumi.Input[Optional[_builtins.str]] = None,
             reader_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerlessCacheReaderEndpointArgs', 'ServerlessCacheReaderEndpointArgsDict']]]]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -977,6 +1014,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The Cluster name which serves as a unique identifier to the serverless cache
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] network_type: IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dual_stack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheReaderEndpointArgs', 'ServerlessCacheReaderEndpointArgsDict']]]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
@@ -1002,6 +1040,7 @@ class ServerlessCache(pulumi.CustomResource):
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["major_engine_version"] = major_engine_version
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_type"] = network_type
         __props__.__dict__["reader_endpoints"] = reader_endpoints
         __props__.__dict__["region"] = region
         __props__.__dict__["security_group_ids"] = security_group_ids
@@ -1105,6 +1144,14 @@ class ServerlessCache(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dual_stack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+        """
+        return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter(name="readerEndpoints")

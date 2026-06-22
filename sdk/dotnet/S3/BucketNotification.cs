@@ -518,6 +518,17 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Bucket` (String) Name of the bucket.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import S3 bucket notification using the `Bucket`. For example:
     /// 
     /// ```sh

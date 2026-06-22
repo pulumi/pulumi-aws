@@ -4,6 +4,7 @@
 package com.pulumi.aws.observabilityadmin.outputs;
 
 import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration;
+import com.pulumi.aws.observabilityadmin.outputs.CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -15,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CentralizationRuleForOrganizationRuleSource {
     /**
-     * @return Set of AWS regions from which to centralize logs. Must contain at least one region.
+     * @return Set of AWS regions from which to centralize telemetry. Must contain at least one region.
      * 
      */
     private List<String> regions;
@@ -29,10 +30,15 @@ public final class CentralizationRuleForOrganizationRuleSource {
      * 
      */
     private @Nullable CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration sourceLogsConfiguration;
+    /**
+     * @return Configuration block for source metrics settings. See `sourceMetricsConfiguration` below.
+     * 
+     */
+    private @Nullable CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration sourceMetricsConfiguration;
 
     private CentralizationRuleForOrganizationRuleSource() {}
     /**
-     * @return Set of AWS regions from which to centralize logs. Must contain at least one region.
+     * @return Set of AWS regions from which to centralize telemetry. Must contain at least one region.
      * 
      */
     public List<String> regions() {
@@ -52,6 +58,13 @@ public final class CentralizationRuleForOrganizationRuleSource {
     public Optional<CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration> sourceLogsConfiguration() {
         return Optional.ofNullable(this.sourceLogsConfiguration);
     }
+    /**
+     * @return Configuration block for source metrics settings. See `sourceMetricsConfiguration` below.
+     * 
+     */
+    public Optional<CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration> sourceMetricsConfiguration() {
+        return Optional.ofNullable(this.sourceMetricsConfiguration);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -65,12 +78,14 @@ public final class CentralizationRuleForOrganizationRuleSource {
         private List<String> regions;
         private String scope;
         private @Nullable CentralizationRuleForOrganizationRuleSourceSourceLogsConfiguration sourceLogsConfiguration;
+        private @Nullable CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration sourceMetricsConfiguration;
         public Builder() {}
         public Builder(CentralizationRuleForOrganizationRuleSource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.regions = defaults.regions;
     	      this.scope = defaults.scope;
     	      this.sourceLogsConfiguration = defaults.sourceLogsConfiguration;
+    	      this.sourceMetricsConfiguration = defaults.sourceMetricsConfiguration;
         }
 
         @CustomType.Setter
@@ -98,11 +113,18 @@ public final class CentralizationRuleForOrganizationRuleSource {
             this.sourceLogsConfiguration = sourceLogsConfiguration;
             return this;
         }
+        @CustomType.Setter
+        public Builder sourceMetricsConfiguration(@Nullable CentralizationRuleForOrganizationRuleSourceSourceMetricsConfiguration sourceMetricsConfiguration) {
+
+            this.sourceMetricsConfiguration = sourceMetricsConfiguration;
+            return this;
+        }
         public CentralizationRuleForOrganizationRuleSource build() {
             final var _resultValue = new CentralizationRuleForOrganizationRuleSource();
             _resultValue.regions = regions;
             _resultValue.scope = scope;
             _resultValue.sourceLogsConfiguration = sourceLogsConfiguration;
+            _resultValue.sourceMetricsConfiguration = sourceMetricsConfiguration;
             return _resultValue;
         }
     }

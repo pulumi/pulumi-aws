@@ -127,6 +127,40 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Metrics Centralization with Backup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getCallerIdentity({});
+ * const currentGetOrganization = aws.organizations.getOrganization({});
+ * const metrics = new aws.observabilityadmin.CentralizationRuleForOrganization("metrics", {
+ *     ruleName: "metrics-centralization-rule",
+ *     rule: {
+ *         destination: {
+ *             region: "eu-west-1",
+ *             account: current.then(current => current.accountId),
+ *             destinationMetricsConfiguration: {
+ *                 backupConfiguration: {
+ *                     region: "us-west-1",
+ *                 },
+ *             },
+ *         },
+ *         source: {
+ *             regions: [
+ *                 "ap-southeast-1",
+ *                 "us-east-1",
+ *             ],
+ *             scope: currentGetOrganization.then(currentGetOrganization => `OrganizationId = '${currentGetOrganization.id}'`),
+ *             sourceMetricsConfiguration: {
+ *                 metricsSelectionCriteria: "*",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `ruleName`. For example:

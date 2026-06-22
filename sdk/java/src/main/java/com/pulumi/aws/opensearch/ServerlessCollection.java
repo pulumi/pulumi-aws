@@ -8,6 +8,7 @@ import com.pulumi.aws.opensearch.ServerlessCollectionArgs;
 import com.pulumi.aws.opensearch.inputs.ServerlessCollectionState;
 import com.pulumi.aws.opensearch.outputs.ServerlessCollectionEncryptionConfig;
 import com.pulumi.aws.opensearch.outputs.ServerlessCollectionTimeouts;
+import com.pulumi.aws.opensearch.outputs.ServerlessCollectionVectorOption;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -19,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS OpenSearch Serverless Collection.
+ * Manages an AWS OpenSearch Serverless Collection.
  * 
  * &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` must have encryption configured either by an applicable encryption security policy or by setting `encryptionConfig` directly on the resource.
  * 
@@ -239,14 +240,14 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
         return this.encryptionConfigs;
     }
     /**
-     * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+     * ARN of the Amazon Web Services KMS key used to encrypt the collection.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyArn;
 
     /**
-     * @return The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+     * @return ARN of the Amazon Web Services KMS key used to encrypt the collection.
      * 
      */
     public Output<String> kmsKeyArn() {
@@ -285,42 +286,42 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     @Export(name="standbyReplicas", refs={String.class}, tree="[0]")
     private Output<String> standbyReplicas;
 
     /**
-     * @return Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * @return Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     public Output<String> standbyReplicas() {
         return this.standbyReplicas;
     }
     /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
@@ -345,6 +346,20 @@ public class ServerlessCollection extends com.pulumi.resources.CustomResource {
      */
     public Output<String> type() {
         return this.type;
+    }
+    /**
+     * Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+     * 
+     */
+    @Export(name="vectorOptions", refs={List.class,ServerlessCollectionVectorOption.class}, tree="[0,1]")
+    private Output<List<ServerlessCollectionVectorOption>> vectorOptions;
+
+    /**
+     * @return Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+     * 
+     */
+    public Output<List<ServerlessCollectionVectorOption>> vectorOptions() {
+        return this.vectorOptions;
     }
 
     /**

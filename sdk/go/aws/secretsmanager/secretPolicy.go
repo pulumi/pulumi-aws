@@ -81,7 +81,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+// - `secretArn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
 //
 // Using `pulumi import`, import `secretsmanager.SecretPolicy` using the secret Amazon Resource Name (ARN). For example:
 //

@@ -38,6 +38,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `vectorBucketArn` (String) ARN of the S3 Vectors Vector Bucket.
+ *
  * Using `pulumi import`, import S3 Vectors Vector Bucket using the `vectorBucketArn`. For example:
  *
  * ```sh

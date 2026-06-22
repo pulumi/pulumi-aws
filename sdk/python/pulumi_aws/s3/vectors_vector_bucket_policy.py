@@ -179,6 +179,12 @@ class VectorsVectorBucketPolicy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `vector_bucket_arn` (String) ARN of the S3 Vectors Vector Bucket.
+
         Using `pulumi import`, import S3 Vectors Vector Bucket policy using the `vector_bucket_arn`. For example:
 
         ```sh
@@ -232,6 +238,12 @@ class VectorsVectorBucketPolicy(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `vector_bucket_arn` (String) ARN of the S3 Vectors Vector Bucket.
 
         Using `pulumi import`, import S3 Vectors Vector Bucket policy using the `vector_bucket_arn`. For example:
 

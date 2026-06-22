@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch.inputs;
 
 import com.pulumi.aws.opensearch.inputs.ServerlessCollectionEncryptionConfigArgs;
 import com.pulumi.aws.opensearch.inputs.ServerlessCollectionTimeoutsArgs;
+import com.pulumi.aws.opensearch.inputs.ServerlessCollectionVectorOptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -110,14 +111,14 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+     * ARN of the Amazon Web Services KMS key used to encrypt the collection.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+     * @return ARN of the Amazon Web Services KMS key used to encrypt the collection.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -159,14 +160,14 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     @Import(name="standbyReplicas")
     private @Nullable Output<String> standbyReplicas;
 
     /**
-     * @return Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+     * @return Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
      * 
      */
     public Optional<Output<String>> standbyReplicas() {
@@ -174,14 +175,14 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -189,14 +190,14 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -225,6 +226,21 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.type);
     }
 
+    /**
+     * Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+     * 
+     */
+    @Import(name="vectorOptions")
+    private @Nullable Output<List<ServerlessCollectionVectorOptionArgs>> vectorOptions;
+
+    /**
+     * @return Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+     * 
+     */
+    public Optional<Output<List<ServerlessCollectionVectorOptionArgs>>> vectorOptions() {
+        return Optional.ofNullable(this.vectorOptions);
+    }
+
     private ServerlessCollectionState() {}
 
     private ServerlessCollectionState(ServerlessCollectionState $) {
@@ -242,6 +258,7 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         this.tagsAll = $.tagsAll;
         this.timeouts = $.timeouts;
         this.type = $.type;
+        this.vectorOptions = $.vectorOptions;
     }
 
     public static Builder builder() {
@@ -399,7 +416,7 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsKeyArn The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+         * @param kmsKeyArn ARN of the Amazon Web Services KMS key used to encrypt the collection.
          * 
          * @return builder
          * 
@@ -410,7 +427,7 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param kmsKeyArn The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+         * @param kmsKeyArn ARN of the Amazon Web Services KMS key used to encrypt the collection.
          * 
          * @return builder
          * 
@@ -466,7 +483,7 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param standbyReplicas Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+         * @param standbyReplicas Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
          * 
          * @return builder
          * 
@@ -477,7 +494,7 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param standbyReplicas Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+         * @param standbyReplicas Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
          * 
          * @return builder
          * 
@@ -487,7 +504,7 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -498,7 +515,7 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tags A map of tags to assign to the collection. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -508,7 +525,7 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -519,7 +536,7 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -556,6 +573,37 @@ public final class ServerlessCollectionState extends com.pulumi.resources.Resour
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param vectorOptions Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vectorOptions(@Nullable Output<List<ServerlessCollectionVectorOptionArgs>> vectorOptions) {
+            $.vectorOptions = vectorOptions;
+            return this;
+        }
+
+        /**
+         * @param vectorOptions Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vectorOptions(List<ServerlessCollectionVectorOptionArgs> vectorOptions) {
+            return vectorOptions(Output.of(vectorOptions));
+        }
+
+        /**
+         * @param vectorOptions Configuration block for vector search options. Only valid when `type` is `VECTORSEARCH`. See `vectorOptions` below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vectorOptions(ServerlessCollectionVectorOptionArgs... vectorOptions) {
+            return vectorOptions(List.of(vectorOptions));
         }
 
         public ServerlessCollectionState build() {

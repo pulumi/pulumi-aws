@@ -239,6 +239,12 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `arn` (String) ARN of the alias.
+
         Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
 
         ```sh
@@ -291,6 +297,12 @@ class Alias(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `arn` (String) ARN of the alias.
 
         Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
 

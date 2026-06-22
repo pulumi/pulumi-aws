@@ -18,14 +18,14 @@ public final class OptInResourceDataLfTagPolicyArgs extends com.pulumi.resources
     public static final OptInResourceDataLfTagPolicyArgs Empty = new OptInResourceDataLfTagPolicyArgs();
 
     /**
-     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * Identifier for the Data Catalog. By default, it is the account ID of the caller. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
     @Import(name="catalogId")
     private @Nullable Output<String> catalogId;
 
     /**
-     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     * @return Identifier for the Data Catalog. By default, it is the account ID of the caller. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
      * 
      */
     public Optional<Output<String>> catalogId() {
@@ -33,14 +33,14 @@ public final class OptInResourceDataLfTagPolicyArgs extends com.pulumi.resources
     }
 
     /**
-     * If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+     * Name of the saved expression to match. If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided expression name.
      * 
      */
     @Import(name="expressionName")
     private @Nullable Output<String> expressionName;
 
     /**
-     * @return If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+     * @return Name of the saved expression to match. If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided expression name.
      * 
      */
     public Optional<Output<String>> expressionName() {
@@ -105,7 +105,7 @@ public final class OptInResourceDataLfTagPolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class OptInResourceDataLfTagPolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller.
+         * @param catalogId Identifier for the Data Catalog. By default, it is the account ID of the caller. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class OptInResourceDataLfTagPolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param expressionName If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+         * @param expressionName Name of the saved expression to match. If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided expression name.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class OptInResourceDataLfTagPolicyArgs extends com.pulumi.resources
         }
 
         /**
-         * @param expressionName If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+         * @param expressionName Name of the saved expression to match. If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided expression name.
          * 
          * @return builder
          * 

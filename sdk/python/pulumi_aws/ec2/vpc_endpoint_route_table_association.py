@@ -154,6 +154,18 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `route_table_id` (String) Route Table ID.
+        * `vpc_endpoint_id` (String) VPC Endpoint ID.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpc_endpoint_id` together with `route_table_id`. For example:
 
         ```sh
@@ -188,6 +200,18 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `route_table_id` (String) Route Table ID.
+        * `vpc_endpoint_id` (String) VPC Endpoint ID.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpc_endpoint_id` together with `route_table_id`. For example:
 

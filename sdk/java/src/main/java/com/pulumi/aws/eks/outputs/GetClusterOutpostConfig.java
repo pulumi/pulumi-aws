@@ -4,6 +4,7 @@
 package com.pulumi.aws.eks.outputs;
 
 import com.pulumi.aws.eks.outputs.GetClusterOutpostConfigControlPlanePlacement;
+import com.pulumi.aws.eks.outputs.GetClusterOutpostConfigEtcdPlacement;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -22,6 +23,16 @@ public final class GetClusterOutpostConfig {
      * 
      */
     private List<GetClusterOutpostConfigControlPlanePlacement> controlPlanePlacements;
+    /**
+     * @return Amazon EC2 instance type for etcd instances.
+     * 
+     */
+    private String etcdInstanceType;
+    /**
+     * @return Placement configuration for the etcd instances.
+     * 
+     */
+    private List<GetClusterOutpostConfigEtcdPlacement> etcdPlacements;
     /**
      * @return List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
      * 
@@ -44,6 +55,20 @@ public final class GetClusterOutpostConfig {
         return this.controlPlanePlacements;
     }
     /**
+     * @return Amazon EC2 instance type for etcd instances.
+     * 
+     */
+    public String etcdInstanceType() {
+        return this.etcdInstanceType;
+    }
+    /**
+     * @return Placement configuration for the etcd instances.
+     * 
+     */
+    public List<GetClusterOutpostConfigEtcdPlacement> etcdPlacements() {
+        return this.etcdPlacements;
+    }
+    /**
      * @return List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
      * 
      */
@@ -62,12 +87,16 @@ public final class GetClusterOutpostConfig {
     public static final class Builder {
         private String controlPlaneInstanceType;
         private List<GetClusterOutpostConfigControlPlanePlacement> controlPlanePlacements;
+        private String etcdInstanceType;
+        private List<GetClusterOutpostConfigEtcdPlacement> etcdPlacements;
         private List<String> outpostArns;
         public Builder() {}
         public Builder(GetClusterOutpostConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.controlPlaneInstanceType = defaults.controlPlaneInstanceType;
     	      this.controlPlanePlacements = defaults.controlPlanePlacements;
+    	      this.etcdInstanceType = defaults.etcdInstanceType;
+    	      this.etcdPlacements = defaults.etcdPlacements;
     	      this.outpostArns = defaults.outpostArns;
         }
 
@@ -91,6 +120,25 @@ public final class GetClusterOutpostConfig {
             return controlPlanePlacements(List.of(controlPlanePlacements));
         }
         @CustomType.Setter
+        public Builder etcdInstanceType(String etcdInstanceType) {
+            if (etcdInstanceType == null) {
+              throw new MissingRequiredPropertyException("GetClusterOutpostConfig", "etcdInstanceType");
+            }
+            this.etcdInstanceType = etcdInstanceType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder etcdPlacements(List<GetClusterOutpostConfigEtcdPlacement> etcdPlacements) {
+            if (etcdPlacements == null) {
+              throw new MissingRequiredPropertyException("GetClusterOutpostConfig", "etcdPlacements");
+            }
+            this.etcdPlacements = etcdPlacements;
+            return this;
+        }
+        public Builder etcdPlacements(GetClusterOutpostConfigEtcdPlacement... etcdPlacements) {
+            return etcdPlacements(List.of(etcdPlacements));
+        }
+        @CustomType.Setter
         public Builder outpostArns(List<String> outpostArns) {
             if (outpostArns == null) {
               throw new MissingRequiredPropertyException("GetClusterOutpostConfig", "outpostArns");
@@ -105,6 +153,8 @@ public final class GetClusterOutpostConfig {
             final var _resultValue = new GetClusterOutpostConfig();
             _resultValue.controlPlaneInstanceType = controlPlaneInstanceType;
             _resultValue.controlPlanePlacements = controlPlanePlacements;
+            _resultValue.etcdInstanceType = etcdInstanceType;
+            _resultValue.etcdPlacements = etcdPlacements;
             _resultValue.outpostArns = outpostArns;
             return _resultValue;
         }

@@ -185,7 +185,7 @@ class Schema(pulumi.CustomResource):
         Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
 
         ```sh
-         $ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
+        $ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
         ```
 
 
@@ -230,7 +230,7 @@ class Schema(pulumi.CustomResource):
         Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
 
         ```sh
-         $ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
+        $ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
         ```
 
 

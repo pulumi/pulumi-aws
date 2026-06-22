@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.OpenSearch
 {
     /// <summary>
-    /// Resource for managing an AWS OpenSearch Serverless Collection.
+    /// Manages an AWS OpenSearch Serverless Collection.
     /// 
     /// &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` must have encryption configured either by an applicable encryption security policy or by setting `EncryptionConfig` directly on the resource.
     /// 
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.OpenSearch
         public Output<ImmutableArray<Outputs.ServerlessCollectionEncryptionConfig>> EncryptionConfigs { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+        /// ARN of the Amazon Web Services KMS key used to encrypt the collection.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string> KmsKeyArn { get; private set; } = null!;
@@ -182,19 +182,19 @@ namespace Pulumi.Aws.OpenSearch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
         [Output("standbyReplicas")]
         public Output<string> StandbyReplicas { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the collection. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -207,6 +207,12 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for vector search options. Only valid when `Type` is `VECTORSEARCH`. See `VectorOptions` below for details.
+        /// </summary>
+        [Output("vectorOptions")]
+        public Output<ImmutableArray<Outputs.ServerlessCollectionVectorOption>> VectorOptions { get; private set; } = null!;
 
 
         /// <summary>
@@ -293,7 +299,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
         [Input("standbyReplicas")]
         public Input<string>? StandbyReplicas { get; set; }
@@ -302,7 +308,7 @@ namespace Pulumi.Aws.OpenSearch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the collection. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -318,6 +324,18 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        [Input("vectorOptions")]
+        private InputList<Inputs.ServerlessCollectionVectorOptionArgs>? _vectorOptions;
+
+        /// <summary>
+        /// Configuration block for vector search options. Only valid when `Type` is `VECTORSEARCH`. See `VectorOptions` below for details.
+        /// </summary>
+        public InputList<Inputs.ServerlessCollectionVectorOptionArgs> VectorOptions
+        {
+            get => _vectorOptions ?? (_vectorOptions = new InputList<Inputs.ServerlessCollectionVectorOptionArgs>());
+            set => _vectorOptions = value;
+        }
 
         public ServerlessCollectionArgs()
         {
@@ -370,7 +388,7 @@ namespace Pulumi.Aws.OpenSearch
         }
 
         /// <summary>
-        /// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
+        /// ARN of the Amazon Web Services KMS key used to encrypt the collection.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
@@ -390,7 +408,7 @@ namespace Pulumi.Aws.OpenSearch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Indicates whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
+        /// Whether standby replicas should be used for a collection. One of `ENABLED` or `DISABLED`. Defaults to `ENABLED`.
         /// </summary>
         [Input("standbyReplicas")]
         public Input<string>? StandbyReplicas { get; set; }
@@ -399,7 +417,7 @@ namespace Pulumi.Aws.OpenSearch
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the collection. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -411,7 +429,7 @@ namespace Pulumi.Aws.OpenSearch
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -427,6 +445,18 @@ namespace Pulumi.Aws.OpenSearch
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        [Input("vectorOptions")]
+        private InputList<Inputs.ServerlessCollectionVectorOptionGetArgs>? _vectorOptions;
+
+        /// <summary>
+        /// Configuration block for vector search options. Only valid when `Type` is `VECTORSEARCH`. See `VectorOptions` below for details.
+        /// </summary>
+        public InputList<Inputs.ServerlessCollectionVectorOptionGetArgs> VectorOptions
+        {
+            get => _vectorOptions ?? (_vectorOptions = new InputList<Inputs.ServerlessCollectionVectorOptionGetArgs>());
+            set => _vectorOptions = value;
+        }
 
         public ServerlessCollectionState()
         {

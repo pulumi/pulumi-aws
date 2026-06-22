@@ -355,6 +355,20 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+     * 
+     */
+    @Export(name="networkType", refs={String.class}, tree="[0]")
+    private Output<String> networkType;
+
+    /**
+     * @return IP protocol version used by the serverless cache. Valid values are `ipv4`, `ipv6`, or `dualStack`. `ipv6` is only supported with IPv6-only subnets. If not specified, defaults to `ipv4`, unless all provided subnets are IPv6-only, in which case it defaults to `ipv6`.
+     * 
+     */
+    public Output<String> networkType() {
+        return this.networkType;
+    }
+    /**
      * Represents the information required for client programs to connect to a cache node. See `readerEndpoint` Block for details.
      * 
      */

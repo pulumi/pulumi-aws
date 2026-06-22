@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.cloudfront.inputs;
 
+import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -79,6 +80,21 @@ public final class MultitenantDistributionOriginCustomOriginConfigArgs extends c
     }
 
     /**
+     * Origin mTLS configuration for mutual TLS authentication between CloudFront and your origin. See Origin mTLS Config below.
+     * 
+     */
+    @Import(name="originMtlsConfig")
+    private @Nullable Output<MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs> originMtlsConfig;
+
+    /**
+     * @return Origin mTLS configuration for mutual TLS authentication between CloudFront and your origin. See Origin mTLS Config below.
+     * 
+     */
+    public Optional<Output<MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs>> originMtlsConfig() {
+        return Optional.ofNullable(this.originMtlsConfig);
+    }
+
+    /**
      * Origin protocol policy to apply to your origin. Valid values are `http-only`, `https-only`, and `match-viewer`.
      * 
      */
@@ -130,6 +146,7 @@ public final class MultitenantDistributionOriginCustomOriginConfigArgs extends c
         this.httpsPort = $.httpsPort;
         this.ipAddressType = $.ipAddressType;
         this.originKeepaliveTimeout = $.originKeepaliveTimeout;
+        this.originMtlsConfig = $.originMtlsConfig;
         this.originProtocolPolicy = $.originProtocolPolicy;
         this.originReadTimeout = $.originReadTimeout;
         this.originSslProtocols = $.originSslProtocols;
@@ -235,6 +252,27 @@ public final class MultitenantDistributionOriginCustomOriginConfigArgs extends c
          */
         public Builder originKeepaliveTimeout(Integer originKeepaliveTimeout) {
             return originKeepaliveTimeout(Output.of(originKeepaliveTimeout));
+        }
+
+        /**
+         * @param originMtlsConfig Origin mTLS configuration for mutual TLS authentication between CloudFront and your origin. See Origin mTLS Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder originMtlsConfig(@Nullable Output<MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs> originMtlsConfig) {
+            $.originMtlsConfig = originMtlsConfig;
+            return this;
+        }
+
+        /**
+         * @param originMtlsConfig Origin mTLS configuration for mutual TLS authentication between CloudFront and your origin. See Origin mTLS Config below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder originMtlsConfig(MultitenantDistributionOriginCustomOriginConfigOriginMtlsConfigArgs originMtlsConfig) {
+            return originMtlsConfig(Output.of(originMtlsConfig));
         }
 
         /**

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const examplepartner = aws.cloudwatch.getEventSource({
- *     namePrefix: "aws.partner/examplepartner.com",
+ *     namePrefix: "aws.partner/example.com",
  * });
  * const examplepartnerEventBus = new aws.cloudwatch.EventBus("examplepartner", {
  *     name: examplepartner.then(examplepartner => examplepartner.name),

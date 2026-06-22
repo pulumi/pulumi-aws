@@ -214,6 +214,8 @@ type S3Endpoint struct {
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad pulumi.BoolPtrOutput `pulumi:"includeOpForFullLoad"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+	//
+	// Deprecated: kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
 	KmsKeyArn pulumi.StringOutput `pulumi:"kmsKeyArn"`
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
 	MaxFileSize pulumi.IntPtrOutput `pulumi:"maxFileSize"`
@@ -368,6 +370,8 @@ type s3endpointState struct {
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad *bool `pulumi:"includeOpForFullLoad"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+	//
+	// Deprecated: kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
 	MaxFileSize *int `pulumi:"maxFileSize"`
@@ -481,6 +485,8 @@ type S3EndpointState struct {
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad pulumi.BoolPtrInput
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+	//
+	// Deprecated: kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
 	KmsKeyArn pulumi.StringPtrInput
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
 	MaxFileSize pulumi.IntPtrInput
@@ -592,6 +598,8 @@ type s3endpointArgs struct {
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad *bool `pulumi:"includeOpForFullLoad"`
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+	//
+	// Deprecated: kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
 	MaxFileSize *int `pulumi:"maxFileSize"`
@@ -696,6 +704,8 @@ type S3EndpointArgs struct {
 	// Whether to enable a full load to write INSERT operations to the .csv output files only to indicate how the rows were added to the source database. Default is `false`.
 	IncludeOpForFullLoad pulumi.BoolPtrInput
 	// ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+	//
+	// Deprecated: kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
 	KmsKeyArn pulumi.StringPtrInput
 	// Maximum size (in KB) of any .csv file to be created while migrating to an S3 target during full load. Valid values are from `1` to `1048576`. (AWS default is 1 GB, _i.e._, `1048576`.)
 	MaxFileSize pulumi.IntPtrInput
@@ -1002,6 +1012,8 @@ func (o S3EndpointOutput) IncludeOpForFullLoad() pulumi.BoolPtrOutput {
 }
 
 // ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kmsKeyArn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+//
+// Deprecated: kms_key_arn is deprecated. Use serverSideEncryptionKmsKeyId instead.
 func (o S3EndpointOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *S3Endpoint) pulumi.StringOutput { return v.KmsKeyArn }).(pulumi.StringOutput)
 }

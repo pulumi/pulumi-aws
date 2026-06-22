@@ -335,6 +335,19 @@ class VolumeAttachment(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `device_name` (String) Device name exposed to the instance.
+        * `instance_id` (String) ID of the Instance.
+        * `volume_id` (String) ID of the Volume.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
 
         ```sh
@@ -396,6 +409,19 @@ class VolumeAttachment(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `device_name` (String) Device name exposed to the instance.
+        * `instance_id` (String) ID of the Instance.
+        * `volume_id` (String) ID of the Volume.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import EBS Volume Attachments using `DEVICE_NAME:VOLUME_ID:INSTANCE_ID`. For example:
 

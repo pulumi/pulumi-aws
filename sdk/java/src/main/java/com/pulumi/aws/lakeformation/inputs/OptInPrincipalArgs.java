@@ -14,9 +14,17 @@ public final class OptInPrincipalArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final OptInPrincipalArgs Empty = new OptInPrincipalArgs();
 
+    /**
+     * Identifier for the Lake Formation principal.
+     * 
+     */
     @Import(name="dataLakePrincipalIdentifier", required=true)
     private Output<String> dataLakePrincipalIdentifier;
 
+    /**
+     * @return Identifier for the Lake Formation principal.
+     * 
+     */
     public Output<String> dataLakePrincipalIdentifier() {
         return this.dataLakePrincipalIdentifier;
     }
@@ -45,11 +53,23 @@ public final class OptInPrincipalArgs extends com.pulumi.resources.ResourceArgs 
             $ = new OptInPrincipalArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param dataLakePrincipalIdentifier Identifier for the Lake Formation principal.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataLakePrincipalIdentifier(Output<String> dataLakePrincipalIdentifier) {
             $.dataLakePrincipalIdentifier = dataLakePrincipalIdentifier;
             return this;
         }
 
+        /**
+         * @param dataLakePrincipalIdentifier Identifier for the Lake Formation principal.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dataLakePrincipalIdentifier(String dataLakePrincipalIdentifier) {
             return dataLakePrincipalIdentifier(Output.of(dataLakePrincipalIdentifier));
         }

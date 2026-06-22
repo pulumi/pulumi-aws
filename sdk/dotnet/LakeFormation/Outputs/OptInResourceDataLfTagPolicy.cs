@@ -14,11 +14,11 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     public sealed class OptInResourceDataLfTagPolicy
     {
         /// <summary>
-        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        /// Identifier for the Data Catalog. By default, it is the account ID of the caller. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         /// </summary>
         public readonly string? CatalogId;
         /// <summary>
-        /// If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+        /// Name of the saved expression to match. If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided expression name.
         /// </summary>
         public readonly string? ExpressionName;
         /// <summary>
