@@ -323,7 +323,7 @@ index 00000000000..ff216a7eba0
 +	}
 +}
 diff --git a/internal/service/cognitoidp/identity_provider_test.go b/internal/service/cognitoidp/identity_provider_test.go
-index 7d775cb6f16..07e84ee34f1 100644
+index 7d775cb6f16..2190cb67677 100644
 --- a/internal/service/cognitoidp/identity_provider_test.go
 +++ b/internal/service/cognitoidp/identity_provider_test.go
 @@ -81,6 +81,48 @@ func TestAccCognitoIDPIdentityProvider_basic(t *testing.T) {
@@ -474,7 +474,7 @@ index 7d775cb6f16..07e84ee34f1 100644
 +  provider_type = "SAML"
 +
 +  provider_details = {
-+    MetadataFile = file("./test-fixtures/saml-metadata.xml")
++    MetadataFile = templatefile("./test-fixtures/saml-metadata.xml.tpl", { entity_id = "https://terraform-dev-ed.my.salesforce.com" })
 +  }
 +}
 +`, rName)
