@@ -1,0 +1,34 @@
+name: Override pulumi CLI with PR build
+description: |
+  Builds the pulumi CLI from pulumi/pulumi PR #23671 and prepends it to PATH
+  so it shadows the mise-installed release. One-shot helper for a test PR;
+  delete once the PR is merged or rejected.
+
+runs:
+  using: composite
+  steps:
+  - name: Checkout pulumi/pulumi PR
+    uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+    with:
+      repository: pulumi/pulumi
+      ref: refs/pull/23671/merge
+      path: .pulumi-pr
+      fetch-depth: 1
+  - name: Build and install pulumi CLI
+    shell: bash
+    run: |
+      set -euo pipefail
+      cd .pulumi-pr
+      VERSION="$(./scripts/pulumi-version.sh 2>/dev/null || echo "v3.0.0-pr23671")"
+      mkdir -p "$HOME/.pulumi-dev/bin"
+      go build -C pkg \
+        -o "$HOME/.pulumi-dev/bin/pulumi" \
+        -ldflags "-X github.com/pulumi/pulumi/sdk/v3/go/common/version.Version=${VERSION}" \
+        github.com/pulumi/pulumi/pkg/v3/cmd/pulumi
+      echo "$HOME/.pulumi-dev/bin" >> "$GITHUB_PATH"
+  - name: Verify override
+    shell: bash
+    run: |
+      export PATH="$HOME/.pulumi-dev/bin:$PATH"
+      which pulumi
+      pulumi version

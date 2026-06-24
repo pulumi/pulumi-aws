@@ -80,6 +80,8 @@ jobs:
           github_token: ${{ steps.app-auth.outputs.token }}
           # only saving the cache in the prerequisites job
           cache_save: false
+      - name: Override pulumi CLI with PR build
+        uses: ./.github/actions/override-pulumi
       # Based on https://github.com/actions/cache/blob/main/examples.md#go---modules
       - name: Get GOCACHE
         id: gocache

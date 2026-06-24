@@ -59,6 +59,8 @@ jobs:
         version: 2026.3.7
         github_token: ${{ steps.app-auth.outputs.token }}
         cache_save: false # A different job handles caching our tools.
+    - name: Override pulumi CLI with PR build
+      uses: ./.github/actions/override-pulumi
     - name: prepare workspace
       continue-on-error: true
       run: make prepare_local_workspace

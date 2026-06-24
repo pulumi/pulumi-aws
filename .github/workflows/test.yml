@@ -75,6 +75,8 @@ jobs:
         github_token: ${{ steps.app-auth.outputs.token }}
         # also save this cache since we are using a different mise env.
         cache_save: true
+    - name: Override pulumi CLI with PR build
+      uses: ./.github/actions/override-pulumi
     - name: Prepare local workspace
       run: make prepare_local_workspace
       env:
