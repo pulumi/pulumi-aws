@@ -26,6 +26,8 @@ runs:
         -ldflags "-X github.com/pulumi/pulumi/sdk/v3/go/common/version.Version=${VERSION}" \
         github.com/pulumi/pulumi/pkg/v3/cmd/pulumi
       echo "$HOME/.pulumi-dev/bin" >> "$GITHUB_PATH"
+      cd ..
+      rm -rf .pulumi-pr
   - name: Verify override
     shell: bash
     run: |
