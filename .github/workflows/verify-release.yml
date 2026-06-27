@@ -58,7 +58,7 @@ jobs:
       - name: Configure Git to checkout files with long names
         run: git config --global core.longpaths true
       - name: Checkout Repo
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false      
       - env:
@@ -101,7 +101,7 @@ jobs:
           iex ((New-Object System.Net.WebClient).DownloadString('https://get.pulumi.com/esc/install.ps1'))
           Copy-Item "$env:USERPROFILE\.pulumi\bin\esc.exe" "C:\Windows\System32\esc.exe"
       - name: Export AWS Credentials
-        uses: pulumi/esc-action@f3cfbabf37488463817366338165b92b5f99117e
+        uses: pulumi/esc-action@ac400796a2de7ba0c3bd015b7819c21306189af6
         env:
           PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
         with:

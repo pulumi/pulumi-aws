@@ -45,8 +45,8 @@ jobs:
           ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
         id: esc-secrets
         name: Fetch secrets from ESC
-        uses: pulumi/esc-action@f3cfbabf37488463817366338165b92b5f99117e
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        uses: pulumi/esc-action@ac400796a2de7ba0c3bd015b7819c21306189af6
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
         with:
           fetch-depth: 0
       - name: Checkout PR head (if applicable)
@@ -79,7 +79,7 @@ jobs:
           (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude review')) ||
           (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude review'))
         id: claude-review
-        uses: anthropics/claude-code-action@d5726de019ec4498aa667642bc3a80fca83aa102 # v1
+        uses: anthropics/claude-code-action@521136812280ae7ef256e06045655b9da02793f0 # v1
         with:
           anthropic_api_key: ${{ steps.esc-secrets.outputs.ANTHROPIC_API_KEY }}
           prompt: |
@@ -101,7 +101,7 @@ jobs:
           !contains(github.event.comment.body, '@claude review') &&
           !contains(github.event.review.body, '@claude review')
         id: claude-action
-        uses: anthropics/claude-code-action@d5726de019ec4498aa667642bc3a80fca83aa102 # v1
+        uses: anthropics/claude-code-action@521136812280ae7ef256e06045655b9da02793f0 # v1
         with:
           anthropic_api_key: ${{ steps.esc-secrets.outputs.ANTHROPIC_API_KEY }}
           # This allows claude to read github action logs
