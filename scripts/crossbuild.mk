@@ -39,6 +39,9 @@ bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: bin/jsign-7.4.jar
 			if [[ "${CI}" == "true" ]]; then exit 1; fi; \
 		else \
 			mv $@ $@.unsigned; \
+			AZURE_CONFIG_DIR=$$(mktemp -d); \
+			export AZURE_CONFIG_DIR; \
+			trap 'rm -rf "$${AZURE_CONFIG_DIR}"' EXIT; \
 			az login --service-principal \
 				--username "${AZURE_SIGNING_CLIENT_ID}" \
 				--password "${AZURE_SIGNING_CLIENT_SECRET}" \
@@ -55,7 +58,6 @@ bin/%/$(PROVIDER) bin/%/$(PROVIDER).exe: bin/jsign-7.4.jar
 				--alias "${AZURE_SIGNING_ACCOUNT_NAME}/${AZURE_SIGNING_CERT_PROFILE_NAME}" \
 				$@.unsigned; \
 			mv $@.unsigned $@; \
-			az logout; \
 		fi; \
 	fi
 
