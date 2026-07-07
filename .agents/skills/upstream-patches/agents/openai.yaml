@@ -1,0 +1,4 @@
+interface:
+  display_name: "Upstream Patches"
+  short_description: "Manage upstream Terraform patch stacks in provider repos."
+  default_prompt: "Use $upstream-patches to find owning patches, amend or remove patch content safely, and verify patch set integrity."

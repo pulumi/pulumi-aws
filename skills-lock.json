@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "pulumi-upgrade-provider": {
+      "source": "pulumi/agent-skills",
+      "sourceType": "github",
+      "skillPath": "package-maintenance/skills/pulumi-upgrade-provider/SKILL.md",
+      "computedHash": "cba04e64cc789246b326e30131b957205f21f0bc4e7a0600e3ca0a421314aa04"
+    },
+    "upstream-patches": {
+      "source": "pulumi/agent-skills",
+      "sourceType": "github",
+      "skillPath": "package-maintenance/skills/upstream-patches/SKILL.md",
+      "computedHash": "280be570d7ef31a78a2703b2d176cb30abf2da58d0e507b7bd8aead0a30d6501"
+    }
+  }
+}
