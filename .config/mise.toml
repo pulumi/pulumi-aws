@@ -9,7 +9,7 @@ PULUMI_HOME = "{{config_root}}/.pulumi"
 
 # Runtimes
 go = "{{ env.GO_VERSION_MISE }}"
-node = '20.19.5'
+node = '24.18.0'
 python = '3.11.8'
 "vfox:version-fox/vfox-dotnet" = "8.0.20" # vfox backend doesn't work on Windows, gives "error converting Lua table to PreInstall (no version returned from vfox plugin)" https://github.com/jdx/mise/discussions/5876 https://github.com/jdx/mise/discussions/5550
 # Corretto version used as Java SE/OpenJDK version no longer offered
@@ -21,7 +21,7 @@ java = 'corretto-11'
 "github:pulumi/schema-tools" = "0.6.0"
 "go:github.com/pulumi/upgrade-provider" = "main"
 "aqua:gradle/gradle-distributions" = '7.6.6'
-golangci-lint = "2.9.0" # See note about about overrides if you need to customize this.
+golangci-lint = "2.12.2" # See note about about overrides if you need to customize this.
 "npm:yarn" = "1.22.22"
 
 [settings]
