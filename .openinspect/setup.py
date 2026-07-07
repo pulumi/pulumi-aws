@@ -4,7 +4,7 @@
 Runs once on fresh OpenInspect sandbox boot.
 
 Boot sequence:
-  1. Install mise and trust the repo config.
+  1. Install mise, trust the repo config, and install repo tools.
   2. Run generated and repo-local setup hooks:
      - .openinspect/setup.d/*.py
      - .openinspect/setup.local.py
@@ -81,6 +81,7 @@ def setup_mise():
         log.info("mise already installed, skipping download")
 
     run("mise trust --yes")
+    run("mise install --yes")
 
     os.environ.setdefault("MISE_FETCH_REMOTE_VERSIONS_TIMEOUT", "10m")
     os.environ.setdefault("MISE_FETCH_TIMEOUT", "10m")
