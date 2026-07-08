@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRestApiEndpointConfiguration {
     /**
-     * @return The IP address types that can invoke an API (RestApi).
+     * @return IP address types that can invoke a REST API.
      * 
      */
     private String ipAddressType;
@@ -29,7 +29,7 @@ public final class GetRestApiEndpointConfiguration {
 
     private GetRestApiEndpointConfiguration() {}
     /**
-     * @return The IP address types that can invoke an API (RestApi).
+     * @return IP address types that can invoke a REST API.
      * 
      */
     public String ipAddressType() {

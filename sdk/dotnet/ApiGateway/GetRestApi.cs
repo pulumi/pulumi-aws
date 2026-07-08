@@ -179,7 +179,11 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
+        /// Endpoint access mode for the REST API.
+        /// </summary>
+        public readonly string EndpointAccessMode;
+        /// <summary>
+        /// Endpoint configuration of this REST API showing the endpoint types of the API. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetRestApiEndpointConfigurationResult> EndpointConfigurations;
         /// <summary>
@@ -205,6 +209,10 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string RootResourceId;
         /// <summary>
+        /// TLS version + cipher suite for the REST API's default execute-api endpoint.
+        /// </summary>
+        public readonly string SecurityPolicy;
+        /// <summary>
         /// Key-value map of resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -218,6 +226,8 @@ namespace Pulumi.Aws.ApiGateway
             ImmutableArray<string> binaryMediaTypes,
 
             string description,
+
+            string endpointAccessMode,
 
             ImmutableArray<Outputs.GetRestApiEndpointConfigurationResult> endpointConfigurations,
 
@@ -235,12 +245,15 @@ namespace Pulumi.Aws.ApiGateway
 
             string rootResourceId,
 
+            string securityPolicy,
+
             ImmutableDictionary<string, string> tags)
         {
             ApiKeySource = apiKeySource;
             Arn = arn;
             BinaryMediaTypes = binaryMediaTypes;
             Description = description;
+            EndpointAccessMode = endpointAccessMode;
             EndpointConfigurations = endpointConfigurations;
             ExecutionArn = executionArn;
             Id = id;
@@ -249,6 +262,7 @@ namespace Pulumi.Aws.ApiGateway
             Policy = policy;
             Region = region;
             RootResourceId = rootResourceId;
+            SecurityPolicy = securityPolicy;
             Tags = tags;
         }
     }

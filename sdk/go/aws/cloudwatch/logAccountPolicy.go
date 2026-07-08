@@ -159,7 +159,19 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import this resource using the `policyName` and `policyType` separated by `:`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `policyName` (String) Name of the account policy.
+// * `policyType` (String) Type of account policy.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Account Policies using `policyName` and `policyType` separated by a colon (`:`). For example:
 //
 // ```sh
 // $ pulumi import aws:cloudwatch/logAccountPolicy:LogAccountPolicy example "my-account-policy:SUBSCRIPTION_FILTER_POLICY"

@@ -57,10 +57,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `ruleName`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `ruleName` (String) Name of the rule.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Contributor Insight Rules using `ruleName`. For example:
  * 
  * ```sh
- * $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
+ * $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example example-rule
  * ```
  * 
  */
@@ -131,14 +142,14 @@ public class ContributorInsightRule extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="ruleState", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> ruleState;
+    private Output<String> ruleState;
 
     /**
      * @return State of the rule. Valid values are `ENABLED` and `DISABLED`.
      * 
      */
-    public Output<Optional<String>> ruleState() {
-        return Codegen.optional(this.ruleState);
+    public Output<String> ruleState() {
+        return this.ruleState;
     }
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;

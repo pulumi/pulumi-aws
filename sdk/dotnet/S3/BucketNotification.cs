@@ -12,7 +12,7 @@ namespace Pulumi.Aws.S3
     /// <summary>
     /// Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
     /// 
-    /// &gt; **NOTE:** S3 Buckets only support a single notification configuration resource. Declaring multiple `aws.s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. This resource will overwrite any existing event notifications configured for the S3 bucket it's associated with. See the example "Trigger multiple Lambda functions" for an option of how to configure multiple triggers within this resource.
+    /// &gt; **NOTE:** The S3 [`PutBucketNotificationConfiguration`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html) API is atomic — it replaces the bucket's entire notification configuration on every call. Only one `aws.s3.BucketNotification` resource can manage a bucket; declaring more than one causes a perpetual diff, and applying this resource will overwrite any notifications already on the bucket. To configure multiple destinations on the same bucket, declare them all as nested blocks within a single resource (see Trigger multiple Lambda functions below). To let independent teams or Terraform configurations subscribe to the same bucket without stepping on each other, prefer the Emit events to EventBridge pattern below. To bring existing notifications under management without losing them, see the `aws.s3.BucketNotification` data source.
     /// 
     /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
@@ -494,27 +494,119 @@ namespace Pulumi.Aws.S3
     /// 
     /// ### Emit events to EventBridge
     /// 
+    /// For a bucket shared by multiple independent consumers — different teams, different Terraform configurations, different applications — EventBridge is the recommended pattern. Each consumer subscribes to the bucket through its own `aws.cloudwatch.EventRule`, so they cannot overwrite one another the way notification configurations would.
+    /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
+    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var bucket = new Aws.S3.Bucket("bucket", new()
+    ///     var shared = new Aws.S3.Bucket("shared", new()
     ///     {
-    ///         BucketName = "your-bucket-name",
+    ///         BucketName = "shared-bucket",
     ///     });
     /// 
-    ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
+    ///     var sharedBucketNotification = new Aws.S3.BucketNotification("shared", new()
     ///     {
-    ///         Bucket = bucket.Id,
+    ///         Bucket = shared.Id,
     ///         Eventbridge = true,
+    ///     });
+    /// 
+    ///     // Team A: process new uploads under uploads/
+    ///     var teamA = new Aws.CloudWatch.EventRule("team_a", new()
+    ///     {
+    ///         Name = "team-a-uploads",
+    ///         EventPattern = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["source"] = new[]
+    ///             {
+    ///                 "aws.s3",
+    ///             },
+    ///             ["detail-type"] = new[]
+    ///             {
+    ///                 "Object Created",
+    ///             },
+    ///             ["detail"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["bucket"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["name"] = new[]
+    ///                     {
+    ///                         shared.BucketName,
+    ///                     },
+    ///                 },
+    ///                 ["object"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["key"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["prefix"] = "uploads/",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         })),
+    ///     });
+    /// 
+    ///     var teamAEventTarget = new Aws.CloudWatch.EventTarget("team_a", new()
+    ///     {
+    ///         Rule = teamA.Name,
+    ///         Arn = teamAProcessor.Arn,
+    ///     });
+    /// 
+    ///     // Team B: archive deletions under archive/, declared in a separate
+    ///     // Terraform configuration that knows nothing about Team A.
+    ///     var teamB = new Aws.CloudWatch.EventRule("team_b", new()
+    ///     {
+    ///         Name = "team-b-deletions",
+    ///         EventPattern = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["source"] = new[]
+    ///             {
+    ///                 "aws.s3",
+    ///             },
+    ///             ["detail-type"] = new[]
+    ///             {
+    ///                 "Object Deleted",
+    ///             },
+    ///             ["detail"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["bucket"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["name"] = new[]
+    ///                     {
+    ///                         shared.BucketName,
+    ///                     },
+    ///                 },
+    ///                 ["object"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["key"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["prefix"] = "archive/",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         })),
+    ///     });
+    /// 
+    ///     var teamBEventTarget = new Aws.CloudWatch.EventTarget("team_b", new()
+    ///     {
+    ///         Rule = teamB.Name,
+    ///         Arn = teamBArchive.Arn,
     ///     });
     /// 
     /// });
     /// ```
+    /// 
+    /// For sharing a bucket between Terraform configurations when EventBridge is not an option, use the `aws.s3.BucketNotification` data source to read existing notifications and re-emit them in your own resource.
     /// 
     /// ## Import
     /// 

@@ -12,12 +12,12 @@ import java.util.Objects;
 @CustomType
 public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField {
     /**
-     * @return The sort direction for this field. Valid values: `asc`, `desc`.
+     * @return Sort direction for this field. Valid values: `asc`, `desc`.
      * 
      */
     private String direction;
     /**
-     * @return The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+     * @return Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
      * 
      */
     private String nullOrder;
@@ -26,14 +26,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
 
     private CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField() {}
     /**
-     * @return The sort direction for this field. Valid values: `asc`, `desc`.
+     * @return Sort direction for this field. Valid values: `asc`, `desc`.
      * 
      */
     public String direction() {
         return this.direction;
     }
     /**
-     * @return The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+     * @return Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
      * 
      */
     public String nullOrder() {

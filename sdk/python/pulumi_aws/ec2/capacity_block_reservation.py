@@ -134,6 +134,8 @@ class _CapacityBlockReservationState:
         :param pulumi.Input[_builtins.str] end_date: The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[_builtins.str] end_date_type: Indicates the way in which the Capacity Reservation ends.
         :param pulumi.Input[_builtins.int] instance_count: The number of instances for which to reserve capacity.
+               This value will not be set until the Capacity Block Reservation is active.
+               The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
         :param pulumi.Input[_builtins.str] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         :param pulumi.Input[_builtins.str] instance_type: The instance type for which to reserve capacity.
         :param pulumi.Input[_builtins.str] outpost_arn: The ARN of the Outpost on which to create the Capacity Block Reservation.
@@ -273,6 +275,8 @@ class _CapacityBlockReservationState:
     def instance_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of instances for which to reserve capacity.
+        This value will not be set until the Capacity Block Reservation is active.
+        The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
         """
         return pulumi.get(self, "instance_count")
 
@@ -438,14 +442,11 @@ class CapacityBlockReservation(pulumi.CustomResource):
         test = aws.ec2.get_capacity_block_offering(capacity_duration_hours=24,
             end_date_range="2024-05-30T15:04:05Z",
             instance_count=1,
-            instance_type="p4d.24xlarge",
+            instance_type="p5.4xlarge",
             start_date_range="2024-04-28T15:04:05Z")
         example = aws.ec2.CapacityBlockReservation("example",
             capacity_block_offering_id=test.capacity_block_offering_id,
-            instance_platform="Linux/UNIX",
-            tags={
-                "Environment": "dev",
-            })
+            instance_platform="Linux/UNIX")
         ```
 
 
@@ -478,14 +479,11 @@ class CapacityBlockReservation(pulumi.CustomResource):
         test = aws.ec2.get_capacity_block_offering(capacity_duration_hours=24,
             end_date_range="2024-05-30T15:04:05Z",
             instance_count=1,
-            instance_type="p4d.24xlarge",
+            instance_type="p5.4xlarge",
             start_date_range="2024-04-28T15:04:05Z")
         example = aws.ec2.CapacityBlockReservation("example",
             capacity_block_offering_id=test.capacity_block_offering_id,
-            instance_platform="Linux/UNIX",
-            tags={
-                "Environment": "dev",
-            })
+            instance_platform="Linux/UNIX")
         ```
 
 
@@ -585,6 +583,8 @@ class CapacityBlockReservation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] end_date: The date and time at which the Capacity Block Reservation expires. When a Capacity Block Reservation expires, the reserved capacity is released and you can no longer launch instances into it. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[_builtins.str] end_date_type: Indicates the way in which the Capacity Reservation ends.
         :param pulumi.Input[_builtins.int] instance_count: The number of instances for which to reserve capacity.
+               This value will not be set until the Capacity Block Reservation is active.
+               The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
         :param pulumi.Input[_builtins.str] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         :param pulumi.Input[_builtins.str] instance_type: The instance type for which to reserve capacity.
         :param pulumi.Input[_builtins.str] outpost_arn: The ARN of the Outpost on which to create the Capacity Block Reservation.
@@ -682,6 +682,8 @@ class CapacityBlockReservation(pulumi.CustomResource):
     def instance_count(self) -> pulumi.Output[_builtins.int]:
         """
         The number of instances for which to reserve capacity.
+        This value will not be set until the Capacity Block Reservation is active.
+        The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
         """
         return pulumi.get(self, "instance_count")
 

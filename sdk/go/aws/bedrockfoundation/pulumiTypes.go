@@ -13,6 +13,925 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ModelAgreementTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// ModelAgreementTimeoutsInput is an input type that accepts ModelAgreementTimeoutsArgs and ModelAgreementTimeoutsOutput values.
+// You can construct a concrete instance of `ModelAgreementTimeoutsInput` via:
+//
+//	ModelAgreementTimeoutsArgs{...}
+type ModelAgreementTimeoutsInput interface {
+	pulumi.Input
+
+	ToModelAgreementTimeoutsOutput() ModelAgreementTimeoutsOutput
+	ToModelAgreementTimeoutsOutputWithContext(context.Context) ModelAgreementTimeoutsOutput
+}
+
+type ModelAgreementTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (ModelAgreementTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelAgreementTimeouts)(nil)).Elem()
+}
+
+func (i ModelAgreementTimeoutsArgs) ToModelAgreementTimeoutsOutput() ModelAgreementTimeoutsOutput {
+	return i.ToModelAgreementTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ModelAgreementTimeoutsArgs) ToModelAgreementTimeoutsOutputWithContext(ctx context.Context) ModelAgreementTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelAgreementTimeoutsOutput)
+}
+
+func (i ModelAgreementTimeoutsArgs) ToModelAgreementTimeoutsPtrOutput() ModelAgreementTimeoutsPtrOutput {
+	return i.ToModelAgreementTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ModelAgreementTimeoutsArgs) ToModelAgreementTimeoutsPtrOutputWithContext(ctx context.Context) ModelAgreementTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelAgreementTimeoutsOutput).ToModelAgreementTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ModelAgreementTimeoutsPtrInput is an input type that accepts ModelAgreementTimeoutsArgs, ModelAgreementTimeoutsPtr and ModelAgreementTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ModelAgreementTimeoutsPtrInput` via:
+//
+//	        ModelAgreementTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelAgreementTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToModelAgreementTimeoutsPtrOutput() ModelAgreementTimeoutsPtrOutput
+	ToModelAgreementTimeoutsPtrOutputWithContext(context.Context) ModelAgreementTimeoutsPtrOutput
+}
+
+type modelAgreementTimeoutsPtrType ModelAgreementTimeoutsArgs
+
+func ModelAgreementTimeoutsPtr(v *ModelAgreementTimeoutsArgs) ModelAgreementTimeoutsPtrInput {
+	return (*modelAgreementTimeoutsPtrType)(v)
+}
+
+func (*modelAgreementTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelAgreementTimeouts)(nil)).Elem()
+}
+
+func (i *modelAgreementTimeoutsPtrType) ToModelAgreementTimeoutsPtrOutput() ModelAgreementTimeoutsPtrOutput {
+	return i.ToModelAgreementTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *modelAgreementTimeoutsPtrType) ToModelAgreementTimeoutsPtrOutputWithContext(ctx context.Context) ModelAgreementTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelAgreementTimeoutsPtrOutput)
+}
+
+type ModelAgreementTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ModelAgreementTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelAgreementTimeouts)(nil)).Elem()
+}
+
+func (o ModelAgreementTimeoutsOutput) ToModelAgreementTimeoutsOutput() ModelAgreementTimeoutsOutput {
+	return o
+}
+
+func (o ModelAgreementTimeoutsOutput) ToModelAgreementTimeoutsOutputWithContext(ctx context.Context) ModelAgreementTimeoutsOutput {
+	return o
+}
+
+func (o ModelAgreementTimeoutsOutput) ToModelAgreementTimeoutsPtrOutput() ModelAgreementTimeoutsPtrOutput {
+	return o.ToModelAgreementTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ModelAgreementTimeoutsOutput) ToModelAgreementTimeoutsPtrOutputWithContext(ctx context.Context) ModelAgreementTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelAgreementTimeouts) *ModelAgreementTimeouts {
+		return &v
+	}).(ModelAgreementTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ModelAgreementTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelAgreementTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ModelAgreementTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelAgreementTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type ModelAgreementTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelAgreementTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelAgreementTimeouts)(nil)).Elem()
+}
+
+func (o ModelAgreementTimeoutsPtrOutput) ToModelAgreementTimeoutsPtrOutput() ModelAgreementTimeoutsPtrOutput {
+	return o
+}
+
+func (o ModelAgreementTimeoutsPtrOutput) ToModelAgreementTimeoutsPtrOutputWithContext(ctx context.Context) ModelAgreementTimeoutsPtrOutput {
+	return o
+}
+
+func (o ModelAgreementTimeoutsPtrOutput) Elem() ModelAgreementTimeoutsOutput {
+	return o.ApplyT(func(v *ModelAgreementTimeouts) ModelAgreementTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ModelAgreementTimeouts
+		return ret
+	}).(ModelAgreementTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ModelAgreementTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelAgreementTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ModelAgreementTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelAgreementTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetModelAgreementOffersOffer struct {
+	// Offer ID for a model offer.
+	OfferId string `pulumi:"offerId"`
+	// Offer token.
+	OfferToken string `pulumi:"offerToken"`
+	// Details about the terms of the offer. See `termDetails`.
+	TermDetails []GetModelAgreementOffersOfferTermDetail `pulumi:"termDetails"`
+}
+
+// GetModelAgreementOffersOfferInput is an input type that accepts GetModelAgreementOffersOfferArgs and GetModelAgreementOffersOfferOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferInput` via:
+//
+//	GetModelAgreementOffersOfferArgs{...}
+type GetModelAgreementOffersOfferInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferOutput() GetModelAgreementOffersOfferOutput
+	ToGetModelAgreementOffersOfferOutputWithContext(context.Context) GetModelAgreementOffersOfferOutput
+}
+
+type GetModelAgreementOffersOfferArgs struct {
+	// Offer ID for a model offer.
+	OfferId pulumi.StringInput `pulumi:"offerId"`
+	// Offer token.
+	OfferToken pulumi.StringInput `pulumi:"offerToken"`
+	// Details about the terms of the offer. See `termDetails`.
+	TermDetails GetModelAgreementOffersOfferTermDetailArrayInput `pulumi:"termDetails"`
+}
+
+func (GetModelAgreementOffersOfferArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOffer)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferArgs) ToGetModelAgreementOffersOfferOutput() GetModelAgreementOffersOfferOutput {
+	return i.ToGetModelAgreementOffersOfferOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferArgs) ToGetModelAgreementOffersOfferOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferOutput)
+}
+
+// GetModelAgreementOffersOfferArrayInput is an input type that accepts GetModelAgreementOffersOfferArray and GetModelAgreementOffersOfferArrayOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferArrayInput` via:
+//
+//	GetModelAgreementOffersOfferArray{ GetModelAgreementOffersOfferArgs{...} }
+type GetModelAgreementOffersOfferArrayInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferArrayOutput() GetModelAgreementOffersOfferArrayOutput
+	ToGetModelAgreementOffersOfferArrayOutputWithContext(context.Context) GetModelAgreementOffersOfferArrayOutput
+}
+
+type GetModelAgreementOffersOfferArray []GetModelAgreementOffersOfferInput
+
+func (GetModelAgreementOffersOfferArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOffer)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferArray) ToGetModelAgreementOffersOfferArrayOutput() GetModelAgreementOffersOfferArrayOutput {
+	return i.ToGetModelAgreementOffersOfferArrayOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferArray) ToGetModelAgreementOffersOfferArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferArrayOutput)
+}
+
+type GetModelAgreementOffersOfferOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOffer)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferOutput) ToGetModelAgreementOffersOfferOutput() GetModelAgreementOffersOfferOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferOutput) ToGetModelAgreementOffersOfferOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferOutput {
+	return o
+}
+
+// Offer ID for a model offer.
+func (o GetModelAgreementOffersOfferOutput) OfferId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOffer) string { return v.OfferId }).(pulumi.StringOutput)
+}
+
+// Offer token.
+func (o GetModelAgreementOffersOfferOutput) OfferToken() pulumi.StringOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOffer) string { return v.OfferToken }).(pulumi.StringOutput)
+}
+
+// Details about the terms of the offer. See `termDetails`.
+func (o GetModelAgreementOffersOfferOutput) TermDetails() GetModelAgreementOffersOfferTermDetailArrayOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOffer) []GetModelAgreementOffersOfferTermDetail { return v.TermDetails }).(GetModelAgreementOffersOfferTermDetailArrayOutput)
+}
+
+type GetModelAgreementOffersOfferArrayOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOffer)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferArrayOutput) ToGetModelAgreementOffersOfferArrayOutput() GetModelAgreementOffersOfferArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferArrayOutput) ToGetModelAgreementOffersOfferArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferArrayOutput) Index(i pulumi.IntInput) GetModelAgreementOffersOfferOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetModelAgreementOffersOffer {
+		return vs[0].([]GetModelAgreementOffersOffer)[vs[1].(int)]
+	}).(GetModelAgreementOffersOfferOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetail struct {
+	// Details about the legal terms. See `legalTerm`.
+	LegalTerms []GetModelAgreementOffersOfferTermDetailLegalTerm `pulumi:"legalTerms"`
+	// Details about the support terms. See `supportTerm`.
+	SupportTerms []GetModelAgreementOffersOfferTermDetailSupportTerm `pulumi:"supportTerms"`
+	// Details about the pricing terms. See `usageBasedPricingTerm`.
+	UsageBasedPricingTerms []GetModelAgreementOffersOfferTermDetailUsageBasedPricingTerm `pulumi:"usageBasedPricingTerms"`
+	// Details about the validity terms. See `validityTerm`.
+	ValidityTerms []GetModelAgreementOffersOfferTermDetailValidityTerm `pulumi:"validityTerms"`
+}
+
+// GetModelAgreementOffersOfferTermDetailInput is an input type that accepts GetModelAgreementOffersOfferTermDetailArgs and GetModelAgreementOffersOfferTermDetailOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferTermDetailInput` via:
+//
+//	GetModelAgreementOffersOfferTermDetailArgs{...}
+type GetModelAgreementOffersOfferTermDetailInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferTermDetailOutput() GetModelAgreementOffersOfferTermDetailOutput
+	ToGetModelAgreementOffersOfferTermDetailOutputWithContext(context.Context) GetModelAgreementOffersOfferTermDetailOutput
+}
+
+type GetModelAgreementOffersOfferTermDetailArgs struct {
+	// Details about the legal terms. See `legalTerm`.
+	LegalTerms GetModelAgreementOffersOfferTermDetailLegalTermArrayInput `pulumi:"legalTerms"`
+	// Details about the support terms. See `supportTerm`.
+	SupportTerms GetModelAgreementOffersOfferTermDetailSupportTermArrayInput `pulumi:"supportTerms"`
+	// Details about the pricing terms. See `usageBasedPricingTerm`.
+	UsageBasedPricingTerms GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayInput `pulumi:"usageBasedPricingTerms"`
+	// Details about the validity terms. See `validityTerm`.
+	ValidityTerms GetModelAgreementOffersOfferTermDetailValidityTermArrayInput `pulumi:"validityTerms"`
+}
+
+func (GetModelAgreementOffersOfferTermDetailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOfferTermDetail)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferTermDetailArgs) ToGetModelAgreementOffersOfferTermDetailOutput() GetModelAgreementOffersOfferTermDetailOutput {
+	return i.ToGetModelAgreementOffersOfferTermDetailOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferTermDetailArgs) ToGetModelAgreementOffersOfferTermDetailOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferTermDetailOutput)
+}
+
+// GetModelAgreementOffersOfferTermDetailArrayInput is an input type that accepts GetModelAgreementOffersOfferTermDetailArray and GetModelAgreementOffersOfferTermDetailArrayOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferTermDetailArrayInput` via:
+//
+//	GetModelAgreementOffersOfferTermDetailArray{ GetModelAgreementOffersOfferTermDetailArgs{...} }
+type GetModelAgreementOffersOfferTermDetailArrayInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferTermDetailArrayOutput() GetModelAgreementOffersOfferTermDetailArrayOutput
+	ToGetModelAgreementOffersOfferTermDetailArrayOutputWithContext(context.Context) GetModelAgreementOffersOfferTermDetailArrayOutput
+}
+
+type GetModelAgreementOffersOfferTermDetailArray []GetModelAgreementOffersOfferTermDetailInput
+
+func (GetModelAgreementOffersOfferTermDetailArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOfferTermDetail)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferTermDetailArray) ToGetModelAgreementOffersOfferTermDetailArrayOutput() GetModelAgreementOffersOfferTermDetailArrayOutput {
+	return i.ToGetModelAgreementOffersOfferTermDetailArrayOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferTermDetailArray) ToGetModelAgreementOffersOfferTermDetailArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferTermDetailArrayOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferTermDetailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOfferTermDetail)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferTermDetailOutput) ToGetModelAgreementOffersOfferTermDetailOutput() GetModelAgreementOffersOfferTermDetailOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailOutput) ToGetModelAgreementOffersOfferTermDetailOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailOutput {
+	return o
+}
+
+// Details about the legal terms. See `legalTerm`.
+func (o GetModelAgreementOffersOfferTermDetailOutput) LegalTerms() GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOfferTermDetail) []GetModelAgreementOffersOfferTermDetailLegalTerm {
+		return v.LegalTerms
+	}).(GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput)
+}
+
+// Details about the support terms. See `supportTerm`.
+func (o GetModelAgreementOffersOfferTermDetailOutput) SupportTerms() GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOfferTermDetail) []GetModelAgreementOffersOfferTermDetailSupportTerm {
+		return v.SupportTerms
+	}).(GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput)
+}
+
+// Details about the pricing terms. See `usageBasedPricingTerm`.
+func (o GetModelAgreementOffersOfferTermDetailOutput) UsageBasedPricingTerms() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOfferTermDetail) []GetModelAgreementOffersOfferTermDetailUsageBasedPricingTerm {
+		return v.UsageBasedPricingTerms
+	}).(GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput)
+}
+
+// Details about the validity terms. See `validityTerm`.
+func (o GetModelAgreementOffersOfferTermDetailOutput) ValidityTerms() GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOfferTermDetail) []GetModelAgreementOffersOfferTermDetailValidityTerm {
+		return v.ValidityTerms
+	}).(GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailArrayOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferTermDetailArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOfferTermDetail)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferTermDetailArrayOutput) ToGetModelAgreementOffersOfferTermDetailArrayOutput() GetModelAgreementOffersOfferTermDetailArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailArrayOutput) ToGetModelAgreementOffersOfferTermDetailArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailArrayOutput) Index(i pulumi.IntInput) GetModelAgreementOffersOfferTermDetailOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetModelAgreementOffersOfferTermDetail {
+		return vs[0].([]GetModelAgreementOffersOfferTermDetail)[vs[1].(int)]
+	}).(GetModelAgreementOffersOfferTermDetailOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailLegalTerm struct {
+	// URL to the legal term document.
+	Url string `pulumi:"url"`
+}
+
+// GetModelAgreementOffersOfferTermDetailLegalTermInput is an input type that accepts GetModelAgreementOffersOfferTermDetailLegalTermArgs and GetModelAgreementOffersOfferTermDetailLegalTermOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferTermDetailLegalTermInput` via:
+//
+//	GetModelAgreementOffersOfferTermDetailLegalTermArgs{...}
+type GetModelAgreementOffersOfferTermDetailLegalTermInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferTermDetailLegalTermOutput() GetModelAgreementOffersOfferTermDetailLegalTermOutput
+	ToGetModelAgreementOffersOfferTermDetailLegalTermOutputWithContext(context.Context) GetModelAgreementOffersOfferTermDetailLegalTermOutput
+}
+
+type GetModelAgreementOffersOfferTermDetailLegalTermArgs struct {
+	// URL to the legal term document.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetModelAgreementOffersOfferTermDetailLegalTermArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailLegalTerm)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferTermDetailLegalTermArgs) ToGetModelAgreementOffersOfferTermDetailLegalTermOutput() GetModelAgreementOffersOfferTermDetailLegalTermOutput {
+	return i.ToGetModelAgreementOffersOfferTermDetailLegalTermOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferTermDetailLegalTermArgs) ToGetModelAgreementOffersOfferTermDetailLegalTermOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailLegalTermOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferTermDetailLegalTermOutput)
+}
+
+// GetModelAgreementOffersOfferTermDetailLegalTermArrayInput is an input type that accepts GetModelAgreementOffersOfferTermDetailLegalTermArray and GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferTermDetailLegalTermArrayInput` via:
+//
+//	GetModelAgreementOffersOfferTermDetailLegalTermArray{ GetModelAgreementOffersOfferTermDetailLegalTermArgs{...} }
+type GetModelAgreementOffersOfferTermDetailLegalTermArrayInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferTermDetailLegalTermArrayOutput() GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput
+	ToGetModelAgreementOffersOfferTermDetailLegalTermArrayOutputWithContext(context.Context) GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput
+}
+
+type GetModelAgreementOffersOfferTermDetailLegalTermArray []GetModelAgreementOffersOfferTermDetailLegalTermInput
+
+func (GetModelAgreementOffersOfferTermDetailLegalTermArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOfferTermDetailLegalTerm)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferTermDetailLegalTermArray) ToGetModelAgreementOffersOfferTermDetailLegalTermArrayOutput() GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput {
+	return i.ToGetModelAgreementOffersOfferTermDetailLegalTermArrayOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferTermDetailLegalTermArray) ToGetModelAgreementOffersOfferTermDetailLegalTermArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailLegalTermOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferTermDetailLegalTermOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailLegalTerm)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferTermDetailLegalTermOutput) ToGetModelAgreementOffersOfferTermDetailLegalTermOutput() GetModelAgreementOffersOfferTermDetailLegalTermOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailLegalTermOutput) ToGetModelAgreementOffersOfferTermDetailLegalTermOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailLegalTermOutput {
+	return o
+}
+
+// URL to the legal term document.
+func (o GetModelAgreementOffersOfferTermDetailLegalTermOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOfferTermDetailLegalTerm) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOfferTermDetailLegalTerm)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput) ToGetModelAgreementOffersOfferTermDetailLegalTermArrayOutput() GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput) ToGetModelAgreementOffersOfferTermDetailLegalTermArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput) Index(i pulumi.IntInput) GetModelAgreementOffersOfferTermDetailLegalTermOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetModelAgreementOffersOfferTermDetailLegalTerm {
+		return vs[0].([]GetModelAgreementOffersOfferTermDetailLegalTerm)[vs[1].(int)]
+	}).(GetModelAgreementOffersOfferTermDetailLegalTermOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailSupportTerm struct {
+	// Refund policy description.
+	RefundPolicyDescription string `pulumi:"refundPolicyDescription"`
+}
+
+// GetModelAgreementOffersOfferTermDetailSupportTermInput is an input type that accepts GetModelAgreementOffersOfferTermDetailSupportTermArgs and GetModelAgreementOffersOfferTermDetailSupportTermOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferTermDetailSupportTermInput` via:
+//
+//	GetModelAgreementOffersOfferTermDetailSupportTermArgs{...}
+type GetModelAgreementOffersOfferTermDetailSupportTermInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferTermDetailSupportTermOutput() GetModelAgreementOffersOfferTermDetailSupportTermOutput
+	ToGetModelAgreementOffersOfferTermDetailSupportTermOutputWithContext(context.Context) GetModelAgreementOffersOfferTermDetailSupportTermOutput
+}
+
+type GetModelAgreementOffersOfferTermDetailSupportTermArgs struct {
+	// Refund policy description.
+	RefundPolicyDescription pulumi.StringInput `pulumi:"refundPolicyDescription"`
+}
+
+func (GetModelAgreementOffersOfferTermDetailSupportTermArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailSupportTerm)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferTermDetailSupportTermArgs) ToGetModelAgreementOffersOfferTermDetailSupportTermOutput() GetModelAgreementOffersOfferTermDetailSupportTermOutput {
+	return i.ToGetModelAgreementOffersOfferTermDetailSupportTermOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferTermDetailSupportTermArgs) ToGetModelAgreementOffersOfferTermDetailSupportTermOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailSupportTermOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferTermDetailSupportTermOutput)
+}
+
+// GetModelAgreementOffersOfferTermDetailSupportTermArrayInput is an input type that accepts GetModelAgreementOffersOfferTermDetailSupportTermArray and GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferTermDetailSupportTermArrayInput` via:
+//
+//	GetModelAgreementOffersOfferTermDetailSupportTermArray{ GetModelAgreementOffersOfferTermDetailSupportTermArgs{...} }
+type GetModelAgreementOffersOfferTermDetailSupportTermArrayInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferTermDetailSupportTermArrayOutput() GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput
+	ToGetModelAgreementOffersOfferTermDetailSupportTermArrayOutputWithContext(context.Context) GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput
+}
+
+type GetModelAgreementOffersOfferTermDetailSupportTermArray []GetModelAgreementOffersOfferTermDetailSupportTermInput
+
+func (GetModelAgreementOffersOfferTermDetailSupportTermArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOfferTermDetailSupportTerm)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferTermDetailSupportTermArray) ToGetModelAgreementOffersOfferTermDetailSupportTermArrayOutput() GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput {
+	return i.ToGetModelAgreementOffersOfferTermDetailSupportTermArrayOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferTermDetailSupportTermArray) ToGetModelAgreementOffersOfferTermDetailSupportTermArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailSupportTermOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferTermDetailSupportTermOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailSupportTerm)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferTermDetailSupportTermOutput) ToGetModelAgreementOffersOfferTermDetailSupportTermOutput() GetModelAgreementOffersOfferTermDetailSupportTermOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailSupportTermOutput) ToGetModelAgreementOffersOfferTermDetailSupportTermOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailSupportTermOutput {
+	return o
+}
+
+// Refund policy description.
+func (o GetModelAgreementOffersOfferTermDetailSupportTermOutput) RefundPolicyDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOfferTermDetailSupportTerm) string { return v.RefundPolicyDescription }).(pulumi.StringOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOfferTermDetailSupportTerm)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput) ToGetModelAgreementOffersOfferTermDetailSupportTermArrayOutput() GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput) ToGetModelAgreementOffersOfferTermDetailSupportTermArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput) Index(i pulumi.IntInput) GetModelAgreementOffersOfferTermDetailSupportTermOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetModelAgreementOffersOfferTermDetailSupportTerm {
+		return vs[0].([]GetModelAgreementOffersOfferTermDetailSupportTerm)[vs[1].(int)]
+	}).(GetModelAgreementOffersOfferTermDetailSupportTermOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTerm struct {
+	// Details about a usage price for each dimension. See `rateCard`.
+	RateCards []GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard `pulumi:"rateCards"`
+}
+
+// GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermInput is an input type that accepts GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArgs and GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermInput` via:
+//
+//	GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArgs{...}
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput
+	ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutputWithContext(context.Context) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput
+}
+
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArgs struct {
+	// Details about a usage price for each dimension. See `rateCard`.
+	RateCards GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayInput `pulumi:"rateCards"`
+}
+
+func (GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailUsageBasedPricingTerm)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArgs) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput {
+	return i.ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArgs) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput)
+}
+
+// GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayInput is an input type that accepts GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArray and GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayInput` via:
+//
+//	GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArray{ GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArgs{...} }
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput
+	ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutputWithContext(context.Context) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput
+}
+
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArray []GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermInput
+
+func (GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOfferTermDetailUsageBasedPricingTerm)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArray) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput {
+	return i.ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArray) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailUsageBasedPricingTerm)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput {
+	return o
+}
+
+// Details about a usage price for each dimension. See `rateCard`.
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput) RateCards() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOfferTermDetailUsageBasedPricingTerm) []GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard {
+		return v.RateCards
+	}).(GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOfferTermDetailUsageBasedPricingTerm)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput) Index(i pulumi.IntInput) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTerm {
+		return vs[0].([]GetModelAgreementOffersOfferTermDetailUsageBasedPricingTerm)[vs[1].(int)]
+	}).(GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard struct {
+	// Description of the price rate.
+	Description string `pulumi:"description"`
+	// Dimension for the price rate.
+	Dimension string `pulumi:"dimension"`
+	// Single-dimensional rate information.
+	Price string `pulumi:"price"`
+	// Unit associated with the price.
+	Unit string `pulumi:"unit"`
+}
+
+// GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardInput is an input type that accepts GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArgs and GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardInput` via:
+//
+//	GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArgs{...}
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput
+	ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutputWithContext(context.Context) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput
+}
+
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArgs struct {
+	// Description of the price rate.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Dimension for the price rate.
+	Dimension pulumi.StringInput `pulumi:"dimension"`
+	// Single-dimensional rate information.
+	Price pulumi.StringInput `pulumi:"price"`
+	// Unit associated with the price.
+	Unit pulumi.StringInput `pulumi:"unit"`
+}
+
+func (GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArgs) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput {
+	return i.ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArgs) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput)
+}
+
+// GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayInput is an input type that accepts GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArray and GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayInput` via:
+//
+//	GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArray{ GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArgs{...} }
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput
+	ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutputWithContext(context.Context) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput
+}
+
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArray []GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardInput
+
+func (GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArray) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput {
+	return i.ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArray) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput {
+	return o
+}
+
+// Description of the price rate.
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard) string {
+		return v.Description
+	}).(pulumi.StringOutput)
+}
+
+// Dimension for the price rate.
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput) Dimension() pulumi.StringOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard) string { return v.Dimension }).(pulumi.StringOutput)
+}
+
+// Single-dimensional rate information.
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput) Price() pulumi.StringOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard) string { return v.Price }).(pulumi.StringOutput)
+}
+
+// Unit associated with the price.
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput() GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput) ToGetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput) Index(i pulumi.IntInput) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard {
+		return vs[0].([]GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCard)[vs[1].(int)]
+	}).(GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailValidityTerm struct {
+	// Duration of the agreement.
+	AgreementDuration string `pulumi:"agreementDuration"`
+}
+
+// GetModelAgreementOffersOfferTermDetailValidityTermInput is an input type that accepts GetModelAgreementOffersOfferTermDetailValidityTermArgs and GetModelAgreementOffersOfferTermDetailValidityTermOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferTermDetailValidityTermInput` via:
+//
+//	GetModelAgreementOffersOfferTermDetailValidityTermArgs{...}
+type GetModelAgreementOffersOfferTermDetailValidityTermInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferTermDetailValidityTermOutput() GetModelAgreementOffersOfferTermDetailValidityTermOutput
+	ToGetModelAgreementOffersOfferTermDetailValidityTermOutputWithContext(context.Context) GetModelAgreementOffersOfferTermDetailValidityTermOutput
+}
+
+type GetModelAgreementOffersOfferTermDetailValidityTermArgs struct {
+	// Duration of the agreement.
+	AgreementDuration pulumi.StringInput `pulumi:"agreementDuration"`
+}
+
+func (GetModelAgreementOffersOfferTermDetailValidityTermArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailValidityTerm)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferTermDetailValidityTermArgs) ToGetModelAgreementOffersOfferTermDetailValidityTermOutput() GetModelAgreementOffersOfferTermDetailValidityTermOutput {
+	return i.ToGetModelAgreementOffersOfferTermDetailValidityTermOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferTermDetailValidityTermArgs) ToGetModelAgreementOffersOfferTermDetailValidityTermOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailValidityTermOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferTermDetailValidityTermOutput)
+}
+
+// GetModelAgreementOffersOfferTermDetailValidityTermArrayInput is an input type that accepts GetModelAgreementOffersOfferTermDetailValidityTermArray and GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput values.
+// You can construct a concrete instance of `GetModelAgreementOffersOfferTermDetailValidityTermArrayInput` via:
+//
+//	GetModelAgreementOffersOfferTermDetailValidityTermArray{ GetModelAgreementOffersOfferTermDetailValidityTermArgs{...} }
+type GetModelAgreementOffersOfferTermDetailValidityTermArrayInput interface {
+	pulumi.Input
+
+	ToGetModelAgreementOffersOfferTermDetailValidityTermArrayOutput() GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput
+	ToGetModelAgreementOffersOfferTermDetailValidityTermArrayOutputWithContext(context.Context) GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput
+}
+
+type GetModelAgreementOffersOfferTermDetailValidityTermArray []GetModelAgreementOffersOfferTermDetailValidityTermInput
+
+func (GetModelAgreementOffersOfferTermDetailValidityTermArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOfferTermDetailValidityTerm)(nil)).Elem()
+}
+
+func (i GetModelAgreementOffersOfferTermDetailValidityTermArray) ToGetModelAgreementOffersOfferTermDetailValidityTermArrayOutput() GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput {
+	return i.ToGetModelAgreementOffersOfferTermDetailValidityTermArrayOutputWithContext(context.Background())
+}
+
+func (i GetModelAgreementOffersOfferTermDetailValidityTermArray) ToGetModelAgreementOffersOfferTermDetailValidityTermArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailValidityTermOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferTermDetailValidityTermOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailValidityTerm)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferTermDetailValidityTermOutput) ToGetModelAgreementOffersOfferTermDetailValidityTermOutput() GetModelAgreementOffersOfferTermDetailValidityTermOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailValidityTermOutput) ToGetModelAgreementOffersOfferTermDetailValidityTermOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailValidityTermOutput {
+	return o
+}
+
+// Duration of the agreement.
+func (o GetModelAgreementOffersOfferTermDetailValidityTermOutput) AgreementDuration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetModelAgreementOffersOfferTermDetailValidityTerm) string { return v.AgreementDuration }).(pulumi.StringOutput)
+}
+
+type GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput struct{ *pulumi.OutputState }
+
+func (GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetModelAgreementOffersOfferTermDetailValidityTerm)(nil)).Elem()
+}
+
+func (o GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput) ToGetModelAgreementOffersOfferTermDetailValidityTermArrayOutput() GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput) ToGetModelAgreementOffersOfferTermDetailValidityTermArrayOutputWithContext(ctx context.Context) GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput {
+	return o
+}
+
+func (o GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput) Index(i pulumi.IntInput) GetModelAgreementOffersOfferTermDetailValidityTermOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetModelAgreementOffersOfferTermDetailValidityTerm {
+		return vs[0].([]GetModelAgreementOffersOfferTermDetailValidityTerm)[vs[1].(int)]
+	}).(GetModelAgreementOffersOfferTermDetailValidityTermOutput)
+}
+
 type GetModelsModelSummary struct {
 	// Customizations that the model supports.
 	CustomizationsSupporteds []string `pulumi:"customizationsSupporteds"`
@@ -183,8 +1102,40 @@ func (o GetModelsModelSummaryArrayOutput) Index(i pulumi.IntInput) GetModelsMode
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelAgreementTimeoutsInput)(nil)).Elem(), ModelAgreementTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelAgreementTimeoutsPtrInput)(nil)).Elem(), ModelAgreementTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferInput)(nil)).Elem(), GetModelAgreementOffersOfferArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferArrayInput)(nil)).Elem(), GetModelAgreementOffersOfferArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailInput)(nil)).Elem(), GetModelAgreementOffersOfferTermDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailArrayInput)(nil)).Elem(), GetModelAgreementOffersOfferTermDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailLegalTermInput)(nil)).Elem(), GetModelAgreementOffersOfferTermDetailLegalTermArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailLegalTermArrayInput)(nil)).Elem(), GetModelAgreementOffersOfferTermDetailLegalTermArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailSupportTermInput)(nil)).Elem(), GetModelAgreementOffersOfferTermDetailSupportTermArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailSupportTermArrayInput)(nil)).Elem(), GetModelAgreementOffersOfferTermDetailSupportTermArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermInput)(nil)).Elem(), GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayInput)(nil)).Elem(), GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardInput)(nil)).Elem(), GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayInput)(nil)).Elem(), GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailValidityTermInput)(nil)).Elem(), GetModelAgreementOffersOfferTermDetailValidityTermArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetModelAgreementOffersOfferTermDetailValidityTermArrayInput)(nil)).Elem(), GetModelAgreementOffersOfferTermDetailValidityTermArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetModelsModelSummaryInput)(nil)).Elem(), GetModelsModelSummaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetModelsModelSummaryArrayInput)(nil)).Elem(), GetModelsModelSummaryArray{})
+	pulumi.RegisterOutputType(ModelAgreementTimeoutsOutput{})
+	pulumi.RegisterOutputType(ModelAgreementTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferArrayOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferTermDetailOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferTermDetailArrayOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferTermDetailLegalTermOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferTermDetailLegalTermArrayOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferTermDetailSupportTermOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferTermDetailSupportTermArrayOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermArrayOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferTermDetailUsageBasedPricingTermRateCardArrayOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferTermDetailValidityTermOutput{})
+	pulumi.RegisterOutputType(GetModelAgreementOffersOfferTermDetailValidityTermArrayOutput{})
 	pulumi.RegisterOutputType(GetModelsModelSummaryOutput{})
 	pulumi.RegisterOutputType(GetModelsModelSummaryArrayOutput{})
 }

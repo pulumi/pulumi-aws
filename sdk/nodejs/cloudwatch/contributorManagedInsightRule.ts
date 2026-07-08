@@ -24,10 +24,22 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `resourceArn`. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `resourceArn` (String) ARN of the resource.
+ * * `templateName` (String) Name of the template.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Contributor Managed Insight Rules using `resourceArn` and `templateName` separated by a comma (`,`). For example:
  *
  * ```sh
- * $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example contributor_managed_insight_rule-id-12345678
+ * $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example arn:aws:ec2:us-east-1:123456789012:vpc-endpoint-service/vpce-svc-0123456789abcdef0,VpcEndpointService-BytesByEndpointId-v1
  * ```
  */
 export class ContributorManagedInsightRule extends pulumi.CustomResource {
@@ -70,6 +82,9 @@ export class ContributorManagedInsightRule extends pulumi.CustomResource {
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
+    /**
+     * Name of the Contributor Insights rule that contains data for the specified AWS resource.
+     */
     declare public /*out*/ readonly ruleName: pulumi.Output<string>;
     declare public readonly state: pulumi.Output<string>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -140,6 +155,9 @@ export interface ContributorManagedInsightRuleState {
      * ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
      */
     resourceArn?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the Contributor Insights rule that contains data for the specified AWS resource.
+     */
     ruleName?: pulumi.Input<string | undefined>;
     state?: pulumi.Input<string | undefined>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;

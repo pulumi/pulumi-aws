@@ -2272,6 +2272,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "bedrock/agentcoreRegistry",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreRegistry:AgentcoreRegistry": "AgentcoreRegistry"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "bedrock/agentcoreResourcePolicy",
   "fqn": "pulumi_aws.bedrock",
   "classes": {
@@ -2332,6 +2340,22 @@ _utilities.register(
   "fqn": "pulumi_aws.bedrock",
   "classes": {
    "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput": "ProvisionedModelThroughput"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/useCaseForModelAccess",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/useCaseForModelAccess:UseCaseForModelAccess": "UseCaseForModelAccess"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrockfoundation/modelAgreement",
+  "fqn": "pulumi_aws.bedrockfoundation",
+  "classes": {
+   "aws:bedrockfoundation/modelAgreement:ModelAgreement": "ModelAgreement"
   }
  },
  {
@@ -9852,6 +9876,14 @@ _utilities.register(
   "fqn": "pulumi_aws.pinpoint",
   "classes": {
    "aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber": "Smsvoicev2PhoneNumber"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "pinpoint/smsvoicev2Pool",
+  "fqn": "pulumi_aws.pinpoint",
+  "classes": {
+   "aws:pinpoint/smsvoicev2Pool:Smsvoicev2Pool": "Smsvoicev2Pool"
   }
  },
  {

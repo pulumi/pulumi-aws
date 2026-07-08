@@ -199,7 +199,7 @@ export class CatalogTable extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Glue Table.
+     * ARN of the Glue Table.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -208,8 +208,6 @@ export class CatalogTable extends pulumi.CustomResource {
     declare public readonly catalogId: pulumi.Output<string>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     *
-     * The following arguments are optional:
      */
     declare public readonly databaseName: pulumi.Output<string>;
     /**
@@ -218,6 +216,8 @@ export class CatalogTable extends pulumi.CustomResource {
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
+     *
+     * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -229,7 +229,7 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     declare public readonly owner: pulumi.Output<string | undefined>;
     /**
-     * Properties associated with this table, as a list of key-value pairs.
+     * Properties associated with this table, as a map of key-value pairs.
      */
     declare public readonly parameters: pulumi.Output<{[key: string]: string}>;
     /**
@@ -261,7 +261,7 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     declare public readonly targetTable: pulumi.Output<outputs.glue.CatalogTableTargetTable | undefined>;
     /**
-     * A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     * Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      */
     declare public readonly viewDefinition: pulumi.Output<outputs.glue.CatalogTableViewDefinition | undefined>;
     /**
@@ -338,7 +338,7 @@ export class CatalogTable extends pulumi.CustomResource {
  */
 export interface CatalogTableState {
     /**
-     * The ARN of the Glue Table.
+     * ARN of the Glue Table.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -347,8 +347,6 @@ export interface CatalogTableState {
     catalogId?: pulumi.Input<string | undefined>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     *
-     * The following arguments are optional:
      */
     databaseName?: pulumi.Input<string | undefined>;
     /**
@@ -357,6 +355,8 @@ export interface CatalogTableState {
     description?: pulumi.Input<string | undefined>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -368,7 +368,7 @@ export interface CatalogTableState {
      */
     owner?: pulumi.Input<string | undefined>;
     /**
-     * Properties associated with this table, as a list of key-value pairs.
+     * Properties associated with this table, as a map of key-value pairs.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -400,7 +400,7 @@ export interface CatalogTableState {
      */
     targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable | undefined>;
     /**
-     * A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     * Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      */
     viewDefinition?: pulumi.Input<inputs.glue.CatalogTableViewDefinition | undefined>;
     /**
@@ -423,8 +423,6 @@ export interface CatalogTableArgs {
     catalogId?: pulumi.Input<string | undefined>;
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     *
-     * The following arguments are optional:
      */
     databaseName: pulumi.Input<string>;
     /**
@@ -433,6 +431,8 @@ export interface CatalogTableArgs {
     description?: pulumi.Input<string | undefined>;
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
+     *
+     * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -444,7 +444,7 @@ export interface CatalogTableArgs {
      */
     owner?: pulumi.Input<string | undefined>;
     /**
-     * Properties associated with this table, as a list of key-value pairs.
+     * Properties associated with this table, as a map of key-value pairs.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -476,7 +476,7 @@ export interface CatalogTableArgs {
      */
     targetTable?: pulumi.Input<inputs.glue.CatalogTableTargetTable | undefined>;
     /**
-     * A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     * Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      */
     viewDefinition?: pulumi.Input<inputs.glue.CatalogTableViewDefinition | undefined>;
     /**

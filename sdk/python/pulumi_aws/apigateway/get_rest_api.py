@@ -27,7 +27,7 @@ class GetRestApiResult:
     """
     A collection of values returned by getRestApi.
     """
-    def __init__(__self__, api_key_source=None, arn=None, binary_media_types=None, description=None, endpoint_configurations=None, execution_arn=None, id=None, minimum_compression_size=None, name=None, policy=None, region=None, root_resource_id=None, tags=None):
+    def __init__(__self__, api_key_source=None, arn=None, binary_media_types=None, description=None, endpoint_access_mode=None, endpoint_configurations=None, execution_arn=None, id=None, minimum_compression_size=None, name=None, policy=None, region=None, root_resource_id=None, security_policy=None, tags=None):
         if api_key_source and not isinstance(api_key_source, str):
             raise TypeError("Expected argument 'api_key_source' to be a str")
         pulumi.set(__self__, "api_key_source", api_key_source)
@@ -40,6 +40,9 @@ class GetRestApiResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if endpoint_access_mode and not isinstance(endpoint_access_mode, str):
+            raise TypeError("Expected argument 'endpoint_access_mode' to be a str")
+        pulumi.set(__self__, "endpoint_access_mode", endpoint_access_mode)
         if endpoint_configurations and not isinstance(endpoint_configurations, list):
             raise TypeError("Expected argument 'endpoint_configurations' to be a list")
         pulumi.set(__self__, "endpoint_configurations", endpoint_configurations)
@@ -64,6 +67,9 @@ class GetRestApiResult:
         if root_resource_id and not isinstance(root_resource_id, str):
             raise TypeError("Expected argument 'root_resource_id' to be a str")
         pulumi.set(__self__, "root_resource_id", root_resource_id)
+        if security_policy and not isinstance(security_policy, str):
+            raise TypeError("Expected argument 'security_policy' to be a str")
+        pulumi.set(__self__, "security_policy", security_policy)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -101,10 +107,18 @@ class GetRestApiResult:
         return pulumi.get(self, "description")
 
     @_builtins.property
+    @pulumi.getter(name="endpointAccessMode")
+    def endpoint_access_mode(self) -> _builtins.str:
+        """
+        Endpoint access mode for the REST API.
+        """
+        return pulumi.get(self, "endpoint_access_mode")
+
+    @_builtins.property
     @pulumi.getter(name="endpointConfigurations")
     def endpoint_configurations(self) -> Sequence['outputs.GetRestApiEndpointConfigurationResult']:
         """
-        The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
+        Endpoint configuration of this REST API showing the endpoint types of the API. See below.
         """
         return pulumi.get(self, "endpoint_configurations")
 
@@ -159,6 +173,14 @@ class GetRestApiResult:
         return pulumi.get(self, "root_resource_id")
 
     @_builtins.property
+    @pulumi.getter(name="securityPolicy")
+    def security_policy(self) -> _builtins.str:
+        """
+        TLS version + cipher suite for the REST API's default execute-api endpoint.
+        """
+        return pulumi.get(self, "security_policy")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
@@ -177,6 +199,7 @@ class AwaitableGetRestApiResult(GetRestApiResult):
             arn=self.arn,
             binary_media_types=self.binary_media_types,
             description=self.description,
+            endpoint_access_mode=self.endpoint_access_mode,
             endpoint_configurations=self.endpoint_configurations,
             execution_arn=self.execution_arn,
             id=self.id,
@@ -185,6 +208,7 @@ class AwaitableGetRestApiResult(GetRestApiResult):
             policy=self.policy,
             region=self.region,
             root_resource_id=self.root_resource_id,
+            security_policy=self.security_policy,
             tags=self.tags)
 
 
@@ -224,6 +248,7 @@ def get_rest_api(name: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         binary_media_types=pulumi.get(__ret__, 'binary_media_types'),
         description=pulumi.get(__ret__, 'description'),
+        endpoint_access_mode=pulumi.get(__ret__, 'endpoint_access_mode'),
         endpoint_configurations=pulumi.get(__ret__, 'endpoint_configurations'),
         execution_arn=pulumi.get(__ret__, 'execution_arn'),
         id=pulumi.get(__ret__, 'id'),
@@ -232,6 +257,7 @@ def get_rest_api(name: Optional[_builtins.str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         region=pulumi.get(__ret__, 'region'),
         root_resource_id=pulumi.get(__ret__, 'root_resource_id'),
+        security_policy=pulumi.get(__ret__, 'security_policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_rest_api_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                         region: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -268,6 +294,7 @@ def get_rest_api_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         binary_media_types=pulumi.get(__response__, 'binary_media_types'),
         description=pulumi.get(__response__, 'description'),
+        endpoint_access_mode=pulumi.get(__response__, 'endpoint_access_mode'),
         endpoint_configurations=pulumi.get(__response__, 'endpoint_configurations'),
         execution_arn=pulumi.get(__response__, 'execution_arn'),
         id=pulumi.get(__response__, 'id'),
@@ -276,4 +303,5 @@ def get_rest_api_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         policy=pulumi.get(__response__, 'policy'),
         region=pulumi.get(__response__, 'region'),
         root_resource_id=pulumi.get(__response__, 'root_resource_id'),
+        security_policy=pulumi.get(__response__, 'security_policy'),
         tags=pulumi.get(__response__, 'tags')))

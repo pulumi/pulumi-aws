@@ -12,62 +12,62 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableViewDefinitionRepresentation {
     /**
-     * @return A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+     * @return Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
      * 
      */
     private @Nullable String dialect;
     /**
-     * @return A parameter that specifies the version of the engine of a specific representation.
+     * @return Parameter that specifies the version of the engine of a specific representation.
      * 
      */
     private @Nullable String dialectVersion;
     /**
-     * @return The name of the connection to be used to validate the specific representation of the view.
+     * @return Name of the connection to be used to validate the specific representation of the view.
      * 
      */
     private @Nullable String validationConnection;
     /**
-     * @return A string that represents the SQL query that describes the view with expanded resource ARNs.
+     * @return String that represents the SQL query that describes the view with expanded resource ARNs.
      * 
      */
     private @Nullable String viewExpandedText;
     /**
-     * @return A string that represents the original SQL query that describes the view.
+     * @return String that represents the original SQL query that describes the view.
      * 
      */
     private @Nullable String viewOriginalText;
 
     private CatalogTableViewDefinitionRepresentation() {}
     /**
-     * @return A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+     * @return Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
      * 
      */
     public Optional<String> dialect() {
         return Optional.ofNullable(this.dialect);
     }
     /**
-     * @return A parameter that specifies the version of the engine of a specific representation.
+     * @return Parameter that specifies the version of the engine of a specific representation.
      * 
      */
     public Optional<String> dialectVersion() {
         return Optional.ofNullable(this.dialectVersion);
     }
     /**
-     * @return The name of the connection to be used to validate the specific representation of the view.
+     * @return Name of the connection to be used to validate the specific representation of the view.
      * 
      */
     public Optional<String> validationConnection() {
         return Optional.ofNullable(this.validationConnection);
     }
     /**
-     * @return A string that represents the SQL query that describes the view with expanded resource ARNs.
+     * @return String that represents the SQL query that describes the view with expanded resource ARNs.
      * 
      */
     public Optional<String> viewExpandedText() {
         return Optional.ofNullable(this.viewExpandedText);
     }
     /**
-     * @return A string that represents the original SQL query that describes the view.
+     * @return String that represents the original SQL query that describes the view.
      * 
      */
     public Optional<String> viewOriginalText() {

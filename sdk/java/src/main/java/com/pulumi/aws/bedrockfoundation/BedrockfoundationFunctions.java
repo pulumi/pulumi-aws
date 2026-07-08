@@ -4,10 +4,13 @@
 package com.pulumi.aws.bedrockfoundation;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersArgs;
+import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersPlainArgs;
 import com.pulumi.aws.bedrockfoundation.inputs.GetModelArgs;
 import com.pulumi.aws.bedrockfoundation.inputs.GetModelPlainArgs;
 import com.pulumi.aws.bedrockfoundation.inputs.GetModelsArgs;
 import com.pulumi.aws.bedrockfoundation.inputs.GetModelsPlainArgs;
+import com.pulumi.aws.bedrockfoundation.outputs.GetModelAgreementOffersResult;
 import com.pulumi.aws.bedrockfoundation.outputs.GetModelResult;
 import com.pulumi.aws.bedrockfoundation.outputs.GetModelsResult;
 import com.pulumi.core.Output;
@@ -247,6 +250,216 @@ public final class BedrockfoundationFunctions {
      */
     public static CompletableFuture<GetModelResult> getModelPlain(GetModelPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:bedrockfoundation/getModel:getModel", TypeShape.of(GetModelResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about AWS Bedrock Foundation Model Agreement Offers.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
+     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
+     *             .modelId(exampleAwsBedrockFoundationModels.modelSummaries()[0].modelId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetModelAgreementOffersResult> getModelAgreementOffers(GetModelAgreementOffersArgs args) {
+        return getModelAgreementOffers(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about AWS Bedrock Foundation Model Agreement Offers.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
+     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
+     *             .modelId(exampleAwsBedrockFoundationModels.modelSummaries()[0].modelId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetModelAgreementOffersResult> getModelAgreementOffersPlain(GetModelAgreementOffersPlainArgs args) {
+        return getModelAgreementOffersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about AWS Bedrock Foundation Model Agreement Offers.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
+     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
+     *             .modelId(exampleAwsBedrockFoundationModels.modelSummaries()[0].modelId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetModelAgreementOffersResult> getModelAgreementOffers(GetModelAgreementOffersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:bedrockfoundation/getModelAgreementOffers:getModelAgreementOffers", TypeShape.of(GetModelAgreementOffersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about AWS Bedrock Foundation Model Agreement Offers.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
+     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
+     *             .modelId(exampleAwsBedrockFoundationModels.modelSummaries()[0].modelId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetModelAgreementOffersResult> getModelAgreementOffers(GetModelAgreementOffersArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:bedrockfoundation/getModelAgreementOffers:getModelAgreementOffers", TypeShape.of(GetModelAgreementOffersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about AWS Bedrock Foundation Model Agreement Offers.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrockfoundation.BedrockfoundationFunctions;
+     * import com.pulumi.aws.bedrockfoundation.inputs.GetModelAgreementOffersArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BedrockfoundationFunctions.getModelAgreementOffers(GetModelAgreementOffersArgs.builder()
+     *             .modelId(exampleAwsBedrockFoundationModels.modelSummaries()[0].modelId())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetModelAgreementOffersResult> getModelAgreementOffersPlain(GetModelAgreementOffersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:bedrockfoundation/getModelAgreementOffers:getModelAgreementOffers", TypeShape.of(GetModelAgreementOffersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source for managing AWS Bedrock Foundation Models.

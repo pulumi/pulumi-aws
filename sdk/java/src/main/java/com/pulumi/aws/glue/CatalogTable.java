@@ -294,14 +294,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/catalogTable:CatalogTable")
 public class CatalogTable extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the Glue Table.
+     * ARN of the Glue Table.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the Glue Table.
+     * @return ARN of the Glue Table.
      * 
      */
     public Output<String> arn() {
@@ -324,16 +324,12 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Export(name="databaseName", refs={String.class}, tree="[0]")
     private Output<String> databaseName;
 
     /**
      * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> databaseName() {
@@ -356,12 +352,16 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
      * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -396,14 +396,14 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.owner);
     }
     /**
-     * Properties associated with this table, as a list of key-value pairs.
+     * Properties associated with this table, as a map of key-value pairs.
      * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> parameters;
 
     /**
-     * @return Properties associated with this table, as a list of key-value pairs.
+     * @return Properties associated with this table, as a map of key-value pairs.
      * 
      */
     public Output<Map<String,String>> parameters() {
@@ -508,14 +508,14 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.targetTable);
     }
     /**
-     * A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     * Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      * 
      */
     @Export(name="viewDefinition", refs={CatalogTableViewDefinition.class}, tree="[0]")
     private Output</* @Nullable */ CatalogTableViewDefinition> viewDefinition;
 
     /**
-     * @return A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     * @return Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      * 
      */
     public Output<Optional<CatalogTableViewDefinition>> viewDefinition() {

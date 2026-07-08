@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly string? ClusterSecurityGroupId;
         /// <summary>
+        /// Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+        /// </summary>
+        public readonly string? ControlPlaneEgressMode;
+        /// <summary>
         /// Whether the Amazon EKS private API server endpoint is enabled. Default is `False`.
         /// </summary>
         public readonly bool? EndpointPrivateAccess;
@@ -46,6 +50,8 @@ namespace Pulumi.Aws.Eks.Outputs
         private ClusterVpcConfig(
             string? clusterSecurityGroupId,
 
+            string? controlPlaneEgressMode,
+
             bool? endpointPrivateAccess,
 
             bool? endpointPublicAccess,
@@ -59,6 +65,7 @@ namespace Pulumi.Aws.Eks.Outputs
             string? vpcId)
         {
             ClusterSecurityGroupId = clusterSecurityGroupId;
+            ControlPlaneEgressMode = controlPlaneEgressMode;
             EndpointPrivateAccess = endpointPrivateAccess;
             EndpointPublicAccess = endpointPublicAccess;
             PublicAccessCidrs = publicAccessCidrs;

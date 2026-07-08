@@ -36,7 +36,18 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch Logs Delivery Source using the `Name`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the delivery source.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Delivery Sources using `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudwatch/logDeliverySource:LogDeliverySource example example

@@ -268,6 +268,7 @@ class _ClusterState:
                  cluster_uuid: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration_info: pulumi.Input[Optional['ClusterConfigurationInfoArgs']] = None,
                  current_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_action_status: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_info: pulumi.Input[Optional['ClusterEncryptionInfoArgs']] = None,
                  enhanced_monitoring: pulumi.Input[Optional[_builtins.str]] = None,
                  kafka_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -301,6 +302,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] cluster_uuid: UUID of the MSK cluster, for use in IAM policies.
         :param pulumi.Input['ClusterConfigurationInfoArgs'] configuration_info: Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
         :param pulumi.Input[_builtins.str] current_version: Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
+        :param pulumi.Input[_builtins.str] customer_action_status: Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
         :param pulumi.Input['ClusterEncryptionInfoArgs'] encryption_info: Configuration block for specifying encryption. See encryption_info Argument Reference below.
         :param pulumi.Input[_builtins.str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         :param pulumi.Input[_builtins.str] kafka_version: Specify the desired Kafka software version.
@@ -349,6 +351,8 @@ class _ClusterState:
             pulumi.set(__self__, "configuration_info", configuration_info)
         if current_version is not None:
             pulumi.set(__self__, "current_version", current_version)
+        if customer_action_status is not None:
+            pulumi.set(__self__, "customer_action_status", customer_action_status)
         if encryption_info is not None:
             pulumi.set(__self__, "encryption_info", encryption_info)
         if enhanced_monitoring is not None:
@@ -579,6 +583,18 @@ class _ClusterState:
     @current_version.setter
     def current_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "current_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customerActionStatus")
+    def customer_action_status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+        """
+        return pulumi.get(self, "customer_action_status")
+
+    @customer_action_status.setter
+    def customer_action_status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "customer_action_status", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionInfo")
@@ -1162,6 +1178,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["bootstrap_brokers_vpc_connectivity_tls"] = None
             __props__.__dict__["cluster_uuid"] = None
             __props__.__dict__["current_version"] = None
+            __props__.__dict__["customer_action_status"] = None
             __props__.__dict__["tags_all"] = None
             __props__.__dict__["zookeeper_connect_string"] = None
             __props__.__dict__["zookeeper_connect_string_tls"] = None
@@ -1192,6 +1209,7 @@ class Cluster(pulumi.CustomResource):
             cluster_uuid: pulumi.Input[Optional[_builtins.str]] = None,
             configuration_info: pulumi.Input[Optional[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']]] = None,
             current_version: pulumi.Input[Optional[_builtins.str]] = None,
+            customer_action_status: pulumi.Input[Optional[_builtins.str]] = None,
             encryption_info: pulumi.Input[Optional[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']]] = None,
             enhanced_monitoring: pulumi.Input[Optional[_builtins.str]] = None,
             kafka_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1229,6 +1247,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cluster_uuid: UUID of the MSK cluster, for use in IAM policies.
         :param pulumi.Input[Union['ClusterConfigurationInfoArgs', 'ClusterConfigurationInfoArgsDict']] configuration_info: Configuration block for specifying an MSK Configuration to attach to Kafka brokers. See configuration_info Argument Reference below.
         :param pulumi.Input[_builtins.str] current_version: Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
+        :param pulumi.Input[_builtins.str] customer_action_status: Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
         :param pulumi.Input[Union['ClusterEncryptionInfoArgs', 'ClusterEncryptionInfoArgsDict']] encryption_info: Configuration block for specifying encryption. See encryption_info Argument Reference below.
         :param pulumi.Input[_builtins.str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
         :param pulumi.Input[_builtins.str] kafka_version: Specify the desired Kafka software version.
@@ -1264,6 +1283,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["cluster_uuid"] = cluster_uuid
         __props__.__dict__["configuration_info"] = configuration_info
         __props__.__dict__["current_version"] = current_version
+        __props__.__dict__["customer_action_status"] = customer_action_status
         __props__.__dict__["encryption_info"] = encryption_info
         __props__.__dict__["enhanced_monitoring"] = enhanced_monitoring
         __props__.__dict__["kafka_version"] = kafka_version
@@ -1414,6 +1434,14 @@ class Cluster(pulumi.CustomResource):
         Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
         """
         return pulumi.get(self, "current_version")
+
+    @_builtins.property
+    @pulumi.getter(name="customerActionStatus")
+    def customer_action_status(self) -> pulumi.Output[_builtins.str]:
+        """
+        Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+        """
+        return pulumi.get(self, "customer_action_status")
 
     @_builtins.property
     @pulumi.getter(name="encryptionInfo")

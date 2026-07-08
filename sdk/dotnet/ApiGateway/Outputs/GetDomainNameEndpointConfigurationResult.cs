@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     public sealed class GetDomainNameEndpointConfigurationResult
     {
         /// <summary>
-        /// The IP address types that can invoke an API (RestApi).
+        /// IP address types that can invoke a DomainName.
         /// </summary>
         public readonly string IpAddressType;
         /// <summary>

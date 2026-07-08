@@ -57,10 +57,22 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `resourceArn`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `resourceArn` (String) ARN of the resource.
+ * * `templateName` (String) Name of the template.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Contributor Managed Insight Rules using `resourceArn` and `templateName` separated by a comma (`,`). For example:
  * 
  * ```sh
- * $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example contributor_managed_insight_rule-id-12345678
+ * $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example arn:aws:ec2:us-east-1:123456789012:vpc-endpoint-service/vpce-svc-0123456789abcdef0,VpcEndpointService-BytesByEndpointId-v1
  * ```
  * 
  */
@@ -108,9 +120,17 @@ public class ContributorManagedInsightRule extends com.pulumi.resources.CustomRe
     public Output<String> resourceArn() {
         return this.resourceArn;
     }
+    /**
+     * Name of the Contributor Insights rule that contains data for the specified AWS resource.
+     * 
+     */
     @Export(name="ruleName", refs={String.class}, tree="[0]")
     private Output<String> ruleName;
 
+    /**
+     * @return Name of the Contributor Insights rule that contains data for the specified AWS resource.
+     * 
+     */
     public Output<String> ruleName() {
         return this.ruleName;
     }

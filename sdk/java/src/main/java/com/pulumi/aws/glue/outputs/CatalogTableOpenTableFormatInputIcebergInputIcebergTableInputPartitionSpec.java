@@ -15,26 +15,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec {
     /**
-     * @return The list of partition fields that define how the table data should be partitioned. See `fields` below.
+     * @return List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
      * 
      */
     private List<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField> fields;
     /**
-     * @return The unique identifier for this partition specification within the Iceberg table&#39;s metadata history.
+     * @return Unique identifier for this partition specification within the Iceberg table&#39;s metadata history.
      * 
      */
     private @Nullable Integer specId;
 
     private CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec() {}
     /**
-     * @return The list of partition fields that define how the table data should be partitioned. See `fields` below.
+     * @return List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
      * 
      */
     public List<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField> fields() {
         return this.fields;
     }
     /**
-     * @return The unique identifier for this partition specification within the Iceberg table&#39;s metadata history.
+     * @return Unique identifier for this partition specification within the Iceberg table&#39;s metadata history.
      * 
      */
     public Optional<Integer> specId() {

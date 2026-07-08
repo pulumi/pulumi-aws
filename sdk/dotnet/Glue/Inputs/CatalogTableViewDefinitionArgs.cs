@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableViewDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The definer of a view in SQL.
+        /// Definer of a view in SQL.
         /// </summary>
         [Input("definer")]
         public Input<string>? Definer { get; set; }
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<Inputs.CatalogTableViewDefinitionRepresentationArgs>? _representations;
 
         /// <summary>
-        /// A list of structures that contains the dialect of the view, and the query that defines the view. See `Representations` below.
+        /// List of structures that contains the dialect of the view, and the query that defines the view. See `Representations` below.
         /// </summary>
         public InputList<Inputs.CatalogTableViewDefinitionRepresentationArgs> Representations
         {
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<string>? _subObjects;
 
         /// <summary>
-        /// A list of base table ARNs that make up the view.
+        /// List of base table ARNs that make up the view.
         /// </summary>
         public InputList<string> SubObjects
         {

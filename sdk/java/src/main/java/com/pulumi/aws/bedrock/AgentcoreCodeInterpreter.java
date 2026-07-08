@@ -6,6 +6,7 @@ package com.pulumi.aws.bedrock;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.bedrock.AgentcoreCodeInterpreterArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreCodeInterpreterState;
+import com.pulumi.aws.bedrock.outputs.AgentcoreCodeInterpreterCertificate;
 import com.pulumi.aws.bedrock.outputs.AgentcoreCodeInterpreterNetworkConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreCodeInterpreterTimeouts;
 import com.pulumi.core.Output;
@@ -13,6 +14,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -132,6 +134,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter")
 public class AgentcoreCodeInterpreter extends com.pulumi.resources.CustomResource {
+    /**
+     * Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+     * 
+     */
+    @Export(name="certificates", refs={List.class,AgentcoreCodeInterpreterCertificate.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<AgentcoreCodeInterpreterCertificate>> certificates;
+
+    /**
+     * @return Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+     * 
+     */
+    public Output<Optional<List<AgentcoreCodeInterpreterCertificate>>> certificates() {
+        return Codegen.optional(this.certificates);
+    }
     /**
      * ARN of the Code Interpreter.
      * 

@@ -34,6 +34,21 @@ public final class ClusterVpcConfigArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+     * 
+     */
+    @Import(name="controlPlaneEgressMode")
+    private @Nullable Output<String> controlPlaneEgressMode;
+
+    /**
+     * @return Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+     * 
+     */
+    public Optional<Output<String>> controlPlaneEgressMode() {
+        return Optional.ofNullable(this.controlPlaneEgressMode);
+    }
+
+    /**
      * Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
      * 
      */
@@ -127,6 +142,7 @@ public final class ClusterVpcConfigArgs extends com.pulumi.resources.ResourceArg
 
     private ClusterVpcConfigArgs(ClusterVpcConfigArgs $) {
         this.clusterSecurityGroupId = $.clusterSecurityGroupId;
+        this.controlPlaneEgressMode = $.controlPlaneEgressMode;
         this.endpointPrivateAccess = $.endpointPrivateAccess;
         this.endpointPublicAccess = $.endpointPublicAccess;
         this.publicAccessCidrs = $.publicAccessCidrs;
@@ -172,6 +188,27 @@ public final class ClusterVpcConfigArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder clusterSecurityGroupId(String clusterSecurityGroupId) {
             return clusterSecurityGroupId(Output.of(clusterSecurityGroupId));
+        }
+
+        /**
+         * @param controlPlaneEgressMode Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder controlPlaneEgressMode(@Nullable Output<String> controlPlaneEgressMode) {
+            $.controlPlaneEgressMode = controlPlaneEgressMode;
+            return this;
+        }
+
+        /**
+         * @param controlPlaneEgressMode Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder controlPlaneEgressMode(String controlPlaneEgressMode) {
+            return controlPlaneEgressMode(Output.of(controlPlaneEgressMode));
         }
 
         /**

@@ -72,7 +72,11 @@ export interface GetRestApiResult {
      */
     readonly description: string;
     /**
-     * The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
+     * Endpoint access mode for the REST API.
+     */
+    readonly endpointAccessMode: string;
+    /**
+     * Endpoint configuration of this REST API showing the endpoint types of the API. See below.
      */
     readonly endpointConfigurations: outputs.apigateway.GetRestApiEndpointConfiguration[];
     /**
@@ -97,6 +101,10 @@ export interface GetRestApiResult {
      * Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
      */
     readonly rootResourceId: string;
+    /**
+     * TLS version + cipher suite for the REST API's default execute-api endpoint.
+     */
+    readonly securityPolicy: string;
     /**
      * Key-value map of resource tags.
      */

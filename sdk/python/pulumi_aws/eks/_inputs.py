@@ -1478,6 +1478,10 @@ class ClusterVpcConfigArgsDict(TypedDict):
     """
     Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
     """
+    control_plane_egress_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+    """
     endpoint_private_access: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
@@ -1504,6 +1508,7 @@ class ClusterVpcConfigArgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  cluster_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 control_plane_egress_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_private_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  endpoint_public_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  public_access_cidrs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1512,6 +1517,7 @@ class ClusterVpcConfigArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
         :param pulumi.Input[_builtins.str] cluster_security_group_id: Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
+        :param pulumi.Input[_builtins.str] control_plane_egress_mode: Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
         :param pulumi.Input[_builtins.bool] endpoint_private_access: Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
         :param pulumi.Input[_builtins.bool] endpoint_public_access: Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] public_access_cidrs: List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. The provider will only perform drift detection of its value when present in a configuration.
@@ -1521,6 +1527,8 @@ class ClusterVpcConfigArgs:
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         if cluster_security_group_id is not None:
             pulumi.set(__self__, "cluster_security_group_id", cluster_security_group_id)
+        if control_plane_egress_mode is not None:
+            pulumi.set(__self__, "control_plane_egress_mode", control_plane_egress_mode)
         if endpoint_private_access is not None:
             pulumi.set(__self__, "endpoint_private_access", endpoint_private_access)
         if endpoint_public_access is not None:
@@ -1555,6 +1563,18 @@ class ClusterVpcConfigArgs:
     @cluster_security_group_id.setter
     def cluster_security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_security_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="controlPlaneEgressMode")
+    def control_plane_egress_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+        """
+        return pulumi.get(self, "control_plane_egress_mode")
+
+    @control_plane_egress_mode.setter
+    def control_plane_egress_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "control_plane_egress_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointPrivateAccess")

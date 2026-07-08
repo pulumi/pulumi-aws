@@ -85,6 +85,11 @@ export type Smsvoicev2PhoneNumber = import("./smsvoicev2PhoneNumber").Smsvoicev2
 export const Smsvoicev2PhoneNumber: typeof import("./smsvoicev2PhoneNumber").Smsvoicev2PhoneNumber = null as any;
 utilities.lazyLoad(exports, ["Smsvoicev2PhoneNumber"], () => require("./smsvoicev2PhoneNumber"));
 
+export { Smsvoicev2PoolArgs, Smsvoicev2PoolState } from "./smsvoicev2Pool";
+export type Smsvoicev2Pool = import("./smsvoicev2Pool").Smsvoicev2Pool;
+export const Smsvoicev2Pool: typeof import("./smsvoicev2Pool").Smsvoicev2Pool = null as any;
+utilities.lazyLoad(exports, ["Smsvoicev2Pool"], () => require("./smsvoicev2Pool"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -122,6 +127,8 @@ const _module = {
                 return new Smsvoicev2OptOutList(name, <any>undefined, { urn })
             case "aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber":
                 return new Smsvoicev2PhoneNumber(name, <any>undefined, { urn })
+            case "aws:pinpoint/smsvoicev2Pool:Smsvoicev2Pool":
+                return new Smsvoicev2Pool(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -143,3 +150,4 @@ pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2ConfigurationSe
 pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2EventDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2OptOutList", _module)
 pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2PhoneNumber", _module)
+pulumi.runtime.registerResourceModule("aws", "pinpoint/smsvoicev2Pool", _module)

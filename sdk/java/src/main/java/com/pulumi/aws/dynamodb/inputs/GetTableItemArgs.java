@@ -17,28 +17,30 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTableItemArgs Empty = new GetTableItemArgs();
 
+    /**
+     * One or more substitution tokens for attribute names in an expression. Use the `#` character in an expression to dereference an attribute name.
+     * 
+     */
     @Import(name="expressionAttributeNames")
     private @Nullable Output<Map<String,String>> expressionAttributeNames;
 
+    /**
+     * @return One or more substitution tokens for attribute names in an expression. Use the `#` character in an expression to dereference an attribute name.
+     * 
+     */
     public Optional<Output<Map<String,String>>> expressionAttributeNames() {
         return Optional.ofNullable(this.expressionAttributeNames);
     }
 
     /**
-     * A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-     * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-     * 
-     * The following arguments are optional:
+     * Map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
      * 
      */
     @Import(name="key", required=true)
     private Output<String> key;
 
     /**
-     * @return A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-     * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-     * 
-     * The following arguments are optional:
+     * @return Map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
      * 
      */
     public Output<String> key() {
@@ -46,16 +48,14 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-     * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+     * String that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
      * 
      */
     @Import(name="projectionExpression")
     private @Nullable Output<String> projectionExpression;
 
     /**
-     * @return A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-     * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+     * @return String that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
      * 
      */
     public Optional<Output<String>> projectionExpression() {
@@ -78,14 +78,18 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name or ARN of the table containing the requested item.
+     * Name or ARN of the table containing the requested item.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
-     * @return The name or ARN of the table containing the requested item.
+     * @return Name or ARN of the table containing the requested item.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> tableName() {
@@ -120,20 +124,29 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTableItemArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param expressionAttributeNames One or more substitution tokens for attribute names in an expression. Use the `#` character in an expression to dereference an attribute name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expressionAttributeNames(@Nullable Output<Map<String,String>> expressionAttributeNames) {
             $.expressionAttributeNames = expressionAttributeNames;
             return this;
         }
 
+        /**
+         * @param expressionAttributeNames One or more substitution tokens for attribute names in an expression. Use the `#` character in an expression to dereference an attribute name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder expressionAttributeNames(Map<String,String> expressionAttributeNames) {
             return expressionAttributeNames(Output.of(expressionAttributeNames));
         }
 
         /**
-         * @param key A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-         * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-         * 
-         * The following arguments are optional:
+         * @param key Map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
          * 
          * @return builder
          * 
@@ -144,10 +157,7 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param key A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-         * For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-         * 
-         * The following arguments are optional:
+         * @param key Map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
          * 
          * @return builder
          * 
@@ -157,8 +167,7 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param projectionExpression A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-         * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+         * @param projectionExpression String that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
          * 
          * @return builder
          * 
@@ -169,8 +178,7 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param projectionExpression A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-         * If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+         * @param projectionExpression String that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
          * 
          * @return builder
          * 
@@ -201,7 +209,9 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tableName The name or ARN of the table containing the requested item.
+         * @param tableName Name or ARN of the table containing the requested item.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -212,7 +222,9 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tableName The name or ARN of the table containing the requested item.
+         * @param tableName Name or ARN of the table containing the requested item.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

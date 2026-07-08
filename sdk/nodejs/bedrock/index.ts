@@ -125,6 +125,11 @@ export type AgentcorePolicyEngine = import("./agentcorePolicyEngine").AgentcoreP
 export const AgentcorePolicyEngine: typeof import("./agentcorePolicyEngine").AgentcorePolicyEngine = null as any;
 utilities.lazyLoad(exports, ["AgentcorePolicyEngine"], () => require("./agentcorePolicyEngine"));
 
+export { AgentcoreRegistryArgs, AgentcoreRegistryState } from "./agentcoreRegistry";
+export type AgentcoreRegistry = import("./agentcoreRegistry").AgentcoreRegistry;
+export const AgentcoreRegistry: typeof import("./agentcoreRegistry").AgentcoreRegistry = null as any;
+utilities.lazyLoad(exports, ["AgentcoreRegistry"], () => require("./agentcoreRegistry"));
+
 export { AgentcoreResourcePolicyArgs, AgentcoreResourcePolicyState } from "./agentcoreResourcePolicy";
 export type AgentcoreResourcePolicy = import("./agentcoreResourcePolicy").AgentcoreResourcePolicy;
 export const AgentcoreResourcePolicy: typeof import("./agentcoreResourcePolicy").AgentcoreResourcePolicy = null as any;
@@ -170,6 +175,11 @@ export const getInferenceProfiles: typeof import("./getInferenceProfiles").getIn
 export const getInferenceProfilesOutput: typeof import("./getInferenceProfiles").getInferenceProfilesOutput = null as any;
 utilities.lazyLoad(exports, ["getInferenceProfiles","getInferenceProfilesOutput"], () => require("./getInferenceProfiles"));
 
+export { GetUseCaseForModelAccessResult } from "./getUseCaseForModelAccess";
+export const getUseCaseForModelAccess: typeof import("./getUseCaseForModelAccess").getUseCaseForModelAccess = null as any;
+export const getUseCaseForModelAccessOutput: typeof import("./getUseCaseForModelAccess").getUseCaseForModelAccessOutput = null as any;
+utilities.lazyLoad(exports, ["getUseCaseForModelAccess","getUseCaseForModelAccessOutput"], () => require("./getUseCaseForModelAccess"));
+
 export { GuardrailArgs, GuardrailState } from "./guardrail";
 export type Guardrail = import("./guardrail").Guardrail;
 export const Guardrail: typeof import("./guardrail").Guardrail = null as any;
@@ -189,6 +199,11 @@ export { ProvisionedModelThroughputArgs, ProvisionedModelThroughputState } from 
 export type ProvisionedModelThroughput = import("./provisionedModelThroughput").ProvisionedModelThroughput;
 export const ProvisionedModelThroughput: typeof import("./provisionedModelThroughput").ProvisionedModelThroughput = null as any;
 utilities.lazyLoad(exports, ["ProvisionedModelThroughput"], () => require("./provisionedModelThroughput"));
+
+export { UseCaseForModelAccessArgs, UseCaseForModelAccessState } from "./useCaseForModelAccess";
+export type UseCaseForModelAccess = import("./useCaseForModelAccess").UseCaseForModelAccess;
+export const UseCaseForModelAccess: typeof import("./useCaseForModelAccess").UseCaseForModelAccess = null as any;
+utilities.lazyLoad(exports, ["UseCaseForModelAccess"], () => require("./useCaseForModelAccess"));
 
 
 const _module = {
@@ -243,6 +258,8 @@ const _module = {
                 return new AgentcorePolicy(name, <any>undefined, { urn })
             case "aws:bedrock/agentcorePolicyEngine:AgentcorePolicyEngine":
                 return new AgentcorePolicyEngine(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreRegistry:AgentcoreRegistry":
+                return new AgentcoreRegistry(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy":
                 return new AgentcoreResourcePolicy(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk":
@@ -259,6 +276,8 @@ const _module = {
                 return new InferenceProfile(name, <any>undefined, { urn })
             case "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput":
                 return new ProvisionedModelThroughput(name, <any>undefined, { urn })
+            case "aws:bedrock/useCaseForModelAccess:UseCaseForModelAccess":
+                return new UseCaseForModelAccess(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -288,6 +307,7 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreOauth2CredentialP
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreOnlineEvaluationConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcorePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcorePolicyEngine", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreRegistry", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreResourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreTokenVaultCmk", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreWorkloadIdentity", _module)
@@ -296,3 +316,4 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/guardrail", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/guardrailVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/inferenceProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/provisionedModelThroughput", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/useCaseForModelAccess", _module)

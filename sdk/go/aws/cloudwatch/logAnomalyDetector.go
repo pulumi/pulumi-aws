@@ -64,10 +64,16 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CloudWatch Log Anomaly Detector using the `arn`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// - `arn` (String) ARN of the anomaly detector.
+//
+// Using `pulumi import`, import Anomaly Detectors using `arn`. For example:
 //
 // ```sh
-// $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example log_anomaly_detector-arn-12345678
+// $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example arn:aws:logs:us-east-1:123456789012:anomaly-detector:1a2b3c4d-5e6f-7890-abcd-ef1234567890
 // ```
 type LogAnomalyDetector struct {
 	pulumi.CustomResourceState

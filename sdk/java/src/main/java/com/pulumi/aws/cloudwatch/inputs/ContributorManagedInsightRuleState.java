@@ -61,9 +61,17 @@ public final class ContributorManagedInsightRuleState extends com.pulumi.resourc
         return Optional.ofNullable(this.resourceArn);
     }
 
+    /**
+     * Name of the Contributor Insights rule that contains data for the specified AWS resource.
+     * 
+     */
     @Import(name="ruleName")
     private @Nullable Output<String> ruleName;
 
+    /**
+     * @return Name of the Contributor Insights rule that contains data for the specified AWS resource.
+     * 
+     */
     public Optional<Output<String>> ruleName() {
         return Optional.ofNullable(this.ruleName);
     }
@@ -202,11 +210,23 @@ public final class ContributorManagedInsightRuleState extends com.pulumi.resourc
             return resourceArn(Output.of(resourceArn));
         }
 
+        /**
+         * @param ruleName Name of the Contributor Insights rule that contains data for the specified AWS resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleName(@Nullable Output<String> ruleName) {
             $.ruleName = ruleName;
             return this;
         }
 
+        /**
+         * @param ruleName Name of the Contributor Insights rule that contains data for the specified AWS resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ruleName(String ruleName) {
             return ruleName(Output.of(ruleName));
         }

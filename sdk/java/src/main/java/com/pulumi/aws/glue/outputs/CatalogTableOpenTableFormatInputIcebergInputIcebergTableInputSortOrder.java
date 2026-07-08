@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder {
     /**
-     * @return The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+     * @return List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
      * 
      */
     private List<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField> fields;
     /**
-     * @return The unique identifier for this sort order specification within the Iceberg table&#39;s metadata.
+     * @return Unique identifier for this sort order specification within the Iceberg table&#39;s metadata.
      * 
      */
     private Integer orderId;
 
     private CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder() {}
     /**
-     * @return The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+     * @return List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
      * 
      */
     public List<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField> fields() {
         return this.fields;
     }
     /**
-     * @return The unique identifier for this sort order specification within the Iceberg table&#39;s metadata.
+     * @return Unique identifier for this sort order specification within the Iceberg table&#39;s metadata.
      * 
      */
     public Integer orderId() {

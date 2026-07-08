@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder
     {
         /// <summary>
-        /// The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `Fields` below.
+        /// List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField> Fields;
         /// <summary>
-        /// The unique identifier for this sort order specification within the Iceberg table's metadata.
+        /// Unique identifier for this sort order specification within the Iceberg table's metadata.
         /// </summary>
         public readonly int OrderId;
 

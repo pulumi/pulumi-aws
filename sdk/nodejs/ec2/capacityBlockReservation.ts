@@ -24,15 +24,12 @@ import * as utilities from "../utilities";
  *     capacityDurationHours: 24,
  *     endDateRange: "2024-05-30T15:04:05Z",
  *     instanceCount: 1,
- *     instanceType: "p4d.24xlarge",
+ *     instanceType: "p5.4xlarge",
  *     startDateRange: "2024-04-28T15:04:05Z",
  * });
  * const example = new aws.ec2.CapacityBlockReservation("example", {
  *     capacityBlockOfferingId: test.then(test => test.capacityBlockOfferingId),
  *     instancePlatform: "Linux/UNIX",
- *     tags: {
- *         Environment: "dev",
- *     },
  * });
  * ```
  */
@@ -94,6 +91,8 @@ export class CapacityBlockReservation extends pulumi.CustomResource {
     declare public /*out*/ readonly endDateType: pulumi.Output<string>;
     /**
      * The number of instances for which to reserve capacity.
+     * This value will not be set until the Capacity Block Reservation is active.
+     * The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
      */
     declare public /*out*/ readonly instanceCount: pulumi.Output<number>;
     /**
@@ -237,6 +236,8 @@ export interface CapacityBlockReservationState {
     endDateType?: pulumi.Input<string | undefined>;
     /**
      * The number of instances for which to reserve capacity.
+     * This value will not be set until the Capacity Block Reservation is active.
+     * The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
      */
     instanceCount?: pulumi.Input<number | undefined>;
     /**

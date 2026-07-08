@@ -18,15 +18,7 @@ public final class BrokerInstance {
      */
     private @Nullable String consoleUrl;
     /**
-     * @return Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-     * * For `ActiveMQ`:
-     * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-     * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-     * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-     * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-     * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-     * * For `RabbitMQ`:
-     * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+     * @return `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
      * 
      */
     private @Nullable List<String> endpoints;
@@ -45,15 +37,7 @@ public final class BrokerInstance {
         return Optional.ofNullable(this.consoleUrl);
     }
     /**
-     * @return Broker&#39;s wire-level protocol endpoints in the following order &amp; format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-     * * For `ActiveMQ`:
-     * * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-     * * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-     * * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-     * * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-     * * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-     * * For `RabbitMQ`:
-     * * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+     * @return `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
      * 
      */
     public List<String> endpoints() {

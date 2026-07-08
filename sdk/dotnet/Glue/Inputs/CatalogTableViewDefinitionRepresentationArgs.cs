@@ -13,31 +13,31 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableViewDefinitionRepresentationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+        /// Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
         /// </summary>
         [Input("dialect")]
         public Input<string>? Dialect { get; set; }
 
         /// <summary>
-        /// A parameter that specifies the version of the engine of a specific representation.
+        /// Parameter that specifies the version of the engine of a specific representation.
         /// </summary>
         [Input("dialectVersion")]
         public Input<string>? DialectVersion { get; set; }
 
         /// <summary>
-        /// The name of the connection to be used to validate the specific representation of the view.
+        /// Name of the connection to be used to validate the specific representation of the view.
         /// </summary>
         [Input("validationConnection")]
         public Input<string>? ValidationConnection { get; set; }
 
         /// <summary>
-        /// A string that represents the SQL query that describes the view with expanded resource ARNs.
+        /// String that represents the SQL query that describes the view with expanded resource ARNs.
         /// </summary>
         [Input("viewExpandedText")]
         public Input<string>? ViewExpandedText { get; set; }
 
         /// <summary>
-        /// A string that represents the original SQL query that describes the view.
+        /// String that represents the original SQL query that describes the view.
         /// </summary>
         [Input("viewOriginalText")]
         public Input<string>? ViewOriginalText { get; set; }

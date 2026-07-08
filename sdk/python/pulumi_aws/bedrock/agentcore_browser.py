@@ -22,7 +22,10 @@ __all__ = ['AgentcoreBrowserArgs', 'AgentcoreBrowser']
 class AgentcoreBrowserArgs:
     def __init__(__self__, *,
                  network_configuration: pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs'],
+                 browser_signing: pulumi.Input[Optional['AgentcoreBrowserBrowserSigningArgs']] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreBrowserCertificateArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreBrowserEnterprisePolicyArgs']]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  recording: pulumi.Input[Optional['AgentcoreBrowserRecordingArgs']] = None,
@@ -35,7 +38,10 @@ class AgentcoreBrowserArgs:
         :param pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs'] network_configuration: Network configuration for the browser. See `network_configuration` below.
                
                The following arguments are optional:
+        :param pulumi.Input['AgentcoreBrowserBrowserSigningArgs'] browser_signing: Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browser_signing` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreBrowserCertificateArgs']]] certificates: Certificates to install in the browser. See `certificate` below.
         :param pulumi.Input[_builtins.str] description: Description of the browser.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreBrowserEnterprisePolicyArgs']]] enterprise_policies: Enterprise policy files to apply to the browser. See `enterprise_policy` below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the browser assumes for execution.
         :param pulumi.Input[_builtins.str] name: Name of the browser.
         :param pulumi.Input['AgentcoreBrowserRecordingArgs'] recording: Recording configuration for browser sessions. See `recording` below.
@@ -43,8 +49,14 @@ class AgentcoreBrowserArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "network_configuration", network_configuration)
+        if browser_signing is not None:
+            pulumi.set(__self__, "browser_signing", browser_signing)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enterprise_policies is not None:
+            pulumi.set(__self__, "enterprise_policies", enterprise_policies)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if name is not None:
@@ -73,6 +85,30 @@ class AgentcoreBrowserArgs:
         pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="browserSigning")
+    def browser_signing(self) -> pulumi.Input[Optional['AgentcoreBrowserBrowserSigningArgs']]:
+        """
+        Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browser_signing` below.
+        """
+        return pulumi.get(self, "browser_signing")
+
+    @browser_signing.setter
+    def browser_signing(self, value: pulumi.Input[Optional['AgentcoreBrowserBrowserSigningArgs']]):
+        pulumi.set(self, "browser_signing", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreBrowserCertificateArgs']]]]:
+        """
+        Certificates to install in the browser. See `certificate` below.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreBrowserCertificateArgs']]]]):
+        pulumi.set(self, "certificates", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -83,6 +119,18 @@ class AgentcoreBrowserArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enterprisePolicies")
+    def enterprise_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreBrowserEnterprisePolicyArgs']]]]:
+        """
+        Enterprise policy files to apply to the browser. See `enterprise_policy` below.
+        """
+        return pulumi.get(self, "enterprise_policies")
+
+    @enterprise_policies.setter
+    def enterprise_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreBrowserEnterprisePolicyArgs']]]]):
+        pulumi.set(self, "enterprise_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
@@ -159,7 +207,10 @@ class _AgentcoreBrowserState:
     def __init__(__self__, *,
                  browser_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  browser_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 browser_signing: pulumi.Input[Optional['AgentcoreBrowserBrowserSigningArgs']] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreBrowserCertificateArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreBrowserEnterprisePolicyArgs']]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_configuration: pulumi.Input[Optional['AgentcoreBrowserNetworkConfigurationArgs']] = None,
@@ -173,7 +224,10 @@ class _AgentcoreBrowserState:
 
         :param pulumi.Input[_builtins.str] browser_arn: ARN of the Browser.
         :param pulumi.Input[_builtins.str] browser_id: Unique identifier of the Browser.
+        :param pulumi.Input['AgentcoreBrowserBrowserSigningArgs'] browser_signing: Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browser_signing` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreBrowserCertificateArgs']]] certificates: Certificates to install in the browser. See `certificate` below.
         :param pulumi.Input[_builtins.str] description: Description of the browser.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreBrowserEnterprisePolicyArgs']]] enterprise_policies: Enterprise policy files to apply to the browser. See `enterprise_policy` below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the browser assumes for execution.
         :param pulumi.Input[_builtins.str] name: Name of the browser.
         :param pulumi.Input['AgentcoreBrowserNetworkConfigurationArgs'] network_configuration: Network configuration for the browser. See `network_configuration` below.
@@ -188,8 +242,14 @@ class _AgentcoreBrowserState:
             pulumi.set(__self__, "browser_arn", browser_arn)
         if browser_id is not None:
             pulumi.set(__self__, "browser_id", browser_id)
+        if browser_signing is not None:
+            pulumi.set(__self__, "browser_signing", browser_signing)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enterprise_policies is not None:
+            pulumi.set(__self__, "enterprise_policies", enterprise_policies)
         if execution_role_arn is not None:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if name is not None:
@@ -232,6 +292,30 @@ class _AgentcoreBrowserState:
         pulumi.set(self, "browser_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="browserSigning")
+    def browser_signing(self) -> pulumi.Input[Optional['AgentcoreBrowserBrowserSigningArgs']]:
+        """
+        Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browser_signing` below.
+        """
+        return pulumi.get(self, "browser_signing")
+
+    @browser_signing.setter
+    def browser_signing(self, value: pulumi.Input[Optional['AgentcoreBrowserBrowserSigningArgs']]):
+        pulumi.set(self, "browser_signing", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreBrowserCertificateArgs']]]]:
+        """
+        Certificates to install in the browser. See `certificate` below.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreBrowserCertificateArgs']]]]):
+        pulumi.set(self, "certificates", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -242,6 +326,18 @@ class _AgentcoreBrowserState:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enterprisePolicies")
+    def enterprise_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreBrowserEnterprisePolicyArgs']]]]:
+        """
+        Enterprise policy files to apply to the browser. See `enterprise_policy` below.
+        """
+        return pulumi.get(self, "enterprise_policies")
+
+    @enterprise_policies.setter
+    def enterprise_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreBrowserEnterprisePolicyArgs']]]]):
+        pulumi.set(self, "enterprise_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")
@@ -345,7 +441,10 @@ class AgentcoreBrowser(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 browser_signing: pulumi.Input[Optional[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict']]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict']]]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']]] = None,
@@ -439,7 +538,10 @@ class AgentcoreBrowser(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict']] browser_signing: Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browser_signing` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict']]]] certificates: Certificates to install in the browser. See `certificate` below.
         :param pulumi.Input[_builtins.str] description: Description of the browser.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict']]]] enterprise_policies: Enterprise policy files to apply to the browser. See `enterprise_policy` below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the browser assumes for execution.
         :param pulumi.Input[_builtins.str] name: Name of the browser.
         :param pulumi.Input[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']] network_configuration: Network configuration for the browser. See `network_configuration` below.
@@ -553,7 +655,10 @@ class AgentcoreBrowser(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 browser_signing: pulumi.Input[Optional[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict']]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict']]]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']]] = None,
@@ -570,7 +675,10 @@ class AgentcoreBrowser(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AgentcoreBrowserArgs.__new__(AgentcoreBrowserArgs)
 
+            __props__.__dict__["browser_signing"] = browser_signing
+            __props__.__dict__["certificates"] = certificates
             __props__.__dict__["description"] = description
+            __props__.__dict__["enterprise_policies"] = enterprise_policies
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["name"] = name
             if network_configuration is None and not opts.urn:
@@ -595,7 +703,10 @@ class AgentcoreBrowser(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             browser_arn: pulumi.Input[Optional[_builtins.str]] = None,
             browser_id: pulumi.Input[Optional[_builtins.str]] = None,
+            browser_signing: pulumi.Input[Optional[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict']]] = None,
+            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict']]]]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
+            enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict']]]]] = None,
             execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_configuration: pulumi.Input[Optional[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']]] = None,
@@ -613,7 +724,10 @@ class AgentcoreBrowser(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] browser_arn: ARN of the Browser.
         :param pulumi.Input[_builtins.str] browser_id: Unique identifier of the Browser.
+        :param pulumi.Input[Union['AgentcoreBrowserBrowserSigningArgs', 'AgentcoreBrowserBrowserSigningArgsDict']] browser_signing: Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browser_signing` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreBrowserCertificateArgs', 'AgentcoreBrowserCertificateArgsDict']]]] certificates: Certificates to install in the browser. See `certificate` below.
         :param pulumi.Input[_builtins.str] description: Description of the browser.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreBrowserEnterprisePolicyArgs', 'AgentcoreBrowserEnterprisePolicyArgsDict']]]] enterprise_policies: Enterprise policy files to apply to the browser. See `enterprise_policy` below.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the browser assumes for execution.
         :param pulumi.Input[_builtins.str] name: Name of the browser.
         :param pulumi.Input[Union['AgentcoreBrowserNetworkConfigurationArgs', 'AgentcoreBrowserNetworkConfigurationArgsDict']] network_configuration: Network configuration for the browser. See `network_configuration` below.
@@ -630,7 +744,10 @@ class AgentcoreBrowser(pulumi.CustomResource):
 
         __props__.__dict__["browser_arn"] = browser_arn
         __props__.__dict__["browser_id"] = browser_id
+        __props__.__dict__["browser_signing"] = browser_signing
+        __props__.__dict__["certificates"] = certificates
         __props__.__dict__["description"] = description
+        __props__.__dict__["enterprise_policies"] = enterprise_policies
         __props__.__dict__["execution_role_arn"] = execution_role_arn
         __props__.__dict__["name"] = name
         __props__.__dict__["network_configuration"] = network_configuration
@@ -658,12 +775,36 @@ class AgentcoreBrowser(pulumi.CustomResource):
         return pulumi.get(self, "browser_id")
 
     @_builtins.property
+    @pulumi.getter(name="browserSigning")
+    def browser_signing(self) -> pulumi.Output[Optional['outputs.AgentcoreBrowserBrowserSigning']]:
+        """
+        Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browser_signing` below.
+        """
+        return pulumi.get(self, "browser_signing")
+
+    @_builtins.property
+    @pulumi.getter
+    def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreBrowserCertificate']]]:
+        """
+        Certificates to install in the browser. See `certificate` below.
+        """
+        return pulumi.get(self, "certificates")
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Description of the browser.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="enterprisePolicies")
+    def enterprise_policies(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreBrowserEnterprisePolicy']]]:
+        """
+        Enterprise policy files to apply to the browser. See `enterprise_policy` below.
+        """
+        return pulumi.get(self, "enterprise_policies")
 
     @_builtins.property
     @pulumi.getter(name="executionRoleArn")

@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
  * 
- * &gt; **NOTE:** S3 Buckets only support a single notification configuration resource. Declaring multiple `aws.s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. This resource will overwrite any existing event notifications configured for the S3 bucket it&#39;s associated with. See the example &#34;Trigger multiple Lambda functions&#34; for an option of how to configure multiple triggers within this resource.
+ * &gt; **NOTE:** The S3 [`PutBucketNotificationConfiguration`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html) API is atomic — it replaces the bucket&#39;s entire notification configuration on every call. Only one `aws.s3.BucketNotification` resource can manage a bucket; declaring more than one causes a perpetual diff, and applying this resource will overwrite any notifications already on the bucket. To configure multiple destinations on the same bucket, declare them all as nested blocks within a single resource (see Trigger multiple Lambda functions below). To let independent teams or Terraform configurations subscribe to the same bucket without stepping on each other, prefer the Emit events to EventBridge pattern below. To bring existing notifications under management without losing them, see the `aws.s3.BucketNotification` data source.
  * 
  * &gt; This resource cannot be used with S3 directory buckets.
  * 
@@ -470,6 +470,8 @@ import javax.annotation.Nullable;
  * 
  * ### Emit events to EventBridge
  * 
+ * For a bucket shared by multiple independent consumers — different teams, different Terraform configurations, different applications — EventBridge is the recommended pattern. Each consumer subscribes to the bucket through its own `aws.cloudwatch.EventRule`, so they cannot overwrite one another the way notification configurations would.
+ * 
  * <pre>
  * {@code
  * package generated_program;
@@ -481,6 +483,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.s3.BucketArgs;
  * import com.pulumi.aws.s3.BucketNotification;
  * import com.pulumi.aws.s3.BucketNotificationArgs;
+ * import com.pulumi.aws.cloudwatch.EventRule;
+ * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+ * import com.pulumi.aws.cloudwatch.EventTarget;
+ * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -494,19 +501,72 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var bucket = new Bucket("bucket", BucketArgs.builder()
- *             .bucket("your-bucket-name")
+ *         var shared = new Bucket("shared", BucketArgs.builder()
+ *             .bucket("shared-bucket")
  *             .build());
  * 
- *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
- *             .bucket(bucket.id())
+ *         var sharedBucketNotification = new BucketNotification("sharedBucketNotification", BucketNotificationArgs.builder()
+ *             .bucket(shared.id())
  *             .eventbridge(true)
+ *             .build());
+ * 
+ *         // Team A: process new uploads under uploads/
+ *         var teamA = new EventRule("teamA", EventRuleArgs.builder()
+ *             .name("team-a-uploads")
+ *             .eventPattern(shared.bucket().applyValue(_bucket -> serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("source", jsonArray("aws.s3")),
+ *                     jsonProperty("detail-type", jsonArray("Object Created")),
+ *                     jsonProperty("detail", jsonObject(
+ *                         jsonProperty("bucket", jsonObject(
+ *                             jsonProperty("name", jsonArray(_bucket))
+ *                         )),
+ *                         jsonProperty("object", jsonObject(
+ *                             jsonProperty("key", jsonArray(jsonObject(
+ *                                 jsonProperty("prefix", "uploads/")
+ *                             )))
+ *                         ))
+ *                     ))
+ *                 ))))
+ *             .build());
+ * 
+ *         var teamAEventTarget = new EventTarget("teamAEventTarget", EventTargetArgs.builder()
+ *             .rule(teamA.name())
+ *             .arn(teamAProcessor.arn())
+ *             .build());
+ * 
+ *         // Team B: archive deletions under archive/, declared in a separate
+ *         // Terraform configuration that knows nothing about Team A.
+ *         var teamB = new EventRule("teamB", EventRuleArgs.builder()
+ *             .name("team-b-deletions")
+ *             .eventPattern(shared.bucket().applyValue(_bucket -> serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("source", jsonArray("aws.s3")),
+ *                     jsonProperty("detail-type", jsonArray("Object Deleted")),
+ *                     jsonProperty("detail", jsonObject(
+ *                         jsonProperty("bucket", jsonObject(
+ *                             jsonProperty("name", jsonArray(_bucket))
+ *                         )),
+ *                         jsonProperty("object", jsonObject(
+ *                             jsonProperty("key", jsonArray(jsonObject(
+ *                                 jsonProperty("prefix", "archive/")
+ *                             )))
+ *                         ))
+ *                     ))
+ *                 ))))
+ *             .build());
+ * 
+ *         var teamBEventTarget = new EventTarget("teamBEventTarget", EventTargetArgs.builder()
+ *             .rule(teamB.name())
+ *             .arn(teamBArchive.arn())
  *             .build());
  * 
  *     }
  * }
  * }
  * </pre>
+ * 
+ * For sharing a bucket between Terraform configurations when EventBridge is not an option, use the `aws.s3.BucketNotification` data source to read existing notifications and re-emit them in your own resource.
  * 
  * ## Import
  * 

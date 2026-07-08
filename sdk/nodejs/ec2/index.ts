@@ -145,6 +145,11 @@ export const getCapacityBlockOffering: typeof import("./getCapacityBlockOffering
 export const getCapacityBlockOfferingOutput: typeof import("./getCapacityBlockOffering").getCapacityBlockOfferingOutput = null as any;
 utilities.lazyLoad(exports, ["getCapacityBlockOffering","getCapacityBlockOfferingOutput"], () => require("./getCapacityBlockOffering"));
 
+export { GetCapacityBlockReservationArgs, GetCapacityBlockReservationResult, GetCapacityBlockReservationOutputArgs } from "./getCapacityBlockReservation";
+export const getCapacityBlockReservation: typeof import("./getCapacityBlockReservation").getCapacityBlockReservation = null as any;
+export const getCapacityBlockReservationOutput: typeof import("./getCapacityBlockReservation").getCapacityBlockReservationOutput = null as any;
+utilities.lazyLoad(exports, ["getCapacityBlockReservation","getCapacityBlockReservationOutput"], () => require("./getCapacityBlockReservation"));
+
 export { GetCoipPoolArgs, GetCoipPoolResult, GetCoipPoolOutputArgs } from "./getCoipPool";
 export const getCoipPool: typeof import("./getCoipPool").getCoipPool = null as any;
 export const getCoipPoolOutput: typeof import("./getCoipPool").getCoipPoolOutput = null as any;

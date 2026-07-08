@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableViewDefinition {
     /**
-     * @return The definer of a view in SQL.
+     * @return Definer of a view in SQL.
      * 
      */
     private @Nullable String definer;
@@ -36,7 +36,7 @@ public final class CatalogTableViewDefinition {
      */
     private @Nullable Integer refreshSeconds;
     /**
-     * @return A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+     * @return List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
      * 
      */
     private @Nullable List<CatalogTableViewDefinitionRepresentation> representations;
@@ -46,7 +46,7 @@ public final class CatalogTableViewDefinition {
      */
     private @Nullable List<Integer> subObjectVersionIds;
     /**
-     * @return A list of base table ARNs that make up the view.
+     * @return List of base table ARNs that make up the view.
      * 
      */
     private @Nullable List<String> subObjects;
@@ -63,7 +63,7 @@ public final class CatalogTableViewDefinition {
 
     private CatalogTableViewDefinition() {}
     /**
-     * @return The definer of a view in SQL.
+     * @return Definer of a view in SQL.
      * 
      */
     public Optional<String> definer() {
@@ -91,7 +91,7 @@ public final class CatalogTableViewDefinition {
         return Optional.ofNullable(this.refreshSeconds);
     }
     /**
-     * @return A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+     * @return List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
      * 
      */
     public List<CatalogTableViewDefinitionRepresentation> representations() {
@@ -105,7 +105,7 @@ public final class CatalogTableViewDefinition {
         return this.subObjectVersionIds == null ? List.of() : this.subObjectVersionIds;
     }
     /**
-     * @return A list of base table ARNs that make up the view.
+     * @return List of base table ARNs that make up the view.
      * 
      */
     public List<String> subObjects() {

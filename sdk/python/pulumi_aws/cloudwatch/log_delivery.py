@@ -327,7 +327,18 @@ class LogDelivery(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch Logs Delivery using the `id`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the delivery.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Deliveries using `id`. For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/logDelivery:LogDelivery example jsoGVi4Zq8VlYp9n
@@ -373,7 +384,18 @@ class LogDelivery(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch Logs Delivery using the `id`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the delivery.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Deliveries using `id`. For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/logDelivery:LogDelivery example jsoGVi4Zq8VlYp9n

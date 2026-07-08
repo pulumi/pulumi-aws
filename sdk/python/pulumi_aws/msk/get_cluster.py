@@ -27,7 +27,7 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_public_sasl_iam=None, bootstrap_brokers_public_sasl_scram=None, bootstrap_brokers_public_tls=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, broker_node_group_infos=None, cluster_name=None, cluster_uuid=None, id=None, kafka_version=None, number_of_broker_nodes=None, region=None, tags=None, zookeeper_connect_string=None, zookeeper_connect_string_tls=None):
+    def __init__(__self__, arn=None, bootstrap_brokers=None, bootstrap_brokers_public_sasl_iam=None, bootstrap_brokers_public_sasl_scram=None, bootstrap_brokers_public_tls=None, bootstrap_brokers_sasl_iam=None, bootstrap_brokers_sasl_scram=None, bootstrap_brokers_tls=None, broker_node_group_infos=None, cluster_name=None, cluster_uuid=None, customer_action_status=None, id=None, kafka_version=None, number_of_broker_nodes=None, region=None, tags=None, zookeeper_connect_string=None, zookeeper_connect_string_tls=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -61,6 +61,9 @@ class GetClusterResult:
         if cluster_uuid and not isinstance(cluster_uuid, str):
             raise TypeError("Expected argument 'cluster_uuid' to be a str")
         pulumi.set(__self__, "cluster_uuid", cluster_uuid)
+        if customer_action_status and not isinstance(customer_action_status, str):
+            raise TypeError("Expected argument 'customer_action_status' to be a str")
+        pulumi.set(__self__, "customer_action_status", customer_action_status)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -169,6 +172,14 @@ class GetClusterResult:
         return pulumi.get(self, "cluster_uuid")
 
     @_builtins.property
+    @pulumi.getter(name="customerActionStatus")
+    def customer_action_status(self) -> _builtins.str:
+        """
+        Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+        """
+        return pulumi.get(self, "customer_action_status")
+
+    @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
@@ -209,7 +220,7 @@ class GetClusterResult:
     @pulumi.getter(name="zookeeperConnectString")
     def zookeeper_connect_string(self) -> _builtins.str:
         """
-        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         """
         return pulumi.get(self, "zookeeper_connect_string")
 
@@ -239,6 +250,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             broker_node_group_infos=self.broker_node_group_infos,
             cluster_name=self.cluster_name,
             cluster_uuid=self.cluster_uuid,
+            customer_action_status=self.customer_action_status,
             id=self.id,
             kafka_version=self.kafka_version,
             number_of_broker_nodes=self.number_of_broker_nodes,
@@ -290,6 +302,7 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
         broker_node_group_infos=pulumi.get(__ret__, 'broker_node_group_infos'),
         cluster_name=pulumi.get(__ret__, 'cluster_name'),
         cluster_uuid=pulumi.get(__ret__, 'cluster_uuid'),
+        customer_action_status=pulumi.get(__ret__, 'customer_action_status'),
         id=pulumi.get(__ret__, 'id'),
         kafka_version=pulumi.get(__ret__, 'kafka_version'),
         number_of_broker_nodes=pulumi.get(__ret__, 'number_of_broker_nodes'),
@@ -338,6 +351,7 @@ def get_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = Non
         broker_node_group_infos=pulumi.get(__response__, 'broker_node_group_infos'),
         cluster_name=pulumi.get(__response__, 'cluster_name'),
         cluster_uuid=pulumi.get(__response__, 'cluster_uuid'),
+        customer_action_status=pulumi.get(__response__, 'customer_action_status'),
         id=pulumi.get(__response__, 'id'),
         kafka_version=pulumi.get(__response__, 'kafka_version'),
         number_of_broker_nodes=pulumi.get(__response__, 'number_of_broker_nodes'),

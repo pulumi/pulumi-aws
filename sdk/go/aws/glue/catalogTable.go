@@ -242,23 +242,23 @@ import (
 type CatalogTable struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Glue Table.
+	// ARN of the Glue Table.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	//
-	// The following arguments are optional:
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Description of the table.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block for open table formats. See `openTableFormatInput` below.
 	OpenTableFormatInput CatalogTableOpenTableFormatInputPtrOutput `pulumi:"openTableFormatInput"`
 	// Owner of the table.
 	Owner pulumi.StringPtrOutput `pulumi:"owner"`
-	// Properties associated with this table, as a list of key-value pairs.
+	// Properties associated with this table, as a map of key-value pairs.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices CatalogTablePartitionIndexArrayOutput `pulumi:"partitionIndices"`
@@ -274,7 +274,7 @@ type CatalogTable struct {
 	TableType pulumi.StringOutput `pulumi:"tableType"`
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTable CatalogTableTargetTablePtrOutput `pulumi:"targetTable"`
-	// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+	// Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
 	ViewDefinition CatalogTableViewDefinitionPtrOutput `pulumi:"viewDefinition"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrOutput `pulumi:"viewExpandedText"`
@@ -315,23 +315,23 @@ func GetCatalogTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CatalogTable resources.
 type catalogTableState struct {
-	// The ARN of the Glue Table.
+	// ARN of the Glue Table.
 	Arn *string `pulumi:"arn"`
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	//
-	// The following arguments are optional:
 	DatabaseName *string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Configuration block for open table formats. See `openTableFormatInput` below.
 	OpenTableFormatInput *CatalogTableOpenTableFormatInput `pulumi:"openTableFormatInput"`
 	// Owner of the table.
 	Owner *string `pulumi:"owner"`
-	// Properties associated with this table, as a list of key-value pairs.
+	// Properties associated with this table, as a map of key-value pairs.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
@@ -347,7 +347,7 @@ type catalogTableState struct {
 	TableType *string `pulumi:"tableType"`
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTable *CatalogTableTargetTable `pulumi:"targetTable"`
-	// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+	// Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
 	ViewDefinition *CatalogTableViewDefinition `pulumi:"viewDefinition"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText *string `pulumi:"viewExpandedText"`
@@ -356,23 +356,23 @@ type catalogTableState struct {
 }
 
 type CatalogTableState struct {
-	// The ARN of the Glue Table.
+	// ARN of the Glue Table.
 	Arn pulumi.StringPtrInput
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	//
-	// The following arguments are optional:
 	DatabaseName pulumi.StringPtrInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Configuration block for open table formats. See `openTableFormatInput` below.
 	OpenTableFormatInput CatalogTableOpenTableFormatInputPtrInput
 	// Owner of the table.
 	Owner pulumi.StringPtrInput
-	// Properties associated with this table, as a list of key-value pairs.
+	// Properties associated with this table, as a map of key-value pairs.
 	Parameters pulumi.StringMapInput
 	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices CatalogTablePartitionIndexArrayInput
@@ -388,7 +388,7 @@ type CatalogTableState struct {
 	TableType pulumi.StringPtrInput
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTable CatalogTableTargetTablePtrInput
-	// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+	// Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
 	ViewDefinition CatalogTableViewDefinitionPtrInput
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrInput
@@ -404,18 +404,18 @@ type catalogTableArgs struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId *string `pulumi:"catalogId"`
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	//
-	// The following arguments are optional:
 	DatabaseName string `pulumi:"databaseName"`
 	// Description of the table.
 	Description *string `pulumi:"description"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	//
+	// The following arguments are optional:
 	Name *string `pulumi:"name"`
 	// Configuration block for open table formats. See `openTableFormatInput` below.
 	OpenTableFormatInput *CatalogTableOpenTableFormatInput `pulumi:"openTableFormatInput"`
 	// Owner of the table.
 	Owner *string `pulumi:"owner"`
-	// Properties associated with this table, as a list of key-value pairs.
+	// Properties associated with this table, as a map of key-value pairs.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices []CatalogTablePartitionIndex `pulumi:"partitionIndices"`
@@ -431,7 +431,7 @@ type catalogTableArgs struct {
 	TableType *string `pulumi:"tableType"`
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTable *CatalogTableTargetTable `pulumi:"targetTable"`
-	// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+	// Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
 	ViewDefinition *CatalogTableViewDefinition `pulumi:"viewDefinition"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText *string `pulumi:"viewExpandedText"`
@@ -444,18 +444,18 @@ type CatalogTableArgs struct {
 	// ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
 	CatalogId pulumi.StringPtrInput
 	// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-	//
-	// The following arguments are optional:
 	DatabaseName pulumi.StringInput
 	// Description of the table.
 	Description pulumi.StringPtrInput
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringPtrInput
 	// Configuration block for open table formats. See `openTableFormatInput` below.
 	OpenTableFormatInput CatalogTableOpenTableFormatInputPtrInput
 	// Owner of the table.
 	Owner pulumi.StringPtrInput
-	// Properties associated with this table, as a list of key-value pairs.
+	// Properties associated with this table, as a map of key-value pairs.
 	Parameters pulumi.StringMapInput
 	// Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
 	PartitionIndices CatalogTablePartitionIndexArrayInput
@@ -471,7 +471,7 @@ type CatalogTableArgs struct {
 	TableType pulumi.StringPtrInput
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTable CatalogTableTargetTablePtrInput
-	// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+	// Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
 	ViewDefinition CatalogTableViewDefinitionPtrInput
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrInput
@@ -566,7 +566,7 @@ func (o CatalogTableOutput) ToCatalogTableOutputWithContext(ctx context.Context)
 	return o
 }
 
-// The ARN of the Glue Table.
+// ARN of the Glue Table.
 func (o CatalogTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -577,8 +577,6 @@ func (o CatalogTableOutput) CatalogId() pulumi.StringOutput {
 }
 
 // Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-//
-// The following arguments are optional:
 func (o CatalogTableOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
@@ -589,6 +587,8 @@ func (o CatalogTableOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Name of the table. For Hive compatibility, this must be entirely lowercase.
+//
+// The following arguments are optional:
 func (o CatalogTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -603,7 +603,7 @@ func (o CatalogTableOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringPtrOutput { return v.Owner }).(pulumi.StringPtrOutput)
 }
 
-// Properties associated with this table, as a list of key-value pairs.
+// Properties associated with this table, as a map of key-value pairs.
 func (o CatalogTableOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CatalogTable) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
@@ -643,7 +643,7 @@ func (o CatalogTableOutput) TargetTable() CatalogTableTargetTablePtrOutput {
 	return o.ApplyT(func(v *CatalogTable) CatalogTableTargetTablePtrOutput { return v.TargetTable }).(CatalogTableTargetTablePtrOutput)
 }
 
-// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+// Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
 func (o CatalogTableOutput) ViewDefinition() CatalogTableViewDefinitionPtrOutput {
 	return o.ApplyT(func(v *CatalogTable) CatalogTableViewDefinitionPtrOutput { return v.ViewDefinition }).(CatalogTableViewDefinitionPtrOutput)
 }

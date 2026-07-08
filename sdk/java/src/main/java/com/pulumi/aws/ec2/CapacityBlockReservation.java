@@ -55,14 +55,13 @@ import javax.annotation.Nullable;
  *             .capacityDurationHours(24)
  *             .endDateRange("2024-05-30T15:04:05Z")
  *             .instanceCount(1)
- *             .instanceType("p4d.24xlarge")
+ *             .instanceType("p5.4xlarge")
  *             .startDateRange("2024-04-28T15:04:05Z")
  *             .build());
  * 
  *         var example = new CapacityBlockReservation("example", CapacityBlockReservationArgs.builder()
  *             .capacityBlockOfferingId(test.capacityBlockOfferingId())
  *             .instancePlatform("Linux/UNIX")
- *             .tags(Map.of("Environment", "dev"))
  *             .build());
  * 
  *     }
@@ -173,6 +172,8 @@ public class CapacityBlockReservation extends com.pulumi.resources.CustomResourc
     }
     /**
      * The number of instances for which to reserve capacity.
+     * This value will not be set until the Capacity Block Reservation is active.
+     * The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
      * 
      */
     @Export(name="instanceCount", refs={Integer.class}, tree="[0]")
@@ -180,6 +181,8 @@ public class CapacityBlockReservation extends com.pulumi.resources.CustomResourc
 
     /**
      * @return The number of instances for which to reserve capacity.
+     * This value will not be set until the Capacity Block Reservation is active.
+     * The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
      * 
      */
     public Output<Integer> instanceCount() {

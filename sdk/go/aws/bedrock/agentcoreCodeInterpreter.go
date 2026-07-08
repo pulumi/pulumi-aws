@@ -116,6 +116,8 @@ import (
 type AgentcoreCodeInterpreter struct {
 	pulumi.CustomResourceState
 
+	// Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+	Certificates AgentcoreCodeInterpreterCertificateArrayOutput `pulumi:"certificates"`
 	// ARN of the Code Interpreter.
 	CodeInterpreterArn pulumi.StringOutput `pulumi:"codeInterpreterArn"`
 	// Unique identifier of the Code Interpreter.
@@ -172,6 +174,8 @@ func GetAgentcoreCodeInterpreter(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreCodeInterpreter resources.
 type agentcoreCodeInterpreterState struct {
+	// Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+	Certificates []AgentcoreCodeInterpreterCertificate `pulumi:"certificates"`
 	// ARN of the Code Interpreter.
 	CodeInterpreterArn *string `pulumi:"codeInterpreterArn"`
 	// Unique identifier of the Code Interpreter.
@@ -196,6 +200,8 @@ type agentcoreCodeInterpreterState struct {
 }
 
 type AgentcoreCodeInterpreterState struct {
+	// Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+	Certificates AgentcoreCodeInterpreterCertificateArrayInput
 	// ARN of the Code Interpreter.
 	CodeInterpreterArn pulumi.StringPtrInput
 	// Unique identifier of the Code Interpreter.
@@ -224,6 +230,8 @@ func (AgentcoreCodeInterpreterState) ElementType() reflect.Type {
 }
 
 type agentcoreCodeInterpreterArgs struct {
+	// Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+	Certificates []AgentcoreCodeInterpreterCertificate `pulumi:"certificates"`
 	// Description of the code interpreter.
 	Description *string `pulumi:"description"`
 	// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
@@ -243,6 +251,8 @@ type agentcoreCodeInterpreterArgs struct {
 
 // The set of arguments for constructing a AgentcoreCodeInterpreter resource.
 type AgentcoreCodeInterpreterArgs struct {
+	// Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+	Certificates AgentcoreCodeInterpreterCertificateArrayInput
 	// Description of the code interpreter.
 	Description pulumi.StringPtrInput
 	// ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
@@ -345,6 +355,13 @@ func (o AgentcoreCodeInterpreterOutput) ToAgentcoreCodeInterpreterOutput() Agent
 
 func (o AgentcoreCodeInterpreterOutput) ToAgentcoreCodeInterpreterOutputWithContext(ctx context.Context) AgentcoreCodeInterpreterOutput {
 	return o
+}
+
+// Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+func (o AgentcoreCodeInterpreterOutput) Certificates() AgentcoreCodeInterpreterCertificateArrayOutput {
+	return o.ApplyT(func(v *AgentcoreCodeInterpreter) AgentcoreCodeInterpreterCertificateArrayOutput {
+		return v.Certificates
+	}).(AgentcoreCodeInterpreterCertificateArrayOutput)
 }
 
 // ARN of the Code Interpreter.

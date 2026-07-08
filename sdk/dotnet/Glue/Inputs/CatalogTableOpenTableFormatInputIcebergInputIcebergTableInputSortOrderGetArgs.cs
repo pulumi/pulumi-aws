@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Glue.Inputs
         private InputList<Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldGetArgs>? _fields;
 
         /// <summary>
-        /// The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `Fields` below.
+        /// List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
         /// </summary>
         public InputList<Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldGetArgs> Fields
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The unique identifier for this sort order specification within the Iceberg table's metadata.
+        /// Unique identifier for this sort order specification within the Iceberg table's metadata.
         /// </summary>
         [Input("orderId", required: true)]
         public Input<int> OrderId { get; set; } = null!;

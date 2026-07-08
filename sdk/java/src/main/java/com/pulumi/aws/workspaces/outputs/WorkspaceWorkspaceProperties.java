@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WorkspaceWorkspaceProperties {
     /**
-     * @return The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+     * @return The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GENERALPURPOSE_4XLARGE`, `GENERALPURPOSE_8XLARGE`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, `GRAPHICSPRO_G4DN`, `GRAPHICS_G6_XLARGE`, `GRAPHICS_G6_2XLARGE`, `GRAPHICS_G6_4XLARGE`, `GRAPHICS_G6_8XLARGE`, `GRAPHICS_G6_16XLARGE`, `GRAPHICS_GR6_4XLARGE`, `GRAPHICS_GR6_8XLARGE`, `GRAPHICS_G6F_LARGE`, `GRAPHICS_G6F_XLARGE`, `GRAPHICS_G6F_2XLARGE`, `GRAPHICS_G6F_4XLARGE`, and `GRAPHICS_GR6F_4XLARGE`.
      * 
      */
     private @Nullable String computeTypeName;
@@ -40,7 +40,7 @@ public final class WorkspaceWorkspaceProperties {
 
     private WorkspaceWorkspaceProperties() {}
     /**
-     * @return The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+     * @return The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GENERALPURPOSE_4XLARGE`, `GENERALPURPOSE_8XLARGE`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, `GRAPHICSPRO_G4DN`, `GRAPHICS_G6_XLARGE`, `GRAPHICS_G6_2XLARGE`, `GRAPHICS_G6_4XLARGE`, `GRAPHICS_G6_8XLARGE`, `GRAPHICS_G6_16XLARGE`, `GRAPHICS_GR6_4XLARGE`, `GRAPHICS_GR6_8XLARGE`, `GRAPHICS_G6F_LARGE`, `GRAPHICS_G6F_XLARGE`, `GRAPHICS_G6F_2XLARGE`, `GRAPHICS_G6F_4XLARGE`, and `GRAPHICS_GR6F_4XLARGE`.
      * 
      */
     public Optional<String> computeTypeName() {

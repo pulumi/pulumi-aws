@@ -3,12 +3,16 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserBrowserSigningArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserCertificateArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserEnterprisePolicyArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserNetworkConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserRecordingArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -50,6 +54,36 @@ public final class AgentcoreBrowserState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+     * 
+     */
+    @Import(name="browserSigning")
+    private @Nullable Output<AgentcoreBrowserBrowserSigningArgs> browserSigning;
+
+    /**
+     * @return Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+     * 
+     */
+    public Optional<Output<AgentcoreBrowserBrowserSigningArgs>> browserSigning() {
+        return Optional.ofNullable(this.browserSigning);
+    }
+
+    /**
+     * Certificates to install in the browser. See `certificate` below.
+     * 
+     */
+    @Import(name="certificates")
+    private @Nullable Output<List<AgentcoreBrowserCertificateArgs>> certificates;
+
+    /**
+     * @return Certificates to install in the browser. See `certificate` below.
+     * 
+     */
+    public Optional<Output<List<AgentcoreBrowserCertificateArgs>>> certificates() {
+        return Optional.ofNullable(this.certificates);
+    }
+
+    /**
      * Description of the browser.
      * 
      */
@@ -62,6 +96,21 @@ public final class AgentcoreBrowserState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+     * 
+     */
+    @Import(name="enterprisePolicies")
+    private @Nullable Output<List<AgentcoreBrowserEnterprisePolicyArgs>> enterprisePolicies;
+
+    /**
+     * @return Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+     * 
+     */
+    public Optional<Output<List<AgentcoreBrowserEnterprisePolicyArgs>>> enterprisePolicies() {
+        return Optional.ofNullable(this.enterprisePolicies);
     }
 
     /**
@@ -185,7 +234,10 @@ public final class AgentcoreBrowserState extends com.pulumi.resources.ResourceAr
     private AgentcoreBrowserState(AgentcoreBrowserState $) {
         this.browserArn = $.browserArn;
         this.browserId = $.browserId;
+        this.browserSigning = $.browserSigning;
+        this.certificates = $.certificates;
         this.description = $.description;
+        this.enterprisePolicies = $.enterprisePolicies;
         this.executionRoleArn = $.executionRoleArn;
         this.name = $.name;
         this.networkConfiguration = $.networkConfiguration;
@@ -257,6 +309,58 @@ public final class AgentcoreBrowserState extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param browserSigning Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder browserSigning(@Nullable Output<AgentcoreBrowserBrowserSigningArgs> browserSigning) {
+            $.browserSigning = browserSigning;
+            return this;
+        }
+
+        /**
+         * @param browserSigning Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder browserSigning(AgentcoreBrowserBrowserSigningArgs browserSigning) {
+            return browserSigning(Output.of(browserSigning));
+        }
+
+        /**
+         * @param certificates Certificates to install in the browser. See `certificate` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificates(@Nullable Output<List<AgentcoreBrowserCertificateArgs>> certificates) {
+            $.certificates = certificates;
+            return this;
+        }
+
+        /**
+         * @param certificates Certificates to install in the browser. See `certificate` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificates(List<AgentcoreBrowserCertificateArgs> certificates) {
+            return certificates(Output.of(certificates));
+        }
+
+        /**
+         * @param certificates Certificates to install in the browser. See `certificate` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificates(AgentcoreBrowserCertificateArgs... certificates) {
+            return certificates(List.of(certificates));
+        }
+
+        /**
          * @param description Description of the browser.
          * 
          * @return builder
@@ -275,6 +379,37 @@ public final class AgentcoreBrowserState extends com.pulumi.resources.ResourceAr
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param enterprisePolicies Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enterprisePolicies(@Nullable Output<List<AgentcoreBrowserEnterprisePolicyArgs>> enterprisePolicies) {
+            $.enterprisePolicies = enterprisePolicies;
+            return this;
+        }
+
+        /**
+         * @param enterprisePolicies Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enterprisePolicies(List<AgentcoreBrowserEnterprisePolicyArgs> enterprisePolicies) {
+            return enterprisePolicies(Output.of(enterprisePolicies));
+        }
+
+        /**
+         * @param enterprisePolicies Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enterprisePolicies(AgentcoreBrowserEnterprisePolicyArgs... enterprisePolicies) {
+            return enterprisePolicies(List.of(enterprisePolicies));
         }
 
         /**

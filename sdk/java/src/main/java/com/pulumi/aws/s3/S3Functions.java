@@ -9,6 +9,8 @@ import com.pulumi.aws.s3.inputs.GetAccessPointPlainArgs;
 import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
 import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockPlainArgs;
 import com.pulumi.aws.s3.inputs.GetBucketArgs;
+import com.pulumi.aws.s3.inputs.GetBucketNotificationArgs;
+import com.pulumi.aws.s3.inputs.GetBucketNotificationPlainArgs;
 import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
 import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationArgs;
 import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationPlainArgs;
@@ -36,6 +38,7 @@ import com.pulumi.aws.s3.inputs.GetObjectsArgs;
 import com.pulumi.aws.s3.inputs.GetObjectsPlainArgs;
 import com.pulumi.aws.s3.outputs.GetAccessPointResult;
 import com.pulumi.aws.s3.outputs.GetAccountPublicAccessBlockResult;
+import com.pulumi.aws.s3.outputs.GetBucketNotificationResult;
 import com.pulumi.aws.s3.outputs.GetBucketObjectLockConfigurationResult;
 import com.pulumi.aws.s3.outputs.GetBucketObjectResult;
 import com.pulumi.aws.s3.outputs.GetBucketObjectsResult;
@@ -1066,6 +1069,736 @@ public final class S3Functions {
      */
     public static CompletableFuture<GetBucketResult> getBucketPlain(GetBucketPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:s3/getBucket:getBucket", TypeShape.of(GetBucketResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about the notification configuration of an S3 bucket.
+     * 
+     * Useful when `aws.s3.BucketNotification` is the right resource but the bucket already has notifications you do not manage. Read the existing notifications with this data source and re-emit them — alongside your own — in a single `aws.s3.BucketNotification` resource. See issue #501 for the longer story. For sharing a bucket across many independent consumers, enabling EventBridge on the resource is usually a better fit.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketNotificationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketNotification(GetBucketNotificationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Conditionally Subscribe via EventBridge
+     * 
+     * When the bucket forwards events to Amazon EventBridge, independent consumers can subscribe with their own `aws.cloudwatch.EventRule` resources. Use this data source to subscribe only when EventBridge is in fact enabled on the bucket.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketNotificationArgs;
+     * import com.pulumi.aws.cloudwatch.EventRule;
+     * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var shared = S3Functions.getBucketNotification(GetBucketNotificationArgs.builder()
+     *             .bucket("shared-bucket")
+     *             .build());
+     * 
+     *         for (var i = 0; i < shared.eventbridge() ? 1 : 0; i++) {
+     *             new EventRule("s3ObjectCreated-" + i, EventRuleArgs.builder()
+     *                 .name("shared-bucket-object-created")
+     *                 .description("S3 object-created events from the shared bucket.")
+     *                 .eventPattern(serializeJson(
+     *                     jsonObject(
+     *                         jsonProperty("source", jsonArray("aws.s3")),
+     *                         jsonProperty("detail-type", jsonArray("Object Created")),
+     *                         jsonProperty("detail", jsonObject(
+     *                             jsonProperty("bucket", jsonObject(
+     *                                 jsonProperty("name", jsonArray(shared.bucket()))
+     *                             ))
+     *                         ))
+     *                     )))
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Read Existing Notifications and Re-emit Them
+     * 
+     * The S3 [`PutBucketNotificationConfiguration`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html) API replaces the entire notification configuration on every call, so a single `aws.s3.BucketNotification` resource owns the bucket. To preserve notifications already on the bucket — or to mirror one bucket&#39;s configuration onto another — read them with this data source and pass them through `dynamic` blocks. The data source&#39;s output shape matches the resource&#39;s input shape, so each block forwards directly.
+     * 
+     * To add a new rule alongside existing ones, exclude IDs your resource owns from the iteration to avoid duplicates, and declare those rules separately:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.BucketNotification;
+     * import com.pulumi.aws.s3.BucketNotificationArgs;
+     * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new BucketNotification("example", BucketNotificationArgs.builder()
+     *             .lambdaFunctions(BucketNotificationLambdaFunctionArgs.builder()
+     *                 .id("my-team-rule")
+     *                 .lambdaFunctionArn(mine.arn())
+     *                 .events("s3:ObjectRemoved:*")
+     *                 .build())
+     *             .bucket(exampleAwsS3Bucket.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note:** The S3 API has no per-rule mutation primitive and no compare-and-swap, so two `pulumi up` runs from different state files writing to the same bucket can still race. For independent consumers of one bucket, EventBridge is generally a better fit.
+     * 
+     */
+    public static Output<GetBucketNotificationResult> getBucketNotification(GetBucketNotificationArgs args) {
+        return getBucketNotification(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about the notification configuration of an S3 bucket.
+     * 
+     * Useful when `aws.s3.BucketNotification` is the right resource but the bucket already has notifications you do not manage. Read the existing notifications with this data source and re-emit them — alongside your own — in a single `aws.s3.BucketNotification` resource. See issue #501 for the longer story. For sharing a bucket across many independent consumers, enabling EventBridge on the resource is usually a better fit.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketNotificationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketNotification(GetBucketNotificationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Conditionally Subscribe via EventBridge
+     * 
+     * When the bucket forwards events to Amazon EventBridge, independent consumers can subscribe with their own `aws.cloudwatch.EventRule` resources. Use this data source to subscribe only when EventBridge is in fact enabled on the bucket.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketNotificationArgs;
+     * import com.pulumi.aws.cloudwatch.EventRule;
+     * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var shared = S3Functions.getBucketNotification(GetBucketNotificationArgs.builder()
+     *             .bucket("shared-bucket")
+     *             .build());
+     * 
+     *         for (var i = 0; i < shared.eventbridge() ? 1 : 0; i++) {
+     *             new EventRule("s3ObjectCreated-" + i, EventRuleArgs.builder()
+     *                 .name("shared-bucket-object-created")
+     *                 .description("S3 object-created events from the shared bucket.")
+     *                 .eventPattern(serializeJson(
+     *                     jsonObject(
+     *                         jsonProperty("source", jsonArray("aws.s3")),
+     *                         jsonProperty("detail-type", jsonArray("Object Created")),
+     *                         jsonProperty("detail", jsonObject(
+     *                             jsonProperty("bucket", jsonObject(
+     *                                 jsonProperty("name", jsonArray(shared.bucket()))
+     *                             ))
+     *                         ))
+     *                     )))
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Read Existing Notifications and Re-emit Them
+     * 
+     * The S3 [`PutBucketNotificationConfiguration`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html) API replaces the entire notification configuration on every call, so a single `aws.s3.BucketNotification` resource owns the bucket. To preserve notifications already on the bucket — or to mirror one bucket&#39;s configuration onto another — read them with this data source and pass them through `dynamic` blocks. The data source&#39;s output shape matches the resource&#39;s input shape, so each block forwards directly.
+     * 
+     * To add a new rule alongside existing ones, exclude IDs your resource owns from the iteration to avoid duplicates, and declare those rules separately:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.BucketNotification;
+     * import com.pulumi.aws.s3.BucketNotificationArgs;
+     * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new BucketNotification("example", BucketNotificationArgs.builder()
+     *             .lambdaFunctions(BucketNotificationLambdaFunctionArgs.builder()
+     *                 .id("my-team-rule")
+     *                 .lambdaFunctionArn(mine.arn())
+     *                 .events("s3:ObjectRemoved:*")
+     *                 .build())
+     *             .bucket(exampleAwsS3Bucket.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note:** The S3 API has no per-rule mutation primitive and no compare-and-swap, so two `pulumi up` runs from different state files writing to the same bucket can still race. For independent consumers of one bucket, EventBridge is generally a better fit.
+     * 
+     */
+    public static CompletableFuture<GetBucketNotificationResult> getBucketNotificationPlain(GetBucketNotificationPlainArgs args) {
+        return getBucketNotificationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about the notification configuration of an S3 bucket.
+     * 
+     * Useful when `aws.s3.BucketNotification` is the right resource but the bucket already has notifications you do not manage. Read the existing notifications with this data source and re-emit them — alongside your own — in a single `aws.s3.BucketNotification` resource. See issue #501 for the longer story. For sharing a bucket across many independent consumers, enabling EventBridge on the resource is usually a better fit.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketNotificationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketNotification(GetBucketNotificationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Conditionally Subscribe via EventBridge
+     * 
+     * When the bucket forwards events to Amazon EventBridge, independent consumers can subscribe with their own `aws.cloudwatch.EventRule` resources. Use this data source to subscribe only when EventBridge is in fact enabled on the bucket.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketNotificationArgs;
+     * import com.pulumi.aws.cloudwatch.EventRule;
+     * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var shared = S3Functions.getBucketNotification(GetBucketNotificationArgs.builder()
+     *             .bucket("shared-bucket")
+     *             .build());
+     * 
+     *         for (var i = 0; i < shared.eventbridge() ? 1 : 0; i++) {
+     *             new EventRule("s3ObjectCreated-" + i, EventRuleArgs.builder()
+     *                 .name("shared-bucket-object-created")
+     *                 .description("S3 object-created events from the shared bucket.")
+     *                 .eventPattern(serializeJson(
+     *                     jsonObject(
+     *                         jsonProperty("source", jsonArray("aws.s3")),
+     *                         jsonProperty("detail-type", jsonArray("Object Created")),
+     *                         jsonProperty("detail", jsonObject(
+     *                             jsonProperty("bucket", jsonObject(
+     *                                 jsonProperty("name", jsonArray(shared.bucket()))
+     *                             ))
+     *                         ))
+     *                     )))
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Read Existing Notifications and Re-emit Them
+     * 
+     * The S3 [`PutBucketNotificationConfiguration`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html) API replaces the entire notification configuration on every call, so a single `aws.s3.BucketNotification` resource owns the bucket. To preserve notifications already on the bucket — or to mirror one bucket&#39;s configuration onto another — read them with this data source and pass them through `dynamic` blocks. The data source&#39;s output shape matches the resource&#39;s input shape, so each block forwards directly.
+     * 
+     * To add a new rule alongside existing ones, exclude IDs your resource owns from the iteration to avoid duplicates, and declare those rules separately:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.BucketNotification;
+     * import com.pulumi.aws.s3.BucketNotificationArgs;
+     * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new BucketNotification("example", BucketNotificationArgs.builder()
+     *             .lambdaFunctions(BucketNotificationLambdaFunctionArgs.builder()
+     *                 .id("my-team-rule")
+     *                 .lambdaFunctionArn(mine.arn())
+     *                 .events("s3:ObjectRemoved:*")
+     *                 .build())
+     *             .bucket(exampleAwsS3Bucket.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note:** The S3 API has no per-rule mutation primitive and no compare-and-swap, so two `pulumi up` runs from different state files writing to the same bucket can still race. For independent consumers of one bucket, EventBridge is generally a better fit.
+     * 
+     */
+    public static Output<GetBucketNotificationResult> getBucketNotification(GetBucketNotificationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getBucketNotification:getBucketNotification", TypeShape.of(GetBucketNotificationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about the notification configuration of an S3 bucket.
+     * 
+     * Useful when `aws.s3.BucketNotification` is the right resource but the bucket already has notifications you do not manage. Read the existing notifications with this data source and re-emit them — alongside your own — in a single `aws.s3.BucketNotification` resource. See issue #501 for the longer story. For sharing a bucket across many independent consumers, enabling EventBridge on the resource is usually a better fit.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketNotificationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketNotification(GetBucketNotificationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Conditionally Subscribe via EventBridge
+     * 
+     * When the bucket forwards events to Amazon EventBridge, independent consumers can subscribe with their own `aws.cloudwatch.EventRule` resources. Use this data source to subscribe only when EventBridge is in fact enabled on the bucket.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketNotificationArgs;
+     * import com.pulumi.aws.cloudwatch.EventRule;
+     * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var shared = S3Functions.getBucketNotification(GetBucketNotificationArgs.builder()
+     *             .bucket("shared-bucket")
+     *             .build());
+     * 
+     *         for (var i = 0; i < shared.eventbridge() ? 1 : 0; i++) {
+     *             new EventRule("s3ObjectCreated-" + i, EventRuleArgs.builder()
+     *                 .name("shared-bucket-object-created")
+     *                 .description("S3 object-created events from the shared bucket.")
+     *                 .eventPattern(serializeJson(
+     *                     jsonObject(
+     *                         jsonProperty("source", jsonArray("aws.s3")),
+     *                         jsonProperty("detail-type", jsonArray("Object Created")),
+     *                         jsonProperty("detail", jsonObject(
+     *                             jsonProperty("bucket", jsonObject(
+     *                                 jsonProperty("name", jsonArray(shared.bucket()))
+     *                             ))
+     *                         ))
+     *                     )))
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Read Existing Notifications and Re-emit Them
+     * 
+     * The S3 [`PutBucketNotificationConfiguration`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html) API replaces the entire notification configuration on every call, so a single `aws.s3.BucketNotification` resource owns the bucket. To preserve notifications already on the bucket — or to mirror one bucket&#39;s configuration onto another — read them with this data source and pass them through `dynamic` blocks. The data source&#39;s output shape matches the resource&#39;s input shape, so each block forwards directly.
+     * 
+     * To add a new rule alongside existing ones, exclude IDs your resource owns from the iteration to avoid duplicates, and declare those rules separately:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.BucketNotification;
+     * import com.pulumi.aws.s3.BucketNotificationArgs;
+     * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new BucketNotification("example", BucketNotificationArgs.builder()
+     *             .lambdaFunctions(BucketNotificationLambdaFunctionArgs.builder()
+     *                 .id("my-team-rule")
+     *                 .lambdaFunctionArn(mine.arn())
+     *                 .events("s3:ObjectRemoved:*")
+     *                 .build())
+     *             .bucket(exampleAwsS3Bucket.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note:** The S3 API has no per-rule mutation primitive and no compare-and-swap, so two `pulumi up` runs from different state files writing to the same bucket can still race. For independent consumers of one bucket, EventBridge is generally a better fit.
+     * 
+     */
+    public static Output<GetBucketNotificationResult> getBucketNotification(GetBucketNotificationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getBucketNotification:getBucketNotification", TypeShape.of(GetBucketNotificationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about the notification configuration of an S3 bucket.
+     * 
+     * Useful when `aws.s3.BucketNotification` is the right resource but the bucket already has notifications you do not manage. Read the existing notifications with this data source and re-emit them — alongside your own — in a single `aws.s3.BucketNotification` resource. See issue #501 for the longer story. For sharing a bucket across many independent consumers, enabling EventBridge on the resource is usually a better fit.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketNotificationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketNotification(GetBucketNotificationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Conditionally Subscribe via EventBridge
+     * 
+     * When the bucket forwards events to Amazon EventBridge, independent consumers can subscribe with their own `aws.cloudwatch.EventRule` resources. Use this data source to subscribe only when EventBridge is in fact enabled on the bucket.
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketNotificationArgs;
+     * import com.pulumi.aws.cloudwatch.EventRule;
+     * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+     * import static com.pulumi.codegen.internal.Serialization.*;
+     * import com.pulumi.codegen.internal.KeyedValue;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var shared = S3Functions.getBucketNotification(GetBucketNotificationArgs.builder()
+     *             .bucket("shared-bucket")
+     *             .build());
+     * 
+     *         for (var i = 0; i < shared.eventbridge() ? 1 : 0; i++) {
+     *             new EventRule("s3ObjectCreated-" + i, EventRuleArgs.builder()
+     *                 .name("shared-bucket-object-created")
+     *                 .description("S3 object-created events from the shared bucket.")
+     *                 .eventPattern(serializeJson(
+     *                     jsonObject(
+     *                         jsonProperty("source", jsonArray("aws.s3")),
+     *                         jsonProperty("detail-type", jsonArray("Object Created")),
+     *                         jsonProperty("detail", jsonObject(
+     *                             jsonProperty("bucket", jsonObject(
+     *                                 jsonProperty("name", jsonArray(shared.bucket()))
+     *                             ))
+     *                         ))
+     *                     )))
+     *                 .build());
+     * 
+     *         
+     * }
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Read Existing Notifications and Re-emit Them
+     * 
+     * The S3 [`PutBucketNotificationConfiguration`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html) API replaces the entire notification configuration on every call, so a single `aws.s3.BucketNotification` resource owns the bucket. To preserve notifications already on the bucket — or to mirror one bucket&#39;s configuration onto another — read them with this data source and pass them through `dynamic` blocks. The data source&#39;s output shape matches the resource&#39;s input shape, so each block forwards directly.
+     * 
+     * To add a new rule alongside existing ones, exclude IDs your resource owns from the iteration to avoid duplicates, and declare those rules separately:
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.BucketNotification;
+     * import com.pulumi.aws.s3.BucketNotificationArgs;
+     * import com.pulumi.aws.s3.inputs.BucketNotificationLambdaFunctionArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new BucketNotification("example", BucketNotificationArgs.builder()
+     *             .lambdaFunctions(BucketNotificationLambdaFunctionArgs.builder()
+     *                 .id("my-team-rule")
+     *                 .lambdaFunctionArn(mine.arn())
+     *                 .events("s3:ObjectRemoved:*")
+     *                 .build())
+     *             .bucket(exampleAwsS3Bucket.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note:** The S3 API has no per-rule mutation primitive and no compare-and-swap, so two `pulumi up` runs from different state files writing to the same bucket can still race. For independent consumers of one bucket, EventBridge is generally a better fit.
+     * 
+     */
+    public static CompletableFuture<GetBucketNotificationResult> getBucketNotificationPlain(GetBucketNotificationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:s3/getBucketNotification:getBucketNotification", TypeShape.of(GetBucketNotificationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * &gt; **NOTE:** The `aws.s3.BucketObject` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.BucketObjectv2` instead, where new features and fixes will be added.

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableViewDefinition
     {
         /// <summary>
-        /// The definer of a view in SQL.
+        /// Definer of a view in SQL.
         /// </summary>
         public readonly string? Definer;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly int? RefreshSeconds;
         /// <summary>
-        /// A list of structures that contains the dialect of the view, and the query that defines the view. See `Representations` below.
+        /// List of structures that contains the dialect of the view, and the query that defines the view. See `Representations` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.CatalogTableViewDefinitionRepresentation> Representations;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableArray<int> SubObjectVersionIds;
         /// <summary>
-        /// A list of base table ARNs that make up the view.
+        /// List of base table ARNs that make up the view.
         /// </summary>
         public readonly ImmutableArray<string> SubObjects;
         /// <summary>

@@ -16,50 +16,50 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema {
     /**
-     * @return The list of field definitions that make up the table schema. See `fields` below.
+     * @return List of field definitions that make up the table schema. See `schema.fields` below.
      * 
      */
     private List<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField> fields;
     /**
-     * @return The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+     * @return List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
      * 
      */
     private @Nullable List<Integer> identifierFieldIds;
     /**
-     * @return The unique identifier for this schema version within the Iceberg table&#39;s schema evolution history.
+     * @return Unique identifier for this schema version within the Iceberg table&#39;s schema evolution history.
      * 
      */
     private @Nullable Integer schemaId;
     /**
-     * @return The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `&#34;long&#34;`, `&#34;string&#34;`, `&#34;timestamp&#34;`, `&#34;decimal(10,2)&#34;`.
+     * @return Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `&#34;long&#34;`, `&#34;string&#34;`, `&#34;timestamp&#34;`, `&#34;decimal(10,2)&#34;`.
      * 
      */
     private @Nullable String type;
 
     private CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema() {}
     /**
-     * @return The list of field definitions that make up the table schema. See `fields` below.
+     * @return List of field definitions that make up the table schema. See `schema.fields` below.
      * 
      */
     public List<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField> fields() {
         return this.fields;
     }
     /**
-     * @return The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+     * @return List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
      * 
      */
     public List<Integer> identifierFieldIds() {
         return this.identifierFieldIds == null ? List.of() : this.identifierFieldIds;
     }
     /**
-     * @return The unique identifier for this schema version within the Iceberg table&#39;s schema evolution history.
+     * @return Unique identifier for this schema version within the Iceberg table&#39;s schema evolution history.
      * 
      */
     public Optional<Integer> schemaId() {
         return Optional.ofNullable(this.schemaId);
     }
     /**
-     * @return The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `&#34;long&#34;`, `&#34;string&#34;`, `&#34;timestamp&#34;`, `&#34;decimal(10,2)&#34;`.
+     * @return Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `&#34;long&#34;`, `&#34;string&#34;`, `&#34;timestamp&#34;`, `&#34;decimal(10,2)&#34;`.
      * 
      */
     public Optional<String> type() {

@@ -33,14 +33,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputArgs extends com.
     }
 
     /**
-     * A required metadata operation. Can only be set to CREATE.
+     * Required metadata operation. Can only be set to CREATE.
      * 
      */
     @Import(name="metadataOperation", required=true)
     private Output<String> metadataOperation;
 
     /**
-     * @return A required metadata operation. Can only be set to CREATE.
+     * @return Required metadata operation. Can only be set to CREATE.
      * 
      */
     public Output<String> metadataOperation() {
@@ -48,14 +48,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputArgs extends com.
     }
 
     /**
-     * The table version for the Iceberg table. Defaults to 2.
+     * Table version for the Iceberg table. Defaults to 2.
      * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
 
     /**
-     * @return The table version for the Iceberg table. Defaults to 2.
+     * @return Table version for the Iceberg table. Defaults to 2.
      * 
      */
     public Optional<Output<String>> version() {
@@ -110,7 +110,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputArgs extends com.
         }
 
         /**
-         * @param metadataOperation A required metadata operation. Can only be set to CREATE.
+         * @param metadataOperation Required metadata operation. Can only be set to CREATE.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputArgs extends com.
         }
 
         /**
-         * @param metadataOperation A required metadata operation. Can only be set to CREATE.
+         * @param metadataOperation Required metadata operation. Can only be set to CREATE.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputArgs extends com.
         }
 
         /**
-         * @param version The table version for the Iceberg table. Defaults to 2.
+         * @param version Table version for the Iceberg table. Defaults to 2.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputArgs extends com.
         }
 
         /**
-         * @param version The table version for the Iceberg table. Defaults to 2.
+         * @param version Table version for the Iceberg table. Defaults to 2.
          * 
          * @return builder
          * 

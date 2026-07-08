@@ -259,7 +259,18 @@ class LogResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch log resource policies using the policy name for account-scoped policies, or the ARN of the CloudWatch Logs resource to which the policy is attached for resource-scoped policies. For example:
+        ### Identity Schema
+
+        Exactly one of `policy_name` or `resource_arn` must be configured.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `policy_name` (String) Name of the resource policy.
+        * `region` (String) Region where this resource is managed.
+        * `resource_arn` (String) ARN of the resource to which the policy is attached.
+
+        Using `pulumi import`, import Resource Policies using `policy_name` for account-scoped policies, or `resource_arn` for resource-scoped policies. For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy my_policy_account_scoped my_policy
@@ -335,7 +346,18 @@ class LogResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch log resource policies using the policy name for account-scoped policies, or the ARN of the CloudWatch Logs resource to which the policy is attached for resource-scoped policies. For example:
+        ### Identity Schema
+
+        Exactly one of `policy_name` or `resource_arn` must be configured.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `policy_name` (String) Name of the resource policy.
+        * `region` (String) Region where this resource is managed.
+        * `resource_arn` (String) ARN of the resource to which the policy is attached.
+
+        Using `pulumi import`, import Resource Policies using `policy_name` for account-scoped policies, or `resource_arn` for resource-scoped policies. For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy my_policy_account_scoped my_policy

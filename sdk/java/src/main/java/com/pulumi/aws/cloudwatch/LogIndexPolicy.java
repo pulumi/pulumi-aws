@@ -64,7 +64,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import CloudWatch Logs Index Policy using the `logGroupName`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `logGroupName` (String) Name of the log group.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Index Policies using `logGroupName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:cloudwatch/logIndexPolicy:LogIndexPolicy example /aws/log/group/name

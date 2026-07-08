@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     public sealed class GetRestApiEndpointConfigurationResult
     {
         /// <summary>
-        /// The IP address types that can invoke an API (RestApi).
+        /// IP address types that can invoke a REST API.
         /// </summary>
         public readonly string IpAddressType;
         /// <summary>

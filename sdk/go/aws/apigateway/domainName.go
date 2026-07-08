@@ -204,7 +204,7 @@ type DomainName struct {
 	CloudfrontZoneId pulumi.StringOutput `pulumi:"cloudfrontZoneId"`
 	// Fully-qualified domain name to register.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// The identifier for the domain name resource. Supported only for private custom domain names.
+	// Identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId pulumi.StringOutput `pulumi:"domainNameId"`
 	// Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
 	EndpointAccessMode pulumi.StringPtrOutput `pulumi:"endpointAccessMode"`
@@ -214,13 +214,11 @@ type DomainName struct {
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrOutput `pulumi:"mutualTlsAuthentication"`
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn pulumi.StringOutput `pulumi:"ownershipVerificationCertificateArn"`
-	// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+	// Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
 	Policy pulumi.StringPtrOutput `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-	//
-	// When uploading a certificate, the following arguments are supported:
 	RegionalCertificateArn pulumi.StringPtrOutput `pulumi:"regionalCertificateArn"`
 	// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateName pulumi.StringPtrOutput `pulumi:"regionalCertificateName"`
@@ -233,8 +231,6 @@ type DomainName struct {
 	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
 	SecurityPolicy pulumi.StringOutput `pulumi:"securityPolicy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -300,7 +296,7 @@ type domainNameState struct {
 	CloudfrontZoneId *string `pulumi:"cloudfrontZoneId"`
 	// Fully-qualified domain name to register.
 	DomainName *string `pulumi:"domainName"`
-	// The identifier for the domain name resource. Supported only for private custom domain names.
+	// Identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId *string `pulumi:"domainNameId"`
 	// Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
 	EndpointAccessMode *string `pulumi:"endpointAccessMode"`
@@ -310,13 +306,11 @@ type domainNameState struct {
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
-	// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+	// Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-	//
-	// When uploading a certificate, the following arguments are supported:
 	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
 	// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateName *string `pulumi:"regionalCertificateName"`
@@ -329,8 +323,6 @@ type domainNameState struct {
 	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -357,7 +349,7 @@ type DomainNameState struct {
 	CloudfrontZoneId pulumi.StringPtrInput
 	// Fully-qualified domain name to register.
 	DomainName pulumi.StringPtrInput
-	// The identifier for the domain name resource. Supported only for private custom domain names.
+	// Identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId pulumi.StringPtrInput
 	// Endpoint access mode of the DomainName. Only available for domain names that use security policies that start with `SecurityPolicy_`. Valid values: `BASIC`, `STRICT`.
 	EndpointAccessMode pulumi.StringPtrInput
@@ -367,13 +359,11 @@ type DomainNameState struct {
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput
-	// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+	// Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-	//
-	// When uploading a certificate, the following arguments are supported:
 	RegionalCertificateArn pulumi.StringPtrInput
 	// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateName pulumi.StringPtrInput
@@ -386,8 +376,6 @@ type DomainNameState struct {
 	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
 	SecurityPolicy pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -418,13 +406,11 @@ type domainNameArgs struct {
 	MutualTlsAuthentication *DomainNameMutualTlsAuthentication `pulumi:"mutualTlsAuthentication"`
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
-	// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+	// Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
 	Policy *string `pulumi:"policy"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-	//
-	// When uploading a certificate, the following arguments are supported:
 	RegionalCertificateArn *string `pulumi:"regionalCertificateArn"`
 	// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateName *string `pulumi:"regionalCertificateName"`
@@ -433,8 +419,6 @@ type domainNameArgs struct {
 	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -460,13 +444,11 @@ type DomainNameArgs struct {
 	MutualTlsAuthentication DomainNameMutualTlsAuthenticationPtrInput
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput
-	// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+	// Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
 	Policy pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-	//
-	// When uploading a certificate, the following arguments are supported:
 	RegionalCertificateArn pulumi.StringPtrInput
 	// User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
 	RegionalCertificateName pulumi.StringPtrInput
@@ -475,8 +457,6 @@ type DomainNameArgs struct {
 	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
 	SecurityPolicy pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// When referencing an AWS-managed certificate, the following arguments are supported:
 	Tags pulumi.StringMapInput
 }
 
@@ -617,7 +597,7 @@ func (o DomainNameOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
-// The identifier for the domain name resource. Supported only for private custom domain names.
+// Identifier for the domain name resource. Supported only for private custom domain names.
 func (o DomainNameOutput) DomainNameId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.DomainNameId }).(pulumi.StringOutput)
 }
@@ -642,7 +622,7 @@ func (o DomainNameOutput) OwnershipVerificationCertificateArn() pulumi.StringOut
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.OwnershipVerificationCertificateArn }).(pulumi.StringOutput)
 }
 
-// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+// Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
 func (o DomainNameOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.Policy }).(pulumi.StringPtrOutput)
 }
@@ -653,8 +633,6 @@ func (o DomainNameOutput) Region() pulumi.StringOutput {
 }
 
 // ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-//
-// When uploading a certificate, the following arguments are supported:
 func (o DomainNameOutput) RegionalCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.RegionalCertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -685,8 +663,6 @@ func (o DomainNameOutput) SecurityPolicy() pulumi.StringOutput {
 }
 
 // Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// When referencing an AWS-managed certificate, the following arguments are supported:
 func (o DomainNameOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

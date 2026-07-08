@@ -83,6 +83,8 @@ type LookupClusterResult struct {
 	ClusterName          string                          `pulumi:"clusterName"`
 	// UUID of the MSK cluster, for use in IAM policies.
 	ClusterUuid string `pulumi:"clusterUuid"`
+	// Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+	CustomerActionStatus string `pulumi:"customerActionStatus"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Apache Kafka version.
@@ -92,7 +94,7 @@ type LookupClusterResult struct {
 	Region              string `pulumi:"region"`
 	// Map of key-value pairs assigned to the cluster.
 	Tags map[string]string `pulumi:"tags"`
-	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString string `pulumi:"zookeeperConnectString"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectStringTls string `pulumi:"zookeeperConnectStringTls"`
@@ -190,6 +192,11 @@ func (o LookupClusterResultOutput) ClusterUuid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterUuid }).(pulumi.StringOutput)
 }
 
+// Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+func (o LookupClusterResultOutput) CustomerActionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.CustomerActionStatus }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
@@ -214,7 +221,7 @@ func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 func (o LookupClusterResultOutput) ZookeeperConnectString() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ZookeeperConnectString }).(pulumi.StringOutput)
 }

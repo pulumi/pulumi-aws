@@ -19,14 +19,14 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
     public static final CloudFormationStackArgs Empty = new CloudFormationStackArgs();
 
     /**
-     * The ARN of the application from the Serverless Application Repository.
+     * ARN of the application from the Serverless Application Repository.
      * 
      */
     @Import(name="applicationId", required=true)
     private Output<String> applicationId;
 
     /**
-     * @return The ARN of the application from the Serverless Application Repository.
+     * @return ARN of the application from the Serverless Application Repository.
      * 
      */
     public Output<String> applicationId() {
@@ -34,29 +34,29 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+     * List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
      * 
      */
-    @Import(name="capabilities", required=true)
-    private Output<List<String>> capabilities;
+    @Import(name="capabilities")
+    private @Nullable Output<List<String>> capabilities;
 
     /**
-     * @return A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+     * @return List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
      * 
      */
-    public Output<List<String>> capabilities() {
-        return this.capabilities;
+    public Optional<Output<List<String>>> capabilities() {
+        return Optional.ofNullable(this.capabilities);
     }
 
     /**
-     * The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+     * Name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+     * @return Name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
      * 
      */
     public Optional<Output<String>> name() {
@@ -64,14 +64,14 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A map of Parameter structures that specify input parameters for the stack.
+     * Map of Parameter structures that specify input parameters for the stack.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return A map of Parameter structures that specify input parameters for the stack.
+     * @return Map of Parameter structures that specify input parameters for the stack.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -94,14 +94,14 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * The version of the application to deploy. If not supplied, deploys the latest version.
+     * Version of the application to deploy. If not supplied, deploys the latest version.
      * 
      */
     @Import(name="semanticVersion")
     private @Nullable Output<String> semanticVersion;
 
     /**
-     * @return The version of the application to deploy. If not supplied, deploys the latest version.
+     * @return Version of the application to deploy. If not supplied, deploys the latest version.
      * 
      */
     public Optional<Output<String>> semanticVersion() {
@@ -109,14 +109,14 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -154,7 +154,7 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param applicationId The ARN of the application from the Serverless Application Repository.
+         * @param applicationId ARN of the application from the Serverless Application Repository.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param applicationId The ARN of the application from the Serverless Application Repository.
+         * @param applicationId ARN of the application from the Serverless Application Repository.
          * 
          * @return builder
          * 
@@ -175,18 +175,18 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param capabilities A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+         * @param capabilities List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
          * 
          * @return builder
          * 
          */
-        public Builder capabilities(Output<List<String>> capabilities) {
+        public Builder capabilities(@Nullable Output<List<String>> capabilities) {
             $.capabilities = capabilities;
             return this;
         }
 
         /**
-         * @param capabilities A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+         * @param capabilities List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param capabilities A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+         * @param capabilities List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+         * @param name Name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+         * @param name Name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param parameters A map of Parameter structures that specify input parameters for the stack.
+         * @param parameters Map of Parameter structures that specify input parameters for the stack.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param parameters A map of Parameter structures that specify input parameters for the stack.
+         * @param parameters Map of Parameter structures that specify input parameters for the stack.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param semanticVersion The version of the application to deploy. If not supplied, deploys the latest version.
+         * @param semanticVersion Version of the application to deploy. If not supplied, deploys the latest version.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param semanticVersion The version of the application to deploy. If not supplied, deploys the latest version.
+         * @param semanticVersion Version of the application to deploy. If not supplied, deploys the latest version.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param tags A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -313,9 +313,6 @@ public final class CloudFormationStackArgs extends com.pulumi.resources.Resource
         public CloudFormationStackArgs build() {
             if ($.applicationId == null) {
                 throw new MissingRequiredPropertyException("CloudFormationStackArgs", "applicationId");
-            }
-            if ($.capabilities == null) {
-                throw new MissingRequiredPropertyException("CloudFormationStackArgs", "capabilities");
             }
             return $;
         }

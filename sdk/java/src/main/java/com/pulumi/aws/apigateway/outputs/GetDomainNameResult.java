@@ -61,7 +61,7 @@ public final class GetDomainNameResult {
      */
     private String id;
     /**
-     * @return A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * @return Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
      * 
      */
     private String policy;
@@ -168,7 +168,7 @@ public final class GetDomainNameResult {
         return this.id;
     }
     /**
-     * @return A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * @return Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
      * 
      */
     public String policy() {

@@ -94,7 +94,7 @@ namespace Pulumi.Aws.ApiGateway
         public string DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// Identifier for the domain name resource. Supported only for private custom domain names.
         /// </summary>
         [Input("domainNameId")]
         public string? DomainNameId { get; set; }
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
-        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// Identifier for the domain name resource. Supported only for private custom domain names.
         /// </summary>
         [Input("domainNameId")]
         public Input<string>? DomainNameId { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        /// Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         /// </summary>
         public readonly string Policy;
         public readonly string Region;

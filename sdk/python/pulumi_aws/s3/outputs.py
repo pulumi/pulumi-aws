@@ -190,6 +190,9 @@ __all__ = [
     'VectorsVectorBucketEncryptionConfiguration',
     'GetAccessPointPublicAccessBlockConfigurationResult',
     'GetAccessPointVpcConfigurationResult',
+    'GetBucketNotificationLambdaFunctionResult',
+    'GetBucketNotificationQueueResult',
+    'GetBucketNotificationTopicResult',
     'GetBucketObjectLockConfigurationRuleResult',
     'GetBucketObjectLockConfigurationRuleDefaultRetentionResult',
     'GetBucketReplicationConfigurationRuleResult',
@@ -8809,6 +8812,192 @@ class GetAccessPointVpcConfigurationResult(dict):
         Access point will only allow connections from this VPC.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class GetBucketNotificationLambdaFunctionResult(dict):
+    def __init__(__self__, *,
+                 events: Sequence[_builtins.str],
+                 filter_prefix: _builtins.str,
+                 filter_suffix: _builtins.str,
+                 id: _builtins.str,
+                 lambda_function_arn: _builtins.str):
+        """
+        :param Sequence[_builtins.str] events: [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+        :param _builtins.str filter_prefix: Object key name prefix.
+        :param _builtins.str filter_suffix: Object key name suffix.
+        :param _builtins.str id: Unique identifier for the notification configuration.
+        :param _builtins.str lambda_function_arn: ARN of the Lambda function.
+        """
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "filter_prefix", filter_prefix)
+        pulumi.set(__self__, "filter_suffix", filter_suffix)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "lambda_function_arn", lambda_function_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def events(self) -> Sequence[_builtins.str]:
+        """
+        [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+        """
+        return pulumi.get(self, "events")
+
+    @_builtins.property
+    @pulumi.getter(name="filterPrefix")
+    def filter_prefix(self) -> _builtins.str:
+        """
+        Object key name prefix.
+        """
+        return pulumi.get(self, "filter_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="filterSuffix")
+    def filter_suffix(self) -> _builtins.str:
+        """
+        Object key name suffix.
+        """
+        return pulumi.get(self, "filter_suffix")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Unique identifier for the notification configuration.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="lambdaFunctionArn")
+    def lambda_function_arn(self) -> _builtins.str:
+        """
+        ARN of the Lambda function.
+        """
+        return pulumi.get(self, "lambda_function_arn")
+
+
+@pulumi.output_type
+class GetBucketNotificationQueueResult(dict):
+    def __init__(__self__, *,
+                 events: Sequence[_builtins.str],
+                 filter_prefix: _builtins.str,
+                 filter_suffix: _builtins.str,
+                 id: _builtins.str,
+                 queue_arn: _builtins.str):
+        """
+        :param Sequence[_builtins.str] events: [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+        :param _builtins.str filter_prefix: Object key name prefix.
+        :param _builtins.str filter_suffix: Object key name suffix.
+        :param _builtins.str id: Unique identifier for the notification configuration.
+        :param _builtins.str queue_arn: ARN of the SQS queue.
+        """
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "filter_prefix", filter_prefix)
+        pulumi.set(__self__, "filter_suffix", filter_suffix)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "queue_arn", queue_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def events(self) -> Sequence[_builtins.str]:
+        """
+        [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+        """
+        return pulumi.get(self, "events")
+
+    @_builtins.property
+    @pulumi.getter(name="filterPrefix")
+    def filter_prefix(self) -> _builtins.str:
+        """
+        Object key name prefix.
+        """
+        return pulumi.get(self, "filter_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="filterSuffix")
+    def filter_suffix(self) -> _builtins.str:
+        """
+        Object key name suffix.
+        """
+        return pulumi.get(self, "filter_suffix")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Unique identifier for the notification configuration.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="queueArn")
+    def queue_arn(self) -> _builtins.str:
+        """
+        ARN of the SQS queue.
+        """
+        return pulumi.get(self, "queue_arn")
+
+
+@pulumi.output_type
+class GetBucketNotificationTopicResult(dict):
+    def __init__(__self__, *,
+                 events: Sequence[_builtins.str],
+                 filter_prefix: _builtins.str,
+                 filter_suffix: _builtins.str,
+                 id: _builtins.str,
+                 topic_arn: _builtins.str):
+        """
+        :param Sequence[_builtins.str] events: [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+        :param _builtins.str filter_prefix: Object key name prefix.
+        :param _builtins.str filter_suffix: Object key name suffix.
+        :param _builtins.str id: Unique identifier for the notification configuration.
+        :param _builtins.str topic_arn: ARN of the SNS topic.
+        """
+        pulumi.set(__self__, "events", events)
+        pulumi.set(__self__, "filter_prefix", filter_prefix)
+        pulumi.set(__self__, "filter_suffix", filter_suffix)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "topic_arn", topic_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def events(self) -> Sequence[_builtins.str]:
+        """
+        [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+        """
+        return pulumi.get(self, "events")
+
+    @_builtins.property
+    @pulumi.getter(name="filterPrefix")
+    def filter_prefix(self) -> _builtins.str:
+        """
+        Object key name prefix.
+        """
+        return pulumi.get(self, "filter_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="filterSuffix")
+    def filter_suffix(self) -> _builtins.str:
+        """
+        Object key name suffix.
+        """
+        return pulumi.get(self, "filter_suffix")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        Unique identifier for the notification configuration.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> _builtins.str:
+        """
+        ARN of the SNS topic.
+        """
+        return pulumi.get(self, "topic_arn")
 
 
 @pulumi.output_type

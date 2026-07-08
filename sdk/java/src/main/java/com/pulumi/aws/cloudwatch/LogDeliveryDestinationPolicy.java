@@ -54,7 +54,18 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import CloudWatch Logs Delivery Destination Policy using the `deliveryDestinationName`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `deliveryDestinationName` (String) Name of the delivery destination
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Delivery Destination Policies using `deliveryDestinationName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy example example

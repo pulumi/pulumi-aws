@@ -19,14 +19,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     public static final CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs Empty = new CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs();
 
     /**
-     * The list of partition fields that define how the table data should be partitioned. See `fields` below.
+     * List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
      * 
      */
     @Import(name="fields", required=true)
     private Output<List<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs>> fields;
 
     /**
-     * @return The list of partition fields that define how the table data should be partitioned. See `fields` below.
+     * @return List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
      * 
      */
     public Output<List<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs>> fields() {
@@ -34,14 +34,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     }
 
     /**
-     * The unique identifier for this partition specification within the Iceberg table&#39;s metadata history.
+     * Unique identifier for this partition specification within the Iceberg table&#39;s metadata history.
      * 
      */
     @Import(name="specId")
     private @Nullable Output<Integer> specId;
 
     /**
-     * @return The unique identifier for this partition specification within the Iceberg table&#39;s metadata history.
+     * @return Unique identifier for this partition specification within the Iceberg table&#39;s metadata history.
      * 
      */
     public Optional<Output<Integer>> specId() {
@@ -74,7 +74,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param fields The list of partition fields that define how the table data should be partitioned. See `fields` below.
+         * @param fields List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param fields The list of partition fields that define how the table data should be partitioned. See `fields` below.
+         * @param fields List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
          * 
          * @return builder
          * 
@@ -95,7 +95,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param fields The list of partition fields that define how the table data should be partitioned. See `fields` below.
+         * @param fields List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param specId The unique identifier for this partition specification within the Iceberg table&#39;s metadata history.
+         * @param specId Unique identifier for this partition specification within the Iceberg table&#39;s metadata history.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param specId The unique identifier for this partition specification within the Iceberg table&#39;s metadata history.
+         * @param specId Unique identifier for this partition specification within the Iceberg table&#39;s metadata history.
          * 
          * @return builder
          * 

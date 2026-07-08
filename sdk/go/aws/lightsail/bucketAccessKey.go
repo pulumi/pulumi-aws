@@ -81,6 +81,10 @@ func NewBucketAccessKey(ctx *pulumi.Context,
 	if args.BucketName == nil {
 		return nil, errors.New("invalid value for required argument 'BucketName'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"secretAccessKey",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketAccessKey
 	err := ctx.RegisterResource("aws:lightsail/bucketAccessKey:BucketAccessKey", name, args, &resource, opts...)

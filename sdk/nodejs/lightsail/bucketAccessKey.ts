@@ -113,6 +113,8 @@ export class BucketAccessKey extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["secretAccessKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(BucketAccessKey.__pulumiType, name, resourceInputs, opts);
     }
 }

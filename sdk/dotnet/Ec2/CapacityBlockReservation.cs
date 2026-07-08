@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Ec2
     ///         CapacityDurationHours = 24,
     ///         EndDateRange = "2024-05-30T15:04:05Z",
     ///         InstanceCount = 1,
-    ///         InstanceType = "p4d.24xlarge",
+    ///         InstanceType = "p5.4xlarge",
     ///         StartDateRange = "2024-04-28T15:04:05Z",
     ///     });
     /// 
@@ -39,10 +39,6 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         CapacityBlockOfferingId = test.Apply(getCapacityBlockOfferingResult =&gt; getCapacityBlockOfferingResult.CapacityBlockOfferingId),
     ///         InstancePlatform = "Linux/UNIX",
-    ///         Tags = 
-    ///         {
-    ///             { "Environment", "dev" },
-    ///         },
     ///     });
     /// 
     /// });
@@ -95,6 +91,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The number of instances for which to reserve capacity.
+        /// This value will not be set until the Capacity Block Reservation is active.
+        /// The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
         /// </summary>
         [Output("instanceCount")]
         public Output<int> InstanceCount { get; private set; } = null!;
@@ -293,6 +291,8 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// The number of instances for which to reserve capacity.
+        /// This value will not be set until the Capacity Block Reservation is active.
+        /// The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
         /// </summary>
         [Input("instanceCount")]
         public Input<int>? InstanceCount { get; set; }

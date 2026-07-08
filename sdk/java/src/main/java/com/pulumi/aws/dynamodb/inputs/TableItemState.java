@@ -31,6 +31,21 @@ public final class TableItemState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+     * 
+     */
+    @Import(name="hashKeyValue")
+    private @Nullable Output<String> hashKeyValue;
+
+    /**
+     * @return Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+     * 
+     */
+    public Optional<Output<String>> hashKeyValue() {
+        return Optional.ofNullable(this.hashKeyValue);
+    }
+
+    /**
      * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      * 
      */
@@ -58,6 +73,21 @@ public final class TableItemState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> rangeKey() {
         return Optional.ofNullable(this.rangeKey);
+    }
+
+    /**
+     * Canonical string representation of the range key value, when the table has a range key. Same encoding as `hashKeyValue`.
+     * 
+     */
+    @Import(name="rangeKeyValue")
+    private @Nullable Output<String> rangeKeyValue;
+
+    /**
+     * @return Canonical string representation of the range key value, when the table has a range key. Same encoding as `hashKeyValue`.
+     * 
+     */
+    public Optional<Output<String>> rangeKeyValue() {
+        return Optional.ofNullable(this.rangeKeyValue);
     }
 
     /**
@@ -98,8 +128,10 @@ public final class TableItemState extends com.pulumi.resources.ResourceArgs {
 
     private TableItemState(TableItemState $) {
         this.hashKey = $.hashKey;
+        this.hashKeyValue = $.hashKeyValue;
         this.item = $.item;
         this.rangeKey = $.rangeKey;
+        this.rangeKeyValue = $.rangeKeyValue;
         this.region = $.region;
         this.tableName = $.tableName;
     }
@@ -144,6 +176,27 @@ public final class TableItemState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param hashKeyValue Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hashKeyValue(@Nullable Output<String> hashKeyValue) {
+            $.hashKeyValue = hashKeyValue;
+            return this;
+        }
+
+        /**
+         * @param hashKeyValue Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hashKeyValue(String hashKeyValue) {
+            return hashKeyValue(Output.of(hashKeyValue));
+        }
+
+        /**
          * @param item JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
          * 
          * @return builder
@@ -183,6 +236,27 @@ public final class TableItemState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder rangeKey(String rangeKey) {
             return rangeKey(Output.of(rangeKey));
+        }
+
+        /**
+         * @param rangeKeyValue Canonical string representation of the range key value, when the table has a range key. Same encoding as `hashKeyValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rangeKeyValue(@Nullable Output<String> rangeKeyValue) {
+            $.rangeKeyValue = rangeKeyValue;
+            return this;
+        }
+
+        /**
+         * @param rangeKeyValue Canonical string representation of the range key value, when the table has a range key. Same encoding as `hashKeyValue`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rangeKeyValue(String rangeKeyValue) {
+            return rangeKeyValue(Output.of(rangeKeyValue));
         }
 
         /**

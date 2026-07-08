@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+        /// S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `PartitionSpec` below.
+        /// Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `PartitionSpec` below.
         /// </summary>
         [Input("partitionSpec")]
         public Input<Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecGetArgs>? PartitionSpec { get; set; }
@@ -37,13 +37,13 @@ namespace Pulumi.Aws.Glue.Inputs
         }
 
         /// <summary>
-        /// The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `Schema` below.
+        /// Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `Schema` below.
         /// </summary>
         [Input("schema", required: true)]
         public Input<Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaGetArgs> Schema { get; set; } = null!;
 
         /// <summary>
-        /// The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `SortOrder` below.
+        /// Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `SortOrder` below.
         /// </summary>
         [Input("sortOrder")]
         public Input<Inputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderGetArgs>? SortOrder { get; set; }

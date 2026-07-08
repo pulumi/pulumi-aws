@@ -250,6 +250,19 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `resourceId` - (String) Resource type and unique identifier string for the resource associated with the scalable target.
+ * * `scalableDimension` - (String) Scalable dimension of the scalable target.
+ * * `serviceNamespace` - (String) AWS service namespace of the scalable target.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
  * 
  * ```sh

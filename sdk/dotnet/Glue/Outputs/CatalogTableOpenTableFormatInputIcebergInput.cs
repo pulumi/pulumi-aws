@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly Outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput? IcebergTableInput;
         /// <summary>
-        /// A required metadata operation. Can only be set to CREATE.
+        /// Required metadata operation. Can only be set to CREATE.
         /// </summary>
         public readonly string MetadataOperation;
         /// <summary>
-        /// The table version for the Iceberg table. Defaults to 2.
+        /// Table version for the Iceberg table. Defaults to 2.
         /// </summary>
         public readonly string? Version;
 

@@ -172,7 +172,7 @@ class GetDomainNameResult:
     @pulumi.getter
     def policy(self) -> _builtins.str:
         """
-        A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         """
         return pulumi.get(self, "policy")
 
@@ -276,7 +276,7 @@ def get_domain_name(domain_name: Optional[_builtins.str] = None,
 
 
     :param _builtins.str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
-    :param _builtins.str domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+    :param _builtins.str domain_name_id: Identifier for the domain name resource. Supported only for private custom domain names.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value map of tags for the resource.
     """
@@ -327,7 +327,7 @@ def get_domain_name_output(domain_name: pulumi.Input[Optional[_builtins.str]] = 
 
 
     :param _builtins.str domain_name: Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
-    :param _builtins.str domain_name_id: The identifier for the domain name resource. Supported only for private custom domain names.
+    :param _builtins.str domain_name_id: Identifier for the domain name resource. Supported only for private custom domain names.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Key-value map of tags for the resource.
     """

@@ -72,16 +72,45 @@ import (
 //
 // ## Import
 //
-// You cannot import DynamoDB table items.
+// ### Identity Schema
+//
+// #### Required
+//
+// * `tableName` (String) Name of the DynamoDB table.
+// * `hashKeyValue` (String) Canonical value of the hash key (base64 for `B`, verbatim for `N` and `S`).
+//
+// #### Optional
+//
+// * `rangeKeyValue` (String) Canonical value of the range key, required for tables that define a range key.
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// For tables with a range key, append the range key value:
+//
+// Use `pulumi import` for the same effect on the command line:
+//
+// ```sh
+// $ pulumi import aws:dynamodb/tableItem:TableItem example example-name,something
+// ```
+//
+// > **Note:** Importing requires `dynamodb:DescribeTable` in addition to `dynamodb:GetItem`. The DescribeTable call is used to recover the key attribute names and types from the table's schema.
+//
+// > **Note:** If a hash key or range key value contains the separator character (`,`), use the `import` block with the `identity` attribute. The legacy `pulumi import` command and `id`-based `import` block cannot disambiguate separators from value content.
+//
+// For Binary (`B`) key attributes, the value in the import ID and the identity attribute must be standard base64.
 type TableItem struct {
 	pulumi.CustomResourceState
 
 	// Hash key to use for lookups and identification of the item
 	HashKey pulumi.StringOutput `pulumi:"hashKey"`
+	// Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+	HashKeyValue pulumi.StringOutput `pulumi:"hashKeyValue"`
 	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
 	Item pulumi.StringOutput `pulumi:"item"`
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
+	// Canonical string representation of the range key value, when the table has a range key. Same encoding as `hashKeyValue`.
+	RangeKeyValue pulumi.StringOutput `pulumi:"rangeKeyValue"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Name or ARN of the table to contain the item.
@@ -131,10 +160,14 @@ func GetTableItem(ctx *pulumi.Context,
 type tableItemState struct {
 	// Hash key to use for lookups and identification of the item
 	HashKey *string `pulumi:"hashKey"`
+	// Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+	HashKeyValue *string `pulumi:"hashKeyValue"`
 	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
 	Item *string `pulumi:"item"`
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey *string `pulumi:"rangeKey"`
+	// Canonical string representation of the range key value, when the table has a range key. Same encoding as `hashKeyValue`.
+	RangeKeyValue *string `pulumi:"rangeKeyValue"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Name or ARN of the table to contain the item.
@@ -146,10 +179,14 @@ type tableItemState struct {
 type TableItemState struct {
 	// Hash key to use for lookups and identification of the item
 	HashKey pulumi.StringPtrInput
+	// Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+	HashKeyValue pulumi.StringPtrInput
 	// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
 	Item pulumi.StringPtrInput
 	// Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 	RangeKey pulumi.StringPtrInput
+	// Canonical string representation of the range key value, when the table has a range key. Same encoding as `hashKeyValue`.
+	RangeKeyValue pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Name or ARN of the table to contain the item.
@@ -285,6 +322,11 @@ func (o TableItemOutput) HashKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableItem) pulumi.StringOutput { return v.HashKey }).(pulumi.StringOutput)
 }
 
+// Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+func (o TableItemOutput) HashKeyValue() pulumi.StringOutput {
+	return o.ApplyT(func(v *TableItem) pulumi.StringOutput { return v.HashKeyValue }).(pulumi.StringOutput)
+}
+
 // JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
 func (o TableItemOutput) Item() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableItem) pulumi.StringOutput { return v.Item }).(pulumi.StringOutput)
@@ -293,6 +335,11 @@ func (o TableItemOutput) Item() pulumi.StringOutput {
 // Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
 func (o TableItemOutput) RangeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableItem) pulumi.StringPtrOutput { return v.RangeKey }).(pulumi.StringPtrOutput)
+}
+
+// Canonical string representation of the range key value, when the table has a range key. Same encoding as `hashKeyValue`.
+func (o TableItemOutput) RangeKeyValue() pulumi.StringOutput {
+	return o.ApplyT(func(v *TableItem) pulumi.StringOutput { return v.RangeKeyValue }).(pulumi.StringOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

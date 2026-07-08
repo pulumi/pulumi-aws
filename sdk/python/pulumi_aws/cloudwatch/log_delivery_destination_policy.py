@@ -156,7 +156,18 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch Logs Delivery Destination Policy using the `delivery_destination_name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `delivery_destination_name` (String) Name of the delivery destination
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Delivery Destination Policies using `delivery_destination_name`. For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy example example
@@ -193,7 +204,18 @@ class LogDeliveryDestinationPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch Logs Delivery Destination Policy using the `delivery_destination_name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `delivery_destination_name` (String) Name of the delivery destination
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Delivery Destination Policies using `delivery_destination_name`. For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy example example

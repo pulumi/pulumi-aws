@@ -35,18 +35,33 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     }
 
     /**
-     * By default this is set to `false`. When set to true the phone number can’t be deleted.
+     * Whether deletion protection is enabled. When `true`, the phone number cannot be deleted.
      * 
      */
     @Import(name="deletionProtectionEnabled")
     private @Nullable Output<Boolean> deletionProtectionEnabled;
 
     /**
-     * @return By default this is set to `false`. When set to true the phone number can’t be deleted.
+     * @return Whether deletion protection is enabled. When `true`, the phone number cannot be deleted.
      * 
      */
     public Optional<Output<Boolean>> deletionProtectionEnabled() {
         return Optional.ofNullable(this.deletionProtectionEnabled);
+    }
+
+    /**
+     * Whether to disassociate the phone number from any pool it is associated with before destroying it.
+     * 
+     */
+    @Import(name="forceDisassociate")
+    private @Nullable Output<Boolean> forceDisassociate;
+
+    /**
+     * @return Whether to disassociate the phone number from any pool it is associated with before destroying it.
+     * 
+     */
+    public Optional<Output<Boolean>> forceDisassociate() {
+        return Optional.ofNullable(this.forceDisassociate);
     }
 
     /**
@@ -112,6 +127,8 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     /**
      * Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="numberType")
     private @Nullable Output<String> numberType;
@@ -119,20 +136,22 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     /**
      * @return Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Optional<Output<String>> numberType() {
         return Optional.ofNullable(this.numberType);
     }
 
     /**
-     * Name of the opt-out list to associate with the phone number.
+     * Name of the opt-out list to associate with the phone number. If omitted, AWS assigns the `Default` opt-out list.
      * 
      */
     @Import(name="optOutListName")
     private @Nullable Output<String> optOutListName;
 
     /**
-     * @return Name of the opt-out list to associate with the phone number.
+     * @return Name of the opt-out list to associate with the phone number. If omitted, AWS assigns the `Default` opt-out list.
      * 
      */
     public Optional<Output<String>> optOutListName() {
@@ -252,14 +271,14 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     }
 
     /**
-     * By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+     * Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
      * 
      */
     @Import(name="twoWayChannelEnabled")
     private @Nullable Output<Boolean> twoWayChannelEnabled;
 
     /**
-     * @return By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+     * @return Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
      * 
      */
     public Optional<Output<Boolean>> twoWayChannelEnabled() {
@@ -286,6 +305,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
     private Smsvoicev2PhoneNumberState(Smsvoicev2PhoneNumberState $) {
         this.arn = $.arn;
         this.deletionProtectionEnabled = $.deletionProtectionEnabled;
+        this.forceDisassociate = $.forceDisassociate;
         this.isoCountryCode = $.isoCountryCode;
         this.messageType = $.messageType;
         this.monthlyLeasingPrice = $.monthlyLeasingPrice;
@@ -344,7 +364,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param deletionProtectionEnabled By default this is set to `false`. When set to true the phone number can’t be deleted.
+         * @param deletionProtectionEnabled Whether deletion protection is enabled. When `true`, the phone number cannot be deleted.
          * 
          * @return builder
          * 
@@ -355,13 +375,34 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param deletionProtectionEnabled By default this is set to `false`. When set to true the phone number can’t be deleted.
+         * @param deletionProtectionEnabled Whether deletion protection is enabled. When `true`, the phone number cannot be deleted.
          * 
          * @return builder
          * 
          */
         public Builder deletionProtectionEnabled(Boolean deletionProtectionEnabled) {
             return deletionProtectionEnabled(Output.of(deletionProtectionEnabled));
+        }
+
+        /**
+         * @param forceDisassociate Whether to disassociate the phone number from any pool it is associated with before destroying it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDisassociate(@Nullable Output<Boolean> forceDisassociate) {
+            $.forceDisassociate = forceDisassociate;
+            return this;
+        }
+
+        /**
+         * @param forceDisassociate Whether to disassociate the phone number from any pool it is associated with before destroying it.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDisassociate(Boolean forceDisassociate) {
+            return forceDisassociate(Output.of(forceDisassociate));
         }
 
         /**
@@ -461,6 +502,8 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         /**
          * @param numberType Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -472,6 +515,8 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         /**
          * @param numberType Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -480,7 +525,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param optOutListName Name of the opt-out list to associate with the phone number.
+         * @param optOutListName Name of the opt-out list to associate with the phone number. If omitted, AWS assigns the `Default` opt-out list.
          * 
          * @return builder
          * 
@@ -491,7 +536,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param optOutListName Name of the opt-out list to associate with the phone number.
+         * @param optOutListName Name of the opt-out list to associate with the phone number. If omitted, AWS assigns the `Default` opt-out list.
          * 
          * @return builder
          * 
@@ -657,7 +702,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param twoWayChannelEnabled By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+         * @param twoWayChannelEnabled Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
          * 
          * @return builder
          * 
@@ -668,7 +713,7 @@ public final class Smsvoicev2PhoneNumberState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param twoWayChannelEnabled By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+         * @param twoWayChannelEnabled Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
          * 
          * @return builder
          * 

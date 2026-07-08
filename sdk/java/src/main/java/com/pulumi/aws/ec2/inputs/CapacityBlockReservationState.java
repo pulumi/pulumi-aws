@@ -126,6 +126,8 @@ public final class CapacityBlockReservationState extends com.pulumi.resources.Re
 
     /**
      * The number of instances for which to reserve capacity.
+     * This value will not be set until the Capacity Block Reservation is active.
+     * The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
      * 
      */
     @Import(name="instanceCount")
@@ -133,6 +135,8 @@ public final class CapacityBlockReservationState extends com.pulumi.resources.Re
 
     /**
      * @return The number of instances for which to reserve capacity.
+     * This value will not be set until the Capacity Block Reservation is active.
+     * The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
      * 
      */
     public Optional<Output<Integer>> instanceCount() {
@@ -487,6 +491,8 @@ public final class CapacityBlockReservationState extends com.pulumi.resources.Re
 
         /**
          * @param instanceCount The number of instances for which to reserve capacity.
+         * This value will not be set until the Capacity Block Reservation is active.
+         * The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
          * 
          * @return builder
          * 
@@ -498,6 +504,8 @@ public final class CapacityBlockReservationState extends com.pulumi.resources.Re
 
         /**
          * @param instanceCount The number of instances for which to reserve capacity.
+         * This value will not be set until the Capacity Block Reservation is active.
+         * The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
          * 
          * @return builder
          * 

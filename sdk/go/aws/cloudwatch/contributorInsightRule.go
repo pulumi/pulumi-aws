@@ -46,10 +46,21 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `ruleName`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `ruleName` (String) Name of the rule.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Contributor Insight Rules using `ruleName`. For example:
 //
 // ```sh
-// $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
+// $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example example-rule
 // ```
 type ContributorInsightRule struct {
 	pulumi.CustomResourceState
@@ -65,7 +76,7 @@ type ContributorInsightRule struct {
 	// The following arguments are optional:
 	RuleName pulumi.StringOutput `pulumi:"ruleName"`
 	// State of the rule. Valid values are `ENABLED` and `DISABLED`.
-	RuleState pulumi.StringPtrOutput `pulumi:"ruleState"`
+	RuleState pulumi.StringOutput    `pulumi:"ruleState"`
 	Tags      pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -282,8 +293,8 @@ func (o ContributorInsightRuleOutput) RuleName() pulumi.StringOutput {
 }
 
 // State of the rule. Valid values are `ENABLED` and `DISABLED`.
-func (o ContributorInsightRuleOutput) RuleState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ContributorInsightRule) pulumi.StringPtrOutput { return v.RuleState }).(pulumi.StringPtrOutput)
+func (o ContributorInsightRuleOutput) RuleState() pulumi.StringOutput {
+	return o.ApplyT(func(v *ContributorInsightRule) pulumi.StringOutput { return v.RuleState }).(pulumi.StringOutput)
 }
 
 func (o ContributorInsightRuleOutput) Tags() pulumi.StringMapOutput {

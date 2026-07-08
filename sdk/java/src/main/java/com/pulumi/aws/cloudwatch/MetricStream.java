@@ -234,10 +234,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import CloudWatch metric streams using the `name`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) Name of the metric stream.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Metric Streams using `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
+ * $ pulumi import aws:cloudwatch/metricStream:MetricStream example example-stream
  * ```
  * 
  */

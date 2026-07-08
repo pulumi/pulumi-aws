@@ -30,6 +30,7 @@ from .agentcore_oauth2_credential_provider import *
 from .agentcore_online_evaluation_config import *
 from .agentcore_policy import *
 from .agentcore_policy_engine import *
+from .agentcore_registry import *
 from .agentcore_resource_policy import *
 from .agentcore_token_vault_cmk import *
 from .agentcore_workload_identity import *
@@ -39,9 +40,11 @@ from .get_custom_model import *
 from .get_custom_models import *
 from .get_inference_profile import *
 from .get_inference_profiles import *
+from .get_use_case_for_model_access import *
 from .guardrail import *
 from .guardrail_version import *
 from .inference_profile import *
 from .provisioned_model_throughput import *
+from .use_case_for_model_access import *
 from ._inputs import *
 from . import outputs

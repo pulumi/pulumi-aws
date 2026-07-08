@@ -24928,6 +24928,405 @@ func (o GetAccessPointVpcConfigurationArrayOutput) Index(i pulumi.IntInput) GetA
 	}).(GetAccessPointVpcConfigurationOutput)
 }
 
+type GetBucketNotificationLambdaFunction struct {
+	// [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+	Events []string `pulumi:"events"`
+	// Object key name prefix.
+	FilterPrefix string `pulumi:"filterPrefix"`
+	// Object key name suffix.
+	FilterSuffix string `pulumi:"filterSuffix"`
+	// Unique identifier for the notification configuration.
+	Id string `pulumi:"id"`
+	// ARN of the Lambda function.
+	LambdaFunctionArn string `pulumi:"lambdaFunctionArn"`
+}
+
+// GetBucketNotificationLambdaFunctionInput is an input type that accepts GetBucketNotificationLambdaFunctionArgs and GetBucketNotificationLambdaFunctionOutput values.
+// You can construct a concrete instance of `GetBucketNotificationLambdaFunctionInput` via:
+//
+//	GetBucketNotificationLambdaFunctionArgs{...}
+type GetBucketNotificationLambdaFunctionInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationLambdaFunctionOutput() GetBucketNotificationLambdaFunctionOutput
+	ToGetBucketNotificationLambdaFunctionOutputWithContext(context.Context) GetBucketNotificationLambdaFunctionOutput
+}
+
+type GetBucketNotificationLambdaFunctionArgs struct {
+	// [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// Object key name prefix.
+	FilterPrefix pulumi.StringInput `pulumi:"filterPrefix"`
+	// Object key name suffix.
+	FilterSuffix pulumi.StringInput `pulumi:"filterSuffix"`
+	// Unique identifier for the notification configuration.
+	Id pulumi.StringInput `pulumi:"id"`
+	// ARN of the Lambda function.
+	LambdaFunctionArn pulumi.StringInput `pulumi:"lambdaFunctionArn"`
+}
+
+func (GetBucketNotificationLambdaFunctionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationLambdaFunction)(nil)).Elem()
+}
+
+func (i GetBucketNotificationLambdaFunctionArgs) ToGetBucketNotificationLambdaFunctionOutput() GetBucketNotificationLambdaFunctionOutput {
+	return i.ToGetBucketNotificationLambdaFunctionOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationLambdaFunctionArgs) ToGetBucketNotificationLambdaFunctionOutputWithContext(ctx context.Context) GetBucketNotificationLambdaFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationLambdaFunctionOutput)
+}
+
+// GetBucketNotificationLambdaFunctionArrayInput is an input type that accepts GetBucketNotificationLambdaFunctionArray and GetBucketNotificationLambdaFunctionArrayOutput values.
+// You can construct a concrete instance of `GetBucketNotificationLambdaFunctionArrayInput` via:
+//
+//	GetBucketNotificationLambdaFunctionArray{ GetBucketNotificationLambdaFunctionArgs{...} }
+type GetBucketNotificationLambdaFunctionArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationLambdaFunctionArrayOutput() GetBucketNotificationLambdaFunctionArrayOutput
+	ToGetBucketNotificationLambdaFunctionArrayOutputWithContext(context.Context) GetBucketNotificationLambdaFunctionArrayOutput
+}
+
+type GetBucketNotificationLambdaFunctionArray []GetBucketNotificationLambdaFunctionInput
+
+func (GetBucketNotificationLambdaFunctionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationLambdaFunction)(nil)).Elem()
+}
+
+func (i GetBucketNotificationLambdaFunctionArray) ToGetBucketNotificationLambdaFunctionArrayOutput() GetBucketNotificationLambdaFunctionArrayOutput {
+	return i.ToGetBucketNotificationLambdaFunctionArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationLambdaFunctionArray) ToGetBucketNotificationLambdaFunctionArrayOutputWithContext(ctx context.Context) GetBucketNotificationLambdaFunctionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationLambdaFunctionArrayOutput)
+}
+
+type GetBucketNotificationLambdaFunctionOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationLambdaFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationLambdaFunction)(nil)).Elem()
+}
+
+func (o GetBucketNotificationLambdaFunctionOutput) ToGetBucketNotificationLambdaFunctionOutput() GetBucketNotificationLambdaFunctionOutput {
+	return o
+}
+
+func (o GetBucketNotificationLambdaFunctionOutput) ToGetBucketNotificationLambdaFunctionOutputWithContext(ctx context.Context) GetBucketNotificationLambdaFunctionOutput {
+	return o
+}
+
+// [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+func (o GetBucketNotificationLambdaFunctionOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBucketNotificationLambdaFunction) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// Object key name prefix.
+func (o GetBucketNotificationLambdaFunctionOutput) FilterPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationLambdaFunction) string { return v.FilterPrefix }).(pulumi.StringOutput)
+}
+
+// Object key name suffix.
+func (o GetBucketNotificationLambdaFunctionOutput) FilterSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationLambdaFunction) string { return v.FilterSuffix }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the notification configuration.
+func (o GetBucketNotificationLambdaFunctionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationLambdaFunction) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// ARN of the Lambda function.
+func (o GetBucketNotificationLambdaFunctionOutput) LambdaFunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationLambdaFunction) string { return v.LambdaFunctionArn }).(pulumi.StringOutput)
+}
+
+type GetBucketNotificationLambdaFunctionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationLambdaFunctionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationLambdaFunction)(nil)).Elem()
+}
+
+func (o GetBucketNotificationLambdaFunctionArrayOutput) ToGetBucketNotificationLambdaFunctionArrayOutput() GetBucketNotificationLambdaFunctionArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationLambdaFunctionArrayOutput) ToGetBucketNotificationLambdaFunctionArrayOutputWithContext(ctx context.Context) GetBucketNotificationLambdaFunctionArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationLambdaFunctionArrayOutput) Index(i pulumi.IntInput) GetBucketNotificationLambdaFunctionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketNotificationLambdaFunction {
+		return vs[0].([]GetBucketNotificationLambdaFunction)[vs[1].(int)]
+	}).(GetBucketNotificationLambdaFunctionOutput)
+}
+
+type GetBucketNotificationQueue struct {
+	// [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+	Events []string `pulumi:"events"`
+	// Object key name prefix.
+	FilterPrefix string `pulumi:"filterPrefix"`
+	// Object key name suffix.
+	FilterSuffix string `pulumi:"filterSuffix"`
+	// Unique identifier for the notification configuration.
+	Id string `pulumi:"id"`
+	// ARN of the SQS queue.
+	QueueArn string `pulumi:"queueArn"`
+}
+
+// GetBucketNotificationQueueInput is an input type that accepts GetBucketNotificationQueueArgs and GetBucketNotificationQueueOutput values.
+// You can construct a concrete instance of `GetBucketNotificationQueueInput` via:
+//
+//	GetBucketNotificationQueueArgs{...}
+type GetBucketNotificationQueueInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationQueueOutput() GetBucketNotificationQueueOutput
+	ToGetBucketNotificationQueueOutputWithContext(context.Context) GetBucketNotificationQueueOutput
+}
+
+type GetBucketNotificationQueueArgs struct {
+	// [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// Object key name prefix.
+	FilterPrefix pulumi.StringInput `pulumi:"filterPrefix"`
+	// Object key name suffix.
+	FilterSuffix pulumi.StringInput `pulumi:"filterSuffix"`
+	// Unique identifier for the notification configuration.
+	Id pulumi.StringInput `pulumi:"id"`
+	// ARN of the SQS queue.
+	QueueArn pulumi.StringInput `pulumi:"queueArn"`
+}
+
+func (GetBucketNotificationQueueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationQueue)(nil)).Elem()
+}
+
+func (i GetBucketNotificationQueueArgs) ToGetBucketNotificationQueueOutput() GetBucketNotificationQueueOutput {
+	return i.ToGetBucketNotificationQueueOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationQueueArgs) ToGetBucketNotificationQueueOutputWithContext(ctx context.Context) GetBucketNotificationQueueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationQueueOutput)
+}
+
+// GetBucketNotificationQueueArrayInput is an input type that accepts GetBucketNotificationQueueArray and GetBucketNotificationQueueArrayOutput values.
+// You can construct a concrete instance of `GetBucketNotificationQueueArrayInput` via:
+//
+//	GetBucketNotificationQueueArray{ GetBucketNotificationQueueArgs{...} }
+type GetBucketNotificationQueueArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationQueueArrayOutput() GetBucketNotificationQueueArrayOutput
+	ToGetBucketNotificationQueueArrayOutputWithContext(context.Context) GetBucketNotificationQueueArrayOutput
+}
+
+type GetBucketNotificationQueueArray []GetBucketNotificationQueueInput
+
+func (GetBucketNotificationQueueArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationQueue)(nil)).Elem()
+}
+
+func (i GetBucketNotificationQueueArray) ToGetBucketNotificationQueueArrayOutput() GetBucketNotificationQueueArrayOutput {
+	return i.ToGetBucketNotificationQueueArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationQueueArray) ToGetBucketNotificationQueueArrayOutputWithContext(ctx context.Context) GetBucketNotificationQueueArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationQueueArrayOutput)
+}
+
+type GetBucketNotificationQueueOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationQueueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationQueue)(nil)).Elem()
+}
+
+func (o GetBucketNotificationQueueOutput) ToGetBucketNotificationQueueOutput() GetBucketNotificationQueueOutput {
+	return o
+}
+
+func (o GetBucketNotificationQueueOutput) ToGetBucketNotificationQueueOutputWithContext(ctx context.Context) GetBucketNotificationQueueOutput {
+	return o
+}
+
+// [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+func (o GetBucketNotificationQueueOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBucketNotificationQueue) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// Object key name prefix.
+func (o GetBucketNotificationQueueOutput) FilterPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationQueue) string { return v.FilterPrefix }).(pulumi.StringOutput)
+}
+
+// Object key name suffix.
+func (o GetBucketNotificationQueueOutput) FilterSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationQueue) string { return v.FilterSuffix }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the notification configuration.
+func (o GetBucketNotificationQueueOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationQueue) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// ARN of the SQS queue.
+func (o GetBucketNotificationQueueOutput) QueueArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationQueue) string { return v.QueueArn }).(pulumi.StringOutput)
+}
+
+type GetBucketNotificationQueueArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationQueueArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationQueue)(nil)).Elem()
+}
+
+func (o GetBucketNotificationQueueArrayOutput) ToGetBucketNotificationQueueArrayOutput() GetBucketNotificationQueueArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationQueueArrayOutput) ToGetBucketNotificationQueueArrayOutputWithContext(ctx context.Context) GetBucketNotificationQueueArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationQueueArrayOutput) Index(i pulumi.IntInput) GetBucketNotificationQueueOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketNotificationQueue {
+		return vs[0].([]GetBucketNotificationQueue)[vs[1].(int)]
+	}).(GetBucketNotificationQueueOutput)
+}
+
+type GetBucketNotificationTopic struct {
+	// [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+	Events []string `pulumi:"events"`
+	// Object key name prefix.
+	FilterPrefix string `pulumi:"filterPrefix"`
+	// Object key name suffix.
+	FilterSuffix string `pulumi:"filterSuffix"`
+	// Unique identifier for the notification configuration.
+	Id string `pulumi:"id"`
+	// ARN of the SNS topic.
+	TopicArn string `pulumi:"topicArn"`
+}
+
+// GetBucketNotificationTopicInput is an input type that accepts GetBucketNotificationTopicArgs and GetBucketNotificationTopicOutput values.
+// You can construct a concrete instance of `GetBucketNotificationTopicInput` via:
+//
+//	GetBucketNotificationTopicArgs{...}
+type GetBucketNotificationTopicInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationTopicOutput() GetBucketNotificationTopicOutput
+	ToGetBucketNotificationTopicOutputWithContext(context.Context) GetBucketNotificationTopicOutput
+}
+
+type GetBucketNotificationTopicArgs struct {
+	// [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+	Events pulumi.StringArrayInput `pulumi:"events"`
+	// Object key name prefix.
+	FilterPrefix pulumi.StringInput `pulumi:"filterPrefix"`
+	// Object key name suffix.
+	FilterSuffix pulumi.StringInput `pulumi:"filterSuffix"`
+	// Unique identifier for the notification configuration.
+	Id pulumi.StringInput `pulumi:"id"`
+	// ARN of the SNS topic.
+	TopicArn pulumi.StringInput `pulumi:"topicArn"`
+}
+
+func (GetBucketNotificationTopicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationTopic)(nil)).Elem()
+}
+
+func (i GetBucketNotificationTopicArgs) ToGetBucketNotificationTopicOutput() GetBucketNotificationTopicOutput {
+	return i.ToGetBucketNotificationTopicOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationTopicArgs) ToGetBucketNotificationTopicOutputWithContext(ctx context.Context) GetBucketNotificationTopicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationTopicOutput)
+}
+
+// GetBucketNotificationTopicArrayInput is an input type that accepts GetBucketNotificationTopicArray and GetBucketNotificationTopicArrayOutput values.
+// You can construct a concrete instance of `GetBucketNotificationTopicArrayInput` via:
+//
+//	GetBucketNotificationTopicArray{ GetBucketNotificationTopicArgs{...} }
+type GetBucketNotificationTopicArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketNotificationTopicArrayOutput() GetBucketNotificationTopicArrayOutput
+	ToGetBucketNotificationTopicArrayOutputWithContext(context.Context) GetBucketNotificationTopicArrayOutput
+}
+
+type GetBucketNotificationTopicArray []GetBucketNotificationTopicInput
+
+func (GetBucketNotificationTopicArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationTopic)(nil)).Elem()
+}
+
+func (i GetBucketNotificationTopicArray) ToGetBucketNotificationTopicArrayOutput() GetBucketNotificationTopicArrayOutput {
+	return i.ToGetBucketNotificationTopicArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketNotificationTopicArray) ToGetBucketNotificationTopicArrayOutputWithContext(ctx context.Context) GetBucketNotificationTopicArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketNotificationTopicArrayOutput)
+}
+
+type GetBucketNotificationTopicOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationTopicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketNotificationTopic)(nil)).Elem()
+}
+
+func (o GetBucketNotificationTopicOutput) ToGetBucketNotificationTopicOutput() GetBucketNotificationTopicOutput {
+	return o
+}
+
+func (o GetBucketNotificationTopicOutput) ToGetBucketNotificationTopicOutputWithContext(ctx context.Context) GetBucketNotificationTopicOutput {
+	return o
+}
+
+// [Events](https://docs.aws.amazon.com/AmazonS3/latest/userguide/notification-how-to-event-types-and-destinations.html) for which Amazon S3 sends notifications.
+func (o GetBucketNotificationTopicOutput) Events() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBucketNotificationTopic) []string { return v.Events }).(pulumi.StringArrayOutput)
+}
+
+// Object key name prefix.
+func (o GetBucketNotificationTopicOutput) FilterPrefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationTopic) string { return v.FilterPrefix }).(pulumi.StringOutput)
+}
+
+// Object key name suffix.
+func (o GetBucketNotificationTopicOutput) FilterSuffix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationTopic) string { return v.FilterSuffix }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the notification configuration.
+func (o GetBucketNotificationTopicOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationTopic) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// ARN of the SNS topic.
+func (o GetBucketNotificationTopicOutput) TopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketNotificationTopic) string { return v.TopicArn }).(pulumi.StringOutput)
+}
+
+type GetBucketNotificationTopicArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketNotificationTopicArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketNotificationTopic)(nil)).Elem()
+}
+
+func (o GetBucketNotificationTopicArrayOutput) ToGetBucketNotificationTopicArrayOutput() GetBucketNotificationTopicArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationTopicArrayOutput) ToGetBucketNotificationTopicArrayOutputWithContext(ctx context.Context) GetBucketNotificationTopicArrayOutput {
+	return o
+}
+
+func (o GetBucketNotificationTopicArrayOutput) Index(i pulumi.IntInput) GetBucketNotificationTopicOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketNotificationTopic {
+		return vs[0].([]GetBucketNotificationTopic)[vs[1].(int)]
+	}).(GetBucketNotificationTopicOutput)
+}
+
 type GetBucketObjectLockConfigurationRule struct {
 	// Default object lock retention settings for new objects placed in the bucket. See Default Retention below.
 	DefaultRetentions []GetBucketObjectLockConfigurationRuleDefaultRetention `pulumi:"defaultRetentions"`
@@ -27802,6 +28201,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointPublicAccessBlockConfigurationArrayInput)(nil)).Elem(), GetAccessPointPublicAccessBlockConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointVpcConfigurationInput)(nil)).Elem(), GetAccessPointVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointVpcConfigurationArrayInput)(nil)).Elem(), GetAccessPointVpcConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationLambdaFunctionInput)(nil)).Elem(), GetBucketNotificationLambdaFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationLambdaFunctionArrayInput)(nil)).Elem(), GetBucketNotificationLambdaFunctionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationQueueInput)(nil)).Elem(), GetBucketNotificationQueueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationQueueArrayInput)(nil)).Elem(), GetBucketNotificationQueueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationTopicInput)(nil)).Elem(), GetBucketNotificationTopicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketNotificationTopicArrayInput)(nil)).Elem(), GetBucketNotificationTopicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketObjectLockConfigurationRuleInput)(nil)).Elem(), GetBucketObjectLockConfigurationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketObjectLockConfigurationRuleArrayInput)(nil)).Elem(), GetBucketObjectLockConfigurationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketObjectLockConfigurationRuleDefaultRetentionInput)(nil)).Elem(), GetBucketObjectLockConfigurationRuleDefaultRetentionArgs{})
@@ -28191,6 +28596,12 @@ func init() {
 	pulumi.RegisterOutputType(GetAccessPointPublicAccessBlockConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessPointVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(GetAccessPointVpcConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationLambdaFunctionOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationLambdaFunctionArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationQueueOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationQueueArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationTopicOutput{})
+	pulumi.RegisterOutputType(GetBucketNotificationTopicArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketObjectLockConfigurationRuleOutput{})
 	pulumi.RegisterOutputType(GetBucketObjectLockConfigurationRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetBucketObjectLockConfigurationRuleDefaultRetentionOutput{})

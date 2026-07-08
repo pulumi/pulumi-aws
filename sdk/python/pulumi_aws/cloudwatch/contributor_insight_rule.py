@@ -251,10 +251,21 @@ class ContributorInsightRule(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `rule_name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `rule_name` (String) Name of the rule.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Contributor Insight Rules using `rule_name`. For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
+        $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example example-rule
         ```
 
 
@@ -292,10 +303,21 @@ class ContributorInsightRule(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `rule_name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `rule_name` (String) Name of the rule.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Contributor Insight Rules using `rule_name`. For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
+        $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example example-rule
         ```
 
 
@@ -420,7 +442,7 @@ class ContributorInsightRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="ruleState")
-    def rule_state(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def rule_state(self) -> pulumi.Output[_builtins.str]:
         """
         State of the rule. Valid values are `ENABLED` and `DISABLED`.
         """

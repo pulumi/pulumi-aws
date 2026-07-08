@@ -169,14 +169,14 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * Identifier for the domain name resource. Supported only for private custom domain names.
      * 
      */
     @Import(name="domainNameId")
     private @Nullable Output<String> domainNameId;
 
     /**
-     * @return The identifier for the domain name resource. Supported only for private custom domain names.
+     * @return Identifier for the domain name resource. Supported only for private custom domain names.
      * 
      */
     public Optional<Output<String>> domainNameId() {
@@ -244,14 +244,14 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
      * 
      */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
     /**
-     * @return A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * @return Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
      * 
      */
     public Optional<Output<String>> policy() {
@@ -276,16 +276,12 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      * 
-     * When uploading a certificate, the following arguments are supported:
-     * 
      */
     @Import(name="regionalCertificateArn")
     private @Nullable Output<String> regionalCertificateArn;
 
     /**
      * @return ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-     * 
-     * When uploading a certificate, the following arguments are supported:
      * 
      */
     public Optional<Output<String>> regionalCertificateArn() {
@@ -370,16 +366,12 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * When referencing an AWS-managed certificate, the following arguments are supported:
-     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * When referencing an AWS-managed certificate, the following arguments are supported:
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -660,7 +652,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainNameId The identifier for the domain name resource. Supported only for private custom domain names.
+         * @param domainNameId Identifier for the domain name resource. Supported only for private custom domain names.
          * 
          * @return builder
          * 
@@ -671,7 +663,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param domainNameId The identifier for the domain name resource. Supported only for private custom domain names.
+         * @param domainNameId Identifier for the domain name resource. Supported only for private custom domain names.
          * 
          * @return builder
          * 
@@ -765,7 +757,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+         * @param policy Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
          * 
          * @return builder
          * 
@@ -776,7 +768,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param policy A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+         * @param policy Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
          * 
          * @return builder
          * 
@@ -809,8 +801,6 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param regionalCertificateArn ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
          * 
-         * When uploading a certificate, the following arguments are supported:
-         * 
          * @return builder
          * 
          */
@@ -821,8 +811,6 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param regionalCertificateArn ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-         * 
-         * When uploading a certificate, the following arguments are supported:
          * 
          * @return builder
          * 
@@ -939,8 +927,6 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * When referencing an AWS-managed certificate, the following arguments are supported:
-         * 
          * @return builder
          * 
          */
@@ -951,8 +937,6 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param tags Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * When referencing an AWS-managed certificate, the following arguments are supported:
          * 
          * @return builder
          * 

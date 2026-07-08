@@ -172,10 +172,22 @@ class LogStream(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `log_group_name` (String) Name of the log group.
+        * `name` (String) Name of the stream.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Log Streams using `log_group_name` and `name` separated by a colon (`:`). For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+        $ pulumi import aws:cloudwatch/logStream:LogStream example example-group:example-stream
         ```
 
 
@@ -208,10 +220,22 @@ class LogStream(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `log_group_name` (String) Name of the log group.
+        * `name` (String) Name of the stream.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Log Streams using `log_group_name` and `name` separated by a colon (`:`). For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+        $ pulumi import aws:cloudwatch/logStream:LogStream example example-group:example-stream
         ```
 
 

@@ -36,7 +36,7 @@ import (
 //				CapacityDurationHours: 24,
 //				EndDateRange:          pulumi.StringRef("2024-05-30T15:04:05Z"),
 //				InstanceCount:         1,
-//				InstanceType:          "p4d.24xlarge",
+//				InstanceType:          "p5.4xlarge",
 //				StartDateRange:        pulumi.StringRef("2024-04-28T15:04:05Z"),
 //			}, nil)
 //			if err != nil {
@@ -45,9 +45,6 @@ import (
 //			_, err = ec2.NewCapacityBlockReservation(ctx, "example", &ec2.CapacityBlockReservationArgs{
 //				CapacityBlockOfferingId: pulumi.String(test.CapacityBlockOfferingId),
 //				InstancePlatform:        pulumi.String("Linux/UNIX"),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("dev"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -75,6 +72,8 @@ type CapacityBlockReservation struct {
 	// Indicates the way in which the Capacity Reservation ends.
 	EndDateType pulumi.StringOutput `pulumi:"endDateType"`
 	// The number of instances for which to reserve capacity.
+	// This value will not be set until the Capacity Block Reservation is active.
+	// The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
 	InstanceCount pulumi.IntOutput `pulumi:"instanceCount"`
 	// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
 	InstancePlatform pulumi.StringOutput `pulumi:"instancePlatform"`
@@ -150,6 +149,8 @@ type capacityBlockReservationState struct {
 	// Indicates the way in which the Capacity Reservation ends.
 	EndDateType *string `pulumi:"endDateType"`
 	// The number of instances for which to reserve capacity.
+	// This value will not be set until the Capacity Block Reservation is active.
+	// The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
 	InstanceCount *int `pulumi:"instanceCount"`
 	// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
 	InstancePlatform *string `pulumi:"instancePlatform"`
@@ -190,6 +191,8 @@ type CapacityBlockReservationState struct {
 	// Indicates the way in which the Capacity Reservation ends.
 	EndDateType pulumi.StringPtrInput
 	// The number of instances for which to reserve capacity.
+	// This value will not be set until the Capacity Block Reservation is active.
+	// The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
 	InstanceCount pulumi.IntPtrInput
 	// The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
 	InstancePlatform pulumi.StringPtrInput
@@ -366,6 +369,8 @@ func (o CapacityBlockReservationOutput) EndDateType() pulumi.StringOutput {
 }
 
 // The number of instances for which to reserve capacity.
+// This value will not be set until the Capacity Block Reservation is active.
+// The requested instance count is set in the tag `aws:ec2capacityreservation:incrementalRequestedQuantity`.
 func (o CapacityBlockReservationOutput) InstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *CapacityBlockReservation) pulumi.IntOutput { return v.InstanceCount }).(pulumi.IntOutput)
 }

@@ -16,14 +16,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     public static final CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs Empty = new CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs();
 
     /**
-     * The sort direction for this field. Valid values: `asc`, `desc`.
+     * Sort direction for this field. Valid values: `asc`, `desc`.
      * 
      */
     @Import(name="direction", required=true)
     private Output<String> direction;
 
     /**
-     * @return The sort direction for this field. Valid values: `asc`, `desc`.
+     * @return Sort direction for this field. Valid values: `asc`, `desc`.
      * 
      */
     public Output<String> direction() {
@@ -31,14 +31,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     }
 
     /**
-     * The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+     * Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
      * 
      */
     @Import(name="nullOrder", required=true)
     private Output<String> nullOrder;
 
     /**
-     * @return The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+     * @return Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
      * 
      */
     public Output<String> nullOrder() {
@@ -87,7 +87,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param direction The sort direction for this field. Valid values: `asc`, `desc`.
+         * @param direction Sort direction for this field. Valid values: `asc`, `desc`.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param direction The sort direction for this field. Valid values: `asc`, `desc`.
+         * @param direction Sort direction for this field. Valid values: `asc`, `desc`.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param nullOrder The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+         * @param nullOrder Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param nullOrder The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+         * @param nullOrder Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
          * 
          * @return builder
          * 

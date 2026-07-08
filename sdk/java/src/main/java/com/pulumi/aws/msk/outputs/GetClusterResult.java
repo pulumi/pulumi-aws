@@ -66,6 +66,11 @@ public final class GetClusterResult {
      */
     private String clusterUuid;
     /**
+     * @return Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+     * 
+     */
+    private String customerActionStatus;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -87,7 +92,7 @@ public final class GetClusterResult {
      */
     private Map<String,String> tags;
     /**
-     * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     private String zookeeperConnectString;
@@ -172,6 +177,13 @@ public final class GetClusterResult {
         return this.clusterUuid;
     }
     /**
+     * @return Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+     * 
+     */
+    public String customerActionStatus() {
+        return this.customerActionStatus;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -203,7 +215,7 @@ public final class GetClusterResult {
         return this.tags;
     }
     /**
-     * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * @return A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      * 
      */
     public String zookeeperConnectString() {
@@ -237,6 +249,7 @@ public final class GetClusterResult {
         private List<GetClusterBrokerNodeGroupInfo> brokerNodeGroupInfos;
         private String clusterName;
         private String clusterUuid;
+        private String customerActionStatus;
         private String id;
         private String kafkaVersion;
         private Integer numberOfBrokerNodes;
@@ -258,6 +271,7 @@ public final class GetClusterResult {
     	      this.brokerNodeGroupInfos = defaults.brokerNodeGroupInfos;
     	      this.clusterName = defaults.clusterName;
     	      this.clusterUuid = defaults.clusterUuid;
+    	      this.customerActionStatus = defaults.customerActionStatus;
     	      this.id = defaults.id;
     	      this.kafkaVersion = defaults.kafkaVersion;
     	      this.numberOfBrokerNodes = defaults.numberOfBrokerNodes;
@@ -359,6 +373,14 @@ public final class GetClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder customerActionStatus(String customerActionStatus) {
+            if (customerActionStatus == null) {
+              throw new MissingRequiredPropertyException("GetClusterResult", "customerActionStatus");
+            }
+            this.customerActionStatus = customerActionStatus;
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
               throw new MissingRequiredPropertyException("GetClusterResult", "id");
@@ -427,6 +449,7 @@ public final class GetClusterResult {
             _resultValue.brokerNodeGroupInfos = brokerNodeGroupInfos;
             _resultValue.clusterName = clusterName;
             _resultValue.clusterUuid = clusterUuid;
+            _resultValue.customerActionStatus = customerActionStatus;
             _resultValue.id = id;
             _resultValue.kafkaVersion = kafkaVersion;
             _resultValue.numberOfBrokerNodes = numberOfBrokerNodes;

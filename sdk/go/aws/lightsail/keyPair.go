@@ -145,6 +145,10 @@ func NewKeyPair(ctx *pulumi.Context,
 		args = &KeyPairArgs{}
 	}
 
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"privateKey",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KeyPair
 	err := ctx.RegisterResource("aws:lightsail/keyPair:KeyPair", name, args, &resource, opts...)

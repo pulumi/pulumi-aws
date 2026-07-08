@@ -69,6 +69,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentcorePolicy{}
 	case "aws:bedrock/agentcorePolicyEngine:AgentcorePolicyEngine":
 		r = &AgentcorePolicyEngine{}
+	case "aws:bedrock/agentcoreRegistry:AgentcoreRegistry":
+		r = &AgentcoreRegistry{}
 	case "aws:bedrock/agentcoreResourcePolicy:AgentcoreResourcePolicy":
 		r = &AgentcoreResourcePolicy{}
 	case "aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk":
@@ -85,6 +87,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &InferenceProfile{}
 	case "aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput":
 		r = &ProvisionedModelThroughput{}
+	case "aws:bedrock/useCaseForModelAccess:UseCaseForModelAccess":
+		r = &UseCaseForModelAccess{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -220,6 +224,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"bedrock/agentcoreRegistry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"bedrock/agentcoreResourcePolicy",
 		&module{version},
 	)
@@ -256,6 +265,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"bedrock/provisionedModelThroughput",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/useCaseForModelAccess",
 		&module{version},
 	)
 }

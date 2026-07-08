@@ -36,10 +36,21 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `RuleName`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `RuleName` (String) Name of the rule.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Contributor Insight Rules using `RuleName`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
+    /// $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example example-rule
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/contributorInsightRule:ContributorInsightRule")]
@@ -75,7 +86,7 @@ namespace Pulumi.Aws.CloudWatch
         /// State of the rule. Valid values are `ENABLED` and `DISABLED`.
         /// </summary>
         [Output("ruleState")]
-        public Output<string?> RuleState { get; private set; } = null!;
+        public Output<string> RuleState { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
