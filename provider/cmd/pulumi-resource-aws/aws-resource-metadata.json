@@ -642,6 +642,9 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_bedrock_foundation_model_agreement": {
+    "hasUsableRegion": true
+  },
   "aws_bedrock_guardrail": {
     "hasInputName": true,
     "hasUsableRegion": true,
@@ -765,6 +768,10 @@
     "hasInputName": true,
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
+  },
+  "aws_bedrockagentcore_registry": {
+    "hasInputName": true,
+    "hasUsableRegion": true
   },
   "aws_bedrockagentcore_resource_policy": {
     "hasUsableRegion": true
@@ -4033,6 +4040,10 @@
     "hasTagsAndTagsAll": true
   },
   "aws_pinpointsmsvoicev2_phone_number": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_pinpointsmsvoicev2_pool": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
