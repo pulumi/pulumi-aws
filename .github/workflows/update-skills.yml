@@ -30,7 +30,7 @@ jobs:
 
       - name: Update skills
         if: steps.skills-lock.outputs.exists == 'true'
-        run: npx skills@latest update -y
+        run: npx --yes skills@latest update -y
 
       - name: Create pull request
         if: steps.skills-lock.outputs.exists == 'true'
@@ -47,5 +47,5 @@ jobs:
             This PR updates repository skills by running:
 
             ```sh
-            npx skills@latest update -y
+            npx --yes skills@latest update -y
             ```

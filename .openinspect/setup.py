@@ -75,6 +75,9 @@ def run(cmd, **kwargs):
 
 
 def setup_mise():
+    os.environ.setdefault("MISE_FETCH_REMOTE_VERSIONS_TIMEOUT", "10m")
+    os.environ.setdefault("MISE_HTTP_TIMEOUT", "10m")
+
     if not shutil.which("mise"):
         run("curl -fsSL https://mise.run | MISE_INSTALL_PATH=/usr/local/bin/mise sh")
     else:
@@ -82,9 +85,6 @@ def setup_mise():
 
     run("mise trust --yes")
     run("mise install --yes")
-
-    os.environ.setdefault("MISE_FETCH_REMOTE_VERSIONS_TIMEOUT", "10m")
-    os.environ.setdefault("MISE_FETCH_TIMEOUT", "10m")
 
     mise_data = os.environ.get(
         "MISE_DATA_DIR", os.path.expanduser("~/.local/share/mise")
