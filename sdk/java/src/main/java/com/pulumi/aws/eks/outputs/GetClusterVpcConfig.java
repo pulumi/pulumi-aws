@@ -18,6 +18,11 @@ public final class GetClusterVpcConfig {
      */
     private String clusterSecurityGroupId;
     /**
+     * @return The egress mode for the EKS control plane. Possible values are `AWS_MANAGED` and `CUSTOMER_ROUTED`.
+     * 
+     */
+    private String controlPlaneEgressMode;
+    /**
      * @return Indicates whether or not the Amazon EKS private API server endpoint is enabled.
      * 
      */
@@ -55,6 +60,13 @@ public final class GetClusterVpcConfig {
      */
     public String clusterSecurityGroupId() {
         return this.clusterSecurityGroupId;
+    }
+    /**
+     * @return The egress mode for the EKS control plane. Possible values are `AWS_MANAGED` and `CUSTOMER_ROUTED`.
+     * 
+     */
+    public String controlPlaneEgressMode() {
+        return this.controlPlaneEgressMode;
     }
     /**
      * @return Indicates whether or not the Amazon EKS private API server endpoint is enabled.
@@ -109,6 +121,7 @@ public final class GetClusterVpcConfig {
     @CustomType.Builder
     public static final class Builder {
         private String clusterSecurityGroupId;
+        private String controlPlaneEgressMode;
         private Boolean endpointPrivateAccess;
         private Boolean endpointPublicAccess;
         private List<String> publicAccessCidrs;
@@ -119,6 +132,7 @@ public final class GetClusterVpcConfig {
         public Builder(GetClusterVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterSecurityGroupId = defaults.clusterSecurityGroupId;
+    	      this.controlPlaneEgressMode = defaults.controlPlaneEgressMode;
     	      this.endpointPrivateAccess = defaults.endpointPrivateAccess;
     	      this.endpointPublicAccess = defaults.endpointPublicAccess;
     	      this.publicAccessCidrs = defaults.publicAccessCidrs;
@@ -133,6 +147,14 @@ public final class GetClusterVpcConfig {
               throw new MissingRequiredPropertyException("GetClusterVpcConfig", "clusterSecurityGroupId");
             }
             this.clusterSecurityGroupId = clusterSecurityGroupId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder controlPlaneEgressMode(String controlPlaneEgressMode) {
+            if (controlPlaneEgressMode == null) {
+              throw new MissingRequiredPropertyException("GetClusterVpcConfig", "controlPlaneEgressMode");
+            }
+            this.controlPlaneEgressMode = controlPlaneEgressMode;
             return this;
         }
         @CustomType.Setter
@@ -195,6 +217,7 @@ public final class GetClusterVpcConfig {
         public GetClusterVpcConfig build() {
             final var _resultValue = new GetClusterVpcConfig();
             _resultValue.clusterSecurityGroupId = clusterSecurityGroupId;
+            _resultValue.controlPlaneEgressMode = controlPlaneEgressMode;
             _resultValue.endpointPrivateAccess = endpointPrivateAccess;
             _resultValue.endpointPublicAccess = endpointPublicAccess;
             _resultValue.publicAccessCidrs = publicAccessCidrs;

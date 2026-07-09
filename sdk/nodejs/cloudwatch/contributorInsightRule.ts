@@ -24,10 +24,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `ruleName`. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `ruleName` (String) Name of the rule.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Contributor Insight Rules using `ruleName`. For example:
  *
  * ```sh
- * $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name
+ * $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example example-rule
  * ```
  */
 export class ContributorInsightRule extends pulumi.CustomResource {
@@ -79,7 +90,7 @@ export class ContributorInsightRule extends pulumi.CustomResource {
     /**
      * State of the rule. Valid values are `ENABLED` and `DISABLED`.
      */
-    declare public readonly ruleState: pulumi.Output<string | undefined>;
+    declare public readonly ruleState: pulumi.Output<string>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 

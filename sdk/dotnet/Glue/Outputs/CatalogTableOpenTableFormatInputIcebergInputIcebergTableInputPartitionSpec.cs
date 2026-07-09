@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec
     {
         /// <summary>
-        /// The list of partition fields that define how the table data should be partitioned. See `Fields` below.
+        /// List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField> Fields;
         /// <summary>
-        /// The unique identifier for this partition specification within the Iceberg table's metadata history.
+        /// Unique identifier for this partition specification within the Iceberg table's metadata history.
         /// </summary>
         public readonly int? SpecId;
 

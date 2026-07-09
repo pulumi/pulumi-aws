@@ -16,14 +16,14 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
     public static final CatalogTableViewDefinitionRepresentationArgs Empty = new CatalogTableViewDefinitionRepresentationArgs();
 
     /**
-     * A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+     * Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
      * 
      */
     @Import(name="dialect")
     private @Nullable Output<String> dialect;
 
     /**
-     * @return A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+     * @return Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
      * 
      */
     public Optional<Output<String>> dialect() {
@@ -31,14 +31,14 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
     }
 
     /**
-     * A parameter that specifies the version of the engine of a specific representation.
+     * Parameter that specifies the version of the engine of a specific representation.
      * 
      */
     @Import(name="dialectVersion")
     private @Nullable Output<String> dialectVersion;
 
     /**
-     * @return A parameter that specifies the version of the engine of a specific representation.
+     * @return Parameter that specifies the version of the engine of a specific representation.
      * 
      */
     public Optional<Output<String>> dialectVersion() {
@@ -46,14 +46,14 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
     }
 
     /**
-     * The name of the connection to be used to validate the specific representation of the view.
+     * Name of the connection to be used to validate the specific representation of the view.
      * 
      */
     @Import(name="validationConnection")
     private @Nullable Output<String> validationConnection;
 
     /**
-     * @return The name of the connection to be used to validate the specific representation of the view.
+     * @return Name of the connection to be used to validate the specific representation of the view.
      * 
      */
     public Optional<Output<String>> validationConnection() {
@@ -61,14 +61,14 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
     }
 
     /**
-     * A string that represents the SQL query that describes the view with expanded resource ARNs.
+     * String that represents the SQL query that describes the view with expanded resource ARNs.
      * 
      */
     @Import(name="viewExpandedText")
     private @Nullable Output<String> viewExpandedText;
 
     /**
-     * @return A string that represents the SQL query that describes the view with expanded resource ARNs.
+     * @return String that represents the SQL query that describes the view with expanded resource ARNs.
      * 
      */
     public Optional<Output<String>> viewExpandedText() {
@@ -76,14 +76,14 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
     }
 
     /**
-     * A string that represents the original SQL query that describes the view.
+     * String that represents the original SQL query that describes the view.
      * 
      */
     @Import(name="viewOriginalText")
     private @Nullable Output<String> viewOriginalText;
 
     /**
-     * @return A string that represents the original SQL query that describes the view.
+     * @return String that represents the original SQL query that describes the view.
      * 
      */
     public Optional<Output<String>> viewOriginalText() {
@@ -119,7 +119,7 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
         }
 
         /**
-         * @param dialect A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+         * @param dialect Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
         }
 
         /**
-         * @param dialect A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+         * @param dialect Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
         }
 
         /**
-         * @param dialectVersion A parameter that specifies the version of the engine of a specific representation.
+         * @param dialectVersion Parameter that specifies the version of the engine of a specific representation.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
         }
 
         /**
-         * @param dialectVersion A parameter that specifies the version of the engine of a specific representation.
+         * @param dialectVersion Parameter that specifies the version of the engine of a specific representation.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
         }
 
         /**
-         * @param validationConnection The name of the connection to be used to validate the specific representation of the view.
+         * @param validationConnection Name of the connection to be used to validate the specific representation of the view.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
         }
 
         /**
-         * @param validationConnection The name of the connection to be used to validate the specific representation of the view.
+         * @param validationConnection Name of the connection to be used to validate the specific representation of the view.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
         }
 
         /**
-         * @param viewExpandedText A string that represents the SQL query that describes the view with expanded resource ARNs.
+         * @param viewExpandedText String that represents the SQL query that describes the view with expanded resource ARNs.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
         }
 
         /**
-         * @param viewExpandedText A string that represents the SQL query that describes the view with expanded resource ARNs.
+         * @param viewExpandedText String that represents the SQL query that describes the view with expanded resource ARNs.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
         }
 
         /**
-         * @param viewOriginalText A string that represents the original SQL query that describes the view.
+         * @param viewOriginalText String that represents the original SQL query that describes the view.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class CatalogTableViewDefinitionRepresentationArgs extends com.pulu
         }
 
         /**
-         * @param viewOriginalText A string that represents the original SQL query that describes the view.
+         * @param viewOriginalText String that represents the original SQL query that describes the view.
          * 
          * @return builder
          * 

@@ -173,8 +173,14 @@ type AgentcoreBrowser struct {
 	BrowserArn pulumi.StringOutput `pulumi:"browserArn"`
 	// Unique identifier of the Browser.
 	BrowserId pulumi.StringOutput `pulumi:"browserId"`
+	// Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+	BrowserSigning AgentcoreBrowserBrowserSigningPtrOutput `pulumi:"browserSigning"`
+	// Certificates to install in the browser. See `certificate` below.
+	Certificates AgentcoreBrowserCertificateArrayOutput `pulumi:"certificates"`
 	// Description of the browser.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+	EnterprisePolicies AgentcoreBrowserEnterprisePolicyArrayOutput `pulumi:"enterprisePolicies"`
 	// ARN of the IAM role that the browser assumes for execution.
 	ExecutionRoleArn pulumi.StringPtrOutput `pulumi:"executionRoleArn"`
 	// Name of the browser.
@@ -231,8 +237,14 @@ type agentcoreBrowserState struct {
 	BrowserArn *string `pulumi:"browserArn"`
 	// Unique identifier of the Browser.
 	BrowserId *string `pulumi:"browserId"`
+	// Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+	BrowserSigning *AgentcoreBrowserBrowserSigning `pulumi:"browserSigning"`
+	// Certificates to install in the browser. See `certificate` below.
+	Certificates []AgentcoreBrowserCertificate `pulumi:"certificates"`
 	// Description of the browser.
 	Description *string `pulumi:"description"`
+	// Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+	EnterprisePolicies []AgentcoreBrowserEnterprisePolicy `pulumi:"enterprisePolicies"`
 	// ARN of the IAM role that the browser assumes for execution.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Name of the browser.
@@ -257,8 +269,14 @@ type AgentcoreBrowserState struct {
 	BrowserArn pulumi.StringPtrInput
 	// Unique identifier of the Browser.
 	BrowserId pulumi.StringPtrInput
+	// Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+	BrowserSigning AgentcoreBrowserBrowserSigningPtrInput
+	// Certificates to install in the browser. See `certificate` below.
+	Certificates AgentcoreBrowserCertificateArrayInput
 	// Description of the browser.
 	Description pulumi.StringPtrInput
+	// Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+	EnterprisePolicies AgentcoreBrowserEnterprisePolicyArrayInput
 	// ARN of the IAM role that the browser assumes for execution.
 	ExecutionRoleArn pulumi.StringPtrInput
 	// Name of the browser.
@@ -283,8 +301,14 @@ func (AgentcoreBrowserState) ElementType() reflect.Type {
 }
 
 type agentcoreBrowserArgs struct {
+	// Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+	BrowserSigning *AgentcoreBrowserBrowserSigning `pulumi:"browserSigning"`
+	// Certificates to install in the browser. See `certificate` below.
+	Certificates []AgentcoreBrowserCertificate `pulumi:"certificates"`
 	// Description of the browser.
 	Description *string `pulumi:"description"`
+	// Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+	EnterprisePolicies []AgentcoreBrowserEnterprisePolicy `pulumi:"enterprisePolicies"`
 	// ARN of the IAM role that the browser assumes for execution.
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// Name of the browser.
@@ -304,8 +328,14 @@ type agentcoreBrowserArgs struct {
 
 // The set of arguments for constructing a AgentcoreBrowser resource.
 type AgentcoreBrowserArgs struct {
+	// Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+	BrowserSigning AgentcoreBrowserBrowserSigningPtrInput
+	// Certificates to install in the browser. See `certificate` below.
+	Certificates AgentcoreBrowserCertificateArrayInput
 	// Description of the browser.
 	Description pulumi.StringPtrInput
+	// Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+	EnterprisePolicies AgentcoreBrowserEnterprisePolicyArrayInput
 	// ARN of the IAM role that the browser assumes for execution.
 	ExecutionRoleArn pulumi.StringPtrInput
 	// Name of the browser.
@@ -420,9 +450,24 @@ func (o AgentcoreBrowserOutput) BrowserId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreBrowser) pulumi.StringOutput { return v.BrowserId }).(pulumi.StringOutput)
 }
 
+// Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+func (o AgentcoreBrowserOutput) BrowserSigning() AgentcoreBrowserBrowserSigningPtrOutput {
+	return o.ApplyT(func(v *AgentcoreBrowser) AgentcoreBrowserBrowserSigningPtrOutput { return v.BrowserSigning }).(AgentcoreBrowserBrowserSigningPtrOutput)
+}
+
+// Certificates to install in the browser. See `certificate` below.
+func (o AgentcoreBrowserOutput) Certificates() AgentcoreBrowserCertificateArrayOutput {
+	return o.ApplyT(func(v *AgentcoreBrowser) AgentcoreBrowserCertificateArrayOutput { return v.Certificates }).(AgentcoreBrowserCertificateArrayOutput)
+}
+
 // Description of the browser.
 func (o AgentcoreBrowserOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentcoreBrowser) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+func (o AgentcoreBrowserOutput) EnterprisePolicies() AgentcoreBrowserEnterprisePolicyArrayOutput {
+	return o.ApplyT(func(v *AgentcoreBrowser) AgentcoreBrowserEnterprisePolicyArrayOutput { return v.EnterprisePolicies }).(AgentcoreBrowserEnterprisePolicyArrayOutput)
 }
 
 // ARN of the IAM role that the browser assumes for execution.

@@ -253,7 +253,18 @@ class LogDestination(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the destination.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Destinations using `name`. For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
@@ -291,7 +302,18 @@ class LogDestination(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the destination.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Destinations using `name`. For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination

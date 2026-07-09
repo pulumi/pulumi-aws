@@ -20,14 +20,14 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
     public static final CatalogTableViewDefinitionArgs Empty = new CatalogTableViewDefinitionArgs();
 
     /**
-     * The definer of a view in SQL.
+     * Definer of a view in SQL.
      * 
      */
     @Import(name="definer")
     private @Nullable Output<String> definer;
 
     /**
-     * @return The definer of a view in SQL.
+     * @return Definer of a view in SQL.
      * 
      */
     public Optional<Output<String>> definer() {
@@ -80,14 +80,14 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+     * List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
      * 
      */
     @Import(name="representations")
     private @Nullable Output<List<CatalogTableViewDefinitionRepresentationArgs>> representations;
 
     /**
-     * @return A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+     * @return List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
      * 
      */
     public Optional<Output<List<CatalogTableViewDefinitionRepresentationArgs>>> representations() {
@@ -110,14 +110,14 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
     }
 
     /**
-     * A list of base table ARNs that make up the view.
+     * List of base table ARNs that make up the view.
      * 
      */
     @Import(name="subObjects")
     private @Nullable Output<List<String>> subObjects;
 
     /**
-     * @return A list of base table ARNs that make up the view.
+     * @return List of base table ARNs that make up the view.
      * 
      */
     public Optional<Output<List<String>>> subObjects() {
@@ -187,7 +187,7 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param definer The definer of a view in SQL.
+         * @param definer Definer of a view in SQL.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param definer The definer of a view in SQL.
+         * @param definer Definer of a view in SQL.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param representations A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+         * @param representations List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param representations A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+         * @param representations List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
          * 
          * @return builder
          * 
@@ -292,7 +292,7 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param representations A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+         * @param representations List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param subObjects A list of base table ARNs that make up the view.
+         * @param subObjects List of base table ARNs that make up the view.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param subObjects A list of base table ARNs that make up the view.
+         * @param subObjects List of base table ARNs that make up the view.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class CatalogTableViewDefinitionArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param subObjects A list of base table ARNs that make up the view.
+         * @param subObjects List of base table ARNs that make up the view.
          * 
          * @return builder
          * 

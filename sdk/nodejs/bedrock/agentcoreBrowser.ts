@@ -132,9 +132,21 @@ export class AgentcoreBrowser extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly browserId: pulumi.Output<string>;
     /**
+     * Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+     */
+    declare public readonly browserSigning: pulumi.Output<outputs.bedrock.AgentcoreBrowserBrowserSigning | undefined>;
+    /**
+     * Certificates to install in the browser. See `certificate` below.
+     */
+    declare public readonly certificates: pulumi.Output<outputs.bedrock.AgentcoreBrowserCertificate[] | undefined>;
+    /**
      * Description of the browser.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+     */
+    declare public readonly enterprisePolicies: pulumi.Output<outputs.bedrock.AgentcoreBrowserEnterprisePolicy[] | undefined>;
     /**
      * ARN of the IAM role that the browser assumes for execution.
      */
@@ -182,7 +194,10 @@ export class AgentcoreBrowser extends pulumi.CustomResource {
             const state = argsOrState as AgentcoreBrowserState | undefined;
             resourceInputs["browserArn"] = state?.browserArn;
             resourceInputs["browserId"] = state?.browserId;
+            resourceInputs["browserSigning"] = state?.browserSigning;
+            resourceInputs["certificates"] = state?.certificates;
             resourceInputs["description"] = state?.description;
+            resourceInputs["enterprisePolicies"] = state?.enterprisePolicies;
             resourceInputs["executionRoleArn"] = state?.executionRoleArn;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkConfiguration"] = state?.networkConfiguration;
@@ -196,7 +211,10 @@ export class AgentcoreBrowser extends pulumi.CustomResource {
             if (args?.networkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
+            resourceInputs["browserSigning"] = args?.browserSigning;
+            resourceInputs["certificates"] = args?.certificates;
             resourceInputs["description"] = args?.description;
+            resourceInputs["enterprisePolicies"] = args?.enterprisePolicies;
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkConfiguration"] = args?.networkConfiguration;
@@ -226,9 +244,21 @@ export interface AgentcoreBrowserState {
      */
     browserId?: pulumi.Input<string | undefined>;
     /**
+     * Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+     */
+    browserSigning?: pulumi.Input<inputs.bedrock.AgentcoreBrowserBrowserSigning | undefined>;
+    /**
+     * Certificates to install in the browser. See `certificate` below.
+     */
+    certificates?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreBrowserCertificate>[] | undefined>;
+    /**
      * Description of the browser.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+     */
+    enterprisePolicies?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreBrowserEnterprisePolicy>[] | undefined>;
     /**
      * ARN of the IAM role that the browser assumes for execution.
      */
@@ -267,9 +297,21 @@ export interface AgentcoreBrowserState {
  */
 export interface AgentcoreBrowserArgs {
     /**
+     * Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+     */
+    browserSigning?: pulumi.Input<inputs.bedrock.AgentcoreBrowserBrowserSigning | undefined>;
+    /**
+     * Certificates to install in the browser. See `certificate` below.
+     */
+    certificates?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreBrowserCertificate>[] | undefined>;
+    /**
      * Description of the browser.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+     */
+    enterprisePolicies?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreBrowserEnterprisePolicy>[] | undefined>;
     /**
      * ARN of the IAM role that the browser assumes for execution.
      */

@@ -38,10 +38,22 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cloudwatch Log Stream using the stream's `LogGroupName` and `Name`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `LogGroupName` (String) Name of the log group.
+    /// * `Name` (String) Name of the stream.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Log Streams using `LogGroupName` and `Name` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+    /// $ pulumi import aws:cloudwatch/logStream:LogStream example example-group:example-stream
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logStream:LogStream")]

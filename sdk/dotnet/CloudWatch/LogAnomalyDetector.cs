@@ -50,10 +50,16 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch Log Anomaly Detector using the `Arn`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `Arn` (String) ARN of the anomaly detector.
+    /// 
+    /// Using `pulumi import`, import Anomaly Detectors using `Arn`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example log_anomaly_detector-arn-12345678
+    /// $ pulumi import aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector example arn:aws:logs:us-east-1:123456789012:anomaly-detector:1a2b3c4d-5e6f-7890-abcd-ef1234567890
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logAnomalyDetector:LogAnomalyDetector")]

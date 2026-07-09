@@ -10,6 +10,8 @@ import com.pulumi.aws.ec2.inputs.GetAmiIdsPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetAmiPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingArgs;
 import com.pulumi.aws.ec2.inputs.GetCapacityBlockOfferingPlainArgs;
+import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
 import com.pulumi.aws.ec2.inputs.GetCoipPoolPlainArgs;
 import com.pulumi.aws.ec2.inputs.GetCoipPoolsArgs;
@@ -141,6 +143,7 @@ import com.pulumi.aws.ec2.inputs.GetVpnGatewayPlainArgs;
 import com.pulumi.aws.ec2.outputs.GetAmiIdsResult;
 import com.pulumi.aws.ec2.outputs.GetAmiResult;
 import com.pulumi.aws.ec2.outputs.GetCapacityBlockOfferingResult;
+import com.pulumi.aws.ec2.outputs.GetCapacityBlockReservationResult;
 import com.pulumi.aws.ec2.outputs.GetCoipPoolResult;
 import com.pulumi.aws.ec2.outputs.GetCoipPoolsResult;
 import com.pulumi.aws.ec2.outputs.GetCustomerGatewayResult;
@@ -1063,6 +1066,881 @@ public final class Ec2Functions {
      */
     public static CompletableFuture<GetCapacityBlockOfferingResult> getCapacityBlockOfferingPlain(GetCapacityBlockOfferingPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2/getCapacityBlockOffering:getCapacityBlockOffering", TypeShape.of(GetCapacityBlockOfferingResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about an existing EC2 Capacity Block reservation.
+     * 
+     * This data source returns only Capacity Reservations whose `reservationType` is `capacity-block`. Use the `aws.ec2.CapacityReservation` data source to look up On-Demand Capacity Reservations (ODCR).
+     * 
+     * At least one of `id` or `filter` must be specified. Filter combinations that match multiple Capacity Block reservations will return an error.
+     * 
+     * ## Example Usage
+     * 
+     * ### Lookup by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .id("cr-0123456789abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by filter
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(            
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("p4d.24xlarge")
+     *                     .build(),
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("active")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by tag
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(GetCapacityBlockReservationFilterArgs.builder()
+     *                 .name("tag:Project")
+     *                 .values("ml-training")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCapacityBlockReservationResult> getCapacityBlockReservation() {
+        return getCapacityBlockReservation(GetCapacityBlockReservationArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Information about an existing EC2 Capacity Block reservation.
+     * 
+     * This data source returns only Capacity Reservations whose `reservationType` is `capacity-block`. Use the `aws.ec2.CapacityReservation` data source to look up On-Demand Capacity Reservations (ODCR).
+     * 
+     * At least one of `id` or `filter` must be specified. Filter combinations that match multiple Capacity Block reservations will return an error.
+     * 
+     * ## Example Usage
+     * 
+     * ### Lookup by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .id("cr-0123456789abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by filter
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(            
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("p4d.24xlarge")
+     *                     .build(),
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("active")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by tag
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(GetCapacityBlockReservationFilterArgs.builder()
+     *                 .name("tag:Project")
+     *                 .values("ml-training")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCapacityBlockReservationResult> getCapacityBlockReservationPlain() {
+        return getCapacityBlockReservationPlain(GetCapacityBlockReservationPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Information about an existing EC2 Capacity Block reservation.
+     * 
+     * This data source returns only Capacity Reservations whose `reservationType` is `capacity-block`. Use the `aws.ec2.CapacityReservation` data source to look up On-Demand Capacity Reservations (ODCR).
+     * 
+     * At least one of `id` or `filter` must be specified. Filter combinations that match multiple Capacity Block reservations will return an error.
+     * 
+     * ## Example Usage
+     * 
+     * ### Lookup by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .id("cr-0123456789abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by filter
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(            
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("p4d.24xlarge")
+     *                     .build(),
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("active")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by tag
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(GetCapacityBlockReservationFilterArgs.builder()
+     *                 .name("tag:Project")
+     *                 .values("ml-training")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCapacityBlockReservationResult> getCapacityBlockReservation(GetCapacityBlockReservationArgs args) {
+        return getCapacityBlockReservation(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about an existing EC2 Capacity Block reservation.
+     * 
+     * This data source returns only Capacity Reservations whose `reservationType` is `capacity-block`. Use the `aws.ec2.CapacityReservation` data source to look up On-Demand Capacity Reservations (ODCR).
+     * 
+     * At least one of `id` or `filter` must be specified. Filter combinations that match multiple Capacity Block reservations will return an error.
+     * 
+     * ## Example Usage
+     * 
+     * ### Lookup by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .id("cr-0123456789abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by filter
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(            
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("p4d.24xlarge")
+     *                     .build(),
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("active")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by tag
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(GetCapacityBlockReservationFilterArgs.builder()
+     *                 .name("tag:Project")
+     *                 .values("ml-training")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCapacityBlockReservationResult> getCapacityBlockReservationPlain(GetCapacityBlockReservationPlainArgs args) {
+        return getCapacityBlockReservationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about an existing EC2 Capacity Block reservation.
+     * 
+     * This data source returns only Capacity Reservations whose `reservationType` is `capacity-block`. Use the `aws.ec2.CapacityReservation` data source to look up On-Demand Capacity Reservations (ODCR).
+     * 
+     * At least one of `id` or `filter` must be specified. Filter combinations that match multiple Capacity Block reservations will return an error.
+     * 
+     * ## Example Usage
+     * 
+     * ### Lookup by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .id("cr-0123456789abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by filter
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(            
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("p4d.24xlarge")
+     *                     .build(),
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("active")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by tag
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(GetCapacityBlockReservationFilterArgs.builder()
+     *                 .name("tag:Project")
+     *                 .values("ml-training")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCapacityBlockReservationResult> getCapacityBlockReservation(GetCapacityBlockReservationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getCapacityBlockReservation:getCapacityBlockReservation", TypeShape.of(GetCapacityBlockReservationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about an existing EC2 Capacity Block reservation.
+     * 
+     * This data source returns only Capacity Reservations whose `reservationType` is `capacity-block`. Use the `aws.ec2.CapacityReservation` data source to look up On-Demand Capacity Reservations (ODCR).
+     * 
+     * At least one of `id` or `filter` must be specified. Filter combinations that match multiple Capacity Block reservations will return an error.
+     * 
+     * ## Example Usage
+     * 
+     * ### Lookup by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .id("cr-0123456789abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by filter
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(            
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("p4d.24xlarge")
+     *                     .build(),
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("active")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by tag
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(GetCapacityBlockReservationFilterArgs.builder()
+     *                 .name("tag:Project")
+     *                 .values("ml-training")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetCapacityBlockReservationResult> getCapacityBlockReservation(GetCapacityBlockReservationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:ec2/getCapacityBlockReservation:getCapacityBlockReservation", TypeShape.of(GetCapacityBlockReservationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about an existing EC2 Capacity Block reservation.
+     * 
+     * This data source returns only Capacity Reservations whose `reservationType` is `capacity-block`. Use the `aws.ec2.CapacityReservation` data source to look up On-Demand Capacity Reservations (ODCR).
+     * 
+     * At least one of `id` or `filter` must be specified. Filter combinations that match multiple Capacity Block reservations will return an error.
+     * 
+     * ## Example Usage
+     * 
+     * ### Lookup by ID
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .id("cr-0123456789abcdef0")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by filter
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(            
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("instance-type")
+     *                     .values("p4d.24xlarge")
+     *                     .build(),
+     *                 GetCapacityBlockReservationFilterArgs.builder()
+     *                     .name("state")
+     *                     .values("active")
+     *                     .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ### Lookup by tag
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationArgs;
+     * import com.pulumi.aws.ec2.inputs.GetCapacityBlockReservationFilterArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Ec2Functions.getCapacityBlockReservation(GetCapacityBlockReservationArgs.builder()
+     *             .filters(GetCapacityBlockReservationFilterArgs.builder()
+     *                 .name("tag:Project")
+     *                 .values("ml-training")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetCapacityBlockReservationResult> getCapacityBlockReservationPlain(GetCapacityBlockReservationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:ec2/getCapacityBlockReservation:getCapacityBlockReservation", TypeShape.of(GetCapacityBlockReservationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides details about a specific EC2 Customer-Owned IP Pool.

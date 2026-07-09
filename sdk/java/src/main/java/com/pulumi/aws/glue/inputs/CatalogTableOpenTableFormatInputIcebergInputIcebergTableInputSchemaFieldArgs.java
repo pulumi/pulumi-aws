@@ -19,14 +19,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     public static final CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs Empty = new CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs();
 
     /**
-     * Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+     * Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
      * 
      */
     @Import(name="doc")
     private @Nullable Output<String> doc;
 
     /**
-     * @return Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+     * @return Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
      * 
      */
     public Optional<Output<String>> doc() {
@@ -34,14 +34,16 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     }
 
     /**
-     * Catalog ID, Database name and of the name table.
+     * Catalog ID, database name, and table name, separated by colons (`:`).
+     * * `partition_index[*].index_status` - Status of the partition index.
      * 
      */
     @Import(name="id", required=true)
     private Output<Integer> id;
 
     /**
-     * @return Catalog ID, Database name and of the name table.
+     * @return Catalog ID, database name, and table name, separated by colons (`:`).
+     * * `partition_index[*].index_status` - Status of the partition index.
      * 
      */
     public Output<Integer> id() {
@@ -66,6 +68,8 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
@@ -73,20 +77,22 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     /**
      * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> name() {
         return this.name;
     }
 
     /**
-     * Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+     * Whether this field is required (non-nullable) or optional (nullable) in the table schema.
      * 
      */
     @Import(name="required", required=true)
     private Output<Boolean> required;
 
     /**
-     * @return Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+     * @return Whether this field is required (non-nullable) or optional (nullable) in the table schema.
      * 
      */
     public Output<Boolean> required() {
@@ -146,7 +152,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param doc Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+         * @param doc Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
          * 
          * @return builder
          * 
@@ -157,7 +163,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param doc Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+         * @param doc Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
          * 
          * @return builder
          * 
@@ -167,7 +173,8 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param id Catalog ID, Database name and of the name table.
+         * @param id Catalog ID, database name, and table name, separated by colons (`:`).
+         * * `partition_index[*].index_status` - Status of the partition index.
          * 
          * @return builder
          * 
@@ -178,7 +185,8 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param id Catalog ID, Database name and of the name table.
+         * @param id Catalog ID, database name, and table name, separated by colons (`:`).
+         * * `partition_index[*].index_status` - Status of the partition index.
          * 
          * @return builder
          * 
@@ -211,6 +219,8 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         /**
          * @param name Name of the table. For Hive compatibility, this must be entirely lowercase.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -222,6 +232,8 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         /**
          * @param name Name of the table. For Hive compatibility, this must be entirely lowercase.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -230,7 +242,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param required Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+         * @param required Whether this field is required (non-nullable) or optional (nullable) in the table schema.
          * 
          * @return builder
          * 
@@ -241,7 +253,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param required Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+         * @param required Whether this field is required (non-nullable) or optional (nullable) in the table schema.
          * 
          * @return builder
          * 

@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDomainNameEndpointConfiguration {
     /**
-     * @return The IP address types that can invoke an API (RestApi).
+     * @return IP address types that can invoke a DomainName.
      * 
      */
     private String ipAddressType;
@@ -24,7 +24,7 @@ public final class GetDomainNameEndpointConfiguration {
 
     private GetDomainNameEndpointConfiguration() {}
     /**
-     * @return The IP address types that can invoke an API (RestApi).
+     * @return IP address types that can invoke a DomainName.
      * 
      */
     public String ipAddressType() {

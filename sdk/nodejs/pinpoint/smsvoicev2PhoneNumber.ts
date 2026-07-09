@@ -65,9 +65,13 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * By default this is set to `false`. When set to true the phone number can’t be deleted.
+     * Whether deletion protection is enabled. When `true`, the phone number cannot be deleted.
      */
     declare public readonly deletionProtectionEnabled: pulumi.Output<boolean>;
+    /**
+     * Whether to disassociate the phone number from any pool it is associated with before destroying it.
+     */
+    declare public readonly forceDisassociate: pulumi.Output<boolean | undefined>;
     /**
      * Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      */
@@ -86,10 +90,12 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
     declare public readonly numberCapabilities: pulumi.Output<string[]>;
     /**
      * Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+     *
+     * The following arguments are optional:
      */
     declare public readonly numberType: pulumi.Output<string>;
     /**
-     * Name of the opt-out list to associate with the phone number.
+     * Name of the opt-out list to associate with the phone number. If omitted, AWS assigns the `Default` opt-out list.
      */
     declare public readonly optOutListName: pulumi.Output<string>;
     /**
@@ -120,15 +126,15 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
     /**
      * Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
      */
-    declare public readonly twoWayChannelArn: pulumi.Output<string | undefined>;
+    declare public readonly twoWayChannelArn: pulumi.Output<string>;
     /**
-     * By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+     * Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
      */
     declare public readonly twoWayChannelEnabled: pulumi.Output<boolean>;
     /**
      * IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
      */
-    declare public readonly twoWayChannelRole: pulumi.Output<string | undefined>;
+    declare public readonly twoWayChannelRole: pulumi.Output<string>;
 
     /**
      * Create a Smsvoicev2PhoneNumber resource with the given unique name, arguments, and options.
@@ -145,6 +151,7 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
             const state = argsOrState as Smsvoicev2PhoneNumberState | undefined;
             resourceInputs["arn"] = state?.arn;
             resourceInputs["deletionProtectionEnabled"] = state?.deletionProtectionEnabled;
+            resourceInputs["forceDisassociate"] = state?.forceDisassociate;
             resourceInputs["isoCountryCode"] = state?.isoCountryCode;
             resourceInputs["messageType"] = state?.messageType;
             resourceInputs["monthlyLeasingPrice"] = state?.monthlyLeasingPrice;
@@ -176,6 +183,7 @@ export class Smsvoicev2PhoneNumber extends pulumi.CustomResource {
                 throw new Error("Missing required property 'numberType'");
             }
             resourceInputs["deletionProtectionEnabled"] = args?.deletionProtectionEnabled;
+            resourceInputs["forceDisassociate"] = args?.forceDisassociate;
             resourceInputs["isoCountryCode"] = args?.isoCountryCode;
             resourceInputs["messageType"] = args?.messageType;
             resourceInputs["numberCapabilities"] = args?.numberCapabilities;
@@ -208,9 +216,13 @@ export interface Smsvoicev2PhoneNumberState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * By default this is set to `false`. When set to true the phone number can’t be deleted.
+     * Whether deletion protection is enabled. When `true`, the phone number cannot be deleted.
      */
     deletionProtectionEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether to disassociate the phone number from any pool it is associated with before destroying it.
+     */
+    forceDisassociate?: pulumi.Input<boolean | undefined>;
     /**
      * Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      */
@@ -229,10 +241,12 @@ export interface Smsvoicev2PhoneNumberState {
     numberCapabilities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+     *
+     * The following arguments are optional:
      */
     numberType?: pulumi.Input<string | undefined>;
     /**
-     * Name of the opt-out list to associate with the phone number.
+     * Name of the opt-out list to associate with the phone number. If omitted, AWS assigns the `Default` opt-out list.
      */
     optOutListName?: pulumi.Input<string | undefined>;
     /**
@@ -265,7 +279,7 @@ export interface Smsvoicev2PhoneNumberState {
      */
     twoWayChannelArn?: pulumi.Input<string | undefined>;
     /**
-     * By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+     * Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
      */
     twoWayChannelEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -279,9 +293,13 @@ export interface Smsvoicev2PhoneNumberState {
  */
 export interface Smsvoicev2PhoneNumberArgs {
     /**
-     * By default this is set to `false`. When set to true the phone number can’t be deleted.
+     * Whether deletion protection is enabled. When `true`, the phone number cannot be deleted.
      */
     deletionProtectionEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether to disassociate the phone number from any pool it is associated with before destroying it.
+     */
+    forceDisassociate?: pulumi.Input<boolean | undefined>;
     /**
      * Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
      */
@@ -296,10 +314,12 @@ export interface Smsvoicev2PhoneNumberArgs {
     numberCapabilities: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+     *
+     * The following arguments are optional:
      */
     numberType: pulumi.Input<string>;
     /**
-     * Name of the opt-out list to associate with the phone number.
+     * Name of the opt-out list to associate with the phone number. If omitted, AWS assigns the `Default` opt-out list.
      */
     optOutListName?: pulumi.Input<string | undefined>;
     /**
@@ -324,7 +344,7 @@ export interface Smsvoicev2PhoneNumberArgs {
      */
     twoWayChannelArn?: pulumi.Input<string | undefined>;
     /**
-     * By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+     * Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
      */
     twoWayChannelEnabled?: pulumi.Input<boolean | undefined>;
     /**

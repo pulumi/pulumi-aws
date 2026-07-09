@@ -122,6 +122,10 @@ namespace Pulumi.Aws.DynamoDB
     {
         [Input("expressionAttributeNames")]
         private Dictionary<string, string>? _expressionAttributeNames;
+
+        /// <summary>
+        /// One or more substitution tokens for attribute names in an expression. Use the `#` character in an expression to dereference an attribute name.
+        /// </summary>
         public Dictionary<string, string> ExpressionAttributeNames
         {
             get => _expressionAttributeNames ?? (_expressionAttributeNames = new Dictionary<string, string>());
@@ -129,17 +133,13 @@ namespace Pulumi.Aws.DynamoDB
         }
 
         /// <summary>
-        /// A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-        /// For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-        /// 
-        /// The following arguments are optional:
+        /// Map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
         /// </summary>
         [Input("key", required: true)]
         public string Key { get; set; } = null!;
 
         /// <summary>
-        /// A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-        /// If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+        /// String that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
         /// </summary>
         [Input("projectionExpression")]
         public string? ProjectionExpression { get; set; }
@@ -151,7 +151,9 @@ namespace Pulumi.Aws.DynamoDB
         public string? Region { get; set; }
 
         /// <summary>
-        /// The name or ARN of the table containing the requested item.
+        /// Name or ARN of the table containing the requested item.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableName", required: true)]
         public string TableName { get; set; } = null!;
@@ -166,6 +168,10 @@ namespace Pulumi.Aws.DynamoDB
     {
         [Input("expressionAttributeNames")]
         private InputMap<string>? _expressionAttributeNames;
+
+        /// <summary>
+        /// One or more substitution tokens for attribute names in an expression. Use the `#` character in an expression to dereference an attribute name.
+        /// </summary>
         public InputMap<string> ExpressionAttributeNames
         {
             get => _expressionAttributeNames ?? (_expressionAttributeNames = new InputMap<string>());
@@ -173,17 +179,13 @@ namespace Pulumi.Aws.DynamoDB
         }
 
         /// <summary>
-        /// A map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve.
-        /// For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
-        /// 
-        /// The following arguments are optional:
+        /// Map of attribute names to AttributeValue objects, representing the primary key of the item to retrieve. For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;
 
         /// <summary>
-        /// A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
-        /// If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.
+        /// String that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.
         /// </summary>
         [Input("projectionExpression")]
         public Input<string>? ProjectionExpression { get; set; }
@@ -195,7 +197,9 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name or ARN of the table containing the requested item.
+        /// Name or ARN of the table containing the requested item.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;

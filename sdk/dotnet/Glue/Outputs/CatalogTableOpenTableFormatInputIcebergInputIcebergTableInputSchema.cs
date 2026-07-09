@@ -14,19 +14,19 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema
     {
         /// <summary>
-        /// The list of field definitions that make up the table schema. See `Fields` below.
+        /// List of field definitions that make up the table schema. See `schema.fields` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField> Fields;
         /// <summary>
-        /// The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+        /// List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
         /// </summary>
         public readonly ImmutableArray<int> IdentifierFieldIds;
         /// <summary>
-        /// The unique identifier for this schema version within the Iceberg table's schema evolution history.
+        /// Unique identifier for this schema version within the Iceberg table's schema evolution history.
         /// </summary>
         public readonly int? SchemaId;
         /// <summary>
-        /// The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+        /// Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
         /// </summary>
         public readonly string? Type;
 

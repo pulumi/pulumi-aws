@@ -105,6 +105,12 @@ namespace Pulumi.Aws.Bedrock
     public partial class AgentcoreCodeInterpreter : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `Certificate` below.
+        /// </summary>
+        [Output("certificates")]
+        public Output<ImmutableArray<Outputs.AgentcoreCodeInterpreterCertificate>> Certificates { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the Code Interpreter.
         /// </summary>
         [Output("codeInterpreterArn")]
@@ -209,6 +215,18 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentcoreCodeInterpreterArgs : global::Pulumi.ResourceArgs
     {
+        [Input("certificates")]
+        private InputList<Inputs.AgentcoreCodeInterpreterCertificateArgs>? _certificates;
+
+        /// <summary>
+        /// Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `Certificate` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreCodeInterpreterCertificateArgs> Certificates
+        {
+            get => _certificates ?? (_certificates = new InputList<Inputs.AgentcoreCodeInterpreterCertificateArgs>());
+            set => _certificates = value;
+        }
+
         /// <summary>
         /// Description of the code interpreter.
         /// </summary>
@@ -264,6 +282,18 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentcoreCodeInterpreterState : global::Pulumi.ResourceArgs
     {
+        [Input("certificates")]
+        private InputList<Inputs.AgentcoreCodeInterpreterCertificateGetArgs>? _certificates;
+
+        /// <summary>
+        /// Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `Certificate` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreCodeInterpreterCertificateGetArgs> Certificates
+        {
+            get => _certificates ?? (_certificates = new InputList<Inputs.AgentcoreCodeInterpreterCertificateGetArgs>());
+            set => _certificates = value;
+        }
+
         /// <summary>
         /// ARN of the Code Interpreter.
         /// </summary>

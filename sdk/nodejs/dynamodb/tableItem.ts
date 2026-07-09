@@ -42,7 +42,32 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * You cannot import DynamoDB table items.
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `tableName` (String) Name of the DynamoDB table.
+ * * `hashKeyValue` (String) Canonical value of the hash key (base64 for `B`, verbatim for `N` and `S`).
+ *
+ * #### Optional
+ *
+ * * `rangeKeyValue` (String) Canonical value of the range key, required for tables that define a range key.
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * For tables with a range key, append the range key value:
+ *
+ * Use `pulumi import` for the same effect on the command line:
+ *
+ * ```sh
+ * $ pulumi import aws:dynamodb/tableItem:TableItem example example-name,something
+ * ```
+ *
+ * > **Note:** Importing requires `dynamodb:DescribeTable` in addition to `dynamodb:GetItem`. The DescribeTable call is used to recover the key attribute names and types from the table's schema.
+ *
+ * > **Note:** If a hash key or range key value contains the separator character (`,`), use the `import` block with the `identity` attribute. The legacy `pulumi import` command and `id`-based `import` block cannot disambiguate separators from value content.
+ *
+ * For Binary (`B`) key attributes, the value in the import ID and the identity attribute must be standard base64.
  */
 export class TableItem extends pulumi.CustomResource {
     /**
@@ -77,6 +102,10 @@ export class TableItem extends pulumi.CustomResource {
      */
     declare public readonly hashKey: pulumi.Output<string>;
     /**
+     * Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+     */
+    declare public /*out*/ readonly hashKeyValue: pulumi.Output<string>;
+    /**
      * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      */
     declare public readonly item: pulumi.Output<string>;
@@ -84,6 +113,10 @@ export class TableItem extends pulumi.CustomResource {
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      */
     declare public readonly rangeKey: pulumi.Output<string | undefined>;
+    /**
+     * Canonical string representation of the range key value, when the table has a range key. Same encoding as `hashKeyValue`.
+     */
+    declare public /*out*/ readonly rangeKeyValue: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -109,8 +142,10 @@ export class TableItem extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TableItemState | undefined;
             resourceInputs["hashKey"] = state?.hashKey;
+            resourceInputs["hashKeyValue"] = state?.hashKeyValue;
             resourceInputs["item"] = state?.item;
             resourceInputs["rangeKey"] = state?.rangeKey;
+            resourceInputs["rangeKeyValue"] = state?.rangeKeyValue;
             resourceInputs["region"] = state?.region;
             resourceInputs["tableName"] = state?.tableName;
         } else {
@@ -129,6 +164,8 @@ export class TableItem extends pulumi.CustomResource {
             resourceInputs["rangeKey"] = args?.rangeKey;
             resourceInputs["region"] = args?.region;
             resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["hashKeyValue"] = undefined /*out*/;
+            resourceInputs["rangeKeyValue"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(TableItem.__pulumiType, name, resourceInputs, opts);
@@ -144,6 +181,10 @@ export interface TableItemState {
      */
     hashKey?: pulumi.Input<string | undefined>;
     /**
+     * Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+     */
+    hashKeyValue?: pulumi.Input<string | undefined>;
+    /**
      * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      */
     item?: pulumi.Input<string | undefined>;
@@ -151,6 +192,10 @@ export interface TableItemState {
      * Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
      */
     rangeKey?: pulumi.Input<string | undefined>;
+    /**
+     * Canonical string representation of the range key value, when the table has a range key. Same encoding as `hashKeyValue`.
+     */
+    rangeKeyValue?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

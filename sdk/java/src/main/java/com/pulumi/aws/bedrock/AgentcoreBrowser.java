@@ -6,6 +6,9 @@ package com.pulumi.aws.bedrock;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.bedrock.AgentcoreBrowserArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserState;
+import com.pulumi.aws.bedrock.outputs.AgentcoreBrowserBrowserSigning;
+import com.pulumi.aws.bedrock.outputs.AgentcoreBrowserCertificate;
+import com.pulumi.aws.bedrock.outputs.AgentcoreBrowserEnterprisePolicy;
 import com.pulumi.aws.bedrock.outputs.AgentcoreBrowserNetworkConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreBrowserRecording;
 import com.pulumi.aws.bedrock.outputs.AgentcoreBrowserTimeouts;
@@ -14,6 +17,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -222,6 +226,34 @@ public class AgentcoreBrowser extends com.pulumi.resources.CustomResource {
         return this.browserId;
     }
     /**
+     * Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+     * 
+     */
+    @Export(name="browserSigning", refs={AgentcoreBrowserBrowserSigning.class}, tree="[0]")
+    private Output</* @Nullable */ AgentcoreBrowserBrowserSigning> browserSigning;
+
+    /**
+     * @return Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `browserSigning` below.
+     * 
+     */
+    public Output<Optional<AgentcoreBrowserBrowserSigning>> browserSigning() {
+        return Codegen.optional(this.browserSigning);
+    }
+    /**
+     * Certificates to install in the browser. See `certificate` below.
+     * 
+     */
+    @Export(name="certificates", refs={List.class,AgentcoreBrowserCertificate.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<AgentcoreBrowserCertificate>> certificates;
+
+    /**
+     * @return Certificates to install in the browser. See `certificate` below.
+     * 
+     */
+    public Output<Optional<List<AgentcoreBrowserCertificate>>> certificates() {
+        return Codegen.optional(this.certificates);
+    }
+    /**
      * Description of the browser.
      * 
      */
@@ -234,6 +266,20 @@ public class AgentcoreBrowser extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+     * 
+     */
+    @Export(name="enterprisePolicies", refs={List.class,AgentcoreBrowserEnterprisePolicy.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<AgentcoreBrowserEnterprisePolicy>> enterprisePolicies;
+
+    /**
+     * @return Enterprise policy files to apply to the browser. See `enterprisePolicy` below.
+     * 
+     */
+    public Output<Optional<List<AgentcoreBrowserEnterprisePolicy>>> enterprisePolicies() {
+        return Codegen.optional(this.enterprisePolicies);
     }
     /**
      * ARN of the IAM role that the browser assumes for execution.

@@ -40,7 +40,7 @@ export interface GetDomainNameArgs {
      */
     domainName: string;
     /**
-     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * Identifier for the domain name resource. Supported only for private custom domain names.
      */
     domainNameId?: string;
     /**
@@ -96,7 +96,7 @@ export interface GetDomainNameResult {
      */
     readonly id: string;
     /**
-     * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
      */
     readonly policy: string;
     readonly region: string;
@@ -158,7 +158,7 @@ export interface GetDomainNameOutputArgs {
      */
     domainName: pulumi.Input<string>;
     /**
-     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * Identifier for the domain name resource. Supported only for private custom domain names.
      */
     domainNameId?: pulumi.Input<string | undefined>;
     /**

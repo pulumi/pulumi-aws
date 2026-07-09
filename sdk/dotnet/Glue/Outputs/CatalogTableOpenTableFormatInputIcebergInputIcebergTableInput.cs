@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     {
         /// <summary>
-        /// The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+        /// S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `PartitionSpec` below.
+        /// Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `PartitionSpec` below.
         /// </summary>
         public readonly Outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec? PartitionSpec;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
         /// <summary>
-        /// The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `Schema` below.
+        /// Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `Schema` below.
         /// </summary>
         public readonly Outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema Schema;
         /// <summary>
-        /// The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `SortOrder` below.
+        /// Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `SortOrder` below.
         /// </summary>
         public readonly Outputs.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder? SortOrder;
 

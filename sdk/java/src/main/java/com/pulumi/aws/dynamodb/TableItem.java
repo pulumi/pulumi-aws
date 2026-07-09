@@ -79,7 +79,32 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You cannot import DynamoDB table items.
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `tableName` (String) Name of the DynamoDB table.
+ * * `hashKeyValue` (String) Canonical value of the hash key (base64 for `B`, verbatim for `N` and `S`).
+ * 
+ * #### Optional
+ * 
+ * * `rangeKeyValue` (String) Canonical value of the range key, required for tables that define a range key.
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * For tables with a range key, append the range key value:
+ * 
+ * Use `pulumi import` for the same effect on the command line:
+ * 
+ * ```sh
+ * $ pulumi import aws:dynamodb/tableItem:TableItem example example-name,something
+ * ```
+ * 
+ * &gt; **Note:** Importing requires `dynamodb:DescribeTable` in addition to `dynamodb:GetItem`. The DescribeTable call is used to recover the key attribute names and types from the table&#39;s schema.
+ * 
+ * &gt; **Note:** If a hash key or range key value contains the separator character (`,`), use the `import` block with the `identity` attribute. The legacy `pulumi import` command and `id`-based `import` block cannot disambiguate separators from value content.
+ * 
+ * For Binary (`B`) key attributes, the value in the import ID and the identity attribute must be standard base64.
  * 
  */
 @ResourceType(type="aws:dynamodb/tableItem:TableItem")
@@ -97,6 +122,20 @@ public class TableItem extends com.pulumi.resources.CustomResource {
      */
     public Output<String> hashKey() {
         return this.hashKey;
+    }
+    /**
+     * Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+     * 
+     */
+    @Export(name="hashKeyValue", refs={String.class}, tree="[0]")
+    private Output<String> hashKeyValue;
+
+    /**
+     * @return Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+     * 
+     */
+    public Output<String> hashKeyValue() {
+        return this.hashKeyValue;
     }
     /**
      * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
@@ -125,6 +164,20 @@ public class TableItem extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> rangeKey() {
         return Codegen.optional(this.rangeKey);
+    }
+    /**
+     * Canonical string representation of the range key value, when the table has a range key. Same encoding as `hashKeyValue`.
+     * 
+     */
+    @Export(name="rangeKeyValue", refs={String.class}, tree="[0]")
+    private Output<String> rangeKeyValue;
+
+    /**
+     * @return Canonical string representation of the range key value, when the table has a range key. Same encoding as `hashKeyValue`.
+     * 
+     */
+    public Output<String> rangeKeyValue() {
+        return this.rangeKeyValue;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

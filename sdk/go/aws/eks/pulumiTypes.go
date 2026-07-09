@@ -4308,6 +4308,8 @@ func (o ClusterUpgradePolicyPtrOutput) SupportType() pulumi.StringPtrOutput {
 type ClusterVpcConfig struct {
 	// Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 	ClusterSecurityGroupId *string `pulumi:"clusterSecurityGroupId"`
+	// Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+	ControlPlaneEgressMode *string `pulumi:"controlPlaneEgressMode"`
 	// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
 	EndpointPrivateAccess *bool `pulumi:"endpointPrivateAccess"`
 	// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
@@ -4336,6 +4338,8 @@ type ClusterVpcConfigInput interface {
 type ClusterVpcConfigArgs struct {
 	// Cluster security group that is created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
 	ClusterSecurityGroupId pulumi.StringPtrInput `pulumi:"clusterSecurityGroupId"`
+	// Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+	ControlPlaneEgressMode pulumi.StringPtrInput `pulumi:"controlPlaneEgressMode"`
 	// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
 	EndpointPrivateAccess pulumi.BoolPtrInput `pulumi:"endpointPrivateAccess"`
 	// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
@@ -4432,6 +4436,11 @@ func (o ClusterVpcConfigOutput) ClusterSecurityGroupId() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ClusterVpcConfig) *string { return v.ClusterSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
+// Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+func (o ClusterVpcConfigOutput) ControlPlaneEgressMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterVpcConfig) *string { return v.ControlPlaneEgressMode }).(pulumi.StringPtrOutput)
+}
+
 // Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
 func (o ClusterVpcConfigOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *bool { return v.EndpointPrivateAccess }).(pulumi.BoolPtrOutput)
@@ -4493,6 +4502,16 @@ func (o ClusterVpcConfigPtrOutput) ClusterSecurityGroupId() pulumi.StringPtrOutp
 			return nil
 		}
 		return v.ClusterSecurityGroupId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+func (o ClusterVpcConfigPtrOutput) ControlPlaneEgressMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterVpcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ControlPlaneEgressMode
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8481,6 +8500,8 @@ func (o GetClusterVersionsClusterVersionArrayOutput) Index(i pulumi.IntInput) Ge
 type GetClusterVpcConfig struct {
 	// The cluster security group that was created by Amazon EKS for the cluster.
 	ClusterSecurityGroupId string `pulumi:"clusterSecurityGroupId"`
+	// The egress mode for the EKS control plane. Possible values are `AWS_MANAGED` and `CUSTOMER_ROUTED`.
+	ControlPlaneEgressMode string `pulumi:"controlPlaneEgressMode"`
 	// Indicates whether or not the Amazon EKS private API server endpoint is enabled.
 	EndpointPrivateAccess bool `pulumi:"endpointPrivateAccess"`
 	// Indicates whether or not the Amazon EKS public API server endpoint is enabled.
@@ -8509,6 +8530,8 @@ type GetClusterVpcConfigInput interface {
 type GetClusterVpcConfigArgs struct {
 	// The cluster security group that was created by Amazon EKS for the cluster.
 	ClusterSecurityGroupId pulumi.StringInput `pulumi:"clusterSecurityGroupId"`
+	// The egress mode for the EKS control plane. Possible values are `AWS_MANAGED` and `CUSTOMER_ROUTED`.
+	ControlPlaneEgressMode pulumi.StringInput `pulumi:"controlPlaneEgressMode"`
 	// Indicates whether or not the Amazon EKS private API server endpoint is enabled.
 	EndpointPrivateAccess pulumi.BoolInput `pulumi:"endpointPrivateAccess"`
 	// Indicates whether or not the Amazon EKS public API server endpoint is enabled.
@@ -8552,6 +8575,11 @@ func (o GetClusterVpcConfigOutput) ToGetClusterVpcConfigOutputWithContext(ctx co
 // The cluster security group that was created by Amazon EKS for the cluster.
 func (o GetClusterVpcConfigOutput) ClusterSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterVpcConfig) string { return v.ClusterSecurityGroupId }).(pulumi.StringOutput)
+}
+
+// The egress mode for the EKS control plane. Possible values are `AWS_MANAGED` and `CUSTOMER_ROUTED`.
+func (o GetClusterVpcConfigOutput) ControlPlaneEgressMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterVpcConfig) string { return v.ControlPlaneEgressMode }).(pulumi.StringOutput)
 }
 
 // Indicates whether or not the Amazon EKS private API server endpoint is enabled.

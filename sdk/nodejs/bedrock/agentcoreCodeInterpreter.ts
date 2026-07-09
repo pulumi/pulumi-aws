@@ -94,6 +94,10 @@ export class AgentcoreCodeInterpreter extends pulumi.CustomResource {
     }
 
     /**
+     * Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+     */
+    declare public readonly certificates: pulumi.Output<outputs.bedrock.AgentcoreCodeInterpreterCertificate[] | undefined>;
+    /**
      * ARN of the Code Interpreter.
      */
     declare public /*out*/ readonly codeInterpreterArn: pulumi.Output<string>;
@@ -146,6 +150,7 @@ export class AgentcoreCodeInterpreter extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AgentcoreCodeInterpreterState | undefined;
+            resourceInputs["certificates"] = state?.certificates;
             resourceInputs["codeInterpreterArn"] = state?.codeInterpreterArn;
             resourceInputs["codeInterpreterId"] = state?.codeInterpreterId;
             resourceInputs["description"] = state?.description;
@@ -161,6 +166,7 @@ export class AgentcoreCodeInterpreter extends pulumi.CustomResource {
             if (args?.networkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
+            resourceInputs["certificates"] = args?.certificates;
             resourceInputs["description"] = args?.description;
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["name"] = args?.name;
@@ -181,6 +187,10 @@ export class AgentcoreCodeInterpreter extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AgentcoreCodeInterpreter resources.
  */
 export interface AgentcoreCodeInterpreterState {
+    /**
+     * Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+     */
+    certificates?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterCertificate>[] | undefined>;
     /**
      * ARN of the Code Interpreter.
      */
@@ -226,6 +236,10 @@ export interface AgentcoreCodeInterpreterState {
  * The set of arguments for constructing a AgentcoreCodeInterpreter resource.
  */
 export interface AgentcoreCodeInterpreterArgs {
+    /**
+     * Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+     */
+    certificates?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreCodeInterpreterCertificate>[] | undefined>;
     /**
      * Description of the code interpreter.
      */

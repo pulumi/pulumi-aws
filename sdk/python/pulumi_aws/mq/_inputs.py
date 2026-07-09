@@ -136,15 +136,7 @@ class BrokerInstanceArgsDict(TypedDict):
     """
     endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-    * For `ActiveMQ`:
-    * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-    * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-    * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-    * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-    * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-    * For `RabbitMQ`:
-    * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+    `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
     """
     ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -159,15 +151,7 @@ class BrokerInstanceArgs:
                  ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] console_url: URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] endpoints: Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-               * For `ActiveMQ`:
-               * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-               * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-               * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-               * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-               * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-               * For `RabbitMQ`:
-               * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] endpoints: `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
         :param pulumi.Input[_builtins.str] ip_address: IP Address of the broker.
         """
         if console_url is not None:
@@ -193,15 +177,7 @@ class BrokerInstanceArgs:
     @pulumi.getter
     def endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
-        * For `ActiveMQ`:
-        * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
-        * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
-        * `stomp+ssl://broker-id.mq.us-west-2.amazonaws.com:61614`
-        * `mqtt+ssl://broker-id.mq.us-west-2.amazonaws.com:8883`
-        * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
-        * For `RabbitMQ`:
-        * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
+        `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
         """
         return pulumi.get(self, "endpoints")
 

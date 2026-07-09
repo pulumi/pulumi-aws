@@ -52,6 +52,7 @@ from .files_synchronization_configuration import *
 from .get_access_point import *
 from .get_account_public_access_block import *
 from .get_bucket import *
+from .get_bucket_notification import *
 from .get_bucket_object import *
 from .get_bucket_object_lock_configuration import *
 from .get_bucket_objects import *

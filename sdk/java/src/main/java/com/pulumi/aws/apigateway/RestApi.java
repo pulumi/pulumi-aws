@@ -27,6 +27,45 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### Security Policy
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.apigateway.inputs.RestApiEndpointConfigurationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new RestApi("example", RestApiArgs.builder()
+ *             .name("example")
+ *             .securityPolicy("SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09")
+ *             .endpointAccessMode("BASIC")
+ *             .endpointConfiguration(RestApiEndpointConfigurationArgs.builder()
+ *                 .types("REGIONAL")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * #### Optional
  * 
  * * `accountId` (String) AWS Account where this resource is managed.
@@ -142,6 +181,20 @@ public class RestApi extends com.pulumi.resources.CustomResource {
         return this.disableExecuteApiEndpoint;
     }
     /**
+     * Endpoint access mode for the REST API. Valid values are `BASIC` and `STRICT`. Only available for REST APIs that use a `securityPolicy` value beginning with `SecurityPolicy_` and is required when one of those values is configured.
+     * 
+     */
+    @Export(name="endpointAccessMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> endpointAccessMode;
+
+    /**
+     * @return Endpoint access mode for the REST API. Valid values are `BASIC` and `STRICT`. Only available for REST APIs that use a `securityPolicy` value beginning with `SecurityPolicy_` and is required when one of those values is configured.
+     * 
+     */
+    public Output<Optional<String>> endpointAccessMode() {
+        return Codegen.optional(this.endpointAccessMode);
+    }
+    /**
      * Configuration block defining API endpoint configuration including endpoint type. Defined below.
      * 
      */
@@ -156,32 +209,28 @@ public class RestApi extends com.pulumi.resources.CustomResource {
         return this.endpointConfiguration;
     }
     /**
-     * Execution ARN part to be used in `lambdaPermission`&#39;s `sourceArn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+     * Execution ARN part to be used in `lambdaPermission`&#39;s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      * 
      */
     @Export(name="executionArn", refs={String.class}, tree="[0]")
     private Output<String> executionArn;
 
     /**
-     * @return Execution ARN part to be used in `lambdaPermission`&#39;s `sourceArn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+     * @return Execution ARN part to be used in `lambdaPermission`&#39;s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      * 
      */
     public Output<String> executionArn() {
         return this.executionArn;
     }
     /**
-     * Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+     * Whether to return an error for warnings while API Gateway is creating or updating the resource. Defaults to `false`.
      * 
      */
     @Export(name="failOnWarnings", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> failOnWarnings;
 
     /**
-     * @return Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+     * @return Whether to return an error for warnings while API Gateway is creating or updating the resource. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> failOnWarnings() {
@@ -230,28 +279,28 @@ public class RestApi extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.parameters);
     }
     /**
-     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Terraform will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
     /**
-     * @return JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * @return JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Terraform will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
     public Output<String> policy() {
         return this.policy;
     }
     /**
-     * Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If not configured, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
     @Export(name="putRestApiMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> putRestApiMode;
 
     /**
-     * @return Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * @return Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If not configured, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      * 
      */
     public Output<Optional<String>> putRestApiMode() {
@@ -284,6 +333,20 @@ public class RestApi extends com.pulumi.resources.CustomResource {
      */
     public Output<String> rootResourceId() {
         return this.rootResourceId;
+    }
+    /**
+     * TLS version + cipher suite for the REST API&#39;s default execute-api endpoint. Must be configured for drift detection. When set to a value beginning with `SecurityPolicy_`, `endpointAccessMode` must also be configured. For a list of valid security policies, see [CreateRestApi](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the Amazon API Gateway API Reference.
+     * 
+     */
+    @Export(name="securityPolicy", refs={String.class}, tree="[0]")
+    private Output<String> securityPolicy;
+
+    /**
+     * @return TLS version + cipher suite for the REST API&#39;s default execute-api endpoint. Must be configured for drift detection. When set to a value beginning with `SecurityPolicy_`, `endpointAccessMode` must also be configured. For a list of valid security policies, see [CreateRestApi](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the Amazon API Gateway API Reference.
+     * 
+     */
+    public Output<String> securityPolicy() {
+        return this.securityPolicy;
     }
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

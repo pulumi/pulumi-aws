@@ -14,23 +14,23 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableViewDefinitionRepresentation
     {
         /// <summary>
-        /// A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+        /// Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
         /// </summary>
         public readonly string? Dialect;
         /// <summary>
-        /// A parameter that specifies the version of the engine of a specific representation.
+        /// Parameter that specifies the version of the engine of a specific representation.
         /// </summary>
         public readonly string? DialectVersion;
         /// <summary>
-        /// The name of the connection to be used to validate the specific representation of the view.
+        /// Name of the connection to be used to validate the specific representation of the view.
         /// </summary>
         public readonly string? ValidationConnection;
         /// <summary>
-        /// A string that represents the SQL query that describes the view with expanded resource ARNs.
+        /// String that represents the SQL query that describes the view with expanded resource ARNs.
         /// </summary>
         public readonly string? ViewExpandedText;
         /// <summary>
-        /// A string that represents the original SQL query that describes the view.
+        /// String that represents the original SQL query that describes the view.
         /// </summary>
         public readonly string? ViewOriginalText;
 

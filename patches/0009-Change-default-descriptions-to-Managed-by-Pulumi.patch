@@ -70,7 +70,7 @@ index 036b57330fe..cca0b267270 100644
  				names.AttrName: {
  					Type:          schema.TypeString,
 diff --git a/internal/service/ec2/vpc_security_group.go b/internal/service/ec2/vpc_security_group.go
-index 1866e33194e..62d47f571ff 100644
+index fff493674d4..c58367369da 100644
 --- a/internal/service/ec2/vpc_security_group.go
 +++ b/internal/service/ec2/vpc_security_group.go
 @@ -71,7 +71,7 @@ func resourceSecurityGroup() *schema.Resource {
@@ -278,10 +278,10 @@ index e69dfaa0d40..567aa09564a 100644
  				names.AttrName: {
  					Type:     schema.TypeString,
 diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
-index 8a512bfbc9d..85496b3dcfe 100644
+index 257f55d23f3..9f60b07ff9a 100644
 --- a/internal/service/route53/record.go
 +++ b/internal/service/route53/record.go
-@@ -364,7 +364,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta any)
+@@ -363,7 +363,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta any)
  					ResourceRecordSet: expandResourceRecordSet(d, aws.ToString(zoneRecord.HostedZone.Name)),
  				},
  			},
@@ -290,7 +290,7 @@ index 8a512bfbc9d..85496b3dcfe 100644
  		},
  		HostedZoneId: aws.String(cleanZoneID(aws.ToString(zoneRecord.HostedZone.Id))),
  	}
-@@ -666,7 +666,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta any)
+@@ -670,7 +670,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta any)
  					ResourceRecordSet: expandResourceRecordSet(d, aws.ToString(zoneRecord.HostedZone.Name)),
  				},
  			},
@@ -299,7 +299,7 @@ index 8a512bfbc9d..85496b3dcfe 100644
  		},
  		HostedZoneId: aws.String(cleanZoneID(aws.ToString(zoneRecord.HostedZone.Id))),
  	}
-@@ -724,7 +724,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta any)
+@@ -728,7 +728,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta any)
  					ResourceRecordSet: rec,
  				},
  			},

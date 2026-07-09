@@ -83,18 +83,32 @@ public class Smsvoicev2PhoneNumber extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * By default this is set to `false`. When set to true the phone number can’t be deleted.
+     * Whether deletion protection is enabled. When `true`, the phone number cannot be deleted.
      * 
      */
     @Export(name="deletionProtectionEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> deletionProtectionEnabled;
 
     /**
-     * @return By default this is set to `false`. When set to true the phone number can’t be deleted.
+     * @return Whether deletion protection is enabled. When `true`, the phone number cannot be deleted.
      * 
      */
     public Output<Boolean> deletionProtectionEnabled() {
         return this.deletionProtectionEnabled;
+    }
+    /**
+     * Whether to disassociate the phone number from any pool it is associated with before destroying it.
+     * 
+     */
+    @Export(name="forceDisassociate", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> forceDisassociate;
+
+    /**
+     * @return Whether to disassociate the phone number from any pool it is associated with before destroying it.
+     * 
+     */
+    public Output<Optional<Boolean>> forceDisassociate() {
+        return Codegen.optional(this.forceDisassociate);
     }
     /**
      * Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
@@ -155,6 +169,8 @@ public class Smsvoicev2PhoneNumber extends com.pulumi.resources.CustomResource {
     /**
      * Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Export(name="numberType", refs={String.class}, tree="[0]")
     private Output<String> numberType;
@@ -162,19 +178,21 @@ public class Smsvoicev2PhoneNumber extends com.pulumi.resources.CustomResource {
     /**
      * @return Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
      * 
+     * The following arguments are optional:
+     * 
      */
     public Output<String> numberType() {
         return this.numberType;
     }
     /**
-     * Name of the opt-out list to associate with the phone number.
+     * Name of the opt-out list to associate with the phone number. If omitted, AWS assigns the `Default` opt-out list.
      * 
      */
     @Export(name="optOutListName", refs={String.class}, tree="[0]")
     private Output<String> optOutListName;
 
     /**
-     * @return Name of the opt-out list to associate with the phone number.
+     * @return Name of the opt-out list to associate with the phone number. If omitted, AWS assigns the `Default` opt-out list.
      * 
      */
     public Output<String> optOutListName() {
@@ -275,24 +293,24 @@ public class Smsvoicev2PhoneNumber extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="twoWayChannelArn", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> twoWayChannelArn;
+    private Output<String> twoWayChannelArn;
 
     /**
      * @return Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
      * 
      */
-    public Output<Optional<String>> twoWayChannelArn() {
-        return Codegen.optional(this.twoWayChannelArn);
+    public Output<String> twoWayChannelArn() {
+        return this.twoWayChannelArn;
     }
     /**
-     * By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+     * Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
      * 
      */
     @Export(name="twoWayChannelEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> twoWayChannelEnabled;
 
     /**
-     * @return By default this is set to `false`. When set to `true` you can receive incoming text messages from your end recipients.
+     * @return Whether two-way messaging is enabled. When `true`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `false`.
      * 
      */
     public Output<Boolean> twoWayChannelEnabled() {
@@ -303,14 +321,14 @@ public class Smsvoicev2PhoneNumber extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="twoWayChannelRole", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> twoWayChannelRole;
+    private Output<String> twoWayChannelRole;
 
     /**
      * @return IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
      * 
      */
-    public Output<Optional<String>> twoWayChannelRole() {
-        return Codegen.optional(this.twoWayChannelRole);
+    public Output<String> twoWayChannelRole() {
+        return this.twoWayChannelRole;
     }
 
     /**

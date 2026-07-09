@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
 /**
  * Resource for managing a Verified Access Logging Configuration.
  * 
+ * &gt; Deletion of this resource resets the Verified Access Instance Logging Configuration to its default values.
+ * 
  * ## Example Usage
  * 
  * ### With CloudWatch Logging

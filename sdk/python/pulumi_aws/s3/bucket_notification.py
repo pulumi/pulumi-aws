@@ -251,7 +251,7 @@ class BucketNotification(pulumi.CustomResource):
         """
         Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
 
-        > **NOTE:** S3 Buckets only support a single notification configuration resource. Declaring multiple `s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. This resource will overwrite any existing event notifications configured for the S3 bucket it's associated with. See the example "Trigger multiple Lambda functions" for an option of how to configure multiple triggers within this resource.
+        > **NOTE:** The S3 [`PutBucketNotificationConfiguration`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html) API is atomic — it replaces the bucket's entire notification configuration on every call. Only one `s3.BucketNotification` resource can manage a bucket; declaring more than one causes a perpetual diff, and applying this resource will overwrite any notifications already on the bucket. To configure multiple destinations on the same bucket, declare them all as nested blocks within a single resource (see Trigger multiple Lambda functions below). To let independent teams or Terraform configurations subscribe to the same bucket without stepping on each other, prefer the Emit events to EventBridge pattern below. To bring existing notifications under management without losing them, see the `s3.BucketNotification` data source.
 
         > This resource cannot be used with S3 directory buckets.
 
@@ -473,15 +473,61 @@ class BucketNotification(pulumi.CustomResource):
 
         ### Emit events to EventBridge
 
+        For a bucket shared by multiple independent consumers — different teams, different Terraform configurations, different applications — EventBridge is the recommended pattern. Each consumer subscribes to the bucket through its own `cloudwatch.EventRule`, so they cannot overwrite one another the way notification configurations would.
+
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
+        shared = aws.s3.Bucket("shared", bucket="shared-bucket")
+        shared_bucket_notification = aws.s3.BucketNotification("shared",
+            bucket=shared.id,
             eventbridge=True)
+        # Team A: process new uploads under uploads/
+        team_a = aws.cloudwatch.EventRule("team_a",
+            name="team-a-uploads",
+            event_pattern=pulumi.Output.json_dumps({
+                "source": ["aws.s3"],
+                "detail-type": ["Object Created"],
+                "detail": {
+                    "bucket": {
+                        "name": [shared.bucket],
+                    },
+                    "object": {
+                        "key": [{
+                            "prefix": "uploads/",
+                        }],
+                    },
+                },
+            }))
+        team_a_event_target = aws.cloudwatch.EventTarget("team_a",
+            rule=team_a.name,
+            arn=team_a_processor["arn"])
+        # Team B: archive deletions under archive/, declared in a separate
+        # Terraform configuration that knows nothing about Team A.
+        team_b = aws.cloudwatch.EventRule("team_b",
+            name="team-b-deletions",
+            event_pattern=pulumi.Output.json_dumps({
+                "source": ["aws.s3"],
+                "detail-type": ["Object Deleted"],
+                "detail": {
+                    "bucket": {
+                        "name": [shared.bucket],
+                    },
+                    "object": {
+                        "key": [{
+                            "prefix": "archive/",
+                        }],
+                    },
+                },
+            }))
+        team_b_event_target = aws.cloudwatch.EventTarget("team_b",
+            rule=team_b.name,
+            arn=team_b_archive["arn"])
         ```
+
+        For sharing a bucket between Terraform configurations when EventBridge is not an option, use the `s3.BucketNotification` data source to read existing notifications and re-emit them in your own resource.
 
         ## Import
 
@@ -523,7 +569,7 @@ class BucketNotification(pulumi.CustomResource):
         """
         Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
 
-        > **NOTE:** S3 Buckets only support a single notification configuration resource. Declaring multiple `s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. This resource will overwrite any existing event notifications configured for the S3 bucket it's associated with. See the example "Trigger multiple Lambda functions" for an option of how to configure multiple triggers within this resource.
+        > **NOTE:** The S3 [`PutBucketNotificationConfiguration`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html) API is atomic — it replaces the bucket's entire notification configuration on every call. Only one `s3.BucketNotification` resource can manage a bucket; declaring more than one causes a perpetual diff, and applying this resource will overwrite any notifications already on the bucket. To configure multiple destinations on the same bucket, declare them all as nested blocks within a single resource (see Trigger multiple Lambda functions below). To let independent teams or Terraform configurations subscribe to the same bucket without stepping on each other, prefer the Emit events to EventBridge pattern below. To bring existing notifications under management without losing them, see the `s3.BucketNotification` data source.
 
         > This resource cannot be used with S3 directory buckets.
 
@@ -745,15 +791,61 @@ class BucketNotification(pulumi.CustomResource):
 
         ### Emit events to EventBridge
 
+        For a bucket shared by multiple independent consumers — different teams, different Terraform configurations, different applications — EventBridge is the recommended pattern. Each consumer subscribes to the bucket through its own `cloudwatch.EventRule`, so they cannot overwrite one another the way notification configurations would.
+
         ```python
         import pulumi
+        import json
         import pulumi_aws as aws
 
-        bucket = aws.s3.Bucket("bucket", bucket="your-bucket-name")
-        bucket_notification = aws.s3.BucketNotification("bucket_notification",
-            bucket=bucket.id,
+        shared = aws.s3.Bucket("shared", bucket="shared-bucket")
+        shared_bucket_notification = aws.s3.BucketNotification("shared",
+            bucket=shared.id,
             eventbridge=True)
+        # Team A: process new uploads under uploads/
+        team_a = aws.cloudwatch.EventRule("team_a",
+            name="team-a-uploads",
+            event_pattern=pulumi.Output.json_dumps({
+                "source": ["aws.s3"],
+                "detail-type": ["Object Created"],
+                "detail": {
+                    "bucket": {
+                        "name": [shared.bucket],
+                    },
+                    "object": {
+                        "key": [{
+                            "prefix": "uploads/",
+                        }],
+                    },
+                },
+            }))
+        team_a_event_target = aws.cloudwatch.EventTarget("team_a",
+            rule=team_a.name,
+            arn=team_a_processor["arn"])
+        # Team B: archive deletions under archive/, declared in a separate
+        # Terraform configuration that knows nothing about Team A.
+        team_b = aws.cloudwatch.EventRule("team_b",
+            name="team-b-deletions",
+            event_pattern=pulumi.Output.json_dumps({
+                "source": ["aws.s3"],
+                "detail-type": ["Object Deleted"],
+                "detail": {
+                    "bucket": {
+                        "name": [shared.bucket],
+                    },
+                    "object": {
+                        "key": [{
+                            "prefix": "archive/",
+                        }],
+                    },
+                },
+            }))
+        team_b_event_target = aws.cloudwatch.EventTarget("team_b",
+            rule=team_b.name,
+            arn=team_b_archive["arn"])
         ```
+
+        For sharing a bucket between Terraform configurations when EventBridge is not an option, use the `s3.BucketNotification` data source to read existing notifications and re-emit them in your own resource.
 
         ## Import
 

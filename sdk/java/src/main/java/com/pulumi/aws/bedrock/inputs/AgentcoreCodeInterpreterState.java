@@ -3,11 +3,13 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreCodeInterpreterCertificateArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreCodeInterpreterNetworkConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreCodeInterpreterTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,6 +19,21 @@ import javax.annotation.Nullable;
 public final class AgentcoreCodeInterpreterState extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentcoreCodeInterpreterState Empty = new AgentcoreCodeInterpreterState();
+
+    /**
+     * Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+     * 
+     */
+    @Import(name="certificates")
+    private @Nullable Output<List<AgentcoreCodeInterpreterCertificateArgs>> certificates;
+
+    /**
+     * @return Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+     * 
+     */
+    public Optional<Output<List<AgentcoreCodeInterpreterCertificateArgs>>> certificates() {
+        return Optional.ofNullable(this.certificates);
+    }
 
     /**
      * ARN of the Code Interpreter.
@@ -167,6 +184,7 @@ public final class AgentcoreCodeInterpreterState extends com.pulumi.resources.Re
     private AgentcoreCodeInterpreterState() {}
 
     private AgentcoreCodeInterpreterState(AgentcoreCodeInterpreterState $) {
+        this.certificates = $.certificates;
         this.codeInterpreterArn = $.codeInterpreterArn;
         this.codeInterpreterId = $.codeInterpreterId;
         this.description = $.description;
@@ -195,6 +213,37 @@ public final class AgentcoreCodeInterpreterState extends com.pulumi.resources.Re
 
         public Builder(AgentcoreCodeInterpreterState defaults) {
             $ = new AgentcoreCodeInterpreterState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param certificates Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificates(@Nullable Output<List<AgentcoreCodeInterpreterCertificateArgs>> certificates) {
+            $.certificates = certificates;
+            return this;
+        }
+
+        /**
+         * @param certificates Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificates(List<AgentcoreCodeInterpreterCertificateArgs> certificates) {
+            return certificates(Output.of(certificates));
+        }
+
+        /**
+         * @param certificates Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificates(AgentcoreCodeInterpreterCertificateArgs... certificates) {
+            return certificates(List.of(certificates));
         }
 
         /**

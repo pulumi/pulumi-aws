@@ -17,14 +17,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     public static final CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs Empty = new CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs();
 
     /**
-     * The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+     * List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
      * 
      */
     @Import(name="fields", required=true)
     private Output<List<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs>> fields;
 
     /**
-     * @return The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+     * @return List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
      * 
      */
     public Output<List<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs>> fields() {
@@ -32,14 +32,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     }
 
     /**
-     * The unique identifier for this sort order specification within the Iceberg table&#39;s metadata.
+     * Unique identifier for this sort order specification within the Iceberg table&#39;s metadata.
      * 
      */
     @Import(name="orderId", required=true)
     private Output<Integer> orderId;
 
     /**
-     * @return The unique identifier for this sort order specification within the Iceberg table&#39;s metadata.
+     * @return Unique identifier for this sort order specification within the Iceberg table&#39;s metadata.
      * 
      */
     public Output<Integer> orderId() {
@@ -72,7 +72,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param fields The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+         * @param fields List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param fields The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+         * @param fields List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param fields The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+         * @param fields List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param orderId The unique identifier for this sort order specification within the Iceberg table&#39;s metadata.
+         * @param orderId Unique identifier for this sort order specification within the Iceberg table&#39;s metadata.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param orderId The unique identifier for this sort order specification within the Iceberg table&#39;s metadata.
+         * @param orderId Unique identifier for this sort order specification within the Iceberg table&#39;s metadata.
          * 
          * @return builder
          * 

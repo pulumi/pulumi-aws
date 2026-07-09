@@ -22,6 +22,7 @@ __all__ = ['AgentcoreCodeInterpreterArgs', 'AgentcoreCodeInterpreter']
 class AgentcoreCodeInterpreterArgs:
     def __init__(__self__, *,
                  network_configuration: pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs'],
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreCodeInterpreterCertificateArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,6 +35,7 @@ class AgentcoreCodeInterpreterArgs:
         :param pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs'] network_configuration: Network configuration for the code interpreter. See `network_configuration` below.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreCodeInterpreterCertificateArgs']]] certificates: Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
         :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
         :param pulumi.Input[_builtins.str] name: Name of the code interpreter.
@@ -41,6 +43,8 @@ class AgentcoreCodeInterpreterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "network_configuration", network_configuration)
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if execution_role_arn is not None:
@@ -67,6 +71,18 @@ class AgentcoreCodeInterpreterArgs:
     @network_configuration.setter
     def network_configuration(self, value: pulumi.Input['AgentcoreCodeInterpreterNetworkConfigurationArgs']):
         pulumi.set(self, "network_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreCodeInterpreterCertificateArgs']]]]:
+        """
+        Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreCodeInterpreterCertificateArgs']]]]):
+        pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter
@@ -141,6 +157,7 @@ class AgentcoreCodeInterpreterArgs:
 @pulumi.input_type
 class _AgentcoreCodeInterpreterState:
     def __init__(__self__, *,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreCodeInterpreterCertificateArgs']]]] = None,
                  code_interpreter_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  code_interpreter_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -154,6 +171,7 @@ class _AgentcoreCodeInterpreterState:
         """
         Input properties used for looking up and filtering AgentcoreCodeInterpreter resources.
 
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreCodeInterpreterCertificateArgs']]] certificates: Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
         :param pulumi.Input[_builtins.str] code_interpreter_arn: ARN of the Code Interpreter.
         :param pulumi.Input[_builtins.str] code_interpreter_id: Unique identifier of the Code Interpreter.
         :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
@@ -166,6 +184,8 @@ class _AgentcoreCodeInterpreterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
+        if certificates is not None:
+            pulumi.set(__self__, "certificates", certificates)
         if code_interpreter_arn is not None:
             pulumi.set(__self__, "code_interpreter_arn", code_interpreter_arn)
         if code_interpreter_id is not None:
@@ -186,6 +206,18 @@ class _AgentcoreCodeInterpreterState:
             pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter
+    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreCodeInterpreterCertificateArgs']]]]:
+        """
+        Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+        """
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreCodeInterpreterCertificateArgs']]]]):
+        pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="codeInterpreterArn")
@@ -313,6 +345,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreCodeInterpreterCertificateArgs', 'AgentcoreCodeInterpreterCertificateArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -377,6 +410,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreCodeInterpreterCertificateArgs', 'AgentcoreCodeInterpreterCertificateArgsDict']]]] certificates: Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
         :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
         :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the IAM role that the code interpreter assumes for execution. Required when using `SANDBOX` network mode.
         :param pulumi.Input[_builtins.str] name: Name of the code interpreter.
@@ -461,6 +495,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreCodeInterpreterCertificateArgs', 'AgentcoreCodeInterpreterCertificateArgsDict']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -477,6 +512,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AgentcoreCodeInterpreterArgs.__new__(AgentcoreCodeInterpreterArgs)
 
+            __props__.__dict__["certificates"] = certificates
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["name"] = name
@@ -499,6 +535,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentcoreCodeInterpreterCertificateArgs', 'AgentcoreCodeInterpreterCertificateArgsDict']]]]] = None,
             code_interpreter_arn: pulumi.Input[Optional[_builtins.str]] = None,
             code_interpreter_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -516,6 +553,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreCodeInterpreterCertificateArgs', 'AgentcoreCodeInterpreterCertificateArgsDict']]]] certificates: Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
         :param pulumi.Input[_builtins.str] code_interpreter_arn: ARN of the Code Interpreter.
         :param pulumi.Input[_builtins.str] code_interpreter_id: Unique identifier of the Code Interpreter.
         :param pulumi.Input[_builtins.str] description: Description of the code interpreter.
@@ -532,6 +570,7 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
 
         __props__ = _AgentcoreCodeInterpreterState.__new__(_AgentcoreCodeInterpreterState)
 
+        __props__.__dict__["certificates"] = certificates
         __props__.__dict__["code_interpreter_arn"] = code_interpreter_arn
         __props__.__dict__["code_interpreter_id"] = code_interpreter_id
         __props__.__dict__["description"] = description
@@ -543,6 +582,14 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
         return AgentcoreCodeInterpreter(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreCodeInterpreterCertificate']]]:
+        """
+        Certificates to install in the code interpreter. Between 1 and 200 blocks are supported. See `certificate` below.
+        """
+        return pulumi.get(self, "certificates")
 
     @_builtins.property
     @pulumi.getter(name="codeInterpreterArn")

@@ -333,9 +333,9 @@ func (o DocumentationPartLocationPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type DomainNameEndpointConfiguration struct {
-	// The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+	// IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
 	IpAddressType *string `pulumi:"ipAddressType"`
-	// A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
+	// List of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
 	Types string `pulumi:"types"`
 }
 
@@ -351,9 +351,9 @@ type DomainNameEndpointConfigurationInput interface {
 }
 
 type DomainNameEndpointConfigurationArgs struct {
-	// The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+	// IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
 	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
-	// A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
+	// List of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
 	Types pulumi.StringInput `pulumi:"types"`
 }
 
@@ -434,12 +434,12 @@ func (o DomainNameEndpointConfigurationOutput) ToDomainNameEndpointConfiguration
 	}).(DomainNameEndpointConfigurationPtrOutput)
 }
 
-// The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+// IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
 func (o DomainNameEndpointConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameEndpointConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
 
-// A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
+// List of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
 func (o DomainNameEndpointConfigurationOutput) Types() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameEndpointConfiguration) string { return v.Types }).(pulumi.StringOutput)
 }
@@ -468,7 +468,7 @@ func (o DomainNameEndpointConfigurationPtrOutput) Elem() DomainNameEndpointConfi
 	}).(DomainNameEndpointConfigurationOutput)
 }
 
-// The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+// IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
 func (o DomainNameEndpointConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameEndpointConfiguration) *string {
 		if v == nil {
@@ -478,7 +478,7 @@ func (o DomainNameEndpointConfigurationPtrOutput) IpAddressType() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
+// List of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
 func (o DomainNameEndpointConfigurationPtrOutput) Types() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameEndpointConfiguration) *string {
 		if v == nil {
@@ -1090,7 +1090,7 @@ func (o MethodSettingsSettingsPtrOutput) UnauthorizedCacheControlHeaderStrategy(
 }
 
 type RestApiEndpointConfiguration struct {
-	// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+	// IP address types that can invoke a REST API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 	Types string `pulumi:"types"`
@@ -1110,7 +1110,7 @@ type RestApiEndpointConfigurationInput interface {
 }
 
 type RestApiEndpointConfigurationArgs struct {
-	// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+	// IP address types that can invoke a REST API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
 	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `putRestApiMode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
 	Types pulumi.StringInput `pulumi:"types"`
@@ -1195,7 +1195,7 @@ func (o RestApiEndpointConfigurationOutput) ToRestApiEndpointConfigurationPtrOut
 	}).(RestApiEndpointConfigurationPtrOutput)
 }
 
-// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+// IP address types that can invoke a REST API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
 func (o RestApiEndpointConfigurationOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RestApiEndpointConfiguration) *string { return v.IpAddressType }).(pulumi.StringPtrOutput)
 }
@@ -1234,7 +1234,7 @@ func (o RestApiEndpointConfigurationPtrOutput) Elem() RestApiEndpointConfigurati
 	}).(RestApiEndpointConfigurationOutput)
 }
 
-// The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+// IP address types that can invoke a REST API. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
 func (o RestApiEndpointConfigurationPtrOutput) IpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RestApiEndpointConfiguration) *string {
 		if v == nil {
@@ -2484,7 +2484,7 @@ func (o GetApiKeysItemArrayOutput) Index(i pulumi.IntInput) GetApiKeysItemOutput
 }
 
 type GetDomainNameEndpointConfiguration struct {
-	// The IP address types that can invoke an API (RestApi).
+	// IP address types that can invoke a DomainName.
 	IpAddressType string `pulumi:"ipAddressType"`
 	// List of endpoint types.
 	Types []string `pulumi:"types"`
@@ -2502,7 +2502,7 @@ type GetDomainNameEndpointConfigurationInput interface {
 }
 
 type GetDomainNameEndpointConfigurationArgs struct {
-	// The IP address types that can invoke an API (RestApi).
+	// IP address types that can invoke a DomainName.
 	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
 	// List of endpoint types.
 	Types pulumi.StringArrayInput `pulumi:"types"`
@@ -2559,7 +2559,7 @@ func (o GetDomainNameEndpointConfigurationOutput) ToGetDomainNameEndpointConfigu
 	return o
 }
 
-// The IP address types that can invoke an API (RestApi).
+// IP address types that can invoke a DomainName.
 func (o GetDomainNameEndpointConfigurationOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainNameEndpointConfiguration) string { return v.IpAddressType }).(pulumi.StringOutput)
 }
@@ -2590,7 +2590,7 @@ func (o GetDomainNameEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type GetRestApiEndpointConfiguration struct {
-	// The IP address types that can invoke an API (RestApi).
+	// IP address types that can invoke a REST API.
 	IpAddressType string `pulumi:"ipAddressType"`
 	// List of endpoint types.
 	Types []string `pulumi:"types"`
@@ -2610,7 +2610,7 @@ type GetRestApiEndpointConfigurationInput interface {
 }
 
 type GetRestApiEndpointConfigurationArgs struct {
-	// The IP address types that can invoke an API (RestApi).
+	// IP address types that can invoke a REST API.
 	IpAddressType pulumi.StringInput `pulumi:"ipAddressType"`
 	// List of endpoint types.
 	Types pulumi.StringArrayInput `pulumi:"types"`
@@ -2669,7 +2669,7 @@ func (o GetRestApiEndpointConfigurationOutput) ToGetRestApiEndpointConfiguration
 	return o
 }
 
-// The IP address types that can invoke an API (RestApi).
+// IP address types that can invoke a REST API.
 func (o GetRestApiEndpointConfigurationOutput) IpAddressType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRestApiEndpointConfiguration) string { return v.IpAddressType }).(pulumi.StringOutput)
 }

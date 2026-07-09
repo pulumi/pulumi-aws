@@ -17,9 +17,13 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Deploys an Application CloudFormation Stack from the Serverless Application Repository.
+ * Manages an Application CloudFormation Stack from the Serverless Application Repository.
+ * 
+ * &gt; **Warning:** CloudFormation masks `NoEcho` parameter values as `****` in API responses, which may set an expectation that they remain hidden. They do not — like any other argument, the configured value is persisted to state. To mask a specific parameter in plan and `terraform show` output, wrap it with Terraform&#39;s `sensitive()` function, for example `parameters = { password = sensitive(var.password) }`.
  * 
  * ## Example Usage
+ * 
+ * ### Basic Usage
  * 
  * <pre>
  * {@code
@@ -81,70 +85,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:serverlessrepository/cloudFormationStack:CloudFormationStack")
 public class CloudFormationStack extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the application from the Serverless Application Repository.
+     * ARN of the application from the Serverless Application Repository.
      * 
      */
     @Export(name="applicationId", refs={String.class}, tree="[0]")
     private Output<String> applicationId;
 
     /**
-     * @return The ARN of the application from the Serverless Application Repository.
+     * @return ARN of the application from the Serverless Application Repository.
      * 
      */
     public Output<String> applicationId() {
         return this.applicationId;
     }
     /**
-     * A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+     * List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
      * 
      */
     @Export(name="capabilities", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> capabilities;
 
     /**
-     * @return A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+     * @return List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
      * 
      */
     public Output<List<String>> capabilities() {
         return this.capabilities;
     }
     /**
-     * The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+     * Name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+     * @return Name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * A map of outputs from the stack.
+     * Map of outputs from the stack.
      * 
      */
     @Export(name="outputs", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> outputs;
 
     /**
-     * @return A map of outputs from the stack.
+     * @return Map of outputs from the stack.
      * 
      */
     public Output<Map<String,String>> outputs() {
         return this.outputs;
     }
     /**
-     * A map of Parameter structures that specify input parameters for the stack.
+     * Map of Parameter structures that specify input parameters for the stack.
      * 
      */
     @Export(name="parameters", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> parameters;
 
     /**
-     * @return A map of Parameter structures that specify input parameters for the stack.
+     * @return Map of Parameter structures that specify input parameters for the stack.
      * 
      */
     public Output<Map<String,String>> parameters() {
@@ -165,42 +169,42 @@ public class CloudFormationStack extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The version of the application to deploy. If not supplied, deploys the latest version.
+     * Version of the application to deploy. If not supplied, deploys the latest version.
      * 
      */
     @Export(name="semanticVersion", refs={String.class}, tree="[0]")
     private Output<String> semanticVersion;
 
     /**
-     * @return The version of the application to deploy. If not supplied, deploys the latest version.
+     * @return Version of the application to deploy. If not supplied, deploys the latest version.
      * 
      */
     public Output<String> semanticVersion() {
         return this.semanticVersion;
     }
     /**
-     * A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

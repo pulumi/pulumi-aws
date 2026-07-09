@@ -34,7 +34,12 @@ public final class GetRestApiResult {
      */
     private String description;
     /**
-     * @return The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
+     * @return Endpoint access mode for the REST API.
+     * 
+     */
+    private String endpointAccessMode;
+    /**
+     * @return Endpoint configuration of this REST API showing the endpoint types of the API. See below.
      * 
      */
     private List<GetRestApiEndpointConfiguration> endpointConfigurations;
@@ -65,6 +70,11 @@ public final class GetRestApiResult {
      * 
      */
     private String rootResourceId;
+    /**
+     * @return TLS version + cipher suite for the REST API&#39;s default execute-api endpoint.
+     * 
+     */
+    private String securityPolicy;
     /**
      * @return Key-value map of resource tags.
      * 
@@ -101,7 +111,14 @@ public final class GetRestApiResult {
         return this.description;
     }
     /**
-     * @return The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
+     * @return Endpoint access mode for the REST API.
+     * 
+     */
+    public String endpointAccessMode() {
+        return this.endpointAccessMode;
+    }
+    /**
+     * @return Endpoint configuration of this REST API showing the endpoint types of the API. See below.
      * 
      */
     public List<GetRestApiEndpointConfiguration> endpointConfigurations() {
@@ -149,6 +166,13 @@ public final class GetRestApiResult {
         return this.rootResourceId;
     }
     /**
+     * @return TLS version + cipher suite for the REST API&#39;s default execute-api endpoint.
+     * 
+     */
+    public String securityPolicy() {
+        return this.securityPolicy;
+    }
+    /**
      * @return Key-value map of resource tags.
      * 
      */
@@ -169,6 +193,7 @@ public final class GetRestApiResult {
         private String arn;
         private List<String> binaryMediaTypes;
         private String description;
+        private String endpointAccessMode;
         private List<GetRestApiEndpointConfiguration> endpointConfigurations;
         private String executionArn;
         private String id;
@@ -177,6 +202,7 @@ public final class GetRestApiResult {
         private String policy;
         private String region;
         private String rootResourceId;
+        private String securityPolicy;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetRestApiResult defaults) {
@@ -185,6 +211,7 @@ public final class GetRestApiResult {
     	      this.arn = defaults.arn;
     	      this.binaryMediaTypes = defaults.binaryMediaTypes;
     	      this.description = defaults.description;
+    	      this.endpointAccessMode = defaults.endpointAccessMode;
     	      this.endpointConfigurations = defaults.endpointConfigurations;
     	      this.executionArn = defaults.executionArn;
     	      this.id = defaults.id;
@@ -193,6 +220,7 @@ public final class GetRestApiResult {
     	      this.policy = defaults.policy;
     	      this.region = defaults.region;
     	      this.rootResourceId = defaults.rootResourceId;
+    	      this.securityPolicy = defaults.securityPolicy;
     	      this.tags = defaults.tags;
         }
 
@@ -229,6 +257,14 @@ public final class GetRestApiResult {
               throw new MissingRequiredPropertyException("GetRestApiResult", "description");
             }
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder endpointAccessMode(String endpointAccessMode) {
+            if (endpointAccessMode == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "endpointAccessMode");
+            }
+            this.endpointAccessMode = endpointAccessMode;
             return this;
         }
         @CustomType.Setter
@@ -299,6 +335,14 @@ public final class GetRestApiResult {
             return this;
         }
         @CustomType.Setter
+        public Builder securityPolicy(String securityPolicy) {
+            if (securityPolicy == null) {
+              throw new MissingRequiredPropertyException("GetRestApiResult", "securityPolicy");
+            }
+            this.securityPolicy = securityPolicy;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetRestApiResult", "tags");
@@ -312,6 +356,7 @@ public final class GetRestApiResult {
             _resultValue.arn = arn;
             _resultValue.binaryMediaTypes = binaryMediaTypes;
             _resultValue.description = description;
+            _resultValue.endpointAccessMode = endpointAccessMode;
             _resultValue.endpointConfigurations = endpointConfigurations;
             _resultValue.executionArn = executionArn;
             _resultValue.id = id;
@@ -320,6 +365,7 @@ public final class GetRestApiResult {
             _resultValue.policy = policy;
             _resultValue.region = region;
             _resultValue.rootResourceId = rootResourceId;
+            _resultValue.securityPolicy = securityPolicy;
             _resultValue.tags = tags;
             return _resultValue;
         }

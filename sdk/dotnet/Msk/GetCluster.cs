@@ -201,6 +201,10 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly string ClusterUuid;
         /// <summary>
+        /// Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+        /// </summary>
+        public readonly string CustomerActionStatus;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -218,7 +222,7 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
         public readonly string ZookeeperConnectString;
         /// <summary>
@@ -250,6 +254,8 @@ namespace Pulumi.Aws.Msk
 
             string clusterUuid,
 
+            string customerActionStatus,
+
             string id,
 
             string kafkaVersion,
@@ -275,6 +281,7 @@ namespace Pulumi.Aws.Msk
             BrokerNodeGroupInfos = brokerNodeGroupInfos;
             ClusterName = clusterName;
             ClusterUuid = clusterUuid;
+            CustomerActionStatus = customerActionStatus;
             Id = id;
             KafkaVersion = kafkaVersion;
             NumberOfBrokerNodes = numberOfBrokerNodes;

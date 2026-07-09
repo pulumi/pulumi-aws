@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Eks.Inputs
         public Input<string>? ClusterSecurityGroupId { get; set; }
 
         /// <summary>
+        /// Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+        /// </summary>
+        [Input("controlPlaneEgressMode")]
+        public Input<string>? ControlPlaneEgressMode { get; set; }
+
+        /// <summary>
         /// Whether the Amazon EKS private API server endpoint is enabled. Default is `False`.
         /// </summary>
         [Input("endpointPrivateAccess")]

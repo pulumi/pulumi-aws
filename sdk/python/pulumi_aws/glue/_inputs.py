@@ -982,7 +982,7 @@ class CatalogTableOpenTableFormatInputArgs:
 class CatalogTableOpenTableFormatInputIcebergInputArgsDict(TypedDict):
     metadata_operation: pulumi.Input[_builtins.str]
     """
-    A required metadata operation. Can only be set to CREATE.
+    Required metadata operation. Can only be set to CREATE.
     """
     iceberg_table_input: NotRequired[pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgsDict']]]
     """
@@ -990,7 +990,7 @@ class CatalogTableOpenTableFormatInputIcebergInputArgsDict(TypedDict):
     """
     version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The table version for the Iceberg table. Defaults to 2.
+    Table version for the Iceberg table. Defaults to 2.
     """
 
 @pulumi.input_type
@@ -1000,9 +1000,9 @@ class CatalogTableOpenTableFormatInputIcebergInputArgs:
                  iceberg_table_input: pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs']] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] metadata_operation: A required metadata operation. Can only be set to CREATE.
+        :param pulumi.Input[_builtins.str] metadata_operation: Required metadata operation. Can only be set to CREATE.
         :param pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs'] iceberg_table_input: Configuration parameters, including table properties and metadata specifications. See `iceberg_table_input` below.
-        :param pulumi.Input[_builtins.str] version: The table version for the Iceberg table. Defaults to 2.
+        :param pulumi.Input[_builtins.str] version: Table version for the Iceberg table. Defaults to 2.
         """
         pulumi.set(__self__, "metadata_operation", metadata_operation)
         if iceberg_table_input is not None:
@@ -1014,7 +1014,7 @@ class CatalogTableOpenTableFormatInputIcebergInputArgs:
     @pulumi.getter(name="metadataOperation")
     def metadata_operation(self) -> pulumi.Input[_builtins.str]:
         """
-        A required metadata operation. Can only be set to CREATE.
+        Required metadata operation. Can only be set to CREATE.
         """
         return pulumi.get(self, "metadata_operation")
 
@@ -1038,7 +1038,7 @@ class CatalogTableOpenTableFormatInputIcebergInputArgs:
     @pulumi.getter
     def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The table version for the Iceberg table. Defaults to 2.
+        Table version for the Iceberg table. Defaults to 2.
         """
         return pulumi.get(self, "version")
 
@@ -1050,15 +1050,15 @@ class CatalogTableOpenTableFormatInputIcebergInputArgs:
 class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgsDict(TypedDict):
     location: pulumi.Input[_builtins.str]
     """
-    The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+    S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
     """
     schema: pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgsDict']
     """
-    The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+    Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
     """
     partition_spec: NotRequired[pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgsDict']]]
     """
-    The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partition_spec` below.
+    Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partition_spec` below.
     """
     properties: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
@@ -1066,7 +1066,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgsDict(Type
     """
     sort_order: NotRequired[pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgsDict']]]
     """
-    The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sort_order` below.
+    Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sort_order` below.
     """
 
 @pulumi.input_type
@@ -1078,11 +1078,11 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs:
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  sort_order: pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] location: The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
-        :param pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs'] schema: The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
-        :param pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs'] partition_spec: The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partition_spec` below.
+        :param pulumi.Input[_builtins.str] location: S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+        :param pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs'] schema: Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+        :param pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs'] partition_spec: Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partition_spec` below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: Key-value pairs of additional table properties and configuration settings for the Iceberg table.
-        :param pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs'] sort_order: The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sort_order` below.
+        :param pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs'] sort_order: Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sort_order` below.
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "schema", schema)
@@ -1097,7 +1097,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input[_builtins.str]:
         """
-        The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+        S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
         """
         return pulumi.get(self, "location")
 
@@ -1109,7 +1109,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs']:
         """
-        The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+        Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
         """
         return pulumi.get(self, "schema")
 
@@ -1121,7 +1121,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs:
     @pulumi.getter(name="partitionSpec")
     def partition_spec(self) -> pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs']]:
         """
-        The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partition_spec` below.
+        Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partition_spec` below.
         """
         return pulumi.get(self, "partition_spec")
 
@@ -1145,7 +1145,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs:
     @pulumi.getter(name="sortOrder")
     def sort_order(self) -> pulumi.Input[Optional['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs']]:
         """
-        The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sort_order` below.
+        Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sort_order` below.
         """
         return pulumi.get(self, "sort_order")
 
@@ -1157,11 +1157,11 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs:
 class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgsDict(TypedDict):
     fields: pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgsDict']]]
     """
-    The list of partition fields that define how the table data should be partitioned. See `fields` below.
+    List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
     """
     spec_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The unique identifier for this partition specification within the Iceberg table's metadata history.
+    Unique identifier for this partition specification within the Iceberg table's metadata history.
     """
 
 @pulumi.input_type
@@ -1170,8 +1170,8 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec
                  fields: pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs']]],
                  spec_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs']]] fields: The list of partition fields that define how the table data should be partitioned. See `fields` below.
-        :param pulumi.Input[_builtins.int] spec_id: The unique identifier for this partition specification within the Iceberg table's metadata history.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs']]] fields: List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
+        :param pulumi.Input[_builtins.int] spec_id: Unique identifier for this partition specification within the Iceberg table's metadata history.
         """
         pulumi.set(__self__, "fields", fields)
         if spec_id is not None:
@@ -1181,7 +1181,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec
     @pulumi.getter
     def fields(self) -> pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs']]]:
         """
-        The list of partition fields that define how the table data should be partitioned. See `fields` below.
+        List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
         """
         return pulumi.get(self, "fields")
 
@@ -1193,7 +1193,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec
     @pulumi.getter(name="specId")
     def spec_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The unique identifier for this partition specification within the Iceberg table's metadata history.
+        Unique identifier for this partition specification within the Iceberg table's metadata history.
         """
         return pulumi.get(self, "spec_id")
 
@@ -1206,12 +1206,14 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec
     name: pulumi.Input[_builtins.str]
     """
     Name of the table. For Hive compatibility, this must be entirely lowercase.
+
+    The following arguments are optional:
     """
     source_id: pulumi.Input[_builtins.int]
     transform: pulumi.Input[_builtins.str]
     field_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The unique identifier assigned to this partition field within the Iceberg table's partition specification.
+    Unique identifier assigned to this partition field within the Iceberg table's partition specification.
     """
 
 @pulumi.input_type
@@ -1223,7 +1225,9 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec
                  field_id: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
-        :param pulumi.Input[_builtins.int] field_id: The unique identifier assigned to this partition field within the Iceberg table's partition specification.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.int] field_id: Unique identifier assigned to this partition field within the Iceberg table's partition specification.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source_id", source_id)
@@ -1236,6 +1240,8 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec
     def name(self) -> pulumi.Input[_builtins.str]:
         """
         Name of the table. For Hive compatibility, this must be entirely lowercase.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -1265,7 +1271,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec
     @pulumi.getter(name="fieldId")
     def field_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The unique identifier assigned to this partition field within the Iceberg table's partition specification.
+        Unique identifier assigned to this partition field within the Iceberg table's partition specification.
         """
         return pulumi.get(self, "field_id")
 
@@ -1277,19 +1283,19 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec
 class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgsDict(TypedDict):
     fields: pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgsDict']]]
     """
-    The list of field definitions that make up the table schema. See `fields` below.
+    List of field definitions that make up the table schema. See `schema.fields` below.
     """
     identifier_field_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
-    The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+    List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
     """
     schema_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The unique identifier for this schema version within the Iceberg table's schema evolution history.
+    Unique identifier for this schema version within the Iceberg table's schema evolution history.
     """
     type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+    Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
     """
 
 @pulumi.input_type
@@ -1300,10 +1306,10 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs:
                  schema_id: pulumi.Input[Optional[_builtins.int]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs']]] fields: The list of field definitions that make up the table schema. See `fields` below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] identifier_field_ids: The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
-        :param pulumi.Input[_builtins.int] schema_id: The unique identifier for this schema version within the Iceberg table's schema evolution history.
-        :param pulumi.Input[_builtins.str] type: The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs']]] fields: List of field definitions that make up the table schema. See `schema.fields` below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] identifier_field_ids: List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+        :param pulumi.Input[_builtins.int] schema_id: Unique identifier for this schema version within the Iceberg table's schema evolution history.
+        :param pulumi.Input[_builtins.str] type: Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
         """
         pulumi.set(__self__, "fields", fields)
         if identifier_field_ids is not None:
@@ -1317,7 +1323,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs:
     @pulumi.getter
     def fields(self) -> pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs']]]:
         """
-        The list of field definitions that make up the table schema. See `fields` below.
+        List of field definitions that make up the table schema. See `schema.fields` below.
         """
         return pulumi.get(self, "fields")
 
@@ -1329,7 +1335,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs:
     @pulumi.getter(name="identifierFieldIds")
     def identifier_field_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+        List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
         """
         return pulumi.get(self, "identifier_field_ids")
 
@@ -1341,7 +1347,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs:
     @pulumi.getter(name="schemaId")
     def schema_id(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The unique identifier for this schema version within the Iceberg table's schema evolution history.
+        Unique identifier for this schema version within the Iceberg table's schema evolution history.
         """
         return pulumi.get(self, "schema_id")
 
@@ -1353,7 +1359,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+        Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
         """
         return pulumi.get(self, "type")
 
@@ -1365,20 +1371,23 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs:
 class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgsDict(TypedDict):
     id: pulumi.Input[_builtins.int]
     """
-    Catalog ID, Database name and of the name table.
+    Catalog ID, database name, and table name, separated by colons (`:`).
+    * `partition_index[*].index_status` - Status of the partition index.
     """
     name: pulumi.Input[_builtins.str]
     """
     Name of the table. For Hive compatibility, this must be entirely lowercase.
+
+    The following arguments are optional:
     """
     required: pulumi.Input[_builtins.bool]
     """
-    Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+    Whether this field is required (non-nullable) or optional (nullable) in the table schema.
     """
     type: pulumi.Input[_builtins.str]
     doc: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+    Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
     """
     initial_default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1400,10 +1409,13 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldAr
                  initial_default: pulumi.Input[Optional[_builtins.str]] = None,
                  write_default: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.int] id: Catalog ID, Database name and of the name table.
+        :param pulumi.Input[_builtins.int] id: Catalog ID, database name, and table name, separated by colons (`:`).
+               * `partition_index[*].index_status` - Status of the partition index.
         :param pulumi.Input[_builtins.str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
-        :param pulumi.Input[_builtins.bool] required: Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
-        :param pulumi.Input[_builtins.str] doc: Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.bool] required: Whether this field is required (non-nullable) or optional (nullable) in the table schema.
+        :param pulumi.Input[_builtins.str] doc: Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
         :param pulumi.Input[_builtins.str] initial_default: Default value as JSON used to populate the field's value for all records that were written before the field was added to the schema.
         :param pulumi.Input[_builtins.str] write_default: Default value as JSON used to populate the field's value for any records written after the field was added to the schema, if the writer does not supply the field's value.
         """
@@ -1422,7 +1434,8 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldAr
     @pulumi.getter
     def id(self) -> pulumi.Input[_builtins.int]:
         """
-        Catalog ID, Database name and of the name table.
+        Catalog ID, database name, and table name, separated by colons (`:`).
+        * `partition_index[*].index_status` - Status of the partition index.
         """
         return pulumi.get(self, "id")
 
@@ -1435,6 +1448,8 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldAr
     def name(self) -> pulumi.Input[_builtins.str]:
         """
         Name of the table. For Hive compatibility, this must be entirely lowercase.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -1446,7 +1461,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldAr
     @pulumi.getter
     def required(self) -> pulumi.Input[_builtins.bool]:
         """
-        Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+        Whether this field is required (non-nullable) or optional (nullable) in the table schema.
         """
         return pulumi.get(self, "required")
 
@@ -1467,7 +1482,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldAr
     @pulumi.getter
     def doc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+        Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
         """
         return pulumi.get(self, "doc")
 
@@ -1503,11 +1518,11 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldAr
 class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgsDict(TypedDict):
     fields: pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgsDict']]]
     """
-    The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+    List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
     """
     order_id: pulumi.Input[_builtins.int]
     """
-    The unique identifier for this sort order specification within the Iceberg table's metadata.
+    Unique identifier for this sort order specification within the Iceberg table's metadata.
     """
 
 @pulumi.input_type
@@ -1516,8 +1531,8 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs
                  fields: pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs']]],
                  order_id: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs']]] fields: The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
-        :param pulumi.Input[_builtins.int] order_id: The unique identifier for this sort order specification within the Iceberg table's metadata.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs']]] fields: List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
+        :param pulumi.Input[_builtins.int] order_id: Unique identifier for this sort order specification within the Iceberg table's metadata.
         """
         pulumi.set(__self__, "fields", fields)
         pulumi.set(__self__, "order_id", order_id)
@@ -1526,7 +1541,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs
     @pulumi.getter
     def fields(self) -> pulumi.Input[Sequence[pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs']]]:
         """
-        The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+        List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
         """
         return pulumi.get(self, "fields")
 
@@ -1538,7 +1553,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs
     @pulumi.getter(name="orderId")
     def order_id(self) -> pulumi.Input[_builtins.int]:
         """
-        The unique identifier for this sort order specification within the Iceberg table's metadata.
+        Unique identifier for this sort order specification within the Iceberg table's metadata.
         """
         return pulumi.get(self, "order_id")
 
@@ -1550,11 +1565,11 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs
 class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgsDict(TypedDict):
     direction: pulumi.Input[_builtins.str]
     """
-    The sort direction for this field. Valid values: `asc`, `desc`.
+    Sort direction for this field. Valid values: `asc`, `desc`.
     """
     null_order: pulumi.Input[_builtins.str]
     """
-    The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+    Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
     """
     source_id: pulumi.Input[_builtins.int]
     transform: pulumi.Input[_builtins.str]
@@ -1567,8 +1582,8 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFiel
                  source_id: pulumi.Input[_builtins.int],
                  transform: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] direction: The sort direction for this field. Valid values: `asc`, `desc`.
-        :param pulumi.Input[_builtins.str] null_order: The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+        :param pulumi.Input[_builtins.str] direction: Sort direction for this field. Valid values: `asc`, `desc`.
+        :param pulumi.Input[_builtins.str] null_order: Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
         """
         pulumi.set(__self__, "direction", direction)
         pulumi.set(__self__, "null_order", null_order)
@@ -1579,7 +1594,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFiel
     @pulumi.getter
     def direction(self) -> pulumi.Input[_builtins.str]:
         """
-        The sort direction for this field. Valid values: `asc`, `desc`.
+        Sort direction for this field. Valid values: `asc`, `desc`.
         """
         return pulumi.get(self, "direction")
 
@@ -1591,7 +1606,7 @@ class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFiel
     @pulumi.getter(name="nullOrder")
     def null_order(self) -> pulumi.Input[_builtins.str]:
         """
-        The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+        Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
         """
         return pulumi.get(self, "null_order")
 
@@ -2857,7 +2872,7 @@ class CatalogTableTargetTableArgs:
 class CatalogTableViewDefinitionArgsDict(TypedDict):
     definer: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The definer of a view in SQL.
+    Definer of a view in SQL.
     """
     is_protected: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -2873,7 +2888,7 @@ class CatalogTableViewDefinitionArgsDict(TypedDict):
     """
     representations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTableViewDefinitionRepresentationArgsDict']]]]]
     """
-    A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+    List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
     """
     sub_object_version_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
@@ -2881,7 +2896,7 @@ class CatalogTableViewDefinitionArgsDict(TypedDict):
     """
     sub_objects: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    A list of base table ARNs that make up the view.
+    List of base table ARNs that make up the view.
     """
     view_version_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -2905,13 +2920,13 @@ class CatalogTableViewDefinitionArgs:
                  view_version_id: pulumi.Input[Optional[_builtins.int]] = None,
                  view_version_token: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] definer: The definer of a view in SQL.
+        :param pulumi.Input[_builtins.str] definer: Definer of a view in SQL.
         :param pulumi.Input[_builtins.bool] is_protected: You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
         :param pulumi.Input[_builtins.str] last_refresh_type: Type of the materialized view's last refresh. Valid values: `Full`, `Incremental`.
         :param pulumi.Input[_builtins.int] refresh_seconds: Auto refresh interval in seconds for the materialized view.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTableViewDefinitionRepresentationArgs']]] representations: A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTableViewDefinitionRepresentationArgs']]] representations: List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] sub_object_version_ids: List of the Apache Iceberg table versions referenced by the materialized view.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sub_objects: A list of base table ARNs that make up the view.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sub_objects: List of base table ARNs that make up the view.
         :param pulumi.Input[_builtins.int] view_version_id: ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID.
         :param pulumi.Input[_builtins.str] view_version_token: Version ID of the Apache Iceberg table.
         """
@@ -2938,7 +2953,7 @@ class CatalogTableViewDefinitionArgs:
     @pulumi.getter
     def definer(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The definer of a view in SQL.
+        Definer of a view in SQL.
         """
         return pulumi.get(self, "definer")
 
@@ -2986,7 +3001,7 @@ class CatalogTableViewDefinitionArgs:
     @pulumi.getter
     def representations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CatalogTableViewDefinitionRepresentationArgs']]]]:
         """
-        A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+        List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
         """
         return pulumi.get(self, "representations")
 
@@ -3010,7 +3025,7 @@ class CatalogTableViewDefinitionArgs:
     @pulumi.getter(name="subObjects")
     def sub_objects(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of base table ARNs that make up the view.
+        List of base table ARNs that make up the view.
         """
         return pulumi.get(self, "sub_objects")
 
@@ -3046,23 +3061,23 @@ class CatalogTableViewDefinitionArgs:
 class CatalogTableViewDefinitionRepresentationArgsDict(TypedDict):
     dialect: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+    Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
     """
     dialect_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A parameter that specifies the version of the engine of a specific representation.
+    Parameter that specifies the version of the engine of a specific representation.
     """
     validation_connection: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The name of the connection to be used to validate the specific representation of the view.
+    Name of the connection to be used to validate the specific representation of the view.
     """
     view_expanded_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A string that represents the SQL query that describes the view with expanded resource ARNs.
+    String that represents the SQL query that describes the view with expanded resource ARNs.
     """
     view_original_text: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A string that represents the original SQL query that describes the view.
+    String that represents the original SQL query that describes the view.
     """
 
 @pulumi.input_type
@@ -3074,11 +3089,11 @@ class CatalogTableViewDefinitionRepresentationArgs:
                  view_expanded_text: pulumi.Input[Optional[_builtins.str]] = None,
                  view_original_text: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] dialect: A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
-        :param pulumi.Input[_builtins.str] dialect_version: A parameter that specifies the version of the engine of a specific representation.
-        :param pulumi.Input[_builtins.str] validation_connection: The name of the connection to be used to validate the specific representation of the view.
-        :param pulumi.Input[_builtins.str] view_expanded_text: A string that represents the SQL query that describes the view with expanded resource ARNs.
-        :param pulumi.Input[_builtins.str] view_original_text: A string that represents the original SQL query that describes the view.
+        :param pulumi.Input[_builtins.str] dialect: Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+        :param pulumi.Input[_builtins.str] dialect_version: Parameter that specifies the version of the engine of a specific representation.
+        :param pulumi.Input[_builtins.str] validation_connection: Name of the connection to be used to validate the specific representation of the view.
+        :param pulumi.Input[_builtins.str] view_expanded_text: String that represents the SQL query that describes the view with expanded resource ARNs.
+        :param pulumi.Input[_builtins.str] view_original_text: String that represents the original SQL query that describes the view.
         """
         if dialect is not None:
             pulumi.set(__self__, "dialect", dialect)
@@ -3095,7 +3110,7 @@ class CatalogTableViewDefinitionRepresentationArgs:
     @pulumi.getter
     def dialect(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+        Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
         """
         return pulumi.get(self, "dialect")
 
@@ -3107,7 +3122,7 @@ class CatalogTableViewDefinitionRepresentationArgs:
     @pulumi.getter(name="dialectVersion")
     def dialect_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A parameter that specifies the version of the engine of a specific representation.
+        Parameter that specifies the version of the engine of a specific representation.
         """
         return pulumi.get(self, "dialect_version")
 
@@ -3119,7 +3134,7 @@ class CatalogTableViewDefinitionRepresentationArgs:
     @pulumi.getter(name="validationConnection")
     def validation_connection(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the connection to be used to validate the specific representation of the view.
+        Name of the connection to be used to validate the specific representation of the view.
         """
         return pulumi.get(self, "validation_connection")
 
@@ -3131,7 +3146,7 @@ class CatalogTableViewDefinitionRepresentationArgs:
     @pulumi.getter(name="viewExpandedText")
     def view_expanded_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A string that represents the SQL query that describes the view with expanded resource ARNs.
+        String that represents the SQL query that describes the view with expanded resource ARNs.
         """
         return pulumi.get(self, "view_expanded_text")
 
@@ -3143,7 +3158,7 @@ class CatalogTableViewDefinitionRepresentationArgs:
     @pulumi.getter(name="viewOriginalText")
     def view_original_text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A string that represents the original SQL query that describes the view.
+        String that represents the original SQL query that describes the view.
         """
         return pulumi.get(self, "view_original_text")
 

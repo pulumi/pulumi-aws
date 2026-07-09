@@ -71,7 +71,9 @@ type LookupRestApiResult struct {
 	BinaryMediaTypes []string `pulumi:"binaryMediaTypes"`
 	// Description of the REST API.
 	Description string `pulumi:"description"`
-	// The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
+	// Endpoint access mode for the REST API.
+	EndpointAccessMode string `pulumi:"endpointAccessMode"`
+	// Endpoint configuration of this REST API showing the endpoint types of the API. See below.
 	EndpointConfigurations []GetRestApiEndpointConfiguration `pulumi:"endpointConfigurations"`
 	// Execution ARN part to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn string `pulumi:"executionArn"`
@@ -85,6 +87,8 @@ type LookupRestApiResult struct {
 	Region string `pulumi:"region"`
 	// Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
 	RootResourceId string `pulumi:"rootResourceId"`
+	// TLS version + cipher suite for the REST API's default execute-api endpoint.
+	SecurityPolicy string `pulumi:"securityPolicy"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -147,7 +151,12 @@ func (o LookupRestApiResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRestApiResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
-// The endpoint configuration of this RestApi showing the endpoint types of the API. See below.
+// Endpoint access mode for the REST API.
+func (o LookupRestApiResultOutput) EndpointAccessMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRestApiResult) string { return v.EndpointAccessMode }).(pulumi.StringOutput)
+}
+
+// Endpoint configuration of this REST API showing the endpoint types of the API. See below.
 func (o LookupRestApiResultOutput) EndpointConfigurations() GetRestApiEndpointConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupRestApiResult) []GetRestApiEndpointConfiguration { return v.EndpointConfigurations }).(GetRestApiEndpointConfigurationArrayOutput)
 }
@@ -183,6 +192,11 @@ func (o LookupRestApiResultOutput) Region() pulumi.StringOutput {
 // Set to the ID of the API Gateway Resource on the found REST API where the route matches '/'.
 func (o LookupRestApiResultOutput) RootResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRestApiResult) string { return v.RootResourceId }).(pulumi.StringOutput)
+}
+
+// TLS version + cipher suite for the REST API's default execute-api endpoint.
+func (o LookupRestApiResultOutput) SecurityPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRestApiResult) string { return v.SecurityPolicy }).(pulumi.StringOutput)
 }
 
 // Key-value map of resource tags.

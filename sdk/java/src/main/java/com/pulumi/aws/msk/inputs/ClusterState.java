@@ -280,6 +280,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+     * 
+     */
+    @Import(name="customerActionStatus")
+    private @Nullable Output<String> customerActionStatus;
+
+    /**
+     * @return Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+     * 
+     */
+    public Optional<Output<String>> customerActionStatus() {
+        return Optional.ofNullable(this.customerActionStatus);
+    }
+
+    /**
      * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
      * 
      */
@@ -494,6 +509,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.clusterUuid = $.clusterUuid;
         this.configurationInfo = $.configurationInfo;
         this.currentVersion = $.currentVersion;
+        this.customerActionStatus = $.customerActionStatus;
         this.encryptionInfo = $.encryptionInfo;
         this.enhancedMonitoring = $.enhancedMonitoring;
         this.kafkaVersion = $.kafkaVersion;
@@ -882,6 +898,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder currentVersion(String currentVersion) {
             return currentVersion(Output.of(currentVersion));
+        }
+
+        /**
+         * @param customerActionStatus Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerActionStatus(@Nullable Output<String> customerActionStatus) {
+            $.customerActionStatus = customerActionStatus;
+            return this;
+        }
+
+        /**
+         * @param customerActionStatus Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customerActionStatus(String customerActionStatus) {
+            return customerActionStatus(Output.of(customerActionStatus));
         }
 
         /**

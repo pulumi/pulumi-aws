@@ -5,9 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Deploys an Application CloudFormation Stack from the Serverless Application Repository.
+ * Manages an Application CloudFormation Stack from the Serverless Application Repository.
+ *
+ * > **Warning:** CloudFormation masks `NoEcho` parameter values as `****` in API responses, which may set an expectation that they remain hidden. They do not — like any other argument, the configured value is persisted to state. To mask a specific parameter in plan and `terraform show` output, wrap it with Terraform's `sensitive()` function, for example `parameters = { password = sensitive(var.password) }`.
  *
  * ## Example Usage
+ *
+ * ### Basic Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -66,23 +70,23 @@ export class CloudFormationStack extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the application from the Serverless Application Repository.
+     * ARN of the application from the Serverless Application Repository.
      */
     declare public readonly applicationId: pulumi.Output<string>;
     /**
-     * A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+     * List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
      */
     declare public readonly capabilities: pulumi.Output<string[]>;
     /**
-     * The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+     * Name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * A map of outputs from the stack.
+     * Map of outputs from the stack.
      */
     declare public /*out*/ readonly outputs: pulumi.Output<{[key: string]: string}>;
     /**
-     * A map of Parameter structures that specify input parameters for the stack.
+     * Map of Parameter structures that specify input parameters for the stack.
      */
     declare public readonly parameters: pulumi.Output<{[key: string]: string}>;
     /**
@@ -90,15 +94,15 @@ export class CloudFormationStack extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The version of the application to deploy. If not supplied, deploys the latest version.
+     * Version of the application to deploy. If not supplied, deploys the latest version.
      */
     declare public readonly semanticVersion: pulumi.Output<string>;
     /**
-     * A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -129,9 +133,6 @@ export class CloudFormationStack extends pulumi.CustomResource {
             if (args?.applicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            if (args?.capabilities === undefined && !opts.urn) {
-                throw new Error("Missing required property 'capabilities'");
-            }
             resourceInputs["applicationId"] = args?.applicationId;
             resourceInputs["capabilities"] = args?.capabilities;
             resourceInputs["name"] = args?.name;
@@ -152,23 +153,23 @@ export class CloudFormationStack extends pulumi.CustomResource {
  */
 export interface CloudFormationStackState {
     /**
-     * The ARN of the application from the Serverless Application Repository.
+     * ARN of the application from the Serverless Application Repository.
      */
     applicationId?: pulumi.Input<string | undefined>;
     /**
-     * A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+     * List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
      */
     capabilities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+     * Name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A map of outputs from the stack.
+     * Map of outputs from the stack.
      */
     outputs?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of Parameter structures that specify input parameters for the stack.
+     * Map of Parameter structures that specify input parameters for the stack.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -176,15 +177,15 @@ export interface CloudFormationStackState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The version of the application to deploy. If not supplied, deploys the latest version.
+     * Version of the application to deploy. If not supplied, deploys the latest version.
      */
     semanticVersion?: pulumi.Input<string | undefined>;
     /**
-     * A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -194,19 +195,19 @@ export interface CloudFormationStackState {
  */
 export interface CloudFormationStackArgs {
     /**
-     * The ARN of the application from the Serverless Application Repository.
+     * ARN of the application from the Serverless Application Repository.
      */
     applicationId: pulumi.Input<string>;
     /**
-     * A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+     * List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
      */
-    capabilities: pulumi.Input<pulumi.Input<string>[]>;
+    capabilities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+     * Name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * A map of Parameter structures that specify input parameters for the stack.
+     * Map of Parameter structures that specify input parameters for the stack.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
@@ -214,11 +215,11 @@ export interface CloudFormationStackArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The version of the application to deploy. If not supplied, deploys the latest version.
+     * Version of the application to deploy. If not supplied, deploys the latest version.
      */
     semanticVersion?: pulumi.Input<string | undefined>;
     /**
-     * A list of tags to associate with this stack. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

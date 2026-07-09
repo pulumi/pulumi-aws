@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField
     {
         /// <summary>
-        /// The sort direction for this field. Valid values: `Asc`, `Desc`.
+        /// Sort direction for this field. Valid values: `Asc`, `Desc`.
         /// </summary>
         public readonly string Direction;
         /// <summary>
-        /// The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+        /// Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
         /// </summary>
         public readonly string NullOrder;
         public readonly int SourceId;

@@ -16,6 +16,8 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// &gt; **NOTE:** You must specify exactly one of `AutoScalingGroupProvider` or `ManagedInstancesProvider`. When using `ManagedInstancesProvider`, the `Cluster` parameter is required. When using `AutoScalingGroupProvider`, the `Cluster` parameter must not be set.
     /// 
+    /// &gt; **NOTE:** AWS cannot delete a capacity provider that is still associated with a cluster through `aws.ecs.ClusterCapacityProviders`. When a change forces replacement, add a `ReplaceTriggeredBy` lifecycle rule to the `aws.ecs.ClusterCapacityProviders` resource so the association is recreated before the old capacity provider is deleted.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Auto Scaling Group Provider

@@ -119,7 +119,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly configuration: pulumi.Output<string>;
     /**
-     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
      */
     declare public readonly dataSources: pulumi.Output<string[] | undefined>;
     /**
@@ -285,7 +285,7 @@ export interface WorkspaceState {
      */
     configuration?: pulumi.Input<string | undefined>;
     /**
-     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
      */
     dataSources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -374,7 +374,7 @@ export interface WorkspaceArgs {
      */
     configuration?: pulumi.Input<string | undefined>;
     /**
-     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
      */
     dataSources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

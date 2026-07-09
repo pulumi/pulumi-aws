@@ -110,16 +110,20 @@ class TableItemArgs:
 class _TableItemState:
     def __init__(__self__, *,
                  hash_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 hash_key_value: pulumi.Input[Optional[_builtins.str]] = None,
                  item: pulumi.Input[Optional[_builtins.str]] = None,
                  range_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 range_key_value: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  table_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering TableItem resources.
 
         :param pulumi.Input[_builtins.str] hash_key: Hash key to use for lookups and identification of the item
+        :param pulumi.Input[_builtins.str] hash_key_value: Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
         :param pulumi.Input[_builtins.str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[_builtins.str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+        :param pulumi.Input[_builtins.str] range_key_value: Canonical string representation of the range key value, when the table has a range key. Same encoding as `hash_key_value`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] table_name: Name or ARN of the table to contain the item.
                
@@ -127,10 +131,14 @@ class _TableItemState:
         """
         if hash_key is not None:
             pulumi.set(__self__, "hash_key", hash_key)
+        if hash_key_value is not None:
+            pulumi.set(__self__, "hash_key_value", hash_key_value)
         if item is not None:
             pulumi.set(__self__, "item", item)
         if range_key is not None:
             pulumi.set(__self__, "range_key", range_key)
+        if range_key_value is not None:
+            pulumi.set(__self__, "range_key_value", range_key_value)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if table_name is not None:
@@ -147,6 +155,18 @@ class _TableItemState:
     @hash_key.setter
     def hash_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hash_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hashKeyValue")
+    def hash_key_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+        """
+        return pulumi.get(self, "hash_key_value")
+
+    @hash_key_value.setter
+    def hash_key_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "hash_key_value", value)
 
     @_builtins.property
     @pulumi.getter
@@ -171,6 +191,18 @@ class _TableItemState:
     @range_key.setter
     def range_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "range_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rangeKeyValue")
+    def range_key_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Canonical string representation of the range key value, when the table has a range key. Same encoding as `hash_key_value`.
+        """
+        return pulumi.get(self, "range_key_value")
+
+    @range_key_value.setter
+    def range_key_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "range_key_value", value)
 
     @_builtins.property
     @pulumi.getter
@@ -247,7 +279,32 @@ class TableItem(pulumi.CustomResource):
 
         ## Import
 
-        You cannot import DynamoDB table items.
+        ### Identity Schema
+
+        #### Required
+
+        * `table_name` (String) Name of the DynamoDB table.
+        * `hash_key_value` (String) Canonical value of the hash key (base64 for `B`, verbatim for `N` and `S`).
+
+        #### Optional
+
+        * `range_key_value` (String) Canonical value of the range key, required for tables that define a range key.
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        For tables with a range key, append the range key value:
+
+        Use `pulumi import` for the same effect on the command line:
+
+        ```sh
+        $ pulumi import aws:dynamodb/tableItem:TableItem example example-name,something
+        ```
+
+        > **Note:** Importing requires `dynamodb:DescribeTable` in addition to `dynamodb:GetItem`. The DescribeTable call is used to recover the key attribute names and types from the table's schema.
+
+        > **Note:** If a hash key or range key value contains the separator character (`,`), use the `import` block with the `identity` attribute. The legacy `pulumi import` command and `id`-based `import` block cannot disambiguate separators from value content.
+
+        For Binary (`B`) key attributes, the value in the import ID and the identity attribute must be standard base64.
 
 
         :param str resource_name: The name of the resource.
@@ -302,7 +359,32 @@ class TableItem(pulumi.CustomResource):
 
         ## Import
 
-        You cannot import DynamoDB table items.
+        ### Identity Schema
+
+        #### Required
+
+        * `table_name` (String) Name of the DynamoDB table.
+        * `hash_key_value` (String) Canonical value of the hash key (base64 for `B`, verbatim for `N` and `S`).
+
+        #### Optional
+
+        * `range_key_value` (String) Canonical value of the range key, required for tables that define a range key.
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        For tables with a range key, append the range key value:
+
+        Use `pulumi import` for the same effect on the command line:
+
+        ```sh
+        $ pulumi import aws:dynamodb/tableItem:TableItem example example-name,something
+        ```
+
+        > **Note:** Importing requires `dynamodb:DescribeTable` in addition to `dynamodb:GetItem`. The DescribeTable call is used to recover the key attribute names and types from the table's schema.
+
+        > **Note:** If a hash key or range key value contains the separator character (`,`), use the `import` block with the `identity` attribute. The legacy `pulumi import` command and `id`-based `import` block cannot disambiguate separators from value content.
+
+        For Binary (`B`) key attributes, the value in the import ID and the identity attribute must be standard base64.
 
 
         :param str resource_name: The name of the resource.
@@ -345,6 +427,8 @@ class TableItem(pulumi.CustomResource):
             if table_name is None and not opts.urn:
                 raise TypeError("Missing required property 'table_name'")
             __props__.__dict__["table_name"] = table_name
+            __props__.__dict__["hash_key_value"] = None
+            __props__.__dict__["range_key_value"] = None
         super(TableItem, __self__).__init__(
             'aws:dynamodb/tableItem:TableItem',
             resource_name,
@@ -356,8 +440,10 @@ class TableItem(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             hash_key: pulumi.Input[Optional[_builtins.str]] = None,
+            hash_key_value: pulumi.Input[Optional[_builtins.str]] = None,
             item: pulumi.Input[Optional[_builtins.str]] = None,
             range_key: pulumi.Input[Optional[_builtins.str]] = None,
+            range_key_value: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             table_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'TableItem':
         """
@@ -368,8 +454,10 @@ class TableItem(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] hash_key: Hash key to use for lookups and identification of the item
+        :param pulumi.Input[_builtins.str] hash_key_value: Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
         :param pulumi.Input[_builtins.str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[_builtins.str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
+        :param pulumi.Input[_builtins.str] range_key_value: Canonical string representation of the range key value, when the table has a range key. Same encoding as `hash_key_value`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] table_name: Name or ARN of the table to contain the item.
                
@@ -380,8 +468,10 @@ class TableItem(pulumi.CustomResource):
         __props__ = _TableItemState.__new__(_TableItemState)
 
         __props__.__dict__["hash_key"] = hash_key
+        __props__.__dict__["hash_key_value"] = hash_key_value
         __props__.__dict__["item"] = item
         __props__.__dict__["range_key"] = range_key
+        __props__.__dict__["range_key_value"] = range_key_value
         __props__.__dict__["region"] = region
         __props__.__dict__["table_name"] = table_name
         return TableItem(resource_name, opts=opts, __props__=__props__)
@@ -393,6 +483,14 @@ class TableItem(pulumi.CustomResource):
         Hash key to use for lookups and identification of the item
         """
         return pulumi.get(self, "hash_key")
+
+    @_builtins.property
+    @pulumi.getter(name="hashKeyValue")
+    def hash_key_value(self) -> pulumi.Output[_builtins.str]:
+        """
+        Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+        """
+        return pulumi.get(self, "hash_key_value")
 
     @_builtins.property
     @pulumi.getter
@@ -409,6 +507,14 @@ class TableItem(pulumi.CustomResource):
         Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         """
         return pulumi.get(self, "range_key")
+
+    @_builtins.property
+    @pulumi.getter(name="rangeKeyValue")
+    def range_key_value(self) -> pulumi.Output[_builtins.str]:
+        """
+        Canonical string representation of the range key value, when the table has a range key. Same encoding as `hash_key_value`.
+        """
+        return pulumi.get(self, "range_key_value")
 
     @_builtins.property
     @pulumi.getter

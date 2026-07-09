@@ -91,6 +91,7 @@ class QueryDefinitionArgs:
 @pulumi.input_type
 class _QueryDefinitionState:
     def __init__(__self__, *,
+                 arn: pulumi.Input[Optional[_builtins.str]] = None,
                  log_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -99,12 +100,15 @@ class _QueryDefinitionState:
         """
         Input properties used for looking up and filtering QueryDefinition resources.
 
+        :param pulumi.Input[_builtins.str] arn: The query definition ARN.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: Specific log groups to use with the query.
         :param pulumi.Input[_builtins.str] name: The name of the query.
         :param pulumi.Input[_builtins.str] query_definition_id: The query definition ID.
         :param pulumi.Input[_builtins.str] query_string: The query to save. You can read more about CloudWatch Logs Query Syntax in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
         if log_group_names is not None:
             pulumi.set(__self__, "log_group_names", log_group_names)
         if name is not None:
@@ -115,6 +119,18 @@ class _QueryDefinitionState:
             pulumi.set(__self__, "query_string", query_string)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The query definition ARN.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "arn", value)
 
     @_builtins.property
     @pulumi.getter(name="logGroupNames")
@@ -211,7 +227,18 @@ class QueryDefinition(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch query definitions using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `query_definition_id` (String) ID of the query definition.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Query Definitions using `arn`. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
@@ -254,7 +281,18 @@ class QueryDefinition(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch query definitions using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `query_definition_id` (String) ID of the query definition.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Query Definitions using `arn`. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
@@ -295,6 +333,7 @@ class QueryDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'query_string'")
             __props__.__dict__["query_string"] = query_string
             __props__.__dict__["region"] = region
+            __props__.__dict__["arn"] = None
             __props__.__dict__["query_definition_id"] = None
         super(QueryDefinition, __self__).__init__(
             'aws:cloudwatch/queryDefinition:QueryDefinition',
@@ -306,6 +345,7 @@ class QueryDefinition(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: pulumi.Input[Optional[_builtins.str]] = None,
             log_group_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             query_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -318,6 +358,7 @@ class QueryDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] arn: The query definition ARN.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] log_group_names: Specific log groups to use with the query.
         :param pulumi.Input[_builtins.str] name: The name of the query.
         :param pulumi.Input[_builtins.str] query_definition_id: The query definition ID.
@@ -328,12 +369,21 @@ class QueryDefinition(pulumi.CustomResource):
 
         __props__ = _QueryDefinitionState.__new__(_QueryDefinitionState)
 
+        __props__.__dict__["arn"] = arn
         __props__.__dict__["log_group_names"] = log_group_names
         __props__.__dict__["name"] = name
         __props__.__dict__["query_definition_id"] = query_definition_id
         __props__.__dict__["query_string"] = query_string
         __props__.__dict__["region"] = region
         return QueryDefinition(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The query definition ARN.
+        """
+        return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="logGroupNames")

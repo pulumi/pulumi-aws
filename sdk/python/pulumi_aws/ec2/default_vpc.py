@@ -512,6 +512,17 @@ class DefaultVpc(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) VPC ID.
+
+        #### Optional
+
+        * `account_id` (String) AWS account ID for this resource.
+        * `region` (String) AWS Region for this resource.
+
         Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
 
         ```sh
@@ -557,6 +568,17 @@ class DefaultVpc(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) VPC ID.
+
+        #### Optional
+
+        * `account_id` (String) AWS account ID for this resource.
+        * `region` (String) AWS Region for this resource.
 
         Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
 

@@ -311,6 +311,8 @@ type Cluster struct {
 	ConfigurationInfo ClusterConfigurationInfoPtrOutput `pulumi:"configurationInfo"`
 	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
 	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
+	// Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+	CustomerActionStatus pulumi.StringOutput `pulumi:"customerActionStatus"`
 	// Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
 	EncryptionInfo ClusterEncryptionInfoPtrOutput `pulumi:"encryptionInfo"`
 	// Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
@@ -412,6 +414,8 @@ type clusterState struct {
 	ConfigurationInfo *ClusterConfigurationInfo `pulumi:"configurationInfo"`
 	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
 	CurrentVersion *string `pulumi:"currentVersion"`
+	// Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+	CustomerActionStatus *string `pulumi:"customerActionStatus"`
 	// Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
 	EncryptionInfo *ClusterEncryptionInfo `pulumi:"encryptionInfo"`
 	// Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
@@ -475,6 +479,8 @@ type ClusterState struct {
 	ConfigurationInfo ClusterConfigurationInfoPtrInput
 	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
 	CurrentVersion pulumi.StringPtrInput
+	// Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+	CustomerActionStatus pulumi.StringPtrInput
 	// Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
 	EncryptionInfo ClusterEncryptionInfoPtrInput
 	// Specify the desired enhanced MSK CloudWatch monitoring level. See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
@@ -740,6 +746,11 @@ func (o ClusterOutput) ConfigurationInfo() ClusterConfigurationInfoPtrOutput {
 // Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
 func (o ClusterOutput) CurrentVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CurrentVersion }).(pulumi.StringOutput)
+}
+
+// Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+func (o ClusterOutput) CustomerActionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.CustomerActionStatus }).(pulumi.StringOutput)
 }
 
 // Configuration block for specifying encryption. See encryptionInfo Argument Reference below.

@@ -30,7 +30,7 @@ export interface GetWebAclArgs {
      */
     region?: string;
     /**
-     * ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resourceArn` must be specified.
+     * ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, AWS Amplify application, or Amazon Bedrock AgentCore Gateway. Exactly one of `name` or `resourceArn` must be specified.
      */
     resourceArn?: string;
     /**
@@ -86,7 +86,7 @@ export interface GetWebAclOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resourceArn` must be specified.
+     * ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, AWS Amplify application, or Amazon Bedrock AgentCore Gateway. Exactly one of `name` or `resourceArn` must be specified.
      */
     resourceArn?: pulumi.Input<string | undefined>;
     /**

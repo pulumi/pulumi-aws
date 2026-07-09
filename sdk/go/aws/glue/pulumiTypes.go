@@ -2043,9 +2043,9 @@ func (o CatalogTableOpenTableFormatInputPtrOutput) IcebergInput() CatalogTableOp
 type CatalogTableOpenTableFormatInputIcebergInput struct {
 	// Configuration parameters, including table properties and metadata specifications. See `icebergTableInput` below.
 	IcebergTableInput *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput `pulumi:"icebergTableInput"`
-	// A required metadata operation. Can only be set to CREATE.
+	// Required metadata operation. Can only be set to CREATE.
 	MetadataOperation string `pulumi:"metadataOperation"`
-	// The table version for the Iceberg table. Defaults to 2.
+	// Table version for the Iceberg table. Defaults to 2.
 	Version *string `pulumi:"version"`
 }
 
@@ -2063,9 +2063,9 @@ type CatalogTableOpenTableFormatInputIcebergInputInput interface {
 type CatalogTableOpenTableFormatInputIcebergInputArgs struct {
 	// Configuration parameters, including table properties and metadata specifications. See `icebergTableInput` below.
 	IcebergTableInput CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrInput `pulumi:"icebergTableInput"`
-	// A required metadata operation. Can only be set to CREATE.
+	// Required metadata operation. Can only be set to CREATE.
 	MetadataOperation pulumi.StringInput `pulumi:"metadataOperation"`
-	// The table version for the Iceberg table. Defaults to 2.
+	// Table version for the Iceberg table. Defaults to 2.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -2153,12 +2153,12 @@ func (o CatalogTableOpenTableFormatInputIcebergInputOutput) IcebergTableInput() 
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput)
 }
 
-// A required metadata operation. Can only be set to CREATE.
+// Required metadata operation. Can only be set to CREATE.
 func (o CatalogTableOpenTableFormatInputIcebergInputOutput) MetadataOperation() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInput) string { return v.MetadataOperation }).(pulumi.StringOutput)
 }
 
-// The table version for the Iceberg table. Defaults to 2.
+// Table version for the Iceberg table. Defaults to 2.
 func (o CatalogTableOpenTableFormatInputIcebergInputOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInput) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -2197,7 +2197,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) IcebergTableInput
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput)
 }
 
-// A required metadata operation. Can only be set to CREATE.
+// Required metadata operation. Can only be set to CREATE.
 func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) MetadataOperation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInput) *string {
 		if v == nil {
@@ -2207,7 +2207,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) MetadataOperation
 	}).(pulumi.StringPtrOutput)
 }
 
-// The table version for the Iceberg table. Defaults to 2.
+// Table version for the Iceberg table. Defaults to 2.
 func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInput) *string {
 		if v == nil {
@@ -2218,15 +2218,15 @@ func (o CatalogTableOpenTableFormatInputIcebergInputPtrOutput) Version() pulumi.
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput struct {
-	// The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+	// S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
 	Location string `pulumi:"location"`
-	// The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+	// Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
 	PartitionSpec *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec `pulumi:"partitionSpec"`
 	// Key-value pairs of additional table properties and configuration settings for the Iceberg table.
 	Properties map[string]string `pulumi:"properties"`
-	// The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+	// Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
 	Schema CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema `pulumi:"schema"`
-	// The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+	// Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
 	SortOrder *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder `pulumi:"sortOrder"`
 }
 
@@ -2242,15 +2242,15 @@ type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputInput interfac
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs struct {
-	// The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+	// S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
 	Location pulumi.StringInput `pulumi:"location"`
-	// The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+	// Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
 	PartitionSpec CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrInput `pulumi:"partitionSpec"`
 	// Key-value pairs of additional table properties and configuration settings for the Iceberg table.
 	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+	// Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
 	Schema CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaInput `pulumi:"schema"`
-	// The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+	// Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
 	SortOrder CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrInput `pulumi:"sortOrder"`
 }
 
@@ -2331,12 +2331,12 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) ToC
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput)
 }
 
-// The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+// S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+// Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) PartitionSpec() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec {
 		return v.PartitionSpec
@@ -2350,14 +2350,14 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) Pro
 	}).(pulumi.StringMapOutput)
 }
 
-// The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+// Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) Schema() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema {
 		return v.Schema
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput)
 }
 
-// The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+// Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput) SortOrder() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder {
 		return v.SortOrder
@@ -2388,7 +2388,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) 
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputOutput)
 }
 
-// The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+// S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *string {
 		if v == nil {
@@ -2398,7 +2398,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+// Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) PartitionSpec() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec {
 		if v == nil {
@@ -2418,7 +2418,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) 
 	}).(pulumi.StringMapOutput)
 }
 
-// The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+// Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) Schema() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema {
 		if v == nil {
@@ -2428,7 +2428,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) 
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput)
 }
 
-// The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+// Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) SortOrder() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput) *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder {
 		if v == nil {
@@ -2439,9 +2439,9 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPtrOutput) 
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec struct {
-	// The list of partition fields that define how the table data should be partitioned. See `fields` below.
+	// List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
 	Fields []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField `pulumi:"fields"`
-	// The unique identifier for this partition specification within the Iceberg table's metadata history.
+	// Unique identifier for this partition specification within the Iceberg table's metadata history.
 	SpecId *int `pulumi:"specId"`
 }
 
@@ -2457,9 +2457,9 @@ type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecI
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs struct {
-	// The list of partition fields that define how the table data should be partitioned. See `fields` below.
+	// List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
 	Fields CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayInput `pulumi:"fields"`
-	// The unique identifier for this partition specification within the Iceberg table's metadata history.
+	// Unique identifier for this partition specification within the Iceberg table's metadata history.
 	SpecId pulumi.IntPtrInput `pulumi:"specId"`
 }
 
@@ -2540,14 +2540,14 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSp
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput)
 }
 
-// The list of partition fields that define how the table data should be partitioned. See `fields` below.
+// List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput) Fields() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec) []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField {
 		return v.Fields
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput)
 }
 
-// The unique identifier for this partition specification within the Iceberg table's metadata history.
+// Unique identifier for this partition specification within the Iceberg table's metadata history.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput) SpecId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec) *int {
 		return v.SpecId
@@ -2578,7 +2578,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSp
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecOutput)
 }
 
-// The list of partition fields that define how the table data should be partitioned. See `fields` below.
+// List of partition fields that define how the table data should be partitioned. See `partition_spec.fields` below.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput) Fields() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec) []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField {
 		if v == nil {
@@ -2588,7 +2588,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSp
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArrayOutput)
 }
 
-// The unique identifier for this partition specification within the Iceberg table's metadata history.
+// Unique identifier for this partition specification within the Iceberg table's metadata history.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecPtrOutput) SpecId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec) *int {
 		if v == nil {
@@ -2599,9 +2599,11 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSp
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField struct {
-	// The unique identifier assigned to this partition field within the Iceberg table's partition specification.
+	// Unique identifier assigned to this partition field within the Iceberg table's partition specification.
 	FieldId *int `pulumi:"fieldId"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	//
+	// The following arguments are optional:
 	Name      string `pulumi:"name"`
 	SourceId  int    `pulumi:"sourceId"`
 	Transform string `pulumi:"transform"`
@@ -2619,9 +2621,11 @@ type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecF
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs struct {
-	// The unique identifier assigned to this partition field within the Iceberg table's partition specification.
+	// Unique identifier assigned to this partition field within the Iceberg table's partition specification.
 	FieldId pulumi.IntPtrInput `pulumi:"fieldId"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	//
+	// The following arguments are optional:
 	Name      pulumi.StringInput `pulumi:"name"`
 	SourceId  pulumi.IntInput    `pulumi:"sourceId"`
 	Transform pulumi.StringInput `pulumi:"transform"`
@@ -2678,7 +2682,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSp
 	return o
 }
 
-// The unique identifier assigned to this partition field within the Iceberg table's partition specification.
+// Unique identifier assigned to this partition field within the Iceberg table's partition specification.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput) FieldId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField) *int {
 		return v.FieldId
@@ -2686,6 +2690,8 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSp
 }
 
 // Name of the table. For Hive compatibility, this must be entirely lowercase.
+//
+// The following arguments are optional:
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField) string {
 		return v.Name
@@ -2725,13 +2731,13 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSp
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema struct {
-	// The list of field definitions that make up the table schema. See `fields` below.
+	// List of field definitions that make up the table schema. See `schema.fields` below.
 	Fields []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField `pulumi:"fields"`
-	// The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+	// List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
 	IdentifierFieldIds []int `pulumi:"identifierFieldIds"`
-	// The unique identifier for this schema version within the Iceberg table's schema evolution history.
+	// Unique identifier for this schema version within the Iceberg table's schema evolution history.
 	SchemaId *int `pulumi:"schemaId"`
-	// The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+	// Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
 	Type *string `pulumi:"type"`
 }
 
@@ -2747,13 +2753,13 @@ type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaInput in
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs struct {
-	// The list of field definitions that make up the table schema. See `fields` below.
+	// List of field definitions that make up the table schema. See `schema.fields` below.
 	Fields CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayInput `pulumi:"fields"`
-	// The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+	// List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
 	IdentifierFieldIds pulumi.IntArrayInput `pulumi:"identifierFieldIds"`
-	// The unique identifier for this schema version within the Iceberg table's schema evolution history.
+	// Unique identifier for this schema version within the Iceberg table's schema evolution history.
 	SchemaId pulumi.IntPtrInput `pulumi:"schemaId"`
-	// The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+	// Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
@@ -2834,26 +2840,26 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutpu
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput)
 }
 
-// The list of field definitions that make up the table schema. See `fields` below.
+// List of field definitions that make up the table schema. See `schema.fields` below.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) Fields() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField {
 		return v.Fields
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput)
 }
 
-// The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+// List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) IdentifierFieldIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) []int {
 		return v.IdentifierFieldIds
 	}).(pulumi.IntArrayOutput)
 }
 
-// The unique identifier for this schema version within the Iceberg table's schema evolution history.
+// Unique identifier for this schema version within the Iceberg table's schema evolution history.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) SchemaId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) *int { return v.SchemaId }).(pulumi.IntPtrOutput)
 }
 
-// The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+// Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2882,7 +2888,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOu
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaOutput)
 }
 
-// The list of field definitions that make up the table schema. See `fields` below.
+// List of field definitions that make up the table schema. See `schema.fields` below.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput) Fields() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField {
 		if v == nil {
@@ -2892,7 +2898,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOu
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArrayOutput)
 }
 
-// The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+// List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput) IdentifierFieldIds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) []int {
 		if v == nil {
@@ -2902,7 +2908,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOu
 	}).(pulumi.IntArrayOutput)
 }
 
-// The unique identifier for this schema version within the Iceberg table's schema evolution history.
+// Unique identifier for this schema version within the Iceberg table's schema evolution history.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput) SchemaId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) *int {
 		if v == nil {
@@ -2912,7 +2918,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
+// Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `"long"`, `"string"`, `"timestamp"`, `"decimal(10,2)"`.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema) *string {
 		if v == nil {
@@ -2923,15 +2929,18 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaPtrOu
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField struct {
-	// Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+	// Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
 	Doc *string `pulumi:"doc"`
-	// Catalog ID, Database name and of the name table.
+	// Catalog ID, database name, and table name, separated by colons (`:`).
+	// * `partition_index[*].index_status` - Status of the partition index.
 	Id int `pulumi:"id"`
 	// Default value as JSON used to populate the field's value for all records that were written before the field was added to the schema.
 	InitialDefault *string `pulumi:"initialDefault"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	//
+	// The following arguments are optional:
 	Name string `pulumi:"name"`
-	// Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+	// Whether this field is required (non-nullable) or optional (nullable) in the table schema.
 	Required bool   `pulumi:"required"`
 	Type     string `pulumi:"type"`
 	// Default value as JSON used to populate the field's value for any records written after the field was added to the schema, if the writer does not supply the field's value.
@@ -2950,15 +2959,18 @@ type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldInp
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs struct {
-	// Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+	// Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
 	Doc pulumi.StringPtrInput `pulumi:"doc"`
-	// Catalog ID, Database name and of the name table.
+	// Catalog ID, database name, and table name, separated by colons (`:`).
+	// * `partition_index[*].index_status` - Status of the partition index.
 	Id pulumi.IntInput `pulumi:"id"`
 	// Default value as JSON used to populate the field's value for all records that were written before the field was added to the schema.
 	InitialDefault pulumi.StringPtrInput `pulumi:"initialDefault"`
 	// Name of the table. For Hive compatibility, this must be entirely lowercase.
+	//
+	// The following arguments are optional:
 	Name pulumi.StringInput `pulumi:"name"`
-	// Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+	// Whether this field is required (non-nullable) or optional (nullable) in the table schema.
 	Required pulumi.BoolInput   `pulumi:"required"`
 	Type     pulumi.StringInput `pulumi:"type"`
 	// Default value as JSON used to populate the field's value for any records written after the field was added to the schema, if the writer does not supply the field's value.
@@ -3016,12 +3028,13 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField
 	return o
 }
 
-// Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+// Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) Doc() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField) *string { return v.Doc }).(pulumi.StringPtrOutput)
 }
 
-// Catalog ID, Database name and of the name table.
+// Catalog ID, database name, and table name, separated by colons (`:`).
+// * `partition_index[*].index_status` - Status of the partition index.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) Id() pulumi.IntOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField) int { return v.Id }).(pulumi.IntOutput)
 }
@@ -3034,11 +3047,13 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField
 }
 
 // Name of the table. For Hive compatibility, this must be entirely lowercase.
+//
+// The following arguments are optional:
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+// Whether this field is required (non-nullable) or optional (nullable) in the table schema.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldOutput) Required() pulumi.BoolOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField) bool {
 		return v.Required
@@ -3077,9 +3092,9 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder struct {
-	// The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+	// List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
 	Fields []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField `pulumi:"fields"`
-	// The unique identifier for this sort order specification within the Iceberg table's metadata.
+	// Unique identifier for this sort order specification within the Iceberg table's metadata.
 	OrderId int `pulumi:"orderId"`
 }
 
@@ -3095,9 +3110,9 @@ type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderInput
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs struct {
-	// The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+	// List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
 	Fields CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayInput `pulumi:"fields"`
-	// The unique identifier for this sort order specification within the Iceberg table's metadata.
+	// Unique identifier for this sort order specification within the Iceberg table's metadata.
 	OrderId pulumi.IntInput `pulumi:"orderId"`
 }
 
@@ -3178,14 +3193,14 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOu
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput)
 }
 
-// The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+// List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput) Fields() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder) []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField {
 		return v.Fields
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput)
 }
 
-// The unique identifier for this sort order specification within the Iceberg table's metadata.
+// Unique identifier for this sort order specification within the Iceberg table's metadata.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput) OrderId() pulumi.IntOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder) int { return v.OrderId }).(pulumi.IntOutput)
 }
@@ -3214,7 +3229,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPt
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderOutput)
 }
 
-// The list of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `fields` below.
+// List of fields and their sort directions that define the ordering criteria for the Iceberg table data. See `sort_order.fields` below.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput) Fields() CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder) []CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField {
 		if v == nil {
@@ -3224,7 +3239,7 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPt
 	}).(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArrayOutput)
 }
 
-// The unique identifier for this sort order specification within the Iceberg table's metadata.
+// Unique identifier for this sort order specification within the Iceberg table's metadata.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPtrOutput) OrderId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder) *int {
 		if v == nil {
@@ -3235,9 +3250,9 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderPt
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField struct {
-	// The sort direction for this field. Valid values: `asc`, `desc`.
+	// Sort direction for this field. Valid values: `asc`, `desc`.
 	Direction string `pulumi:"direction"`
-	// The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+	// Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
 	NullOrder string `pulumi:"nullOrder"`
 	SourceId  int    `pulumi:"sourceId"`
 	Transform string `pulumi:"transform"`
@@ -3255,9 +3270,9 @@ type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField
 }
 
 type CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs struct {
-	// The sort direction for this field. Valid values: `asc`, `desc`.
+	// Sort direction for this field. Valid values: `asc`, `desc`.
 	Direction pulumi.StringInput `pulumi:"direction"`
-	// The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+	// Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
 	NullOrder pulumi.StringInput `pulumi:"nullOrder"`
 	SourceId  pulumi.IntInput    `pulumi:"sourceId"`
 	Transform pulumi.StringInput `pulumi:"transform"`
@@ -3314,14 +3329,14 @@ func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFi
 	return o
 }
 
-// The sort direction for this field. Valid values: `asc`, `desc`.
+// Sort direction for this field. Valid values: `asc`, `desc`.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField) string {
 		return v.Direction
 	}).(pulumi.StringOutput)
 }
 
-// The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+// Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
 func (o CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldOutput) NullOrder() pulumi.StringOutput {
 	return o.ApplyT(func(v CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderField) string {
 		return v.NullOrder
@@ -5970,7 +5985,7 @@ func (o CatalogTableTargetTablePtrOutput) Region() pulumi.StringPtrOutput {
 }
 
 type CatalogTableViewDefinition struct {
-	// The definer of a view in SQL.
+	// Definer of a view in SQL.
 	Definer *string `pulumi:"definer"`
 	// You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
 	IsProtected *bool `pulumi:"isProtected"`
@@ -5978,11 +5993,11 @@ type CatalogTableViewDefinition struct {
 	LastRefreshType *string `pulumi:"lastRefreshType"`
 	// Auto refresh interval in seconds for the materialized view.
 	RefreshSeconds *int `pulumi:"refreshSeconds"`
-	// A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+	// List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
 	Representations []CatalogTableViewDefinitionRepresentation `pulumi:"representations"`
 	// List of the Apache Iceberg table versions referenced by the materialized view.
 	SubObjectVersionIds []int `pulumi:"subObjectVersionIds"`
-	// A list of base table ARNs that make up the view.
+	// List of base table ARNs that make up the view.
 	SubObjects []string `pulumi:"subObjects"`
 	// ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID.
 	ViewVersionId *int `pulumi:"viewVersionId"`
@@ -6002,7 +6017,7 @@ type CatalogTableViewDefinitionInput interface {
 }
 
 type CatalogTableViewDefinitionArgs struct {
-	// The definer of a view in SQL.
+	// Definer of a view in SQL.
 	Definer pulumi.StringPtrInput `pulumi:"definer"`
 	// You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.
 	IsProtected pulumi.BoolPtrInput `pulumi:"isProtected"`
@@ -6010,11 +6025,11 @@ type CatalogTableViewDefinitionArgs struct {
 	LastRefreshType pulumi.StringPtrInput `pulumi:"lastRefreshType"`
 	// Auto refresh interval in seconds for the materialized view.
 	RefreshSeconds pulumi.IntPtrInput `pulumi:"refreshSeconds"`
-	// A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+	// List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
 	Representations CatalogTableViewDefinitionRepresentationArrayInput `pulumi:"representations"`
 	// List of the Apache Iceberg table versions referenced by the materialized view.
 	SubObjectVersionIds pulumi.IntArrayInput `pulumi:"subObjectVersionIds"`
-	// A list of base table ARNs that make up the view.
+	// List of base table ARNs that make up the view.
 	SubObjects pulumi.StringArrayInput `pulumi:"subObjects"`
 	// ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID.
 	ViewVersionId pulumi.IntPtrInput `pulumi:"viewVersionId"`
@@ -6099,7 +6114,7 @@ func (o CatalogTableViewDefinitionOutput) ToCatalogTableViewDefinitionPtrOutputW
 	}).(CatalogTableViewDefinitionPtrOutput)
 }
 
-// The definer of a view in SQL.
+// Definer of a view in SQL.
 func (o CatalogTableViewDefinitionOutput) Definer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableViewDefinition) *string { return v.Definer }).(pulumi.StringPtrOutput)
 }
@@ -6119,7 +6134,7 @@ func (o CatalogTableViewDefinitionOutput) RefreshSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CatalogTableViewDefinition) *int { return v.RefreshSeconds }).(pulumi.IntPtrOutput)
 }
 
-// A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+// List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
 func (o CatalogTableViewDefinitionOutput) Representations() CatalogTableViewDefinitionRepresentationArrayOutput {
 	return o.ApplyT(func(v CatalogTableViewDefinition) []CatalogTableViewDefinitionRepresentation {
 		return v.Representations
@@ -6131,7 +6146,7 @@ func (o CatalogTableViewDefinitionOutput) SubObjectVersionIds() pulumi.IntArrayO
 	return o.ApplyT(func(v CatalogTableViewDefinition) []int { return v.SubObjectVersionIds }).(pulumi.IntArrayOutput)
 }
 
-// A list of base table ARNs that make up the view.
+// List of base table ARNs that make up the view.
 func (o CatalogTableViewDefinitionOutput) SubObjects() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CatalogTableViewDefinition) []string { return v.SubObjects }).(pulumi.StringArrayOutput)
 }
@@ -6170,7 +6185,7 @@ func (o CatalogTableViewDefinitionPtrOutput) Elem() CatalogTableViewDefinitionOu
 	}).(CatalogTableViewDefinitionOutput)
 }
 
-// The definer of a view in SQL.
+// Definer of a view in SQL.
 func (o CatalogTableViewDefinitionPtrOutput) Definer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogTableViewDefinition) *string {
 		if v == nil {
@@ -6210,7 +6225,7 @@ func (o CatalogTableViewDefinitionPtrOutput) RefreshSeconds() pulumi.IntPtrOutpu
 	}).(pulumi.IntPtrOutput)
 }
 
-// A list of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
+// List of structures that contains the dialect of the view, and the query that defines the view. See `representations` below.
 func (o CatalogTableViewDefinitionPtrOutput) Representations() CatalogTableViewDefinitionRepresentationArrayOutput {
 	return o.ApplyT(func(v *CatalogTableViewDefinition) []CatalogTableViewDefinitionRepresentation {
 		if v == nil {
@@ -6230,7 +6245,7 @@ func (o CatalogTableViewDefinitionPtrOutput) SubObjectVersionIds() pulumi.IntArr
 	}).(pulumi.IntArrayOutput)
 }
 
-// A list of base table ARNs that make up the view.
+// List of base table ARNs that make up the view.
 func (o CatalogTableViewDefinitionPtrOutput) SubObjects() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CatalogTableViewDefinition) []string {
 		if v == nil {
@@ -6261,15 +6276,15 @@ func (o CatalogTableViewDefinitionPtrOutput) ViewVersionToken() pulumi.StringPtr
 }
 
 type CatalogTableViewDefinitionRepresentation struct {
-	// A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+	// Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
 	Dialect *string `pulumi:"dialect"`
-	// A parameter that specifies the version of the engine of a specific representation.
+	// Parameter that specifies the version of the engine of a specific representation.
 	DialectVersion *string `pulumi:"dialectVersion"`
-	// The name of the connection to be used to validate the specific representation of the view.
+	// Name of the connection to be used to validate the specific representation of the view.
 	ValidationConnection *string `pulumi:"validationConnection"`
-	// A string that represents the SQL query that describes the view with expanded resource ARNs.
+	// String that represents the SQL query that describes the view with expanded resource ARNs.
 	ViewExpandedText *string `pulumi:"viewExpandedText"`
-	// A string that represents the original SQL query that describes the view.
+	// String that represents the original SQL query that describes the view.
 	ViewOriginalText *string `pulumi:"viewOriginalText"`
 }
 
@@ -6285,15 +6300,15 @@ type CatalogTableViewDefinitionRepresentationInput interface {
 }
 
 type CatalogTableViewDefinitionRepresentationArgs struct {
-	// A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+	// Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
 	Dialect pulumi.StringPtrInput `pulumi:"dialect"`
-	// A parameter that specifies the version of the engine of a specific representation.
+	// Parameter that specifies the version of the engine of a specific representation.
 	DialectVersion pulumi.StringPtrInput `pulumi:"dialectVersion"`
-	// The name of the connection to be used to validate the specific representation of the view.
+	// Name of the connection to be used to validate the specific representation of the view.
 	ValidationConnection pulumi.StringPtrInput `pulumi:"validationConnection"`
-	// A string that represents the SQL query that describes the view with expanded resource ARNs.
+	// String that represents the SQL query that describes the view with expanded resource ARNs.
 	ViewExpandedText pulumi.StringPtrInput `pulumi:"viewExpandedText"`
-	// A string that represents the original SQL query that describes the view.
+	// String that represents the original SQL query that describes the view.
 	ViewOriginalText pulumi.StringPtrInput `pulumi:"viewOriginalText"`
 }
 
@@ -6348,27 +6363,27 @@ func (o CatalogTableViewDefinitionRepresentationOutput) ToCatalogTableViewDefini
 	return o
 }
 
-// A parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
+// Parameter that specifies the engine type of a specific representation. Valid values are `REDSHIFT`, `ATHENA`, and `SPARK`.
 func (o CatalogTableViewDefinitionRepresentationOutput) Dialect() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableViewDefinitionRepresentation) *string { return v.Dialect }).(pulumi.StringPtrOutput)
 }
 
-// A parameter that specifies the version of the engine of a specific representation.
+// Parameter that specifies the version of the engine of a specific representation.
 func (o CatalogTableViewDefinitionRepresentationOutput) DialectVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableViewDefinitionRepresentation) *string { return v.DialectVersion }).(pulumi.StringPtrOutput)
 }
 
-// The name of the connection to be used to validate the specific representation of the view.
+// Name of the connection to be used to validate the specific representation of the view.
 func (o CatalogTableViewDefinitionRepresentationOutput) ValidationConnection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableViewDefinitionRepresentation) *string { return v.ValidationConnection }).(pulumi.StringPtrOutput)
 }
 
-// A string that represents the SQL query that describes the view with expanded resource ARNs.
+// String that represents the SQL query that describes the view with expanded resource ARNs.
 func (o CatalogTableViewDefinitionRepresentationOutput) ViewExpandedText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableViewDefinitionRepresentation) *string { return v.ViewExpandedText }).(pulumi.StringPtrOutput)
 }
 
-// A string that represents the original SQL query that describes the view.
+// String that represents the original SQL query that describes the view.
 func (o CatalogTableViewDefinitionRepresentationOutput) ViewOriginalText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CatalogTableViewDefinitionRepresentation) *string { return v.ViewOriginalText }).(pulumi.StringPtrOutput)
 }

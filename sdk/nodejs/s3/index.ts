@@ -230,6 +230,11 @@ export const getBucket: typeof import("./getBucket").getBucket = null as any;
 export const getBucketOutput: typeof import("./getBucket").getBucketOutput = null as any;
 utilities.lazyLoad(exports, ["getBucket","getBucketOutput"], () => require("./getBucket"));
 
+export { GetBucketNotificationArgs, GetBucketNotificationResult, GetBucketNotificationOutputArgs } from "./getBucketNotification";
+export const getBucketNotification: typeof import("./getBucketNotification").getBucketNotification = null as any;
+export const getBucketNotificationOutput: typeof import("./getBucketNotification").getBucketNotificationOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketNotification","getBucketNotificationOutput"], () => require("./getBucketNotification"));
+
 export { GetBucketObjectArgs, GetBucketObjectResult, GetBucketObjectOutputArgs } from "./getBucketObject";
 export const getBucketObject: typeof import("./getBucketObject").getBucketObject = null as any;
 export const getBucketObjectOutput: typeof import("./getBucketObject").getBucketObjectOutput = null as any;

@@ -15,12 +15,13 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField {
     /**
-     * @return Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+     * @return Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
      * 
      */
     private @Nullable String doc;
     /**
-     * @return Catalog ID, Database name and of the name table.
+     * @return Catalog ID, database name, and table name, separated by colons (`:`).
+     * * `partition_index[*].index_status` - Status of the partition index.
      * 
      */
     private Integer id;
@@ -32,10 +33,12 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     /**
      * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
+     * The following arguments are optional:
+     * 
      */
     private String name;
     /**
-     * @return Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+     * @return Whether this field is required (non-nullable) or optional (nullable) in the table schema.
      * 
      */
     private Boolean required;
@@ -48,14 +51,15 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
 
     private CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField() {}
     /**
-     * @return Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+     * @return Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
      * 
      */
     public Optional<String> doc() {
         return Optional.ofNullable(this.doc);
     }
     /**
-     * @return Catalog ID, Database name and of the name table.
+     * @return Catalog ID, database name, and table name, separated by colons (`:`).
+     * * `partition_index[*].index_status` - Status of the partition index.
      * 
      */
     public Integer id() {
@@ -71,12 +75,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     /**
      * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
+     * The following arguments are optional:
+     * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+     * @return Whether this field is required (non-nullable) or optional (nullable) in the table schema.
      * 
      */
     public Boolean required() {

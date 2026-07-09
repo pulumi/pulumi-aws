@@ -142,7 +142,7 @@ type Workspace struct {
 	AuthenticationProviders pulumi.StringArrayOutput `pulumi:"authenticationProviders"`
 	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
 	Configuration pulumi.StringOutput `pulumi:"configuration"`
-	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
 	DataSources pulumi.StringArrayOutput `pulumi:"dataSources"`
 	// The workspace description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -228,7 +228,7 @@ type workspaceState struct {
 	AuthenticationProviders []string `pulumi:"authenticationProviders"`
 	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
 	Configuration *string `pulumi:"configuration"`
-	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
 	DataSources []string `pulumi:"dataSources"`
 	// The workspace description.
 	Description *string `pulumi:"description"`
@@ -276,7 +276,7 @@ type WorkspaceState struct {
 	AuthenticationProviders pulumi.StringArrayInput
 	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
 	Configuration pulumi.StringPtrInput
-	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
 	DataSources pulumi.StringArrayInput
 	// The workspace description.
 	Description pulumi.StringPtrInput
@@ -326,7 +326,7 @@ type workspaceArgs struct {
 	AuthenticationProviders []string `pulumi:"authenticationProviders"`
 	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
 	Configuration *string `pulumi:"configuration"`
-	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
 	DataSources []string `pulumi:"dataSources"`
 	// The workspace description.
 	Description *string `pulumi:"description"`
@@ -368,7 +368,7 @@ type WorkspaceArgs struct {
 	AuthenticationProviders pulumi.StringArrayInput
 	// The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
 	Configuration pulumi.StringPtrInput
-	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+	// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
 	DataSources pulumi.StringArrayInput
 	// The workspace description.
 	Description pulumi.StringPtrInput
@@ -509,7 +509,7 @@ func (o WorkspaceOutput) Configuration() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Configuration }).(pulumi.StringOutput)
 }
 
-// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+// The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
 func (o WorkspaceOutput) DataSources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringArrayOutput { return v.DataSources }).(pulumi.StringArrayOutput)
 }

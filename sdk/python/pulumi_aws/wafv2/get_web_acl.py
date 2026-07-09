@@ -120,7 +120,7 @@ def get_web_acl(name: Optional[_builtins.str] = None,
 
     :param _builtins.str name: Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_arn: ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resource_arn` must be specified.
+    :param _builtins.str resource_arn: ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, AWS Amplify application, or Amazon Bedrock AgentCore Gateway. Exactly one of `name` or `resource_arn` must be specified.
     :param _builtins.str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
     """
     __args__ = dict()
@@ -150,7 +150,7 @@ def get_web_acl_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = N
 
     :param _builtins.str name: Name of the WAFv2 Web ACL. Exactly one of `name` or `resource_arn` must be specified.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str resource_arn: ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resource_arn` must be specified.
+    :param _builtins.str resource_arn: ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, AWS Amplify application, or Amazon Bedrock AgentCore Gateway. Exactly one of `name` or `resource_arn` must be specified.
     :param _builtins.str scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
     """
     __args__ = dict()

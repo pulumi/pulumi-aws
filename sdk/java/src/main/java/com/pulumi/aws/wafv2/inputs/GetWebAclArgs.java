@@ -47,14 +47,14 @@ public final class GetWebAclArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resourceArn` must be specified.
+     * ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, AWS Amplify application, or Amazon Bedrock AgentCore Gateway. Exactly one of `name` or `resourceArn` must be specified.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resourceArn` must be specified.
+     * @return ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, AWS Amplify application, or Amazon Bedrock AgentCore Gateway. Exactly one of `name` or `resourceArn` must be specified.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -146,7 +146,7 @@ public final class GetWebAclArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceArn ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resourceArn` must be specified.
+         * @param resourceArn ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, AWS Amplify application, or Amazon Bedrock AgentCore Gateway. Exactly one of `name` or `resourceArn` must be specified.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class GetWebAclArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param resourceArn ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, or AWS Amplify application. Exactly one of `name` or `resourceArn` must be specified.
+         * @param resourceArn ARN of the AWS resource associated with the Web ACL. This can be an ARN of an Application Load Balancer, Amazon API Gateway REST API, AWS AppSync GraphQL API, Amazon Cognito user pool, AWS App Runner service, AWS Verified Access instance, AWS Amplify application, or Amazon Bedrock AgentCore Gateway. Exactly one of `name` or `resourceArn` must be specified.
          * 
          * @return builder
          * 

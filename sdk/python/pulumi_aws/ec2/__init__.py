@@ -35,6 +35,7 @@ from .flow_log import *
 from .get_ami import *
 from .get_ami_ids import *
 from .get_capacity_block_offering import *
+from .get_capacity_block_reservation import *
 from .get_coip_pool import *
 from .get_coip_pools import *
 from .get_customer_gateway import *

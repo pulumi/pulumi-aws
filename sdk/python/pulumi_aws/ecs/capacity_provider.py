@@ -280,6 +280,8 @@ class CapacityProvider(pulumi.CustomResource):
 
         > **NOTE:** You must specify exactly one of `auto_scaling_group_provider` or `managed_instances_provider`. When using `managed_instances_provider`, the `cluster` parameter is required. When using `auto_scaling_group_provider`, the `cluster` parameter must not be set.
 
+        > **NOTE:** AWS cannot delete a capacity provider that is still associated with a cluster through `ecs.ClusterCapacityProviders`. When a change forces replacement, add a `replace_triggered_by` lifecycle rule to the `ecs.ClusterCapacityProviders` resource so the association is recreated before the old capacity provider is deleted.
+
         ## Example Usage
 
         ### Auto Scaling Group Provider
@@ -384,6 +386,8 @@ class CapacityProvider(pulumi.CustomResource):
         > **NOTE:** Associating an ECS Capacity Provider to an Auto Scaling Group will automatically add the `AmazonECSManaged` tag to the Auto Scaling Group. This tag should be included in the `autoscaling.Group` resource configuration to prevent the provider from removing it in subsequent executions as well as ensuring the `AmazonECSManaged` tag is propagated to all EC2 Instances in the Auto Scaling Group if `min_size` is above 0 on creation. Any EC2 Instances in the Auto Scaling Group without this tag must be manually be updated, otherwise they may cause unexpected scaling behavior and metrics.
 
         > **NOTE:** You must specify exactly one of `auto_scaling_group_provider` or `managed_instances_provider`. When using `managed_instances_provider`, the `cluster` parameter is required. When using `auto_scaling_group_provider`, the `cluster` parameter must not be set.
+
+        > **NOTE:** AWS cannot delete a capacity provider that is still associated with a cluster through `ecs.ClusterCapacityProviders`. When a change forces replacement, add a `replace_triggered_by` lifecycle rule to the `ecs.ClusterCapacityProviders` resource so the association is recreated before the old capacity provider is deleted.
 
         ## Example Usage
 

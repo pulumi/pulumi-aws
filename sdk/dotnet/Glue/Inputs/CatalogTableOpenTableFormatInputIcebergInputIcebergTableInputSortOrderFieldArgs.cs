@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The sort direction for this field. Valid values: `Asc`, `Desc`.
+        /// Sort direction for this field. Valid values: `Asc`, `Desc`.
         /// </summary>
         [Input("direction", required: true)]
         public Input<string> Direction { get; set; } = null!;
 
         /// <summary>
-        /// The ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
+        /// Ordering behavior for null values in this field. Valid values: `nulls-first`, `nulls-last`.
         /// </summary>
         [Input("nullOrder", required: true)]
         public Input<string> NullOrder { get; set; } = null!;

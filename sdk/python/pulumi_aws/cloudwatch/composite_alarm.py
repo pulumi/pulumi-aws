@@ -431,10 +431,21 @@ class CompositeAlarm(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `alarm_name` (String) Name of the composite alarm.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Composite Alarms using `alarm_name`. For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+        $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm example example-alarm
         ```
 
 
@@ -485,10 +496,21 @@ class CompositeAlarm(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `alarm_name` (String) Name of the composite alarm.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Composite Alarms using `alarm_name`. For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+        $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm example example-alarm
         ```
 
 

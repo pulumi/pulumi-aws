@@ -376,6 +376,12 @@ namespace Pulumi.Aws.Msk
         public Output<string> CurrentVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+        /// </summary>
+        [Output("customerActionStatus")]
+        public Output<string> CustomerActionStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for specifying encryption. See EncryptionInfo Argument Reference below.
         /// </summary>
         [Output("encryptionInfo")]
@@ -698,6 +704,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("currentVersion")]
         public Input<string>? CurrentVersion { get; set; }
+
+        /// <summary>
+        /// Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+        /// </summary>
+        [Input("customerActionStatus")]
+        public Input<string>? CustomerActionStatus { get; set; }
 
         /// <summary>
         /// Configuration block for specifying encryption. See EncryptionInfo Argument Reference below.

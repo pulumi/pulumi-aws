@@ -96,6 +96,10 @@ export interface GetClusterResult {
      */
     readonly clusterUuid: string;
     /**
+     * Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+     */
+    readonly customerActionStatus: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -113,7 +117,7 @@ export interface GetClusterResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
     readonly zookeeperConnectString: string;
     /**

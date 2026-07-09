@@ -43,16 +43,12 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="databaseName", required=true)
     private Output<String> databaseName;
 
     /**
      * @return Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Output<String> databaseName() {
@@ -77,12 +73,16 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -120,14 +120,14 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Properties associated with this table, as a list of key-value pairs.
+     * Properties associated with this table, as a map of key-value pairs.
      * 
      */
     @Import(name="parameters")
     private @Nullable Output<Map<String,String>> parameters;
 
     /**
-     * @return Properties associated with this table, as a list of key-value pairs.
+     * @return Properties associated with this table, as a map of key-value pairs.
      * 
      */
     public Optional<Output<Map<String,String>>> parameters() {
@@ -240,14 +240,14 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     * Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      * 
      */
     @Import(name="viewDefinition")
     private @Nullable Output<CatalogTableViewDefinitionArgs> viewDefinition;
 
     /**
-     * @return A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+     * @return Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      * 
      */
     public Optional<Output<CatalogTableViewDefinitionArgs>> viewDefinition() {
@@ -348,8 +348,6 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param databaseName Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -360,8 +358,6 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param databaseName Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -394,6 +390,8 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param name Name of the table. For Hive compatibility, this must be entirely lowercase.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -404,6 +402,8 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param name Name of the table. For Hive compatibility, this must be entirely lowercase.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters Properties associated with this table, as a list of key-value pairs.
+         * @param parameters Properties associated with this table, as a map of key-value pairs.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parameters Properties associated with this table, as a list of key-value pairs.
+         * @param parameters Properties associated with this table, as a map of key-value pairs.
          * 
          * @return builder
          * 
@@ -643,7 +643,7 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param viewDefinition A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+         * @param viewDefinition Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
          * 
          * @return builder
          * 
@@ -654,7 +654,7 @@ public final class CatalogTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param viewDefinition A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
+         * @param viewDefinition Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
          * 
          * @return builder
          * 

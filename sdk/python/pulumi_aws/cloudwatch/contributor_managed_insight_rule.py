@@ -116,6 +116,7 @@ class _ContributorManagedInsightRuleState:
         :param pulumi.Input[_builtins.str] arn: ARN of the Contributor Managed Insight Rule.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
+        :param pulumi.Input[_builtins.str] rule_name: Name of the Contributor Insights rule that contains data for the specified AWS resource.
         :param pulumi.Input[_builtins.str] template_name: Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
                
                The following arguments are optional:
@@ -176,6 +177,9 @@ class _ContributorManagedInsightRuleState:
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Contributor Insights rule that contains data for the specified AWS resource.
+        """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
@@ -255,10 +259,22 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `resource_arn`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `resource_arn` (String) ARN of the resource.
+        * `template_name` (String) Name of the template.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Contributor Managed Insight Rules using `resource_arn` and `template_name` separated by a comma (`,`). For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example contributor_managed_insight_rule-id-12345678
+        $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example arn:aws:ec2:us-east-1:123456789012:vpc-endpoint-service/vpce-svc-0123456789abcdef0,VpcEndpointService-BytesByEndpointId-v1
         ```
 
 
@@ -295,10 +311,22 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `resource_arn`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `resource_arn` (String) ARN of the resource.
+        * `template_name` (String) Name of the template.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Contributor Managed Insight Rules using `resource_arn` and `template_name` separated by a comma (`,`). For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example contributor_managed_insight_rule-id-12345678
+        $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example arn:aws:ec2:us-east-1:123456789012:vpc-endpoint-service/vpce-svc-0123456789abcdef0,VpcEndpointService-BytesByEndpointId-v1
         ```
 
 
@@ -371,6 +399,7 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the Contributor Managed Insight Rule.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_arn: ARN of an Amazon Web Services resource that has managed Contributor Insights rules.
+        :param pulumi.Input[_builtins.str] rule_name: Name of the Contributor Insights rule that contains data for the specified AWS resource.
         :param pulumi.Input[_builtins.str] template_name: Template name for the managed Contributor Insights rule, as returned by ListManagedInsightRules.
                
                The following arguments are optional:
@@ -416,6 +445,9 @@ class ContributorManagedInsightRule(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="ruleName")
     def rule_name(self) -> pulumi.Output[_builtins.str]:
+        """
+        Name of the Contributor Insights rule that contains data for the specified AWS resource.
+        """
         return pulumi.get(self, "rule_name")
 
     @_builtins.property

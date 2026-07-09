@@ -67,6 +67,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `id` (String) VPC ID.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS account ID for this resource.
+ * * `region` (String) AWS Region for this resource.
+ * 
  * Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
  * 
  * ```sh

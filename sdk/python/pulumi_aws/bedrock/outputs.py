@@ -226,11 +226,21 @@ __all__ = [
     'AgentcoreAgentRuntimeTimeouts',
     'AgentcoreAgentRuntimeWorkloadIdentityDetail',
     'AgentcoreApiKeyCredentialProviderApiKeySecretArn',
+    'AgentcoreBrowserBrowserSigning',
+    'AgentcoreBrowserCertificate',
+    'AgentcoreBrowserCertificateLocation',
+    'AgentcoreBrowserCertificateLocationSecretsManager',
+    'AgentcoreBrowserEnterprisePolicy',
+    'AgentcoreBrowserEnterprisePolicyLocation',
+    'AgentcoreBrowserEnterprisePolicyLocationS3',
     'AgentcoreBrowserNetworkConfiguration',
     'AgentcoreBrowserNetworkConfigurationVpcConfig',
     'AgentcoreBrowserRecording',
     'AgentcoreBrowserRecordingS3Location',
     'AgentcoreBrowserTimeouts',
+    'AgentcoreCodeInterpreterCertificate',
+    'AgentcoreCodeInterpreterCertificateLocation',
+    'AgentcoreCodeInterpreterCertificateLocationSecretsManager',
     'AgentcoreCodeInterpreterNetworkConfiguration',
     'AgentcoreCodeInterpreterNetworkConfigurationVpcConfig',
     'AgentcoreCodeInterpreterTimeouts',
@@ -393,6 +403,13 @@ __all__ = [
     'AgentcorePolicyDefinitionCedar',
     'AgentcorePolicyEngineTimeouts',
     'AgentcorePolicyTimeouts',
+    'AgentcoreRegistryApprovalConfiguration',
+    'AgentcoreRegistryAuthorizerConfiguration',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue',
+    'AgentcoreRegistryTimeouts',
     'AgentcoreTokenVaultCmkKmsConfiguration',
     'CustomModelOutputDataConfig',
     'CustomModelTimeouts',
@@ -10013,6 +10030,220 @@ class AgentcoreApiKeyCredentialProviderApiKeySecretArn(dict):
 
 
 @pulumi.output_type
+class AgentcoreBrowserBrowserSigning(dict):
+    def __init__(__self__, *,
+                 enabled: _builtins.bool):
+        """
+        :param _builtins.bool enabled: Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class AgentcoreBrowserCertificate(dict):
+    def __init__(__self__, *,
+                 location: 'outputs.AgentcoreBrowserCertificateLocation'):
+        """
+        :param 'AgentcoreBrowserCertificateLocationArgs' location: Location from which to retrieve the certificate. See `certificates.location` below.
+        """
+        pulumi.set(__self__, "location", location)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> 'outputs.AgentcoreBrowserCertificateLocation':
+        """
+        Location from which to retrieve the certificate. See `certificates.location` below.
+        """
+        return pulumi.get(self, "location")
+
+
+@pulumi.output_type
+class AgentcoreBrowserCertificateLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsManager":
+            suggest = "secrets_manager"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreBrowserCertificateLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreBrowserCertificateLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreBrowserCertificateLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secrets_manager: Optional['outputs.AgentcoreBrowserCertificateLocationSecretsManager'] = None):
+        """
+        :param 'AgentcoreBrowserCertificateLocationSecretsManagerArgs' secrets_manager: AWS Secrets Manager location of the certificate. See `secrets_manager` below.
+        """
+        if secrets_manager is not None:
+            pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> Optional['outputs.AgentcoreBrowserCertificateLocationSecretsManager']:
+        """
+        AWS Secrets Manager location of the certificate. See `secrets_manager` below.
+        """
+        return pulumi.get(self, "secrets_manager")
+
+
+@pulumi.output_type
+class AgentcoreBrowserCertificateLocationSecretsManager(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreBrowserCertificateLocationSecretsManager. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreBrowserCertificateLocationSecretsManager.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreBrowserCertificateLocationSecretsManager.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        """
+        :param _builtins.str secret_arn: ARN of the AWS Secrets Manager secret containing the certificate.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        ARN of the AWS Secrets Manager secret containing the certificate.
+        """
+        return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class AgentcoreBrowserEnterprisePolicy(dict):
+    def __init__(__self__, *,
+                 location: 'outputs.AgentcoreBrowserEnterprisePolicyLocation',
+                 type: Optional[_builtins.str] = None):
+        """
+        :param 'AgentcoreBrowserEnterprisePolicyLocationArgs' location: Location of the enterprise policy file. See `location` below.
+        :param _builtins.str type: Type of browser enterprise policy. Valid values: `MANAGED`, `RECOMMENDED`.
+        """
+        pulumi.set(__self__, "location", location)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> 'outputs.AgentcoreBrowserEnterprisePolicyLocation':
+        """
+        Location of the enterprise policy file. See `location` below.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Type of browser enterprise policy. Valid values: `MANAGED`, `RECOMMENDED`.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AgentcoreBrowserEnterprisePolicyLocation(dict):
+    def __init__(__self__, *,
+                 s3: Optional['outputs.AgentcoreBrowserEnterprisePolicyLocationS3'] = None):
+        """
+        :param 'AgentcoreBrowserEnterprisePolicyLocationS3Args' s3: S3 location of the enterprise policy file. See `s3` below.
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> Optional['outputs.AgentcoreBrowserEnterprisePolicyLocationS3']:
+        """
+        S3 location of the enterprise policy file. See `s3` below.
+        """
+        return pulumi.get(self, "s3")
+
+
+@pulumi.output_type
+class AgentcoreBrowserEnterprisePolicyLocationS3(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "versionId":
+            suggest = "version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreBrowserEnterprisePolicyLocationS3. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreBrowserEnterprisePolicyLocationS3.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreBrowserEnterprisePolicyLocationS3.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: _builtins.str,
+                 prefix: _builtins.str,
+                 version_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bucket: Name of the S3 bucket.
+        :param _builtins.str prefix: Prefix for objects in the S3 bucket.
+        :param _builtins.str version_id: Version ID of the S3 object. If not specified, the latest version is used.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "prefix", prefix)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        """
+        Name of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> _builtins.str:
+        """
+        Prefix for objects in the S3 bucket.
+        """
+        return pulumi.get(self, "prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[_builtins.str]:
+        """
+        Version ID of the S3 object. If not specified, the latest version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+
+@pulumi.output_type
 class AgentcoreBrowserNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -10213,6 +10444,95 @@ class AgentcoreBrowserTimeouts(dict):
         A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
         """
         return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
+class AgentcoreCodeInterpreterCertificate(dict):
+    def __init__(__self__, *,
+                 location: 'outputs.AgentcoreCodeInterpreterCertificateLocation'):
+        """
+        :param 'AgentcoreCodeInterpreterCertificateLocationArgs' location: Location from which to retrieve the certificate. See `certificates.location` below.
+        """
+        pulumi.set(__self__, "location", location)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> 'outputs.AgentcoreCodeInterpreterCertificateLocation':
+        """
+        Location from which to retrieve the certificate. See `certificates.location` below.
+        """
+        return pulumi.get(self, "location")
+
+
+@pulumi.output_type
+class AgentcoreCodeInterpreterCertificateLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretsManager":
+            suggest = "secrets_manager"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreCodeInterpreterCertificateLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreCodeInterpreterCertificateLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreCodeInterpreterCertificateLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secrets_manager: Optional['outputs.AgentcoreCodeInterpreterCertificateLocationSecretsManager'] = None):
+        """
+        :param 'AgentcoreCodeInterpreterCertificateLocationSecretsManagerArgs' secrets_manager: AWS Secrets Manager location of the certificate. See `secrets_manager` below.
+        """
+        if secrets_manager is not None:
+            pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> Optional['outputs.AgentcoreCodeInterpreterCertificateLocationSecretsManager']:
+        """
+        AWS Secrets Manager location of the certificate. See `secrets_manager` below.
+        """
+        return pulumi.get(self, "secrets_manager")
+
+
+@pulumi.output_type
+class AgentcoreCodeInterpreterCertificateLocationSecretsManager(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreCodeInterpreterCertificateLocationSecretsManager. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreCodeInterpreterCertificateLocationSecretsManager.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreCodeInterpreterCertificateLocationSecretsManager.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_arn: _builtins.str):
+        """
+        :param _builtins.str secret_arn: ARN of the AWS Secrets Manager secret containing the certificate.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        ARN of the AWS Secrets Manager secret containing the certificate.
+        """
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type
@@ -18807,6 +19127,302 @@ class AgentcorePolicyEngineTimeouts(dict):
 
 @pulumi.output_type
 class AgentcorePolicyTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class AgentcoreRegistryApprovalConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoApproval":
+            suggest = "auto_approval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryApprovalConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryApprovalConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryApprovalConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_approval: _builtins.bool):
+        pulumi.set(__self__, "auto_approval", auto_approval)
+
+    @_builtins.property
+    @pulumi.getter(name="autoApproval")
+    def auto_approval(self) -> _builtins.bool:
+        return pulumi.get(self, "auto_approval")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customJwtAuthorizer":
+            suggest = "custom_jwt_authorizer"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_jwt_authorizer: Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer'] = None):
+        if custom_jwt_authorizer is not None:
+            pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
+
+    @_builtins.property
+    @pulumi.getter(name="customJwtAuthorizer")
+    def custom_jwt_authorizer(self) -> Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer']:
+        return pulumi.get(self, "custom_jwt_authorizer")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "discoveryUrl":
+            suggest = "discovery_url"
+        elif key == "allowedAudiences":
+            suggest = "allowed_audiences"
+        elif key == "allowedClients":
+            suggest = "allowed_clients"
+        elif key == "allowedScopes":
+            suggest = "allowed_scopes"
+        elif key == "customClaims":
+            suggest = "custom_claims"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 discovery_url: _builtins.str,
+                 allowed_audiences: Optional[Sequence[_builtins.str]] = None,
+                 allowed_clients: Optional[Sequence[_builtins.str]] = None,
+                 allowed_scopes: Optional[Sequence[_builtins.str]] = None,
+                 custom_claims: Optional[Sequence['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']] = None):
+        pulumi.set(__self__, "discovery_url", discovery_url)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if allowed_clients is not None:
+            pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if allowed_scopes is not None:
+            pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if custom_claims is not None:
+            pulumi.set(__self__, "custom_claims", custom_claims)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> _builtins.str:
+        return pulumi.get(self, "discovery_url")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_audiences")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedClients")
+    def allowed_clients(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_clients")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedScopes")
+    def allowed_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="customClaims")
+    def custom_claims(self) -> Optional[Sequence['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']]:
+        return pulumi.get(self, "custom_claims")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizingClaimMatchValue":
+            suggest = "authorizing_claim_match_value"
+        elif key == "inboundTokenClaimName":
+            suggest = "inbound_token_claim_name"
+        elif key == "inboundTokenClaimValueType":
+            suggest = "inbound_token_claim_value_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorizing_claim_match_value: 'outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue',
+                 inbound_token_claim_name: _builtins.str,
+                 inbound_token_claim_value_type: _builtins.str):
+        pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
+        pulumi.set(__self__, "inbound_token_claim_name", inbound_token_claim_name)
+        pulumi.set(__self__, "inbound_token_claim_value_type", inbound_token_claim_value_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizingClaimMatchValue")
+    def authorizing_claim_match_value(self) -> 'outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue':
+        return pulumi.get(self, "authorizing_claim_match_value")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimName")
+    def inbound_token_claim_name(self) -> _builtins.str:
+        return pulumi.get(self, "inbound_token_claim_name")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimValueType")
+    def inbound_token_claim_value_type(self) -> _builtins.str:
+        return pulumi.get(self, "inbound_token_claim_value_type")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "claimMatchOperator":
+            suggest = "claim_match_operator"
+        elif key == "claimMatchValue":
+            suggest = "claim_match_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 claim_match_operator: _builtins.str,
+                 claim_match_value: 'outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue'):
+        pulumi.set(__self__, "claim_match_operator", claim_match_operator)
+        pulumi.set(__self__, "claim_match_value", claim_match_value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchOperator")
+    def claim_match_operator(self) -> _builtins.str:
+        return pulumi.get(self, "claim_match_operator")
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchValue")
+    def claim_match_value(self) -> 'outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue':
+        return pulumi.get(self, "claim_match_value")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValueString":
+            suggest = "match_value_string"
+        elif key == "matchValueStringLists":
+            suggest = "match_value_string_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_value_string: Optional[_builtins.str] = None,
+                 match_value_string_lists: Optional[Sequence[_builtins.str]] = None):
+        if match_value_string is not None:
+            pulumi.set(__self__, "match_value_string", match_value_string)
+        if match_value_string_lists is not None:
+            pulumi.set(__self__, "match_value_string_lists", match_value_string_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueString")
+    def match_value_string(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "match_value_string")
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueStringLists")
+    def match_value_string_lists(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "match_value_string_lists")
+
+
+@pulumi.output_type
+class AgentcoreRegistryTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[_builtins.str] = None,
                  delete: Optional[_builtins.str] = None,

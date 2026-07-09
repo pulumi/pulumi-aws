@@ -314,7 +314,19 @@ class LogAccountPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import this resource using the `policy_name` and `policy_type` separated by `:`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `policy_name` (String) Name of the account policy.
+        * `policy_type` (String) Type of account policy.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Account Policies using `policy_name` and `policy_type` separated by a colon (`:`). For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/logAccountPolicy:LogAccountPolicy example "my-account-policy:SUBSCRIPTION_FILTER_POLICY"
@@ -414,7 +426,19 @@ class LogAccountPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import this resource using the `policy_name` and `policy_type` separated by `:`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `policy_name` (String) Name of the account policy.
+        * `policy_type` (String) Type of account policy.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Account Policies using `policy_name` and `policy_type` separated by a colon (`:`). For example:
 
         ```sh
         $ pulumi import aws:cloudwatch/logAccountPolicy:LogAccountPolicy example "my-account-policy:SUBSCRIPTION_FILTER_POLICY"

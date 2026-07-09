@@ -17,6 +17,21 @@ public final class QueryDefinitionState extends com.pulumi.resources.ResourceArg
     public static final QueryDefinitionState Empty = new QueryDefinitionState();
 
     /**
+     * The query definition ARN.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return The query definition ARN.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Specific log groups to use with the query.
      * 
      */
@@ -94,6 +109,7 @@ public final class QueryDefinitionState extends com.pulumi.resources.ResourceArg
     private QueryDefinitionState() {}
 
     private QueryDefinitionState(QueryDefinitionState $) {
+        this.arn = $.arn;
         this.logGroupNames = $.logGroupNames;
         this.name = $.name;
         this.queryDefinitionId = $.queryDefinitionId;
@@ -117,6 +133,27 @@ public final class QueryDefinitionState extends com.pulumi.resources.ResourceArg
 
         public Builder(QueryDefinitionState defaults) {
             $ = new QueryDefinitionState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param arn The query definition ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn The query definition ARN.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

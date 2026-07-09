@@ -16,6 +16,22 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * ### Security Policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.apigateway.RestApi("example", {
+ *     name: "example",
+ *     securityPolicy: "SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09",
+ *     endpointAccessMode: "BASIC",
+ *     endpointConfiguration: {
+ *         types: "REGIONAL",
+ *     },
+ * });
+ * ```
+ *
  * #### Optional
  *
  * * `accountId` (String) AWS Account where this resource is managed.
@@ -86,17 +102,19 @@ export class RestApi extends pulumi.CustomResource {
      */
     declare public readonly disableExecuteApiEndpoint: pulumi.Output<boolean>;
     /**
+     * Endpoint access mode for the REST API. Valid values are `BASIC` and `STRICT`. Only available for REST APIs that use a `securityPolicy` value beginning with `SecurityPolicy_` and is required when one of those values is configured.
+     */
+    declare public readonly endpointAccessMode: pulumi.Output<string | undefined>;
+    /**
      * Configuration block defining API endpoint configuration including endpoint type. Defined below.
      */
     declare public readonly endpointConfiguration: pulumi.Output<outputs.apigateway.RestApiEndpointConfiguration>;
     /**
-     * Execution ARN part to be used in `lambdaPermission`'s `sourceArn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+     * Execution ARN part to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      */
     declare public /*out*/ readonly executionArn: pulumi.Output<string>;
     /**
-     * Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+     * Whether to return an error for warnings while API Gateway is creating or updating the resource. Defaults to `false`.
      */
     declare public readonly failOnWarnings: pulumi.Output<boolean | undefined>;
     /**
@@ -112,11 +130,11 @@ export class RestApi extends pulumi.CustomResource {
      */
     declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Terraform will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
     declare public readonly policy: pulumi.Output<string>;
     /**
-     * Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If not configured, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
     declare public readonly putRestApiMode: pulumi.Output<string | undefined>;
     /**
@@ -127,6 +145,10 @@ export class RestApi extends pulumi.CustomResource {
      * Resource ID of the REST API's root
      */
     declare public /*out*/ readonly rootResourceId: pulumi.Output<string>;
+    /**
+     * TLS version + cipher suite for the REST API's default execute-api endpoint. Must be configured for drift detection. When set to a value beginning with `SecurityPolicy_`, `endpointAccessMode` must also be configured. For a list of valid security policies, see [CreateRestApi](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the Amazon API Gateway API Reference.
+     */
+    declare public readonly securityPolicy: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -156,6 +178,7 @@ export class RestApi extends pulumi.CustomResource {
             resourceInputs["createdDate"] = state?.createdDate;
             resourceInputs["description"] = state?.description;
             resourceInputs["disableExecuteApiEndpoint"] = state?.disableExecuteApiEndpoint;
+            resourceInputs["endpointAccessMode"] = state?.endpointAccessMode;
             resourceInputs["endpointConfiguration"] = state?.endpointConfiguration;
             resourceInputs["executionArn"] = state?.executionArn;
             resourceInputs["failOnWarnings"] = state?.failOnWarnings;
@@ -166,6 +189,7 @@ export class RestApi extends pulumi.CustomResource {
             resourceInputs["putRestApiMode"] = state?.putRestApiMode;
             resourceInputs["region"] = state?.region;
             resourceInputs["rootResourceId"] = state?.rootResourceId;
+            resourceInputs["securityPolicy"] = state?.securityPolicy;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
@@ -175,6 +199,7 @@ export class RestApi extends pulumi.CustomResource {
             resourceInputs["body"] = args?.body;
             resourceInputs["description"] = args?.description;
             resourceInputs["disableExecuteApiEndpoint"] = args?.disableExecuteApiEndpoint;
+            resourceInputs["endpointAccessMode"] = args?.endpointAccessMode;
             resourceInputs["endpointConfiguration"] = args?.endpointConfiguration;
             resourceInputs["failOnWarnings"] = args?.failOnWarnings;
             resourceInputs["minimumCompressionSize"] = args?.minimumCompressionSize;
@@ -183,6 +208,7 @@ export class RestApi extends pulumi.CustomResource {
             resourceInputs["policy"] = args?.policy;
             resourceInputs["putRestApiMode"] = args?.putRestApiMode;
             resourceInputs["region"] = args?.region;
+            resourceInputs["securityPolicy"] = args?.securityPolicy;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
@@ -228,17 +254,19 @@ export interface RestApiState {
      */
     disableExecuteApiEndpoint?: pulumi.Input<boolean | undefined>;
     /**
+     * Endpoint access mode for the REST API. Valid values are `BASIC` and `STRICT`. Only available for REST APIs that use a `securityPolicy` value beginning with `SecurityPolicy_` and is required when one of those values is configured.
+     */
+    endpointAccessMode?: pulumi.Input<string | undefined>;
+    /**
      * Configuration block defining API endpoint configuration including endpoint type. Defined below.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.RestApiEndpointConfiguration | undefined>;
     /**
-     * Execution ARN part to be used in `lambdaPermission`'s `sourceArn`
-     * when allowing API Gateway to invoke a Lambda function,
-     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+     * Execution ARN part to be used in `lambdaPermission`'s `sourceArn` when allowing API Gateway to invoke a Lambda function, e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      */
     executionArn?: pulumi.Input<string | undefined>;
     /**
-     * Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+     * Whether to return an error for warnings while API Gateway is creating or updating the resource. Defaults to `false`.
      */
     failOnWarnings?: pulumi.Input<boolean | undefined>;
     /**
@@ -254,11 +282,11 @@ export interface RestApiState {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Terraform will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
-     * Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If not configured, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
     putRestApiMode?: pulumi.Input<string | undefined>;
     /**
@@ -269,6 +297,10 @@ export interface RestApiState {
      * Resource ID of the REST API's root
      */
     rootResourceId?: pulumi.Input<string | undefined>;
+    /**
+     * TLS version + cipher suite for the REST API's default execute-api endpoint. Must be configured for drift detection. When set to a value beginning with `SecurityPolicy_`, `endpointAccessMode` must also be configured. For a list of valid security policies, see [CreateRestApi](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the Amazon API Gateway API Reference.
+     */
+    securityPolicy?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -304,11 +336,15 @@ export interface RestApiArgs {
      */
     disableExecuteApiEndpoint?: pulumi.Input<boolean | undefined>;
     /**
+     * Endpoint access mode for the REST API. Valid values are `BASIC` and `STRICT`. Only available for REST APIs that use a `securityPolicy` value beginning with `SecurityPolicy_` and is required when one of those values is configured.
+     */
+    endpointAccessMode?: pulumi.Input<string | undefined>;
+    /**
      * Configuration block defining API endpoint configuration including endpoint type. Defined below.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.RestApiEndpointConfiguration | undefined>;
     /**
-     * Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
+     * Whether to return an error for warnings while API Gateway is creating or updating the resource. Defaults to `false`.
      */
     failOnWarnings?: pulumi.Input<boolean | undefined>;
     /**
@@ -324,17 +360,21 @@ export interface RestApiArgs {
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Pulumi, see the AWS IAM Policy Document Guide. The provider will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * JSON formatted policy document that controls access to the API Gateway. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Terraform will only perform drift detection of its value when present in a configuration. We recommend using the `aws.apigateway.RestApiPolicy` resource instead. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-policy` extension](https://docs.aws.amazon.com/apigateway/latest/openapi-extensions-policy.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
     policy?: pulumi.Input<string | undefined>;
     /**
-     * Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If unspecificed, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
+     * Mode of the PutRestApi operation when importing an OpenAPI specification via the `body` argument (create or update operation). Valid values are `merge` and `overwrite`. If not configured, defaults to `overwrite` (for backwards compatibility). This corresponds to the [`x-amazon-apigateway-put-integration-method` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-put-integration-method.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
      */
     putRestApiMode?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * TLS version + cipher suite for the REST API's default execute-api endpoint. Must be configured for drift detection. When set to a value beginning with `SecurityPolicy_`, `endpointAccessMode` must also be configured. For a list of valid security policies, see [CreateRestApi](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the Amazon API Gateway API Reference.
+     */
+    securityPolicy?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

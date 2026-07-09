@@ -222,7 +222,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> Domain { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// Identifier for the domain name resource. Supported only for private custom domain names.
         /// </summary>
         [Output("domainNameId")]
         public Output<string> DomainNameId { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> OwnershipVerificationCertificateArn { get; private set; } = null!;
 
         /// <summary>
-        /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        /// Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         /// </summary>
         [Output("policy")]
         public Output<string?> Policy { get; private set; } = null!;
@@ -265,8 +265,6 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `CertificateArn`, `CertificateName`, `CertificateBody`, `CertificateChain`, and `CertificatePrivateKey`.
-        /// 
-        /// When uploading a certificate, the following arguments are supported:
         /// </summary>
         [Output("regionalCertificateArn")]
         public Output<string?> RegionalCertificateArn { get; private set; } = null!;
@@ -303,8 +301,6 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// When referencing an AWS-managed certificate, the following arguments are supported:
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -436,7 +432,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? OwnershipVerificationCertificateArn { get; set; }
 
         /// <summary>
-        /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        /// Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -449,8 +445,6 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `CertificateArn`, `CertificateName`, `CertificateBody`, `CertificateChain`, and `CertificatePrivateKey`.
-        /// 
-        /// When uploading a certificate, the following arguments are supported:
         /// </summary>
         [Input("regionalCertificateArn")]
         public Input<string>? RegionalCertificateArn { get; set; }
@@ -478,8 +472,6 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// When referencing an AWS-managed certificate, the following arguments are supported:
         /// </summary>
         public InputMap<string> Tags
         {
@@ -566,7 +558,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? Domain { get; set; }
 
         /// <summary>
-        /// The identifier for the domain name resource. Supported only for private custom domain names.
+        /// Identifier for the domain name resource. Supported only for private custom domain names.
         /// </summary>
         [Input("domainNameId")]
         public Input<string>? DomainNameId { get; set; }
@@ -596,7 +588,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? OwnershipVerificationCertificateArn { get; set; }
 
         /// <summary>
-        /// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+        /// Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -609,8 +601,6 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `CertificateArn`, `CertificateName`, `CertificateBody`, `CertificateChain`, and `CertificatePrivateKey`.
-        /// 
-        /// When uploading a certificate, the following arguments are supported:
         /// </summary>
         [Input("regionalCertificateArn")]
         public Input<string>? RegionalCertificateArn { get; set; }
@@ -650,8 +640,6 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// Key-value map of resource tags. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        /// 
-        /// When referencing an AWS-managed certificate, the following arguments are supported:
         /// </summary>
         public InputMap<string> Tags
         {

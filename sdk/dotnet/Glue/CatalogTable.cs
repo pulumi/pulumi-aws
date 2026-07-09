@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Glue
     public partial class CatalogTable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Glue Table.
+        /// ARN of the Glue Table.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -253,8 +253,6 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("databaseName")]
         public Output<string> DatabaseName { get; private set; } = null!;
@@ -267,6 +265,8 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Glue
         public Output<string?> Owner { get; private set; } = null!;
 
         /// <summary>
-        /// Properties associated with this table, as a list of key-value pairs.
+        /// Properties associated with this table, as a map of key-value pairs.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.Glue
         public Output<Outputs.CatalogTableTargetTable?> TargetTable { get; private set; } = null!;
 
         /// <summary>
-        /// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `ViewDefinition` below.
+        /// Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `ViewDefinition` below.
         /// </summary>
         [Output("viewDefinition")]
         public Output<Outputs.CatalogTableViewDefinition?> ViewDefinition { get; private set; } = null!;
@@ -403,8 +403,6 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
@@ -417,6 +415,8 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -437,7 +437,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Properties associated with this table, as a list of key-value pairs.
+        /// Properties associated with this table, as a map of key-value pairs.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -500,7 +500,7 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.CatalogTableTargetTableArgs>? TargetTable { get; set; }
 
         /// <summary>
-        /// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `ViewDefinition` below.
+        /// Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `ViewDefinition` below.
         /// </summary>
         [Input("viewDefinition")]
         public Input<Inputs.CatalogTableViewDefinitionArgs>? ViewDefinition { get; set; }
@@ -526,7 +526,7 @@ namespace Pulumi.Aws.Glue
     public sealed class CatalogTableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Glue Table.
+        /// ARN of the Glue Table.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -539,8 +539,6 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Name of the metadata database where the table metadata resides. For Hive compatibility, this must be all lowercase.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("databaseName")]
         public Input<string>? DatabaseName { get; set; }
@@ -553,6 +551,8 @@ namespace Pulumi.Aws.Glue
 
         /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -573,7 +573,7 @@ namespace Pulumi.Aws.Glue
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// Properties associated with this table, as a list of key-value pairs.
+        /// Properties associated with this table, as a map of key-value pairs.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -636,7 +636,7 @@ namespace Pulumi.Aws.Glue
         public Input<Inputs.CatalogTableTargetTableGetArgs>? TargetTable { get; set; }
 
         /// <summary>
-        /// A structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `ViewDefinition` below.
+        /// Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `ViewDefinition` below.
         /// </summary>
         [Input("viewDefinition")]
         public Input<Inputs.CatalogTableViewDefinitionGetArgs>? ViewDefinition { get; set; }

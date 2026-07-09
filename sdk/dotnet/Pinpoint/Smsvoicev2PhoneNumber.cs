@@ -54,10 +54,16 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// By default this is set to `False`. When set to true the phone number can’t be deleted.
+        /// Whether deletion protection is enabled. When `True`, the phone number cannot be deleted.
         /// </summary>
         [Output("deletionProtectionEnabled")]
         public Output<bool> DeletionProtectionEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to disassociate the phone number from any pool it is associated with before destroying it.
+        /// </summary>
+        [Output("forceDisassociate")]
+        public Output<bool?> ForceDisassociate { get; private set; } = null!;
 
         /// <summary>
         /// Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
@@ -85,12 +91,14 @@ namespace Pulumi.Aws.Pinpoint
 
         /// <summary>
         /// Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("numberType")]
         public Output<string> NumberType { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the opt-out list to associate with the phone number.
+        /// Name of the opt-out list to associate with the phone number. If omitted, AWS assigns the `Default` opt-out list.
         /// </summary>
         [Output("optOutListName")]
         public Output<string> OptOutListName { get; private set; } = null!;
@@ -138,10 +146,10 @@ namespace Pulumi.Aws.Pinpoint
         /// Configuration for two-way SMS. Specify an ARN to receive incoming SMS messages, or `connect.[region].amazonaws.com` (with `[region]` replaced by the AWS Region of the Amazon Connect instance) to set Amazon Connect as the inbound destination.
         /// </summary>
         [Output("twoWayChannelArn")]
-        public Output<string?> TwoWayChannelArn { get; private set; } = null!;
+        public Output<string> TwoWayChannelArn { get; private set; } = null!;
 
         /// <summary>
-        /// By default this is set to `False`. When set to `True` you can receive incoming text messages from your end recipients.
+        /// Whether two-way messaging is enabled. When `True`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `False`.
         /// </summary>
         [Output("twoWayChannelEnabled")]
         public Output<bool> TwoWayChannelEnabled { get; private set; } = null!;
@@ -150,7 +158,7 @@ namespace Pulumi.Aws.Pinpoint
         /// IAM Role ARN for a service to assume, to be able to post inbound SMS messages.
         /// </summary>
         [Output("twoWayChannelRole")]
-        public Output<string?> TwoWayChannelRole { get; private set; } = null!;
+        public Output<string> TwoWayChannelRole { get; private set; } = null!;
 
 
         /// <summary>
@@ -199,10 +207,16 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class Smsvoicev2PhoneNumberArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// By default this is set to `False`. When set to true the phone number can’t be deleted.
+        /// Whether deletion protection is enabled. When `True`, the phone number cannot be deleted.
         /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
+
+        /// <summary>
+        /// Whether to disassociate the phone number from any pool it is associated with before destroying it.
+        /// </summary>
+        [Input("forceDisassociate")]
+        public Input<bool>? ForceDisassociate { get; set; }
 
         /// <summary>
         /// Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
@@ -230,12 +244,14 @@ namespace Pulumi.Aws.Pinpoint
 
         /// <summary>
         /// Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("numberType", required: true)]
         public Input<string> NumberType { get; set; } = null!;
 
         /// <summary>
-        /// Name of the opt-out list to associate with the phone number.
+        /// Name of the opt-out list to associate with the phone number. If omitted, AWS assigns the `Default` opt-out list.
         /// </summary>
         [Input("optOutListName")]
         public Input<string>? OptOutListName { get; set; }
@@ -280,7 +296,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? TwoWayChannelArn { get; set; }
 
         /// <summary>
-        /// By default this is set to `False`. When set to `True` you can receive incoming text messages from your end recipients.
+        /// Whether two-way messaging is enabled. When `True`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `False`.
         /// </summary>
         [Input("twoWayChannelEnabled")]
         public Input<bool>? TwoWayChannelEnabled { get; set; }
@@ -306,10 +322,16 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// By default this is set to `False`. When set to true the phone number can’t be deleted.
+        /// Whether deletion protection is enabled. When `True`, the phone number cannot be deleted.
         /// </summary>
         [Input("deletionProtectionEnabled")]
         public Input<bool>? DeletionProtectionEnabled { get; set; }
+
+        /// <summary>
+        /// Whether to disassociate the phone number from any pool it is associated with before destroying it.
+        /// </summary>
+        [Input("forceDisassociate")]
+        public Input<bool>? ForceDisassociate { get; set; }
 
         /// <summary>
         /// Two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
@@ -343,12 +365,14 @@ namespace Pulumi.Aws.Pinpoint
 
         /// <summary>
         /// Type of phone number to request. Possible values are `LONG_CODE`, `TOLL_FREE`, `TEN_DLC`, or `SIMULATOR`.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("numberType")]
         public Input<string>? NumberType { get; set; }
 
         /// <summary>
-        /// Name of the opt-out list to associate with the phone number.
+        /// Name of the opt-out list to associate with the phone number. If omitted, AWS assigns the `Default` opt-out list.
         /// </summary>
         [Input("optOutListName")]
         public Input<string>? OptOutListName { get; set; }
@@ -411,7 +435,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? TwoWayChannelArn { get; set; }
 
         /// <summary>
-        /// By default this is set to `False`. When set to `True` you can receive incoming text messages from your end recipients.
+        /// Whether two-way messaging is enabled. When `True`, you can receive incoming text messages from your end recipients. If omitted, AWS sets this to `False`.
         /// </summary>
         [Input("twoWayChannelEnabled")]
         public Input<bool>? TwoWayChannelEnabled { get; set; }

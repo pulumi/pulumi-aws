@@ -462,6 +462,19 @@ class Target(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `resource_id` - (String) Resource type and unique identifier string for the resource associated with the scalable target.
+        * `scalable_dimension` - (String) Scalable dimension of the scalable target.
+        * `service_namespace` - (String) AWS service namespace of the scalable target.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
 
         ```sh
@@ -581,6 +594,19 @@ class Target(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `resource_id` - (String) Resource type and unique identifier string for the resource associated with the scalable target.
+        * `scalable_dimension` - (String) Scalable dimension of the scalable target.
+        * `service_namespace` - (String) AWS service namespace of the scalable target.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
 

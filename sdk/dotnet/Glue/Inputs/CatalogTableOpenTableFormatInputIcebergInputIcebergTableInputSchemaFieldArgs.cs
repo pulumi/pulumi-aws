@@ -13,13 +13,14 @@ namespace Pulumi.Aws.Glue.Inputs
     public sealed class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+        /// Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
         /// </summary>
         [Input("doc")]
         public Input<string>? Doc { get; set; }
 
         /// <summary>
-        /// Catalog ID, Database name and of the name table.
+        /// Catalog ID, database name, and table name, separated by colons (`:`).
+        /// * `partition_index[*].index_status` - Status of the partition index.
         /// </summary>
         [Input("id", required: true)]
         public Input<int> Id { get; set; } = null!;
@@ -32,12 +33,14 @@ namespace Pulumi.Aws.Glue.Inputs
 
         /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+        /// Whether this field is required (non-nullable) or optional (nullable) in the table schema.
         /// </summary>
         [Input("required", required: true)]
         public Input<bool> Required { get; set; } = null!;

@@ -166,10 +166,28 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> BrowserId { get; private set; } = null!;
 
         /// <summary>
+        /// Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `BrowserSigning` below.
+        /// </summary>
+        [Output("browserSigning")]
+        public Output<Outputs.AgentcoreBrowserBrowserSigning?> BrowserSigning { get; private set; } = null!;
+
+        /// <summary>
+        /// Certificates to install in the browser. See `Certificate` below.
+        /// </summary>
+        [Output("certificates")]
+        public Output<ImmutableArray<Outputs.AgentcoreBrowserCertificate>> Certificates { get; private set; } = null!;
+
+        /// <summary>
         /// Description of the browser.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Enterprise policy files to apply to the browser. See `EnterprisePolicy` below.
+        /// </summary>
+        [Output("enterprisePolicies")]
+        public Output<ImmutableArray<Outputs.AgentcoreBrowserEnterprisePolicy>> EnterprisePolicies { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the IAM role that the browser assumes for execution.
@@ -265,10 +283,40 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentcoreBrowserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `BrowserSigning` below.
+        /// </summary>
+        [Input("browserSigning")]
+        public Input<Inputs.AgentcoreBrowserBrowserSigningArgs>? BrowserSigning { get; set; }
+
+        [Input("certificates")]
+        private InputList<Inputs.AgentcoreBrowserCertificateArgs>? _certificates;
+
+        /// <summary>
+        /// Certificates to install in the browser. See `Certificate` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreBrowserCertificateArgs> Certificates
+        {
+            get => _certificates ?? (_certificates = new InputList<Inputs.AgentcoreBrowserCertificateArgs>());
+            set => _certificates = value;
+        }
+
+        /// <summary>
         /// Description of the browser.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("enterprisePolicies")]
+        private InputList<Inputs.AgentcoreBrowserEnterprisePolicyArgs>? _enterprisePolicies;
+
+        /// <summary>
+        /// Enterprise policy files to apply to the browser. See `EnterprisePolicy` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreBrowserEnterprisePolicyArgs> EnterprisePolicies
+        {
+            get => _enterprisePolicies ?? (_enterprisePolicies = new InputList<Inputs.AgentcoreBrowserEnterprisePolicyArgs>());
+            set => _enterprisePolicies = value;
+        }
 
         /// <summary>
         /// ARN of the IAM role that the browser assumes for execution.
@@ -338,10 +386,40 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? BrowserId { get; set; }
 
         /// <summary>
+        /// Browser signing configuration that enables cryptographic agent identification using HTTP message signatures. See `BrowserSigning` below.
+        /// </summary>
+        [Input("browserSigning")]
+        public Input<Inputs.AgentcoreBrowserBrowserSigningGetArgs>? BrowserSigning { get; set; }
+
+        [Input("certificates")]
+        private InputList<Inputs.AgentcoreBrowserCertificateGetArgs>? _certificates;
+
+        /// <summary>
+        /// Certificates to install in the browser. See `Certificate` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreBrowserCertificateGetArgs> Certificates
+        {
+            get => _certificates ?? (_certificates = new InputList<Inputs.AgentcoreBrowserCertificateGetArgs>());
+            set => _certificates = value;
+        }
+
+        /// <summary>
         /// Description of the browser.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("enterprisePolicies")]
+        private InputList<Inputs.AgentcoreBrowserEnterprisePolicyGetArgs>? _enterprisePolicies;
+
+        /// <summary>
+        /// Enterprise policy files to apply to the browser. See `EnterprisePolicy` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreBrowserEnterprisePolicyGetArgs> EnterprisePolicies
+        {
+            get => _enterprisePolicies ?? (_enterprisePolicies = new InputList<Inputs.AgentcoreBrowserEnterprisePolicyGetArgs>());
+            set => _enterprisePolicies = value;
+        }
 
         /// <summary>
         /// ARN of the IAM role that the browser assumes for execution.

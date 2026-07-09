@@ -36,10 +36,22 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch Contributor Managed Insight Rule using the `ResourceArn`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `ResourceArn` (String) ARN of the resource.
+    /// * `TemplateName` (String) Name of the template.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Contributor Managed Insight Rules using `ResourceArn` and `TemplateName` separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example contributor_managed_insight_rule-id-12345678
+    /// $ pulumi import aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule example arn:aws:ec2:us-east-1:123456789012:vpc-endpoint-service/vpce-svc-0123456789abcdef0,VpcEndpointService-BytesByEndpointId-v1
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/contributorManagedInsightRule:ContributorManagedInsightRule")]
@@ -63,6 +75,9 @@ namespace Pulumi.Aws.CloudWatch
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the Contributor Insights rule that contains data for the specified AWS resource.
+        /// </summary>
         [Output("ruleName")]
         public Output<string> RuleName { get; private set; } = null!;
 
@@ -186,6 +201,9 @@ namespace Pulumi.Aws.CloudWatch
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
+        /// <summary>
+        /// Name of the Contributor Insights rule that contains data for the specified AWS resource.
+        /// </summary>
         [Input("ruleName")]
         public Input<string>? RuleName { get; set; }
 

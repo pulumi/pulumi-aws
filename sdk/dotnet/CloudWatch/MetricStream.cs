@@ -255,10 +255,21 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch metric streams using the `Name`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the metric stream.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Metric Streams using `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
+    /// $ pulumi import aws:cloudwatch/metricStream:MetricStream example example-stream
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/metricStream:MetricStream")]

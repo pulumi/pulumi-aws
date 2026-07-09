@@ -263,6 +263,8 @@ class BucketAccessKey(pulumi.CustomResource):
             __props__.__dict__["created_at"] = None
             __props__.__dict__["secret_access_key"] = None
             __props__.__dict__["status"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secretAccessKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(BucketAccessKey, __self__).__init__(
             'aws:lightsail/bucketAccessKey:BucketAccessKey',
             resource_name,

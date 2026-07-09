@@ -52,7 +52,7 @@ func LookupDomainName(ctx *pulumi.Context, args *LookupDomainNameArgs, opts ...p
 type LookupDomainNameArgs struct {
 	// Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
 	DomainName string `pulumi:"domainName"`
-	// The identifier for the domain name resource. Supported only for private custom domain names.
+	// Identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId *string `pulumi:"domainNameId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -82,7 +82,7 @@ type LookupDomainNameResult struct {
 	EndpointConfigurations []GetDomainNameEndpointConfiguration `pulumi:"endpointConfigurations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+	// Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
 	Policy string `pulumi:"policy"`
 	Region string `pulumi:"region"`
 	// ARN for an AWS-managed certificate that is used for validating the regional domain name.
@@ -112,7 +112,7 @@ func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs
 type LookupDomainNameOutputArgs struct {
 	// Fully-qualified domain name to look up. If no domain name is found, an error will be returned.
 	DomainName pulumi.StringInput `pulumi:"domainName"`
-	// The identifier for the domain name resource. Supported only for private custom domain names.
+	// Identifier for the domain name resource. Supported only for private custom domain names.
 	DomainNameId pulumi.StringPtrInput `pulumi:"domainNameId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
@@ -192,7 +192,7 @@ func (o LookupDomainNameResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+// Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
 func (o LookupDomainNameResultOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainNameResult) string { return v.Policy }).(pulumi.StringOutput)
 }

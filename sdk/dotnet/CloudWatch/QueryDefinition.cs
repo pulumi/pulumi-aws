@@ -41,7 +41,18 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch query definitions using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `QueryDefinitionId` (String) ID of the query definition.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Query Definitions using `Arn`. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
@@ -50,6 +61,12 @@ namespace Pulumi.Aws.CloudWatch
     [AwsResourceType("aws:cloudwatch/queryDefinition:QueryDefinition")]
     public partial class QueryDefinition : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The query definition ARN.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// Specific log groups to use with the query.
         /// </summary>
@@ -164,6 +181,12 @@ namespace Pulumi.Aws.CloudWatch
 
     public sealed class QueryDefinitionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The query definition ARN.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("logGroupNames")]
         private InputList<string>? _logGroupNames;
 

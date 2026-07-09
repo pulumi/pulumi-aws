@@ -21,14 +21,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     public static final CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs Empty = new CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs();
 
     /**
-     * The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+     * S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
      * 
      */
     @Import(name="location", required=true)
     private Output<String> location;
 
     /**
-     * @return The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+     * @return S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
      * 
      */
     public Output<String> location() {
@@ -36,14 +36,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     }
 
     /**
-     * The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+     * Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
      * 
      */
     @Import(name="partitionSpec")
     private @Nullable Output<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs> partitionSpec;
 
     /**
-     * @return The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+     * @return Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
      * 
      */
     public Optional<Output<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs>> partitionSpec() {
@@ -66,14 +66,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     }
 
     /**
-     * The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+     * Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
      * 
      */
     @Import(name="schema", required=true)
     private Output<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs> schema;
 
     /**
-     * @return The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+     * @return Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
      * 
      */
     public Output<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs> schema() {
@@ -81,14 +81,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     }
 
     /**
-     * The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+     * Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
      * 
      */
     @Import(name="sortOrder")
     private @Nullable Output<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs> sortOrder;
 
     /**
-     * @return The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+     * @return Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
      * 
      */
     public Optional<Output<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrderArgs>> sortOrder() {
@@ -124,7 +124,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param location The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+         * @param location S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param location The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+         * @param location S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param partitionSpec The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+         * @param partitionSpec Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param partitionSpec The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+         * @param partitionSpec Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param schema The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+         * @param schema Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param schema The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+         * @param schema Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param sortOrder The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+         * @param sortOrder Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param sortOrder The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+         * @param sortOrder Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
          * 
          * @return builder
          * 

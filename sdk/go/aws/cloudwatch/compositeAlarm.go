@@ -53,10 +53,21 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarmName`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `alarmName` (String) Name of the composite alarm.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Composite Alarms using `alarmName`. For example:
 //
 // ```sh
-// $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+// $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm example example-alarm
 // ```
 type CompositeAlarm struct {
 	pulumi.CustomResourceState

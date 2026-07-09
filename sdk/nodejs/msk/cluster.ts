@@ -270,6 +270,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
     /**
+     * Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+     */
+    declare public /*out*/ readonly customerActionStatus: pulumi.Output<string>;
+    /**
      * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
      */
     declare public readonly encryptionInfo: pulumi.Output<outputs.msk.ClusterEncryptionInfo | undefined>;
@@ -352,6 +356,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterUuid"] = state?.clusterUuid;
             resourceInputs["configurationInfo"] = state?.configurationInfo;
             resourceInputs["currentVersion"] = state?.currentVersion;
+            resourceInputs["customerActionStatus"] = state?.customerActionStatus;
             resourceInputs["encryptionInfo"] = state?.encryptionInfo;
             resourceInputs["enhancedMonitoring"] = state?.enhancedMonitoring;
             resourceInputs["kafkaVersion"] = state?.kafkaVersion;
@@ -403,6 +408,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["bootstrapBrokersVpcConnectivityTls"] = undefined /*out*/;
             resourceInputs["clusterUuid"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
+            resourceInputs["customerActionStatus"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["zookeeperConnectString"] = undefined /*out*/;
             resourceInputs["zookeeperConnectStringTls"] = undefined /*out*/;
@@ -484,6 +490,10 @@ export interface ClusterState {
      * Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
      */
     currentVersion?: pulumi.Input<string | undefined>;
+    /**
+     * Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+     */
+    customerActionStatus?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
      */

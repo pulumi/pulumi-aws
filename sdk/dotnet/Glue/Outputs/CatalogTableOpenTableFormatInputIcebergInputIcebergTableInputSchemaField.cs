@@ -14,11 +14,12 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaField
     {
         /// <summary>
-        /// Optional documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
+        /// Documentation or description text that provides additional context about the purpose and usage of this field. Length between 0 and 255 characters.
         /// </summary>
         public readonly string? Doc;
         /// <summary>
-        /// Catalog ID, Database name and of the name table.
+        /// Catalog ID, database name, and table name, separated by colons (`:`).
+        /// * `partition_index[*].index_status` - Status of the partition index.
         /// </summary>
         public readonly int Id;
         /// <summary>
@@ -27,10 +28,12 @@ namespace Pulumi.Aws.Glue.Outputs
         public readonly string? InitialDefault;
         /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Indicates whether this field is required (non-nullable) or optional (nullable) in the table schema.
+        /// Whether this field is required (non-nullable) or optional (nullable) in the table schema.
         /// </summary>
         public readonly bool Required;
         public readonly string Type;

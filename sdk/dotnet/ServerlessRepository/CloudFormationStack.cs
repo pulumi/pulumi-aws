@@ -10,9 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ServerlessRepository
 {
     /// <summary>
-    /// Deploys an Application CloudFormation Stack from the Serverless Application Repository.
+    /// Manages an Application CloudFormation Stack from the Serverless Application Repository.
+    /// 
+    /// &gt; **Warning:** CloudFormation masks `NoEcho` parameter values as `****` in API responses, which may set an expectation that they remain hidden. They do not — like any other argument, the configured value is persisted to state. To mask a specific parameter in plan and `terraform show` output, wrap it with Terraform's `sensitive()` function, for example `parameters = { password = sensitive(var.password) }`.
     /// 
     /// ## Example Usage
+    /// 
+    /// ### Basic Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -62,31 +66,31 @@ namespace Pulumi.Aws.ServerlessRepository
     public partial class CloudFormationStack : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the application from the Serverless Application Repository.
+        /// ARN of the application from the Serverless Application Repository.
         /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+        /// List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
         /// </summary>
         [Output("capabilities")]
         public Output<ImmutableArray<string>> Capabilities { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+        /// Name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A map of outputs from the stack.
+        /// Map of outputs from the stack.
         /// </summary>
         [Output("outputs")]
         public Output<ImmutableDictionary<string, string>> Outputs { get; private set; } = null!;
 
         /// <summary>
-        /// A map of Parameter structures that specify input parameters for the stack.
+        /// Map of Parameter structures that specify input parameters for the stack.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableDictionary<string, string>> Parameters { get; private set; } = null!;
@@ -98,19 +102,19 @@ namespace Pulumi.Aws.ServerlessRepository
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the application to deploy. If not supplied, deploys the latest version.
+        /// Version of the application to deploy. If not supplied, deploys the latest version.
         /// </summary>
         [Output("semanticVersion")]
         public Output<string> SemanticVersion { get; private set; } = null!;
 
         /// <summary>
-        /// A list of tags to associate with this stack. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -162,16 +166,16 @@ namespace Pulumi.Aws.ServerlessRepository
     public sealed class CloudFormationStackArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the application from the Serverless Application Repository.
+        /// ARN of the application from the Serverless Application Repository.
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
-        [Input("capabilities", required: true)]
+        [Input("capabilities")]
         private InputList<string>? _capabilities;
 
         /// <summary>
-        /// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+        /// List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
         /// </summary>
         public InputList<string> Capabilities
         {
@@ -180,7 +184,7 @@ namespace Pulumi.Aws.ServerlessRepository
         }
 
         /// <summary>
-        /// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+        /// Name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -189,7 +193,7 @@ namespace Pulumi.Aws.ServerlessRepository
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A map of Parameter structures that specify input parameters for the stack.
+        /// Map of Parameter structures that specify input parameters for the stack.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -204,7 +208,7 @@ namespace Pulumi.Aws.ServerlessRepository
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The version of the application to deploy. If not supplied, deploys the latest version.
+        /// Version of the application to deploy. If not supplied, deploys the latest version.
         /// </summary>
         [Input("semanticVersion")]
         public Input<string>? SemanticVersion { get; set; }
@@ -213,7 +217,7 @@ namespace Pulumi.Aws.ServerlessRepository
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A list of tags to associate with this stack. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -230,7 +234,7 @@ namespace Pulumi.Aws.ServerlessRepository
     public sealed class CloudFormationStackState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the application from the Serverless Application Repository.
+        /// ARN of the application from the Serverless Application Repository.
         /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
@@ -239,7 +243,7 @@ namespace Pulumi.Aws.ServerlessRepository
         private InputList<string>? _capabilities;
 
         /// <summary>
-        /// A list of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`
+        /// List of capabilities. Valid values are `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_RESOURCE_POLICY`, or `CAPABILITY_AUTO_EXPAND`. If the application contains IAM resources, IAM resources with custom names, resource-based policies, or nested applications, the corresponding capability must be specified. If omitted, the value applied by AWS is tracked in state.
         /// </summary>
         public InputList<string> Capabilities
         {
@@ -248,7 +252,7 @@ namespace Pulumi.Aws.ServerlessRepository
         }
 
         /// <summary>
-        /// The name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
+        /// Name of the stack to create. The resource deployed in AWS will be prefixed with `serverlessrepo-`
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -257,7 +261,7 @@ namespace Pulumi.Aws.ServerlessRepository
         private InputMap<string>? _outputs;
 
         /// <summary>
-        /// A map of outputs from the stack.
+        /// Map of outputs from the stack.
         /// </summary>
         public InputMap<string> Outputs
         {
@@ -269,7 +273,7 @@ namespace Pulumi.Aws.ServerlessRepository
         private InputMap<string>? _parameters;
 
         /// <summary>
-        /// A map of Parameter structures that specify input parameters for the stack.
+        /// Map of Parameter structures that specify input parameters for the stack.
         /// </summary>
         public InputMap<string> Parameters
         {
@@ -284,7 +288,7 @@ namespace Pulumi.Aws.ServerlessRepository
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The version of the application to deploy. If not supplied, deploys the latest version.
+        /// Version of the application to deploy. If not supplied, deploys the latest version.
         /// </summary>
         [Input("semanticVersion")]
         public Input<string>? SemanticVersion { get; set; }
@@ -293,7 +297,7 @@ namespace Pulumi.Aws.ServerlessRepository
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A list of tags to associate with this stack. .If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -305,7 +309,7 @@ namespace Pulumi.Aws.ServerlessRepository
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

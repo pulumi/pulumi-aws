@@ -1459,7 +1459,7 @@ func (o IpGroupRuleArrayOutput) Index(i pulumi.IntInput) IpGroupRuleOutput {
 }
 
 type WorkspaceWorkspaceProperties struct {
-	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GENERALPURPOSE_4XLARGE`, `GENERALPURPOSE_8XLARGE`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, `GRAPHICSPRO_G4DN`, `GRAPHICS_G6_XLARGE`, `GRAPHICS_G6_2XLARGE`, `GRAPHICS_G6_4XLARGE`, `GRAPHICS_G6_8XLARGE`, `GRAPHICS_G6_16XLARGE`, `GRAPHICS_GR6_4XLARGE`, `GRAPHICS_GR6_8XLARGE`, `GRAPHICS_G6F_LARGE`, `GRAPHICS_G6F_XLARGE`, `GRAPHICS_G6F_2XLARGE`, `GRAPHICS_G6F_4XLARGE`, and `GRAPHICS_GR6F_4XLARGE`.
 	ComputeTypeName *string `pulumi:"computeTypeName"`
 	// The size of the root volume.
 	RootVolumeSizeGib *int `pulumi:"rootVolumeSizeGib"`
@@ -1483,7 +1483,7 @@ type WorkspaceWorkspacePropertiesInput interface {
 }
 
 type WorkspaceWorkspacePropertiesArgs struct {
-	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GENERALPURPOSE_4XLARGE`, `GENERALPURPOSE_8XLARGE`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, `GRAPHICSPRO_G4DN`, `GRAPHICS_G6_XLARGE`, `GRAPHICS_G6_2XLARGE`, `GRAPHICS_G6_4XLARGE`, `GRAPHICS_G6_8XLARGE`, `GRAPHICS_G6_16XLARGE`, `GRAPHICS_GR6_4XLARGE`, `GRAPHICS_GR6_8XLARGE`, `GRAPHICS_G6F_LARGE`, `GRAPHICS_G6F_XLARGE`, `GRAPHICS_G6F_2XLARGE`, `GRAPHICS_G6F_4XLARGE`, and `GRAPHICS_GR6F_4XLARGE`.
 	ComputeTypeName pulumi.StringPtrInput `pulumi:"computeTypeName"`
 	// The size of the root volume.
 	RootVolumeSizeGib pulumi.IntPtrInput `pulumi:"rootVolumeSizeGib"`
@@ -1572,7 +1572,7 @@ func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesPtrOut
 	}).(WorkspaceWorkspacePropertiesPtrOutput)
 }
 
-// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GENERALPURPOSE_4XLARGE`, `GENERALPURPOSE_8XLARGE`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, `GRAPHICSPRO_G4DN`, `GRAPHICS_G6_XLARGE`, `GRAPHICS_G6_2XLARGE`, `GRAPHICS_G6_4XLARGE`, `GRAPHICS_G6_8XLARGE`, `GRAPHICS_G6_16XLARGE`, `GRAPHICS_GR6_4XLARGE`, `GRAPHICS_GR6_8XLARGE`, `GRAPHICS_G6F_LARGE`, `GRAPHICS_G6F_XLARGE`, `GRAPHICS_G6F_2XLARGE`, `GRAPHICS_G6F_4XLARGE`, and `GRAPHICS_GR6F_4XLARGE`.
 func (o WorkspaceWorkspacePropertiesOutput) ComputeTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *string { return v.ComputeTypeName }).(pulumi.StringPtrOutput)
 }
@@ -1621,7 +1621,7 @@ func (o WorkspaceWorkspacePropertiesPtrOutput) Elem() WorkspaceWorkspaceProperti
 	}).(WorkspaceWorkspacePropertiesOutput)
 }
 
-// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GENERALPURPOSE_4XLARGE`, `GENERALPURPOSE_8XLARGE`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, `GRAPHICSPRO_G4DN`, `GRAPHICS_G6_XLARGE`, `GRAPHICS_G6_2XLARGE`, `GRAPHICS_G6_4XLARGE`, `GRAPHICS_G6_8XLARGE`, `GRAPHICS_G6_16XLARGE`, `GRAPHICS_GR6_4XLARGE`, `GRAPHICS_GR6_8XLARGE`, `GRAPHICS_G6F_LARGE`, `GRAPHICS_G6F_XLARGE`, `GRAPHICS_G6F_2XLARGE`, `GRAPHICS_G6F_4XLARGE`, and `GRAPHICS_GR6F_4XLARGE`.
 func (o WorkspaceWorkspacePropertiesPtrOutput) ComputeTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *string {
 		if v == nil {

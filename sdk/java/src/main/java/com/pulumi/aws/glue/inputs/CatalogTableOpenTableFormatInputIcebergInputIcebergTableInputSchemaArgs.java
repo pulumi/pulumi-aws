@@ -20,14 +20,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     public static final CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs Empty = new CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs();
 
     /**
-     * The list of field definitions that make up the table schema. See `fields` below.
+     * List of field definitions that make up the table schema. See `schema.fields` below.
      * 
      */
     @Import(name="fields", required=true)
     private Output<List<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs>> fields;
 
     /**
-     * @return The list of field definitions that make up the table schema. See `fields` below.
+     * @return List of field definitions that make up the table schema. See `schema.fields` below.
      * 
      */
     public Output<List<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs>> fields() {
@@ -35,14 +35,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     }
 
     /**
-     * The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+     * List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
      * 
      */
     @Import(name="identifierFieldIds")
     private @Nullable Output<List<Integer>> identifierFieldIds;
 
     /**
-     * @return The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+     * @return List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
      * 
      */
     public Optional<Output<List<Integer>>> identifierFieldIds() {
@@ -50,14 +50,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     }
 
     /**
-     * The unique identifier for this schema version within the Iceberg table&#39;s schema evolution history.
+     * Unique identifier for this schema version within the Iceberg table&#39;s schema evolution history.
      * 
      */
     @Import(name="schemaId")
     private @Nullable Output<Integer> schemaId;
 
     /**
-     * @return The unique identifier for this schema version within the Iceberg table&#39;s schema evolution history.
+     * @return Unique identifier for this schema version within the Iceberg table&#39;s schema evolution history.
      * 
      */
     public Optional<Output<Integer>> schemaId() {
@@ -65,14 +65,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     }
 
     /**
-     * The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `&#34;long&#34;`, `&#34;string&#34;`, `&#34;timestamp&#34;`, `&#34;decimal(10,2)&#34;`.
+     * Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `&#34;long&#34;`, `&#34;string&#34;`, `&#34;timestamp&#34;`, `&#34;decimal(10,2)&#34;`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `&#34;long&#34;`, `&#34;string&#34;`, `&#34;timestamp&#34;`, `&#34;decimal(10,2)&#34;`.
+     * @return Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `&#34;long&#34;`, `&#34;string&#34;`, `&#34;timestamp&#34;`, `&#34;decimal(10,2)&#34;`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -107,7 +107,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param fields The list of field definitions that make up the table schema. See `fields` below.
+         * @param fields List of field definitions that make up the table schema. See `schema.fields` below.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param fields The list of field definitions that make up the table schema. See `fields` below.
+         * @param fields List of field definitions that make up the table schema. See `schema.fields` below.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param fields The list of field definitions that make up the table schema. See `fields` below.
+         * @param fields List of field definitions that make up the table schema. See `schema.fields` below.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param identifierFieldIds The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+         * @param identifierFieldIds List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param identifierFieldIds The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+         * @param identifierFieldIds List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
          * 
          * @return builder
          * 
@@ -159,7 +159,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param identifierFieldIds The list of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
+         * @param identifierFieldIds List of field identifiers that uniquely identify records in the table, used for row-level operations and deduplication.
          * 
          * @return builder
          * 
@@ -169,7 +169,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param schemaId The unique identifier for this schema version within the Iceberg table&#39;s schema evolution history.
+         * @param schemaId Unique identifier for this schema version within the Iceberg table&#39;s schema evolution history.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param schemaId The unique identifier for this schema version within the Iceberg table&#39;s schema evolution history.
+         * @param schemaId Unique identifier for this schema version within the Iceberg table&#39;s schema evolution history.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param type The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `&#34;long&#34;`, `&#34;string&#34;`, `&#34;timestamp&#34;`, `&#34;decimal(10,2)&#34;`.
+         * @param type Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `&#34;long&#34;`, `&#34;string&#34;`, `&#34;timestamp&#34;`, `&#34;decimal(10,2)&#34;`.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param type The data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `&#34;long&#34;`, `&#34;string&#34;`, `&#34;timestamp&#34;`, `&#34;decimal(10,2)&#34;`.
+         * @param type Data type definition for this field as a JSON string, specifying the structure and format of the data it contains. Examples: `&#34;long&#34;`, `&#34;string&#34;`, `&#34;timestamp&#34;`, `&#34;decimal(10,2)&#34;`.
          * 
          * @return builder
          * 

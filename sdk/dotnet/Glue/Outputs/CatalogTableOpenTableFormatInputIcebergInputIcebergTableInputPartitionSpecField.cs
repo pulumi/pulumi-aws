@@ -14,11 +14,13 @@ namespace Pulumi.Aws.Glue.Outputs
     public sealed class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField
     {
         /// <summary>
-        /// The unique identifier assigned to this partition field within the Iceberg table's partition specification.
+        /// Unique identifier assigned to this partition field within the Iceberg table's partition specification.
         /// </summary>
         public readonly int? FieldId;
         /// <summary>
         /// Name of the table. For Hive compatibility, this must be entirely lowercase.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public readonly string Name;
         public readonly int SourceId;

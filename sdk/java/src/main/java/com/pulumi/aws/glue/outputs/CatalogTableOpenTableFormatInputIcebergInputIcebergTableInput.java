@@ -17,12 +17,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput {
     /**
-     * @return The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+     * @return S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
      * 
      */
     private String location;
     /**
-     * @return The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+     * @return Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
      * 
      */
     private @Nullable CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec partitionSpec;
@@ -32,26 +32,26 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
      */
     private @Nullable Map<String,String> properties;
     /**
-     * @return The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+     * @return Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
      * 
      */
     private CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema schema;
     /**
-     * @return The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+     * @return Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
      * 
      */
     private @Nullable CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder sortOrder;
 
     private CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput() {}
     /**
-     * @return The S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
+     * @return S3 location where the Iceberg table data will be stored. Maximum length of 2056 characters.
      * 
      */
     public String location() {
         return this.location;
     }
     /**
-     * @return The partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
+     * @return Partitioning specification that defines how the Iceberg table data will be organized and partitioned for optimal query performance. See `partitionSpec` below.
      * 
      */
     public Optional<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpec> partitionSpec() {
@@ -65,14 +65,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         return this.properties == null ? Map.of() : this.properties;
     }
     /**
-     * @return The schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
+     * @return Schema definition that specifies the structure, field types, and metadata for the Iceberg table. See `schema` below.
      * 
      */
     public CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchema schema() {
         return this.schema;
     }
     /**
-     * @return The sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
+     * @return Sort order specification that defines how data should be ordered within each partition to optimize query performance. See `sortOrder` below.
      * 
      */
     public Optional<CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSortOrder> sortOrder() {

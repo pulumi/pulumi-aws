@@ -14,12 +14,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField {
     /**
-     * @return The unique identifier assigned to this partition field within the Iceberg table&#39;s partition specification.
+     * @return Unique identifier assigned to this partition field within the Iceberg table&#39;s partition specification.
      * 
      */
     private @Nullable Integer fieldId;
     /**
      * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     * The following arguments are optional:
      * 
      */
     private String name;
@@ -28,7 +30,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
 
     private CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecField() {}
     /**
-     * @return The unique identifier assigned to this partition field within the Iceberg table&#39;s partition specification.
+     * @return Unique identifier assigned to this partition field within the Iceberg table&#39;s partition specification.
      * 
      */
     public Optional<Integer> fieldId() {
@@ -36,6 +38,8 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     }
     /**
      * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     * The following arguments are optional:
      * 
      */
     public String name() {

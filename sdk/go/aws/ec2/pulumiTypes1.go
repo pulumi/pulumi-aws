@@ -13,6 +13,445 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetSpotPriceFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetSpotPriceFilterInput is an input type that accepts GetSpotPriceFilterArgs and GetSpotPriceFilterOutput values.
+// You can construct a concrete instance of `GetSpotPriceFilterInput` via:
+//
+//	GetSpotPriceFilterArgs{...}
+type GetSpotPriceFilterInput interface {
+	pulumi.Input
+
+	ToGetSpotPriceFilterOutput() GetSpotPriceFilterOutput
+	ToGetSpotPriceFilterOutputWithContext(context.Context) GetSpotPriceFilterOutput
+}
+
+type GetSpotPriceFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetSpotPriceFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpotPriceFilter)(nil)).Elem()
+}
+
+func (i GetSpotPriceFilterArgs) ToGetSpotPriceFilterOutput() GetSpotPriceFilterOutput {
+	return i.ToGetSpotPriceFilterOutputWithContext(context.Background())
+}
+
+func (i GetSpotPriceFilterArgs) ToGetSpotPriceFilterOutputWithContext(ctx context.Context) GetSpotPriceFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpotPriceFilterOutput)
+}
+
+// GetSpotPriceFilterArrayInput is an input type that accepts GetSpotPriceFilterArray and GetSpotPriceFilterArrayOutput values.
+// You can construct a concrete instance of `GetSpotPriceFilterArrayInput` via:
+//
+//	GetSpotPriceFilterArray{ GetSpotPriceFilterArgs{...} }
+type GetSpotPriceFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetSpotPriceFilterArrayOutput() GetSpotPriceFilterArrayOutput
+	ToGetSpotPriceFilterArrayOutputWithContext(context.Context) GetSpotPriceFilterArrayOutput
+}
+
+type GetSpotPriceFilterArray []GetSpotPriceFilterInput
+
+func (GetSpotPriceFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpotPriceFilter)(nil)).Elem()
+}
+
+func (i GetSpotPriceFilterArray) ToGetSpotPriceFilterArrayOutput() GetSpotPriceFilterArrayOutput {
+	return i.ToGetSpotPriceFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSpotPriceFilterArray) ToGetSpotPriceFilterArrayOutputWithContext(ctx context.Context) GetSpotPriceFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSpotPriceFilterArrayOutput)
+}
+
+type GetSpotPriceFilterOutput struct{ *pulumi.OutputState }
+
+func (GetSpotPriceFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSpotPriceFilter)(nil)).Elem()
+}
+
+func (o GetSpotPriceFilterOutput) ToGetSpotPriceFilterOutput() GetSpotPriceFilterOutput {
+	return o
+}
+
+func (o GetSpotPriceFilterOutput) ToGetSpotPriceFilterOutputWithContext(ctx context.Context) GetSpotPriceFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetSpotPriceFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSpotPriceFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetSpotPriceFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSpotPriceFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetSpotPriceFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSpotPriceFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSpotPriceFilter)(nil)).Elem()
+}
+
+func (o GetSpotPriceFilterArrayOutput) ToGetSpotPriceFilterArrayOutput() GetSpotPriceFilterArrayOutput {
+	return o
+}
+
+func (o GetSpotPriceFilterArrayOutput) ToGetSpotPriceFilterArrayOutputWithContext(ctx context.Context) GetSpotPriceFilterArrayOutput {
+	return o
+}
+
+func (o GetSpotPriceFilterArrayOutput) Index(i pulumi.IntInput) GetSpotPriceFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSpotPriceFilter {
+		return vs[0].([]GetSpotPriceFilter)[vs[1].(int)]
+	}).(GetSpotPriceFilterOutput)
+}
+
+type GetSubnetFilter struct {
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetSubnetFilterInput is an input type that accepts GetSubnetFilterArgs and GetSubnetFilterOutput values.
+// You can construct a concrete instance of `GetSubnetFilterInput` via:
+//
+//	GetSubnetFilterArgs{...}
+type GetSubnetFilterInput interface {
+	pulumi.Input
+
+	ToGetSubnetFilterOutput() GetSubnetFilterOutput
+	ToGetSubnetFilterOutputWithContext(context.Context) GetSubnetFilterOutput
+}
+
+type GetSubnetFilterArgs struct {
+	// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetSubnetFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubnetFilter)(nil)).Elem()
+}
+
+func (i GetSubnetFilterArgs) ToGetSubnetFilterOutput() GetSubnetFilterOutput {
+	return i.ToGetSubnetFilterOutputWithContext(context.Background())
+}
+
+func (i GetSubnetFilterArgs) ToGetSubnetFilterOutputWithContext(ctx context.Context) GetSubnetFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetFilterOutput)
+}
+
+// GetSubnetFilterArrayInput is an input type that accepts GetSubnetFilterArray and GetSubnetFilterArrayOutput values.
+// You can construct a concrete instance of `GetSubnetFilterArrayInput` via:
+//
+//	GetSubnetFilterArray{ GetSubnetFilterArgs{...} }
+type GetSubnetFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetSubnetFilterArrayOutput() GetSubnetFilterArrayOutput
+	ToGetSubnetFilterArrayOutputWithContext(context.Context) GetSubnetFilterArrayOutput
+}
+
+type GetSubnetFilterArray []GetSubnetFilterInput
+
+func (GetSubnetFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubnetFilter)(nil)).Elem()
+}
+
+func (i GetSubnetFilterArray) ToGetSubnetFilterArrayOutput() GetSubnetFilterArrayOutput {
+	return i.ToGetSubnetFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSubnetFilterArray) ToGetSubnetFilterArrayOutputWithContext(ctx context.Context) GetSubnetFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetFilterArrayOutput)
+}
+
+type GetSubnetFilterOutput struct{ *pulumi.OutputState }
+
+func (GetSubnetFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubnetFilter)(nil)).Elem()
+}
+
+func (o GetSubnetFilterOutput) ToGetSubnetFilterOutput() GetSubnetFilterOutput {
+	return o
+}
+
+func (o GetSubnetFilterOutput) ToGetSubnetFilterOutputWithContext(ctx context.Context) GetSubnetFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+func (o GetSubnetFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubnetFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
+func (o GetSubnetFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSubnetFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetSubnetFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSubnetFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubnetFilter)(nil)).Elem()
+}
+
+func (o GetSubnetFilterArrayOutput) ToGetSubnetFilterArrayOutput() GetSubnetFilterArrayOutput {
+	return o
+}
+
+func (o GetSubnetFilterArrayOutput) ToGetSubnetFilterArrayOutputWithContext(ctx context.Context) GetSubnetFilterArrayOutput {
+	return o
+}
+
+func (o GetSubnetFilterArrayOutput) Index(i pulumi.IntInput) GetSubnetFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSubnetFilter {
+		return vs[0].([]GetSubnetFilter)[vs[1].(int)]
+	}).(GetSubnetFilterOutput)
+}
+
+type GetSubnetsFilter struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+	// For example, if matching against tag `Name`, use:
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// Subnet IDs will be selected if any one of the given values match.
+	Values []string `pulumi:"values"`
+}
+
+// GetSubnetsFilterInput is an input type that accepts GetSubnetsFilterArgs and GetSubnetsFilterOutput values.
+// You can construct a concrete instance of `GetSubnetsFilterInput` via:
+//
+//	GetSubnetsFilterArgs{...}
+type GetSubnetsFilterInput interface {
+	pulumi.Input
+
+	ToGetSubnetsFilterOutput() GetSubnetsFilterOutput
+	ToGetSubnetsFilterOutputWithContext(context.Context) GetSubnetsFilterOutput
+}
+
+type GetSubnetsFilterArgs struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+	// For example, if matching against tag `Name`, use:
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// Subnet IDs will be selected if any one of the given values match.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetSubnetsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubnetsFilter)(nil)).Elem()
+}
+
+func (i GetSubnetsFilterArgs) ToGetSubnetsFilterOutput() GetSubnetsFilterOutput {
+	return i.ToGetSubnetsFilterOutputWithContext(context.Background())
+}
+
+func (i GetSubnetsFilterArgs) ToGetSubnetsFilterOutputWithContext(ctx context.Context) GetSubnetsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetsFilterOutput)
+}
+
+// GetSubnetsFilterArrayInput is an input type that accepts GetSubnetsFilterArray and GetSubnetsFilterArrayOutput values.
+// You can construct a concrete instance of `GetSubnetsFilterArrayInput` via:
+//
+//	GetSubnetsFilterArray{ GetSubnetsFilterArgs{...} }
+type GetSubnetsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetSubnetsFilterArrayOutput() GetSubnetsFilterArrayOutput
+	ToGetSubnetsFilterArrayOutputWithContext(context.Context) GetSubnetsFilterArrayOutput
+}
+
+type GetSubnetsFilterArray []GetSubnetsFilterInput
+
+func (GetSubnetsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubnetsFilter)(nil)).Elem()
+}
+
+func (i GetSubnetsFilterArray) ToGetSubnetsFilterArrayOutput() GetSubnetsFilterArrayOutput {
+	return i.ToGetSubnetsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSubnetsFilterArray) ToGetSubnetsFilterArrayOutputWithContext(ctx context.Context) GetSubnetsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetsFilterArrayOutput)
+}
+
+type GetSubnetsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetSubnetsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubnetsFilter)(nil)).Elem()
+}
+
+func (o GetSubnetsFilterOutput) ToGetSubnetsFilterOutput() GetSubnetsFilterOutput {
+	return o
+}
+
+func (o GetSubnetsFilterOutput) ToGetSubnetsFilterOutputWithContext(ctx context.Context) GetSubnetsFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+// For example, if matching against tag `Name`, use:
+func (o GetSubnetsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubnetsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// Subnet IDs will be selected if any one of the given values match.
+func (o GetSubnetsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSubnetsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetSubnetsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSubnetsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubnetsFilter)(nil)).Elem()
+}
+
+func (o GetSubnetsFilterArrayOutput) ToGetSubnetsFilterArrayOutput() GetSubnetsFilterArrayOutput {
+	return o
+}
+
+func (o GetSubnetsFilterArrayOutput) ToGetSubnetsFilterArrayOutputWithContext(ctx context.Context) GetSubnetsFilterArrayOutput {
+	return o
+}
+
+func (o GetSubnetsFilterArrayOutput) Index(i pulumi.IntInput) GetSubnetsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSubnetsFilter {
+		return vs[0].([]GetSubnetsFilter)[vs[1].(int)]
+	}).(GetSubnetsFilterOutput)
+}
+
+type GetTransitGatewayRouteTablesFilter struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Transit Gateway Route Table will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetTransitGatewayRouteTablesFilterInput is an input type that accepts GetTransitGatewayRouteTablesFilterArgs and GetTransitGatewayRouteTablesFilterOutput values.
+// You can construct a concrete instance of `GetTransitGatewayRouteTablesFilterInput` via:
+//
+//	GetTransitGatewayRouteTablesFilterArgs{...}
+type GetTransitGatewayRouteTablesFilterInput interface {
+	pulumi.Input
+
+	ToGetTransitGatewayRouteTablesFilterOutput() GetTransitGatewayRouteTablesFilterOutput
+	ToGetTransitGatewayRouteTablesFilterOutputWithContext(context.Context) GetTransitGatewayRouteTablesFilterOutput
+}
+
+type GetTransitGatewayRouteTablesFilterArgs struct {
+	// Name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Transit Gateway Route Table will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetTransitGatewayRouteTablesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (i GetTransitGatewayRouteTablesFilterArgs) ToGetTransitGatewayRouteTablesFilterOutput() GetTransitGatewayRouteTablesFilterOutput {
+	return i.ToGetTransitGatewayRouteTablesFilterOutputWithContext(context.Background())
+}
+
+func (i GetTransitGatewayRouteTablesFilterArgs) ToGetTransitGatewayRouteTablesFilterOutputWithContext(ctx context.Context) GetTransitGatewayRouteTablesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayRouteTablesFilterOutput)
+}
+
+// GetTransitGatewayRouteTablesFilterArrayInput is an input type that accepts GetTransitGatewayRouteTablesFilterArray and GetTransitGatewayRouteTablesFilterArrayOutput values.
+// You can construct a concrete instance of `GetTransitGatewayRouteTablesFilterArrayInput` via:
+//
+//	GetTransitGatewayRouteTablesFilterArray{ GetTransitGatewayRouteTablesFilterArgs{...} }
+type GetTransitGatewayRouteTablesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetTransitGatewayRouteTablesFilterArrayOutput() GetTransitGatewayRouteTablesFilterArrayOutput
+	ToGetTransitGatewayRouteTablesFilterArrayOutputWithContext(context.Context) GetTransitGatewayRouteTablesFilterArrayOutput
+}
+
+type GetTransitGatewayRouteTablesFilterArray []GetTransitGatewayRouteTablesFilterInput
+
+func (GetTransitGatewayRouteTablesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTransitGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (i GetTransitGatewayRouteTablesFilterArray) ToGetTransitGatewayRouteTablesFilterArrayOutput() GetTransitGatewayRouteTablesFilterArrayOutput {
+	return i.ToGetTransitGatewayRouteTablesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetTransitGatewayRouteTablesFilterArray) ToGetTransitGatewayRouteTablesFilterArrayOutputWithContext(ctx context.Context) GetTransitGatewayRouteTablesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTransitGatewayRouteTablesFilterArrayOutput)
+}
+
+type GetTransitGatewayRouteTablesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetTransitGatewayRouteTablesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTransitGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (o GetTransitGatewayRouteTablesFilterOutput) ToGetTransitGatewayRouteTablesFilterOutput() GetTransitGatewayRouteTablesFilterOutput {
+	return o
+}
+
+func (o GetTransitGatewayRouteTablesFilterOutput) ToGetTransitGatewayRouteTablesFilterOutputWithContext(ctx context.Context) GetTransitGatewayRouteTablesFilterOutput {
+	return o
+}
+
+// Name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
+func (o GetTransitGatewayRouteTablesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTransitGatewayRouteTablesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Transit Gateway Route Table will be selected if any one of the given values matches.
+func (o GetTransitGatewayRouteTablesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTransitGatewayRouteTablesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetTransitGatewayRouteTablesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTransitGatewayRouteTablesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTransitGatewayRouteTablesFilter)(nil)).Elem()
+}
+
+func (o GetTransitGatewayRouteTablesFilterArrayOutput) ToGetTransitGatewayRouteTablesFilterArrayOutput() GetTransitGatewayRouteTablesFilterArrayOutput {
+	return o
+}
+
+func (o GetTransitGatewayRouteTablesFilterArrayOutput) ToGetTransitGatewayRouteTablesFilterArrayOutputWithContext(ctx context.Context) GetTransitGatewayRouteTablesFilterArrayOutput {
+	return o
+}
+
+func (o GetTransitGatewayRouteTablesFilterArrayOutput) Index(i pulumi.IntInput) GetTransitGatewayRouteTablesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTransitGatewayRouteTablesFilter {
+		return vs[0].([]GetTransitGatewayRouteTablesFilter)[vs[1].(int)]
+	}).(GetTransitGatewayRouteTablesFilterOutput)
+}
+
 type GetVpcCidrBlockAssociation struct {
 	// Association ID for the IPv4 CIDR block.
 	AssociationId string `pulumi:"associationId"`
@@ -3297,6 +3736,14 @@ func (o GetVpnGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetVpnGatewayFi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSpotPriceFilterInput)(nil)).Elem(), GetSpotPriceFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSpotPriceFilterArrayInput)(nil)).Elem(), GetSpotPriceFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetFilterInput)(nil)).Elem(), GetSubnetFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetFilterArrayInput)(nil)).Elem(), GetSubnetFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetsFilterInput)(nil)).Elem(), GetSubnetsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetsFilterArrayInput)(nil)).Elem(), GetSubnetsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayRouteTablesFilterInput)(nil)).Elem(), GetTransitGatewayRouteTablesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayRouteTablesFilterArrayInput)(nil)).Elem(), GetTransitGatewayRouteTablesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcCidrBlockAssociationInput)(nil)).Elem(), GetVpcCidrBlockAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcCidrBlockAssociationArrayInput)(nil)).Elem(), GetVpcCidrBlockAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcDhcpOptionsFilterInput)(nil)).Elem(), GetVpcDhcpOptionsFilterArgs{})
@@ -3353,6 +3800,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnConnectionVgwTelemetryArrayInput)(nil)).Elem(), GetVpnConnectionVgwTelemetryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterInput)(nil)).Elem(), GetVpnGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnGatewayFilterArrayInput)(nil)).Elem(), GetVpnGatewayFilterArray{})
+	pulumi.RegisterOutputType(GetSpotPriceFilterOutput{})
+	pulumi.RegisterOutputType(GetSpotPriceFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetSubnetFilterOutput{})
+	pulumi.RegisterOutputType(GetSubnetFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetSubnetsFilterOutput{})
+	pulumi.RegisterOutputType(GetSubnetsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetTransitGatewayRouteTablesFilterOutput{})
+	pulumi.RegisterOutputType(GetTransitGatewayRouteTablesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcCidrBlockAssociationOutput{})
 	pulumi.RegisterOutputType(GetVpcCidrBlockAssociationArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcDhcpOptionsFilterOutput{})

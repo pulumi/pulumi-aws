@@ -14,7 +14,7 @@ import (
 
 // Manages a S3 Bucket Notification Configuration. For additional information, see the [Configuring S3 Event Notifications section in the Amazon S3 Developer Guide](https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html).
 //
-// > **NOTE:** S3 Buckets only support a single notification configuration resource. Declaring multiple `s3.BucketNotification` resources to the same S3 Bucket will cause a perpetual difference in configuration. This resource will overwrite any existing event notifications configured for the S3 bucket it's associated with. See the example "Trigger multiple Lambda functions" for an option of how to configure multiple triggers within this resource.
+// > **NOTE:** The S3 [`PutBucketNotificationConfiguration`](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketNotificationConfiguration.html) API is atomic — it replaces the bucket's entire notification configuration on every call. Only one `s3.BucketNotification` resource can manage a bucket; declaring more than one causes a perpetual diff, and applying this resource will overwrite any notifications already on the bucket. To configure multiple destinations on the same bucket, declare them all as nested blocks within a single resource (see Trigger multiple Lambda functions below). To let independent teams or Terraform configurations subscribe to the same bucket without stepping on each other, prefer the Emit events to EventBridge pattern below. To bring existing notifications under management without losing them, see the `s3.BucketNotification` data source.
 //
 // > This resource cannot be used with S3 directory buckets.
 //
@@ -495,11 +495,16 @@ import (
 //
 // ### Emit events to EventBridge
 //
+// For a bucket shared by multiple independent consumers — different teams, different Terraform configurations, different applications — EventBridge is the recommended pattern. Each consumer subscribes to the bucket through its own `cloudwatch.EventRule`, so they cannot overwrite one another the way notification configurations would.
+//
 // ```go
 // package main
 //
 // import (
 //
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -507,15 +512,104 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			bucket, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
-//				Bucket: pulumi.String("your-bucket-name"),
+//			shared, err := s3.NewBucket(ctx, "shared", &s3.BucketArgs{
+//				Bucket: pulumi.String("shared-bucket"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = s3.NewBucketNotification(ctx, "bucket_notification", &s3.BucketNotificationArgs{
-//				Bucket:      bucket.ID(),
+//			_, err = s3.NewBucketNotification(ctx, "shared", &s3.BucketNotificationArgs{
+//				Bucket:      shared.ID(),
 //				Eventbridge: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Team A: process new uploads under uploads/
+//			teamA, err := cloudwatch.NewEventRule(ctx, "team_a", &cloudwatch.EventRuleArgs{
+//				Name: pulumi.String("team-a-uploads"),
+//				EventPattern: shared.Bucket.ApplyT(func(bucket string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]interface{}{
+//						"source": []string{
+//							"aws.s3",
+//						},
+//						"detail-type": []string{
+//							"Object Created",
+//						},
+//						"detail": map[string]interface{}{
+//							"bucket": map[string]interface{}{
+//								"name": []string{
+//									bucket,
+//								},
+//							},
+//							"object": map[string]interface{}{
+//								"key": []map[string]interface{}{
+//									map[string]interface{}{
+//										"prefix": "uploads/",
+//									},
+//								},
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return pulumi.String(json0), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventTarget(ctx, "team_a", &cloudwatch.EventTargetArgs{
+//				Rule: teamA.Name,
+//				Arn:  pulumi.Any(teamAProcessor.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Team B: archive deletions under archive/, declared in a separate
+//			// Terraform configuration that knows nothing about Team A.
+//			teamB, err := cloudwatch.NewEventRule(ctx, "team_b", &cloudwatch.EventRuleArgs{
+//				Name: pulumi.String("team-b-deletions"),
+//				EventPattern: shared.Bucket.ApplyT(func(bucket string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON1, err := json.Marshal(map[string]interface{}{
+//						"source": []string{
+//							"aws.s3",
+//						},
+//						"detail-type": []string{
+//							"Object Deleted",
+//						},
+//						"detail": map[string]interface{}{
+//							"bucket": map[string]interface{}{
+//								"name": []string{
+//									bucket,
+//								},
+//							},
+//							"object": map[string]interface{}{
+//								"key": []map[string]interface{}{
+//									map[string]interface{}{
+//										"prefix": "archive/",
+//									},
+//								},
+//							},
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json1 := string(tmpJSON1)
+//					return pulumi.String(json1), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudwatch.NewEventTarget(ctx, "team_b", &cloudwatch.EventTargetArgs{
+//				Rule: teamB.Name,
+//				Arn:  pulumi.Any(teamBArchive.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -525,6 +619,8 @@ import (
 //	}
 //
 // ```
+//
+// For sharing a bucket between Terraform configurations when EventBridge is not an option, use the `s3.BucketNotification` data source to read existing notifications and re-emit them in your own resource.
 //
 // ## Import
 //

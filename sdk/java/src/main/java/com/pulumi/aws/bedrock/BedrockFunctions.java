@@ -19,11 +19,13 @@ import com.pulumi.aws.bedrock.outputs.GetCustomModelResult;
 import com.pulumi.aws.bedrock.outputs.GetCustomModelsResult;
 import com.pulumi.aws.bedrock.outputs.GetInferenceProfileResult;
 import com.pulumi.aws.bedrock.outputs.GetInferenceProfilesResult;
+import com.pulumi.aws.bedrock.outputs.GetUseCaseForModelAccessResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
+import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class BedrockFunctions {
@@ -1457,5 +1459,278 @@ public final class BedrockFunctions {
      */
     public static CompletableFuture<GetInferenceProfilesResult> getInferenceProfilesPlain(GetInferenceProfilesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:bedrock/getInferenceProfiles:getInferenceProfiles", TypeShape.of(GetInferenceProfilesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS Bedrock Use Case For Model Access.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BedrockFunctions.getUseCaseForModelAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetUseCaseForModelAccessResult> getUseCaseForModelAccess() {
+        return getUseCaseForModelAccess(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS Bedrock Use Case For Model Access.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BedrockFunctions.getUseCaseForModelAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetUseCaseForModelAccessResult> getUseCaseForModelAccessPlain() {
+        return getUseCaseForModelAccessPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS Bedrock Use Case For Model Access.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BedrockFunctions.getUseCaseForModelAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetUseCaseForModelAccessResult> getUseCaseForModelAccess(InvokeArgs args) {
+        return getUseCaseForModelAccess(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS Bedrock Use Case For Model Access.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BedrockFunctions.getUseCaseForModelAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetUseCaseForModelAccessResult> getUseCaseForModelAccessPlain(InvokeArgs args) {
+        return getUseCaseForModelAccessPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS Bedrock Use Case For Model Access.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BedrockFunctions.getUseCaseForModelAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetUseCaseForModelAccessResult> getUseCaseForModelAccess(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:bedrock/getUseCaseForModelAccess:getUseCaseForModelAccess", TypeShape.of(GetUseCaseForModelAccessResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS Bedrock Use Case For Model Access.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BedrockFunctions.getUseCaseForModelAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetUseCaseForModelAccessResult> getUseCaseForModelAccess(InvokeArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:bedrock/getUseCaseForModelAccess:getUseCaseForModelAccess", TypeShape.of(GetUseCaseForModelAccessResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS Bedrock Use Case For Model Access.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.bedrock.BedrockFunctions;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = BedrockFunctions.getUseCaseForModelAccess(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetUseCaseForModelAccessResult> getUseCaseForModelAccessPlain(InvokeArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:bedrock/getUseCaseForModelAccess:getUseCaseForModelAccess", TypeShape.of(GetUseCaseForModelAccessResult.class), args, Utilities.withVersion(options));
     }
 }

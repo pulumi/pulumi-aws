@@ -152,6 +152,19 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `ResourceId` - (String) Resource type and unique identifier string for the resource associated with the scalable target.
+    /// * `ScalableDimension` - (String) Scalable dimension of the scalable target.
+    /// * `ServiceNamespace` - (String) AWS service namespace of the scalable target.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
     /// 
     /// ```sh

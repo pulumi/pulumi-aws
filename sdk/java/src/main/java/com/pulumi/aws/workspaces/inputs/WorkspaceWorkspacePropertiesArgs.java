@@ -17,14 +17,14 @@ public final class WorkspaceWorkspacePropertiesArgs extends com.pulumi.resources
     public static final WorkspaceWorkspacePropertiesArgs Empty = new WorkspaceWorkspacePropertiesArgs();
 
     /**
-     * The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+     * The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GENERALPURPOSE_4XLARGE`, `GENERALPURPOSE_8XLARGE`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, `GRAPHICSPRO_G4DN`, `GRAPHICS_G6_XLARGE`, `GRAPHICS_G6_2XLARGE`, `GRAPHICS_G6_4XLARGE`, `GRAPHICS_G6_8XLARGE`, `GRAPHICS_G6_16XLARGE`, `GRAPHICS_GR6_4XLARGE`, `GRAPHICS_GR6_8XLARGE`, `GRAPHICS_G6F_LARGE`, `GRAPHICS_G6F_XLARGE`, `GRAPHICS_G6F_2XLARGE`, `GRAPHICS_G6F_4XLARGE`, and `GRAPHICS_GR6F_4XLARGE`.
      * 
      */
     @Import(name="computeTypeName")
     private @Nullable Output<String> computeTypeName;
 
     /**
-     * @return The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+     * @return The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GENERALPURPOSE_4XLARGE`, `GENERALPURPOSE_8XLARGE`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, `GRAPHICSPRO_G4DN`, `GRAPHICS_G6_XLARGE`, `GRAPHICS_G6_2XLARGE`, `GRAPHICS_G6_4XLARGE`, `GRAPHICS_G6_8XLARGE`, `GRAPHICS_G6_16XLARGE`, `GRAPHICS_GR6_4XLARGE`, `GRAPHICS_GR6_8XLARGE`, `GRAPHICS_G6F_LARGE`, `GRAPHICS_G6F_XLARGE`, `GRAPHICS_G6F_2XLARGE`, `GRAPHICS_G6F_4XLARGE`, and `GRAPHICS_GR6F_4XLARGE`.
      * 
      */
     public Optional<Output<String>> computeTypeName() {
@@ -120,7 +120,7 @@ public final class WorkspaceWorkspacePropertiesArgs extends com.pulumi.resources
         }
 
         /**
-         * @param computeTypeName The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+         * @param computeTypeName The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GENERALPURPOSE_4XLARGE`, `GENERALPURPOSE_8XLARGE`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, `GRAPHICSPRO_G4DN`, `GRAPHICS_G6_XLARGE`, `GRAPHICS_G6_2XLARGE`, `GRAPHICS_G6_4XLARGE`, `GRAPHICS_G6_8XLARGE`, `GRAPHICS_G6_16XLARGE`, `GRAPHICS_GR6_4XLARGE`, `GRAPHICS_GR6_8XLARGE`, `GRAPHICS_G6F_LARGE`, `GRAPHICS_G6F_XLARGE`, `GRAPHICS_G6F_2XLARGE`, `GRAPHICS_G6F_4XLARGE`, and `GRAPHICS_GR6F_4XLARGE`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class WorkspaceWorkspacePropertiesArgs extends com.pulumi.resources
         }
 
         /**
-         * @param computeTypeName The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
+         * @param computeTypeName The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GENERALPURPOSE_4XLARGE`, `GENERALPURPOSE_8XLARGE`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, `GRAPHICSPRO_G4DN`, `GRAPHICS_G6_XLARGE`, `GRAPHICS_G6_2XLARGE`, `GRAPHICS_G6_4XLARGE`, `GRAPHICS_G6_8XLARGE`, `GRAPHICS_G6_16XLARGE`, `GRAPHICS_GR6_4XLARGE`, `GRAPHICS_GR6_8XLARGE`, `GRAPHICS_G6F_LARGE`, `GRAPHICS_G6F_XLARGE`, `GRAPHICS_G6F_2XLARGE`, `GRAPHICS_G6F_4XLARGE`, and `GRAPHICS_GR6F_4XLARGE`.
          * 
          * @return builder
          * 

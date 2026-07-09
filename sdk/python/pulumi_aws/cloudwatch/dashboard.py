@@ -203,10 +203,21 @@ class Dashboard(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `dashboard_name` (String) Name of the dashboard.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Dashboards using `dashboard_name`. For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
+        $ pulumi import aws:cloudwatch/dashboard:Dashboard example example-dashboard
         ```
 
 
@@ -271,10 +282,21 @@ class Dashboard(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `dashboard_name` (String) Name of the dashboard.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Dashboards using `dashboard_name`. For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
+        $ pulumi import aws:cloudwatch/dashboard:Dashboard example example-dashboard
         ```
 
 

@@ -20,6 +20,11 @@ public final class ClusterVpcConfig {
      */
     private @Nullable String clusterSecurityGroupId;
     /**
+     * @return Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+     * 
+     */
+    private @Nullable String controlPlaneEgressMode;
+    /**
      * @return Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
      * 
      */
@@ -57,6 +62,13 @@ public final class ClusterVpcConfig {
      */
     public Optional<String> clusterSecurityGroupId() {
         return Optional.ofNullable(this.clusterSecurityGroupId);
+    }
+    /**
+     * @return Egress mode for the EKS control plane. Valid values are `AWS_MANAGED` and `CUSTOMER_ROUTED`. Defaults to `AWS_MANAGED`. Changing from `CUSTOMER_ROUTED` back to `AWS_MANAGED` forces a new resource.
+     * 
+     */
+    public Optional<String> controlPlaneEgressMode() {
+        return Optional.ofNullable(this.controlPlaneEgressMode);
     }
     /**
      * @return Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
@@ -111,6 +123,7 @@ public final class ClusterVpcConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String clusterSecurityGroupId;
+        private @Nullable String controlPlaneEgressMode;
         private @Nullable Boolean endpointPrivateAccess;
         private @Nullable Boolean endpointPublicAccess;
         private @Nullable List<String> publicAccessCidrs;
@@ -121,6 +134,7 @@ public final class ClusterVpcConfig {
         public Builder(ClusterVpcConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterSecurityGroupId = defaults.clusterSecurityGroupId;
+    	      this.controlPlaneEgressMode = defaults.controlPlaneEgressMode;
     	      this.endpointPrivateAccess = defaults.endpointPrivateAccess;
     	      this.endpointPublicAccess = defaults.endpointPublicAccess;
     	      this.publicAccessCidrs = defaults.publicAccessCidrs;
@@ -133,6 +147,12 @@ public final class ClusterVpcConfig {
         public Builder clusterSecurityGroupId(@Nullable String clusterSecurityGroupId) {
 
             this.clusterSecurityGroupId = clusterSecurityGroupId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder controlPlaneEgressMode(@Nullable String controlPlaneEgressMode) {
+
+            this.controlPlaneEgressMode = controlPlaneEgressMode;
             return this;
         }
         @CustomType.Setter
@@ -185,6 +205,7 @@ public final class ClusterVpcConfig {
         public ClusterVpcConfig build() {
             final var _resultValue = new ClusterVpcConfig();
             _resultValue.clusterSecurityGroupId = clusterSecurityGroupId;
+            _resultValue.controlPlaneEgressMode = controlPlaneEgressMode;
             _resultValue.endpointPrivateAccess = endpointPrivateAccess;
             _resultValue.endpointPublicAccess = endpointPublicAccess;
             _resultValue.publicAccessCidrs = publicAccessCidrs;

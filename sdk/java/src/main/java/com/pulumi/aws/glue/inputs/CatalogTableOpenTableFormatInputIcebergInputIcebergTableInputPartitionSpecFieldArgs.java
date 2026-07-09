@@ -18,14 +18,14 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     public static final CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs Empty = new CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs();
 
     /**
-     * The unique identifier assigned to this partition field within the Iceberg table&#39;s partition specification.
+     * Unique identifier assigned to this partition field within the Iceberg table&#39;s partition specification.
      * 
      */
     @Import(name="fieldId")
     private @Nullable Output<Integer> fieldId;
 
     /**
-     * @return The unique identifier assigned to this partition field within the Iceberg table&#39;s partition specification.
+     * @return Unique identifier assigned to this partition field within the Iceberg table&#39;s partition specification.
      * 
      */
     public Optional<Output<Integer>> fieldId() {
@@ -35,12 +35,16 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
     /**
      * Name of the table. For Hive compatibility, this must be entirely lowercase.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
      * @return Name of the table. For Hive compatibility, this must be entirely lowercase.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> name() {
@@ -89,7 +93,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param fieldId The unique identifier assigned to this partition field within the Iceberg table&#39;s partition specification.
+         * @param fieldId Unique identifier assigned to this partition field within the Iceberg table&#39;s partition specification.
          * 
          * @return builder
          * 
@@ -100,7 +104,7 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         }
 
         /**
-         * @param fieldId The unique identifier assigned to this partition field within the Iceberg table&#39;s partition specification.
+         * @param fieldId Unique identifier assigned to this partition field within the Iceberg table&#39;s partition specification.
          * 
          * @return builder
          * 
@@ -112,6 +116,8 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
         /**
          * @param name Name of the table. For Hive compatibility, this must be entirely lowercase.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -122,6 +128,8 @@ public final class CatalogTableOpenTableFormatInputIcebergInputIcebergTableInput
 
         /**
          * @param name Name of the table. For Hive compatibility, this must be entirely lowercase.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

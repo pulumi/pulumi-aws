@@ -115,7 +115,18 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch log resource policies using the policy name for account-scoped policies, or the ARN of the CloudWatch Logs resource to which the policy is attached for resource-scoped policies. For example:
+    /// ### Identity Schema
+    /// 
+    /// Exactly one of `PolicyName` or `ResourceArn` must be configured.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `PolicyName` (String) Name of the resource policy.
+    /// * `Region` (String) Region where this resource is managed.
+    /// * `ResourceArn` (String) ARN of the resource to which the policy is attached.
+    /// 
+    /// Using `pulumi import`, import Resource Policies using `PolicyName` for account-scoped policies, or `ResourceArn` for resource-scoped policies. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy my_policy_account_scoped my_policy

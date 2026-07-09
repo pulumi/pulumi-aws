@@ -604,6 +604,8 @@ __all__ = [
     'GetAmiFilterArgsDict',
     'GetAmiIdsFilterArgs',
     'GetAmiIdsFilterArgsDict',
+    'GetCapacityBlockReservationFilterArgs',
+    'GetCapacityBlockReservationFilterArgsDict',
     'GetCoipPoolFilterArgs',
     'GetCoipPoolFilterArgsDict',
     'GetCoipPoolsFilterArgs',
@@ -25496,6 +25498,53 @@ class GetAmiIdsFilterArgs:
     def values(self) -> Sequence[_builtins.str]:
         """
         Set of values that are accepted for the given filter.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[_builtins.str]):
+        pulumi.set(self, "values", value)
+
+
+class GetCapacityBlockReservationFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. See the [DescribeCapacityReservations API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityReservations.html) for valid values. Common filters include `instance-type`, `availability-zone`, `state`, `instance-platform`, `tenancy`, `outpost-arn`, `placement-group-arn`, `instance-match-criteria`, and `tag:<KEY>`.
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. A Capacity Block reservation will be selected if any one of the given values matches.
+    """
+
+@pulumi.input_type
+class GetCapacityBlockReservationFilterArgs:
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter field. See the [DescribeCapacityReservations API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityReservations.html) for valid values. Common filters include `instance-type`, `availability-zone`, `state`, `instance-platform`, `tenancy`, `outpost-arn`, `placement-group-arn`, `instance-match-criteria`, and `tag:<KEY>`.
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. A Capacity Block reservation will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the filter field. See the [DescribeCapacityReservations API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityReservations.html) for valid values. Common filters include `instance-type`, `availability-zone`, `state`, `instance-platform`, `tenancy`, `outpost-arn`, `placement-group-arn`, `instance-match-criteria`, and `tag:<KEY>`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: _builtins.str):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of values that are accepted for the given filter field. A Capacity Block reservation will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 

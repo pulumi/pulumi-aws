@@ -48,7 +48,7 @@ class WorkspaceArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
         :param pulumi.Input[_builtins.str] description: The workspace description.
         :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key for encrypting workspace data.
@@ -151,7 +151,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+        The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
         """
         return pulumi.get(self, "data_sources")
 
@@ -348,7 +348,7 @@ class _WorkspaceState:
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Grafana workspace.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         :param pulumi.Input[_builtins.str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
         :param pulumi.Input[_builtins.str] description: The workspace description.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the Grafana workspace.
         :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
@@ -465,7 +465,7 @@ class _WorkspaceState:
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+        The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
         """
         return pulumi.get(self, "data_sources")
 
@@ -774,7 +774,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         :param pulumi.Input[_builtins.str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
         :param pulumi.Input[_builtins.str] description: The workspace description.
         :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN of the AWS KMS key for encrypting workspace data.
@@ -978,7 +978,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Grafana workspace.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         :param pulumi.Input[_builtins.str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
         :param pulumi.Input[_builtins.str] description: The workspace description.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the Grafana workspace.
         :param pulumi.Input[_builtins.str] grafana_version: Specifies the version of Grafana to support in the new workspace. Supported values are `9.4`, `10.4` and `12.4`. If not specified, defaults to the latest version.
@@ -1062,7 +1062,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="dataSources")
     def data_sources(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, XRAY`
+        The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
         """
         return pulumi.get(self, "data_sources")
 

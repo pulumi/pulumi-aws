@@ -352,14 +352,14 @@ public class DomainName extends com.pulumi.resources.CustomResource {
         return this.domainName;
     }
     /**
-     * The identifier for the domain name resource. Supported only for private custom domain names.
+     * Identifier for the domain name resource. Supported only for private custom domain names.
      * 
      */
     @Export(name="domainNameId", refs={String.class}, tree="[0]")
     private Output<String> domainNameId;
 
     /**
-     * @return The identifier for the domain name resource. Supported only for private custom domain names.
+     * @return Identifier for the domain name resource. Supported only for private custom domain names.
      * 
      */
     public Output<String> domainNameId() {
@@ -422,14 +422,14 @@ public class DomainName extends com.pulumi.resources.CustomResource {
         return this.ownershipVerificationCertificateArn;
     }
     /**
-     * A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
      * 
      */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> policy;
 
     /**
-     * @return A stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
+     * @return Stringified JSON policy document that applies to the execute-api service for this DomainName regardless of the caller and Method configuration. Supported only for private custom domain names.
      * 
      */
     public Output<Optional<String>> policy() {
@@ -452,16 +452,12 @@ public class DomainName extends com.pulumi.resources.CustomResource {
     /**
      * ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      * 
-     * When uploading a certificate, the following arguments are supported:
-     * 
      */
     @Export(name="regionalCertificateArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> regionalCertificateArn;
 
     /**
      * @return ARN for an AWS-managed certificate. AWS Certificate Manager is the only supported source. Used when a regional domain name is desired. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
-     * 
-     * When uploading a certificate, the following arguments are supported:
      * 
      */
     public Output<Optional<String>> regionalCertificateArn() {
@@ -540,16 +536,12 @@ public class DomainName extends com.pulumi.resources.CustomResource {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * When referencing an AWS-managed certificate, the following arguments are supported:
-     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * When referencing an AWS-managed certificate, the following arguments are supported:
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

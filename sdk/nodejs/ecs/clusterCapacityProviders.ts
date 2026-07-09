@@ -12,6 +12,8 @@ import * as utilities from "../utilities";
  *
  * More information about capacity providers can be found in the [ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
  *
+ * > **NOTE:** When an associated `aws.ecs.CapacityProvider` must be replaced, add a `replaceTriggeredBy` lifecycle rule referencing the capacity provider. This recreates the association so the old capacity provider is detached from the cluster before it is deleted, which AWS otherwise disallows.
+ *
  * ## Example Usage
  *
  * ```typescript

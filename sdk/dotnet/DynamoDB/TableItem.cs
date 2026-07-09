@@ -60,7 +60,32 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Import
     /// 
-    /// You cannot import DynamoDB table items.
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `TableName` (String) Name of the DynamoDB table.
+    /// * `HashKeyValue` (String) Canonical value of the hash key (base64 for `B`, verbatim for `N` and `S`).
+    /// 
+    /// #### Optional
+    /// 
+    /// * `RangeKeyValue` (String) Canonical value of the range key, required for tables that define a range key.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// For tables with a range key, append the range key value:
+    /// 
+    /// Use `pulumi import` for the same effect on the command line:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:dynamodb/tableItem:TableItem example example-name,something
+    /// ```
+    /// 
+    /// &gt; **Note:** Importing requires `dynamodb:DescribeTable` in addition to `dynamodb:GetItem`. The DescribeTable call is used to recover the key attribute names and types from the table's schema.
+    /// 
+    /// &gt; **Note:** If a hash key or range key value contains the separator character (`,`), use the `Import` block with the `Identity` attribute. The legacy `pulumi import` command and `Id`-based `Import` block cannot disambiguate separators from value content.
+    /// 
+    /// For Binary (`B`) key attributes, the value in the import ID and the identity attribute must be standard base64.
     /// </summary>
     [AwsResourceType("aws:dynamodb/tableItem:TableItem")]
     public partial class TableItem : global::Pulumi.CustomResource
@@ -70,6 +95,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Output("hashKey")]
         public Output<string> HashKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+        /// </summary>
+        [Output("hashKeyValue")]
+        public Output<string> HashKeyValue { get; private set; } = null!;
 
         /// <summary>
         /// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
@@ -82,6 +113,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Output("rangeKey")]
         public Output<string?> RangeKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Canonical string representation of the range key value, when the table has a range key. Same encoding as `HashKeyValue`.
+        /// </summary>
+        [Output("rangeKeyValue")]
+        public Output<string> RangeKeyValue { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -190,6 +227,12 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? HashKey { get; set; }
 
         /// <summary>
+        /// Canonical string representation of the hash key value. Binary values are base64-encoded; numbers and strings are taken verbatim.
+        /// </summary>
+        [Input("hashKeyValue")]
+        public Input<string>? HashKeyValue { get; set; }
+
+        /// <summary>
         /// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         /// </summary>
         [Input("item")]
@@ -200,6 +243,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("rangeKey")]
         public Input<string>? RangeKey { get; set; }
+
+        /// <summary>
+        /// Canonical string representation of the range key value, when the table has a range key. Same encoding as `HashKeyValue`.
+        /// </summary>
+        [Input("rangeKeyValue")]
+        public Input<string>? RangeKeyValue { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

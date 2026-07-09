@@ -313,6 +313,10 @@ __all__ = [
     'GetAmiFilterResult',
     'GetAmiIdsFilterResult',
     'GetAmiProductCodeResult',
+    'GetCapacityBlockReservationCommitmentInfoResult',
+    'GetCapacityBlockReservationFilterResult',
+    'GetCapacityBlockReservationInterruptibleCapacityAllocationResult',
+    'GetCapacityBlockReservationInterruptionInfoResult',
     'GetCoipPoolFilterResult',
     'GetCoipPoolsFilterResult',
     'GetCustomerGatewayFilterResult',
@@ -20496,6 +20500,155 @@ class GetAmiProductCodeResult(dict):
         The type of product code.
         """
         return pulumi.get(self, "product_code_type")
+
+
+@pulumi.output_type
+class GetCapacityBlockReservationCommitmentInfoResult(dict):
+    def __init__(__self__, *,
+                 commitment_end_date: _builtins.str,
+                 committed_instance_count: _builtins.int):
+        """
+        :param _builtins.str commitment_end_date: Date and time the commitment duration ends in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        :param _builtins.int committed_instance_count: Number of instances committed to the Capacity Block reservation.
+        """
+        pulumi.set(__self__, "commitment_end_date", commitment_end_date)
+        pulumi.set(__self__, "committed_instance_count", committed_instance_count)
+
+    @_builtins.property
+    @pulumi.getter(name="commitmentEndDate")
+    def commitment_end_date(self) -> _builtins.str:
+        """
+        Date and time the commitment duration ends in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
+        return pulumi.get(self, "commitment_end_date")
+
+    @_builtins.property
+    @pulumi.getter(name="committedInstanceCount")
+    def committed_instance_count(self) -> _builtins.int:
+        """
+        Number of instances committed to the Capacity Block reservation.
+        """
+        return pulumi.get(self, "committed_instance_count")
+
+
+@pulumi.output_type
+class GetCapacityBlockReservationFilterResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter field. See the [DescribeCapacityReservations API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityReservations.html) for valid values. Common filters include `instance-type`, `availability-zone`, `state`, `instance-platform`, `tenancy`, `outpost-arn`, `placement-group-arn`, `instance-match-criteria`, and `tag:<KEY>`.
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. A Capacity Block reservation will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the filter field. See the [DescribeCapacityReservations API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCapacityReservations.html) for valid values. Common filters include `instance-type`, `availability-zone`, `state`, `instance-platform`, `tenancy`, `outpost-arn`, `placement-group-arn`, `instance-match-criteria`, and `tag:<KEY>`.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of values that are accepted for the given filter field. A Capacity Block reservation will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetCapacityBlockReservationInterruptibleCapacityAllocationResult(dict):
+    def __init__(__self__, *,
+                 instance_count: _builtins.int,
+                 interruptible_capacity_reservation_id: _builtins.str,
+                 interruption_type: _builtins.str,
+                 status: _builtins.str,
+                 target_instance_count: _builtins.int):
+        """
+        :param _builtins.int instance_count: Number of instances allocated as interruptible capacity within the Capacity Block reservation.
+        :param _builtins.str interruptible_capacity_reservation_id: ID of the interruptible Capacity Reservation associated with this allocation.
+        :param _builtins.str interruption_type: Type of interruption that occurred. Either `spot-interruption` or `capacity-block-interruption`.
+        :param _builtins.str status: Status of the interruptible capacity allocation. One of `pending`, `confirmed`, or `cancelled`.
+        :param _builtins.int target_instance_count: Target number of interruptible instances for the allocation.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "interruptible_capacity_reservation_id", interruptible_capacity_reservation_id)
+        pulumi.set(__self__, "interruption_type", interruption_type)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "target_instance_count", target_instance_count)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> _builtins.int:
+        """
+        Number of instances allocated as interruptible capacity within the Capacity Block reservation.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="interruptibleCapacityReservationId")
+    def interruptible_capacity_reservation_id(self) -> _builtins.str:
+        """
+        ID of the interruptible Capacity Reservation associated with this allocation.
+        """
+        return pulumi.get(self, "interruptible_capacity_reservation_id")
+
+    @_builtins.property
+    @pulumi.getter(name="interruptionType")
+    def interruption_type(self) -> _builtins.str:
+        """
+        Type of interruption that occurred. Either `spot-interruption` or `capacity-block-interruption`.
+        """
+        return pulumi.get(self, "interruption_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Status of the interruptible capacity allocation. One of `pending`, `confirmed`, or `cancelled`.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="targetInstanceCount")
+    def target_instance_count(self) -> _builtins.int:
+        """
+        Target number of interruptible instances for the allocation.
+        """
+        return pulumi.get(self, "target_instance_count")
+
+
+@pulumi.output_type
+class GetCapacityBlockReservationInterruptionInfoResult(dict):
+    def __init__(__self__, *,
+                 interruption_type: _builtins.str,
+                 source_capacity_reservation_id: _builtins.str):
+        """
+        :param _builtins.str interruption_type: Type of interruption that occurred. Either `spot-interruption` or `capacity-block-interruption`.
+        :param _builtins.str source_capacity_reservation_id: ID of the source Capacity Reservation that originally held the capacity, if the reservation was created as a result of an interruption.
+        """
+        pulumi.set(__self__, "interruption_type", interruption_type)
+        pulumi.set(__self__, "source_capacity_reservation_id", source_capacity_reservation_id)
+
+    @_builtins.property
+    @pulumi.getter(name="interruptionType")
+    def interruption_type(self) -> _builtins.str:
+        """
+        Type of interruption that occurred. Either `spot-interruption` or `capacity-block-interruption`.
+        """
+        return pulumi.get(self, "interruption_type")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceCapacityReservationId")
+    def source_capacity_reservation_id(self) -> _builtins.str:
+        """
+        ID of the source Capacity Reservation that originally held the capacity, if the reservation was created as a result of an interruption.
+        """
+        return pulumi.get(self, "source_capacity_reservation_id")
 
 
 @pulumi.output_type

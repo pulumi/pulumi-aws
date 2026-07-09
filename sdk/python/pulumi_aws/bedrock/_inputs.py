@@ -435,6 +435,20 @@ __all__ = [
     'AgentcoreAgentRuntimeWorkloadIdentityDetailArgsDict',
     'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs',
     'AgentcoreApiKeyCredentialProviderApiKeySecretArnArgsDict',
+    'AgentcoreBrowserBrowserSigningArgs',
+    'AgentcoreBrowserBrowserSigningArgsDict',
+    'AgentcoreBrowserCertificateArgs',
+    'AgentcoreBrowserCertificateArgsDict',
+    'AgentcoreBrowserCertificateLocationArgs',
+    'AgentcoreBrowserCertificateLocationArgsDict',
+    'AgentcoreBrowserCertificateLocationSecretsManagerArgs',
+    'AgentcoreBrowserCertificateLocationSecretsManagerArgsDict',
+    'AgentcoreBrowserEnterprisePolicyArgs',
+    'AgentcoreBrowserEnterprisePolicyArgsDict',
+    'AgentcoreBrowserEnterprisePolicyLocationArgs',
+    'AgentcoreBrowserEnterprisePolicyLocationArgsDict',
+    'AgentcoreBrowserEnterprisePolicyLocationS3Args',
+    'AgentcoreBrowserEnterprisePolicyLocationS3ArgsDict',
     'AgentcoreBrowserNetworkConfigurationArgs',
     'AgentcoreBrowserNetworkConfigurationArgsDict',
     'AgentcoreBrowserNetworkConfigurationVpcConfigArgs',
@@ -445,6 +459,12 @@ __all__ = [
     'AgentcoreBrowserRecordingS3LocationArgsDict',
     'AgentcoreBrowserTimeoutsArgs',
     'AgentcoreBrowserTimeoutsArgsDict',
+    'AgentcoreCodeInterpreterCertificateArgs',
+    'AgentcoreCodeInterpreterCertificateArgsDict',
+    'AgentcoreCodeInterpreterCertificateLocationArgs',
+    'AgentcoreCodeInterpreterCertificateLocationArgsDict',
+    'AgentcoreCodeInterpreterCertificateLocationSecretsManagerArgs',
+    'AgentcoreCodeInterpreterCertificateLocationSecretsManagerArgsDict',
     'AgentcoreCodeInterpreterNetworkConfigurationArgs',
     'AgentcoreCodeInterpreterNetworkConfigurationArgsDict',
     'AgentcoreCodeInterpreterNetworkConfigurationVpcConfigArgs',
@@ -769,6 +789,20 @@ __all__ = [
     'AgentcorePolicyEngineTimeoutsArgsDict',
     'AgentcorePolicyTimeoutsArgs',
     'AgentcorePolicyTimeoutsArgsDict',
+    'AgentcoreRegistryApprovalConfigurationArgs',
+    'AgentcoreRegistryApprovalConfigurationArgsDict',
+    'AgentcoreRegistryAuthorizerConfigurationArgs',
+    'AgentcoreRegistryAuthorizerConfigurationArgsDict',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgsDict',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgsDict',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgsDict',
+    'AgentcoreRegistryTimeoutsArgs',
+    'AgentcoreRegistryTimeoutsArgsDict',
     'AgentcoreTokenVaultCmkKmsConfigurationArgs',
     'AgentcoreTokenVaultCmkKmsConfigurationArgsDict',
     'CustomModelOutputDataConfigArgs',
@@ -11880,6 +11914,263 @@ class AgentcoreApiKeyCredentialProviderApiKeySecretArnArgs:
         pulumi.set(self, "secret_arn", value)
 
 
+class AgentcoreBrowserBrowserSigningArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+    """
+
+@pulumi.input_type
+class AgentcoreBrowserBrowserSigningArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether browser signing is enabled. When enabled, the browser cryptographically signs HTTP requests to identify itself as an AI agent to bot control vendors.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "enabled", value)
+
+
+class AgentcoreBrowserCertificateArgsDict(TypedDict):
+    location: pulumi.Input['AgentcoreBrowserCertificateLocationArgsDict']
+    """
+    Location from which to retrieve the certificate. See `certificates.location` below.
+    """
+
+@pulumi.input_type
+class AgentcoreBrowserCertificateArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input['AgentcoreBrowserCertificateLocationArgs']):
+        """
+        :param pulumi.Input['AgentcoreBrowserCertificateLocationArgs'] location: Location from which to retrieve the certificate. See `certificates.location` below.
+        """
+        pulumi.set(__self__, "location", location)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input['AgentcoreBrowserCertificateLocationArgs']:
+        """
+        Location from which to retrieve the certificate. See `certificates.location` below.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input['AgentcoreBrowserCertificateLocationArgs']):
+        pulumi.set(self, "location", value)
+
+
+class AgentcoreBrowserCertificateLocationArgsDict(TypedDict):
+    secrets_manager: NotRequired[pulumi.Input[Optional['AgentcoreBrowserCertificateLocationSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager location of the certificate. See `secrets_manager` below.
+    """
+
+@pulumi.input_type
+class AgentcoreBrowserCertificateLocationArgs:
+    def __init__(__self__, *,
+                 secrets_manager: pulumi.Input[Optional['AgentcoreBrowserCertificateLocationSecretsManagerArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreBrowserCertificateLocationSecretsManagerArgs'] secrets_manager: AWS Secrets Manager location of the certificate. See `secrets_manager` below.
+        """
+        if secrets_manager is not None:
+            pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> pulumi.Input[Optional['AgentcoreBrowserCertificateLocationSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager location of the certificate. See `secrets_manager` below.
+        """
+        return pulumi.get(self, "secrets_manager")
+
+    @secrets_manager.setter
+    def secrets_manager(self, value: pulumi.Input[Optional['AgentcoreBrowserCertificateLocationSecretsManagerArgs']]):
+        pulumi.set(self, "secrets_manager", value)
+
+
+class AgentcoreBrowserCertificateLocationSecretsManagerArgsDict(TypedDict):
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the AWS Secrets Manager secret containing the certificate.
+    """
+
+@pulumi.input_type
+class AgentcoreBrowserCertificateLocationSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the AWS Secrets Manager secret containing the certificate.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the AWS Secrets Manager secret containing the certificate.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
+
+
+class AgentcoreBrowserEnterprisePolicyArgsDict(TypedDict):
+    location: pulumi.Input['AgentcoreBrowserEnterprisePolicyLocationArgsDict']
+    """
+    Location of the enterprise policy file. See `location` below.
+    """
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Type of browser enterprise policy. Valid values: `MANAGED`, `RECOMMENDED`.
+    """
+
+@pulumi.input_type
+class AgentcoreBrowserEnterprisePolicyArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input['AgentcoreBrowserEnterprisePolicyLocationArgs'],
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input['AgentcoreBrowserEnterprisePolicyLocationArgs'] location: Location of the enterprise policy file. See `location` below.
+        :param pulumi.Input[_builtins.str] type: Type of browser enterprise policy. Valid values: `MANAGED`, `RECOMMENDED`.
+        """
+        pulumi.set(__self__, "location", location)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input['AgentcoreBrowserEnterprisePolicyLocationArgs']:
+        """
+        Location of the enterprise policy file. See `location` below.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input['AgentcoreBrowserEnterprisePolicyLocationArgs']):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of browser enterprise policy. Valid values: `MANAGED`, `RECOMMENDED`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+
+class AgentcoreBrowserEnterprisePolicyLocationArgsDict(TypedDict):
+    s3: NotRequired[pulumi.Input[Optional['AgentcoreBrowserEnterprisePolicyLocationS3ArgsDict']]]
+    """
+    S3 location of the enterprise policy file. See `s3` below.
+    """
+
+@pulumi.input_type
+class AgentcoreBrowserEnterprisePolicyLocationArgs:
+    def __init__(__self__, *,
+                 s3: pulumi.Input[Optional['AgentcoreBrowserEnterprisePolicyLocationS3Args']] = None):
+        """
+        :param pulumi.Input['AgentcoreBrowserEnterprisePolicyLocationS3Args'] s3: S3 location of the enterprise policy file. See `s3` below.
+        """
+        if s3 is not None:
+            pulumi.set(__self__, "s3", s3)
+
+    @_builtins.property
+    @pulumi.getter
+    def s3(self) -> pulumi.Input[Optional['AgentcoreBrowserEnterprisePolicyLocationS3Args']]:
+        """
+        S3 location of the enterprise policy file. See `s3` below.
+        """
+        return pulumi.get(self, "s3")
+
+    @s3.setter
+    def s3(self, value: pulumi.Input[Optional['AgentcoreBrowserEnterprisePolicyLocationS3Args']]):
+        pulumi.set(self, "s3", value)
+
+
+class AgentcoreBrowserEnterprisePolicyLocationS3ArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    Name of the S3 bucket.
+    """
+    prefix: pulumi.Input[_builtins.str]
+    """
+    Prefix for objects in the S3 bucket.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Version ID of the S3 object. If not specified, the latest version is used.
+    """
+
+@pulumi.input_type
+class AgentcoreBrowserEnterprisePolicyLocationS3Args:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 prefix: pulumi.Input[_builtins.str],
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket: Name of the S3 bucket.
+        :param pulumi.Input[_builtins.str] prefix: Prefix for objects in the S3 bucket.
+        :param pulumi.Input[_builtins.str] version_id: Version ID of the S3 object. If not specified, the latest version is used.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "prefix", prefix)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> pulumi.Input[_builtins.str]:
+        """
+        Prefix for objects in the S3 bucket.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Version ID of the S3 object. If not specified, the latest version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+
 class AgentcoreBrowserNetworkConfigurationArgsDict(TypedDict):
     network_mode: pulumi.Input[_builtins.str]
     """
@@ -12118,6 +12409,91 @@ class AgentcoreBrowserTimeoutsArgs:
     @delete.setter
     def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delete", value)
+
+
+class AgentcoreCodeInterpreterCertificateArgsDict(TypedDict):
+    location: pulumi.Input['AgentcoreCodeInterpreterCertificateLocationArgsDict']
+    """
+    Location from which to retrieve the certificate. See `certificates.location` below.
+    """
+
+@pulumi.input_type
+class AgentcoreCodeInterpreterCertificateArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input['AgentcoreCodeInterpreterCertificateLocationArgs']):
+        """
+        :param pulumi.Input['AgentcoreCodeInterpreterCertificateLocationArgs'] location: Location from which to retrieve the certificate. See `certificates.location` below.
+        """
+        pulumi.set(__self__, "location", location)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input['AgentcoreCodeInterpreterCertificateLocationArgs']:
+        """
+        Location from which to retrieve the certificate. See `certificates.location` below.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input['AgentcoreCodeInterpreterCertificateLocationArgs']):
+        pulumi.set(self, "location", value)
+
+
+class AgentcoreCodeInterpreterCertificateLocationArgsDict(TypedDict):
+    secrets_manager: NotRequired[pulumi.Input[Optional['AgentcoreCodeInterpreterCertificateLocationSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager location of the certificate. See `secrets_manager` below.
+    """
+
+@pulumi.input_type
+class AgentcoreCodeInterpreterCertificateLocationArgs:
+    def __init__(__self__, *,
+                 secrets_manager: pulumi.Input[Optional['AgentcoreCodeInterpreterCertificateLocationSecretsManagerArgs']] = None):
+        """
+        :param pulumi.Input['AgentcoreCodeInterpreterCertificateLocationSecretsManagerArgs'] secrets_manager: AWS Secrets Manager location of the certificate. See `secrets_manager` below.
+        """
+        if secrets_manager is not None:
+            pulumi.set(__self__, "secrets_manager", secrets_manager)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManager")
+    def secrets_manager(self) -> pulumi.Input[Optional['AgentcoreCodeInterpreterCertificateLocationSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager location of the certificate. See `secrets_manager` below.
+        """
+        return pulumi.get(self, "secrets_manager")
+
+    @secrets_manager.setter
+    def secrets_manager(self, value: pulumi.Input[Optional['AgentcoreCodeInterpreterCertificateLocationSecretsManagerArgs']]):
+        pulumi.set(self, "secrets_manager", value)
+
+
+class AgentcoreCodeInterpreterCertificateLocationSecretsManagerArgsDict(TypedDict):
+    secret_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the AWS Secrets Manager secret containing the certificate.
+    """
+
+@pulumi.input_type
+class AgentcoreCodeInterpreterCertificateLocationSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the AWS Secrets Manager secret containing the certificate.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the AWS Secrets Manager secret containing the certificate.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_arn", value)
 
 
 class AgentcoreCodeInterpreterNetworkConfigurationArgsDict(TypedDict):
@@ -22292,6 +22668,292 @@ class AgentcorePolicyTimeoutsArgsDict(TypedDict):
 
 @pulumi.input_type
 class AgentcorePolicyTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
+
+
+class AgentcoreRegistryApprovalConfigurationArgsDict(TypedDict):
+    auto_approval: pulumi.Input[_builtins.bool]
+
+@pulumi.input_type
+class AgentcoreRegistryApprovalConfigurationArgs:
+    def __init__(__self__, *,
+                 auto_approval: pulumi.Input[_builtins.bool]):
+        pulumi.set(__self__, "auto_approval", auto_approval)
+
+    @_builtins.property
+    @pulumi.getter(name="autoApproval")
+    def auto_approval(self) -> pulumi.Input[_builtins.bool]:
+        return pulumi.get(self, "auto_approval")
+
+    @auto_approval.setter
+    def auto_approval(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "auto_approval", value)
+
+
+class AgentcoreRegistryAuthorizerConfigurationArgsDict(TypedDict):
+    custom_jwt_authorizer: NotRequired[pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgsDict']]]
+
+@pulumi.input_type
+class AgentcoreRegistryAuthorizerConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_jwt_authorizer: pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs']] = None):
+        if custom_jwt_authorizer is not None:
+            pulumi.set(__self__, "custom_jwt_authorizer", custom_jwt_authorizer)
+
+    @_builtins.property
+    @pulumi.getter(name="customJwtAuthorizer")
+    def custom_jwt_authorizer(self) -> pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs']]:
+        return pulumi.get(self, "custom_jwt_authorizer")
+
+    @custom_jwt_authorizer.setter
+    def custom_jwt_authorizer(self, value: pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs']]):
+        pulumi.set(self, "custom_jwt_authorizer", value)
+
+
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgsDict(TypedDict):
+    discovery_url: pulumi.Input[_builtins.str]
+    allowed_audiences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_clients: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    custom_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict']]]]]
+
+@pulumi.input_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs:
+    def __init__(__self__, *,
+                 discovery_url: pulumi.Input[_builtins.str],
+                 allowed_audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_clients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 custom_claims: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]] = None):
+        pulumi.set(__self__, "discovery_url", discovery_url)
+        if allowed_audiences is not None:
+            pulumi.set(__self__, "allowed_audiences", allowed_audiences)
+        if allowed_clients is not None:
+            pulumi.set(__self__, "allowed_clients", allowed_clients)
+        if allowed_scopes is not None:
+            pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if custom_claims is not None:
+            pulumi.set(__self__, "custom_claims", custom_claims)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveryUrl")
+    def discovery_url(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "discovery_url")
+
+    @discovery_url.setter
+    def discovery_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "discovery_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAudiences")
+    def allowed_audiences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_audiences")
+
+    @allowed_audiences.setter
+    def allowed_audiences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_audiences", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedClients")
+    def allowed_clients(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_clients")
+
+    @allowed_clients.setter
+    def allowed_clients(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_clients", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedScopes")
+    def allowed_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_scopes")
+
+    @allowed_scopes.setter
+    def allowed_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customClaims")
+    def custom_claims(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]]:
+        return pulumi.get(self, "custom_claims")
+
+    @custom_claims.setter
+    def custom_claims(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs']]]]):
+        pulumi.set(self, "custom_claims", value)
+
+
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgsDict(TypedDict):
+    authorizing_claim_match_value: pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgsDict']
+    inbound_token_claim_name: pulumi.Input[_builtins.str]
+    inbound_token_claim_value_type: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs:
+    def __init__(__self__, *,
+                 authorizing_claim_match_value: pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs'],
+                 inbound_token_claim_name: pulumi.Input[_builtins.str],
+                 inbound_token_claim_value_type: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "authorizing_claim_match_value", authorizing_claim_match_value)
+        pulumi.set(__self__, "inbound_token_claim_name", inbound_token_claim_name)
+        pulumi.set(__self__, "inbound_token_claim_value_type", inbound_token_claim_value_type)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizingClaimMatchValue")
+    def authorizing_claim_match_value(self) -> pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs']:
+        return pulumi.get(self, "authorizing_claim_match_value")
+
+    @authorizing_claim_match_value.setter
+    def authorizing_claim_match_value(self, value: pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs']):
+        pulumi.set(self, "authorizing_claim_match_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimName")
+    def inbound_token_claim_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "inbound_token_claim_name")
+
+    @inbound_token_claim_name.setter
+    def inbound_token_claim_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inbound_token_claim_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundTokenClaimValueType")
+    def inbound_token_claim_value_type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "inbound_token_claim_value_type")
+
+    @inbound_token_claim_value_type.setter
+    def inbound_token_claim_value_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inbound_token_claim_value_type", value)
+
+
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgsDict(TypedDict):
+    claim_match_operator: pulumi.Input[_builtins.str]
+    claim_match_value: pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgsDict']
+
+@pulumi.input_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs:
+    def __init__(__self__, *,
+                 claim_match_operator: pulumi.Input[_builtins.str],
+                 claim_match_value: pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']):
+        pulumi.set(__self__, "claim_match_operator", claim_match_operator)
+        pulumi.set(__self__, "claim_match_value", claim_match_value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchOperator")
+    def claim_match_operator(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "claim_match_operator")
+
+    @claim_match_operator.setter
+    def claim_match_operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "claim_match_operator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="claimMatchValue")
+    def claim_match_value(self) -> pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']:
+        return pulumi.get(self, "claim_match_value")
+
+    @claim_match_value.setter
+    def claim_match_value(self, value: pulumi.Input['AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs']):
+        pulumi.set(self, "claim_match_value", value)
+
+
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgsDict(TypedDict):
+    match_value_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    match_value_string_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs:
+    def __init__(__self__, *,
+                 match_value_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_value_string_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if match_value_string is not None:
+            pulumi.set(__self__, "match_value_string", match_value_string)
+        if match_value_string_lists is not None:
+            pulumi.set(__self__, "match_value_string_lists", match_value_string_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueString")
+    def match_value_string(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "match_value_string")
+
+    @match_value_string.setter
+    def match_value_string(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "match_value_string", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchValueStringLists")
+    def match_value_string_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "match_value_string_lists")
+
+    @match_value_string_lists.setter
+    def match_value_string_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "match_value_string_lists", value)
+
+
+class AgentcoreRegistryTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class AgentcoreRegistryTimeoutsArgs:
     def __init__(__self__, *,
                  create: pulumi.Input[Optional[_builtins.str]] = None,
                  delete: pulumi.Input[Optional[_builtins.str]] = None,

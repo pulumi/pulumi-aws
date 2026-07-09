@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ApiGateway.Inputs
     public sealed class RestApiEndpointConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The IP address types that can invoke an API (RestApi). Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke an API, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `Dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+        /// IP address types that can invoke a REST API. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke an API, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `Dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
         /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }

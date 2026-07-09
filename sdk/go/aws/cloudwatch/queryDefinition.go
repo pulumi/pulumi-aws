@@ -47,7 +47,18 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CloudWatch query definitions using the query definition ARN. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `queryDefinitionId` (String) ID of the query definition.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Query Definitions using `arn`. The ARN can be found on the "Edit Query" page for the query in the AWS Console. For example:
 //
 // ```sh
 // $ pulumi import aws:cloudwatch/queryDefinition:QueryDefinition example arn:aws:logs:us-west-2:123456789012:query-definition:269951d7-6f75-496d-9d7b-6b7a5486bdbd
@@ -55,6 +66,8 @@ import (
 type QueryDefinition struct {
 	pulumi.CustomResourceState
 
+	// The query definition ARN.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specific log groups to use with the query.
 	LogGroupNames pulumi.StringArrayOutput `pulumi:"logGroupNames"`
 	// The name of the query.
@@ -100,6 +113,8 @@ func GetQueryDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueryDefinition resources.
 type queryDefinitionState struct {
+	// The query definition ARN.
+	Arn *string `pulumi:"arn"`
 	// Specific log groups to use with the query.
 	LogGroupNames []string `pulumi:"logGroupNames"`
 	// The name of the query.
@@ -113,6 +128,8 @@ type queryDefinitionState struct {
 }
 
 type QueryDefinitionState struct {
+	// The query definition ARN.
+	Arn pulumi.StringPtrInput
 	// Specific log groups to use with the query.
 	LogGroupNames pulumi.StringArrayInput
 	// The name of the query.
@@ -237,6 +254,11 @@ func (o QueryDefinitionOutput) ToQueryDefinitionOutput() QueryDefinitionOutput {
 
 func (o QueryDefinitionOutput) ToQueryDefinitionOutputWithContext(ctx context.Context) QueryDefinitionOutput {
 	return o
+}
+
+// The query definition ARN.
+func (o QueryDefinitionOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *QueryDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Specific log groups to use with the query.

@@ -534,6 +534,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.currentVersion;
     }
     /**
+     * Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+     * 
+     */
+    @Export(name="customerActionStatus", refs={String.class}, tree="[0]")
+    private Output<String> customerActionStatus;
+
+    /**
+     * @return Status indicating whether Amazon MSK requires customer action for the cluster. Valid values are `NONE`, `ACTION_RECOMMENDED`, and `CRITICAL_ACTION_REQUIRED`.
+     * 
+     */
+    public Output<String> customerActionStatus() {
+        return this.customerActionStatus;
+    }
+    /**
      * Configuration block for specifying encryption. See encryptionInfo Argument Reference below.
      * 
      */
