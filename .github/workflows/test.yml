@@ -40,7 +40,7 @@ jobs:
         swap-storage: false
         dotnet: false
     - name: Checkout Repo
-      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         ref: ${{ env.PR_COMMIT_SHA }}
         submodules: true
@@ -61,7 +61,7 @@ jobs:
         private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
         owner: ${{ github.repository_owner }}
     - name: Checkout p/examples
-      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       with:
         repository: pulumi/examples
         path: p-examples
@@ -117,7 +117,7 @@ jobs:
         requested-token-type: urn:pulumi:token-type:access_token:organization
         export-environment-variables: false
     - name: Export AWS Credentials
-      uses: pulumi/esc-action@f3cfbabf37488463817366338165b92b5f99117e
+      uses: pulumi/esc-action@ac400796a2de7ba0c3bd015b7819c21306189af6
       env:
         PULUMI_ACCESS_TOKEN: ${{ steps.generate_pulumi_token.outputs.pulumi-access-token }}
       with:
