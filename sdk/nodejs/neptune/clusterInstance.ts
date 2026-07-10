@@ -28,8 +28,8 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  * });
  * const example: aws.neptune.ClusterInstance[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     example.push(new aws.neptune.ClusterInstance(`example-${range.value}`, {
+ * for (let range = 0; range < 2; range++) {
+ *     example.push(new aws.neptune.ClusterInstance(`example-${range}`, {
  *         clusterIdentifier: _default.id,
  *         engine: "neptune",
  *         instanceClass: "db.r4.large",

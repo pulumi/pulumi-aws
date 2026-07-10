@@ -713,7 +713,7 @@ class KxClusterVpcConfigurationArgsDict(TypedDict):
     security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
     Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-    * `subnet_ids `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+    * ` subnet_ids  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
     """
     subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     vpc_id: pulumi.Input[_builtins.str]
@@ -731,7 +731,7 @@ class KxClusterVpcConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] ip_address_type: IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-               * `subnet_ids `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+               * ` subnet_ids  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
         :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC endpoint
         """
         pulumi.set(__self__, "ip_address_type", ip_address_type)
@@ -756,7 +756,7 @@ class KxClusterVpcConfigurationArgs:
     def security_group_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
         Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-        * `subnet_ids `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+        * ` subnet_ids  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
         """
         return pulumi.get(self, "security_group_ids")
 

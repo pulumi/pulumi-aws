@@ -29,9 +29,9 @@ import * as utilities from "../utilities";
  * });
  * const r: aws.ec2.Route[] = [];
  * rts.then(rts => rts.ids).length.apply(rangeBody => {
- *     for (const range = {value: 0}; range.value < rangeBody; range.value++) {
- *         r.push(new aws.ec2.Route(`r-${range.value}`, {
- *             routeTableId: rts.then(rts => rts.ids[range.value]),
+ *     for (let range = 0; range < rangeBody; range++) {
+ *         r.push(new aws.ec2.Route(`r-${range}`, {
+ *             routeTableId: rts.then(rts => rts.ids[range]),
  *             destinationCidrBlock: "10.0.0.0/22",
  *             vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
  *         }));
@@ -112,9 +112,9 @@ export interface GetRouteTablesResult {
  * });
  * const r: aws.ec2.Route[] = [];
  * rts.then(rts => rts.ids).length.apply(rangeBody => {
- *     for (const range = {value: 0}; range.value < rangeBody; range.value++) {
- *         r.push(new aws.ec2.Route(`r-${range.value}`, {
- *             routeTableId: rts.then(rts => rts.ids[range.value]),
+ *     for (let range = 0; range < rangeBody; range++) {
+ *         r.push(new aws.ec2.Route(`r-${range}`, {
+ *             routeTableId: rts.then(rts => rts.ids[range]),
  *             destinationCidrBlock: "10.0.0.0/22",
  *             vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
  *         }));

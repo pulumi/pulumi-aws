@@ -30,21 +30,21 @@ import * as utilities from "../utilities";
  *     name: "example.com",
  *     privateZone: false,
  * });
- * const exampleRecord: aws.route53.Record[] = [];
+ * const exampleRecord: {[key: string]: aws.route53.Record} = {};
  * exampleCertificate.domainValidationOptions.apply(domainValidationOptions => {
  *     for (const range of Object.entries(domainValidationOptions.reduce((__obj, dvo) => ({ ...__obj, [dvo.domainName]: {
  *         name: dvo.resourceRecordName,
  *         record: dvo.resourceRecordValue,
  *         type: dvo.resourceRecordType,
  *     } }), {})).sort().map(([k, v]) => ({key: k, value: v}))) {
- *         exampleRecord.push(new aws.route53.Record(`example-${range.key}`, {
+ *         exampleRecord[range.key] = new aws.route53.Record(`example-${range.key}`, {
  *             allowOverwrite: true,
  *             name: range.value.name,
  *             records: [range.value.record],
  *             ttl: 60,
  *             type: aws.route53.RecordType[range.value.type],
  *             zoneId: example.then(example => example.zoneId),
- *         }));
+ *         });
  *     }
  * });
  * const exampleCertificateValidation = new aws.acm.CertificateValidation("example", {
@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *     name: "example.org",
  *     privateZone: false,
  * });
- * const exampleRecord: aws.route53.Record[] = [];
+ * const exampleRecord: {[key: string]: aws.route53.Record} = {};
  * pulumi.all([example.domainValidationOptions, dvo.domainName == "example.org" ? exampleOrg.then(exampleOrg => exampleOrg.zoneId) : exampleCom.then(exampleCom => exampleCom.zoneId)]).apply(([domainValidationOptions, value]) => {
  *     for (const range of Object.entries(domainValidationOptions.reduce((__obj, dvo) => ({ ...__obj, [dvo.domainName]: {
  *         name: dvo.resourceRecordName,
@@ -84,14 +84,14 @@ import * as utilities from "../utilities";
  *         type: dvo.resourceRecordType,
  *         zoneId: value,
  *     } }), {})).sort().map(([k, v]) => ({key: k, value: v}))) {
- *         exampleRecord.push(new aws.route53.Record(`example-${range.key}`, {
+ *         exampleRecord[range.key] = new aws.route53.Record(`example-${range.key}`, {
  *             allowOverwrite: true,
  *             name: range.value.name,
  *             records: [range.value.record],
  *             ttl: 60,
  *             type: aws.route53.RecordType[range.value.type],
  *             zoneId: range.value.zoneId,
- *         }));
+ *         });
  *     }
  * });
  * const exampleCertificateValidation = new aws.acm.CertificateValidation("example", {

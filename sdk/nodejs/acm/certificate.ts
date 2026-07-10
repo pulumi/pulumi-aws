@@ -105,20 +105,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example: aws.route53.Record[] = [];
+ * const example: {[key: string]: aws.route53.Record} = {};
  * for (const range of Object.entries(.reduce((__obj, dvo) => ({ ...__obj, [dvo.domainName]: {
  *     name: dvo.resourceRecordName,
  *     record: dvo.resourceRecordValue,
  *     type: dvo.resourceRecordType,
  * } }), {})).sort().map(([k, v]) => ({key: k, value: v}))) {
- *     example.push(new aws.route53.Record(`example-${range.key}`, {
+ *     example[range.key] = new aws.route53.Record(`example-${range.key}`, {
  *         allowOverwrite: true,
  *         name: range.value.name,
  *         records: [range.value.record],
  *         ttl: 60,
  *         type: aws.route53.RecordType[range.value.type],
  *         zoneId: exampleAwsRoute53Zone.zoneId,
- *     }));
+ *     });
  * }
  * ```
  *

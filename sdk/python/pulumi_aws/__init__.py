@@ -7,6 +7,8 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .arn_build import *
+from .arn_parse import *
 from .get_arn import *
 from .get_availability_zone import *
 from .get_availability_zones import *
@@ -20,6 +22,8 @@ from .get_regions import *
 from .get_service import *
 from .get_service_principal import *
 from .provider import *
+from .trim_iam_role_path import *
+from .user_agent import *
 from ._inputs import *
 from . import outputs
 

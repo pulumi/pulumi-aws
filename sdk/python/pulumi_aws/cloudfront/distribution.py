@@ -1223,12 +1223,12 @@ class Distribution(pulumi.CustomResource):
             policy=origin_bucket_policy.json)
         # Create Route53 records for the CloudFront distribution aliases
         my_domain_get_zone = aws.route53.get_zone(name=my_domain)
-        cloudfront: list[Any] = []
+        cloudfront: list[aws.route53.Record] = []
         def create_cloudfront(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
-                cloudfront.append(aws.route53.Record(f"cloudfront-{range['key']}",
+            for cloudfront_range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+                cloudfront.append(aws.route53.Record(f"cloudfront-{cloudfront_range['key']}",
                     zone_id=my_domain_get_zone.zone_id,
-                    name=range["value"],
+                    name=cloudfront_range["value"],
                     type=aws.route53.RecordType.A,
                     aliases=[{
                         "name": s3_distribution.domain_name,
@@ -1649,12 +1649,12 @@ class Distribution(pulumi.CustomResource):
             policy=origin_bucket_policy.json)
         # Create Route53 records for the CloudFront distribution aliases
         my_domain_get_zone = aws.route53.get_zone(name=my_domain)
-        cloudfront: list[Any] = []
+        cloudfront: list[aws.route53.Record] = []
         def create_cloudfront(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
-                cloudfront.append(aws.route53.Record(f"cloudfront-{range['key']}",
+            for cloudfront_range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+                cloudfront.append(aws.route53.Record(f"cloudfront-{cloudfront_range['key']}",
                     zone_id=my_domain_get_zone.zone_id,
-                    name=range["value"],
+                    name=cloudfront_range["value"],
                     type=aws.route53.RecordType.A,
                     aliases=[{
                         "name": s3_distribution.domain_name,

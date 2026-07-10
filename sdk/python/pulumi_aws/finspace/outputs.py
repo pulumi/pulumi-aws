@@ -636,7 +636,7 @@ class KxClusterVpcConfiguration(dict):
         """
         :param _builtins.str ip_address_type: IP address type for cluster network configuration parameters. The following type is available: IP_V4 - IP address version 4.
         :param Sequence[_builtins.str] security_group_ids: Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-               * `subnet_ids `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+               * ` subnet_ids  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
         :param _builtins.str vpc_id: Identifier of the VPC endpoint
         """
         pulumi.set(__self__, "ip_address_type", ip_address_type)
@@ -657,7 +657,7 @@ class KxClusterVpcConfiguration(dict):
     def security_group_ids(self) -> Sequence[_builtins.str]:
         """
         Unique identifier of the VPC security group applied to the VPC endpoint ENI for the cluster.
-        * `subnet_ids `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
+        * ` subnet_ids  `- (Required) Identifier of the subnet that the Privatelink VPC endpoint uses to connect to the cluster.
         """
         return pulumi.get(self, "security_group_ids")
 

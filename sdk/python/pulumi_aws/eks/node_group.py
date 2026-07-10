@@ -885,13 +885,13 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi_std as std
 
         available = aws.get_availability_zones(state="available")
-        example: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example.append(aws.ec2.Subnet(f"example-{range['value']}",
-                availability_zone=available.names[range["value"]],
+        example: list[aws.ec2.Subnet] = []
+        for example_range in [{"value": i} for i in range(0, 2)]:
+            example.append(aws.ec2.Subnet(f"example-{example_range['value']}",
+                availability_zone=available.names[example_range["value"]],
                 cidr_block=std.cidrsubnet(input=example_aws_vpc["cidrBlock"],
                     newbits=8,
-                    netnum=range["value"]).result,
+                    netnum=example_range["value"]).result,
                 vpc_id=example_aws_vpc["id"]))
         ```
 
@@ -1029,13 +1029,13 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi_std as std
 
         available = aws.get_availability_zones(state="available")
-        example: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example.append(aws.ec2.Subnet(f"example-{range['value']}",
-                availability_zone=available.names[range["value"]],
+        example: list[aws.ec2.Subnet] = []
+        for example_range in [{"value": i} for i in range(0, 2)]:
+            example.append(aws.ec2.Subnet(f"example-{example_range['value']}",
+                availability_zone=available.names[example_range["value"]],
                 cidr_block=std.cidrsubnet(input=example_aws_vpc["cidrBlock"],
                     newbits=8,
-                    netnum=range["value"]).result,
+                    netnum=example_range["value"]).result,
                 vpc_id=example_aws_vpc["id"]))
         ```
 

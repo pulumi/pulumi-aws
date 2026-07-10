@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test: aws.cloudwatch.LogGroup[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     test.push(new aws.cloudwatch.LogGroup(`test-${range.value}`, {name: `testing-${range.value}`}));
+ * for (let range = 0; range < 2; range++) {
+ *     test.push(new aws.cloudwatch.LogGroup(`test-${range}`, {name: `testing-${range}`}));
  * }
  * const testLogAnomalyDetector = new aws.cloudwatch.LogAnomalyDetector("test", {
  *     detectorName: "testing",

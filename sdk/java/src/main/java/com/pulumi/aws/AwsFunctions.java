@@ -4,6 +4,10 @@
 package com.pulumi.aws;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.inputs.ArnBuildArgs;
+import com.pulumi.aws.inputs.ArnBuildPlainArgs;
+import com.pulumi.aws.inputs.ArnParseArgs;
+import com.pulumi.aws.inputs.ArnParsePlainArgs;
 import com.pulumi.aws.inputs.GetArnArgs;
 import com.pulumi.aws.inputs.GetArnPlainArgs;
 import com.pulumi.aws.inputs.GetAvailabilityZoneArgs;
@@ -28,6 +32,11 @@ import com.pulumi.aws.inputs.GetServiceArgs;
 import com.pulumi.aws.inputs.GetServicePlainArgs;
 import com.pulumi.aws.inputs.GetServicePrincipalArgs;
 import com.pulumi.aws.inputs.GetServicePrincipalPlainArgs;
+import com.pulumi.aws.inputs.TrimIamRolePathArgs;
+import com.pulumi.aws.inputs.TrimIamRolePathPlainArgs;
+import com.pulumi.aws.inputs.UserAgentArgs;
+import com.pulumi.aws.inputs.UserAgentPlainArgs;
+import com.pulumi.aws.outputs.ArnParseResult;
 import com.pulumi.aws.outputs.GetArnResult;
 import com.pulumi.aws.outputs.GetAvailabilityZoneResult;
 import com.pulumi.aws.outputs.GetAvailabilityZonesResult;
@@ -45,9 +54,121 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
+import java.lang.String;
+import java.lang.Void;
 import java.util.concurrent.CompletableFuture;
 
 public final class AwsFunctions {
+    /**
+     * Builds an ARN from its constituent parts.
+     * 
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * 
+     * ## Signature
+     * 
+     */
+    public static Output<Void> arnBuild(String partition, String service, String region, String accountId, String resource) {
+        return arnBuild(partition, service, region, accountId, resource, InvokeOptions.Empty);
+    }
+    /**
+     * Builds an ARN from its constituent parts.
+     * 
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * 
+     * ## Signature
+     * 
+     */
+    public static CompletableFuture<Void> arnBuildPlain(String partition, String service, String region, String accountId, String resource) {
+        return arnBuildPlain(partition, service, region, accountId, resource, InvokeOptions.Empty);
+    }
+    /**
+     * Builds an ARN from its constituent parts.
+     * 
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * 
+     * ## Signature
+     * 
+     */
+    public static Output<Void> arnBuild(String partition, String service, String region, String accountId, String resource, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:index/arnBuild:arnBuild", TypeShape.of(Void.class), ArnBuildArgs.builder().partition(partition).service(service).region(region).accountId(accountId).resource(resource).build(), Utilities.withVersion(options));
+    }
+    /**
+     * Builds an ARN from its constituent parts.
+     * 
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * 
+     * ## Signature
+     * 
+     */
+    public static Output<Void> arnBuild(String partition, String service, String region, String accountId, String resource, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:index/arnBuild:arnBuild", TypeShape.of(Void.class), ArnBuildArgs.builder().partition(partition).service(service).region(region).accountId(accountId).resource(resource).build(), Utilities.withVersion(options));
+    }
+    /**
+     * Builds an ARN from its constituent parts.
+     * 
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * 
+     * ## Signature
+     * 
+     */
+    public static CompletableFuture<Void> arnBuildPlain(String partition, String service, String region, String accountId, String resource, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:index/arnBuild:arnBuild", TypeShape.of(Void.class), ArnBuildPlainArgs.builder().partition(partition).service(service).region(region).accountId(accountId).resource(resource).build(), Utilities.withVersion(options));
+    }
+    /**
+     * Parses an ARN into its constituent parts.
+     * 
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * 
+     * ## Signature
+     * 
+     */
+    public static Output<ArnParseResult> arnParse(String arn) {
+        return arnParse(arn, InvokeOptions.Empty);
+    }
+    /**
+     * Parses an ARN into its constituent parts.
+     * 
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * 
+     * ## Signature
+     * 
+     */
+    public static CompletableFuture<ArnParseResult> arnParsePlain(String arn) {
+        return arnParsePlain(arn, InvokeOptions.Empty);
+    }
+    /**
+     * Parses an ARN into its constituent parts.
+     * 
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * 
+     * ## Signature
+     * 
+     */
+    public static Output<ArnParseResult> arnParse(String arn, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:index/arnParse:arnParse", TypeShape.of(ArnParseResult.class), ArnParseArgs.builder().arn(arn).build(), Utilities.withVersion(options));
+    }
+    /**
+     * Parses an ARN into its constituent parts.
+     * 
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * 
+     * ## Signature
+     * 
+     */
+    public static Output<ArnParseResult> arnParse(String arn, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:index/arnParse:arnParse", TypeShape.of(ArnParseResult.class), ArnParseArgs.builder().arn(arn).build(), Utilities.withVersion(options));
+    }
+    /**
+     * Parses an ARN into its constituent parts.
+     * 
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * 
+     * ## Signature
+     * 
+     */
+    public static CompletableFuture<ArnParseResult> arnParsePlain(String arn, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:index/arnParse:arnParse", TypeShape.of(ArnParseResult.class), ArnParsePlainArgs.builder().arn(arn).build(), Utilities.withVersion(options));
+    }
     /**
      * Parses an ARN into its constituent parts.
      * 
@@ -5915,5 +6036,120 @@ public final class AwsFunctions {
      */
     public static CompletableFuture<GetServicePrincipalResult> getServicePrincipalPlain(GetServicePrincipalPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:index/getServicePrincipal:getServicePrincipal", TypeShape.of(GetServicePrincipalResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * This function can be used when services require role ARNs to be passed without a path.
+     * 
+     * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
+     * 
+     * ## Signature
+     * 
+     */
+    public static Output<Void> trimIamRolePath(String arn) {
+        return trimIamRolePath(arn, InvokeOptions.Empty);
+    }
+    /**
+     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * This function can be used when services require role ARNs to be passed without a path.
+     * 
+     * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
+     * 
+     * ## Signature
+     * 
+     */
+    public static CompletableFuture<Void> trimIamRolePathPlain(String arn) {
+        return trimIamRolePathPlain(arn, InvokeOptions.Empty);
+    }
+    /**
+     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * This function can be used when services require role ARNs to be passed without a path.
+     * 
+     * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
+     * 
+     * ## Signature
+     * 
+     */
+    public static Output<Void> trimIamRolePath(String arn, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:index/trimIamRolePath:trimIamRolePath", TypeShape.of(Void.class), TrimIamRolePathArgs.builder().arn(arn).build(), Utilities.withVersion(options));
+    }
+    /**
+     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * This function can be used when services require role ARNs to be passed without a path.
+     * 
+     * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
+     * 
+     * ## Signature
+     * 
+     */
+    public static Output<Void> trimIamRolePath(String arn, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:index/trimIamRolePath:trimIamRolePath", TypeShape.of(Void.class), TrimIamRolePathArgs.builder().arn(arn).build(), Utilities.withVersion(options));
+    }
+    /**
+     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * This function can be used when services require role ARNs to be passed without a path.
+     * 
+     * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
+     * 
+     * ## Signature
+     * 
+     */
+    public static CompletableFuture<Void> trimIamRolePathPlain(String arn, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:index/trimIamRolePath:trimIamRolePath", TypeShape.of(Void.class), TrimIamRolePathPlainArgs.builder().arn(arn).build(), Utilities.withVersion(options));
+    }
+    /**
+     * Formats a User-Agent product for use with the `userAgent` argument in the `provider` block.
+     * 
+     * &gt; Functions cannot be used in the `terraform` block, meaning this utility cannot be used with the `providerMeta` `userAgent` argument.
+     * 
+     * ## Signature
+     * 
+     */
+    public static Output<Void> userAgent(String productName, String productVersion, String comment) {
+        return userAgent(productName, productVersion, comment, InvokeOptions.Empty);
+    }
+    /**
+     * Formats a User-Agent product for use with the `userAgent` argument in the `provider` block.
+     * 
+     * &gt; Functions cannot be used in the `terraform` block, meaning this utility cannot be used with the `providerMeta` `userAgent` argument.
+     * 
+     * ## Signature
+     * 
+     */
+    public static CompletableFuture<Void> userAgentPlain(String productName, String productVersion, String comment) {
+        return userAgentPlain(productName, productVersion, comment, InvokeOptions.Empty);
+    }
+    /**
+     * Formats a User-Agent product for use with the `userAgent` argument in the `provider` block.
+     * 
+     * &gt; Functions cannot be used in the `terraform` block, meaning this utility cannot be used with the `providerMeta` `userAgent` argument.
+     * 
+     * ## Signature
+     * 
+     */
+    public static Output<Void> userAgent(String productName, String productVersion, String comment, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:index/userAgent:userAgent", TypeShape.of(Void.class), UserAgentArgs.builder().productName(productName).productVersion(productVersion).comment(comment).build(), Utilities.withVersion(options));
+    }
+    /**
+     * Formats a User-Agent product for use with the `userAgent` argument in the `provider` block.
+     * 
+     * &gt; Functions cannot be used in the `terraform` block, meaning this utility cannot be used with the `providerMeta` `userAgent` argument.
+     * 
+     * ## Signature
+     * 
+     */
+    public static Output<Void> userAgent(String productName, String productVersion, String comment, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:index/userAgent:userAgent", TypeShape.of(Void.class), UserAgentArgs.builder().productName(productName).productVersion(productVersion).comment(comment).build(), Utilities.withVersion(options));
+    }
+    /**
+     * Formats a User-Agent product for use with the `userAgent` argument in the `provider` block.
+     * 
+     * &gt; Functions cannot be used in the `terraform` block, meaning this utility cannot be used with the `providerMeta` `userAgent` argument.
+     * 
+     * ## Signature
+     * 
+     */
+    public static CompletableFuture<Void> userAgentPlain(String productName, String productVersion, String comment, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:index/userAgent:userAgent", TypeShape.of(Void.class), UserAgentPlainArgs.builder().productName(productName).productVersion(productVersion).comment(comment).build(), Utilities.withVersion(options));
     }
 }

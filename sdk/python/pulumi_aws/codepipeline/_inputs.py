@@ -2166,7 +2166,7 @@ class PipelineTriggerAllGitConfigurationPullRequestArgsDict(TypedDict):
     """
     events: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
+    A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
     """
     file_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPullRequestFilePathArgsDict']]]]]
     """
@@ -2181,7 +2181,7 @@ class PipelineTriggerAllGitConfigurationPullRequestArgs:
                  file_paths: pulumi.Input[Optional[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPullRequestFilePathArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPullRequestBranchArgs']]] branches: The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineTriggerAllGitConfigurationPullRequestFilePathArgs']]] file_paths: The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
         """
         if branches is not None:
@@ -2207,7 +2207,7 @@ class PipelineTriggerAllGitConfigurationPullRequestArgs:
     @pulumi.getter
     def events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
+        A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
         """
         return pulumi.get(self, "events")
 
@@ -2617,7 +2617,7 @@ class PipelineTriggerGitConfigurationPullRequestArgsDict(TypedDict):
     """
     events: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
+    A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
     """
     file_paths: NotRequired[pulumi.Input[Optional['PipelineTriggerGitConfigurationPullRequestFilePathsArgsDict']]]
     """
@@ -2632,7 +2632,7 @@ class PipelineTriggerGitConfigurationPullRequestArgs:
                  file_paths: pulumi.Input[Optional['PipelineTriggerGitConfigurationPullRequestFilePathsArgs']] = None):
         """
         :param pulumi.Input['PipelineTriggerGitConfigurationPullRequestBranchesArgs'] branches: The field that specifies to filter on branches for the pull request trigger configuration. A `branches` block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] events: A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
         :param pulumi.Input['PipelineTriggerGitConfigurationPullRequestFilePathsArgs'] file_paths: The field that specifies to filter on file paths for the pull request trigger configuration. A `file_paths` block is documented below.
         """
         if branches is not None:
@@ -2658,7 +2658,7 @@ class PipelineTriggerGitConfigurationPullRequestArgs:
     @pulumi.getter
     def events(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, `UPDATED ` and `CLOSED`.
+        A list that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration. Possible values are `OPEN`, ` UPDATED  ` and `CLOSED`.
         """
         return pulumi.get(self, "events")
 

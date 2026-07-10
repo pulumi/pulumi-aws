@@ -146,9 +146,9 @@ def get_bucket_notification(bucket: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     shared = aws.s3.get_bucket_notification(bucket="shared-bucket")
-    s3_object_created: list[Any] = []
-    for range in [{"value": i} for i in range(0, 1 if shared.eventbridge else 0)]:
-        s3_object_created.append(aws.cloudwatch.EventRule(f"s3_object_created-{range['value']}",
+    s3_object_created: list[aws.cloudwatch.EventRule] = []
+    for s3_object_created_range in [{"value": i} for i in range(0, 1 if shared.eventbridge else 0)]:
+        s3_object_created.append(aws.cloudwatch.EventRule(f"s3_object_created-{s3_object_created_range['value']}",
             name="shared-bucket-object-created",
             description="S3 object-created events from the shared bucket.",
             event_pattern=json.dumps({
@@ -262,9 +262,9 @@ def get_bucket_notification_output(bucket: pulumi.Input[Optional[_builtins.str]]
     import pulumi_aws as aws
 
     shared = aws.s3.get_bucket_notification(bucket="shared-bucket")
-    s3_object_created: list[Any] = []
-    for range in [{"value": i} for i in range(0, 1 if shared.eventbridge else 0)]:
-        s3_object_created.append(aws.cloudwatch.EventRule(f"s3_object_created-{range['value']}",
+    s3_object_created: list[aws.cloudwatch.EventRule] = []
+    for s3_object_created_range in [{"value": i} for i in range(0, 1 if shared.eventbridge else 0)]:
+        s3_object_created.append(aws.cloudwatch.EventRule(f"s3_object_created-{s3_object_created_range['value']}",
             name="shared-bucket-object-created",
             description="S3 object-created events from the shared bucket.",
             event_pattern=json.dumps({

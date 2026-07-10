@@ -37,7 +37,7 @@ class ConnectorProfileArgs:
         :param pulumi.Input[_builtins.str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
         :param pulumi.Input[_builtins.str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+               * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         pulumi.set(__self__, "connection_mode", connection_mode)
         pulumi.set(__self__, "connector_profile_config", connector_profile_config)
@@ -125,7 +125,7 @@ class ConnectorProfileArgs:
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+        * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         return pulumi.get(self, "region")
 
@@ -157,7 +157,7 @@ class _ConnectorProfileState:
         :param pulumi.Input[_builtins.str] credentials_arn: ARN of the connector profile credentials.
         :param pulumi.Input[_builtins.str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+               * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -276,7 +276,7 @@ class _ConnectorProfileState:
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+        * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         return pulumi.get(self, "region")
 
@@ -389,7 +389,7 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[_builtins.str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+               * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         ...
     @overload
@@ -559,7 +559,7 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] credentials_arn: ARN of the connector profile credentials.
         :param pulumi.Input[_builtins.str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+               * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -642,7 +642,7 @@ class ConnectorProfile(pulumi.CustomResource):
     def region(self) -> pulumi.Output[_builtins.str]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+        * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         return pulumi.get(self, "region")
 

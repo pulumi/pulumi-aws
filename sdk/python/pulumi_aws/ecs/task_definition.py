@@ -55,7 +55,7 @@ class TaskDefinitionArgs:
         :param pulumi.Input[_builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
         :param pulumi.Input[_builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
-        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host`, `task`.
+        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -224,7 +224,7 @@ class TaskDefinitionArgs:
     @pulumi.getter(name="pidMode")
     def pid_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Process namespace to use for the containers in the task. Valid values: host`, `task`.
+        Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
         """
         return pulumi.get(self, "pid_mode")
 
@@ -400,7 +400,7 @@ class _TaskDefinitionState:
         :param pulumi.Input[_builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
         :param pulumi.Input[_builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
-        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host`, `task`.
+        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -605,7 +605,7 @@ class _TaskDefinitionState:
     @pulumi.getter(name="pidMode")
     def pid_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Process namespace to use for the containers in the task. Valid values: host`, `task`.
+        Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
         """
         return pulumi.get(self, "pid_mode")
 
@@ -1033,7 +1033,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
         :param pulumi.Input[_builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
-        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host`, `task`.
+        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1412,7 +1412,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ipc_mode: IPC resource namespace to be used for the containers in the task. Valid values: `host`, `task`, `none`.
         :param pulumi.Input[_builtins.str] memory: Amount (in MiB) of memory used by the task. If the `requires_compatibilities` is `FARGATE` this field is required.
         :param pulumi.Input[_builtins.str] network_mode: Docker networking mode to use for the containers in the task. Valid values: `awsvpc`, `bridge`, `host`, and `none`.
-        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host`, `task`.
+        :param pulumi.Input[_builtins.str] pid_mode: Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionPlacementConstraintArgs', 'TaskDefinitionPlacementConstraintArgsDict']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input[Union['TaskDefinitionProxyConfigurationArgs', 'TaskDefinitionProxyConfigurationArgsDict']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1554,7 +1554,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="pidMode")
     def pid_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Process namespace to use for the containers in the task. Valid values: host`, `task`.
+        Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
         """
         return pulumi.get(self, "pid_mode")
 

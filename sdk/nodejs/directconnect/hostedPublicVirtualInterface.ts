@@ -66,7 +66,7 @@ export class HostedPublicVirtualInterface extends pulumi.CustomResource {
     }
 
     /**
-     * The address family for the BGP peer. `ipv4 ` or `ipv6`.
+     * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      */
     declare public readonly addressFamily: pulumi.Output<string>;
     /**
@@ -191,7 +191,7 @@ export class HostedPublicVirtualInterface extends pulumi.CustomResource {
  */
 export interface HostedPublicVirtualInterfaceState {
     /**
-     * The address family for the BGP peer. `ipv4 ` or `ipv6`.
+     * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      */
     addressFamily?: pulumi.Input<string | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface HostedPublicVirtualInterfaceState {
  */
 export interface HostedPublicVirtualInterfaceArgs {
     /**
-     * The address family for the BGP peer. `ipv4 ` or `ipv6`.
+     * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      */
     addressFamily: pulumi.Input<string>;
     /**

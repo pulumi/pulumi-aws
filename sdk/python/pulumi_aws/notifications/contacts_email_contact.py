@@ -31,7 +31,7 @@ class ContactsEmailContactArgs:
                characters, underscores, tildes, periods, and hyphens.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -73,7 +73,7 @@ class ContactsEmailContactArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of tags to assign to the resource. If configured with a provider 
+        Map of tags to assign to the resource. If configured with a provider
         `default_tags` configuration block
         present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -102,10 +102,10 @@ class _ContactsEmailContactState:
                characters, underscores, tildes, periods, and hyphens.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider
                `default_tags` configuration block.
         """
         if arn is not None:
@@ -163,7 +163,7 @@ class _ContactsEmailContactState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of tags to assign to the resource. If configured with a provider 
+        Map of tags to assign to the resource. If configured with a provider
         `default_tags` configuration block
         present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -177,7 +177,7 @@ class _ContactsEmailContactState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of tags assigned to the resource, including those inherited from the provider 
+        Map of tags assigned to the resource, including those inherited from the provider
         `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
@@ -233,7 +233,7 @@ class ContactsEmailContact(pulumi.CustomResource):
                characters, underscores, tildes, periods, and hyphens.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -334,10 +334,10 @@ class ContactsEmailContact(pulumi.CustomResource):
                characters, underscores, tildes, periods, and hyphens.
                
                The following arguments are optional:
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider
                `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -383,7 +383,7 @@ class ContactsEmailContact(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Map of tags to assign to the resource. If configured with a provider 
+        Map of tags to assign to the resource. If configured with a provider
         `default_tags` configuration block
         present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -393,7 +393,7 @@ class ContactsEmailContact(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        Map of tags assigned to the resource, including those inherited from the provider 
+        Map of tags assigned to the resource, including those inherited from the provider
         `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")

@@ -1108,10 +1108,10 @@ class ClusterInstance(pulumi.CustomResource):
             database_name="mydb",
             master_username="foo",
             master_password="barbut8chars")
-        cluster_instances: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            cluster_instances.append(aws.rds.ClusterInstance(f"cluster_instances-{range['value']}",
-                identifier=f"aurora-cluster-demo-{range['value']}",
+        cluster_instances: list[aws.rds.ClusterInstance] = []
+        for cluster_instances_range in [{"value": i} for i in range(0, 2)]:
+            cluster_instances.append(aws.rds.ClusterInstance(f"cluster_instances-{cluster_instances_range['value']}",
+                identifier=f"aurora-cluster-demo-{cluster_instances_range['value']}",
                 cluster_identifier=default.id,
                 instance_class=aws.rds.InstanceType.R4_LARGE,
                 engine=default.engine.apply(lambda x: aws.rds.EngineType(x)),
@@ -1201,10 +1201,10 @@ class ClusterInstance(pulumi.CustomResource):
             database_name="mydb",
             master_username="foo",
             master_password="barbut8chars")
-        cluster_instances: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            cluster_instances.append(aws.rds.ClusterInstance(f"cluster_instances-{range['value']}",
-                identifier=f"aurora-cluster-demo-{range['value']}",
+        cluster_instances: list[aws.rds.ClusterInstance] = []
+        for cluster_instances_range in [{"value": i} for i in range(0, 2)]:
+            cluster_instances.append(aws.rds.ClusterInstance(f"cluster_instances-{cluster_instances_range['value']}",
+                identifier=f"aurora-cluster-demo-{cluster_instances_range['value']}",
                 cluster_identifier=default.id,
                 instance_class=aws.rds.InstanceType.R4_LARGE,
                 engine=default.engine.apply(lambda x: aws.rds.EngineType(x)),

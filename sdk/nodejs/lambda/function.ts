@@ -129,10 +129,10 @@ import * as utilities from "../utilities";
  * ];
  * // Mount target in each subnet
  * const exampleMountTarget: aws.efs.MountTarget[] = [];
- * for (const range = {value: 0}; range.value < subnetIds.length; range.value++) {
- *     exampleMountTarget.push(new aws.efs.MountTarget(`example-${range.value}`, {
+ * for (let range = 0; range < subnetIds.length; range++) {
+ *     exampleMountTarget.push(new aws.efs.MountTarget(`example-${range}`, {
  *         fileSystemId: example.id,
- *         subnetId: subnetIds[range.value],
+ *         subnetId: subnetIds[range],
  *         securityGroups: [efs.id],
  *     }));
  * }

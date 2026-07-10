@@ -6438,7 +6438,7 @@ class SecurityConfigurationEncryptionConfigurationArgsDict(TypedDict):
     job_bookmarks_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgsDict']
     s3_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArgsDict']
     """
-    A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
+    A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
     """
 
 @pulumi.input_type
@@ -6448,7 +6448,7 @@ class SecurityConfigurationEncryptionConfigurationArgs:
                  job_bookmarks_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs'],
                  s3_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArgs']):
         """
-        :param pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArgs'] s3_encryption: A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
+        :param pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArgs'] s3_encryption: A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
         """
         pulumi.set(__self__, "cloudwatch_encryption", cloudwatch_encryption)
         pulumi.set(__self__, "job_bookmarks_encryption", job_bookmarks_encryption)
@@ -6476,7 +6476,7 @@ class SecurityConfigurationEncryptionConfigurationArgs:
     @pulumi.getter(name="s3Encryption")
     def s3_encryption(self) -> pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArgs']:
         """
-        A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
+        A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
         """
         return pulumi.get(self, "s3_encryption")
 

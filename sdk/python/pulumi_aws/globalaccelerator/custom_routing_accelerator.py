@@ -145,8 +145,8 @@ class _CustomRoutingAcceleratorState:
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[_builtins.str] hosted_zone_id: -  The Global Accelerator Route 53 zone ID that can be used to
-               route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-               is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+                  route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+                  is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         :param pulumi.Input[_builtins.str] ip_address_type: The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         :param pulumi.Input[Sequence[pulumi.Input['CustomRoutingAcceleratorIpSetArgs']]] ip_sets: IP address set associated with the accelerator.
@@ -230,8 +230,8 @@ class _CustomRoutingAcceleratorState:
     def hosted_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         -  The Global Accelerator Route 53 zone ID that can be used to
-        route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-        is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+           route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+           is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -486,8 +486,8 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[_builtins.str] hosted_zone_id: -  The Global Accelerator Route 53 zone ID that can be used to
-               route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-               is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+                  route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+                  is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         :param pulumi.Input[_builtins.str] ip_address_type: The IP address type that an accelerator supports. For a custom routing accelerator, the value must be `"IPV4"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CustomRoutingAcceleratorIpSetArgs', 'CustomRoutingAcceleratorIpSetArgsDict']]]] ip_sets: IP address set associated with the accelerator.
@@ -549,8 +549,8 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
     def hosted_zone_id(self) -> pulumi.Output[_builtins.str]:
         """
         -  The Global Accelerator Route 53 zone ID that can be used to
-        route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-        is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+           route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+           is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
         """
         return pulumi.get(self, "hosted_zone_id")
 

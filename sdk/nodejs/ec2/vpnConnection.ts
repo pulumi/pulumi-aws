@@ -265,7 +265,7 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     declare public readonly tunnel1LogOptions: pulumi.Output<outputs.ec2.VpnConnectionTunnel1LogOptions>;
     /**
-     * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+     * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      */
     declare public readonly tunnel1Phase1DhGroupNumbers: pulumi.Output<number[] | undefined>;
     /**
@@ -365,7 +365,7 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     declare public readonly tunnel2LogOptions: pulumi.Output<outputs.ec2.VpnConnectionTunnel2LogOptions>;
     /**
-     * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+     * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      */
     declare public readonly tunnel2Phase1DhGroupNumbers: pulumi.Output<number[] | undefined>;
     /**
@@ -761,7 +761,7 @@ export interface VpnConnectionState {
      */
     tunnel1LogOptions?: pulumi.Input<inputs.ec2.VpnConnectionTunnel1LogOptions | undefined>;
     /**
-     * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+     * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      */
     tunnel1Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
@@ -861,7 +861,7 @@ export interface VpnConnectionState {
      */
     tunnel2LogOptions?: pulumi.Input<inputs.ec2.VpnConnectionTunnel2LogOptions | undefined>;
     /**
-     * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+     * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      */
     tunnel2Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
@@ -1027,7 +1027,7 @@ export interface VpnConnectionArgs {
      */
     tunnel1LogOptions?: pulumi.Input<inputs.ec2.VpnConnectionTunnel1LogOptions | undefined>;
     /**
-     * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+     * List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      */
     tunnel1Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
@@ -1107,7 +1107,7 @@ export interface VpnConnectionArgs {
      */
     tunnel2LogOptions?: pulumi.Input<inputs.ec2.VpnConnectionTunnel2LogOptions | undefined>;
     /**
-     * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+     * List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
      */
     tunnel2Phase1DhGroupNumbers?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**

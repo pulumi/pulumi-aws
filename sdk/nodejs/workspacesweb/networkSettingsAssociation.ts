@@ -30,25 +30,25 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleSubnet: aws.ec2.Subnet[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range.value}`, {
+ * for (let range = 0; range < 2; range++) {
+ *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range}`, {
  *         vpcId: example.id,
  *         cidrBlock: std.cidrsubnetOutput({
  *             input: example.cidrBlock,
  *             newbits: 8,
- *             netnum: range.value,
+ *             netnum: range,
  *         }).apply(invoke => invoke.result),
- *         availabilityZone: available.then(available => available.names[range.value]),
+ *         availabilityZone: available.then(available => available.names[range]),
  *         tags: {
  *             Name: "example",
  *         },
  *     }));
  * }
  * const exampleSecurityGroup: aws.ec2.SecurityGroup[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     exampleSecurityGroup.push(new aws.ec2.SecurityGroup(`example-${range.value}`, {
+ * for (let range = 0; range < 2; range++) {
+ *     exampleSecurityGroup.push(new aws.ec2.SecurityGroup(`example-${range}`, {
  *         vpcId: example.id,
- *         name: `example-${range.value}`,
+ *         name: `example-${range}`,
  *         tags: {
  *             Name: "example",
  *         },

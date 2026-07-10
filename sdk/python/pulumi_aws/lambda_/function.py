@@ -1666,11 +1666,11 @@ class Function(pulumi.CustomResource):
                 "subnet-87654321",
             ]
         # Mount target in each subnet
-        example_mount_target: list[Any] = []
-        for range in [{"value": i} for i in range(0, len(subnet_ids))]:
-            example_mount_target.append(aws.efs.MountTarget(f"example-{range['value']}",
+        example_mount_target: list[aws.efs.MountTarget] = []
+        for example_mount_target_range in [{"value": i} for i in range(0, len(subnet_ids))]:
+            example_mount_target.append(aws.efs.MountTarget(f"example-{example_mount_target_range['value']}",
                 file_system_id=example.id,
-                subnet_id=subnet_ids[range["value"]],
+                subnet_id=subnet_ids[example_mount_target_range["value"]],
                 security_groups=[efs["id"]]))
         # Access point for Lambda
         example_access_point = aws.efs.AccessPoint("example",
@@ -2233,11 +2233,11 @@ class Function(pulumi.CustomResource):
                 "subnet-87654321",
             ]
         # Mount target in each subnet
-        example_mount_target: list[Any] = []
-        for range in [{"value": i} for i in range(0, len(subnet_ids))]:
-            example_mount_target.append(aws.efs.MountTarget(f"example-{range['value']}",
+        example_mount_target: list[aws.efs.MountTarget] = []
+        for example_mount_target_range in [{"value": i} for i in range(0, len(subnet_ids))]:
+            example_mount_target.append(aws.efs.MountTarget(f"example-{example_mount_target_range['value']}",
                 file_system_id=example.id,
-                subnet_id=subnet_ids[range["value"]],
+                subnet_id=subnet_ids[example_mount_target_range["value"]],
                 security_groups=[efs["id"]]))
         # Access point for Lambda
         example_access_point = aws.efs.AccessPoint("example",

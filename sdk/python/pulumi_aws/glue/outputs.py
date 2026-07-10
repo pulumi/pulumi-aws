@@ -5483,7 +5483,7 @@ class SecurityConfigurationEncryptionConfiguration(dict):
                  job_bookmarks_encryption: 'outputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption',
                  s3_encryption: 'outputs.SecurityConfigurationEncryptionConfigurationS3Encryption'):
         """
-        :param 'SecurityConfigurationEncryptionConfigurationS3EncryptionArgs' s3_encryption: A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
+        :param 'SecurityConfigurationEncryptionConfigurationS3EncryptionArgs' s3_encryption: A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
         """
         pulumi.set(__self__, "cloudwatch_encryption", cloudwatch_encryption)
         pulumi.set(__self__, "job_bookmarks_encryption", job_bookmarks_encryption)
@@ -5503,7 +5503,7 @@ class SecurityConfigurationEncryptionConfiguration(dict):
     @pulumi.getter(name="s3Encryption")
     def s3_encryption(self) -> 'outputs.SecurityConfigurationEncryptionConfigurationS3Encryption':
         """
-        A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
+        A ` s3_encryption  ` block as described below, which contains encryption configuration for S3 data.
         """
         return pulumi.get(self, "s3_encryption")
 

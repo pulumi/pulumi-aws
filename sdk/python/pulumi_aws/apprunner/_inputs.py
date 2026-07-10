@@ -853,9 +853,9 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgsDict(TypedDic
     """
     Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
     * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-    source code repository and ignores the CodeConfigurationValues parameter.
+      source code repository and ignores the CodeConfigurationValues parameter.
     * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-    parameter and ignores the apprunner.yaml file in the source code repository.
+      parameter and ignores the apprunner.yaml file in the source code repository.
     """
     code_configuration_values: NotRequired[pulumi.Input[Optional['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgsDict']]]
     """
@@ -870,9 +870,9 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] configuration_source: Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
                * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-               source code repository and ignores the CodeConfigurationValues parameter.
+                 source code repository and ignores the CodeConfigurationValues parameter.
                * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-               parameter and ignores the apprunner.yaml file in the source code repository.
+                 parameter and ignores the apprunner.yaml file in the source code repository.
         :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs'] code_configuration_values: Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
         """
         pulumi.set(__self__, "configuration_source", configuration_source)
@@ -885,9 +885,9 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs:
         """
         Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
         * `REPOSITORY` - App Runner reads configuration values from the apprunner.yaml file in the
-        source code repository and ignores the CodeConfigurationValues parameter.
+          source code repository and ignores the CodeConfigurationValues parameter.
         * `API` - App Runner uses configuration values provided in the CodeConfigurationValues
-        parameter and ignores the apprunner.yaml file in the source code repository.
+          parameter and ignores the apprunner.yaml file in the source code repository.
         """
         return pulumi.get(self, "configuration_source")
 

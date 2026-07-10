@@ -841,9 +841,9 @@ class ClusterInstance(pulumi.CustomResource):
             skip_final_snapshot=True,
             iam_database_authentication_enabled=True,
             apply_immediately=True)
-        example: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example.append(aws.neptune.ClusterInstance(f"example-{range['value']}",
+        example: list[aws.neptune.ClusterInstance] = []
+        for example_range in [{"value": i} for i in range(0, 2)]:
+            example.append(aws.neptune.ClusterInstance(f"example-{example_range['value']}",
                 cluster_identifier=default.id,
                 engine="neptune",
                 instance_class="db.r4.large",
@@ -912,9 +912,9 @@ class ClusterInstance(pulumi.CustomResource):
             skip_final_snapshot=True,
             iam_database_authentication_enabled=True,
             apply_immediately=True)
-        example: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example.append(aws.neptune.ClusterInstance(f"example-{range['value']}",
+        example: list[aws.neptune.ClusterInstance] = []
+        for example_range in [{"value": i} for i in range(0, 2)]:
+            example.append(aws.neptune.ClusterInstance(f"example-{example_range['value']}",
                 cluster_identifier=default.id,
                 engine="neptune",
                 instance_class="db.r4.large",
