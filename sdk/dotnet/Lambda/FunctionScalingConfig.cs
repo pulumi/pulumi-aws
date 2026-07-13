@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Lambda
     ///     {
     ///         FunctionName = exampleFunction.Name,
     ///         Qualifier = "$LATEST.PUBLISHED",
-    ///         FunctionScalingConfig = new Aws.Lambda.Inputs.FunctionScalingConfigFunctionScalingConfigArgs
+    ///         FunctionScalingConfigDetails = new Aws.Lambda.Inputs.FunctionScalingConfigFunctionScalingConfigArgs
     ///         {
     ///             MinExecutionEnvironments = 3,
     ///             MaxExecutionEnvironments = 100,
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Lambda
         /// Scaling configuration block. See `FunctionScalingConfig` Block below.
         /// </summary>
         [Output("functionScalingConfig")]
-        public Output<Outputs.FunctionScalingConfigFunctionScalingConfig> FunctionScalingConfig { get; private set; } = null!;
+        public Output<Outputs.FunctionScalingConfigFunctionScalingConfig> FunctionScalingConfigDetails { get; private set; } = null!;
 
         /// <summary>
         /// State of the function after the scaling configuration was applied. This reflects the state reported by the most recent create or update and is not refreshed on read.
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Lambda
         /// Scaling configuration block. See `FunctionScalingConfig` Block below.
         /// </summary>
         [Input("functionScalingConfig", required: true)]
-        public Input<Inputs.FunctionScalingConfigFunctionScalingConfigArgs> FunctionScalingConfig { get; set; } = null!;
+        public Input<Inputs.FunctionScalingConfigFunctionScalingConfigArgs> FunctionScalingConfigDetails { get; set; } = null!;
 
         /// <summary>
         /// Qualifier for the scaling configuration. Valid values: `$LATEST.PUBLISHED` to target the latest published version, or a specific numeric version number (e.g., `1`). Changing this forces a new resource.
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Lambda
         /// Scaling configuration block. See `FunctionScalingConfig` Block below.
         /// </summary>
         [Input("functionScalingConfig")]
-        public Input<Inputs.FunctionScalingConfigFunctionScalingConfigGetArgs>? FunctionScalingConfig { get; set; }
+        public Input<Inputs.FunctionScalingConfigFunctionScalingConfigGetArgs>? FunctionScalingConfigDetails { get; set; }
 
         /// <summary>
         /// State of the function after the scaling configuration was applied. This reflects the state reported by the most recent create or update and is not refreshed on read.

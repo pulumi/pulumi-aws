@@ -74,7 +74,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// Region where Terraform calls the SSO Admin API for this resource. Defaults to the Region in the provider configuration.
         /// </summary>
         [Output("region")]
-        public Output<string> Region { get; private set; } = null!;
+        public Output<string> AwsRegion { get; private set; } = null!;
 
         /// <summary>
         /// AWS Region to add (for example, `us-east-1`). Changing this forces a new resource.
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// Region where Terraform calls the SSO Admin API for this resource. Defaults to the Region in the provider configuration.
         /// </summary>
         [Input("region")]
-        public Input<string>? Region { get; set; }
+        public Input<string>? AwsRegion { get; set; }
 
         /// <summary>
         /// AWS Region to add (for example, `us-east-1`). Changing this forces a new resource.
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// Region where Terraform calls the SSO Admin API for this resource. Defaults to the Region in the provider configuration.
         /// </summary>
         [Input("region")]
-        public Input<string>? Region { get; set; }
+        public Input<string>? AwsRegion { get; set; }
 
         /// <summary>
         /// AWS Region to add (for example, `us-east-1`). Changing this forces a new resource.
