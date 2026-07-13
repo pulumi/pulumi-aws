@@ -50,6 +50,7 @@ export interface ContainerDefinition {
     readonlyRootFilesystem?: pulumi.Input<boolean>;
     repositoryCredentials?: RepositoryCredentials;
     resourceRequirements?: ResourceRequirements[];
+    restartPolicy?: ContainerRestartPolicy;
     secrets?: Secret[];
     startTimeout?: pulumi.Input<number>;
     stopTimeout?: pulumi.Input<number>;
@@ -242,6 +243,37 @@ export interface ResourceRequirements {
      * available GPUs on the container instance the task is launched on.
      */
     value: pulumi.Input<string>;
+}
+
+/**
+ * The restart policy for the container. When you enable a restart policy for a container, Amazon
+ * ECS can restart the container if it exits, without needing to replace the task. For more
+ * information, see [Restart individual containers in Amazon ECS tasks with container restart
+ * policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html)
+ * in the Amazon Elastic Container Service Developer Guide.
+ *
+ * See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerRestartPolicy.html.
+ */
+export interface ContainerRestartPolicy {
+    /**
+     * Specifies whether a restart policy is enabled for the container.
+     */
+    enabled: pulumi.Input<boolean>;
+
+    /**
+     * A list of exit codes that Amazon ECS will ignore and not attempt a restart on. You can
+     * specify a maximum of 50 container exit codes. By default, Amazon ECS does not ignore any
+     * exit codes.
+     */
+    ignoredExitCodes?: pulumi.Input<number[]>;
+
+    /**
+     * A period of time (in seconds) that the container must run for before a restart can be
+     * attempted. A container can be restarted only once every restartAttemptPeriod seconds. You
+     * can set a minimum restartAttemptPeriod of 60 seconds and a maximum restartAttemptPeriod of
+     * 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
+     */
+    restartAttemptPeriod?: pulumi.Input<number>;
 }
 
 /**
