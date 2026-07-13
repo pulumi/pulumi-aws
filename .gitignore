@@ -2,6 +2,7 @@
 .code
 **/vendor/
 .pulumi
+.opencode
 **/bin/
 **/obj/
 Pulumi.*.yaml
