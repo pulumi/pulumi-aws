@@ -57,6 +57,7 @@ export interface ContainerDefinition {
     systemControls?: SystemControl[];
     ulimits?: Ulimit[];
     user?: pulumi.Input<string>;
+    versionConsistency?: VersionConsistency;
     volumesFrom?: VolumeFrom[];
     workingDirectory?: pulumi.Input<string>;
 }
@@ -340,4 +341,7 @@ export interface SystemControl {
      */
     value?: pulumi.Input<string>;
 }
+
+// See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html
+export type VersionConsistency = "enabled" | "disabled";
 
