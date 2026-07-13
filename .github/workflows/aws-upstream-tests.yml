@@ -108,6 +108,7 @@ jobs:
       - if: ${{ matrix.tests }}
         name: Test ${{ matrix.service }}
         # TODO[pulumi/pulumi-aws#6115]: reenable TestAccSQSQueue_List_basic
+        # TODO[pulumi/pulumi-aws#6517]: reenable TestAccSQSQueue_managedEncryption
         run: |
           cd upstream
-          TF_ACC=1 make testacc GO_VER=go PKG=${{ matrix.service }} ACCTEST_PARALLELISM=6 TESTS="${{ matrix.tests }}" TESTARGS="-skip 'tags|TestAccSQSQueue_List_basic|.*/.*/Tags'"
+          TF_ACC=1 make testacc GO_VER=go PKG=${{ matrix.service }} ACCTEST_PARALLELISM=6 TESTS="${{ matrix.tests }}" TESTARGS="-skip 'tags|TestAccSQSQueue_List_basic|TestAccSQSQueue_managedEncryption|.*/.*/Tags'"
