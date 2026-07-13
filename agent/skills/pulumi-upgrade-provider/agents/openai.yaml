@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pulumi Upgrade Provider"
+  short_description: "Upgrade providers and fix common upgrade blockers."
+  default_prompt: "Use $pulumi-upgrade-provider to run upgrade-provider for this repo, fix known failures, and summarize unblocker edits."

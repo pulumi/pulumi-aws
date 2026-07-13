@@ -1,0 +1,10 @@
+# Queries that should activate the pulumi-upgrade-provider skill
+queries:
+  - "Run upgrade-provider for this Pulumi provider repo and fix any known failures"
+  - "Use the upgrade-provider tool to bump this bridged provider to the latest upstream version"
+  - "Upgrade this Pulumi provider repository to Terraform provider v2.0.0 with upgrade-provider"
+  - "The provider upgrade failed with patch conflicts in upstream; help me resolve and rerun upgrade-provider"
+  - "upgrade-provider failed with unknown revision v0.0.0 from an upstream replace directive"
+  - "make tfgen is failing after an upgrade-provider run because a new resource is missing module mapping"
+  - "make generate_sdks failed with a duplicate .NET file during a Pulumi provider upgrade"
+  - "A provider upgrade PR review says provider/replacements.json contains TODO placeholders"
