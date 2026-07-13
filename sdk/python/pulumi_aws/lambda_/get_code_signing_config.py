@@ -188,9 +188,9 @@ def get_code_signing_config(arn: Optional[_builtins.str] = None,
     profile_allowed = std.contains(input=allowed_profiles,
         element=required_profile).result
     # Conditional resource creation based on signing profile validation
-    conditional: list[Any] = []
-    for range in [{"value": i} for i in range(0, 1 if profile_allowed else 0)]:
-        conditional.append(aws.lambda_.Function(f"conditional-{range['value']}",
+    conditional: list[aws.lambda_.Function] = []
+    for conditional_range in [{"value": i} for i in range(0, 1 if profile_allowed else 0)]:
+        conditional.append(aws.lambda_.Function(f"conditional-{conditional_range['value']}",
             code=pulumi.FileArchive("function.zip"),
             name="conditional-function",
             role=lambda_role["arn"],
@@ -305,9 +305,9 @@ def get_code_signing_config_output(arn: pulumi.Input[Optional[_builtins.str]] = 
     profile_allowed = std.contains(input=allowed_profiles,
         element=required_profile).result
     # Conditional resource creation based on signing profile validation
-    conditional: list[Any] = []
-    for range in [{"value": i} for i in range(0, 1 if profile_allowed else 0)]:
-        conditional.append(aws.lambda_.Function(f"conditional-{range['value']}",
+    conditional: list[aws.lambda_.Function] = []
+    for conditional_range in [{"value": i} for i in range(0, 1 if profile_allowed else 0)]:
+        conditional.append(aws.lambda_.Function(f"conditional-{conditional_range['value']}",
             code=pulumi.FileArchive("function.zip"),
             name="conditional-function",
             role=lambda_role["arn"],

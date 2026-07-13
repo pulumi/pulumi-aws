@@ -33,14 +33,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleSubnet: aws.ec2.Subnet[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range.value}`, {
+ * for (let range = 0; range < 2; range++) {
+ *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range}`, {
  *         vpcId: exampleVpc.id,
- *         availabilityZone: available.then(available => available.names[range.value]),
+ *         availabilityZone: available.then(available => available.names[range]),
  *         cidrBlock: std.cidrsubnetOutput({
  *             input: exampleVpc.cidrBlock,
  *             newbits: 8,
- *             netnum: range.value,
+ *             netnum: range,
  *         }).apply(invoke => invoke.result),
  *         tags: {
  *             Name: "Primary",
@@ -70,14 +70,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const example_secondarySubnet: aws.ec2.Subnet[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     example_secondarySubnet.push(new aws.ec2.Subnet(`example-secondary-${range.value}`, {
+ * for (let range = 0; range < 2; range++) {
+ *     example_secondarySubnet.push(new aws.ec2.Subnet(`example-secondary-${range}`, {
  *         vpcId: example_secondary.id,
- *         availabilityZone: available_secondary.then(available_secondary => available_secondary.names[range.value]),
+ *         availabilityZone: available_secondary.then(available_secondary => available_secondary.names[range]),
  *         cidrBlock: std.cidrsubnetOutput({
  *             input: example_secondary.cidrBlock,
  *             newbits: 8,
- *             netnum: range.value,
+ *             netnum: range,
  *         }).apply(invoke => invoke.result),
  *         tags: {
  *             Name: "Secondary",

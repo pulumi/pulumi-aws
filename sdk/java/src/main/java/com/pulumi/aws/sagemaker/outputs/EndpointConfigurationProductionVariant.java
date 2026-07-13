@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariantCapacityReservationConfig;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariantCoreDumpConfig;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariantManagedInstanceScaling;
 import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariantRoutingConfig;
@@ -24,6 +25,11 @@ public final class EndpointConfigurationProductionVariant {
      * 
      */
     private @Nullable String acceleratorType;
+    /**
+     * @return Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See capacityReservationConfig below.
+     * 
+     */
+    private @Nullable EndpointConfigurationProductionVariantCapacityReservationConfig capacityReservationConfig;
     /**
      * @return Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
      * 
@@ -102,6 +108,13 @@ public final class EndpointConfigurationProductionVariant {
      */
     public Optional<String> acceleratorType() {
         return Optional.ofNullable(this.acceleratorType);
+    }
+    /**
+     * @return Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See capacityReservationConfig below.
+     * 
+     */
+    public Optional<EndpointConfigurationProductionVariantCapacityReservationConfig> capacityReservationConfig() {
+        return Optional.ofNullable(this.capacityReservationConfig);
     }
     /**
      * @return Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
@@ -212,6 +225,7 @@ public final class EndpointConfigurationProductionVariant {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String acceleratorType;
+        private @Nullable EndpointConfigurationProductionVariantCapacityReservationConfig capacityReservationConfig;
         private @Nullable Integer containerStartupHealthCheckTimeoutInSeconds;
         private @Nullable EndpointConfigurationProductionVariantCoreDumpConfig coreDumpConfig;
         private @Nullable Boolean enableSsmAccess;
@@ -230,6 +244,7 @@ public final class EndpointConfigurationProductionVariant {
         public Builder(EndpointConfigurationProductionVariant defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acceleratorType = defaults.acceleratorType;
+    	      this.capacityReservationConfig = defaults.capacityReservationConfig;
     	      this.containerStartupHealthCheckTimeoutInSeconds = defaults.containerStartupHealthCheckTimeoutInSeconds;
     	      this.coreDumpConfig = defaults.coreDumpConfig;
     	      this.enableSsmAccess = defaults.enableSsmAccess;
@@ -250,6 +265,12 @@ public final class EndpointConfigurationProductionVariant {
         public Builder acceleratorType(@Nullable String acceleratorType) {
 
             this.acceleratorType = acceleratorType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder capacityReservationConfig(@Nullable EndpointConfigurationProductionVariantCapacityReservationConfig capacityReservationConfig) {
+
+            this.capacityReservationConfig = capacityReservationConfig;
             return this;
         }
         @CustomType.Setter
@@ -342,6 +363,7 @@ public final class EndpointConfigurationProductionVariant {
         public EndpointConfigurationProductionVariant build() {
             final var _resultValue = new EndpointConfigurationProductionVariant();
             _resultValue.acceleratorType = acceleratorType;
+            _resultValue.capacityReservationConfig = capacityReservationConfig;
             _resultValue.containerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
             _resultValue.coreDumpConfig = coreDumpConfig;
             _resultValue.enableSsmAccess = enableSsmAccess;

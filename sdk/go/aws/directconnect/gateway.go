@@ -52,7 +52,6 @@ import (
 // #### Optional
 //
 // * `accountId` (String) AWS Account where this resource is managed.
-// * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:
 //

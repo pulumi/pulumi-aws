@@ -5593,6 +5593,337 @@ func (o FunctionLoggingConfigPtrOutput) SystemLogLevel() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type FunctionScalingConfigFunctionScalingConfig struct {
+	// Maximum number of execution environments that can be provisioned for the function.
+	MaxExecutionEnvironments *int `pulumi:"maxExecutionEnvironments"`
+	// Minimum number of execution environments to maintain for the function.
+	MinExecutionEnvironments *int `pulumi:"minExecutionEnvironments"`
+}
+
+// FunctionScalingConfigFunctionScalingConfigInput is an input type that accepts FunctionScalingConfigFunctionScalingConfigArgs and FunctionScalingConfigFunctionScalingConfigOutput values.
+// You can construct a concrete instance of `FunctionScalingConfigFunctionScalingConfigInput` via:
+//
+//	FunctionScalingConfigFunctionScalingConfigArgs{...}
+type FunctionScalingConfigFunctionScalingConfigInput interface {
+	pulumi.Input
+
+	ToFunctionScalingConfigFunctionScalingConfigOutput() FunctionScalingConfigFunctionScalingConfigOutput
+	ToFunctionScalingConfigFunctionScalingConfigOutputWithContext(context.Context) FunctionScalingConfigFunctionScalingConfigOutput
+}
+
+type FunctionScalingConfigFunctionScalingConfigArgs struct {
+	// Maximum number of execution environments that can be provisioned for the function.
+	MaxExecutionEnvironments pulumi.IntPtrInput `pulumi:"maxExecutionEnvironments"`
+	// Minimum number of execution environments to maintain for the function.
+	MinExecutionEnvironments pulumi.IntPtrInput `pulumi:"minExecutionEnvironments"`
+}
+
+func (FunctionScalingConfigFunctionScalingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionScalingConfigFunctionScalingConfig)(nil)).Elem()
+}
+
+func (i FunctionScalingConfigFunctionScalingConfigArgs) ToFunctionScalingConfigFunctionScalingConfigOutput() FunctionScalingConfigFunctionScalingConfigOutput {
+	return i.ToFunctionScalingConfigFunctionScalingConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionScalingConfigFunctionScalingConfigArgs) ToFunctionScalingConfigFunctionScalingConfigOutputWithContext(ctx context.Context) FunctionScalingConfigFunctionScalingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionScalingConfigFunctionScalingConfigOutput)
+}
+
+func (i FunctionScalingConfigFunctionScalingConfigArgs) ToFunctionScalingConfigFunctionScalingConfigPtrOutput() FunctionScalingConfigFunctionScalingConfigPtrOutput {
+	return i.ToFunctionScalingConfigFunctionScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionScalingConfigFunctionScalingConfigArgs) ToFunctionScalingConfigFunctionScalingConfigPtrOutputWithContext(ctx context.Context) FunctionScalingConfigFunctionScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionScalingConfigFunctionScalingConfigOutput).ToFunctionScalingConfigFunctionScalingConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionScalingConfigFunctionScalingConfigPtrInput is an input type that accepts FunctionScalingConfigFunctionScalingConfigArgs, FunctionScalingConfigFunctionScalingConfigPtr and FunctionScalingConfigFunctionScalingConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionScalingConfigFunctionScalingConfigPtrInput` via:
+//
+//	        FunctionScalingConfigFunctionScalingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionScalingConfigFunctionScalingConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionScalingConfigFunctionScalingConfigPtrOutput() FunctionScalingConfigFunctionScalingConfigPtrOutput
+	ToFunctionScalingConfigFunctionScalingConfigPtrOutputWithContext(context.Context) FunctionScalingConfigFunctionScalingConfigPtrOutput
+}
+
+type functionScalingConfigFunctionScalingConfigPtrType FunctionScalingConfigFunctionScalingConfigArgs
+
+func FunctionScalingConfigFunctionScalingConfigPtr(v *FunctionScalingConfigFunctionScalingConfigArgs) FunctionScalingConfigFunctionScalingConfigPtrInput {
+	return (*functionScalingConfigFunctionScalingConfigPtrType)(v)
+}
+
+func (*functionScalingConfigFunctionScalingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionScalingConfigFunctionScalingConfig)(nil)).Elem()
+}
+
+func (i *functionScalingConfigFunctionScalingConfigPtrType) ToFunctionScalingConfigFunctionScalingConfigPtrOutput() FunctionScalingConfigFunctionScalingConfigPtrOutput {
+	return i.ToFunctionScalingConfigFunctionScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionScalingConfigFunctionScalingConfigPtrType) ToFunctionScalingConfigFunctionScalingConfigPtrOutputWithContext(ctx context.Context) FunctionScalingConfigFunctionScalingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionScalingConfigFunctionScalingConfigPtrOutput)
+}
+
+type FunctionScalingConfigFunctionScalingConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionScalingConfigFunctionScalingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionScalingConfigFunctionScalingConfig)(nil)).Elem()
+}
+
+func (o FunctionScalingConfigFunctionScalingConfigOutput) ToFunctionScalingConfigFunctionScalingConfigOutput() FunctionScalingConfigFunctionScalingConfigOutput {
+	return o
+}
+
+func (o FunctionScalingConfigFunctionScalingConfigOutput) ToFunctionScalingConfigFunctionScalingConfigOutputWithContext(ctx context.Context) FunctionScalingConfigFunctionScalingConfigOutput {
+	return o
+}
+
+func (o FunctionScalingConfigFunctionScalingConfigOutput) ToFunctionScalingConfigFunctionScalingConfigPtrOutput() FunctionScalingConfigFunctionScalingConfigPtrOutput {
+	return o.ToFunctionScalingConfigFunctionScalingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionScalingConfigFunctionScalingConfigOutput) ToFunctionScalingConfigFunctionScalingConfigPtrOutputWithContext(ctx context.Context) FunctionScalingConfigFunctionScalingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionScalingConfigFunctionScalingConfig) *FunctionScalingConfigFunctionScalingConfig {
+		return &v
+	}).(FunctionScalingConfigFunctionScalingConfigPtrOutput)
+}
+
+// Maximum number of execution environments that can be provisioned for the function.
+func (o FunctionScalingConfigFunctionScalingConfigOutput) MaxExecutionEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionScalingConfigFunctionScalingConfig) *int { return v.MaxExecutionEnvironments }).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of execution environments to maintain for the function.
+func (o FunctionScalingConfigFunctionScalingConfigOutput) MinExecutionEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FunctionScalingConfigFunctionScalingConfig) *int { return v.MinExecutionEnvironments }).(pulumi.IntPtrOutput)
+}
+
+type FunctionScalingConfigFunctionScalingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionScalingConfigFunctionScalingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionScalingConfigFunctionScalingConfig)(nil)).Elem()
+}
+
+func (o FunctionScalingConfigFunctionScalingConfigPtrOutput) ToFunctionScalingConfigFunctionScalingConfigPtrOutput() FunctionScalingConfigFunctionScalingConfigPtrOutput {
+	return o
+}
+
+func (o FunctionScalingConfigFunctionScalingConfigPtrOutput) ToFunctionScalingConfigFunctionScalingConfigPtrOutputWithContext(ctx context.Context) FunctionScalingConfigFunctionScalingConfigPtrOutput {
+	return o
+}
+
+func (o FunctionScalingConfigFunctionScalingConfigPtrOutput) Elem() FunctionScalingConfigFunctionScalingConfigOutput {
+	return o.ApplyT(func(v *FunctionScalingConfigFunctionScalingConfig) FunctionScalingConfigFunctionScalingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionScalingConfigFunctionScalingConfig
+		return ret
+	}).(FunctionScalingConfigFunctionScalingConfigOutput)
+}
+
+// Maximum number of execution environments that can be provisioned for the function.
+func (o FunctionScalingConfigFunctionScalingConfigPtrOutput) MaxExecutionEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionScalingConfigFunctionScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxExecutionEnvironments
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum number of execution environments to maintain for the function.
+func (o FunctionScalingConfigFunctionScalingConfigPtrOutput) MinExecutionEnvironments() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionScalingConfigFunctionScalingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinExecutionEnvironments
+	}).(pulumi.IntPtrOutput)
+}
+
+type FunctionScalingConfigTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// FunctionScalingConfigTimeoutsInput is an input type that accepts FunctionScalingConfigTimeoutsArgs and FunctionScalingConfigTimeoutsOutput values.
+// You can construct a concrete instance of `FunctionScalingConfigTimeoutsInput` via:
+//
+//	FunctionScalingConfigTimeoutsArgs{...}
+type FunctionScalingConfigTimeoutsInput interface {
+	pulumi.Input
+
+	ToFunctionScalingConfigTimeoutsOutput() FunctionScalingConfigTimeoutsOutput
+	ToFunctionScalingConfigTimeoutsOutputWithContext(context.Context) FunctionScalingConfigTimeoutsOutput
+}
+
+type FunctionScalingConfigTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (FunctionScalingConfigTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionScalingConfigTimeouts)(nil)).Elem()
+}
+
+func (i FunctionScalingConfigTimeoutsArgs) ToFunctionScalingConfigTimeoutsOutput() FunctionScalingConfigTimeoutsOutput {
+	return i.ToFunctionScalingConfigTimeoutsOutputWithContext(context.Background())
+}
+
+func (i FunctionScalingConfigTimeoutsArgs) ToFunctionScalingConfigTimeoutsOutputWithContext(ctx context.Context) FunctionScalingConfigTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionScalingConfigTimeoutsOutput)
+}
+
+func (i FunctionScalingConfigTimeoutsArgs) ToFunctionScalingConfigTimeoutsPtrOutput() FunctionScalingConfigTimeoutsPtrOutput {
+	return i.ToFunctionScalingConfigTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionScalingConfigTimeoutsArgs) ToFunctionScalingConfigTimeoutsPtrOutputWithContext(ctx context.Context) FunctionScalingConfigTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionScalingConfigTimeoutsOutput).ToFunctionScalingConfigTimeoutsPtrOutputWithContext(ctx)
+}
+
+// FunctionScalingConfigTimeoutsPtrInput is an input type that accepts FunctionScalingConfigTimeoutsArgs, FunctionScalingConfigTimeoutsPtr and FunctionScalingConfigTimeoutsPtrOutput values.
+// You can construct a concrete instance of `FunctionScalingConfigTimeoutsPtrInput` via:
+//
+//	        FunctionScalingConfigTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionScalingConfigTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToFunctionScalingConfigTimeoutsPtrOutput() FunctionScalingConfigTimeoutsPtrOutput
+	ToFunctionScalingConfigTimeoutsPtrOutputWithContext(context.Context) FunctionScalingConfigTimeoutsPtrOutput
+}
+
+type functionScalingConfigTimeoutsPtrType FunctionScalingConfigTimeoutsArgs
+
+func FunctionScalingConfigTimeoutsPtr(v *FunctionScalingConfigTimeoutsArgs) FunctionScalingConfigTimeoutsPtrInput {
+	return (*functionScalingConfigTimeoutsPtrType)(v)
+}
+
+func (*functionScalingConfigTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionScalingConfigTimeouts)(nil)).Elem()
+}
+
+func (i *functionScalingConfigTimeoutsPtrType) ToFunctionScalingConfigTimeoutsPtrOutput() FunctionScalingConfigTimeoutsPtrOutput {
+	return i.ToFunctionScalingConfigTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *functionScalingConfigTimeoutsPtrType) ToFunctionScalingConfigTimeoutsPtrOutputWithContext(ctx context.Context) FunctionScalingConfigTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionScalingConfigTimeoutsPtrOutput)
+}
+
+type FunctionScalingConfigTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (FunctionScalingConfigTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionScalingConfigTimeouts)(nil)).Elem()
+}
+
+func (o FunctionScalingConfigTimeoutsOutput) ToFunctionScalingConfigTimeoutsOutput() FunctionScalingConfigTimeoutsOutput {
+	return o
+}
+
+func (o FunctionScalingConfigTimeoutsOutput) ToFunctionScalingConfigTimeoutsOutputWithContext(ctx context.Context) FunctionScalingConfigTimeoutsOutput {
+	return o
+}
+
+func (o FunctionScalingConfigTimeoutsOutput) ToFunctionScalingConfigTimeoutsPtrOutput() FunctionScalingConfigTimeoutsPtrOutput {
+	return o.ToFunctionScalingConfigTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionScalingConfigTimeoutsOutput) ToFunctionScalingConfigTimeoutsPtrOutputWithContext(ctx context.Context) FunctionScalingConfigTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionScalingConfigTimeouts) *FunctionScalingConfigTimeouts {
+		return &v
+	}).(FunctionScalingConfigTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FunctionScalingConfigTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionScalingConfigTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o FunctionScalingConfigTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionScalingConfigTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FunctionScalingConfigTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionScalingConfigTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type FunctionScalingConfigTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionScalingConfigTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionScalingConfigTimeouts)(nil)).Elem()
+}
+
+func (o FunctionScalingConfigTimeoutsPtrOutput) ToFunctionScalingConfigTimeoutsPtrOutput() FunctionScalingConfigTimeoutsPtrOutput {
+	return o
+}
+
+func (o FunctionScalingConfigTimeoutsPtrOutput) ToFunctionScalingConfigTimeoutsPtrOutputWithContext(ctx context.Context) FunctionScalingConfigTimeoutsPtrOutput {
+	return o
+}
+
+func (o FunctionScalingConfigTimeoutsPtrOutput) Elem() FunctionScalingConfigTimeoutsOutput {
+	return o.ApplyT(func(v *FunctionScalingConfigTimeouts) FunctionScalingConfigTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionScalingConfigTimeouts
+		return ret
+	}).(FunctionScalingConfigTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FunctionScalingConfigTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionScalingConfigTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o FunctionScalingConfigTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionScalingConfigTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o FunctionScalingConfigTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FunctionScalingConfigTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type FunctionSnapStart struct {
 	// When to apply snap start optimization. Valid value: `PublishedVersions`.
 	ApplyOn string `pulumi:"applyOn"`
@@ -7846,6 +8177,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionImageConfigPtrInput)(nil)).Elem(), FunctionImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigInput)(nil)).Elem(), FunctionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigPtrInput)(nil)).Elem(), FunctionLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionScalingConfigFunctionScalingConfigInput)(nil)).Elem(), FunctionScalingConfigFunctionScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionScalingConfigFunctionScalingConfigPtrInput)(nil)).Elem(), FunctionScalingConfigFunctionScalingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionScalingConfigTimeoutsInput)(nil)).Elem(), FunctionScalingConfigTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionScalingConfigTimeoutsPtrInput)(nil)).Elem(), FunctionScalingConfigTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartInput)(nil)).Elem(), FunctionSnapStartArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartPtrInput)(nil)).Elem(), FunctionSnapStartArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTenancyConfigInput)(nil)).Elem(), FunctionTenancyConfigArgs{})
@@ -7958,6 +8293,10 @@ func init() {
 	pulumi.RegisterOutputType(FunctionImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionLoggingConfigOutput{})
 	pulumi.RegisterOutputType(FunctionLoggingConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionScalingConfigFunctionScalingConfigOutput{})
+	pulumi.RegisterOutputType(FunctionScalingConfigFunctionScalingConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionScalingConfigTimeoutsOutput{})
+	pulumi.RegisterOutputType(FunctionScalingConfigTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartPtrOutput{})
 	pulumi.RegisterOutputType(FunctionTenancyConfigOutput{})

@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * * `id` (String) ID of the EC2 Transit Gateway Metering Policy.
+ * * `transitGatewayMeteringPolicyId` (String) ID of the EC2 Transit Gateway Metering Policy.
  *
  * #### Optional
  *

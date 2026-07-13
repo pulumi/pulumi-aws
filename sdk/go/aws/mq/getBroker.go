@@ -70,8 +70,12 @@ type LookupBrokerResult struct {
 	// Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
 	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
 	Region             string `pulumi:"region"`
+	// Set of AWS RAM resource share ARNs that grant the broker access to shared resources for private networking. Only populated for `engineType` of `RabbitMQ`.
+	ResourceShareArns []string `pulumi:"resourceShareArns"`
 	// List of security group IDs assigned to the broker.
 	SecurityGroups []string `pulumi:"securityGroups"`
+	// List of resources shared with the broker. See Shared Resources below. Only populated for `engineType` of `RabbitMQ`.
+	SharedResources []GetBrokerSharedResource `pulumi:"sharedResources"`
 	// Storage type of the broker.
 	StorageType string `pulumi:"storageType"`
 	// List of subnet IDs in which to launch the broker.
@@ -210,9 +214,19 @@ func (o LookupBrokerResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBrokerResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// Set of AWS RAM resource share ARNs that grant the broker access to shared resources for private networking. Only populated for `engineType` of `RabbitMQ`.
+func (o LookupBrokerResultOutput) ResourceShareArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupBrokerResult) []string { return v.ResourceShareArns }).(pulumi.StringArrayOutput)
+}
+
 // List of security group IDs assigned to the broker.
 func (o LookupBrokerResultOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupBrokerResult) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// List of resources shared with the broker. See Shared Resources below. Only populated for `engineType` of `RabbitMQ`.
+func (o LookupBrokerResultOutput) SharedResources() GetBrokerSharedResourceArrayOutput {
+	return o.ApplyT(func(v LookupBrokerResult) []GetBrokerSharedResource { return v.SharedResources }).(GetBrokerSharedResourceArrayOutput)
 }
 
 // Storage type of the broker.

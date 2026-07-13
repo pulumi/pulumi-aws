@@ -966,6 +966,20 @@ public class EventSourceMapping extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tumblingWindowInSeconds);
     }
     /**
+     * Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+     * 
+     */
+    @Export(name="useResourceTimeoutForPropagation", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> useResourceTimeoutForPropagation;
+
+    /**
+     * @return Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+     * 
+     */
+    public Output<Optional<Boolean>> useResourceTimeoutForPropagation() {
+        return Codegen.optional(this.useResourceTimeoutForPropagation);
+    }
+    /**
      * UUID of the created event source mapping.
      * 
      */

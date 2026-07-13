@@ -109,6 +109,16 @@ class AwsServiceAccess(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `service_principal` (String) Service principal name of the AWS service for which you want to enable integration.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import trusted access using the `service_principal`. For example:
 
         ```sh
@@ -145,6 +155,16 @@ class AwsServiceAccess(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `service_principal` (String) Service principal name of the AWS service for which you want to enable integration.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
 
         Using `pulumi import`, import trusted access using the `service_principal`. For example:
 

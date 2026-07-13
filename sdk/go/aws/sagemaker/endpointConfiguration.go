@@ -55,10 +55,21 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import endpoint configurations using the `name`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` (String) Name of the endpoint configuration.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Endpoint Configurations using `name`. For example:
 //
 // ```sh
-// $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
+// $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration example example-endpoint-config
 // ```
 type EndpointConfiguration struct {
 	pulumi.CustomResourceState

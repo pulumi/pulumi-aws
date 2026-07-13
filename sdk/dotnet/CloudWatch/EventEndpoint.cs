@@ -64,10 +64,21 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EventBridge Global Endpoints using the `Name`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the global endpoint.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Global Endpoints using `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
+    /// $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint example example-endpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventEndpoint:EventEndpoint")]

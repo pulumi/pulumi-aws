@@ -131,12 +131,12 @@ def get_subnets(filters: Optional[Sequence[Union['GetSubnetsFilterArgs', 'GetSub
         tags={
             "Tier": "Private",
         })
-    app: list[Any] = []
-    for range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=private.ids).result)]:
-        app.append(aws.ec2.Instance(f"app-{range['key']}",
+    app: list[aws.ec2.Instance] = []
+    for app_range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=private.ids).result)]:
+        app.append(aws.ec2.Instance(f"app-{app_range['key']}",
             ami=ami,
             instance_type=aws.ec2.InstanceType.T2_MICRO,
-            subnet_id=range["value"]))
+            subnet_id=app_range["value"]))
     ```
 
 
@@ -199,12 +199,12 @@ def get_subnets_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['G
         tags={
             "Tier": "Private",
         })
-    app: list[Any] = []
-    for range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=private.ids).result)]:
-        app.append(aws.ec2.Instance(f"app-{range['key']}",
+    app: list[aws.ec2.Instance] = []
+    for app_range in [{"key": k, "value": v} for [k, v] in enumerate(std.toset(input=private.ids).result)]:
+        app.append(aws.ec2.Instance(f"app-{app_range['key']}",
             ami=ami,
             instance_type=aws.ec2.InstanceType.T2_MICRO,
-            subnet_id=range["value"]))
+            subnet_id=app_range["value"]))
     ```
 
 

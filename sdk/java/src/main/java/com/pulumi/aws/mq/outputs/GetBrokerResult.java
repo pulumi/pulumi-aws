@@ -9,6 +9,7 @@ import com.pulumi.aws.mq.outputs.GetBrokerInstance;
 import com.pulumi.aws.mq.outputs.GetBrokerLdapServerMetadata;
 import com.pulumi.aws.mq.outputs.GetBrokerLogs;
 import com.pulumi.aws.mq.outputs.GetBrokerMaintenanceWindowStartTime;
+import com.pulumi.aws.mq.outputs.GetBrokerSharedResource;
 import com.pulumi.aws.mq.outputs.GetBrokerUser;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -99,10 +100,20 @@ public final class GetBrokerResult {
     private Boolean publiclyAccessible;
     private String region;
     /**
+     * @return Set of AWS RAM resource share ARNs that grant the broker access to shared resources for private networking. Only populated for `engineType` of `RabbitMQ`.
+     * 
+     */
+    private List<String> resourceShareArns;
+    /**
      * @return List of security group IDs assigned to the broker.
      * 
      */
     private List<String> securityGroups;
+    /**
+     * @return List of resources shared with the broker. See Shared Resources below. Only populated for `engineType` of `RabbitMQ`.
+     * 
+     */
+    private List<GetBrokerSharedResource> sharedResources;
     /**
      * @return Storage type of the broker.
      * 
@@ -240,11 +251,25 @@ public final class GetBrokerResult {
         return this.region;
     }
     /**
+     * @return Set of AWS RAM resource share ARNs that grant the broker access to shared resources for private networking. Only populated for `engineType` of `RabbitMQ`.
+     * 
+     */
+    public List<String> resourceShareArns() {
+        return this.resourceShareArns;
+    }
+    /**
      * @return List of security group IDs assigned to the broker.
      * 
      */
     public List<String> securityGroups() {
         return this.securityGroups;
+    }
+    /**
+     * @return List of resources shared with the broker. See Shared Resources below. Only populated for `engineType` of `RabbitMQ`.
+     * 
+     */
+    public List<GetBrokerSharedResource> sharedResources() {
+        return this.sharedResources;
     }
     /**
      * @return Storage type of the broker.
@@ -302,7 +327,9 @@ public final class GetBrokerResult {
         private GetBrokerMaintenanceWindowStartTime maintenanceWindowStartTime;
         private Boolean publiclyAccessible;
         private String region;
+        private List<String> resourceShareArns;
         private List<String> securityGroups;
+        private List<GetBrokerSharedResource> sharedResources;
         private String storageType;
         private List<String> subnetIds;
         private Map<String,String> tags;
@@ -328,7 +355,9 @@ public final class GetBrokerResult {
     	      this.maintenanceWindowStartTime = defaults.maintenanceWindowStartTime;
     	      this.publiclyAccessible = defaults.publiclyAccessible;
     	      this.region = defaults.region;
+    	      this.resourceShareArns = defaults.resourceShareArns;
     	      this.securityGroups = defaults.securityGroups;
+    	      this.sharedResources = defaults.sharedResources;
     	      this.storageType = defaults.storageType;
     	      this.subnetIds = defaults.subnetIds;
     	      this.tags = defaults.tags;
@@ -489,6 +518,17 @@ public final class GetBrokerResult {
             return this;
         }
         @CustomType.Setter
+        public Builder resourceShareArns(List<String> resourceShareArns) {
+            if (resourceShareArns == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "resourceShareArns");
+            }
+            this.resourceShareArns = resourceShareArns;
+            return this;
+        }
+        public Builder resourceShareArns(String... resourceShareArns) {
+            return resourceShareArns(List.of(resourceShareArns));
+        }
+        @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             if (securityGroups == null) {
               throw new MissingRequiredPropertyException("GetBrokerResult", "securityGroups");
@@ -498,6 +538,17 @@ public final class GetBrokerResult {
         }
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
+        }
+        @CustomType.Setter
+        public Builder sharedResources(List<GetBrokerSharedResource> sharedResources) {
+            if (sharedResources == null) {
+              throw new MissingRequiredPropertyException("GetBrokerResult", "sharedResources");
+            }
+            this.sharedResources = sharedResources;
+            return this;
+        }
+        public Builder sharedResources(GetBrokerSharedResource... sharedResources) {
+            return sharedResources(List.of(sharedResources));
         }
         @CustomType.Setter
         public Builder storageType(String storageType) {
@@ -557,7 +608,9 @@ public final class GetBrokerResult {
             _resultValue.maintenanceWindowStartTime = maintenanceWindowStartTime;
             _resultValue.publiclyAccessible = publiclyAccessible;
             _resultValue.region = region;
+            _resultValue.resourceShareArns = resourceShareArns;
             _resultValue.securityGroups = securityGroups;
+            _resultValue.sharedResources = sharedResources;
             _resultValue.storageType = storageType;
             _resultValue.subnetIds = subnetIds;
             _resultValue.tags = tags;

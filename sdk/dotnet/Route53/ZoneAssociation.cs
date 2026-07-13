@@ -74,7 +74,6 @@ namespace Pulumi.Aws.Route53
     /// 
     /// * `VpcRegion` (String) The VPC's region. Defaults to the region of the AWS provider.
     /// * `AccountId` (String) AWS Account where this resource is managed.
-    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// The VPC is _not_ in the same region where you have configured the AWS Provider:
     /// 

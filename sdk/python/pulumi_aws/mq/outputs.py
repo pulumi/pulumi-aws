@@ -22,6 +22,7 @@ __all__ = [
     'BrokerLdapServerMetadata',
     'BrokerLogs',
     'BrokerMaintenanceWindowStartTime',
+    'BrokerSharedResource',
     'BrokerUser',
     'GetBrokerConfigurationResult',
     'GetBrokerEncryptionOptionResult',
@@ -31,6 +32,7 @@ __all__ = [
     'GetBrokerLdapServerMetadataResult',
     'GetBrokerLogsResult',
     'GetBrokerMaintenanceWindowStartTimeResult',
+    'GetBrokerSharedResourceResult',
     'GetBrokerUserResult',
     'GetInstanceTypeOfferingsBrokerInstanceOptionResult',
     'GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult',
@@ -443,6 +445,80 @@ class BrokerMaintenanceWindowStartTime(dict):
         Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
         """
         return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
+class BrokerSharedResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsNames":
+            suggest = "dns_names"
+        elif key == "resourceArn":
+            suggest = "resource_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BrokerSharedResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BrokerSharedResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BrokerSharedResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_names: Optional[Sequence[_builtins.str]] = None,
+                 resource_arn: Optional[_builtins.str] = None,
+                 status: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] dns_names: DNS names through which the broker reaches the shared resource.
+        :param _builtins.str resource_arn: ARN of the shared resource.
+        :param _builtins.str status: Status of the shared resource.
+        :param _builtins.str type: Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+        """
+        if dns_names is not None:
+            pulumi.set(__self__, "dns_names", dns_names)
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsNames")
+    def dns_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        DNS names through which the broker reaches the shared resource.
+        """
+        return pulumi.get(self, "dns_names")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the shared resource.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        Status of the shared resource.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        """
+        Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -873,6 +949,57 @@ class GetBrokerMaintenanceWindowStartTimeResult(dict):
         Time zone in either the Country/City format or the UTC offset format.
         """
         return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
+class GetBrokerSharedResourceResult(dict):
+    def __init__(__self__, *,
+                 dns_names: Sequence[_builtins.str],
+                 resource_arn: _builtins.str,
+                 status: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] dns_names: DNS names through which the broker reaches the shared resource.
+        :param _builtins.str resource_arn: ARN of the shared resource.
+        :param _builtins.str status: Status of the shared resource.
+        :param _builtins.str type: Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+        """
+        pulumi.set(__self__, "dns_names", dns_names)
+        pulumi.set(__self__, "resource_arn", resource_arn)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsNames")
+    def dns_names(self) -> Sequence[_builtins.str]:
+        """
+        DNS names through which the broker reaches the shared resource.
+        """
+        return pulumi.get(self, "dns_names")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> _builtins.str:
+        """
+        ARN of the shared resource.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Status of the shared resource.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

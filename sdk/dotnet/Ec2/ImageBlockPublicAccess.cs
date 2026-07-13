@@ -36,7 +36,12 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// You cannot import this resource.
+    /// ### Identity Schema
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// </summary>
     [AwsResourceType("aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess")]
     public partial class ImageBlockPublicAccess : global::Pulumi.CustomResource

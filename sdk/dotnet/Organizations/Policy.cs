@@ -52,6 +52,16 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) Unique identifier (ID) of the policy.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// 
     /// Using `pulumi import`, import `aws.organizations.Policy` using the policy ID. For example:
     /// 
     /// ```sh

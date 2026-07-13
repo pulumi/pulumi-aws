@@ -415,10 +415,21 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EventBridge event buses using the name of the event bus (which can also be a partner event source name). For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the event bus.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Buses using `Name` (which can also be a partner event source name). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+    /// $ pulumi import aws:cloudwatch/eventBus:EventBus example example-event-bus
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventBus:EventBus")]

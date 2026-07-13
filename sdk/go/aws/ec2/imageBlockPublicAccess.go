@@ -46,7 +46,12 @@ import (
 //
 // ## Import
 //
-// You cannot import this resource.
+// ### Identity Schema
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
 type ImageBlockPublicAccess struct {
 	pulumi.CustomResourceState
 

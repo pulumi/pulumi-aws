@@ -107,6 +107,39 @@ import (
 //
 // ```
 //
+// ### With out-of-order and rule query configuration
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/amp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := amp.NewWorkspace(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = amp.NewWorkspaceConfiguration(ctx, "example", &amp.WorkspaceConfigurationArgs{
+//				WorkspaceId:                   example.ID(),
+//				RetentionPeriodInDays:         pulumi.Int(30),
+//				OutOfOrderTimeWindowInSeconds: pulumi.Int(120),
+//				RuleQueryOffsetInSeconds:      pulumi.Int(300),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import AMP (Managed Prometheus) Workspace Configuration using the `workspaceId`. For example
@@ -119,11 +152,15 @@ type WorkspaceConfiguration struct {
 
 	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
 	LimitsPerLabelSets WorkspaceConfigurationLimitsPerLabelSetArrayOutput `pulumi:"limitsPerLabelSets"`
+	// Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+	OutOfOrderTimeWindowInSeconds pulumi.IntOutput `pulumi:"outOfOrderTimeWindowInSeconds"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Number of days to retain metric data in the workspace.
-	RetentionPeriodInDays pulumi.IntOutput                        `pulumi:"retentionPeriodInDays"`
-	Timeouts              WorkspaceConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
+	RetentionPeriodInDays pulumi.IntOutput `pulumi:"retentionPeriodInDays"`
+	// Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+	RuleQueryOffsetInSeconds pulumi.IntOutput                        `pulumi:"ruleQueryOffsetInSeconds"`
+	Timeouts                 WorkspaceConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
 	// ID of the workspace to configure.
 	//
 	// The following arguments are optional:
@@ -165,11 +202,15 @@ func GetWorkspaceConfiguration(ctx *pulumi.Context,
 type workspaceConfigurationState struct {
 	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
 	LimitsPerLabelSets []WorkspaceConfigurationLimitsPerLabelSet `pulumi:"limitsPerLabelSets"`
+	// Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+	OutOfOrderTimeWindowInSeconds *int `pulumi:"outOfOrderTimeWindowInSeconds"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Number of days to retain metric data in the workspace.
-	RetentionPeriodInDays *int                            `pulumi:"retentionPeriodInDays"`
-	Timeouts              *WorkspaceConfigurationTimeouts `pulumi:"timeouts"`
+	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
+	// Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+	RuleQueryOffsetInSeconds *int                            `pulumi:"ruleQueryOffsetInSeconds"`
+	Timeouts                 *WorkspaceConfigurationTimeouts `pulumi:"timeouts"`
 	// ID of the workspace to configure.
 	//
 	// The following arguments are optional:
@@ -179,11 +220,15 @@ type workspaceConfigurationState struct {
 type WorkspaceConfigurationState struct {
 	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
 	LimitsPerLabelSets WorkspaceConfigurationLimitsPerLabelSetArrayInput
+	// Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+	OutOfOrderTimeWindowInSeconds pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Number of days to retain metric data in the workspace.
 	RetentionPeriodInDays pulumi.IntPtrInput
-	Timeouts              WorkspaceConfigurationTimeoutsPtrInput
+	// Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+	RuleQueryOffsetInSeconds pulumi.IntPtrInput
+	Timeouts                 WorkspaceConfigurationTimeoutsPtrInput
 	// ID of the workspace to configure.
 	//
 	// The following arguments are optional:
@@ -197,11 +242,15 @@ func (WorkspaceConfigurationState) ElementType() reflect.Type {
 type workspaceConfigurationArgs struct {
 	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
 	LimitsPerLabelSets []WorkspaceConfigurationLimitsPerLabelSet `pulumi:"limitsPerLabelSets"`
+	// Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+	OutOfOrderTimeWindowInSeconds *int `pulumi:"outOfOrderTimeWindowInSeconds"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Number of days to retain metric data in the workspace.
-	RetentionPeriodInDays *int                            `pulumi:"retentionPeriodInDays"`
-	Timeouts              *WorkspaceConfigurationTimeouts `pulumi:"timeouts"`
+	RetentionPeriodInDays *int `pulumi:"retentionPeriodInDays"`
+	// Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+	RuleQueryOffsetInSeconds *int                            `pulumi:"ruleQueryOffsetInSeconds"`
+	Timeouts                 *WorkspaceConfigurationTimeouts `pulumi:"timeouts"`
 	// ID of the workspace to configure.
 	//
 	// The following arguments are optional:
@@ -212,11 +261,15 @@ type workspaceConfigurationArgs struct {
 type WorkspaceConfigurationArgs struct {
 	// Configuration block for setting limits on metrics with specific label sets. Detailed below.
 	LimitsPerLabelSets WorkspaceConfigurationLimitsPerLabelSetArrayInput
+	// Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+	OutOfOrderTimeWindowInSeconds pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Number of days to retain metric data in the workspace.
 	RetentionPeriodInDays pulumi.IntPtrInput
-	Timeouts              WorkspaceConfigurationTimeoutsPtrInput
+	// Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+	RuleQueryOffsetInSeconds pulumi.IntPtrInput
+	Timeouts                 WorkspaceConfigurationTimeoutsPtrInput
 	// ID of the workspace to configure.
 	//
 	// The following arguments are optional:
@@ -317,6 +370,11 @@ func (o WorkspaceConfigurationOutput) LimitsPerLabelSets() WorkspaceConfiguratio
 	}).(WorkspaceConfigurationLimitsPerLabelSetArrayOutput)
 }
 
+// Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+func (o WorkspaceConfigurationOutput) OutOfOrderTimeWindowInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *WorkspaceConfiguration) pulumi.IntOutput { return v.OutOfOrderTimeWindowInSeconds }).(pulumi.IntOutput)
+}
+
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o WorkspaceConfigurationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspaceConfiguration) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
@@ -325,6 +383,11 @@ func (o WorkspaceConfigurationOutput) Region() pulumi.StringOutput {
 // Number of days to retain metric data in the workspace.
 func (o WorkspaceConfigurationOutput) RetentionPeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *WorkspaceConfiguration) pulumi.IntOutput { return v.RetentionPeriodInDays }).(pulumi.IntOutput)
+}
+
+// Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+func (o WorkspaceConfigurationOutput) RuleQueryOffsetInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v *WorkspaceConfiguration) pulumi.IntOutput { return v.RuleQueryOffsetInSeconds }).(pulumi.IntOutput)
 }
 
 func (o WorkspaceConfigurationOutput) Timeouts() WorkspaceConfigurationTimeoutsPtrOutput {

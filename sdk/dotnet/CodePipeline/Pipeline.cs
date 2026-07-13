@@ -241,6 +241,17 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` - (String) Name of the pipeline.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import CodePipelines using the `Name`. For example:
     /// 
     /// ```sh

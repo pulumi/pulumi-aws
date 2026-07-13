@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// #### Required
     /// 
-    /// * `Id` (String) ID of the EC2 Transit Gateway Metering Policy.
+    /// * `TransitGatewayMeteringPolicyId` (String) ID of the EC2 Transit Gateway Metering Policy.
     /// 
     /// #### Optional
     /// 

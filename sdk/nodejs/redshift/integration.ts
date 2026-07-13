@@ -113,6 +113,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the Redshift integration.
+ *
  * Using `pulumi import`, import Redshift Integration using the `arn`. For example:
  *
  * ```sh

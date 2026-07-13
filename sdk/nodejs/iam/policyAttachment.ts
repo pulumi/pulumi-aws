@@ -23,7 +23,7 @@ import {Group, Role, User} from "./index";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const user = new aws.iam.User("user", {name: "test-user"});
+ * const user = new aws.iam.User("user", {name: "example-user"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -35,10 +35,10 @@ import {Group, Role, User} from "./index";
  *     }],
  * });
  * const role = new aws.iam.Role("role", {
- *     name: "test-role",
+ *     name: "example-role",
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
- * const group = new aws.iam.Group("group", {name: "test-group"});
+ * const group = new aws.iam.Group("group", {name: "example-group"});
  * const policy = aws.iam.getPolicyDocument({
  *     statements: [{
  *         effect: "Allow",
@@ -47,12 +47,12 @@ import {Group, Role, User} from "./index";
  *     }],
  * });
  * const policyPolicy = new aws.iam.Policy("policy", {
- *     name: "test-policy",
- *     description: "A test policy",
+ *     name: "example-policy",
+ *     description: "An example policy",
  *     policy: policy.then(policy => policy.json),
  * });
- * const test_attach = new aws.iam.PolicyAttachment("test-attach", {
- *     name: "test-attachment",
+ * const example_attach = new aws.iam.PolicyAttachment("example-attach", {
+ *     name: "example-attachment",
  *     users: [user.name],
  *     roles: [role.name],
  *     groups: [group.name],

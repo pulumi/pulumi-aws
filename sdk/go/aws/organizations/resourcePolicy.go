@@ -74,6 +74,16 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` (String) Unique identifier (ID) of the resource policy.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+//
 // Using `pulumi import`, import `organizations.ResourcePolicy` using the resource policy ID. For example:
 //
 // ```sh

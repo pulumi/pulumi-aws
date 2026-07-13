@@ -132,6 +132,13 @@ class EventSourcesConfig(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import DevOps Guru Event Sources Config using the region. For example:
 
         ```sh
@@ -173,6 +180,13 @@ class EventSourcesConfig(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import DevOps Guru Event Sources Config using the region. For example:
 

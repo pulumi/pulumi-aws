@@ -111,7 +111,7 @@ class DevEnvironmentRepositoryArgsDict(TypedDict):
     """
     The name of the branch in a source repository.
 
-    persistent storage (` persistent_storage`) supports the following:
+    persistent storage (`  persistent_storage `) supports the following:
     """
 
 @pulumi.input_type
@@ -123,7 +123,7 @@ class DevEnvironmentRepositoryArgs:
         :param pulumi.Input[_builtins.str] repository_name: The name of the source repository.
         :param pulumi.Input[_builtins.str] branch_name: The name of the branch in a source repository.
                
-               persistent storage (` persistent_storage`) supports the following:
+               persistent storage (`  persistent_storage `) supports the following:
         """
         pulumi.set(__self__, "repository_name", repository_name)
         if branch_name is not None:
@@ -147,7 +147,7 @@ class DevEnvironmentRepositoryArgs:
         """
         The name of the branch in a source repository.
 
-        persistent storage (` persistent_storage`) supports the following:
+        persistent storage (`  persistent_storage `) supports the following:
         """
         return pulumi.get(self, "branch_name")
 

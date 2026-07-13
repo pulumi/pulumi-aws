@@ -81,10 +81,21 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `eventBusName`, the `default` event bus will be used). For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `statementId` (String) Statement ID of the EventBridge permission.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import Permissions `eventBusName` and `statementId` separated by a forward slash (`/`) (if you omit `eventBusName`, the `default` event bus will be used). For example:
 //
 // ```sh
-// $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+// $ pulumi import aws:cloudwatch/eventPermission:EventPermission example example-event-bus/DevAccountAccess
 // ```
 type EventPermission struct {
 	pulumi.CustomResourceState

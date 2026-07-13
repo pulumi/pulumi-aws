@@ -48,7 +48,8 @@ class EventSourceMappingArgs:
                  starting_position_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tumbling_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
+                 tumbling_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_resource_timeout_for_propagation: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a EventSourceMapping resource.
 
@@ -82,6 +83,7 @@ class EventSourceMappingArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
         :param pulumi.Input[_builtins.int] tumbling_window_in_seconds: Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
+        :param pulumi.Input[_builtins.bool] use_resource_timeout_for_propagation: Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
         """
         pulumi.set(__self__, "function_name", function_name)
         if amazon_managed_kafka_event_source_config is not None:
@@ -138,6 +140,8 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "topics", topics)
         if tumbling_window_in_seconds is not None:
             pulumi.set(__self__, "tumbling_window_in_seconds", tumbling_window_in_seconds)
+        if use_resource_timeout_for_propagation is not None:
+            pulumi.set(__self__, "use_resource_timeout_for_propagation", use_resource_timeout_for_propagation)
 
     @_builtins.property
     @pulumi.getter(name="functionName")
@@ -477,6 +481,18 @@ class EventSourceMappingArgs:
     def tumbling_window_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "tumbling_window_in_seconds", value)
 
+    @_builtins.property
+    @pulumi.getter(name="useResourceTimeoutForPropagation")
+    def use_resource_timeout_for_propagation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+        """
+        return pulumi.get(self, "use_resource_timeout_for_propagation")
+
+    @use_resource_timeout_for_propagation.setter
+    def use_resource_timeout_for_propagation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_resource_timeout_for_propagation", value)
+
 
 @pulumi.input_type
 class _EventSourceMappingState:
@@ -516,6 +532,7 @@ class _EventSourceMappingState:
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tumbling_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_resource_timeout_for_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
                  uuid: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering EventSourceMapping resources.
@@ -557,6 +574,7 @@ class _EventSourceMappingState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
         :param pulumi.Input[_builtins.int] tumbling_window_in_seconds: Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
+        :param pulumi.Input[_builtins.bool] use_resource_timeout_for_propagation: Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
         :param pulumi.Input[_builtins.str] uuid: UUID of the created event source mapping.
         """
         if amazon_managed_kafka_event_source_config is not None:
@@ -629,6 +647,8 @@ class _EventSourceMappingState:
             pulumi.set(__self__, "topics", topics)
         if tumbling_window_in_seconds is not None:
             pulumi.set(__self__, "tumbling_window_in_seconds", tumbling_window_in_seconds)
+        if use_resource_timeout_for_propagation is not None:
+            pulumi.set(__self__, "use_resource_timeout_for_propagation", use_resource_timeout_for_propagation)
         if uuid is not None:
             pulumi.set(__self__, "uuid", uuid)
 
@@ -1055,6 +1075,18 @@ class _EventSourceMappingState:
         pulumi.set(self, "tumbling_window_in_seconds", value)
 
     @_builtins.property
+    @pulumi.getter(name="useResourceTimeoutForPropagation")
+    def use_resource_timeout_for_propagation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+        """
+        return pulumi.get(self, "use_resource_timeout_for_propagation")
+
+    @use_resource_timeout_for_propagation.setter
+    def use_resource_timeout_for_propagation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_resource_timeout_for_propagation", value)
+
+    @_builtins.property
     @pulumi.getter
     def uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1101,6 +1133,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tumbling_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_resource_timeout_for_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         Manages an AWS Lambda Event Source Mapping. Use this resource to connect Lambda functions to event sources like Kinesis, DynamoDB, SQS, Amazon MQ, and Managed Streaming for Apache Kafka (MSK).
@@ -1360,6 +1393,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
         :param pulumi.Input[_builtins.int] tumbling_window_in_seconds: Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
+        :param pulumi.Input[_builtins.bool] use_resource_timeout_for_propagation: Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
         """
         ...
     @overload
@@ -1636,6 +1670,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tumbling_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 use_resource_timeout_for_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1675,6 +1710,7 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["topics"] = topics
             __props__.__dict__["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+            __props__.__dict__["use_resource_timeout_for_propagation"] = use_resource_timeout_for_propagation
             __props__.__dict__["arn"] = None
             __props__.__dict__["function_arn"] = None
             __props__.__dict__["last_modified"] = None
@@ -1728,6 +1764,7 @@ class EventSourceMapping(pulumi.CustomResource):
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tumbling_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            use_resource_timeout_for_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
             uuid: pulumi.Input[Optional[_builtins.str]] = None) -> 'EventSourceMapping':
         """
         Get an existing EventSourceMapping resource's state with the given name, id, and optional extra
@@ -1773,6 +1810,7 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] topics: Name of the Kafka topics. Only available for MSK sources. A single topic name must be specified.
         :param pulumi.Input[_builtins.int] tumbling_window_in_seconds: Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
+        :param pulumi.Input[_builtins.bool] use_resource_timeout_for_propagation: Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
         :param pulumi.Input[_builtins.str] uuid: UUID of the created event source mapping.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1814,6 +1852,7 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["topics"] = topics
         __props__.__dict__["tumbling_window_in_seconds"] = tumbling_window_in_seconds
+        __props__.__dict__["use_resource_timeout_for_propagation"] = use_resource_timeout_for_propagation
         __props__.__dict__["uuid"] = uuid
         return EventSourceMapping(resource_name, opts=opts, __props__=__props__)
 
@@ -2098,6 +2137,14 @@ class EventSourceMapping(pulumi.CustomResource):
         Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
         """
         return pulumi.get(self, "tumbling_window_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="useResourceTimeoutForPropagation")
+    def use_resource_timeout_for_propagation(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+        """
+        return pulumi.get(self, "use_resource_timeout_for_propagation")
 
     @_builtins.property
     @pulumi.getter

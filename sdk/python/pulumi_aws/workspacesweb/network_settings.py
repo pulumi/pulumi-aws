@@ -273,19 +273,19 @@ class NetworkSettings(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+        example_subnet: list[aws.ec2.Subnet] = []
+        for example_subnet_range in [{"value": i} for i in range(0, 2)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{example_subnet_range['value']}",
                 vpc_id=example.id,
                 cidr_block=std.cidrsubnet_output(input=example.cidr_block,
                     newbits=8,
-                    netnum=range["value"]).apply(lambda invoke: invoke.result),
-                availability_zone=available["names"][range["value"]]))
-        example1: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example1.append(aws.ec2.SecurityGroup(f"example1-{range['value']}",
+                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result),
+                availability_zone=available["names"][example_subnet_range["value"]]))
+        example1: list[aws.ec2.SecurityGroup] = []
+        for example1_range in [{"value": i} for i in range(0, 2)]:
+            example1.append(aws.ec2.SecurityGroup(f"example1-{example1_range['value']}",
                 vpc_id=example.id,
-                name=f"example-sg-{range['value']}$"))
+                name=f"example-sg-{example1_range['value']}$"))
         example_network_settings = aws.workspacesweb.NetworkSettings("example",
             vpc_id=example.id,
             subnet_ids=[
@@ -337,19 +337,19 @@ class NetworkSettings(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+        example_subnet: list[aws.ec2.Subnet] = []
+        for example_subnet_range in [{"value": i} for i in range(0, 2)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{example_subnet_range['value']}",
                 vpc_id=example.id,
                 cidr_block=std.cidrsubnet_output(input=example.cidr_block,
                     newbits=8,
-                    netnum=range["value"]).apply(lambda invoke: invoke.result),
-                availability_zone=available["names"][range["value"]]))
-        example1: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example1.append(aws.ec2.SecurityGroup(f"example1-{range['value']}",
+                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result),
+                availability_zone=available["names"][example_subnet_range["value"]]))
+        example1: list[aws.ec2.SecurityGroup] = []
+        for example1_range in [{"value": i} for i in range(0, 2)]:
+            example1.append(aws.ec2.SecurityGroup(f"example1-{example1_range['value']}",
                 vpc_id=example.id,
-                name=f"example-sg-{range['value']}$"))
+                name=f"example-sg-{example1_range['value']}$"))
         example_network_settings = aws.workspacesweb.NetworkSettings("example",
             vpc_id=example.id,
             subnet_ids=[

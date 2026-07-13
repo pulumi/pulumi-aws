@@ -313,105 +313,111 @@ import (
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Principals: []iam.GetPolicyDocumentStatementPrincipal{
-// {
-// Type: "Service",
-// Identifiers: []string{
-// "events.amazonaws.com",
-// },
-// },
-// },
-// Actions: []string{
-// "sts:AssumeRole",
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// ecsEvents, err := iam.NewRole(ctx, "ecs_events", &iam.RoleArgs{
-// Name: pulumi.String("ecs_events"),
-// AssumeRolePolicy: pulumi.String(assumeRole.Json),
-// })
-// if err != nil {
-// return err
-// }
-// ecsEventsRunTaskWithAnyRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// Statements: []iam.GetPolicyDocumentStatement{
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "iam:PassRole",
-// },
-// Resources: []string{
-// "*",
-// },
-// },
-// {
-// Effect: pulumi.StringRef("Allow"),
-// Actions: []string{
-// "ecs:RunTask",
-// },
-// Resources: pulumi.StringArray{
-// std.Replace(ctx, {
-// Text: taskName.Arn,
-// Search: "/:\\d+$/",
-// Replace: ":*",
-// }, nil).Result,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// _, err = iam.NewRolePolicy(ctx, "ecs_events_run_task_with_any_role", &iam.RolePolicyArgs{
-// Name: pulumi.String("ecs_events_run_task_with_any_role"),
-// Role: ecsEvents.ID(),
-// Policy: pulumi.String(ecsEventsRunTaskWithAnyRole.Json),
-// })
-// if err != nil {
-// return err
-// }
-// tmpJSON0, err := json.Marshal(map[string]interface{}{
-// "containerOverrides": []map[string]interface{}{
-// map[string]interface{}{
-// "name": "name-of-container-to-override",
-// "command": []string{
-// "bin/console",
-// "scheduled-task",
-// },
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// json0 := string(tmpJSON0)
-// _, err = cloudwatch.NewEventTarget(ctx, "ecs_scheduled_task", &cloudwatch.EventTargetArgs{
-// TargetId: pulumi.String("run-scheduled-task-every-hour"),
-// Arn: pulumi.Any(clusterName.Arn),
-// Rule: pulumi.Any(everyHour.Name),
-// RoleArn: ecsEvents.Arn,
-// EcsTarget: &cloudwatch.EventTargetEcsTargetArgs{
-// TaskCount: pulumi.Int(1),
-// TaskDefinitionArn: pulumi.Any(taskName.Arn),
-// },
-// Input: pulumi.String(json0),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"events.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ecsEvents, err := iam.NewRole(ctx, "ecs_events", &iam.RoleArgs{
+//				Name:             pulumi.String("ecs_events"),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeReplace, err := std.Replace(ctx, &std.ReplaceArgs{
+//				Text:    taskName.Arn,
+//				Search:  "/:\\d+$/",
+//				Replace: ":*",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ecsEventsRunTaskWithAnyRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+//				Statements: []iam.GetPolicyDocumentStatement{
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"iam:PassRole",
+//						},
+//						Resources: []string{
+//							"*",
+//						},
+//					},
+//					{
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"ecs:RunTask",
+//						},
+//						Resources: pulumi.StringArray{
+//							invokeReplace.Result,
+//						},
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iam.NewRolePolicy(ctx, "ecs_events_run_task_with_any_role", &iam.RolePolicyArgs{
+//				Name:   pulumi.String("ecs_events_run_task_with_any_role"),
+//				Role:   ecsEvents.ID(),
+//				Policy: pulumi.String(ecsEventsRunTaskWithAnyRole.Json),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"containerOverrides": []map[string]interface{}{
+//					map[string]interface{}{
+//						"name": "name-of-container-to-override",
+//						"command": []string{
+//							"bin/console",
+//							"scheduled-task",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			_, err = cloudwatch.NewEventTarget(ctx, "ecs_scheduled_task", &cloudwatch.EventTargetArgs{
+//				TargetId: pulumi.String("run-scheduled-task-every-hour"),
+//				Arn:      pulumi.Any(clusterName.Arn),
+//				Rule:     pulumi.Any(everyHour.Name),
+//				RoleArn:  ecsEvents.Arn,
+//				EcsTarget: &cloudwatch.EventTargetEcsTargetArgs{
+//					TaskCount:         pulumi.Int(1),
+//					TaskDefinitionArn: pulumi.Any(taskName.Arn),
+//				},
+//				Input: pulumi.String(json0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ### API Gateway target

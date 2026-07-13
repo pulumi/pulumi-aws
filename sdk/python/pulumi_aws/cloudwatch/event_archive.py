@@ -387,10 +387,21 @@ class EventArchive(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import an EventBridge archive using the `name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the archive.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Archives using `name`. For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+        $ pulumi import aws:cloudwatch/eventArchive:EventArchive example example-archive
         ```
 
 
@@ -510,10 +521,21 @@ class EventArchive(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import an EventBridge archive using the `name`. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the archive.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Archives using `name`. For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+        $ pulumi import aws:cloudwatch/eventArchive:EventArchive example example-archive
         ```
 
 

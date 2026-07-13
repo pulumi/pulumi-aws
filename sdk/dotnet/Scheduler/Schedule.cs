@@ -85,6 +85,18 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `GroupName` - (String) Name of the schedule group.
+    /// * `Name` - (String) Name of the schedule.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
     /// 
     /// ```sh

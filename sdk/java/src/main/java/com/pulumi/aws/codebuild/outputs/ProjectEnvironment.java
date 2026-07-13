@@ -47,6 +47,16 @@ public final class ProjectEnvironment {
      */
     private @Nullable ProjectEnvironmentFleet fleet;
     /**
+     * @return Host operating system kernel used for on-demand builds in the build project. This setting
+     * controls the kernel of the underlying build host. It does not change the build environment operating system, which is
+     * determined by the image you specify. Valid values: `LINUX_KERNEL_4` (runs on an Amazon Linux 2 host, kernel 4.x),
+     * `LINUX_KERNEL_6` (runs on an Amazon Linux 2023 host, kernel 6.x), `LINUX_KERNEL_LATEST` (runs on the latest supported
+     * host kernel). Applies to the `LINUX_CONTAINER`, `ARM_CONTAINER`, `LINUX_EC2`, and `ARM_EC2` environment types; not
+     * applicable to Windows, Lambda, or Mac environment types. If not specified, CodeBuild selects a default.
+     * 
+     */
+    private @Nullable String hostKernel;
+    /**
      * @return Docker image to use for this build project. Valid values
      * include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
      * e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
@@ -122,6 +132,18 @@ public final class ProjectEnvironment {
         return Optional.ofNullable(this.fleet);
     }
     /**
+     * @return Host operating system kernel used for on-demand builds in the build project. This setting
+     * controls the kernel of the underlying build host. It does not change the build environment operating system, which is
+     * determined by the image you specify. Valid values: `LINUX_KERNEL_4` (runs on an Amazon Linux 2 host, kernel 4.x),
+     * `LINUX_KERNEL_6` (runs on an Amazon Linux 2023 host, kernel 6.x), `LINUX_KERNEL_LATEST` (runs on the latest supported
+     * host kernel). Applies to the `LINUX_CONTAINER`, `ARM_CONTAINER`, `LINUX_EC2`, and `ARM_EC2` environment types; not
+     * applicable to Windows, Lambda, or Mac environment types. If not specified, CodeBuild selects a default.
+     * 
+     */
+    public Optional<String> hostKernel() {
+        return Optional.ofNullable(this.hostKernel);
+    }
+    /**
      * @return Docker image to use for this build project. Valid values
      * include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
      * e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,
@@ -181,6 +203,7 @@ public final class ProjectEnvironment {
         private @Nullable ProjectEnvironmentDockerServer dockerServer;
         private @Nullable List<ProjectEnvironmentEnvironmentVariable> environmentVariables;
         private @Nullable ProjectEnvironmentFleet fleet;
+        private @Nullable String hostKernel;
         private String image;
         private @Nullable String imagePullCredentialsType;
         private @Nullable Boolean privilegedMode;
@@ -194,6 +217,7 @@ public final class ProjectEnvironment {
     	      this.dockerServer = defaults.dockerServer;
     	      this.environmentVariables = defaults.environmentVariables;
     	      this.fleet = defaults.fleet;
+    	      this.hostKernel = defaults.hostKernel;
     	      this.image = defaults.image;
     	      this.imagePullCredentialsType = defaults.imagePullCredentialsType;
     	      this.privilegedMode = defaults.privilegedMode;
@@ -237,6 +261,12 @@ public final class ProjectEnvironment {
             return this;
         }
         @CustomType.Setter
+        public Builder hostKernel(@Nullable String hostKernel) {
+
+            this.hostKernel = hostKernel;
+            return this;
+        }
+        @CustomType.Setter
         public Builder image(String image) {
             if (image == null) {
               throw new MissingRequiredPropertyException("ProjectEnvironment", "image");
@@ -277,6 +307,7 @@ public final class ProjectEnvironment {
             _resultValue.dockerServer = dockerServer;
             _resultValue.environmentVariables = environmentVariables;
             _resultValue.fleet = fleet;
+            _resultValue.hostKernel = hostKernel;
             _resultValue.image = image;
             _resultValue.imagePullCredentialsType = imagePullCredentialsType;
             _resultValue.privilegedMode = privilegedMode;

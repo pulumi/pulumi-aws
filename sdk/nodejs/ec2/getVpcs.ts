@@ -45,8 +45,8 @@ import * as utilities from "../utilities";
  *     })));
  *     const testFlowLog: aws.ec2.FlowLog[] = [];
  * foo.ids.length.apply(rangeBody => {
- *         for (const range = {value: 0}; range.value < rangeBody; range.value++) {
- *             testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range.value}`, {vpcId: fooGetVpc.apply(fooGetVpc => fooGetVpc[range.value].id)}));
+ *         for (let range = 0; range < rangeBody; range++) {
+ *             testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range}`, {vpcId: fooGetVpc.apply(fooGetVpc => fooGetVpc[range].id)}));
  *         }
  *     });
  *     return {
@@ -138,8 +138,8 @@ export interface GetVpcsResult {
  *     })));
  *     const testFlowLog: aws.ec2.FlowLog[] = [];
  * foo.ids.length.apply(rangeBody => {
- *         for (const range = {value: 0}; range.value < rangeBody; range.value++) {
- *             testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range.value}`, {vpcId: fooGetVpc.apply(fooGetVpc => fooGetVpc[range.value].id)}));
+ *         for (let range = 0; range < rangeBody; range++) {
+ *             testFlowLog.push(new aws.ec2.FlowLog(`test_flow_log-${range}`, {vpcId: fooGetVpc.apply(fooGetVpc => fooGetVpc[range].id)}));
  *         }
  *     });
  *     return {

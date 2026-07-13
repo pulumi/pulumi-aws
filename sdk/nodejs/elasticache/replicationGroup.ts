@@ -77,9 +77,9 @@ import * as utilities from "../utilities";
  *     port: 6379,
  * });
  * const replica: aws.elasticache.Cluster[] = [];
- * for (const range = {value: 0}; range.value < 1; range.value++) {
- *     replica.push(new aws.elasticache.Cluster(`replica-${range.value}`, {
- *         clusterId: `tf-rep-group-1-${range.value}`,
+ * for (let range = 0; range < 1; range++) {
+ *     replica.push(new aws.elasticache.Cluster(`replica-${range}`, {
+ *         clusterId: `tf-rep-group-1-${range}`,
  *         replicationGroupId: example.id,
  *     }));
  * }

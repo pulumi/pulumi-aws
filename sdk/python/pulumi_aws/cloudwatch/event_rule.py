@@ -533,7 +533,6 @@ class EventRule(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-        * `event_bus_name` (String) Name of the event bus.
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
@@ -614,7 +613,6 @@ class EventRule(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-        * `event_bus_name` (String) Name of the event bus.
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:

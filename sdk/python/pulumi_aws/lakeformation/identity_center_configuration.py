@@ -201,6 +201,17 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `catalog_id` (String) Account ID of the Lake Formation catalog.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Lake Formation Identity Center Configuration using the `catalog_id`. For example:
 
         ```sh
@@ -240,6 +251,17 @@ class IdentityCenterConfiguration(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `catalog_id` (String) Account ID of the Lake Formation catalog.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Lake Formation Identity Center Configuration using the `catalog_id`. For example:
 

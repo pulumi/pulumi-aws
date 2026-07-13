@@ -50,13 +50,13 @@ import * as utilities from "../utilities";
  * const example = new aws.ram.ResourceShare("example", {name: "example"});
  * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
  * const exampleSubnet: aws.ec2.Subnet[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range.value}`, {
+ * for (let range = 0; range < 2; range++) {
+ *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range}`, {
  *         vpcId: exampleVpc.id,
  *         cidrBlock: std.cidrsubnetOutput({
  *             input: exampleVpc.cidrBlock,
  *             newbits: 8,
- *             netnum: range.value,
+ *             netnum: range,
  *         }).apply(invoke => invoke.result),
  *     }));
  * }
@@ -116,6 +116,12 @@ import * as utilities from "../utilities";
  * ```
  *
  * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `resourceShareArn` (String) Amazon Resource Name (ARN) of the RAM resource share.
  *
  * Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resourceShareArn`. For example:
  *

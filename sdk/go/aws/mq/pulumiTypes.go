@@ -1098,6 +1098,130 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeZone() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type BrokerSharedResource struct {
+	// DNS names through which the broker reaches the shared resource.
+	DnsNames []string `pulumi:"dnsNames"`
+	// ARN of the shared resource.
+	ResourceArn *string `pulumi:"resourceArn"`
+	// Status of the shared resource.
+	Status *string `pulumi:"status"`
+	// Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+	Type *string `pulumi:"type"`
+}
+
+// BrokerSharedResourceInput is an input type that accepts BrokerSharedResourceArgs and BrokerSharedResourceOutput values.
+// You can construct a concrete instance of `BrokerSharedResourceInput` via:
+//
+//	BrokerSharedResourceArgs{...}
+type BrokerSharedResourceInput interface {
+	pulumi.Input
+
+	ToBrokerSharedResourceOutput() BrokerSharedResourceOutput
+	ToBrokerSharedResourceOutputWithContext(context.Context) BrokerSharedResourceOutput
+}
+
+type BrokerSharedResourceArgs struct {
+	// DNS names through which the broker reaches the shared resource.
+	DnsNames pulumi.StringArrayInput `pulumi:"dnsNames"`
+	// ARN of the shared resource.
+	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`
+	// Status of the shared resource.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (BrokerSharedResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrokerSharedResource)(nil)).Elem()
+}
+
+func (i BrokerSharedResourceArgs) ToBrokerSharedResourceOutput() BrokerSharedResourceOutput {
+	return i.ToBrokerSharedResourceOutputWithContext(context.Background())
+}
+
+func (i BrokerSharedResourceArgs) ToBrokerSharedResourceOutputWithContext(ctx context.Context) BrokerSharedResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerSharedResourceOutput)
+}
+
+// BrokerSharedResourceArrayInput is an input type that accepts BrokerSharedResourceArray and BrokerSharedResourceArrayOutput values.
+// You can construct a concrete instance of `BrokerSharedResourceArrayInput` via:
+//
+//	BrokerSharedResourceArray{ BrokerSharedResourceArgs{...} }
+type BrokerSharedResourceArrayInput interface {
+	pulumi.Input
+
+	ToBrokerSharedResourceArrayOutput() BrokerSharedResourceArrayOutput
+	ToBrokerSharedResourceArrayOutputWithContext(context.Context) BrokerSharedResourceArrayOutput
+}
+
+type BrokerSharedResourceArray []BrokerSharedResourceInput
+
+func (BrokerSharedResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BrokerSharedResource)(nil)).Elem()
+}
+
+func (i BrokerSharedResourceArray) ToBrokerSharedResourceArrayOutput() BrokerSharedResourceArrayOutput {
+	return i.ToBrokerSharedResourceArrayOutputWithContext(context.Background())
+}
+
+func (i BrokerSharedResourceArray) ToBrokerSharedResourceArrayOutputWithContext(ctx context.Context) BrokerSharedResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BrokerSharedResourceArrayOutput)
+}
+
+type BrokerSharedResourceOutput struct{ *pulumi.OutputState }
+
+func (BrokerSharedResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BrokerSharedResource)(nil)).Elem()
+}
+
+func (o BrokerSharedResourceOutput) ToBrokerSharedResourceOutput() BrokerSharedResourceOutput {
+	return o
+}
+
+func (o BrokerSharedResourceOutput) ToBrokerSharedResourceOutputWithContext(ctx context.Context) BrokerSharedResourceOutput {
+	return o
+}
+
+// DNS names through which the broker reaches the shared resource.
+func (o BrokerSharedResourceOutput) DnsNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BrokerSharedResource) []string { return v.DnsNames }).(pulumi.StringArrayOutput)
+}
+
+// ARN of the shared resource.
+func (o BrokerSharedResourceOutput) ResourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerSharedResource) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
+}
+
+// Status of the shared resource.
+func (o BrokerSharedResourceOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerSharedResource) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+func (o BrokerSharedResourceOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BrokerSharedResource) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type BrokerSharedResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (BrokerSharedResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BrokerSharedResource)(nil)).Elem()
+}
+
+func (o BrokerSharedResourceArrayOutput) ToBrokerSharedResourceArrayOutput() BrokerSharedResourceArrayOutput {
+	return o
+}
+
+func (o BrokerSharedResourceArrayOutput) ToBrokerSharedResourceArrayOutputWithContext(ctx context.Context) BrokerSharedResourceArrayOutput {
+	return o
+}
+
+func (o BrokerSharedResourceArrayOutput) Index(i pulumi.IntInput) BrokerSharedResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BrokerSharedResource {
+		return vs[0].([]BrokerSharedResource)[vs[1].(int)]
+	}).(BrokerSharedResourceOutput)
+}
+
 type BrokerUser struct {
 	// Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engineType` of `ActiveMQ` only.
 	ConsoleAccess *bool `pulumi:"consoleAccess"`
@@ -2042,6 +2166,130 @@ func (o GetBrokerMaintenanceWindowStartTimeOutput) TimeZone() pulumi.StringOutpu
 	return o.ApplyT(func(v GetBrokerMaintenanceWindowStartTime) string { return v.TimeZone }).(pulumi.StringOutput)
 }
 
+type GetBrokerSharedResource struct {
+	// DNS names through which the broker reaches the shared resource.
+	DnsNames []string `pulumi:"dnsNames"`
+	// ARN of the shared resource.
+	ResourceArn string `pulumi:"resourceArn"`
+	// Status of the shared resource.
+	Status string `pulumi:"status"`
+	// Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+	Type string `pulumi:"type"`
+}
+
+// GetBrokerSharedResourceInput is an input type that accepts GetBrokerSharedResourceArgs and GetBrokerSharedResourceOutput values.
+// You can construct a concrete instance of `GetBrokerSharedResourceInput` via:
+//
+//	GetBrokerSharedResourceArgs{...}
+type GetBrokerSharedResourceInput interface {
+	pulumi.Input
+
+	ToGetBrokerSharedResourceOutput() GetBrokerSharedResourceOutput
+	ToGetBrokerSharedResourceOutputWithContext(context.Context) GetBrokerSharedResourceOutput
+}
+
+type GetBrokerSharedResourceArgs struct {
+	// DNS names through which the broker reaches the shared resource.
+	DnsNames pulumi.StringArrayInput `pulumi:"dnsNames"`
+	// ARN of the shared resource.
+	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
+	// Status of the shared resource.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetBrokerSharedResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrokerSharedResource)(nil)).Elem()
+}
+
+func (i GetBrokerSharedResourceArgs) ToGetBrokerSharedResourceOutput() GetBrokerSharedResourceOutput {
+	return i.ToGetBrokerSharedResourceOutputWithContext(context.Background())
+}
+
+func (i GetBrokerSharedResourceArgs) ToGetBrokerSharedResourceOutputWithContext(ctx context.Context) GetBrokerSharedResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerSharedResourceOutput)
+}
+
+// GetBrokerSharedResourceArrayInput is an input type that accepts GetBrokerSharedResourceArray and GetBrokerSharedResourceArrayOutput values.
+// You can construct a concrete instance of `GetBrokerSharedResourceArrayInput` via:
+//
+//	GetBrokerSharedResourceArray{ GetBrokerSharedResourceArgs{...} }
+type GetBrokerSharedResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetBrokerSharedResourceArrayOutput() GetBrokerSharedResourceArrayOutput
+	ToGetBrokerSharedResourceArrayOutputWithContext(context.Context) GetBrokerSharedResourceArrayOutput
+}
+
+type GetBrokerSharedResourceArray []GetBrokerSharedResourceInput
+
+func (GetBrokerSharedResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBrokerSharedResource)(nil)).Elem()
+}
+
+func (i GetBrokerSharedResourceArray) ToGetBrokerSharedResourceArrayOutput() GetBrokerSharedResourceArrayOutput {
+	return i.ToGetBrokerSharedResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetBrokerSharedResourceArray) ToGetBrokerSharedResourceArrayOutputWithContext(ctx context.Context) GetBrokerSharedResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerSharedResourceArrayOutput)
+}
+
+type GetBrokerSharedResourceOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerSharedResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrokerSharedResource)(nil)).Elem()
+}
+
+func (o GetBrokerSharedResourceOutput) ToGetBrokerSharedResourceOutput() GetBrokerSharedResourceOutput {
+	return o
+}
+
+func (o GetBrokerSharedResourceOutput) ToGetBrokerSharedResourceOutputWithContext(ctx context.Context) GetBrokerSharedResourceOutput {
+	return o
+}
+
+// DNS names through which the broker reaches the shared resource.
+func (o GetBrokerSharedResourceOutput) DnsNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBrokerSharedResource) []string { return v.DnsNames }).(pulumi.StringArrayOutput)
+}
+
+// ARN of the shared resource.
+func (o GetBrokerSharedResourceOutput) ResourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerSharedResource) string { return v.ResourceArn }).(pulumi.StringOutput)
+}
+
+// Status of the shared resource.
+func (o GetBrokerSharedResourceOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerSharedResource) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+func (o GetBrokerSharedResourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerSharedResource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetBrokerSharedResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerSharedResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBrokerSharedResource)(nil)).Elem()
+}
+
+func (o GetBrokerSharedResourceArrayOutput) ToGetBrokerSharedResourceArrayOutput() GetBrokerSharedResourceArrayOutput {
+	return o
+}
+
+func (o GetBrokerSharedResourceArrayOutput) ToGetBrokerSharedResourceArrayOutputWithContext(ctx context.Context) GetBrokerSharedResourceArrayOutput {
+	return o
+}
+
+func (o GetBrokerSharedResourceArrayOutput) Index(i pulumi.IntInput) GetBrokerSharedResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBrokerSharedResource {
+		return vs[0].([]GetBrokerSharedResource)[vs[1].(int)]
+	}).(GetBrokerSharedResourceOutput)
+}
+
 type GetBrokerUser struct {
 	// Whether to enable access to the ActiveMQ Web Console for the user.
 	ConsoleAccess bool `pulumi:"consoleAccess"`
@@ -2420,6 +2668,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerLogsPtrInput)(nil)).Elem(), BrokerLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerMaintenanceWindowStartTimeInput)(nil)).Elem(), BrokerMaintenanceWindowStartTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerMaintenanceWindowStartTimePtrInput)(nil)).Elem(), BrokerMaintenanceWindowStartTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrokerSharedResourceInput)(nil)).Elem(), BrokerSharedResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrokerSharedResourceArrayInput)(nil)).Elem(), BrokerSharedResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerUserInput)(nil)).Elem(), BrokerUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerUserArrayInput)(nil)).Elem(), BrokerUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerConfigurationInput)(nil)).Elem(), GetBrokerConfigurationArgs{})
@@ -2435,6 +2685,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerLdapServerMetadataArrayInput)(nil)).Elem(), GetBrokerLdapServerMetadataArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerLogsInput)(nil)).Elem(), GetBrokerLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerMaintenanceWindowStartTimeInput)(nil)).Elem(), GetBrokerMaintenanceWindowStartTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerSharedResourceInput)(nil)).Elem(), GetBrokerSharedResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerSharedResourceArrayInput)(nil)).Elem(), GetBrokerSharedResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerUserInput)(nil)).Elem(), GetBrokerUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerUserArrayInput)(nil)).Elem(), GetBrokerUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeOfferingsBrokerInstanceOptionInput)(nil)).Elem(), GetInstanceTypeOfferingsBrokerInstanceOptionArgs{})
@@ -2453,6 +2705,8 @@ func init() {
 	pulumi.RegisterOutputType(BrokerLogsPtrOutput{})
 	pulumi.RegisterOutputType(BrokerMaintenanceWindowStartTimeOutput{})
 	pulumi.RegisterOutputType(BrokerMaintenanceWindowStartTimePtrOutput{})
+	pulumi.RegisterOutputType(BrokerSharedResourceOutput{})
+	pulumi.RegisterOutputType(BrokerSharedResourceArrayOutput{})
 	pulumi.RegisterOutputType(BrokerUserOutput{})
 	pulumi.RegisterOutputType(BrokerUserArrayOutput{})
 	pulumi.RegisterOutputType(GetBrokerConfigurationOutput{})
@@ -2468,6 +2722,8 @@ func init() {
 	pulumi.RegisterOutputType(GetBrokerLdapServerMetadataArrayOutput{})
 	pulumi.RegisterOutputType(GetBrokerLogsOutput{})
 	pulumi.RegisterOutputType(GetBrokerMaintenanceWindowStartTimeOutput{})
+	pulumi.RegisterOutputType(GetBrokerSharedResourceOutput{})
+	pulumi.RegisterOutputType(GetBrokerSharedResourceArrayOutput{})
 	pulumi.RegisterOutputType(GetBrokerUserOutput{})
 	pulumi.RegisterOutputType(GetBrokerUserArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingsBrokerInstanceOptionOutput{})

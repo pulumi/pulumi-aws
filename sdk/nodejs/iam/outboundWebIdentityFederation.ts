@@ -20,6 +20,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ *
  * Using `pulumi import`, import IAM Outbound Web Identity Federation resources using the AWS account ID. For example:
  *
  * ```sh

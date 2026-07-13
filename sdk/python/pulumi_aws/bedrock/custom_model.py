@@ -634,7 +634,7 @@ class CustomModel(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Bedrock custom model.
+        - `job_arn` (String) Amazon Resource Name (ARN) of the Bedrock custom model job.
 
         Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:
 
@@ -713,7 +713,7 @@ class CustomModel(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Bedrock custom model.
+        - `job_arn` (String) Amazon Resource Name (ARN) of the Bedrock custom model job.
 
         Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:
 

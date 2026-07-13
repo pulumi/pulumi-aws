@@ -130,7 +130,6 @@ namespace Pulumi.Aws.Route53
     /// #### Optional
     /// 
     /// * `AccountId` (String) AWS Account where this resource is managed.
-    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import Route53 Zones using the zone `Id`. For example:
     /// 

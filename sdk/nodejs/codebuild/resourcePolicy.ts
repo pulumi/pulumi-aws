@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild resource.
+ * - `resourceArn` (String) Amazon Resource Name (ARN) of the CodeBuild resource.
  *
  * Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
  *

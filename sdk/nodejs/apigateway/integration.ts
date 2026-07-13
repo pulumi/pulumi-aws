@@ -365,7 +365,7 @@ export class Integration extends pulumi.CustomResource {
      */
     declare public readonly resourceId: pulumi.Output<string>;
     /**
-     * Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+     * Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
      * Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
      */
     declare public readonly responseTransferMode: pulumi.Output<string>;
@@ -532,7 +532,7 @@ export interface IntegrationState {
      */
     resourceId?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+     * Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
      * Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
      */
     responseTransferMode?: pulumi.Input<string | undefined>;
@@ -627,7 +627,7 @@ export interface IntegrationArgs {
      */
     resourceId: pulumi.Input<string>;
     /**
-     * Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+     * Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\
      * Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
      */
     responseTransferMode?: pulumi.Input<string | undefined>;

@@ -317,7 +317,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
+        - `provisioned_model_arn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
 
         Using `pulumi import`, import Provisioned Throughput using the `provisioned_model_arn`. For example:
 
@@ -363,7 +363,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
+        - `provisioned_model_arn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
 
         Using `pulumi import`, import Provisioned Throughput using the `provisioned_model_arn`. For example:
 

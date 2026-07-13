@@ -158,11 +158,11 @@ class Tag(pulumi.CustomResource):
         example = aws.eks.NodeGroup("example",
             cluster_name="example",
             node_group_name="example")
-        example_tag: list[Any] = []
+        example_tag: list[aws.autoscaling.Tag] = []
         def create_example(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
-                example_tag.append(aws.autoscaling.Tag(f"example-{range['key']}",
-                    autoscaling_group_name=range["value"],
+            for example_tag_range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+                example_tag.append(aws.autoscaling.Tag(f"example-{example_tag_range['key']}",
+                    autoscaling_group_name=example_tag_range["value"],
                     tag={
                         "key": "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
                         "value": "SPOT",
@@ -211,11 +211,11 @@ class Tag(pulumi.CustomResource):
         example = aws.eks.NodeGroup("example",
             cluster_name="example",
             node_group_name="example")
-        example_tag: list[Any] = []
+        example_tag: list[aws.autoscaling.Tag] = []
         def create_example(range_body):
-            for range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
-                example_tag.append(aws.autoscaling.Tag(f"example-{range['key']}",
-                    autoscaling_group_name=range["value"],
+            for example_tag_range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
+                example_tag.append(aws.autoscaling.Tag(f"example-{example_tag_range['key']}",
+                    autoscaling_group_name=example_tag_range["value"],
                     tag={
                         "key": "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
                         "value": "SPOT",

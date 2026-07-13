@@ -254,7 +254,7 @@ class DomainPermissions(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+        - `resource_arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
 
         Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
 
@@ -310,7 +310,7 @@ class DomainPermissions(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+        - `resource_arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
 
         Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
 

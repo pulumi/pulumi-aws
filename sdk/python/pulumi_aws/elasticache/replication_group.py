@@ -1756,10 +1756,10 @@ class ReplicationGroup(pulumi.CustomResource):
             num_cache_clusters=2,
             parameter_group_name="default.redis3.2",
             port=6379)
-        replica: list[Any] = []
-        for range in [{"value": i} for i in range(0, 1)]:
-            replica.append(aws.elasticache.Cluster(f"replica-{range['value']}",
-                cluster_id=f"tf-rep-group-1-{range['value']}",
+        replica: list[aws.elasticache.Cluster] = []
+        for replica_range in [{"value": i} for i in range(0, 1)]:
+            replica.append(aws.elasticache.Cluster(f"replica-{replica_range['value']}",
+                cluster_id=f"tf-rep-group-1-{replica_range['value']}",
                 replication_group_id=example.id))
         ```
 
@@ -2062,10 +2062,10 @@ class ReplicationGroup(pulumi.CustomResource):
             num_cache_clusters=2,
             parameter_group_name="default.redis3.2",
             port=6379)
-        replica: list[Any] = []
-        for range in [{"value": i} for i in range(0, 1)]:
-            replica.append(aws.elasticache.Cluster(f"replica-{range['value']}",
-                cluster_id=f"tf-rep-group-1-{range['value']}",
+        replica: list[aws.elasticache.Cluster] = []
+        for replica_range in [{"value": i} for i in range(0, 1)]:
+            replica.append(aws.elasticache.Cluster(f"replica-{replica_range['value']}",
+                cluster_id=f"tf-rep-group-1-{replica_range['value']}",
                 replication_group_id=example.id))
         ```
 

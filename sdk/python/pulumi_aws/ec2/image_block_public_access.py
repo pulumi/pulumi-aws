@@ -124,7 +124,12 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
 
         ## Import
 
-        You cannot import this resource.
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
 
         :param str resource_name: The name of the resource.
@@ -156,7 +161,12 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
 
         ## Import
 
-        You cannot import this resource.
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
 
         :param str resource_name: The name of the resource.

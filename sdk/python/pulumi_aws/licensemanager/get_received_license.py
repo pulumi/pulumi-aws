@@ -165,7 +165,7 @@ class GetReceivedLicenseResult:
     def product_name(self) -> _builtins.str:
         """
         Product name.
-        * `product_sku ` - Product SKU.
+        * ` product_sku  ` - Product SKU.
         """
         return pulumi.get(self, "product_name")
 

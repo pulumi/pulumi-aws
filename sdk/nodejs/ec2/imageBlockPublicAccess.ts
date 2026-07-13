@@ -22,7 +22,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * You cannot import this resource.
+ * ### Identity Schema
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  */
 export class ImageBlockPublicAccess extends pulumi.CustomResource {
     /**

@@ -184,9 +184,10 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .environment(ProjectEnvironmentArgs.builder()
  *                 .computeType("BUILD_GENERAL1_SMALL")
- *                 .image("aws/codebuild/amazonlinux2-x86_64-standard:4.0")
+ *                 .image("aws/codebuild/amazonlinux-x86_64-standard:6.0")
  *                 .type("LINUX_CONTAINER")
  *                 .imagePullCredentialsType("CODEBUILD")
+ *                 .hostKernel("LINUX_KERNEL_6")
  *                 .environmentVariables(                
  *                     ProjectEnvironmentEnvironmentVariableArgs.builder()
  *                         .name("SOME_KEY1")

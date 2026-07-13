@@ -121,7 +121,7 @@ def get_images(image_ids: Optional[Sequence[Union['GetImagesImageIdArgs', 'GetIm
     import pulumi_std as std
 
     example = aws.ecrpublic.get_images(repository_name="my-public-repository")
-    pulumi.export("imageDigests", [img.digest for img in example.images if img.digest != None])
+    pulumi.export("imageDigests", [img.digest for img in example.images if img.digest is not None])
     pulumi.export("imageTags", std.distinct(input=std.flatten(input=[img.tags for img in example.images]).result).result)
     ```
 
@@ -162,7 +162,7 @@ def get_images_output(image_ids: pulumi.Input[Optional[Optional[Sequence[Union['
     import pulumi_std as std
 
     example = aws.ecrpublic.get_images(repository_name="my-public-repository")
-    pulumi.export("imageDigests", [img.digest for img in example.images if img.digest != None])
+    pulumi.export("imageDigests", [img.digest for img in example.images if img.digest is not None])
     pulumi.export("imageTags", std.distinct(input=std.flatten(input=[img.tags for img in example.images]).result).result)
     ```
 

@@ -125,10 +125,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import an EventBridge policy using the `eventBusName`. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `eventBusName` (String) Name of the event bus.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Bus Policies using `eventBusName`. For example:
  *
  * ```sh
- * $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
+ * $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy example example-event-bus
  * ```
  */
 export class EventBusPolicy extends pulumi.CustomResource {

@@ -42,7 +42,6 @@ namespace Pulumi.Aws.DirectConnect
     /// #### Optional
     /// 
     /// * `AccountId` (String) AWS Account where this resource is managed.
-    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import Direct Connect Gateways using the gateway `Id`. For example:
     /// 

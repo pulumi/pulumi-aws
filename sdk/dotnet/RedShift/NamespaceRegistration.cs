@@ -112,7 +112,9 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// #### Optional
     /// 
+    /// - `AccountId` (String) AWS Account where this resource is managed.
     /// - `ProvisionedClusterIdentifier` (String) Identifier of the provisioned cluster. Required when `NamespaceType` is `Provisioned`.
+    /// - `Region` (String) Region where this resource is managed.
     /// - `ServerlessNamespaceIdentifier` (String) Identifier of the serverless namespace. Required when `NamespaceType` is `Serverless`.
     /// - `ServerlessWorkgroupIdentifier` (String) Identifier of the serverless workgroup. Required when `NamespaceType` is `Serverless`.
     /// 

@@ -49,6 +49,12 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Inspector filter.
+    /// 
     /// Using `pulumi import`, import Inspector Filter using the `Arn`. For example:
     /// 
     /// ```sh

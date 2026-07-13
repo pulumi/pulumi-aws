@@ -89,6 +89,8 @@ export class KeyValueStore extends pulumi.CustomResource {
      * The following arguments are optional:
      */
     declare public readonly name: pulumi.Output<string>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.cloudfront.KeyValueStoreTimeouts | undefined>;
 
     /**
@@ -109,15 +111,19 @@ export class KeyValueStore extends pulumi.CustomResource {
             resourceInputs["etag"] = state?.etag;
             resourceInputs["lastModifiedTime"] = state?.lastModifiedTime;
             resourceInputs["name"] = state?.name;
+            resourceInputs["tags"] = state?.tags;
+            resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as KeyValueStoreArgs | undefined;
             resourceInputs["comment"] = args?.comment;
             resourceInputs["name"] = args?.name;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(KeyValueStore.__pulumiType, name, resourceInputs, opts);
@@ -147,6 +153,8 @@ export interface KeyValueStoreState {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.cloudfront.KeyValueStoreTimeouts | undefined>;
 }
 
@@ -164,5 +172,6 @@ export interface KeyValueStoreArgs {
      * The following arguments are optional:
      */
     name?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.cloudfront.KeyValueStoreTimeouts | undefined>;
 }

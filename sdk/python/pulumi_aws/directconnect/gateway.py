@@ -212,7 +212,6 @@ class Gateway(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:
 
@@ -258,7 +257,6 @@ class Gateway(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:
 

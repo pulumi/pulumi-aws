@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs;
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs;
 import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationShadowProductionVariantRoutingConfigArgs;
@@ -36,6 +37,21 @@ public final class EndpointConfigurationShadowProductionVariantArgs extends com.
      */
     public Optional<Output<String>> acceleratorType() {
         return Optional.ofNullable(this.acceleratorType);
+    }
+
+    /**
+     * Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See capacityReservationConfig below.
+     * 
+     */
+    @Import(name="capacityReservationConfig")
+    private @Nullable Output<EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgs> capacityReservationConfig;
+
+    /**
+     * @return Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See capacityReservationConfig below.
+     * 
+     */
+    public Optional<Output<EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgs>> capacityReservationConfig() {
+        return Optional.ofNullable(this.capacityReservationConfig);
     }
 
     /**
@@ -252,6 +268,7 @@ public final class EndpointConfigurationShadowProductionVariantArgs extends com.
 
     private EndpointConfigurationShadowProductionVariantArgs(EndpointConfigurationShadowProductionVariantArgs $) {
         this.acceleratorType = $.acceleratorType;
+        this.capacityReservationConfig = $.capacityReservationConfig;
         this.containerStartupHealthCheckTimeoutInSeconds = $.containerStartupHealthCheckTimeoutInSeconds;
         this.coreDumpConfig = $.coreDumpConfig;
         this.enableSsmAccess = $.enableSsmAccess;
@@ -305,6 +322,27 @@ public final class EndpointConfigurationShadowProductionVariantArgs extends com.
          */
         public Builder acceleratorType(String acceleratorType) {
             return acceleratorType(Output.of(acceleratorType));
+        }
+
+        /**
+         * @param capacityReservationConfig Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See capacityReservationConfig below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationConfig(@Nullable Output<EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgs> capacityReservationConfig) {
+            $.capacityReservationConfig = capacityReservationConfig;
+            return this;
+        }
+
+        /**
+         * @param capacityReservationConfig Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See capacityReservationConfig below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder capacityReservationConfig(EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgs capacityReservationConfig) {
+            return capacityReservationConfig(Output.of(capacityReservationConfig));
         }
 
         /**
