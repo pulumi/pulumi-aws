@@ -81,7 +81,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Bedrock custom model.
+// - `jobArn` (String) Amazon Resource Name (ARN) of the Bedrock custom model job.
 //
 // Using `pulumi import`, import Bedrock custom model using the `jobArn`. For example:
 //

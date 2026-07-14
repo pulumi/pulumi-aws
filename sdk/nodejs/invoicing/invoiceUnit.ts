@@ -31,6 +31,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * - `arn` (String) Amazon Resource Name (ARN) of the invoice unit.
+ *
  * Using `pulumi import`, import Invoice Units using the ARN. For example:
  *
  * ```sh

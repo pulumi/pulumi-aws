@@ -185,7 +185,6 @@ class DefaultCreditSpecification(pulumi.CustomResource):
 
         Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cpu_credits: Credit option for CPU usage of the instance family. Valid values: `standard`, `unlimited`.
@@ -217,7 +216,6 @@ class DefaultCreditSpecification(pulumi.CustomResource):
         ## Import
 
         Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
-
 
         :param str resource_name: The name of the resource.
         :param DefaultCreditSpecificationArgs args: The arguments to use to populate this resource's properties.

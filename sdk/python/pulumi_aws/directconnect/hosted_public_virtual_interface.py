@@ -33,7 +33,7 @@ class HostedPublicVirtualInterfaceArgs:
         """
         The set of arguments for constructing a HostedPublicVirtualInterface resource.
 
-        :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. ` ipv4  ` or `ipv6`.
         :param pulumi.Input[_builtins.int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[_builtins.str] owner_account_id: The AWS account that will own the new virtual interface.
@@ -66,7 +66,7 @@ class HostedPublicVirtualInterfaceArgs:
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Input[_builtins.str]:
         """
-        The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        The address family for the BGP peer. ` ipv4  ` or `ipv6`.
         """
         return pulumi.get(self, "address_family")
 
@@ -215,7 +215,7 @@ class _HostedPublicVirtualInterfaceState:
         """
         Input properties used for looking up and filtering HostedPublicVirtualInterface resources.
 
-        :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. ` ipv4  ` or `ipv6`.
         :param pulumi.Input[_builtins.str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.str] arn: The ARN of the virtual interface.
         :param pulumi.Input[_builtins.str] aws_device: The Direct Connect endpoint on which the virtual interface terminates.
@@ -262,7 +262,7 @@ class _HostedPublicVirtualInterfaceState:
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        The address family for the BGP peer. ` ipv4  ` or `ipv6`.
         """
         return pulumi.get(self, "address_family")
 
@@ -477,7 +477,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. ` ipv4  ` or `ipv6`.
         :param pulumi.Input[_builtins.str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
         :param pulumi.Input[_builtins.str] bgp_auth_key: The authentication key for BGP configuration.
@@ -620,7 +620,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. ` ipv4  ` or `ipv6`.
         :param pulumi.Input[_builtins.str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.str] arn: The ARN of the virtual interface.
         :param pulumi.Input[_builtins.str] aws_device: The Direct Connect endpoint on which the virtual interface terminates.
@@ -658,7 +658,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> pulumi.Output[_builtins.str]:
         """
-        The address family for the BGP peer. `ipv4 ` or `ipv6`.
+        The address family for the BGP peer. ` ipv4  ` or `ipv6`.
         """
         return pulumi.get(self, "address_family")
 

@@ -296,7 +296,7 @@ class MeteringPolicy(pulumi.CustomResource):
 
         #### Required
 
-        * `id` (String) ID of the EC2 Transit Gateway Metering Policy.
+        * `transit_gateway_metering_policy_id` (String) ID of the EC2 Transit Gateway Metering Policy.
 
         #### Optional
 
@@ -366,7 +366,7 @@ class MeteringPolicy(pulumi.CustomResource):
 
         #### Required
 
-        * `id` (String) ID of the EC2 Transit Gateway Metering Policy.
+        * `transit_gateway_metering_policy_id` (String) ID of the EC2 Transit Gateway Metering Policy.
 
         #### Optional
 

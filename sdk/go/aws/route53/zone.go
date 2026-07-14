@@ -156,7 +156,6 @@ import (
 // #### Optional
 //
 // * `accountId` (String) AWS Account where this resource is managed.
-// * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import Route53 Zones using the zone `id`. For example:
 //

@@ -47,6 +47,13 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
     /// 
     /// ```sh

@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var user = new User("user", UserArgs.builder()
- *             .name("test-user")
+ *             .name("example-user")
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -78,12 +78,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var role = new Role("role", RoleArgs.builder()
- *             .name("test-role")
+ *             .name("example-role")
  *             .assumeRolePolicy(assumeRole.json())
  *             .build());
  * 
  *         var group = new Group("group", GroupArgs.builder()
- *             .name("test-group")
+ *             .name("example-group")
  *             .build());
  * 
  *         final var policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
@@ -95,13 +95,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var policyPolicy = new Policy("policyPolicy", PolicyArgs.builder()
- *             .name("test-policy")
- *             .description("A test policy")
+ *             .name("example-policy")
+ *             .description("An example policy")
  *             .policy(policy.json())
  *             .build());
  * 
- *         var test_attach = new PolicyAttachment("test-attach", PolicyAttachmentArgs.builder()
- *             .name("test-attachment")
+ *         var example_attach = new PolicyAttachment("example-attach", PolicyAttachmentArgs.builder()
+ *             .name("example-attachment")
  *             .users(user.name())
  *             .roles(role.name())
  *             .groups(group.name())

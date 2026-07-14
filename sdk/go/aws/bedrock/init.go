@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentcoreApiKeyCredentialProvider{}
 	case "aws:bedrock/agentcoreBrowser:AgentcoreBrowser":
 		r = &AgentcoreBrowser{}
+	case "aws:bedrock/agentcoreBrowserProfile:AgentcoreBrowserProfile":
+		r = &AgentcoreBrowserProfile{}
 	case "aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter":
 		r = &AgentcoreCodeInterpreter{}
 	case "aws:bedrock/agentcoreEvaluator:AgentcoreEvaluator":
@@ -165,6 +167,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"bedrock/agentcoreBrowser",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"bedrock/agentcoreBrowserProfile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -11,6 +11,7 @@ from .cidr_collection import *
 from .cidr_location import *
 from .delegation_set import *
 from .get_delegation_set import *
+from .get_profiles_profile import *
 from .get_profiles_profiles import *
 from .get_query_log_config import *
 from .get_records import *

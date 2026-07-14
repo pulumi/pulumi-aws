@@ -362,13 +362,13 @@ class Cluster(pulumi.CustomResource):
             tags={
                 "Name": "example-aws_cloudhsm_v2_cluster",
             })
-        cloudhsm_v2_subnets: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            cloudhsm_v2_subnets.append(aws.ec2.Subnet(f"cloudhsm_v2_subnets-{range['value']}",
+        cloudhsm_v2_subnets: list[aws.ec2.Subnet] = []
+        for cloudhsm_v2_subnets_range in [{"value": i} for i in range(0, 2)]:
+            cloudhsm_v2_subnets.append(aws.ec2.Subnet(f"cloudhsm_v2_subnets-{cloudhsm_v2_subnets_range['value']}",
                 vpc_id=cloudhsm_v2_vpc.id,
-                cidr_block=subnets[range["value"]],
+                cidr_block=subnets[cloudhsm_v2_subnets_range["value"]],
                 map_public_ip_on_launch=False,
-                availability_zone=available.names[range["value"]],
+                availability_zone=available.names[cloudhsm_v2_subnets_range["value"]],
                 tags={
                     "Name": "example-aws_cloudhsm_v2_cluster",
                 }))
@@ -431,13 +431,13 @@ class Cluster(pulumi.CustomResource):
             tags={
                 "Name": "example-aws_cloudhsm_v2_cluster",
             })
-        cloudhsm_v2_subnets: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            cloudhsm_v2_subnets.append(aws.ec2.Subnet(f"cloudhsm_v2_subnets-{range['value']}",
+        cloudhsm_v2_subnets: list[aws.ec2.Subnet] = []
+        for cloudhsm_v2_subnets_range in [{"value": i} for i in range(0, 2)]:
+            cloudhsm_v2_subnets.append(aws.ec2.Subnet(f"cloudhsm_v2_subnets-{cloudhsm_v2_subnets_range['value']}",
                 vpc_id=cloudhsm_v2_vpc.id,
-                cidr_block=subnets[range["value"]],
+                cidr_block=subnets[cloudhsm_v2_subnets_range["value"]],
                 map_public_ip_on_launch=False,
-                availability_zone=available.names[range["value"]],
+                availability_zone=available.names[cloudhsm_v2_subnets_range["value"]],
                 tags={
                     "Name": "example-aws_cloudhsm_v2_cluster",
                 }))

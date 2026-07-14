@@ -23,8 +23,10 @@ class WorkspaceConfigurationArgs:
     def __init__(__self__, *,
                  workspace_id: pulumi.Input[_builtins.str],
                  limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetArgs']]]] = None,
+                 out_of_order_time_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_query_offset_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  timeouts: pulumi.Input[Optional['WorkspaceConfigurationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a WorkspaceConfiguration resource.
@@ -33,16 +35,22 @@ class WorkspaceConfigurationArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetArgs']]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
+        :param pulumi.Input[_builtins.int] out_of_order_time_window_in_seconds: Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period_in_days: Number of days to retain metric data in the workspace.
+        :param pulumi.Input[_builtins.int] rule_query_offset_in_seconds: Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
         """
         pulumi.set(__self__, "workspace_id", workspace_id)
         if limits_per_label_sets is not None:
             pulumi.set(__self__, "limits_per_label_sets", limits_per_label_sets)
+        if out_of_order_time_window_in_seconds is not None:
+            pulumi.set(__self__, "out_of_order_time_window_in_seconds", out_of_order_time_window_in_seconds)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if retention_period_in_days is not None:
             pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        if rule_query_offset_in_seconds is not None:
+            pulumi.set(__self__, "rule_query_offset_in_seconds", rule_query_offset_in_seconds)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -73,6 +81,18 @@ class WorkspaceConfigurationArgs:
         pulumi.set(self, "limits_per_label_sets", value)
 
     @_builtins.property
+    @pulumi.getter(name="outOfOrderTimeWindowInSeconds")
+    def out_of_order_time_window_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+        """
+        return pulumi.get(self, "out_of_order_time_window_in_seconds")
+
+    @out_of_order_time_window_in_seconds.setter
+    def out_of_order_time_window_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "out_of_order_time_window_in_seconds", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -97,6 +117,18 @@ class WorkspaceConfigurationArgs:
         pulumi.set(self, "retention_period_in_days", value)
 
     @_builtins.property
+    @pulumi.getter(name="ruleQueryOffsetInSeconds")
+    def rule_query_offset_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+        """
+        return pulumi.get(self, "rule_query_offset_in_seconds")
+
+    @rule_query_offset_in_seconds.setter
+    def rule_query_offset_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "rule_query_offset_in_seconds", value)
+
+    @_builtins.property
     @pulumi.getter
     def timeouts(self) -> pulumi.Input[Optional['WorkspaceConfigurationTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
@@ -110,26 +142,34 @@ class WorkspaceConfigurationArgs:
 class _WorkspaceConfigurationState:
     def __init__(__self__, *,
                  limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetArgs']]]] = None,
+                 out_of_order_time_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_query_offset_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  timeouts: pulumi.Input[Optional['WorkspaceConfigurationTimeoutsArgs']] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceConfiguration resources.
 
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetArgs']]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
+        :param pulumi.Input[_builtins.int] out_of_order_time_window_in_seconds: Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period_in_days: Number of days to retain metric data in the workspace.
+        :param pulumi.Input[_builtins.int] rule_query_offset_in_seconds: Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
         :param pulumi.Input[_builtins.str] workspace_id: ID of the workspace to configure.
                
                The following arguments are optional:
         """
         if limits_per_label_sets is not None:
             pulumi.set(__self__, "limits_per_label_sets", limits_per_label_sets)
+        if out_of_order_time_window_in_seconds is not None:
+            pulumi.set(__self__, "out_of_order_time_window_in_seconds", out_of_order_time_window_in_seconds)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if retention_period_in_days is not None:
             pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
+        if rule_query_offset_in_seconds is not None:
+            pulumi.set(__self__, "rule_query_offset_in_seconds", rule_query_offset_in_seconds)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
         if workspace_id is not None:
@@ -148,6 +188,18 @@ class _WorkspaceConfigurationState:
         pulumi.set(self, "limits_per_label_sets", value)
 
     @_builtins.property
+    @pulumi.getter(name="outOfOrderTimeWindowInSeconds")
+    def out_of_order_time_window_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+        """
+        return pulumi.get(self, "out_of_order_time_window_in_seconds")
+
+    @out_of_order_time_window_in_seconds.setter
+    def out_of_order_time_window_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "out_of_order_time_window_in_seconds", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -170,6 +222,18 @@ class _WorkspaceConfigurationState:
     @retention_period_in_days.setter
     def retention_period_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_period_in_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleQueryOffsetInSeconds")
+    def rule_query_offset_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+        """
+        return pulumi.get(self, "rule_query_offset_in_seconds")
+
+    @rule_query_offset_in_seconds.setter
+    def rule_query_offset_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "rule_query_offset_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter
@@ -202,8 +266,10 @@ class WorkspaceConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]]] = None,
+                 out_of_order_time_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_query_offset_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  timeouts: pulumi.Input[Optional[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict']]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -263,6 +329,20 @@ class WorkspaceConfiguration(pulumi.CustomResource):
             }])
         ```
 
+        ### With out-of-order and rule query configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amp.Workspace("example")
+        example_workspace_configuration = aws.amp.WorkspaceConfiguration("example",
+            workspace_id=example.id,
+            retention_period_in_days=30,
+            out_of_order_time_window_in_seconds=120,
+            rule_query_offset_in_seconds=300)
+        ```
+
         ## Import
 
         Using `pulumi import`, import AMP (Managed Prometheus) Workspace Configuration using the `workspace_id`. For example
@@ -275,8 +355,10 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
+        :param pulumi.Input[_builtins.int] out_of_order_time_window_in_seconds: Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period_in_days: Number of days to retain metric data in the workspace.
+        :param pulumi.Input[_builtins.int] rule_query_offset_in_seconds: Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
         :param pulumi.Input[_builtins.str] workspace_id: ID of the workspace to configure.
                
                The following arguments are optional:
@@ -343,6 +425,20 @@ class WorkspaceConfiguration(pulumi.CustomResource):
             }])
         ```
 
+        ### With out-of-order and rule query configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.amp.Workspace("example")
+        example_workspace_configuration = aws.amp.WorkspaceConfiguration("example",
+            workspace_id=example.id,
+            retention_period_in_days=30,
+            out_of_order_time_window_in_seconds=120,
+            rule_query_offset_in_seconds=300)
+        ```
+
         ## Import
 
         Using `pulumi import`, import AMP (Managed Prometheus) Workspace Configuration using the `workspace_id`. For example
@@ -368,8 +464,10 @@ class WorkspaceConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]]] = None,
+                 out_of_order_time_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_query_offset_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  timeouts: pulumi.Input[Optional[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict']]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -382,8 +480,10 @@ class WorkspaceConfiguration(pulumi.CustomResource):
             __props__ = WorkspaceConfigurationArgs.__new__(WorkspaceConfigurationArgs)
 
             __props__.__dict__["limits_per_label_sets"] = limits_per_label_sets
+            __props__.__dict__["out_of_order_time_window_in_seconds"] = out_of_order_time_window_in_seconds
             __props__.__dict__["region"] = region
             __props__.__dict__["retention_period_in_days"] = retention_period_in_days
+            __props__.__dict__["rule_query_offset_in_seconds"] = rule_query_offset_in_seconds
             __props__.__dict__["timeouts"] = timeouts
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
@@ -399,8 +499,10 @@ class WorkspaceConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             limits_per_label_sets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]]] = None,
+            out_of_order_time_window_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             retention_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            rule_query_offset_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             timeouts: pulumi.Input[Optional[Union['WorkspaceConfigurationTimeoutsArgs', 'WorkspaceConfigurationTimeoutsArgsDict']]] = None,
             workspace_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'WorkspaceConfiguration':
         """
@@ -411,8 +513,10 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceConfigurationLimitsPerLabelSetArgs', 'WorkspaceConfigurationLimitsPerLabelSetArgsDict']]]] limits_per_label_sets: Configuration block for setting limits on metrics with specific label sets. Detailed below.
+        :param pulumi.Input[_builtins.int] out_of_order_time_window_in_seconds: Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_period_in_days: Number of days to retain metric data in the workspace.
+        :param pulumi.Input[_builtins.int] rule_query_offset_in_seconds: Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
         :param pulumi.Input[_builtins.str] workspace_id: ID of the workspace to configure.
                
                The following arguments are optional:
@@ -422,8 +526,10 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         __props__ = _WorkspaceConfigurationState.__new__(_WorkspaceConfigurationState)
 
         __props__.__dict__["limits_per_label_sets"] = limits_per_label_sets
+        __props__.__dict__["out_of_order_time_window_in_seconds"] = out_of_order_time_window_in_seconds
         __props__.__dict__["region"] = region
         __props__.__dict__["retention_period_in_days"] = retention_period_in_days
+        __props__.__dict__["rule_query_offset_in_seconds"] = rule_query_offset_in_seconds
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["workspace_id"] = workspace_id
         return WorkspaceConfiguration(resource_name, opts=opts, __props__=__props__)
@@ -435,6 +541,14 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         Configuration block for setting limits on metrics with specific label sets. Detailed below.
         """
         return pulumi.get(self, "limits_per_label_sets")
+
+    @_builtins.property
+    @pulumi.getter(name="outOfOrderTimeWindowInSeconds")
+    def out_of_order_time_window_in_seconds(self) -> pulumi.Output[_builtins.int]:
+        """
+        Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+        """
+        return pulumi.get(self, "out_of_order_time_window_in_seconds")
 
     @_builtins.property
     @pulumi.getter
@@ -451,6 +565,14 @@ class WorkspaceConfiguration(pulumi.CustomResource):
         Number of days to retain metric data in the workspace.
         """
         return pulumi.get(self, "retention_period_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleQueryOffsetInSeconds")
+    def rule_query_offset_in_seconds(self) -> pulumi.Output[_builtins.int]:
+        """
+        Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+        """
+        return pulumi.get(self, "rule_query_offset_in_seconds")
 
     @_builtins.property
     @pulumi.getter

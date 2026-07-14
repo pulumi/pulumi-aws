@@ -95,6 +95,29 @@ namespace Pulumi.Aws.Amp
     /// });
     /// ```
     /// 
+    /// ### With out-of-order and rule query configuration
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amp.Workspace("example");
+    /// 
+    ///     var exampleWorkspaceConfiguration = new Aws.Amp.WorkspaceConfiguration("example", new()
+    ///     {
+    ///         WorkspaceId = example.Id,
+    ///         RetentionPeriodInDays = 30,
+    ///         OutOfOrderTimeWindowInSeconds = 120,
+    ///         RuleQueryOffsetInSeconds = 300,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AMP (Managed Prometheus) Workspace Configuration using the `WorkspaceId`. For example
@@ -113,6 +136,12 @@ namespace Pulumi.Aws.Amp
         public Output<ImmutableArray<Outputs.WorkspaceConfigurationLimitsPerLabelSet>> LimitsPerLabelSets { get; private set; } = null!;
 
         /// <summary>
+        /// Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+        /// </summary>
+        [Output("outOfOrderTimeWindowInSeconds")]
+        public Output<int> OutOfOrderTimeWindowInSeconds { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
@@ -123,6 +152,12 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         [Output("retentionPeriodInDays")]
         public Output<int> RetentionPeriodInDays { get; private set; } = null!;
+
+        /// <summary>
+        /// Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+        /// </summary>
+        [Output("ruleQueryOffsetInSeconds")]
+        public Output<int> RuleQueryOffsetInSeconds { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.WorkspaceConfigurationTimeouts?> Timeouts { get; private set; } = null!;
@@ -194,6 +229,12 @@ namespace Pulumi.Aws.Amp
         }
 
         /// <summary>
+        /// Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+        /// </summary>
+        [Input("outOfOrderTimeWindowInSeconds")]
+        public Input<int>? OutOfOrderTimeWindowInSeconds { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -204,6 +245,12 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         [Input("retentionPeriodInDays")]
         public Input<int>? RetentionPeriodInDays { get; set; }
+
+        /// <summary>
+        /// Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+        /// </summary>
+        [Input("ruleQueryOffsetInSeconds")]
+        public Input<int>? RuleQueryOffsetInSeconds { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.WorkspaceConfigurationTimeoutsArgs>? Timeouts { get; set; }
@@ -237,6 +284,12 @@ namespace Pulumi.Aws.Amp
         }
 
         /// <summary>
+        /// Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+        /// </summary>
+        [Input("outOfOrderTimeWindowInSeconds")]
+        public Input<int>? OutOfOrderTimeWindowInSeconds { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -247,6 +300,12 @@ namespace Pulumi.Aws.Amp
         /// </summary>
         [Input("retentionPeriodInDays")]
         public Input<int>? RetentionPeriodInDays { get; set; }
+
+        /// <summary>
+        /// Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+        /// </summary>
+        [Input("ruleQueryOffsetInSeconds")]
+        public Input<int>? RuleQueryOffsetInSeconds { get; set; }
 
         [Input("timeouts")]
         public Input<Inputs.WorkspaceConfigurationTimeoutsGetArgs>? Timeouts { get; set; }

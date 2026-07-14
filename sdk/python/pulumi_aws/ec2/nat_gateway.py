@@ -661,9 +661,9 @@ class NatGateway(pulumi.CustomResource):
         available = aws.get_availability_zones()
         example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
         example_internet_gateway = aws.ec2.InternetGateway("example", vpc_id=example.id)
-        example_eip: list[Any] = []
-        for range in [{"value": i} for i in range(0, 3)]:
-            example_eip.append(aws.ec2.Eip(f"example-{range['value']}", domain="vpc"))
+        example_eip: list[aws.ec2.Eip] = []
+        for example_eip_range in [{"value": i} for i in range(0, 3)]:
+            example_eip.append(aws.ec2.Eip(f"example-{example_eip_range['value']}", domain="vpc"))
         example_nat_gateway = aws.ec2.NatGateway("example",
             vpc_id=example.id,
             availability_mode="regional",
@@ -805,9 +805,9 @@ class NatGateway(pulumi.CustomResource):
         available = aws.get_availability_zones()
         example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
         example_internet_gateway = aws.ec2.InternetGateway("example", vpc_id=example.id)
-        example_eip: list[Any] = []
-        for range in [{"value": i} for i in range(0, 3)]:
-            example_eip.append(aws.ec2.Eip(f"example-{range['value']}", domain="vpc"))
+        example_eip: list[aws.ec2.Eip] = []
+        for example_eip_range in [{"value": i} for i in range(0, 3)]:
+            example_eip.append(aws.ec2.Eip(f"example-{example_eip_range['value']}", domain="vpc"))
         example_nat_gateway = aws.ec2.NatGateway("example",
             vpc_id=example.id,
             availability_mode="regional",

@@ -63,14 +63,14 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
  * const exampleSubnet: aws.ec2.Subnet[] = [];
- * for (const range = {value: 0}; range.value < 5; range.value++) {
- *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range.value}`, {
+ * for (let range = 0; range < 5; range++) {
+ *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range}`, {
  *         cidrBlock: std.cidrsubnetOutput({
  *             input: example.cidrBlock,
  *             newbits: 8,
- *             netnum: range.value,
+ *             netnum: range,
  *         }).apply(invoke => invoke.result),
- *         availabilityZone: available.then(available => available.names[range.value]),
+ *         availabilityZone: available.then(available => available.names[range]),
  *         vpcId: example.id,
  *     }));
  * }

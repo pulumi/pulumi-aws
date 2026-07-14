@@ -177,9 +177,17 @@ namespace Pulumi.Aws.Mq
         public readonly bool PubliclyAccessible;
         public readonly string Region;
         /// <summary>
+        /// Set of AWS RAM resource share ARNs that grant the broker access to shared resources for private networking. Only populated for `EngineType` of `RabbitMQ`.
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceShareArns;
+        /// <summary>
         /// List of security group IDs assigned to the broker.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
+        /// <summary>
+        /// List of resources shared with the broker. See Shared Resources below. Only populated for `EngineType` of `RabbitMQ`.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetBrokerSharedResourceResult> SharedResources;
         /// <summary>
         /// Storage type of the broker.
         /// </summary>
@@ -235,7 +243,11 @@ namespace Pulumi.Aws.Mq
 
             string region,
 
+            ImmutableArray<string> resourceShareArns,
+
             ImmutableArray<string> securityGroups,
+
+            ImmutableArray<Outputs.GetBrokerSharedResourceResult> sharedResources,
 
             string storageType,
 
@@ -263,7 +275,9 @@ namespace Pulumi.Aws.Mq
             MaintenanceWindowStartTime = maintenanceWindowStartTime;
             PubliclyAccessible = publiclyAccessible;
             Region = region;
+            ResourceShareArns = resourceShareArns;
             SecurityGroups = securityGroups;
+            SharedResources = sharedResources;
             StorageType = storageType;
             SubnetIds = subnetIds;
             Tags = tags;

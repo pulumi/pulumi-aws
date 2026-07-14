@@ -91,7 +91,7 @@ export interface GetReceivedLicenseResult {
     readonly licenseName: string;
     /**
      * Product name.
-     * * `productSku ` - Product SKU.
+     * * ` productSku  ` - Product SKU.
      */
     readonly productName: string;
     readonly productSku: string;

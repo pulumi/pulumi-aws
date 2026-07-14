@@ -48,10 +48,21 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import endpoint configurations using the `Name`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the endpoint configuration.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Endpoint Configurations using `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
+    /// $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration example example-endpoint-config
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/endpointConfiguration:EndpointConfiguration")]

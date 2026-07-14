@@ -83,6 +83,12 @@ namespace Pulumi.Aws.CloudFront
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
         [Output("timeouts")]
         public Output<Outputs.KeyValueStoreTimeouts?> Timeouts { get; private set; } = null!;
 
@@ -146,6 +152,14 @@ namespace Pulumi.Aws.CloudFront
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         [Input("timeouts")]
         public Input<Inputs.KeyValueStoreTimeoutsArgs>? Timeouts { get; set; }
 
@@ -185,6 +199,22 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         [Input("timeouts")]
         public Input<Inputs.KeyValueStoreTimeoutsGetArgs>? Timeouts { get; set; }

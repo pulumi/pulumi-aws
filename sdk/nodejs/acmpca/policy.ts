@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
+ * - `resourceArn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
  *
  * Using `pulumi import`, import `aws.acmpca.Policy` using the `resourceArn` value. For example:
  *

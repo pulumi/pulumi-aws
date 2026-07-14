@@ -472,6 +472,8 @@ type EventSourceMapping struct {
 	Topics pulumi.StringArrayOutput `pulumi:"topics"`
 	// Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
 	TumblingWindowInSeconds pulumi.IntPtrOutput `pulumi:"tumblingWindowInSeconds"`
+	// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+	UseResourceTimeoutForPropagation pulumi.BoolPtrOutput `pulumi:"useResourceTimeoutForPropagation"`
 	// UUID of the created event source mapping.
 	Uuid pulumi.StringOutput `pulumi:"uuid"`
 }
@@ -581,6 +583,8 @@ type eventSourceMappingState struct {
 	Topics []string `pulumi:"topics"`
 	// Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
 	TumblingWindowInSeconds *int `pulumi:"tumblingWindowInSeconds"`
+	// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+	UseResourceTimeoutForPropagation *bool `pulumi:"useResourceTimeoutForPropagation"`
 	// UUID of the created event source mapping.
 	Uuid *string `pulumi:"uuid"`
 }
@@ -658,6 +662,8 @@ type EventSourceMappingState struct {
 	Topics pulumi.StringArrayInput
 	// Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
 	TumblingWindowInSeconds pulumi.IntPtrInput
+	// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+	UseResourceTimeoutForPropagation pulumi.BoolPtrInput
 	// UUID of the created event source mapping.
 	Uuid pulumi.StringPtrInput
 }
@@ -725,6 +731,8 @@ type eventSourceMappingArgs struct {
 	Topics []string `pulumi:"topics"`
 	// Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
 	TumblingWindowInSeconds *int `pulumi:"tumblingWindowInSeconds"`
+	// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+	UseResourceTimeoutForPropagation *bool `pulumi:"useResourceTimeoutForPropagation"`
 }
 
 // The set of arguments for constructing a EventSourceMapping resource.
@@ -787,6 +795,8 @@ type EventSourceMappingArgs struct {
 	Topics pulumi.StringArrayInput
 	// Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
 	TumblingWindowInSeconds pulumi.IntPtrInput
+	// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+	UseResourceTimeoutForPropagation pulumi.BoolPtrInput
 }
 
 func (EventSourceMappingArgs) ElementType() reflect.Type {
@@ -1063,6 +1073,11 @@ func (o EventSourceMappingOutput) Topics() pulumi.StringArrayOutput {
 // Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
 func (o EventSourceMappingOutput) TumblingWindowInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventSourceMapping) pulumi.IntPtrOutput { return v.TumblingWindowInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+func (o EventSourceMappingOutput) UseResourceTimeoutForPropagation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EventSourceMapping) pulumi.BoolPtrOutput { return v.UseResourceTimeoutForPropagation }).(pulumi.BoolPtrOutput)
 }
 
 // UUID of the created event source mapping.

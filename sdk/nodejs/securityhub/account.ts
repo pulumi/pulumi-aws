@@ -69,7 +69,7 @@ export class Account extends pulumi.CustomResource {
      */
     declare public readonly controlFindingGenerator: pulumi.Output<string>;
     /**
-     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
      */
     declare public readonly enableDefaultStandards: pulumi.Output<boolean | undefined>;
     /**
@@ -125,7 +125,7 @@ export interface AccountState {
      */
     controlFindingGenerator?: pulumi.Input<string | undefined>;
     /**
-     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
      */
     enableDefaultStandards?: pulumi.Input<boolean | undefined>;
     /**
@@ -147,7 +147,7 @@ export interface AccountArgs {
      */
     controlFindingGenerator?: pulumi.Input<string | undefined>;
     /**
-     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: ` AWS Foundational Security Best Practices v1.0.0` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
+     * Whether to enable the security standards that Security Hub has designated as automatically enabled including: `  AWS Foundational Security Best Practices v1.0.0 ` and `CIS AWS Foundations Benchmark v1.2.0`. Defaults to `true`.
      */
     enableDefaultStandards?: pulumi.Input<boolean | undefined>;
     /**

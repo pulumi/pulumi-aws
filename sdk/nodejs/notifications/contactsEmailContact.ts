@@ -77,13 +77,13 @@ export class ContactsEmailContact extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider 
+     * Map of tags to assign to the resource. If configured with a provider
      * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider 
+     * Map of tags assigned to the resource, including those inherited from the provider
      * `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
@@ -143,13 +143,13 @@ export interface ContactsEmailContactState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider 
+     * Map of tags to assign to the resource. If configured with a provider
      * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Map of tags assigned to the resource, including those inherited from the provider 
+     * Map of tags assigned to the resource, including those inherited from the provider
      * `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -172,7 +172,7 @@ export interface ContactsEmailContactArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider 
+     * Map of tags to assign to the resource. If configured with a provider
      * `defaultTags` configuration block
      * present, tags with matching keys will overwrite those defined at the provider-level.
      */

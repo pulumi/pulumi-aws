@@ -55,7 +55,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * You cannot import this resource.
+ * ### Identity Schema
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  * 
  */
 @ResourceType(type="aws:ec2/imageBlockPublicAccess:ImageBlockPublicAccess")

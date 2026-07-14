@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Bedrock custom model.
+    /// - `JobArn` (String) Amazon Resource Name (ARN) of the Bedrock custom model job.
     /// 
     /// Using `pulumi import`, import Bedrock custom model using the `JobArn`. For example:
     /// 

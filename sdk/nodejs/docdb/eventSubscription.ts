@@ -108,7 +108,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     declare public readonly sourceIds: pulumi.Output<string[] | undefined>;
     /**
-     * The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,` db-cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,`  db-cluster-snapshot `. If not set, all sources will be subscribed to.
      */
     declare public readonly sourceType: pulumi.Output<string | undefined>;
     /**
@@ -206,7 +206,7 @@ export interface EventSubscriptionState {
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,` db-cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,`  db-cluster-snapshot `. If not set, all sources will be subscribed to.
      */
     sourceType?: pulumi.Input<string | undefined>;
     /**
@@ -249,7 +249,7 @@ export interface EventSubscriptionArgs {
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,` db-cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `db-instance`, `db-cluster`, `db-parameter-group`, `db-security-group`,`  db-cluster-snapshot `. If not set, all sources will be subscribed to.
      */
     sourceType?: pulumi.Input<string | undefined>;
     /**

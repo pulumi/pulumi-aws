@@ -87,7 +87,7 @@ class ProjectArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ProjectSecondarySourceArgs']]] secondary_sources: Configuration block. Detailed below.
         :param pulumi.Input[_builtins.str] source_version: Version of the build input to be built for this project. If not specified, the latest
                version is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['ProjectVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
@@ -434,7 +434,7 @@ class ProjectArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of tags to assign to the resource. If configured with a provider 
+        Map of tags to assign to the resource. If configured with a provider
         `default_tags` configuration block
         present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -533,10 +533,10 @@ class _ProjectState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] source_version: Version of the build input to be built for this project. If not specified, the latest
                version is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider
                `default_tags` configuration block.
         :param pulumi.Input['ProjectVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
@@ -930,7 +930,7 @@ class _ProjectState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        Map of tags to assign to the resource. If configured with a provider 
+        Map of tags to assign to the resource. If configured with a provider
         `default_tags` configuration block
         present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -944,7 +944,7 @@ class _ProjectState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider 
+        A map of tags assigned to the resource, including those inherited from the provider
         `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
@@ -1103,9 +1103,10 @@ class Project(pulumi.CustomResource):
             },
             environment={
                 "compute_type": "BUILD_GENERAL1_SMALL",
-                "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+                "image": "aws/codebuild/amazonlinux-x86_64-standard:6.0",
                 "type": "LINUX_CONTAINER",
                 "image_pull_credentials_type": "CODEBUILD",
+                "host_kernel": "LINUX_KERNEL_6",
                 "environment_variables": [
                     {
                         "name": "SOME_KEY1",
@@ -1268,7 +1269,7 @@ class Project(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] source_version: Version of the build input to be built for this project. If not specified, the latest
                version is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']] vpc_config: Configuration block. Detailed below.
@@ -1384,9 +1385,10 @@ class Project(pulumi.CustomResource):
             },
             environment={
                 "compute_type": "BUILD_GENERAL1_SMALL",
-                "image": "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+                "image": "aws/codebuild/amazonlinux-x86_64-standard:6.0",
                 "type": "LINUX_CONTAINER",
                 "image_pull_credentials_type": "CODEBUILD",
+                "host_kernel": "LINUX_KERNEL_6",
                 "environment_variables": [
                     {
                         "name": "SOME_KEY1",
@@ -1682,10 +1684,10 @@ class Project(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] source_version: Version of the build input to be built for this project. If not specified, the latest
                version is used.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider
                `default_tags` configuration block
                present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider 
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider
                `default_tags` configuration block.
         :param pulumi.Input[Union['ProjectVpcConfigArgs', 'ProjectVpcConfigArgsDict']] vpc_config: Configuration block. Detailed below.
         """
@@ -1951,7 +1953,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        Map of tags to assign to the resource. If configured with a provider 
+        Map of tags to assign to the resource. If configured with a provider
         `default_tags` configuration block
         present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -1961,7 +1963,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider 
+        A map of tags assigned to the resource, including those inherited from the provider
         `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")

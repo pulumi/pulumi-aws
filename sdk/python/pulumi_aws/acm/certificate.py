@@ -728,19 +728,19 @@ class Certificate(pulumi.CustomResource):
         from typing import Any
         import pulumi_aws as aws
 
-        example: list[Any] = []
-        for range in [{"key": k, "value": v} for [k, v] in sorted(({dvo.domain_name: {
+        example: dict[str, aws.route53.Record] = {}
+        for example_range in [{"key": k, "value": v} for [k, v] in sorted(({dvo.domain_name: {
             name: dvo.resource_record_name,
             record: dvo.resource_record_value,
             type: dvo.resource_record_type,
         } for dvo in example_aws_acm_certificate.domain_validation_options}).items())]:
-            example.append(aws.route53.Record(f"example-{range['key']}",
+            example[example_range['key']] = aws.route53.Record(f"example-{example_range['key']}",
                 allow_overwrite=True,
-                name=range["value"]["name"],
-                records=[range["value"]["record"]],
+                name=example_range["value"]["name"],
+                records=[example_range["value"]["record"]],
                 ttl=60,
-                type=aws.route53.RecordType(range["value"]["type"]),
-                zone_id=example_aws_route53_zone["zoneId"]))
+                type=aws.route53.RecordType(example_range["value"]["type"]),
+                zone_id=example_aws_route53_zone["zoneId"])
         ```
 
         ## Import
@@ -866,19 +866,19 @@ class Certificate(pulumi.CustomResource):
         from typing import Any
         import pulumi_aws as aws
 
-        example: list[Any] = []
-        for range in [{"key": k, "value": v} for [k, v] in sorted(({dvo.domain_name: {
+        example: dict[str, aws.route53.Record] = {}
+        for example_range in [{"key": k, "value": v} for [k, v] in sorted(({dvo.domain_name: {
             name: dvo.resource_record_name,
             record: dvo.resource_record_value,
             type: dvo.resource_record_type,
         } for dvo in example_aws_acm_certificate.domain_validation_options}).items())]:
-            example.append(aws.route53.Record(f"example-{range['key']}",
+            example[example_range['key']] = aws.route53.Record(f"example-{example_range['key']}",
                 allow_overwrite=True,
-                name=range["value"]["name"],
-                records=[range["value"]["record"]],
+                name=example_range["value"]["name"],
+                records=[example_range["value"]["record"]],
                 ttl=60,
-                type=aws.route53.RecordType(range["value"]["type"]),
-                zone_id=example_aws_route53_zone["zoneId"]))
+                type=aws.route53.RecordType(example_range["value"]["type"]),
+                zone_id=example_aws_route53_zone["zoneId"])
         ```
 
         ## Import

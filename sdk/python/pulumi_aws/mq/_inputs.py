@@ -27,6 +27,8 @@ __all__ = [
     'BrokerLogsArgsDict',
     'BrokerMaintenanceWindowStartTimeArgs',
     'BrokerMaintenanceWindowStartTimeArgsDict',
+    'BrokerSharedResourceArgs',
+    'BrokerSharedResourceArgsDict',
     'BrokerUserArgs',
     'BrokerUserArgsDict',
 ]
@@ -540,6 +542,95 @@ class BrokerMaintenanceWindowStartTimeArgs:
     @time_zone.setter
     def time_zone(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "time_zone", value)
+
+
+class BrokerSharedResourceArgsDict(TypedDict):
+    dns_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    DNS names through which the broker reaches the shared resource.
+    """
+    resource_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the shared resource.
+    """
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Status of the shared resource.
+    """
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+    """
+
+@pulumi.input_type
+class BrokerSharedResourceArgs:
+    def __init__(__self__, *,
+                 dns_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_names: DNS names through which the broker reaches the shared resource.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the shared resource.
+        :param pulumi.Input[_builtins.str] status: Status of the shared resource.
+        :param pulumi.Input[_builtins.str] type: Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+        """
+        if dns_names is not None:
+            pulumi.set(__self__, "dns_names", dns_names)
+        if resource_arn is not None:
+            pulumi.set(__self__, "resource_arn", resource_arn)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsNames")
+    def dns_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        DNS names through which the broker reaches the shared resource.
+        """
+        return pulumi.get(self, "dns_names")
+
+    @dns_names.setter
+    def dns_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "dns_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceArn")
+    def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the shared resource.
+        """
+        return pulumi.get(self, "resource_arn")
+
+    @resource_arn.setter
+    def resource_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Status of the shared resource.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of the shared resource, either `RESOURCE_SHARE` or `RESOURCE`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
 
 
 class BrokerUserArgsDict(TypedDict):

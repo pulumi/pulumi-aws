@@ -1003,6 +1003,8 @@ type Function struct {
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Configuration block for X-Ray tracing. See below.
 	TracingConfig FunctionTracingConfigOutput `pulumi:"tracingConfig"`
+	// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+	UseResourceTimeoutForPropagation pulumi.BoolPtrOutput `pulumi:"useResourceTimeoutForPropagation"`
 	// Latest published version of your Lambda Function.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// Configuration block for VPC. See below.
@@ -1142,6 +1144,8 @@ type functionState struct {
 	Timeout *int `pulumi:"timeout"`
 	// Configuration block for X-Ray tracing. See below.
 	TracingConfig *FunctionTracingConfig `pulumi:"tracingConfig"`
+	// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+	UseResourceTimeoutForPropagation *bool `pulumi:"useResourceTimeoutForPropagation"`
 	// Latest published version of your Lambda Function.
 	Version *string `pulumi:"version"`
 	// Configuration block for VPC. See below.
@@ -1249,6 +1253,8 @@ type FunctionState struct {
 	Timeout pulumi.IntPtrInput
 	// Configuration block for X-Ray tracing. See below.
 	TracingConfig FunctionTracingConfigPtrInput
+	// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+	UseResourceTimeoutForPropagation pulumi.BoolPtrInput
 	// Latest published version of your Lambda Function.
 	Version pulumi.StringPtrInput
 	// Configuration block for VPC. See below.
@@ -1340,6 +1346,8 @@ type functionArgs struct {
 	Timeout *int `pulumi:"timeout"`
 	// Configuration block for X-Ray tracing. See below.
 	TracingConfig *FunctionTracingConfig `pulumi:"tracingConfig"`
+	// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+	UseResourceTimeoutForPropagation *bool `pulumi:"useResourceTimeoutForPropagation"`
 	// Configuration block for VPC. See below.
 	VpcConfig *FunctionVpcConfig `pulumi:"vpcConfig"`
 }
@@ -1426,6 +1434,8 @@ type FunctionArgs struct {
 	Timeout pulumi.IntPtrInput
 	// Configuration block for X-Ray tracing. See below.
 	TracingConfig FunctionTracingConfigPtrInput
+	// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+	UseResourceTimeoutForPropagation pulumi.BoolPtrInput
 	// Configuration block for VPC. See below.
 	VpcConfig FunctionVpcConfigPtrInput
 }
@@ -1762,6 +1772,11 @@ func (o FunctionOutput) Timeout() pulumi.IntPtrOutput {
 // Configuration block for X-Ray tracing. See below.
 func (o FunctionOutput) TracingConfig() FunctionTracingConfigOutput {
 	return o.ApplyT(func(v *Function) FunctionTracingConfigOutput { return v.TracingConfig }).(FunctionTracingConfigOutput)
+}
+
+// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+func (o FunctionOutput) UseResourceTimeoutForPropagation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Function) pulumi.BoolPtrOutput { return v.UseResourceTimeoutForPropagation }).(pulumi.BoolPtrOutput)
 }
 
 // Latest published version of your Lambda Function.

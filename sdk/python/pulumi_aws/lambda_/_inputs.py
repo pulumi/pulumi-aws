@@ -94,6 +94,10 @@ __all__ = [
     'FunctionImageConfigArgsDict',
     'FunctionLoggingConfigArgs',
     'FunctionLoggingConfigArgsDict',
+    'FunctionScalingConfigFunctionScalingConfigArgs',
+    'FunctionScalingConfigFunctionScalingConfigArgsDict',
+    'FunctionScalingConfigTimeoutsArgs',
+    'FunctionScalingConfigTimeoutsArgsDict',
     'FunctionSnapStartArgs',
     'FunctionSnapStartArgsDict',
     'FunctionTenancyConfigArgs',
@@ -1867,6 +1871,124 @@ class FunctionLoggingConfigArgs:
     @system_log_level.setter
     def system_log_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "system_log_level", value)
+
+
+class FunctionScalingConfigFunctionScalingConfigArgsDict(TypedDict):
+    max_execution_environments: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum number of execution environments that can be provisioned for the function.
+    """
+    min_execution_environments: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Minimum number of execution environments to maintain for the function.
+    """
+
+@pulumi.input_type
+class FunctionScalingConfigFunctionScalingConfigArgs:
+    def __init__(__self__, *,
+                 max_execution_environments: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_execution_environments: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_execution_environments: Maximum number of execution environments that can be provisioned for the function.
+        :param pulumi.Input[_builtins.int] min_execution_environments: Minimum number of execution environments to maintain for the function.
+        """
+        if max_execution_environments is not None:
+            pulumi.set(__self__, "max_execution_environments", max_execution_environments)
+        if min_execution_environments is not None:
+            pulumi.set(__self__, "min_execution_environments", min_execution_environments)
+
+    @_builtins.property
+    @pulumi.getter(name="maxExecutionEnvironments")
+    def max_execution_environments(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum number of execution environments that can be provisioned for the function.
+        """
+        return pulumi.get(self, "max_execution_environments")
+
+    @max_execution_environments.setter
+    def max_execution_environments(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_execution_environments", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minExecutionEnvironments")
+    def min_execution_environments(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Minimum number of execution environments to maintain for the function.
+        """
+        return pulumi.get(self, "min_execution_environments")
+
+    @min_execution_environments.setter
+    def min_execution_environments(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "min_execution_environments", value)
+
+
+class FunctionScalingConfigTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class FunctionScalingConfigTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 class FunctionSnapStartArgsDict(TypedDict):

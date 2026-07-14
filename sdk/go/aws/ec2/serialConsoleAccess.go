@@ -43,6 +43,13 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import serial console access state. For example:
 //
 // ```sh

@@ -31,6 +31,16 @@ __all__ = [
     'DirectoryWorkspaceCreationPropertiesArgsDict',
     'IpGroupRuleArgs',
     'IpGroupRuleArgsDict',
+    'PoolApplicationSettingArgs',
+    'PoolApplicationSettingArgsDict',
+    'PoolCapacityArgs',
+    'PoolCapacityArgsDict',
+    'PoolCapacityStatusArgs',
+    'PoolCapacityStatusArgsDict',
+    'PoolTimeoutSettingArgs',
+    'PoolTimeoutSettingArgsDict',
+    'PoolTimeoutsArgs',
+    'PoolTimeoutsArgsDict',
     'WorkspaceWorkspacePropertiesArgs',
     'WorkspaceWorkspacePropertiesArgsDict',
 ]
@@ -682,6 +692,301 @@ class IpGroupRuleArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+
+class PoolApplicationSettingArgsDict(TypedDict):
+    settings_group: pulumi.Input[_builtins.str]
+    """
+    Name of the settings group for the application settings.
+    """
+    status: pulumi.Input[_builtins.str]
+    """
+    Status of the application settings. Valid values are `ENABLED` and `DISABLED`.
+    """
+
+@pulumi.input_type
+class PoolApplicationSettingArgs:
+    def __init__(__self__, *,
+                 settings_group: pulumi.Input[_builtins.str],
+                 status: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] settings_group: Name of the settings group for the application settings.
+        :param pulumi.Input[_builtins.str] status: Status of the application settings. Valid values are `ENABLED` and `DISABLED`.
+        """
+        pulumi.set(__self__, "settings_group", settings_group)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="settingsGroup")
+    def settings_group(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the settings group for the application settings.
+        """
+        return pulumi.get(self, "settings_group")
+
+    @settings_group.setter
+    def settings_group(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "settings_group", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[_builtins.str]:
+        """
+        Status of the application settings. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "status", value)
+
+
+class PoolCapacityArgsDict(TypedDict):
+    desired_user_sessions: pulumi.Input[_builtins.int]
+    """
+    Desired number of user sessions for the WorkSpaces Pool.
+    """
+
+@pulumi.input_type
+class PoolCapacityArgs:
+    def __init__(__self__, *,
+                 desired_user_sessions: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] desired_user_sessions: Desired number of user sessions for the WorkSpaces Pool.
+        """
+        pulumi.set(__self__, "desired_user_sessions", desired_user_sessions)
+
+    @_builtins.property
+    @pulumi.getter(name="desiredUserSessions")
+    def desired_user_sessions(self) -> pulumi.Input[_builtins.int]:
+        """
+        Desired number of user sessions for the WorkSpaces Pool.
+        """
+        return pulumi.get(self, "desired_user_sessions")
+
+    @desired_user_sessions.setter
+    def desired_user_sessions(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "desired_user_sessions", value)
+
+
+class PoolCapacityStatusArgsDict(TypedDict):
+    active_user_sessions: pulumi.Input[_builtins.int]
+    """
+    Number of user sessions that are currently being used for WorkSpaces in the pool.
+    """
+    actual_user_sessions: pulumi.Input[_builtins.int]
+    """
+    Number of user sessions currently being used for WorkSpaces in the pool.
+    """
+    available_user_sessions: pulumi.Input[_builtins.int]
+    """
+    Number of user sessions available for WorkSpaces in the pool.
+    """
+    desired_user_sessions: pulumi.Input[_builtins.int]
+    """
+    Number of user sessions required for WorkSpaces in the pool.
+    """
+
+@pulumi.input_type
+class PoolCapacityStatusArgs:
+    def __init__(__self__, *,
+                 active_user_sessions: pulumi.Input[_builtins.int],
+                 actual_user_sessions: pulumi.Input[_builtins.int],
+                 available_user_sessions: pulumi.Input[_builtins.int],
+                 desired_user_sessions: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] active_user_sessions: Number of user sessions that are currently being used for WorkSpaces in the pool.
+        :param pulumi.Input[_builtins.int] actual_user_sessions: Number of user sessions currently being used for WorkSpaces in the pool.
+        :param pulumi.Input[_builtins.int] available_user_sessions: Number of user sessions available for WorkSpaces in the pool.
+        :param pulumi.Input[_builtins.int] desired_user_sessions: Number of user sessions required for WorkSpaces in the pool.
+        """
+        pulumi.set(__self__, "active_user_sessions", active_user_sessions)
+        pulumi.set(__self__, "actual_user_sessions", actual_user_sessions)
+        pulumi.set(__self__, "available_user_sessions", available_user_sessions)
+        pulumi.set(__self__, "desired_user_sessions", desired_user_sessions)
+
+    @_builtins.property
+    @pulumi.getter(name="activeUserSessions")
+    def active_user_sessions(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of user sessions that are currently being used for WorkSpaces in the pool.
+        """
+        return pulumi.get(self, "active_user_sessions")
+
+    @active_user_sessions.setter
+    def active_user_sessions(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "active_user_sessions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actualUserSessions")
+    def actual_user_sessions(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of user sessions currently being used for WorkSpaces in the pool.
+        """
+        return pulumi.get(self, "actual_user_sessions")
+
+    @actual_user_sessions.setter
+    def actual_user_sessions(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "actual_user_sessions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availableUserSessions")
+    def available_user_sessions(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of user sessions available for WorkSpaces in the pool.
+        """
+        return pulumi.get(self, "available_user_sessions")
+
+    @available_user_sessions.setter
+    def available_user_sessions(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "available_user_sessions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="desiredUserSessions")
+    def desired_user_sessions(self) -> pulumi.Input[_builtins.int]:
+        """
+        Number of user sessions required for WorkSpaces in the pool.
+        """
+        return pulumi.get(self, "desired_user_sessions")
+
+    @desired_user_sessions.setter
+    def desired_user_sessions(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "desired_user_sessions", value)
+
+
+class PoolTimeoutSettingArgsDict(TypedDict):
+    disconnect_timeout_in_seconds: pulumi.Input[_builtins.int]
+    """
+    Time after disconnection when a user is logged out of their WorkSpace. Must be between 1 and 36000.
+    """
+    idle_disconnect_timeout_in_seconds: pulumi.Input[_builtins.int]
+    """
+    Time after inactivity when a user is disconnected from their WorkSpace. Must be between 1 and 36000.
+    """
+    max_user_duration_in_seconds: pulumi.Input[_builtins.int]
+    """
+    Maximum time that a user can be connected to their WorkSpace. Must be between 1 and 432000.
+    """
+
+@pulumi.input_type
+class PoolTimeoutSettingArgs:
+    def __init__(__self__, *,
+                 disconnect_timeout_in_seconds: pulumi.Input[_builtins.int],
+                 idle_disconnect_timeout_in_seconds: pulumi.Input[_builtins.int],
+                 max_user_duration_in_seconds: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] disconnect_timeout_in_seconds: Time after disconnection when a user is logged out of their WorkSpace. Must be between 1 and 36000.
+        :param pulumi.Input[_builtins.int] idle_disconnect_timeout_in_seconds: Time after inactivity when a user is disconnected from their WorkSpace. Must be between 1 and 36000.
+        :param pulumi.Input[_builtins.int] max_user_duration_in_seconds: Maximum time that a user can be connected to their WorkSpace. Must be between 1 and 432000.
+        """
+        pulumi.set(__self__, "disconnect_timeout_in_seconds", disconnect_timeout_in_seconds)
+        pulumi.set(__self__, "idle_disconnect_timeout_in_seconds", idle_disconnect_timeout_in_seconds)
+        pulumi.set(__self__, "max_user_duration_in_seconds", max_user_duration_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="disconnectTimeoutInSeconds")
+    def disconnect_timeout_in_seconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        Time after disconnection when a user is logged out of their WorkSpace. Must be between 1 and 36000.
+        """
+        return pulumi.get(self, "disconnect_timeout_in_seconds")
+
+    @disconnect_timeout_in_seconds.setter
+    def disconnect_timeout_in_seconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "disconnect_timeout_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idleDisconnectTimeoutInSeconds")
+    def idle_disconnect_timeout_in_seconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        Time after inactivity when a user is disconnected from their WorkSpace. Must be between 1 and 36000.
+        """
+        return pulumi.get(self, "idle_disconnect_timeout_in_seconds")
+
+    @idle_disconnect_timeout_in_seconds.setter
+    def idle_disconnect_timeout_in_seconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "idle_disconnect_timeout_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxUserDurationInSeconds")
+    def max_user_duration_in_seconds(self) -> pulumi.Input[_builtins.int]:
+        """
+        Maximum time that a user can be connected to their WorkSpace. Must be between 1 and 432000.
+        """
+        return pulumi.get(self, "max_user_duration_in_seconds")
+
+    @max_user_duration_in_seconds.setter
+    def max_user_duration_in_seconds(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "max_user_duration_in_seconds", value)
+
+
+class PoolTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class PoolTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 class WorkspaceWorkspacePropertiesArgsDict(TypedDict):

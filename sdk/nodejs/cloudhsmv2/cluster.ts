@@ -35,12 +35,12 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const cloudhsmV2Subnets: aws.ec2.Subnet[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     cloudhsmV2Subnets.push(new aws.ec2.Subnet(`cloudhsm_v2_subnets-${range.value}`, {
+ * for (let range = 0; range < 2; range++) {
+ *     cloudhsmV2Subnets.push(new aws.ec2.Subnet(`cloudhsm_v2_subnets-${range}`, {
  *         vpcId: cloudhsmV2Vpc.id,
- *         cidrBlock: subnets[range.value],
+ *         cidrBlock: subnets[range],
  *         mapPublicIpOnLaunch: false,
- *         availabilityZone: available.then(available => available.names)[range.value],
+ *         availabilityZone: available.then(available => available.names)[range],
  *         tags: {
  *             Name: "example-aws_cloudhsm_v2_cluster",
  *         },

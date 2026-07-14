@@ -425,6 +425,17 @@ class CapacityProvider(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the Lambda capacity provider.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
 
         ```sh
@@ -505,6 +516,17 @@ class CapacityProvider(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the Lambda capacity provider.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
 

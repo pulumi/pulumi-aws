@@ -67,6 +67,13 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Glue Resource Policy using the region where the resource resides. For example:
     /// 
     /// ```sh

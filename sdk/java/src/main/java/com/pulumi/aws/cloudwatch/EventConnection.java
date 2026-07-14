@@ -408,10 +408,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) Name of the connection.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Connections using `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+ * $ pulumi import aws:cloudwatch/eventConnection:EventConnection example example-connection
  * ```
  * 
  */

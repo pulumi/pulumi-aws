@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+ * - `resourceArn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
  *
  * Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
  *

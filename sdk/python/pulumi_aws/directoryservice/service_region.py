@@ -277,14 +277,14 @@ class ServiceRegion(pulumi.CustomResource):
             tags={
                 "Name": "Primary",
             })
-        example_subnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+        example_subnet: list[aws.ec2.Subnet] = []
+        for example_subnet_range in [{"value": i} for i in range(0, 2)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{example_subnet_range['value']}",
                 vpc_id=example_vpc.id,
-                availability_zone=available.names[range["value"]],
+                availability_zone=available.names[example_subnet_range["value"]],
                 cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
                     newbits=8,
-                    netnum=range["value"]).apply(lambda invoke: invoke.result),
+                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result),
                 tags={
                     "Name": "Primary",
                 }))
@@ -306,14 +306,14 @@ class ServiceRegion(pulumi.CustomResource):
             tags={
                 "Name": "Secondary",
             })
-        example_secondary_subnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_secondary_subnet.append(aws.ec2.Subnet(f"example-secondary-{range['value']}",
+        example_secondary_subnet: list[aws.ec2.Subnet] = []
+        for example_secondary_subnet_range in [{"value": i} for i in range(0, 2)]:
+            example_secondary_subnet.append(aws.ec2.Subnet(f"example-secondary-{example_secondary_subnet_range['value']}",
                 vpc_id=example_secondary.id,
-                availability_zone=available_secondary.names[range["value"]],
+                availability_zone=available_secondary.names[example_secondary_subnet_range["value"]],
                 cidr_block=std.cidrsubnet_output(input=example_secondary.cidr_block,
                     newbits=8,
-                    netnum=range["value"]).apply(lambda invoke: invoke.result),
+                    netnum=example_secondary_subnet_range["value"]).apply(lambda invoke: invoke.result),
                 tags={
                     "Name": "Secondary",
                 }))
@@ -376,14 +376,14 @@ class ServiceRegion(pulumi.CustomResource):
             tags={
                 "Name": "Primary",
             })
-        example_subnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+        example_subnet: list[aws.ec2.Subnet] = []
+        for example_subnet_range in [{"value": i} for i in range(0, 2)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{example_subnet_range['value']}",
                 vpc_id=example_vpc.id,
-                availability_zone=available.names[range["value"]],
+                availability_zone=available.names[example_subnet_range["value"]],
                 cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
                     newbits=8,
-                    netnum=range["value"]).apply(lambda invoke: invoke.result),
+                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result),
                 tags={
                     "Name": "Primary",
                 }))
@@ -405,14 +405,14 @@ class ServiceRegion(pulumi.CustomResource):
             tags={
                 "Name": "Secondary",
             })
-        example_secondary_subnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_secondary_subnet.append(aws.ec2.Subnet(f"example-secondary-{range['value']}",
+        example_secondary_subnet: list[aws.ec2.Subnet] = []
+        for example_secondary_subnet_range in [{"value": i} for i in range(0, 2)]:
+            example_secondary_subnet.append(aws.ec2.Subnet(f"example-secondary-{example_secondary_subnet_range['value']}",
                 vpc_id=example_secondary.id,
-                availability_zone=available_secondary.names[range["value"]],
+                availability_zone=available_secondary.names[example_secondary_subnet_range["value"]],
                 cidr_block=std.cidrsubnet_output(input=example_secondary.cidr_block,
                     newbits=8,
-                    netnum=range["value"]).apply(lambda invoke: invoke.result),
+                    netnum=example_secondary_subnet_range["value"]).apply(lambda invoke: invoke.result),
                 tags={
                     "Name": "Secondary",
                 }))

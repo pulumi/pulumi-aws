@@ -52,6 +52,17 @@ namespace Pulumi.Aws.CodeBuild.Inputs
         public Input<Inputs.ProjectEnvironmentFleetGetArgs>? Fleet { get; set; }
 
         /// <summary>
+        /// Host operating system kernel used for on-demand builds in the build project. This setting
+        /// controls the kernel of the underlying build host. It does not change the build environment operating system, which is
+        /// determined by the image you specify. Valid values: `LINUX_KERNEL_4` (runs on an Amazon Linux 2 host, kernel 4.x),
+        /// `LINUX_KERNEL_6` (runs on an Amazon Linux 2023 host, kernel 6.x), `LINUX_KERNEL_LATEST` (runs on the latest supported
+        /// host kernel). Applies to the `LINUX_CONTAINER`, `ARM_CONTAINER`, `LINUX_EC2`, and `ARM_EC2` environment types; not
+        /// applicable to Windows, Lambda, or Mac environment types. If not specified, CodeBuild selects a default.
+        /// </summary>
+        [Input("hostKernel")]
+        public Input<string>? HostKernel { get; set; }
+
+        /// <summary>
         /// Docker image to use for this build project. Valid values
         /// include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (
         /// e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g.,

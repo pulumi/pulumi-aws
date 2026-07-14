@@ -23,6 +23,7 @@ class KeyValueStoreArgs:
     def __init__(__self__, *,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['KeyValueStoreTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a KeyValueStore resource.
@@ -36,6 +37,8 @@ class KeyValueStoreArgs:
             pulumi.set(__self__, "comment", comment)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -67,6 +70,15 @@ class KeyValueStoreArgs:
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter
     def timeouts(self) -> pulumi.Input[Optional['KeyValueStoreTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -83,6 +95,8 @@ class _KeyValueStoreState:
                  etag: pulumi.Input[Optional[_builtins.str]] = None,
                  last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['KeyValueStoreTimeoutsArgs']] = None):
         """
         Input properties used for looking up and filtering KeyValueStore resources.
@@ -104,6 +118,10 @@ class _KeyValueStoreState:
             pulumi.set(__self__, "last_modified_time", last_modified_time)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -168,6 +186,24 @@ class _KeyValueStoreState:
 
     @_builtins.property
     @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @_builtins.property
+    @pulumi.getter
     def timeouts(self) -> pulumi.Input[Optional['KeyValueStoreTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
 
@@ -184,6 +220,7 @@ class KeyValueStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
@@ -286,6 +323,7 @@ class KeyValueStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -298,10 +336,12 @@ class KeyValueStore(pulumi.CustomResource):
 
             __props__.__dict__["comment"] = comment
             __props__.__dict__["name"] = name
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["arn"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["tags_all"] = None
         super(KeyValueStore, __self__).__init__(
             'aws:cloudfront/keyValueStore:KeyValueStore',
             resource_name,
@@ -317,6 +357,8 @@ class KeyValueStore(pulumi.CustomResource):
             etag: pulumi.Input[Optional[_builtins.str]] = None,
             last_modified_time: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timeouts: pulumi.Input[Optional[Union['KeyValueStoreTimeoutsArgs', 'KeyValueStoreTimeoutsArgsDict']]] = None) -> 'KeyValueStore':
         """
         Get an existing KeyValueStore resource's state with the given name, id, and optional extra
@@ -341,6 +383,8 @@ class KeyValueStore(pulumi.CustomResource):
         __props__.__dict__["etag"] = etag
         __props__.__dict__["last_modified_time"] = last_modified_time
         __props__.__dict__["name"] = name
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
         return KeyValueStore(resource_name, opts=opts, __props__=__props__)
 
@@ -382,6 +426,16 @@ class KeyValueStore(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "tags_all")
 
     @_builtins.property
     @pulumi.getter

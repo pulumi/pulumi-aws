@@ -56,6 +56,13 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
 //
 // ```sh

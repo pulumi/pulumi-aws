@@ -177,7 +177,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
+        - `resource_arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
 
         Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
 
@@ -237,7 +237,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
+        - `resource_arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
 
         Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
 

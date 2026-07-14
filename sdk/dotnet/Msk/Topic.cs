@@ -55,6 +55,7 @@ namespace Pulumi.Aws.Msk
     /// #### Optional
     /// 
     /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import Managed Streaming for Kafka Topic using the `ClusterArn` and `Name`. For example:
     /// 

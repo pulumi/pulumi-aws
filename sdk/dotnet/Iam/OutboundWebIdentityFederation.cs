@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// 
     /// Using `pulumi import`, import IAM Outbound Web Identity Federation resources using the AWS account ID. For example:
     /// 
     /// ```sh

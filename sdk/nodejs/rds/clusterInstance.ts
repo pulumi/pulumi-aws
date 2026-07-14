@@ -43,9 +43,9 @@ import * as utilities from "../utilities";
  *     masterPassword: "barbut8chars",
  * });
  * const clusterInstances: aws.rds.ClusterInstance[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     clusterInstances.push(new aws.rds.ClusterInstance(`cluster_instances-${range.value}`, {
- *         identifier: `aurora-cluster-demo-${range.value}`,
+ * for (let range = 0; range < 2; range++) {
+ *     clusterInstances.push(new aws.rds.ClusterInstance(`cluster_instances-${range}`, {
+ *         identifier: `aurora-cluster-demo-${range}`,
  *         clusterIdentifier: _default.id,
  *         instanceClass: aws.rds.InstanceType.R4_Large,
  *         engine: _default.engine.apply((x) => aws.rds.EngineType[x]),

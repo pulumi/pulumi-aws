@@ -34,6 +34,13 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import the RDS certificate override using the `Region`. For example:
     /// 
     /// ```sh

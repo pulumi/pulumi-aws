@@ -62,6 +62,18 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `groupName` - (String) Name of the schedule group.
+ * * `name` - (String) Name of the schedule.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
  *
  * ```sh

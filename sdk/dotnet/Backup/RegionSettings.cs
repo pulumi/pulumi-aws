@@ -58,6 +58,13 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Backup Region Settings using the `Region`. For example:
     /// 
     /// ```sh

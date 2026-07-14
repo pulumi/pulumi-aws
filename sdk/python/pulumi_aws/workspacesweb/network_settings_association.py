@@ -169,22 +169,22 @@ class NetworkSettingsAssociation(pulumi.CustomResource):
             tags={
                 "Name": "example",
             })
-        example_subnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+        example_subnet: list[aws.ec2.Subnet] = []
+        for example_subnet_range in [{"value": i} for i in range(0, 2)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{example_subnet_range['value']}",
                 vpc_id=example.id,
                 cidr_block=std.cidrsubnet_output(input=example.cidr_block,
                     newbits=8,
-                    netnum=range["value"]).apply(lambda invoke: invoke.result),
-                availability_zone=available.names[range["value"]],
+                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result),
+                availability_zone=available.names[example_subnet_range["value"]],
                 tags={
                     "Name": "example",
                 }))
-        example_security_group: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_security_group.append(aws.ec2.SecurityGroup(f"example-{range['value']}",
+        example_security_group: list[aws.ec2.SecurityGroup] = []
+        for example_security_group_range in [{"value": i} for i in range(0, 2)]:
+            example_security_group.append(aws.ec2.SecurityGroup(f"example-{example_security_group_range['value']}",
                 vpc_id=example.id,
-                name=f"example-{range['value']}",
+                name=f"example-{example_security_group_range['value']}",
                 tags={
                     "Name": "example",
                 }))
@@ -242,22 +242,22 @@ class NetworkSettingsAssociation(pulumi.CustomResource):
             tags={
                 "Name": "example",
             })
-        example_subnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+        example_subnet: list[aws.ec2.Subnet] = []
+        for example_subnet_range in [{"value": i} for i in range(0, 2)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{example_subnet_range['value']}",
                 vpc_id=example.id,
                 cidr_block=std.cidrsubnet_output(input=example.cidr_block,
                     newbits=8,
-                    netnum=range["value"]).apply(lambda invoke: invoke.result),
-                availability_zone=available.names[range["value"]],
+                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result),
+                availability_zone=available.names[example_subnet_range["value"]],
                 tags={
                     "Name": "example",
                 }))
-        example_security_group: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_security_group.append(aws.ec2.SecurityGroup(f"example-{range['value']}",
+        example_security_group: list[aws.ec2.SecurityGroup] = []
+        for example_security_group_range in [{"value": i} for i in range(0, 2)]:
+            example_security_group.append(aws.ec2.SecurityGroup(f"example-{example_security_group_range['value']}",
                 vpc_id=example.id,
-                name=f"example-{range['value']}",
+                name=f"example-{example_security_group_range['value']}",
                 tags={
                     "Name": "example",
                 }))

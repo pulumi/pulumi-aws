@@ -411,6 +411,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     declare public readonly tumblingWindowInSeconds: pulumi.Output<number | undefined>;
     /**
+     * Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+     */
+    declare public readonly useResourceTimeoutForPropagation: pulumi.Output<boolean | undefined>;
+    /**
      * UUID of the created event source mapping.
      */
     declare public /*out*/ readonly uuid: pulumi.Output<string>;
@@ -463,6 +467,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["topics"] = state?.topics;
             resourceInputs["tumblingWindowInSeconds"] = state?.tumblingWindowInSeconds;
+            resourceInputs["useResourceTimeoutForPropagation"] = state?.useResourceTimeoutForPropagation;
             resourceInputs["uuid"] = state?.uuid;
         } else {
             const args = argsOrState as EventSourceMappingArgs | undefined;
@@ -497,6 +502,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["topics"] = args?.topics;
             resourceInputs["tumblingWindowInSeconds"] = args?.tumblingWindowInSeconds;
+            resourceInputs["useResourceTimeoutForPropagation"] = args?.useResourceTimeoutForPropagation;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["functionArn"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
@@ -658,6 +664,10 @@ export interface EventSourceMappingState {
      */
     tumblingWindowInSeconds?: pulumi.Input<number | undefined>;
     /**
+     * Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+     */
+    useResourceTimeoutForPropagation?: pulumi.Input<boolean | undefined>;
+    /**
      * UUID of the created event source mapping.
      */
     uuid?: pulumi.Input<string | undefined>;
@@ -781,4 +791,8 @@ export interface EventSourceMappingArgs {
      * Duration in seconds of a processing window for [AWS Lambda streaming analytics](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-windows). The range is between 1 second up to 900 seconds. Only available for stream sources (DynamoDB and Kinesis).
      */
     tumblingWindowInSeconds?: pulumi.Input<number | undefined>;
+    /**
+     * Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+     */
+    useResourceTimeoutForPropagation?: pulumi.Input<boolean | undefined>;
 }

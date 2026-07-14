@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Directory{}
 	case "aws:workspaces/ipGroup:IpGroup":
 		r = &IpGroup{}
+	case "aws:workspaces/pool:Pool":
+		r = &Pool{}
 	case "aws:workspaces/workspace:Workspace":
 		r = &Workspace{}
 	default:
@@ -55,6 +57,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"workspaces/ipGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"workspaces/pool",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

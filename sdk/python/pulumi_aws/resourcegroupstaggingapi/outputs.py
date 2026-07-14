@@ -110,8 +110,8 @@ class GetResourcesResourceTagMappingListComplianceDetailResult(dict):
                  non_compliant_keys: Sequence[_builtins.str]):
         """
         :param _builtins.bool compliance_status: Whether the resource is compliant.
-               * `keys_with_noncompliant_values ` - Set of tag keys with non-compliant tag values.
-               * `non_compliant_keys ` - Set of non-compliant tag keys.
+               * ` keys_with_noncompliant_values  ` - Set of tag keys with non-compliant tag values.
+               * ` non_compliant_keys  ` - Set of non-compliant tag keys.
         """
         pulumi.set(__self__, "compliance_status", compliance_status)
         pulumi.set(__self__, "keys_with_noncompliant_values", keys_with_noncompliant_values)
@@ -122,8 +122,8 @@ class GetResourcesResourceTagMappingListComplianceDetailResult(dict):
     def compliance_status(self) -> _builtins.bool:
         """
         Whether the resource is compliant.
-        * `keys_with_noncompliant_values ` - Set of tag keys with non-compliant tag values.
-        * `non_compliant_keys ` - Set of non-compliant tag keys.
+        * ` keys_with_noncompliant_values  ` - Set of tag keys with non-compliant tag values.
+        * ` non_compliant_keys  ` - Set of non-compliant tag keys.
         """
         return pulumi.get(self, "compliance_status")
 

@@ -12,6 +12,7 @@ import com.pulumi.aws.mq.outputs.BrokerInstance;
 import com.pulumi.aws.mq.outputs.BrokerLdapServerMetadata;
 import com.pulumi.aws.mq.outputs.BrokerLogs;
 import com.pulumi.aws.mq.outputs.BrokerMaintenanceWindowStartTime;
+import com.pulumi.aws.mq.outputs.BrokerSharedResource;
 import com.pulumi.aws.mq.outputs.BrokerUser;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -502,6 +503,20 @@ public class Broker extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
+     * Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+     * 
+     */
+    @Export(name="resourceShareArns", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> resourceShareArns;
+
+    /**
+     * @return Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+     * 
+     */
+    public Output<Optional<List<String>>> resourceShareArns() {
+        return Codegen.optional(this.resourceShareArns);
+    }
+    /**
      * List of security group IDs assigned to the broker.
      * 
      */
@@ -514,6 +529,20 @@ public class Broker extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> securityGroups() {
         return Codegen.optional(this.securityGroups);
+    }
+    /**
+     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+     * 
+     */
+    @Export(name="sharedResources", refs={List.class,BrokerSharedResource.class}, tree="[0,1]")
+    private Output<List<BrokerSharedResource>> sharedResources;
+
+    /**
+     * @return List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+     * 
+     */
+    public Output<List<BrokerSharedResource>> sharedResources() {
+        return this.sharedResources;
     }
     /**
      * Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.

@@ -13,6 +13,7 @@ from .get_directory import *
 from .get_image import *
 from .get_workspace import *
 from .ip_group import *
+from .pool import *
 from .workspace import *
 from ._inputs import *
 from . import outputs

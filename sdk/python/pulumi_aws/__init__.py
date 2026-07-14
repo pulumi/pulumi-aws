@@ -7,6 +7,8 @@ from . import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .arn_build import *
+from .arn_parse import *
 from .get_arn import *
 from .get_availability_zone import *
 from .get_availability_zones import *
@@ -20,6 +22,8 @@ from .get_regions import *
 from .get_service import *
 from .get_service_principal import *
 from .provider import *
+from .trim_iam_role_path import *
+from .user_agent import *
 from ._inputs import *
 from . import outputs
 
@@ -2180,6 +2184,14 @@ _utilities.register(
   "fqn": "pulumi_aws.bedrock",
   "classes": {
    "aws:bedrock/agentcoreBrowser:AgentcoreBrowser": "AgentcoreBrowser"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrock/agentcoreBrowserProfile",
+  "fqn": "pulumi_aws.bedrock",
+  "classes": {
+   "aws:bedrock/agentcoreBrowserProfile:AgentcoreBrowserProfile": "AgentcoreBrowserProfile"
   }
  },
  {
@@ -8152,6 +8164,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lambda/functionScalingConfig",
+  "fqn": "pulumi_aws.lambda_",
+  "classes": {
+   "aws:lambda/functionScalingConfig:FunctionScalingConfig": "FunctionScalingConfig"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lambda/functionUrl",
   "fqn": "pulumi_aws.lambda_",
   "classes": {
@@ -13120,6 +13140,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ssoadmin/region",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/region:Region": "Region"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ssoadmin/trustedTokenIssuer",
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {
@@ -14044,6 +14072,14 @@ _utilities.register(
   "fqn": "pulumi_aws.workspaces",
   "classes": {
    "aws:workspaces/ipGroup:IpGroup": "IpGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "workspaces/pool",
+  "fqn": "pulumi_aws.workspaces",
+  "classes": {
+   "aws:workspaces/pool:Pool": "Pool"
   }
  },
  {

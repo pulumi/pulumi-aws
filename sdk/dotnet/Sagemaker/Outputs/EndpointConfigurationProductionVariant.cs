@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? AcceleratorType;
         /// <summary>
+        /// Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See CapacityReservationConfig below.
+        /// </summary>
+        public readonly Outputs.EndpointConfigurationProductionVariantCapacityReservationConfig? CapacityReservationConfig;
+        /// <summary>
         /// Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         /// </summary>
         public readonly int? ContainerStartupHealthCheckTimeoutInSeconds;
@@ -78,6 +82,8 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         private EndpointConfigurationProductionVariant(
             string? acceleratorType,
 
+            Outputs.EndpointConfigurationProductionVariantCapacityReservationConfig? capacityReservationConfig,
+
             int? containerStartupHealthCheckTimeoutInSeconds,
 
             Outputs.EndpointConfigurationProductionVariantCoreDumpConfig? coreDumpConfig,
@@ -107,6 +113,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             int? volumeSizeInGb)
         {
             AcceleratorType = acceleratorType;
+            CapacityReservationConfig = capacityReservationConfig;
             ContainerStartupHealthCheckTimeoutInSeconds = containerStartupHealthCheckTimeoutInSeconds;
             CoreDumpConfig = coreDumpConfig;
             EnableSsmAccess = enableSsmAccess;

@@ -40,6 +40,11 @@ export type IpGroup = import("./ipGroup").IpGroup;
 export const IpGroup: typeof import("./ipGroup").IpGroup = null as any;
 utilities.lazyLoad(exports, ["IpGroup"], () => require("./ipGroup"));
 
+export { PoolArgs, PoolState } from "./pool";
+export type Pool = import("./pool").Pool;
+export const Pool: typeof import("./pool").Pool = null as any;
+utilities.lazyLoad(exports, ["Pool"], () => require("./pool"));
+
 export { WorkspaceArgs, WorkspaceState } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
@@ -56,6 +61,8 @@ const _module = {
                 return new Directory(name, <any>undefined, { urn })
             case "aws:workspaces/ipGroup:IpGroup":
                 return new IpGroup(name, <any>undefined, { urn })
+            case "aws:workspaces/pool:Pool":
+                return new Pool(name, <any>undefined, { urn })
             case "aws:workspaces/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:
@@ -66,4 +73,5 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "workspaces/connectionAlias", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/directory", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/ipGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "workspaces/pool", _module)
 pulumi.runtime.registerResourceModule("aws", "workspaces/workspace", _module)

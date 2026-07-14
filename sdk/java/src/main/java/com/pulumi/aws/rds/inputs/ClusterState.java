@@ -88,6 +88,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+     * 
+     */
+    @Import(name="autoMinorVersionUpgrade")
+    private @Nullable Output<Boolean> autoMinorVersionUpgrade;
+
+    /**
+     * @return Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> autoMinorVersionUpgrade() {
+        return Optional.ofNullable(this.autoMinorVersionUpgrade);
+    }
+
+    /**
      * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
      * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
      * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
@@ -1181,6 +1196,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.allowMajorVersionUpgrade = $.allowMajorVersionUpgrade;
         this.applyImmediately = $.applyImmediately;
         this.arn = $.arn;
+        this.autoMinorVersionUpgrade = $.autoMinorVersionUpgrade;
         this.availabilityZones = $.availabilityZones;
         this.backtrackWindow = $.backtrackWindow;
         this.backupRetentionPeriod = $.backupRetentionPeriod;
@@ -1354,6 +1370,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param autoMinorVersionUpgrade Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoMinorVersionUpgrade(@Nullable Output<Boolean> autoMinorVersionUpgrade) {
+            $.autoMinorVersionUpgrade = autoMinorVersionUpgrade;
+            return this;
+        }
+
+        /**
+         * @param autoMinorVersionUpgrade Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoMinorVersionUpgrade(Boolean autoMinorVersionUpgrade) {
+            return autoMinorVersionUpgrade(Output.of(autoMinorVersionUpgrade));
         }
 
         /**

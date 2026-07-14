@@ -246,6 +246,17 @@ class FrameworkShare(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Unique identifier for the framework share request.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Audit Manager Framework Share using the `id`. For example:
 
         ```sh
@@ -287,6 +298,17 @@ class FrameworkShare(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Unique identifier for the framework share request.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Audit Manager Framework Share using the `id`. For example:
 

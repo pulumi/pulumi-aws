@@ -65,7 +65,7 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
     }
 
     /**
-     * The address family for the BGP peer. `ipv4 ` or `ipv6`.
+     * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      */
     declare public readonly addressFamily: pulumi.Output<string>;
     /**
@@ -212,7 +212,7 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
  */
 export interface TransitVirtualInterfaceState {
     /**
-     * The address family for the BGP peer. `ipv4 ` or `ipv6`.
+     * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      */
     addressFamily?: pulumi.Input<string | undefined>;
     /**
@@ -288,7 +288,7 @@ export interface TransitVirtualInterfaceState {
  */
 export interface TransitVirtualInterfaceArgs {
     /**
-     * The address family for the BGP peer. `ipv4 ` or `ipv6`.
+     * The address family for the BGP peer. ` ipv4  ` or `ipv6`.
      */
     addressFamily: pulumi.Input<string>;
     /**

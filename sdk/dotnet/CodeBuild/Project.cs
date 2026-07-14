@@ -192,9 +192,10 @@ namespace Pulumi.Aws.CodeBuild
     ///         Environment = new Aws.CodeBuild.Inputs.ProjectEnvironmentArgs
     ///         {
     ///             ComputeType = "BUILD_GENERAL1_SMALL",
-    ///             Image = "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+    ///             Image = "aws/codebuild/amazonlinux-x86_64-standard:6.0",
     ///             Type = "LINUX_CONTAINER",
     ///             ImagePullCredentialsType = "CODEBUILD",
+    ///             HostKernel = "LINUX_KERNEL_6",
     ///             EnvironmentVariables = new[]
     ///             {
     ///                 new Aws.CodeBuild.Inputs.ProjectEnvironmentEnvironmentVariableArgs

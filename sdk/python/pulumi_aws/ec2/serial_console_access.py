@@ -123,6 +123,13 @@ class SerialConsoleAccess(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import serial console access state. For example:
 
         ```sh
@@ -156,6 +163,13 @@ class SerialConsoleAccess(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import serial console access state. For example:
 

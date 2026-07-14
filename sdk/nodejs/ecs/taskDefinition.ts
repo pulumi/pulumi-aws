@@ -326,7 +326,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     declare public readonly networkMode: pulumi.Output<string>;
     /**
-     * Process namespace to use for the containers in the task. Valid values: host`, `task`.
+     * Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
      */
     declare public readonly pidMode: pulumi.Output<string | undefined>;
     /**
@@ -508,7 +508,7 @@ export interface TaskDefinitionState {
      */
     networkMode?: pulumi.Input<string | undefined>;
     /**
-     * Process namespace to use for the containers in the task. Valid values: host`, `task`.
+     * Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
      */
     pidMode?: pulumi.Input<string | undefined>;
     /**
@@ -608,7 +608,7 @@ export interface TaskDefinitionArgs {
      */
     networkMode?: pulumi.Input<string | undefined>;
     /**
-     * Process namespace to use for the containers in the task. Valid values: host`, `task`.
+     * Process namespace to use for the containers in the task. Valid values: host` ,  `task`.
      */
     pidMode?: pulumi.Input<string | undefined>;
     /**

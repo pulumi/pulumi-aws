@@ -222,7 +222,7 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user = aws.iam.User("user", name="test-user")
+        user = aws.iam.User("user", name="example-user")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -232,20 +232,20 @@ class PolicyAttachment(pulumi.CustomResource):
             "actions": ["sts:AssumeRole"],
         }])
         role = aws.iam.Role("role",
-            name="test-role",
+            name="example-role",
             assume_role_policy=assume_role.json)
-        group = aws.iam.Group("group", name="test-group")
+        group = aws.iam.Group("group", name="example-group")
         policy = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "actions": ["ec2:Describe*"],
             "resources": ["*"],
         }])
         policy_policy = aws.iam.Policy("policy",
-            name="test-policy",
-            description="A test policy",
+            name="example-policy",
+            description="An example policy",
             policy=policy.json)
-        test_attach = aws.iam.PolicyAttachment("test-attach",
-            name="test-attachment",
+        example_attach = aws.iam.PolicyAttachment("example-attach",
+            name="example-attachment",
             users=[user.name],
             roles=[role.name],
             groups=[group.name],
@@ -284,7 +284,7 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        user = aws.iam.User("user", name="test-user")
+        user = aws.iam.User("user", name="example-user")
         assume_role = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "principals": [{
@@ -294,20 +294,20 @@ class PolicyAttachment(pulumi.CustomResource):
             "actions": ["sts:AssumeRole"],
         }])
         role = aws.iam.Role("role",
-            name="test-role",
+            name="example-role",
             assume_role_policy=assume_role.json)
-        group = aws.iam.Group("group", name="test-group")
+        group = aws.iam.Group("group", name="example-group")
         policy = aws.iam.get_policy_document(statements=[{
             "effect": "Allow",
             "actions": ["ec2:Describe*"],
             "resources": ["*"],
         }])
         policy_policy = aws.iam.Policy("policy",
-            name="test-policy",
-            description="A test policy",
+            name="example-policy",
+            description="An example policy",
             policy=policy.json)
-        test_attach = aws.iam.PolicyAttachment("test-attach",
-            name="test-attachment",
+        example_attach = aws.iam.PolicyAttachment("example-attach",
+            name="example-attachment",
             users=[user.name],
             roles=[role.name],
             groups=[group.name],

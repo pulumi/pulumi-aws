@@ -52,6 +52,17 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) Unique identifier for the framework.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Audit Manager Framework using the framework `Id`. For example:
     /// 
     /// ```sh

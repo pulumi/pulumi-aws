@@ -565,10 +565,21 @@ class EventBus(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EventBridge event buses using the name of the event bus (which can also be a partner event source name). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the event bus.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Buses using `name` (which can also be a partner event source name). For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+        $ pulumi import aws:cloudwatch/eventBus:EventBus example example-event-bus
         ```
 
 
@@ -809,10 +820,21 @@ class EventBus(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EventBridge event buses using the name of the event bus (which can also be a partner event source name). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the event bus.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Buses using `name` (which can also be a partner event source name). For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+        $ pulumi import aws:cloudwatch/eventBus:EventBus example example-event-bus
         ```
 
 

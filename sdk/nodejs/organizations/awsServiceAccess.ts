@@ -24,6 +24,16 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `servicePrincipal` (String) Service principal name of the AWS service for which you want to enable integration.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ *
  * Using `pulumi import`, import trusted access using the `servicePrincipal`. For example:
  *
  * ```sh

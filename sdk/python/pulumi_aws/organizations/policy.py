@@ -339,6 +339,16 @@ class Policy(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Unique identifier (ID) of the policy.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import `organizations.Policy` using the policy ID. For example:
 
         ```sh
@@ -393,6 +403,16 @@ class Policy(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Unique identifier (ID) of the policy.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
 
         Using `pulumi import`, import `organizations.Policy` using the policy ID. For example:
 

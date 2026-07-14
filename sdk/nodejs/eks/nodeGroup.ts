@@ -95,13 +95,13 @@ import * as utilities from "../utilities";
  *     state: "available",
  * });
  * const example: aws.ec2.Subnet[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     example.push(new aws.ec2.Subnet(`example-${range.value}`, {
- *         availabilityZone: available.then(available => available.names[range.value]),
+ * for (let range = 0; range < 2; range++) {
+ *     example.push(new aws.ec2.Subnet(`example-${range}`, {
+ *         availabilityZone: available.then(available => available.names[range]),
  *         cidrBlock: std.cidrsubnet({
  *             input: exampleAwsVpc.cidrBlock,
  *             newbits: 8,
- *             netnum: range.value,
+ *             netnum: range,
  *         }).then(invoke => invoke.result),
  *         vpcId: exampleAwsVpc.id,
  *     }));

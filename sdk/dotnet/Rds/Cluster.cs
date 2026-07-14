@@ -324,6 +324,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `True`.
+        /// </summary>
+        [Output("autoMinorVersionUpgrade")]
+        public Output<bool> AutoMinorVersionUpgrade { get; private set; } = null!;
+
+        /// <summary>
         /// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
         /// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
         /// We recommend specifying 3 AZs or using the `Lifecycle` configuration block `IgnoreChanges` argument if necessary.
@@ -830,6 +836,12 @@ namespace Pulumi.Aws.Rds
         [Input("applyImmediately")]
         public Input<bool>? ApplyImmediately { get; set; }
 
+        /// <summary>
+        /// Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `True`.
+        /// </summary>
+        [Input("autoMinorVersionUpgrade")]
+        public Input<bool>? AutoMinorVersionUpgrade { get; set; }
+
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;
 
@@ -1300,6 +1312,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `True`.
+        /// </summary>
+        [Input("autoMinorVersionUpgrade")]
+        public Input<bool>? AutoMinorVersionUpgrade { get; set; }
 
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;

@@ -18,13 +18,13 @@ import * as utilities from "../utilities";
  * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
  * const exampleDomainDkim = new aws.ses.DomainDkim("example", {domain: example.domain});
  * const exampleAmazonsesDkimRecord: aws.route53.Record[] = [];
- * for (const range = {value: 0}; range.value < 3; range.value++) {
- *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`example_amazonses_dkim_record-${range.value}`, {
+ * for (let range = 0; range < 3; range++) {
+ *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`example_amazonses_dkim_record-${range}`, {
  *         zoneId: "ABCDEFGHIJ123",
- *         name: exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range.value]}._domainkey`),
+ *         name: exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range]}._domainkey`),
  *         type: aws.route53.RecordType.CNAME,
  *         ttl: 600,
- *         records: [exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range.value]}.dkim.amazonses.com`)],
+ *         records: [exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range]}.dkim.amazonses.com`)],
  *     }));
  * }
  * ```

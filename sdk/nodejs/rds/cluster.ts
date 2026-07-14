@@ -268,6 +268,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+     */
+    declare public readonly autoMinorVersionUpgrade: pulumi.Output<boolean>;
+    /**
      * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
      * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
      * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
@@ -581,6 +585,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["allowMajorVersionUpgrade"] = state?.allowMajorVersionUpgrade;
             resourceInputs["applyImmediately"] = state?.applyImmediately;
             resourceInputs["arn"] = state?.arn;
+            resourceInputs["autoMinorVersionUpgrade"] = state?.autoMinorVersionUpgrade;
             resourceInputs["availabilityZones"] = state?.availabilityZones;
             resourceInputs["backtrackWindow"] = state?.backtrackWindow;
             resourceInputs["backupRetentionPeriod"] = state?.backupRetentionPeriod;
@@ -660,6 +665,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["allocatedStorage"] = args?.allocatedStorage;
             resourceInputs["allowMajorVersionUpgrade"] = args?.allowMajorVersionUpgrade;
             resourceInputs["applyImmediately"] = args?.applyImmediately;
+            resourceInputs["autoMinorVersionUpgrade"] = args?.autoMinorVersionUpgrade;
             resourceInputs["availabilityZones"] = args?.availabilityZones;
             resourceInputs["backtrackWindow"] = args?.backtrackWindow;
             resourceInputs["backupRetentionPeriod"] = args?.backupRetentionPeriod;
@@ -760,6 +766,10 @@ export interface ClusterState {
      * Amazon Resource Name (ARN) of cluster
      */
     arn?: pulumi.Input<string | undefined>;
+    /**
+     * Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+     */
+    autoMinorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
      * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
@@ -1074,6 +1084,10 @@ export interface ClusterArgs {
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
      */
     applyImmediately?: pulumi.Input<boolean | undefined>;
+    /**
+     * Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+     */
+    autoMinorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
      * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
      * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.

@@ -93,7 +93,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
+// - `resourceArn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
 //
 // Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
 //

@@ -65,6 +65,21 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With out-of-order and rule query configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amp.Workspace("example", {});
+ * const exampleWorkspaceConfiguration = new aws.amp.WorkspaceConfiguration("example", {
+ *     workspaceId: example.id,
+ *     retentionPeriodInDays: 30,
+ *     outOfOrderTimeWindowInSeconds: 120,
+ *     ruleQueryOffsetInSeconds: 300,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import AMP (Managed Prometheus) Workspace Configuration using the `workspaceId`. For example
@@ -106,6 +121,10 @@ export class WorkspaceConfiguration extends pulumi.CustomResource {
      */
     declare public readonly limitsPerLabelSets: pulumi.Output<outputs.amp.WorkspaceConfigurationLimitsPerLabelSet[] | undefined>;
     /**
+     * Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+     */
+    declare public readonly outOfOrderTimeWindowInSeconds: pulumi.Output<number>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
@@ -113,6 +132,10 @@ export class WorkspaceConfiguration extends pulumi.CustomResource {
      * Number of days to retain metric data in the workspace.
      */
     declare public readonly retentionPeriodInDays: pulumi.Output<number>;
+    /**
+     * Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+     */
+    declare public readonly ruleQueryOffsetInSeconds: pulumi.Output<number>;
     declare public readonly timeouts: pulumi.Output<outputs.amp.WorkspaceConfigurationTimeouts | undefined>;
     /**
      * ID of the workspace to configure.
@@ -135,8 +158,10 @@ export class WorkspaceConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as WorkspaceConfigurationState | undefined;
             resourceInputs["limitsPerLabelSets"] = state?.limitsPerLabelSets;
+            resourceInputs["outOfOrderTimeWindowInSeconds"] = state?.outOfOrderTimeWindowInSeconds;
             resourceInputs["region"] = state?.region;
             resourceInputs["retentionPeriodInDays"] = state?.retentionPeriodInDays;
+            resourceInputs["ruleQueryOffsetInSeconds"] = state?.ruleQueryOffsetInSeconds;
             resourceInputs["timeouts"] = state?.timeouts;
             resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
@@ -145,8 +170,10 @@ export class WorkspaceConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceId'");
             }
             resourceInputs["limitsPerLabelSets"] = args?.limitsPerLabelSets;
+            resourceInputs["outOfOrderTimeWindowInSeconds"] = args?.outOfOrderTimeWindowInSeconds;
             resourceInputs["region"] = args?.region;
             resourceInputs["retentionPeriodInDays"] = args?.retentionPeriodInDays;
+            resourceInputs["ruleQueryOffsetInSeconds"] = args?.ruleQueryOffsetInSeconds;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["workspaceId"] = args?.workspaceId;
         }
@@ -164,6 +191,10 @@ export interface WorkspaceConfigurationState {
      */
     limitsPerLabelSets?: pulumi.Input<pulumi.Input<inputs.amp.WorkspaceConfigurationLimitsPerLabelSet>[] | undefined>;
     /**
+     * Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+     */
+    outOfOrderTimeWindowInSeconds?: pulumi.Input<number | undefined>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
@@ -171,6 +202,10 @@ export interface WorkspaceConfigurationState {
      * Number of days to retain metric data in the workspace.
      */
     retentionPeriodInDays?: pulumi.Input<number | undefined>;
+    /**
+     * Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+     */
+    ruleQueryOffsetInSeconds?: pulumi.Input<number | undefined>;
     timeouts?: pulumi.Input<inputs.amp.WorkspaceConfigurationTimeouts | undefined>;
     /**
      * ID of the workspace to configure.
@@ -189,6 +224,10 @@ export interface WorkspaceConfigurationArgs {
      */
     limitsPerLabelSets?: pulumi.Input<pulumi.Input<inputs.amp.WorkspaceConfigurationLimitsPerLabelSet>[] | undefined>;
     /**
+     * Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+     */
+    outOfOrderTimeWindowInSeconds?: pulumi.Input<number | undefined>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
@@ -196,6 +235,10 @@ export interface WorkspaceConfigurationArgs {
      * Number of days to retain metric data in the workspace.
      */
     retentionPeriodInDays?: pulumi.Input<number | undefined>;
+    /**
+     * Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+     */
+    ruleQueryOffsetInSeconds?: pulumi.Input<number | undefined>;
     timeouts?: pulumi.Input<inputs.amp.WorkspaceConfigurationTimeouts | undefined>;
     /**
      * ID of the workspace to configure.

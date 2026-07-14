@@ -9,6 +9,7 @@ import com.pulumi.aws.mq.inputs.BrokerInstanceArgs;
 import com.pulumi.aws.mq.inputs.BrokerLdapServerMetadataArgs;
 import com.pulumi.aws.mq.inputs.BrokerLogsArgs;
 import com.pulumi.aws.mq.inputs.BrokerMaintenanceWindowStartTimeArgs;
+import com.pulumi.aws.mq.inputs.BrokerSharedResourceArgs;
 import com.pulumi.aws.mq.inputs.BrokerUserArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -330,6 +331,21 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+     * 
+     */
+    @Import(name="resourceShareArns")
+    private @Nullable Output<List<String>> resourceShareArns;
+
+    /**
+     * @return Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+     * 
+     */
+    public Optional<Output<List<String>>> resourceShareArns() {
+        return Optional.ofNullable(this.resourceShareArns);
+    }
+
+    /**
      * List of security group IDs assigned to the broker.
      * 
      */
@@ -342,6 +358,21 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> securityGroups() {
         return Optional.ofNullable(this.securityGroups);
+    }
+
+    /**
+     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+     * 
+     */
+    @Import(name="sharedResources")
+    private @Nullable Output<List<BrokerSharedResourceArgs>> sharedResources;
+
+    /**
+     * @return List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+     * 
+     */
+    public Optional<Output<List<BrokerSharedResourceArgs>>> sharedResources() {
+        return Optional.ofNullable(this.sharedResources);
     }
 
     /**
@@ -442,7 +473,9 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         this.pendingDataReplicationMode = $.pendingDataReplicationMode;
         this.publiclyAccessible = $.publiclyAccessible;
         this.region = $.region;
+        this.resourceShareArns = $.resourceShareArns;
         this.securityGroups = $.securityGroups;
+        this.sharedResources = $.sharedResources;
         this.storageType = $.storageType;
         this.subnetIds = $.subnetIds;
         this.tags = $.tags;
@@ -903,6 +936,37 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param resourceShareArns Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceShareArns(@Nullable Output<List<String>> resourceShareArns) {
+            $.resourceShareArns = resourceShareArns;
+            return this;
+        }
+
+        /**
+         * @param resourceShareArns Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceShareArns(List<String> resourceShareArns) {
+            return resourceShareArns(Output.of(resourceShareArns));
+        }
+
+        /**
+         * @param resourceShareArns Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceShareArns(String... resourceShareArns) {
+            return resourceShareArns(List.of(resourceShareArns));
+        }
+
+        /**
          * @param securityGroups List of security group IDs assigned to the broker.
          * 
          * @return builder
@@ -931,6 +995,37 @@ public final class BrokerState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder securityGroups(String... securityGroups) {
             return securityGroups(List.of(securityGroups));
+        }
+
+        /**
+         * @param sharedResources List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharedResources(@Nullable Output<List<BrokerSharedResourceArgs>> sharedResources) {
+            $.sharedResources = sharedResources;
+            return this;
+        }
+
+        /**
+         * @param sharedResources List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharedResources(List<BrokerSharedResourceArgs> sharedResources) {
+            return sharedResources(Output.of(sharedResources));
+        }
+
+        /**
+         * @param sharedResources List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sharedResources(BrokerSharedResourceArgs... sharedResources) {
+            return sharedResources(List.of(sharedResources));
         }
 
         /**

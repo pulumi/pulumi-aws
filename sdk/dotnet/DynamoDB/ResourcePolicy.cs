@@ -39,7 +39,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
+    /// - `ResourceArn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
     /// 
     /// Using `pulumi import`, import DynamoDB Resource Policy using the `ResourceArn`. For example:
     /// 

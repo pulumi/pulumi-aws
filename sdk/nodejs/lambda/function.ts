@@ -129,10 +129,10 @@ import * as utilities from "../utilities";
  * ];
  * // Mount target in each subnet
  * const exampleMountTarget: aws.efs.MountTarget[] = [];
- * for (const range = {value: 0}; range.value < subnetIds.length; range.value++) {
- *     exampleMountTarget.push(new aws.efs.MountTarget(`example-${range.value}`, {
+ * for (let range = 0; range < subnetIds.length; range++) {
+ *     exampleMountTarget.push(new aws.efs.MountTarget(`example-${range}`, {
  *         fileSystemId: example.id,
- *         subnetId: subnetIds[range.value],
+ *         subnetId: subnetIds[range],
  *         securityGroups: [efs.id],
  *     }));
  * }
@@ -788,6 +788,10 @@ export class Function extends pulumi.CustomResource {
      */
     declare public readonly tracingConfig: pulumi.Output<outputs.lambda.FunctionTracingConfig>;
     /**
+     * Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+     */
+    declare public readonly useResourceTimeoutForPropagation: pulumi.Output<boolean | undefined>;
+    /**
      * Latest published version of your Lambda Function.
      */
     declare public /*out*/ readonly version: pulumi.Output<string>;
@@ -858,6 +862,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["tenancyConfig"] = state?.tenancyConfig;
             resourceInputs["timeout"] = state?.timeout;
             resourceInputs["tracingConfig"] = state?.tracingConfig;
+            resourceInputs["useResourceTimeoutForPropagation"] = state?.useResourceTimeoutForPropagation;
             resourceInputs["version"] = state?.version;
             resourceInputs["vpcConfig"] = state?.vpcConfig;
         } else {
@@ -904,6 +909,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["tenancyConfig"] = args?.tenancyConfig;
             resourceInputs["timeout"] = args?.timeout;
             resourceInputs["tracingConfig"] = args?.tracingConfig;
+            resourceInputs["useResourceTimeoutForPropagation"] = args?.useResourceTimeoutForPropagation;
             resourceInputs["vpcConfig"] = args?.vpcConfig;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["invokeArn"] = undefined /*out*/;
@@ -1125,6 +1131,10 @@ export interface FunctionState {
      */
     tracingConfig?: pulumi.Input<inputs.lambda.FunctionTracingConfig | undefined>;
     /**
+     * Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+     */
+    useResourceTimeoutForPropagation?: pulumi.Input<boolean | undefined>;
+    /**
      * Latest published version of your Lambda Function.
      */
     version?: pulumi.Input<string | undefined>;
@@ -1296,6 +1306,10 @@ export interface FunctionArgs {
      * Configuration block for X-Ray tracing. See below.
      */
     tracingConfig?: pulumi.Input<inputs.lambda.FunctionTracingConfig | undefined>;
+    /**
+     * Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+     */
+    useResourceTimeoutForPropagation?: pulumi.Input<boolean | undefined>;
     /**
      * Configuration block for VPC. See below.
      */

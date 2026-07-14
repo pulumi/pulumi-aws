@@ -372,6 +372,8 @@ type Cluster struct {
 	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+	AutoMinorVersionUpgrade pulumi.BoolOutput `pulumi:"autoMinorVersionUpgrade"`
 	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
 	// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
 	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
@@ -582,6 +584,8 @@ type clusterState struct {
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn *string `pulumi:"arn"`
+	// Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
 	// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
 	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
@@ -749,6 +753,8 @@ type ClusterState struct {
 	ApplyImmediately pulumi.BoolPtrInput
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringPtrInput
+	// Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
 	// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
 	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
@@ -918,6 +924,8 @@ type clusterArgs struct {
 	AllowMajorVersionUpgrade *bool `pulumi:"allowMajorVersionUpgrade"`
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
+	// Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
 	// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
 	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
@@ -1065,6 +1073,8 @@ type ClusterArgs struct {
 	AllowMajorVersionUpgrade pulumi.BoolPtrInput
 	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
 	ApplyImmediately pulumi.BoolPtrInput
+	// Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
 	// RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
 	// We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.
@@ -1309,6 +1319,11 @@ func (o ClusterOutput) ApplyImmediately() pulumi.BoolOutput {
 // Amazon Resource Name (ARN) of cluster
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+func (o ClusterOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
 }
 
 // List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.

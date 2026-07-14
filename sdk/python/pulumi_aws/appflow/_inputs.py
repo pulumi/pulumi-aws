@@ -3264,7 +3264,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeA
     region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+    * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
     """
 
 @pulumi.input_type
@@ -3282,7 +3282,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeA
         :param pulumi.Input[_builtins.str] warehouse: The name of the Snowflake warehouse.
         :param pulumi.Input[_builtins.str] account_name: The name of the account.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-               * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+               * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "stage", stage)
@@ -3364,7 +3364,7 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeA
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+        * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
         """
         return pulumi.get(self, "region")
 

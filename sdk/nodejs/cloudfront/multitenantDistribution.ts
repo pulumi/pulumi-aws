@@ -14,8 +14,6 @@ import * as utilities from "../utilities";
  *
  * For information about CloudFront multi-tenant distributions, see the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/).
  *
- * > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retainOnDelete` flag.
- *
  * ## Example Usage
  *
  * ### Multi-tenant Distribution Limitations

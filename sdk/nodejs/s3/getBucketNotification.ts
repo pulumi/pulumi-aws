@@ -38,8 +38,8 @@ import * as utilities from "../utilities";
  *         bucket: "shared-bucket",
  *     });
  *     const s3ObjectCreated: aws.cloudwatch.EventRule[] = [];
- *     for (const range = {value: 0}; range.value < (shared.eventbridge ? 1 : 0); range.value++) {
- *         s3ObjectCreated.push(new aws.cloudwatch.EventRule(`s3_object_created-${range.value}`, {
+ *     for (let range = 0; range < (shared.eventbridge ? 1 : 0); range++) {
+ *         s3ObjectCreated.push(new aws.cloudwatch.EventRule(`s3_object_created-${range}`, {
  *             name: "shared-bucket-object-created",
  *             description: "S3 object-created events from the shared bucket.",
  *             eventPattern: JSON.stringify({
@@ -192,8 +192,8 @@ export interface GetBucketNotificationResult {
  *         bucket: "shared-bucket",
  *     });
  *     const s3ObjectCreated: aws.cloudwatch.EventRule[] = [];
- *     for (const range = {value: 0}; range.value < (shared.eventbridge ? 1 : 0); range.value++) {
- *         s3ObjectCreated.push(new aws.cloudwatch.EventRule(`s3_object_created-${range.value}`, {
+ *     for (let range = 0; range < (shared.eventbridge ? 1 : 0); range++) {
+ *         s3ObjectCreated.push(new aws.cloudwatch.EventRule(`s3_object_created-${range}`, {
  *             name: "shared-bucket-object-created",
  *             description: "S3 object-created events from the shared bucket.",
  *             eventPattern: JSON.stringify({

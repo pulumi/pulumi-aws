@@ -61,6 +61,7 @@ class FunctionArgs:
                  tenancy_config: pulumi.Input[Optional['FunctionTenancyConfigArgs']] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  tracing_config: pulumi.Input[Optional['FunctionTracingConfigArgs']] = None,
+                 use_resource_timeout_for_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
                  vpc_config: pulumi.Input[Optional['FunctionVpcConfigArgs']] = None):
         """
         The set of arguments for constructing a Function resource.
@@ -106,6 +107,7 @@ class FunctionArgs:
         :param pulumi.Input['FunctionTenancyConfigArgs'] tenancy_config: Configuration block for Tenancy. See below.
         :param pulumi.Input[_builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
         :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Configuration block for X-Ray tracing. See below.
+        :param pulumi.Input[_builtins.bool] use_resource_timeout_for_propagation: Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
         :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: Configuration block for VPC. See below.
         """
         pulumi.set(__self__, "role", role)
@@ -185,6 +187,8 @@ class FunctionArgs:
             pulumi.set(__self__, "timeout", timeout)
         if tracing_config is not None:
             pulumi.set(__self__, "tracing_config", tracing_config)
+        if use_resource_timeout_for_propagation is not None:
+            pulumi.set(__self__, "use_resource_timeout_for_propagation", use_resource_timeout_for_propagation)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
 
@@ -659,6 +663,18 @@ class FunctionArgs:
         pulumi.set(self, "tracing_config", value)
 
     @_builtins.property
+    @pulumi.getter(name="useResourceTimeoutForPropagation")
+    def use_resource_timeout_for_propagation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+        """
+        return pulumi.get(self, "use_resource_timeout_for_propagation")
+
+    @use_resource_timeout_for_propagation.setter
+    def use_resource_timeout_for_propagation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_resource_timeout_for_propagation", value)
+
+    @_builtins.property
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Input[Optional['FunctionVpcConfigArgs']]:
         """
@@ -723,6 +739,7 @@ class _FunctionState:
                  tenancy_config: pulumi.Input[Optional['FunctionTenancyConfigArgs']] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  tracing_config: pulumi.Input[Optional['FunctionTracingConfigArgs']] = None,
+                 use_resource_timeout_for_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_config: pulumi.Input[Optional['FunctionVpcConfigArgs']] = None):
         """
@@ -779,6 +796,7 @@ class _FunctionState:
         :param pulumi.Input['FunctionTenancyConfigArgs'] tenancy_config: Configuration block for Tenancy. See below.
         :param pulumi.Input[_builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
         :param pulumi.Input['FunctionTracingConfigArgs'] tracing_config: Configuration block for X-Ray tracing. See below.
+        :param pulumi.Input[_builtins.bool] use_resource_timeout_for_propagation: Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
         :param pulumi.Input[_builtins.str] version: Latest published version of your Lambda Function.
         :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: Configuration block for VPC. See below.
         """
@@ -880,6 +898,8 @@ class _FunctionState:
             pulumi.set(__self__, "timeout", timeout)
         if tracing_config is not None:
             pulumi.set(__self__, "tracing_config", tracing_config)
+        if use_resource_timeout_for_propagation is not None:
+            pulumi.set(__self__, "use_resource_timeout_for_propagation", use_resource_timeout_for_propagation)
         if version is not None:
             pulumi.set(__self__, "version", version)
         if vpc_config is not None:
@@ -1476,6 +1496,18 @@ class _FunctionState:
         pulumi.set(self, "tracing_config", value)
 
     @_builtins.property
+    @pulumi.getter(name="useResourceTimeoutForPropagation")
+    def use_resource_timeout_for_propagation(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+        """
+        return pulumi.get(self, "use_resource_timeout_for_propagation")
+
+    @use_resource_timeout_for_propagation.setter
+    def use_resource_timeout_for_propagation(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_resource_timeout_for_propagation", value)
+
+    @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -1545,6 +1577,7 @@ class Function(pulumi.CustomResource):
                  tenancy_config: pulumi.Input[Optional[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  tracing_config: pulumi.Input[Optional[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
+                 use_resource_timeout_for_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
                  vpc_config: pulumi.Input[Optional[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
@@ -1666,11 +1699,11 @@ class Function(pulumi.CustomResource):
                 "subnet-87654321",
             ]
         # Mount target in each subnet
-        example_mount_target: list[Any] = []
-        for range in [{"value": i} for i in range(0, len(subnet_ids))]:
-            example_mount_target.append(aws.efs.MountTarget(f"example-{range['value']}",
+        example_mount_target: list[aws.efs.MountTarget] = []
+        for example_mount_target_range in [{"value": i} for i in range(0, len(subnet_ids))]:
+            example_mount_target.append(aws.efs.MountTarget(f"example-{example_mount_target_range['value']}",
                 file_system_id=example.id,
-                subnet_id=subnet_ids[range["value"]],
+                subnet_id=subnet_ids[example_mount_target_range["value"]],
                 security_groups=[efs["id"]]))
         # Access point for Lambda
         example_access_point = aws.efs.AccessPoint("example",
@@ -2106,6 +2139,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']] tenancy_config: Configuration block for Tenancy. See below.
         :param pulumi.Input[_builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
         :param pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']] tracing_config: Configuration block for X-Ray tracing. See below.
+        :param pulumi.Input[_builtins.bool] use_resource_timeout_for_propagation: Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
         :param pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']] vpc_config: Configuration block for VPC. See below.
         """
         ...
@@ -2233,11 +2267,11 @@ class Function(pulumi.CustomResource):
                 "subnet-87654321",
             ]
         # Mount target in each subnet
-        example_mount_target: list[Any] = []
-        for range in [{"value": i} for i in range(0, len(subnet_ids))]:
-            example_mount_target.append(aws.efs.MountTarget(f"example-{range['value']}",
+        example_mount_target: list[aws.efs.MountTarget] = []
+        for example_mount_target_range in [{"value": i} for i in range(0, len(subnet_ids))]:
+            example_mount_target.append(aws.efs.MountTarget(f"example-{example_mount_target_range['value']}",
                 file_system_id=example.id,
-                subnet_id=subnet_ids[range["value"]],
+                subnet_id=subnet_ids[example_mount_target_range["value"]],
                 security_groups=[efs["id"]]))
         # Access point for Lambda
         example_access_point = aws.efs.AccessPoint("example",
@@ -2684,6 +2718,7 @@ class Function(pulumi.CustomResource):
                  tenancy_config: pulumi.Input[Optional[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  tracing_config: pulumi.Input[Optional[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
+                 use_resource_timeout_for_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
                  vpc_config: pulumi.Input[Optional[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -2735,6 +2770,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["tenancy_config"] = tenancy_config
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["tracing_config"] = tracing_config
+            __props__.__dict__["use_resource_timeout_for_propagation"] = use_resource_timeout_for_propagation
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["invoke_arn"] = None
@@ -2806,6 +2842,7 @@ class Function(pulumi.CustomResource):
             tenancy_config: pulumi.Input[Optional[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']]] = None,
             timeout: pulumi.Input[Optional[_builtins.int]] = None,
             tracing_config: pulumi.Input[Optional[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
+            use_resource_timeout_for_propagation: pulumi.Input[Optional[_builtins.bool]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None,
             vpc_config: pulumi.Input[Optional[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']]] = None) -> 'Function':
         """
@@ -2866,6 +2903,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']] tenancy_config: Configuration block for Tenancy. See below.
         :param pulumi.Input[_builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
         :param pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']] tracing_config: Configuration block for X-Ray tracing. See below.
+        :param pulumi.Input[_builtins.bool] use_resource_timeout_for_propagation: Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
         :param pulumi.Input[_builtins.str] version: Latest published version of your Lambda Function.
         :param pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']] vpc_config: Configuration block for VPC. See below.
         """
@@ -2922,6 +2960,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["tenancy_config"] = tenancy_config
         __props__.__dict__["timeout"] = timeout
         __props__.__dict__["tracing_config"] = tracing_config
+        __props__.__dict__["use_resource_timeout_for_propagation"] = use_resource_timeout_for_propagation
         __props__.__dict__["version"] = version
         __props__.__dict__["vpc_config"] = vpc_config
         return Function(resource_name, opts=opts, __props__=__props__)
@@ -3319,6 +3358,14 @@ class Function(pulumi.CustomResource):
         Configuration block for X-Ray tracing. See below.
         """
         return pulumi.get(self, "tracing_config")
+
+    @_builtins.property
+    @pulumi.getter(name="useResourceTimeoutForPropagation")
+    def use_resource_timeout_for_propagation(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+        """
+        return pulumi.get(self, "use_resource_timeout_for_propagation")
 
     @_builtins.property
     @pulumi.getter

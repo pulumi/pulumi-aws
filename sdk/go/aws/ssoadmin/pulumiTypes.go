@@ -1434,6 +1434,162 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 	}).(pulumi.StringPtrOutput)
 }
 
+type RegionTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// RegionTimeoutsInput is an input type that accepts RegionTimeoutsArgs and RegionTimeoutsOutput values.
+// You can construct a concrete instance of `RegionTimeoutsInput` via:
+//
+//	RegionTimeoutsArgs{...}
+type RegionTimeoutsInput interface {
+	pulumi.Input
+
+	ToRegionTimeoutsOutput() RegionTimeoutsOutput
+	ToRegionTimeoutsOutputWithContext(context.Context) RegionTimeoutsOutput
+}
+
+type RegionTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (RegionTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegionTimeouts)(nil)).Elem()
+}
+
+func (i RegionTimeoutsArgs) ToRegionTimeoutsOutput() RegionTimeoutsOutput {
+	return i.ToRegionTimeoutsOutputWithContext(context.Background())
+}
+
+func (i RegionTimeoutsArgs) ToRegionTimeoutsOutputWithContext(ctx context.Context) RegionTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegionTimeoutsOutput)
+}
+
+func (i RegionTimeoutsArgs) ToRegionTimeoutsPtrOutput() RegionTimeoutsPtrOutput {
+	return i.ToRegionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i RegionTimeoutsArgs) ToRegionTimeoutsPtrOutputWithContext(ctx context.Context) RegionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegionTimeoutsOutput).ToRegionTimeoutsPtrOutputWithContext(ctx)
+}
+
+// RegionTimeoutsPtrInput is an input type that accepts RegionTimeoutsArgs, RegionTimeoutsPtr and RegionTimeoutsPtrOutput values.
+// You can construct a concrete instance of `RegionTimeoutsPtrInput` via:
+//
+//	        RegionTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegionTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToRegionTimeoutsPtrOutput() RegionTimeoutsPtrOutput
+	ToRegionTimeoutsPtrOutputWithContext(context.Context) RegionTimeoutsPtrOutput
+}
+
+type regionTimeoutsPtrType RegionTimeoutsArgs
+
+func RegionTimeoutsPtr(v *RegionTimeoutsArgs) RegionTimeoutsPtrInput {
+	return (*regionTimeoutsPtrType)(v)
+}
+
+func (*regionTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegionTimeouts)(nil)).Elem()
+}
+
+func (i *regionTimeoutsPtrType) ToRegionTimeoutsPtrOutput() RegionTimeoutsPtrOutput {
+	return i.ToRegionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *regionTimeoutsPtrType) ToRegionTimeoutsPtrOutputWithContext(ctx context.Context) RegionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegionTimeoutsPtrOutput)
+}
+
+type RegionTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (RegionTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegionTimeouts)(nil)).Elem()
+}
+
+func (o RegionTimeoutsOutput) ToRegionTimeoutsOutput() RegionTimeoutsOutput {
+	return o
+}
+
+func (o RegionTimeoutsOutput) ToRegionTimeoutsOutputWithContext(ctx context.Context) RegionTimeoutsOutput {
+	return o
+}
+
+func (o RegionTimeoutsOutput) ToRegionTimeoutsPtrOutput() RegionTimeoutsPtrOutput {
+	return o.ToRegionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o RegionTimeoutsOutput) ToRegionTimeoutsPtrOutputWithContext(ctx context.Context) RegionTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegionTimeouts) *RegionTimeouts {
+		return &v
+	}).(RegionTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RegionTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegionTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o RegionTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RegionTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type RegionTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (RegionTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegionTimeouts)(nil)).Elem()
+}
+
+func (o RegionTimeoutsPtrOutput) ToRegionTimeoutsPtrOutput() RegionTimeoutsPtrOutput {
+	return o
+}
+
+func (o RegionTimeoutsPtrOutput) ToRegionTimeoutsPtrOutputWithContext(ctx context.Context) RegionTimeoutsPtrOutput {
+	return o
+}
+
+func (o RegionTimeoutsPtrOutput) Elem() RegionTimeoutsOutput {
+	return o.ApplyT(func(v *RegionTimeouts) RegionTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret RegionTimeouts
+		return ret
+	}).(RegionTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o RegionTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o RegionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type TrustedTokenIssuerTrustedTokenIssuerConfiguration struct {
 	// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
 	OidcJwtConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration `pulumi:"oidcJwtConfiguration"`
@@ -2458,6 +2614,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryPtrInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrInput)(nil)).Elem(), PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegionTimeoutsInput)(nil)).Elem(), RegionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegionTimeoutsPtrInput)(nil)).Elem(), RegionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustedTokenIssuerTrustedTokenIssuerConfigurationInput)(nil)).Elem(), TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrInput)(nil)).Elem(), TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationInput)(nil)).Elem(), TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs{})
@@ -2494,6 +2652,8 @@ func init() {
 	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceOutput{})
 	pulumi.RegisterOutputType(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferencePtrOutput{})
+	pulumi.RegisterOutputType(RegionTimeoutsOutput{})
+	pulumi.RegisterOutputType(RegionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput{})
 	pulumi.RegisterOutputType(TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput{})

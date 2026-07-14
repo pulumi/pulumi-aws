@@ -1458,6 +1458,663 @@ func (o IpGroupRuleArrayOutput) Index(i pulumi.IntInput) IpGroupRuleOutput {
 	}).(IpGroupRuleOutput)
 }
 
+type PoolApplicationSetting struct {
+	// Name of the settings group for the application settings.
+	SettingsGroup string `pulumi:"settingsGroup"`
+	// Status of the application settings. Valid values are `ENABLED` and `DISABLED`.
+	Status string `pulumi:"status"`
+}
+
+// PoolApplicationSettingInput is an input type that accepts PoolApplicationSettingArgs and PoolApplicationSettingOutput values.
+// You can construct a concrete instance of `PoolApplicationSettingInput` via:
+//
+//	PoolApplicationSettingArgs{...}
+type PoolApplicationSettingInput interface {
+	pulumi.Input
+
+	ToPoolApplicationSettingOutput() PoolApplicationSettingOutput
+	ToPoolApplicationSettingOutputWithContext(context.Context) PoolApplicationSettingOutput
+}
+
+type PoolApplicationSettingArgs struct {
+	// Name of the settings group for the application settings.
+	SettingsGroup pulumi.StringInput `pulumi:"settingsGroup"`
+	// Status of the application settings. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (PoolApplicationSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolApplicationSetting)(nil)).Elem()
+}
+
+func (i PoolApplicationSettingArgs) ToPoolApplicationSettingOutput() PoolApplicationSettingOutput {
+	return i.ToPoolApplicationSettingOutputWithContext(context.Background())
+}
+
+func (i PoolApplicationSettingArgs) ToPoolApplicationSettingOutputWithContext(ctx context.Context) PoolApplicationSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolApplicationSettingOutput)
+}
+
+// PoolApplicationSettingArrayInput is an input type that accepts PoolApplicationSettingArray and PoolApplicationSettingArrayOutput values.
+// You can construct a concrete instance of `PoolApplicationSettingArrayInput` via:
+//
+//	PoolApplicationSettingArray{ PoolApplicationSettingArgs{...} }
+type PoolApplicationSettingArrayInput interface {
+	pulumi.Input
+
+	ToPoolApplicationSettingArrayOutput() PoolApplicationSettingArrayOutput
+	ToPoolApplicationSettingArrayOutputWithContext(context.Context) PoolApplicationSettingArrayOutput
+}
+
+type PoolApplicationSettingArray []PoolApplicationSettingInput
+
+func (PoolApplicationSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolApplicationSetting)(nil)).Elem()
+}
+
+func (i PoolApplicationSettingArray) ToPoolApplicationSettingArrayOutput() PoolApplicationSettingArrayOutput {
+	return i.ToPoolApplicationSettingArrayOutputWithContext(context.Background())
+}
+
+func (i PoolApplicationSettingArray) ToPoolApplicationSettingArrayOutputWithContext(ctx context.Context) PoolApplicationSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolApplicationSettingArrayOutput)
+}
+
+type PoolApplicationSettingOutput struct{ *pulumi.OutputState }
+
+func (PoolApplicationSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolApplicationSetting)(nil)).Elem()
+}
+
+func (o PoolApplicationSettingOutput) ToPoolApplicationSettingOutput() PoolApplicationSettingOutput {
+	return o
+}
+
+func (o PoolApplicationSettingOutput) ToPoolApplicationSettingOutputWithContext(ctx context.Context) PoolApplicationSettingOutput {
+	return o
+}
+
+// Name of the settings group for the application settings.
+func (o PoolApplicationSettingOutput) SettingsGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolApplicationSetting) string { return v.SettingsGroup }).(pulumi.StringOutput)
+}
+
+// Status of the application settings. Valid values are `ENABLED` and `DISABLED`.
+func (o PoolApplicationSettingOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v PoolApplicationSetting) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type PoolApplicationSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolApplicationSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolApplicationSetting)(nil)).Elem()
+}
+
+func (o PoolApplicationSettingArrayOutput) ToPoolApplicationSettingArrayOutput() PoolApplicationSettingArrayOutput {
+	return o
+}
+
+func (o PoolApplicationSettingArrayOutput) ToPoolApplicationSettingArrayOutputWithContext(ctx context.Context) PoolApplicationSettingArrayOutput {
+	return o
+}
+
+func (o PoolApplicationSettingArrayOutput) Index(i pulumi.IntInput) PoolApplicationSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolApplicationSetting {
+		return vs[0].([]PoolApplicationSetting)[vs[1].(int)]
+	}).(PoolApplicationSettingOutput)
+}
+
+type PoolCapacity struct {
+	// Desired number of user sessions for the WorkSpaces Pool.
+	DesiredUserSessions int `pulumi:"desiredUserSessions"`
+}
+
+// PoolCapacityInput is an input type that accepts PoolCapacityArgs and PoolCapacityOutput values.
+// You can construct a concrete instance of `PoolCapacityInput` via:
+//
+//	PoolCapacityArgs{...}
+type PoolCapacityInput interface {
+	pulumi.Input
+
+	ToPoolCapacityOutput() PoolCapacityOutput
+	ToPoolCapacityOutputWithContext(context.Context) PoolCapacityOutput
+}
+
+type PoolCapacityArgs struct {
+	// Desired number of user sessions for the WorkSpaces Pool.
+	DesiredUserSessions pulumi.IntInput `pulumi:"desiredUserSessions"`
+}
+
+func (PoolCapacityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolCapacity)(nil)).Elem()
+}
+
+func (i PoolCapacityArgs) ToPoolCapacityOutput() PoolCapacityOutput {
+	return i.ToPoolCapacityOutputWithContext(context.Background())
+}
+
+func (i PoolCapacityArgs) ToPoolCapacityOutputWithContext(ctx context.Context) PoolCapacityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolCapacityOutput)
+}
+
+func (i PoolCapacityArgs) ToPoolCapacityPtrOutput() PoolCapacityPtrOutput {
+	return i.ToPoolCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i PoolCapacityArgs) ToPoolCapacityPtrOutputWithContext(ctx context.Context) PoolCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolCapacityOutput).ToPoolCapacityPtrOutputWithContext(ctx)
+}
+
+// PoolCapacityPtrInput is an input type that accepts PoolCapacityArgs, PoolCapacityPtr and PoolCapacityPtrOutput values.
+// You can construct a concrete instance of `PoolCapacityPtrInput` via:
+//
+//	        PoolCapacityArgs{...}
+//
+//	or:
+//
+//	        nil
+type PoolCapacityPtrInput interface {
+	pulumi.Input
+
+	ToPoolCapacityPtrOutput() PoolCapacityPtrOutput
+	ToPoolCapacityPtrOutputWithContext(context.Context) PoolCapacityPtrOutput
+}
+
+type poolCapacityPtrType PoolCapacityArgs
+
+func PoolCapacityPtr(v *PoolCapacityArgs) PoolCapacityPtrInput {
+	return (*poolCapacityPtrType)(v)
+}
+
+func (*poolCapacityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolCapacity)(nil)).Elem()
+}
+
+func (i *poolCapacityPtrType) ToPoolCapacityPtrOutput() PoolCapacityPtrOutput {
+	return i.ToPoolCapacityPtrOutputWithContext(context.Background())
+}
+
+func (i *poolCapacityPtrType) ToPoolCapacityPtrOutputWithContext(ctx context.Context) PoolCapacityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolCapacityPtrOutput)
+}
+
+type PoolCapacityOutput struct{ *pulumi.OutputState }
+
+func (PoolCapacityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolCapacity)(nil)).Elem()
+}
+
+func (o PoolCapacityOutput) ToPoolCapacityOutput() PoolCapacityOutput {
+	return o
+}
+
+func (o PoolCapacityOutput) ToPoolCapacityOutputWithContext(ctx context.Context) PoolCapacityOutput {
+	return o
+}
+
+func (o PoolCapacityOutput) ToPoolCapacityPtrOutput() PoolCapacityPtrOutput {
+	return o.ToPoolCapacityPtrOutputWithContext(context.Background())
+}
+
+func (o PoolCapacityOutput) ToPoolCapacityPtrOutputWithContext(ctx context.Context) PoolCapacityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolCapacity) *PoolCapacity {
+		return &v
+	}).(PoolCapacityPtrOutput)
+}
+
+// Desired number of user sessions for the WorkSpaces Pool.
+func (o PoolCapacityOutput) DesiredUserSessions() pulumi.IntOutput {
+	return o.ApplyT(func(v PoolCapacity) int { return v.DesiredUserSessions }).(pulumi.IntOutput)
+}
+
+type PoolCapacityPtrOutput struct{ *pulumi.OutputState }
+
+func (PoolCapacityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolCapacity)(nil)).Elem()
+}
+
+func (o PoolCapacityPtrOutput) ToPoolCapacityPtrOutput() PoolCapacityPtrOutput {
+	return o
+}
+
+func (o PoolCapacityPtrOutput) ToPoolCapacityPtrOutputWithContext(ctx context.Context) PoolCapacityPtrOutput {
+	return o
+}
+
+func (o PoolCapacityPtrOutput) Elem() PoolCapacityOutput {
+	return o.ApplyT(func(v *PoolCapacity) PoolCapacity {
+		if v != nil {
+			return *v
+		}
+		var ret PoolCapacity
+		return ret
+	}).(PoolCapacityOutput)
+}
+
+// Desired number of user sessions for the WorkSpaces Pool.
+func (o PoolCapacityPtrOutput) DesiredUserSessions() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PoolCapacity) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.DesiredUserSessions
+	}).(pulumi.IntPtrOutput)
+}
+
+type PoolCapacityStatus struct {
+	// Number of user sessions that are currently being used for WorkSpaces in the pool.
+	ActiveUserSessions int `pulumi:"activeUserSessions"`
+	// Number of user sessions currently being used for WorkSpaces in the pool.
+	ActualUserSessions int `pulumi:"actualUserSessions"`
+	// Number of user sessions available for WorkSpaces in the pool.
+	AvailableUserSessions int `pulumi:"availableUserSessions"`
+	// Number of user sessions required for WorkSpaces in the pool.
+	DesiredUserSessions int `pulumi:"desiredUserSessions"`
+}
+
+// PoolCapacityStatusInput is an input type that accepts PoolCapacityStatusArgs and PoolCapacityStatusOutput values.
+// You can construct a concrete instance of `PoolCapacityStatusInput` via:
+//
+//	PoolCapacityStatusArgs{...}
+type PoolCapacityStatusInput interface {
+	pulumi.Input
+
+	ToPoolCapacityStatusOutput() PoolCapacityStatusOutput
+	ToPoolCapacityStatusOutputWithContext(context.Context) PoolCapacityStatusOutput
+}
+
+type PoolCapacityStatusArgs struct {
+	// Number of user sessions that are currently being used for WorkSpaces in the pool.
+	ActiveUserSessions pulumi.IntInput `pulumi:"activeUserSessions"`
+	// Number of user sessions currently being used for WorkSpaces in the pool.
+	ActualUserSessions pulumi.IntInput `pulumi:"actualUserSessions"`
+	// Number of user sessions available for WorkSpaces in the pool.
+	AvailableUserSessions pulumi.IntInput `pulumi:"availableUserSessions"`
+	// Number of user sessions required for WorkSpaces in the pool.
+	DesiredUserSessions pulumi.IntInput `pulumi:"desiredUserSessions"`
+}
+
+func (PoolCapacityStatusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolCapacityStatus)(nil)).Elem()
+}
+
+func (i PoolCapacityStatusArgs) ToPoolCapacityStatusOutput() PoolCapacityStatusOutput {
+	return i.ToPoolCapacityStatusOutputWithContext(context.Background())
+}
+
+func (i PoolCapacityStatusArgs) ToPoolCapacityStatusOutputWithContext(ctx context.Context) PoolCapacityStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolCapacityStatusOutput)
+}
+
+// PoolCapacityStatusArrayInput is an input type that accepts PoolCapacityStatusArray and PoolCapacityStatusArrayOutput values.
+// You can construct a concrete instance of `PoolCapacityStatusArrayInput` via:
+//
+//	PoolCapacityStatusArray{ PoolCapacityStatusArgs{...} }
+type PoolCapacityStatusArrayInput interface {
+	pulumi.Input
+
+	ToPoolCapacityStatusArrayOutput() PoolCapacityStatusArrayOutput
+	ToPoolCapacityStatusArrayOutputWithContext(context.Context) PoolCapacityStatusArrayOutput
+}
+
+type PoolCapacityStatusArray []PoolCapacityStatusInput
+
+func (PoolCapacityStatusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolCapacityStatus)(nil)).Elem()
+}
+
+func (i PoolCapacityStatusArray) ToPoolCapacityStatusArrayOutput() PoolCapacityStatusArrayOutput {
+	return i.ToPoolCapacityStatusArrayOutputWithContext(context.Background())
+}
+
+func (i PoolCapacityStatusArray) ToPoolCapacityStatusArrayOutputWithContext(ctx context.Context) PoolCapacityStatusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolCapacityStatusArrayOutput)
+}
+
+type PoolCapacityStatusOutput struct{ *pulumi.OutputState }
+
+func (PoolCapacityStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolCapacityStatus)(nil)).Elem()
+}
+
+func (o PoolCapacityStatusOutput) ToPoolCapacityStatusOutput() PoolCapacityStatusOutput {
+	return o
+}
+
+func (o PoolCapacityStatusOutput) ToPoolCapacityStatusOutputWithContext(ctx context.Context) PoolCapacityStatusOutput {
+	return o
+}
+
+// Number of user sessions that are currently being used for WorkSpaces in the pool.
+func (o PoolCapacityStatusOutput) ActiveUserSessions() pulumi.IntOutput {
+	return o.ApplyT(func(v PoolCapacityStatus) int { return v.ActiveUserSessions }).(pulumi.IntOutput)
+}
+
+// Number of user sessions currently being used for WorkSpaces in the pool.
+func (o PoolCapacityStatusOutput) ActualUserSessions() pulumi.IntOutput {
+	return o.ApplyT(func(v PoolCapacityStatus) int { return v.ActualUserSessions }).(pulumi.IntOutput)
+}
+
+// Number of user sessions available for WorkSpaces in the pool.
+func (o PoolCapacityStatusOutput) AvailableUserSessions() pulumi.IntOutput {
+	return o.ApplyT(func(v PoolCapacityStatus) int { return v.AvailableUserSessions }).(pulumi.IntOutput)
+}
+
+// Number of user sessions required for WorkSpaces in the pool.
+func (o PoolCapacityStatusOutput) DesiredUserSessions() pulumi.IntOutput {
+	return o.ApplyT(func(v PoolCapacityStatus) int { return v.DesiredUserSessions }).(pulumi.IntOutput)
+}
+
+type PoolCapacityStatusArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolCapacityStatusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolCapacityStatus)(nil)).Elem()
+}
+
+func (o PoolCapacityStatusArrayOutput) ToPoolCapacityStatusArrayOutput() PoolCapacityStatusArrayOutput {
+	return o
+}
+
+func (o PoolCapacityStatusArrayOutput) ToPoolCapacityStatusArrayOutputWithContext(ctx context.Context) PoolCapacityStatusArrayOutput {
+	return o
+}
+
+func (o PoolCapacityStatusArrayOutput) Index(i pulumi.IntInput) PoolCapacityStatusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolCapacityStatus {
+		return vs[0].([]PoolCapacityStatus)[vs[1].(int)]
+	}).(PoolCapacityStatusOutput)
+}
+
+type PoolTimeoutSetting struct {
+	// Time after disconnection when a user is logged out of their WorkSpace. Must be between 1 and 36000.
+	DisconnectTimeoutInSeconds int `pulumi:"disconnectTimeoutInSeconds"`
+	// Time after inactivity when a user is disconnected from their WorkSpace. Must be between 1 and 36000.
+	IdleDisconnectTimeoutInSeconds int `pulumi:"idleDisconnectTimeoutInSeconds"`
+	// Maximum time that a user can be connected to their WorkSpace. Must be between 1 and 432000.
+	MaxUserDurationInSeconds int `pulumi:"maxUserDurationInSeconds"`
+}
+
+// PoolTimeoutSettingInput is an input type that accepts PoolTimeoutSettingArgs and PoolTimeoutSettingOutput values.
+// You can construct a concrete instance of `PoolTimeoutSettingInput` via:
+//
+//	PoolTimeoutSettingArgs{...}
+type PoolTimeoutSettingInput interface {
+	pulumi.Input
+
+	ToPoolTimeoutSettingOutput() PoolTimeoutSettingOutput
+	ToPoolTimeoutSettingOutputWithContext(context.Context) PoolTimeoutSettingOutput
+}
+
+type PoolTimeoutSettingArgs struct {
+	// Time after disconnection when a user is logged out of their WorkSpace. Must be between 1 and 36000.
+	DisconnectTimeoutInSeconds pulumi.IntInput `pulumi:"disconnectTimeoutInSeconds"`
+	// Time after inactivity when a user is disconnected from their WorkSpace. Must be between 1 and 36000.
+	IdleDisconnectTimeoutInSeconds pulumi.IntInput `pulumi:"idleDisconnectTimeoutInSeconds"`
+	// Maximum time that a user can be connected to their WorkSpace. Must be between 1 and 432000.
+	MaxUserDurationInSeconds pulumi.IntInput `pulumi:"maxUserDurationInSeconds"`
+}
+
+func (PoolTimeoutSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolTimeoutSetting)(nil)).Elem()
+}
+
+func (i PoolTimeoutSettingArgs) ToPoolTimeoutSettingOutput() PoolTimeoutSettingOutput {
+	return i.ToPoolTimeoutSettingOutputWithContext(context.Background())
+}
+
+func (i PoolTimeoutSettingArgs) ToPoolTimeoutSettingOutputWithContext(ctx context.Context) PoolTimeoutSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolTimeoutSettingOutput)
+}
+
+// PoolTimeoutSettingArrayInput is an input type that accepts PoolTimeoutSettingArray and PoolTimeoutSettingArrayOutput values.
+// You can construct a concrete instance of `PoolTimeoutSettingArrayInput` via:
+//
+//	PoolTimeoutSettingArray{ PoolTimeoutSettingArgs{...} }
+type PoolTimeoutSettingArrayInput interface {
+	pulumi.Input
+
+	ToPoolTimeoutSettingArrayOutput() PoolTimeoutSettingArrayOutput
+	ToPoolTimeoutSettingArrayOutputWithContext(context.Context) PoolTimeoutSettingArrayOutput
+}
+
+type PoolTimeoutSettingArray []PoolTimeoutSettingInput
+
+func (PoolTimeoutSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolTimeoutSetting)(nil)).Elem()
+}
+
+func (i PoolTimeoutSettingArray) ToPoolTimeoutSettingArrayOutput() PoolTimeoutSettingArrayOutput {
+	return i.ToPoolTimeoutSettingArrayOutputWithContext(context.Background())
+}
+
+func (i PoolTimeoutSettingArray) ToPoolTimeoutSettingArrayOutputWithContext(ctx context.Context) PoolTimeoutSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolTimeoutSettingArrayOutput)
+}
+
+type PoolTimeoutSettingOutput struct{ *pulumi.OutputState }
+
+func (PoolTimeoutSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolTimeoutSetting)(nil)).Elem()
+}
+
+func (o PoolTimeoutSettingOutput) ToPoolTimeoutSettingOutput() PoolTimeoutSettingOutput {
+	return o
+}
+
+func (o PoolTimeoutSettingOutput) ToPoolTimeoutSettingOutputWithContext(ctx context.Context) PoolTimeoutSettingOutput {
+	return o
+}
+
+// Time after disconnection when a user is logged out of their WorkSpace. Must be between 1 and 36000.
+func (o PoolTimeoutSettingOutput) DisconnectTimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v PoolTimeoutSetting) int { return v.DisconnectTimeoutInSeconds }).(pulumi.IntOutput)
+}
+
+// Time after inactivity when a user is disconnected from their WorkSpace. Must be between 1 and 36000.
+func (o PoolTimeoutSettingOutput) IdleDisconnectTimeoutInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v PoolTimeoutSetting) int { return v.IdleDisconnectTimeoutInSeconds }).(pulumi.IntOutput)
+}
+
+// Maximum time that a user can be connected to their WorkSpace. Must be between 1 and 432000.
+func (o PoolTimeoutSettingOutput) MaxUserDurationInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v PoolTimeoutSetting) int { return v.MaxUserDurationInSeconds }).(pulumi.IntOutput)
+}
+
+type PoolTimeoutSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolTimeoutSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolTimeoutSetting)(nil)).Elem()
+}
+
+func (o PoolTimeoutSettingArrayOutput) ToPoolTimeoutSettingArrayOutput() PoolTimeoutSettingArrayOutput {
+	return o
+}
+
+func (o PoolTimeoutSettingArrayOutput) ToPoolTimeoutSettingArrayOutputWithContext(ctx context.Context) PoolTimeoutSettingArrayOutput {
+	return o
+}
+
+func (o PoolTimeoutSettingArrayOutput) Index(i pulumi.IntInput) PoolTimeoutSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolTimeoutSetting {
+		return vs[0].([]PoolTimeoutSetting)[vs[1].(int)]
+	}).(PoolTimeoutSettingOutput)
+}
+
+type PoolTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// PoolTimeoutsInput is an input type that accepts PoolTimeoutsArgs and PoolTimeoutsOutput values.
+// You can construct a concrete instance of `PoolTimeoutsInput` via:
+//
+//	PoolTimeoutsArgs{...}
+type PoolTimeoutsInput interface {
+	pulumi.Input
+
+	ToPoolTimeoutsOutput() PoolTimeoutsOutput
+	ToPoolTimeoutsOutputWithContext(context.Context) PoolTimeoutsOutput
+}
+
+type PoolTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (PoolTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolTimeouts)(nil)).Elem()
+}
+
+func (i PoolTimeoutsArgs) ToPoolTimeoutsOutput() PoolTimeoutsOutput {
+	return i.ToPoolTimeoutsOutputWithContext(context.Background())
+}
+
+func (i PoolTimeoutsArgs) ToPoolTimeoutsOutputWithContext(ctx context.Context) PoolTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolTimeoutsOutput)
+}
+
+func (i PoolTimeoutsArgs) ToPoolTimeoutsPtrOutput() PoolTimeoutsPtrOutput {
+	return i.ToPoolTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i PoolTimeoutsArgs) ToPoolTimeoutsPtrOutputWithContext(ctx context.Context) PoolTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolTimeoutsOutput).ToPoolTimeoutsPtrOutputWithContext(ctx)
+}
+
+// PoolTimeoutsPtrInput is an input type that accepts PoolTimeoutsArgs, PoolTimeoutsPtr and PoolTimeoutsPtrOutput values.
+// You can construct a concrete instance of `PoolTimeoutsPtrInput` via:
+//
+//	        PoolTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PoolTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToPoolTimeoutsPtrOutput() PoolTimeoutsPtrOutput
+	ToPoolTimeoutsPtrOutputWithContext(context.Context) PoolTimeoutsPtrOutput
+}
+
+type poolTimeoutsPtrType PoolTimeoutsArgs
+
+func PoolTimeoutsPtr(v *PoolTimeoutsArgs) PoolTimeoutsPtrInput {
+	return (*poolTimeoutsPtrType)(v)
+}
+
+func (*poolTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolTimeouts)(nil)).Elem()
+}
+
+func (i *poolTimeoutsPtrType) ToPoolTimeoutsPtrOutput() PoolTimeoutsPtrOutput {
+	return i.ToPoolTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *poolTimeoutsPtrType) ToPoolTimeoutsPtrOutputWithContext(ctx context.Context) PoolTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolTimeoutsPtrOutput)
+}
+
+type PoolTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (PoolTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolTimeouts)(nil)).Elem()
+}
+
+func (o PoolTimeoutsOutput) ToPoolTimeoutsOutput() PoolTimeoutsOutput {
+	return o
+}
+
+func (o PoolTimeoutsOutput) ToPoolTimeoutsOutputWithContext(ctx context.Context) PoolTimeoutsOutput {
+	return o
+}
+
+func (o PoolTimeoutsOutput) ToPoolTimeoutsPtrOutput() PoolTimeoutsPtrOutput {
+	return o.ToPoolTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o PoolTimeoutsOutput) ToPoolTimeoutsPtrOutputWithContext(ctx context.Context) PoolTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolTimeouts) *PoolTimeouts {
+		return &v
+	}).(PoolTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o PoolTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o PoolTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o PoolTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type PoolTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (PoolTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolTimeouts)(nil)).Elem()
+}
+
+func (o PoolTimeoutsPtrOutput) ToPoolTimeoutsPtrOutput() PoolTimeoutsPtrOutput {
+	return o
+}
+
+func (o PoolTimeoutsPtrOutput) ToPoolTimeoutsPtrOutputWithContext(ctx context.Context) PoolTimeoutsPtrOutput {
+	return o
+}
+
+func (o PoolTimeoutsPtrOutput) Elem() PoolTimeoutsOutput {
+	return o.ApplyT(func(v *PoolTimeouts) PoolTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret PoolTimeouts
+		return ret
+	}).(PoolTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o PoolTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o PoolTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o PoolTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceWorkspaceProperties struct {
 	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GENERALPURPOSE_4XLARGE`, `GENERALPURPOSE_8XLARGE`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, `GRAPHICSPRO_G4DN`, `GRAPHICS_G6_XLARGE`, `GRAPHICS_G6_2XLARGE`, `GRAPHICS_G6_4XLARGE`, `GRAPHICS_G6_8XLARGE`, `GRAPHICS_G6_16XLARGE`, `GRAPHICS_GR6_4XLARGE`, `GRAPHICS_GR6_8XLARGE`, `GRAPHICS_G6F_LARGE`, `GRAPHICS_G6F_XLARGE`, `GRAPHICS_G6F_2XLARGE`, `GRAPHICS_G6F_4XLARGE`, and `GRAPHICS_GR6F_4XLARGE`.
 	ComputeTypeName *string `pulumi:"computeTypeName"`
@@ -2850,6 +3507,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryWorkspaceCreationPropertiesPtrInput)(nil)).Elem(), DirectoryWorkspaceCreationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupRuleInput)(nil)).Elem(), IpGroupRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupRuleArrayInput)(nil)).Elem(), IpGroupRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolApplicationSettingInput)(nil)).Elem(), PoolApplicationSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolApplicationSettingArrayInput)(nil)).Elem(), PoolApplicationSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolCapacityInput)(nil)).Elem(), PoolCapacityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolCapacityPtrInput)(nil)).Elem(), PoolCapacityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolCapacityStatusInput)(nil)).Elem(), PoolCapacityStatusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolCapacityStatusArrayInput)(nil)).Elem(), PoolCapacityStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolTimeoutSettingInput)(nil)).Elem(), PoolTimeoutSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolTimeoutSettingArrayInput)(nil)).Elem(), PoolTimeoutSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolTimeoutsInput)(nil)).Elem(), PoolTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PoolTimeoutsPtrInput)(nil)).Elem(), PoolTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceWorkspacePropertiesInput)(nil)).Elem(), WorkspaceWorkspacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceWorkspacePropertiesPtrInput)(nil)).Elem(), WorkspaceWorkspacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleComputeTypeInput)(nil)).Elem(), GetBundleComputeTypeArgs{})
@@ -2888,6 +3555,16 @@ func init() {
 	pulumi.RegisterOutputType(DirectoryWorkspaceCreationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IpGroupRuleOutput{})
 	pulumi.RegisterOutputType(IpGroupRuleArrayOutput{})
+	pulumi.RegisterOutputType(PoolApplicationSettingOutput{})
+	pulumi.RegisterOutputType(PoolApplicationSettingArrayOutput{})
+	pulumi.RegisterOutputType(PoolCapacityOutput{})
+	pulumi.RegisterOutputType(PoolCapacityPtrOutput{})
+	pulumi.RegisterOutputType(PoolCapacityStatusOutput{})
+	pulumi.RegisterOutputType(PoolCapacityStatusArrayOutput{})
+	pulumi.RegisterOutputType(PoolTimeoutSettingOutput{})
+	pulumi.RegisterOutputType(PoolTimeoutSettingArrayOutput{})
+	pulumi.RegisterOutputType(PoolTimeoutsOutput{})
+	pulumi.RegisterOutputType(PoolTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceWorkspacePropertiesOutput{})
 	pulumi.RegisterOutputType(WorkspaceWorkspacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GetBundleComputeTypeOutput{})

@@ -100,7 +100,6 @@ namespace Pulumi.Aws.CloudWatch
     /// #### Optional
     /// 
     /// * `AccountId` (String) AWS Account where this resource is managed.
-    /// * `EventBusName` (String) Name of the event bus.
     /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `EventBusName`, the `Default` event bus will be used). For example:

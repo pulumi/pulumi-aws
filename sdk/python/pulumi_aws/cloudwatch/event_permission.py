@@ -281,10 +281,21 @@ class EventPermission(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `statement_id` (String) Statement ID of the EventBridge permission.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Permissions `event_bus_name` and `statement_id` separated by a forward slash (`/`) (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+        $ pulumi import aws:cloudwatch/eventPermission:EventPermission example example-event-bus/DevAccountAccess
         ```
 
 
@@ -342,10 +353,21 @@ class EventPermission(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `statement_id` (String) Statement ID of the EventBridge permission.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Permissions `event_bus_name` and `statement_id` separated by a forward slash (`/`) (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
         ```sh
-        $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+        $ pulumi import aws:cloudwatch/eventPermission:EventPermission example example-event-bus/DevAccountAccess
         ```
 
 

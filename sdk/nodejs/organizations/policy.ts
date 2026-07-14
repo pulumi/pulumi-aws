@@ -28,6 +28,16 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` (String) Unique identifier (ID) of the policy.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ *
  * Using `pulumi import`, import `aws.organizations.Policy` using the policy ID. For example:
  *
  * ```sh
