@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
+ * - `provisionedModelArn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
  * 
  * Using `pulumi import`, import Provisioned Throughput using the `provisionedModelArn`. For example:
  * 

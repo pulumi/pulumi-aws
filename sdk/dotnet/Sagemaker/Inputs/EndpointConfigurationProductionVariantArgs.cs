@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? AcceleratorType { get; set; }
 
         /// <summary>
+        /// Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See CapacityReservationConfig below.
+        /// </summary>
+        [Input("capacityReservationConfig")]
+        public Input<Inputs.EndpointConfigurationProductionVariantCapacityReservationConfigArgs>? CapacityReservationConfig { get; set; }
+
+        /// <summary>
         /// Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         /// </summary>
         [Input("containerStartupHealthCheckTimeoutInSeconds")]

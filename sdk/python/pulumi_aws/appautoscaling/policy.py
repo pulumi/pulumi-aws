@@ -412,7 +412,6 @@ class Policy(pulumi.CustomResource):
         $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
         ```
 
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the policy. Must be between 1 and 255 characters in length.
@@ -473,7 +472,6 @@ class Policy(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
         ```
-
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

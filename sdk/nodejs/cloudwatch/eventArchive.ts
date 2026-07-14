@@ -106,10 +106,21 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import an EventBridge archive using the `name`. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) Name of the archive.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Archives using `name`. For example:
  *
  * ```sh
- * $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+ * $ pulumi import aws:cloudwatch/eventArchive:EventArchive example example-archive
  * ```
  */
 export class EventArchive extends pulumi.CustomResource {

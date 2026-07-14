@@ -238,9 +238,17 @@ export class Broker extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+     */
+    declare public readonly resourceShareArns: pulumi.Output<string[] | undefined>;
+    /**
      * List of security group IDs assigned to the broker.
      */
     declare public readonly securityGroups: pulumi.Output<string[] | undefined>;
+    /**
+     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+     */
+    declare public /*out*/ readonly sharedResources: pulumi.Output<outputs.mq.BrokerSharedResource[]>;
     /**
      * Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      */
@@ -295,7 +303,9 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["pendingDataReplicationMode"] = state?.pendingDataReplicationMode;
             resourceInputs["publiclyAccessible"] = state?.publiclyAccessible;
             resourceInputs["region"] = state?.region;
+            resourceInputs["resourceShareArns"] = state?.resourceShareArns;
             resourceInputs["securityGroups"] = state?.securityGroups;
+            resourceInputs["sharedResources"] = state?.sharedResources;
             resourceInputs["storageType"] = state?.storageType;
             resourceInputs["subnetIds"] = state?.subnetIds;
             resourceInputs["tags"] = state?.tags;
@@ -329,6 +339,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["maintenanceWindowStartTime"] = args?.maintenanceWindowStartTime;
             resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
             resourceInputs["region"] = args?.region;
+            resourceInputs["resourceShareArns"] = args?.resourceShareArns;
             resourceInputs["securityGroups"] = args?.securityGroups;
             resourceInputs["storageType"] = args?.storageType;
             resourceInputs["subnetIds"] = args?.subnetIds;
@@ -337,6 +348,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["instances"] = undefined /*out*/;
             resourceInputs["pendingDataReplicationMode"] = undefined /*out*/;
+            resourceInputs["sharedResources"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -431,9 +443,17 @@ export interface BrokerState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
+     * Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+     */
+    resourceShareArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
      * List of security group IDs assigned to the broker.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * List of resources shared with the broker via `resourceShareArns`. Only populated for `engineType` of `RabbitMQ`.
+     */
+    sharedResources?: pulumi.Input<pulumi.Input<inputs.mq.BrokerSharedResource>[] | undefined>;
     /**
      * Storage type of the broker. For `engineType` `ActiveMQ`, valid values are `efs` and `ebs` (AWS-default is `efs`). For `engineType` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
      */
@@ -530,6 +550,10 @@ export interface BrokerArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string | undefined>;
+    /**
+     * Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+     */
+    resourceShareArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of security group IDs assigned to the broker.
      */

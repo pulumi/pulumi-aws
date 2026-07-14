@@ -192,6 +192,12 @@ namespace Pulumi.Aws.Ram
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `ResourceShareArn` (String) Amazon Resource Name (ARN) of the RAM resource share.
+    /// 
     /// Using `pulumi import`, import RAM Resource Share Association Exclusive using the `ResourceShareArn`. For example:
     /// 
     /// ```sh

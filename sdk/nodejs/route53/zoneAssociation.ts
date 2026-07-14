@@ -52,7 +52,6 @@ import * as utilities from "../utilities";
  *
  * * `vpcRegion` (String) The VPC's region. Defaults to the region of the AWS provider.
  * * `accountId` (String) AWS Account where this resource is managed.
- * * `region` (String) Region where this resource is managed.
  *
  * The VPC is _not_ in the same region where you have configured the AWS Provider:
  *

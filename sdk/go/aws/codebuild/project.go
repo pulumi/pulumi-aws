@@ -178,9 +178,10 @@ import (
 //				},
 //				Environment: &codebuild.ProjectEnvironmentArgs{
 //					ComputeType:              pulumi.String("BUILD_GENERAL1_SMALL"),
-//					Image:                    pulumi.String("aws/codebuild/amazonlinux2-x86_64-standard:4.0"),
+//					Image:                    pulumi.String("aws/codebuild/amazonlinux-x86_64-standard:6.0"),
 //					Type:                     pulumi.String("LINUX_CONTAINER"),
 //					ImagePullCredentialsType: pulumi.String("CODEBUILD"),
+//					HostKernel:               pulumi.String("LINUX_KERNEL_6"),
 //					EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{
 //						&codebuild.ProjectEnvironmentEnvironmentVariableArgs{
 //							Name:  pulumi.String("SOME_KEY1"),

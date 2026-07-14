@@ -105,6 +105,11 @@ export type PermissionsBoundaryAttachment = import("./permissionsBoundaryAttachm
 export const PermissionsBoundaryAttachment: typeof import("./permissionsBoundaryAttachment").PermissionsBoundaryAttachment = null as any;
 utilities.lazyLoad(exports, ["PermissionsBoundaryAttachment"], () => require("./permissionsBoundaryAttachment"));
 
+export { RegionArgs, RegionState } from "./region";
+export type Region = import("./region").Region;
+export const Region: typeof import("./region").Region = null as any;
+utilities.lazyLoad(exports, ["Region"], () => require("./region"));
+
 export { TrustedTokenIssuerArgs, TrustedTokenIssuerState } from "./trustedTokenIssuer";
 export type TrustedTokenIssuer = import("./trustedTokenIssuer").TrustedTokenIssuer;
 export const TrustedTokenIssuer: typeof import("./trustedTokenIssuer").TrustedTokenIssuer = null as any;
@@ -141,6 +146,8 @@ const _module = {
                 return new PermissionSetInlinePolicy(name, <any>undefined, { urn })
             case "aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment":
                 return new PermissionsBoundaryAttachment(name, <any>undefined, { urn })
+            case "aws:ssoadmin/region:Region":
+                return new Region(name, <any>undefined, { urn })
             case "aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer":
                 return new TrustedTokenIssuer(name, <any>undefined, { urn })
             default:
@@ -161,4 +168,5 @@ pulumi.runtime.registerResourceModule("aws", "ssoadmin/managedPolicyAttachmentsE
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSet", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionSetInlinePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/permissionsBoundaryAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "ssoadmin/region", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/trustedTokenIssuer", _module)

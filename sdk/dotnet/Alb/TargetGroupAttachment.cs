@@ -125,6 +125,7 @@ namespace Pulumi.Aws.Alb
     /// 
     /// * `Port` - (Number) Port on which targets receive traffic.
     /// * `AvailabilityZone` - (String) Availability zone where the target is registered.
+    /// * `QuicServerId` - (String) QUIC server ID for the target.
     /// * `AccountId` - (String) AWS Account where this resource is managed.
     /// * `Region` - (String) Region where this resource is managed.
     /// 

@@ -27,7 +27,7 @@ class GetBrokerResult:
     """
     A collection of values returned by getBroker.
     """
-    def __init__(__self__, arn=None, authentication_strategy=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, id=None, instances=None, ldap_server_metadatas=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, region=None, security_groups=None, storage_type=None, subnet_ids=None, tags=None, users=None):
+    def __init__(__self__, arn=None, authentication_strategy=None, auto_minor_version_upgrade=None, broker_id=None, broker_name=None, configuration=None, deployment_mode=None, encryption_options=None, engine_type=None, engine_version=None, host_instance_type=None, id=None, instances=None, ldap_server_metadatas=None, logs=None, maintenance_window_start_time=None, publicly_accessible=None, region=None, resource_share_arns=None, security_groups=None, shared_resources=None, storage_type=None, subnet_ids=None, tags=None, users=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -82,9 +82,15 @@ class GetBrokerResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if resource_share_arns and not isinstance(resource_share_arns, list):
+            raise TypeError("Expected argument 'resource_share_arns' to be a list")
+        pulumi.set(__self__, "resource_share_arns", resource_share_arns)
         if security_groups and not isinstance(security_groups, list):
             raise TypeError("Expected argument 'security_groups' to be a list")
         pulumi.set(__self__, "security_groups", security_groups)
+        if shared_resources and not isinstance(shared_resources, list):
+            raise TypeError("Expected argument 'shared_resources' to be a list")
+        pulumi.set(__self__, "shared_resources", shared_resources)
         if storage_type and not isinstance(storage_type, str):
             raise TypeError("Expected argument 'storage_type' to be a str")
         pulumi.set(__self__, "storage_type", storage_type)
@@ -234,12 +240,28 @@ class GetBrokerResult:
         return pulumi.get(self, "region")
 
     @_builtins.property
+    @pulumi.getter(name="resourceShareArns")
+    def resource_share_arns(self) -> Sequence[_builtins.str]:
+        """
+        Set of AWS RAM resource share ARNs that grant the broker access to shared resources for private networking. Only populated for `engine_type` of `RabbitMQ`.
+        """
+        return pulumi.get(self, "resource_share_arns")
+
+    @_builtins.property
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Sequence[_builtins.str]:
         """
         List of security group IDs assigned to the broker.
         """
         return pulumi.get(self, "security_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="sharedResources")
+    def shared_resources(self) -> Sequence['outputs.GetBrokerSharedResourceResult']:
+        """
+        List of resources shared with the broker. See Shared Resources below. Only populated for `engine_type` of `RabbitMQ`.
+        """
+        return pulumi.get(self, "shared_resources")
 
     @_builtins.property
     @pulumi.getter(name="storageType")
@@ -298,7 +320,9 @@ class AwaitableGetBrokerResult(GetBrokerResult):
             maintenance_window_start_time=self.maintenance_window_start_time,
             publicly_accessible=self.publicly_accessible,
             region=self.region,
+            resource_share_arns=self.resource_share_arns,
             security_groups=self.security_groups,
+            shared_resources=self.shared_resources,
             storage_type=self.storage_type,
             subnet_ids=self.subnet_ids,
             tags=self.tags,
@@ -347,7 +371,9 @@ def get_broker(broker_id: Optional[_builtins.str] = None,
         maintenance_window_start_time=pulumi.get(__ret__, 'maintenance_window_start_time'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
         region=pulumi.get(__ret__, 'region'),
+        resource_share_arns=pulumi.get(__ret__, 'resource_share_arns'),
         security_groups=pulumi.get(__ret__, 'security_groups'),
+        shared_resources=pulumi.get(__ret__, 'shared_resources'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -393,7 +419,9 @@ def get_broker_output(broker_id: pulumi.Input[Optional[Optional[_builtins.str]]]
         maintenance_window_start_time=pulumi.get(__response__, 'maintenance_window_start_time'),
         publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
         region=pulumi.get(__response__, 'region'),
+        resource_share_arns=pulumi.get(__response__, 'resource_share_arns'),
         security_groups=pulumi.get(__response__, 'security_groups'),
+        shared_resources=pulumi.get(__response__, 'shared_resources'),
         storage_type=pulumi.get(__response__, 'storage_type'),
         subnet_ids=pulumi.get(__response__, 'subnet_ids'),
         tags=pulumi.get(__response__, 'tags'),

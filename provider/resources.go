@@ -3054,6 +3054,17 @@ func providerFromMeta(
 					},
 				},
 			},
+			"aws_lambda_function_scaling_config": {
+				Tok: awsResource(lambdaMod, "FunctionScalingConfig"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// The `function_scaling_config` block would generate a C# property named
+					// `FunctionScalingConfig`, colliding with the enclosing resource class of the
+					// same name (CS0542). Rename the .NET property to avoid the clash.
+					"function_scaling_config": {
+						CSharpName: "FunctionScalingConfigDetails",
+					},
+				},
+			},
 			"aws_lambda_alias":                {Tok: awsResource(lambdaMod, "Alias")},
 			"aws_lambda_event_source_mapping": {Tok: awsResource(lambdaMod, "EventSourceMapping")},
 			"aws_lambda_layer_version": {
@@ -4440,6 +4451,17 @@ func providerFromMeta(
 			"aws_ssoadmin_permissions_boundary_attachment": {Tok: awsResource(ssoAdminMod, "PermissionsBoundaryAttachment")},
 			"aws_ssoadmin_instance_access_control_attributes": {
 				Tok: awsResource(ssoAdminMod, "InstanceAccessControlAttributes"),
+			},
+			"aws_ssoadmin_region": {
+				Tok: awsResource(ssoAdminMod, "Region"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					// This resource is named `Region`, so the cross-cutting `region` field would
+					// generate a C# property named `Region`, colliding with the enclosing resource
+					// class of the same name (CS0542). Rename the .NET property to avoid the clash.
+					"region": {
+						CSharpName: "AwsRegion",
+					},
+				},
 			},
 			// AMP (Managed Prometheus)
 			"aws_prometheus_workspace":                {Tok: awsResource(ampMod, "Workspace")},

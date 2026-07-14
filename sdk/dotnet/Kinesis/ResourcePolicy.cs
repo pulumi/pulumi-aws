@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
+    /// - `ResourceArn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
     /// 
     /// Using `pulumi import`, import Kinesis resource policies using the `ResourceArn`. For example:
     /// 

@@ -26,6 +26,7 @@ from .managed_policy_attachments_exclusive import *
 from .permission_set import *
 from .permission_set_inline_policy import *
 from .permissions_boundary_attachment import *
+from .region import *
 from .trusted_token_issuer import *
 from ._inputs import *
 from . import outputs

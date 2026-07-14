@@ -319,6 +319,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         * `port` - (Number) Port on which targets receive traffic.
         * `availability_zone` - (String) Availability zone where the target is registered.
+        * `quic_server_id` - (String) QUIC server ID for the target.
         * `account_id` - (String) AWS Account where this resource is managed.
         * `region` - (String) Region where this resource is managed.
 
@@ -420,6 +421,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         * `port` - (Number) Port on which targets receive traffic.
         * `availability_zone` - (String) Availability zone where the target is registered.
+        * `quic_server_id` - (String) QUIC server ID for the target.
         * `account_id` - (String) AWS Account where this resource is managed.
         * `region` - (String) Region where this resource is managed.
 

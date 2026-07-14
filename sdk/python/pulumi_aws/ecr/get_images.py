@@ -103,8 +103,8 @@ def get_images(region: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     example = aws.ecr.get_images(repository_name="my-repository")
-    pulumi.export("imageDigests", [img.image_digest for img in example.image_ids if img.image_digest != None])
-    pulumi.export("imageTags", [img.image_tag for img in example.image_ids if img.image_tag != None])
+    pulumi.export("imageDigests", [img.image_digest for img in example.image_ids if img.image_digest is not None])
+    pulumi.export("imageTags", [img.image_tag for img in example.image_ids if img.image_tag is not None])
     ```
 
 
@@ -139,8 +139,8 @@ def get_images_output(region: pulumi.Input[Optional[Optional[_builtins.str]]] = 
     import pulumi_aws as aws
 
     example = aws.ecr.get_images(repository_name="my-repository")
-    pulumi.export("imageDigests", [img.image_digest for img in example.image_ids if img.image_digest != None])
-    pulumi.export("imageTags", [img.image_tag for img in example.image_ids if img.image_tag != None])
+    pulumi.export("imageDigests", [img.image_digest for img in example.image_ids if img.image_digest is not None])
+    pulumi.export("imageTags", [img.image_tag for img in example.image_ids if img.image_tag is not None])
     ```
 
 

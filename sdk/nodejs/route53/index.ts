@@ -25,6 +25,11 @@ export const getDelegationSet: typeof import("./getDelegationSet").getDelegation
 export const getDelegationSetOutput: typeof import("./getDelegationSet").getDelegationSetOutput = null as any;
 utilities.lazyLoad(exports, ["getDelegationSet","getDelegationSetOutput"], () => require("./getDelegationSet"));
 
+export { GetProfilesProfileArgs, GetProfilesProfileResult, GetProfilesProfileOutputArgs } from "./getProfilesProfile";
+export const getProfilesProfile: typeof import("./getProfilesProfile").getProfilesProfile = null as any;
+export const getProfilesProfileOutput: typeof import("./getProfilesProfile").getProfilesProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getProfilesProfile","getProfilesProfileOutput"], () => require("./getProfilesProfile"));
+
 export { GetProfilesProfilesArgs, GetProfilesProfilesResult, GetProfilesProfilesOutputArgs } from "./getProfilesProfiles";
 export const getProfilesProfiles: typeof import("./getProfilesProfiles").getProfilesProfiles = null as any;
 export const getProfilesProfilesOutput: typeof import("./getProfilesProfiles").getProfilesProfilesOutput = null as any;

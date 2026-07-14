@@ -167,10 +167,10 @@ def get_instances(filters: Optional[Sequence[Union['GetInstancesFilterArgs', 'Ge
             "running",
             "stopped",
         ])
-    test_eip: list[Any] = []
+    test_eip: list[aws.ec2.Eip] = []
     def create_test(range_body):
-        for range in [{"value": i} for i in range(0, range_body)]:
-            test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
+        for test_eip_range in [{"value": i} for i in range(0, range_body)]:
+            test_eip.append(aws.ec2.Eip(f"test-{test_eip_range['value']}", instance=test.ids[test_eip_range["value"]]))
 
     (len(test.ids)).apply(create_test)
     ```
@@ -235,10 +235,10 @@ def get_instances_output(filters: pulumi.Input[Optional[Optional[Sequence[Union[
             "running",
             "stopped",
         ])
-    test_eip: list[Any] = []
+    test_eip: list[aws.ec2.Eip] = []
     def create_test(range_body):
-        for range in [{"value": i} for i in range(0, range_body)]:
-            test_eip.append(aws.ec2.Eip(f"test-{range['value']}", instance=test.ids[range["value"]]))
+        for test_eip_range in [{"value": i} for i in range(0, range_body)]:
+            test_eip.append(aws.ec2.Eip(f"test-{test_eip_range['value']}", instance=test.ids[test_eip_range["value"]]))
 
     (len(test.ids)).apply(create_test)
     ```

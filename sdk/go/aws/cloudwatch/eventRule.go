@@ -111,7 +111,6 @@ import (
 // #### Optional
 //
 // * `accountId` (String) AWS Account where this resource is managed.
-// * `eventBusName` (String) Name of the event bus.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `eventBusName`, the `default` event bus will be used). For example:

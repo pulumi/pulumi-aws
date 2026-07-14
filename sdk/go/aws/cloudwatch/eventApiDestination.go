@@ -49,10 +49,21 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `name` (String) Name of the API destination.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import API Destinations using `name`. For example:
 //
 // ```sh
-// $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+// $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination example example-destination
 // ```
 type EventApiDestination struct {
 	pulumi.CustomResourceState

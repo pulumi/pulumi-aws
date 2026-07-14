@@ -124,6 +124,45 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With out-of-order and rule query configuration
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amp.Workspace;
+ * import com.pulumi.aws.amp.WorkspaceConfiguration;
+ * import com.pulumi.aws.amp.WorkspaceConfigurationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Workspace("example");
+ * 
+ *         var exampleWorkspaceConfiguration = new WorkspaceConfiguration("exampleWorkspaceConfiguration", WorkspaceConfigurationArgs.builder()
+ *             .workspaceId(example.id())
+ *             .retentionPeriodInDays(30)
+ *             .outOfOrderTimeWindowInSeconds(120)
+ *             .ruleQueryOffsetInSeconds(300)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import AMP (Managed Prometheus) Workspace Configuration using the `workspaceId`. For example
@@ -148,6 +187,20 @@ public class WorkspaceConfiguration extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<List<WorkspaceConfigurationLimitsPerLabelSet>>> limitsPerLabelSets() {
         return Codegen.optional(this.limitsPerLabelSets);
+    }
+    /**
+     * Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+     * 
+     */
+    @Export(name="outOfOrderTimeWindowInSeconds", refs={Integer.class}, tree="[0]")
+    private Output<Integer> outOfOrderTimeWindowInSeconds;
+
+    /**
+     * @return Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+     * 
+     */
+    public Output<Integer> outOfOrderTimeWindowInSeconds() {
+        return this.outOfOrderTimeWindowInSeconds;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -176,6 +229,20 @@ public class WorkspaceConfiguration extends com.pulumi.resources.CustomResource 
      */
     public Output<Integer> retentionPeriodInDays() {
         return this.retentionPeriodInDays;
+    }
+    /**
+     * Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+     * 
+     */
+    @Export(name="ruleQueryOffsetInSeconds", refs={Integer.class}, tree="[0]")
+    private Output<Integer> ruleQueryOffsetInSeconds;
+
+    /**
+     * @return Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+     * 
+     */
+    public Output<Integer> ruleQueryOffsetInSeconds() {
+        return this.ruleQueryOffsetInSeconds;
     }
     @Export(name="timeouts", refs={WorkspaceConfigurationTimeouts.class}, tree="[0]")
     private Output</* @Nullable */ WorkspaceConfigurationTimeouts> timeouts;

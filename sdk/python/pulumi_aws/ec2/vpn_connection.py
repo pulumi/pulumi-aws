@@ -103,7 +103,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[_builtins.str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[_builtins.str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         :param pulumi.Input['VpnConnectionTunnel1LogOptionsArgs'] tunnel1_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel1_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel1_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         :param pulumi.Input[_builtins.int] tunnel1_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
@@ -123,7 +123,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[_builtins.str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[_builtins.str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         :param pulumi.Input['VpnConnectionTunnel2LogOptionsArgs'] tunnel2_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel2_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel2_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         :param pulumi.Input[_builtins.int] tunnel2_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
@@ -512,7 +512,7 @@ class VpnConnectionArgs:
     @pulumi.getter(name="tunnel1Phase1DhGroupNumbers")
     def tunnel1_phase1_dh_group_numbers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         """
         return pulumi.get(self, "tunnel1_phase1_dh_group_numbers")
 
@@ -752,7 +752,7 @@ class VpnConnectionArgs:
     @pulumi.getter(name="tunnel2Phase1DhGroupNumbers")
     def tunnel2_phase1_dh_group_numbers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         """
         return pulumi.get(self, "tunnel2_phase1_dh_group_numbers")
 
@@ -1068,7 +1068,7 @@ class _VpnConnectionState:
         :param pulumi.Input[_builtins.str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[_builtins.str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         :param pulumi.Input['VpnConnectionTunnel1LogOptionsArgs'] tunnel1_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel1_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel1_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         :param pulumi.Input[_builtins.int] tunnel1_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
@@ -1093,7 +1093,7 @@ class _VpnConnectionState:
         :param pulumi.Input[_builtins.str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[_builtins.str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         :param pulumi.Input['VpnConnectionTunnel2LogOptionsArgs'] tunnel2_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel2_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel2_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         :param pulumi.Input[_builtins.int] tunnel2_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
@@ -1657,7 +1657,7 @@ class _VpnConnectionState:
     @pulumi.getter(name="tunnel1Phase1DhGroupNumbers")
     def tunnel1_phase1_dh_group_numbers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         """
         return pulumi.get(self, "tunnel1_phase1_dh_group_numbers")
 
@@ -1957,7 +1957,7 @@ class _VpnConnectionState:
     @pulumi.getter(name="tunnel2Phase1DhGroupNumbers")
     def tunnel2_phase1_dh_group_numbers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         """
         return pulumi.get(self, "tunnel2_phase1_dh_group_numbers")
 
@@ -2372,7 +2372,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[_builtins.str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         :param pulumi.Input[Union['VpnConnectionTunnel1LogOptionsArgs', 'VpnConnectionTunnel1LogOptionsArgsDict']] tunnel1_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel1_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel1_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         :param pulumi.Input[_builtins.int] tunnel1_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
@@ -2392,7 +2392,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[_builtins.str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         :param pulumi.Input[Union['VpnConnectionTunnel2LogOptionsArgs', 'VpnConnectionTunnel2LogOptionsArgsDict']] tunnel2_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel2_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel2_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         :param pulumi.Input[_builtins.int] tunnel2_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
@@ -2799,7 +2799,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] tunnel1_inside_cidr: The CIDR block of the inside IP addresses for the first VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[_builtins.str] tunnel1_inside_ipv6_cidr: The range of inside IPv6 addresses for the first VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         :param pulumi.Input[Union['VpnConnectionTunnel1LogOptionsArgs', 'VpnConnectionTunnel1LogOptionsArgsDict']] tunnel1_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel1_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel1_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel1_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         :param pulumi.Input[_builtins.int] tunnel1_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the first VPN tunnel, in seconds. Valid value is between `900` and `28800`.
@@ -2824,7 +2824,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] tunnel2_inside_cidr: The CIDR block of the inside IP addresses for the second VPN tunnel. Valid value is a size /30 CIDR block from the 169.254.0.0/16 range.
         :param pulumi.Input[_builtins.str] tunnel2_inside_ipv6_cidr: The range of inside IPv6 addresses for the second VPN tunnel. Supports only EC2 Transit Gateway. Valid value is a size /126 CIDR block from the local fd00::/8 range.
         :param pulumi.Input[Union['VpnConnectionTunnel2LogOptionsArgs', 'VpnConnectionTunnel2LogOptionsArgsDict']] tunnel2_log_options: Options for logging VPN tunnel activity. See Log Options below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] tunnel2_phase1_dh_group_numbers: List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel2_phase1_encryption_algorithms: List of one or more encryption algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `AES128 | AES256 | AES128-GCM-16 | AES256-GCM-16`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tunnel2_phase1_integrity_algorithms: One or more integrity algorithms that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `SHA1 | SHA2-256 | SHA2-384 | SHA2-512`.
         :param pulumi.Input[_builtins.int] tunnel2_phase1_lifetime_seconds: The lifetime for phase 1 of the IKE negotiation for the second VPN tunnel, in seconds. Valid value is between `900` and `28800`.
@@ -3188,7 +3188,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter(name="tunnel1Phase1DhGroupNumbers")
     def tunnel1_phase1_dh_group_numbers(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         """
-        List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        List of one or more Diffie-Hellman group numbers that are permitted for the first VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         """
         return pulumi.get(self, "tunnel1_phase1_dh_group_numbers")
 
@@ -3388,7 +3388,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter(name="tunnel2Phase1DhGroupNumbers")
     def tunnel2_phase1_dh_group_numbers(self) -> pulumi.Output[Optional[Sequence[_builtins.int]]]:
         """
-        List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are ` 2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24`.
+        List of one or more Diffie-Hellman group numbers that are permitted for the second VPN tunnel for phase 1 IKE negotiations. Valid values are `  2 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 `.
         """
         return pulumi.get(self, "tunnel2_phase1_dh_group_numbers")
 

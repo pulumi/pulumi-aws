@@ -336,6 +336,12 @@ class Filter(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Inspector filter.
+
         Using `pulumi import`, import Inspector Filter using the `arn`. For example:
 
         ```sh
@@ -384,6 +390,12 @@ class Filter(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the Inspector filter.
 
         Using `pulumi import`, import Inspector Filter using the `arn`. For example:
 

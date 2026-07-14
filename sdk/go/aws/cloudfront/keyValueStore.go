@@ -73,6 +73,8 @@ type KeyValueStore struct {
 	//
 	// The following arguments are optional:
 	Name     pulumi.StringOutput            `pulumi:"name"`
+	Tags     pulumi.StringMapOutput         `pulumi:"tags"`
+	TagsAll  pulumi.StringMapOutput         `pulumi:"tagsAll"`
 	Timeouts KeyValueStoreTimeoutsPtrOutput `pulumi:"timeouts"`
 }
 
@@ -117,6 +119,8 @@ type keyValueStoreState struct {
 	//
 	// The following arguments are optional:
 	Name     *string                `pulumi:"name"`
+	Tags     map[string]string      `pulumi:"tags"`
+	TagsAll  map[string]string      `pulumi:"tagsAll"`
 	Timeouts *KeyValueStoreTimeouts `pulumi:"timeouts"`
 }
 
@@ -132,6 +136,8 @@ type KeyValueStoreState struct {
 	//
 	// The following arguments are optional:
 	Name     pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
+	TagsAll  pulumi.StringMapInput
 	Timeouts KeyValueStoreTimeoutsPtrInput
 }
 
@@ -146,6 +152,7 @@ type keyValueStoreArgs struct {
 	//
 	// The following arguments are optional:
 	Name     *string                `pulumi:"name"`
+	Tags     map[string]string      `pulumi:"tags"`
 	Timeouts *KeyValueStoreTimeouts `pulumi:"timeouts"`
 }
 
@@ -157,6 +164,7 @@ type KeyValueStoreArgs struct {
 	//
 	// The following arguments are optional:
 	Name     pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
 	Timeouts KeyValueStoreTimeoutsPtrInput
 }
 
@@ -271,6 +279,14 @@ func (o KeyValueStoreOutput) LastModifiedTime() pulumi.StringOutput {
 // The following arguments are optional:
 func (o KeyValueStoreOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyValueStore) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o KeyValueStoreOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *KeyValueStore) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o KeyValueStoreOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *KeyValueStore) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 func (o KeyValueStoreOutput) Timeouts() KeyValueStoreTimeoutsPtrOutput {

@@ -986,6 +986,15 @@ class ProjectEnvironmentArgsDict(TypedDict):
     """
     Configuration block. Detailed below.
     """
+    host_kernel: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Host operating system kernel used for on-demand builds in the build project. This setting
+    controls the kernel of the underlying build host. It does not change the build environment operating system, which is
+    determined by the image you specify. Valid values: `LINUX_KERNEL_4` (runs on an Amazon Linux 2 host, kernel 4.x),
+    `LINUX_KERNEL_6` (runs on an Amazon Linux 2023 host, kernel 6.x), `LINUX_KERNEL_LATEST` (runs on the latest supported
+    host kernel). Applies to the `LINUX_CONTAINER`, `ARM_CONTAINER`, `LINUX_EC2`, and `ARM_EC2` environment types; not
+    applicable to Windows, Lambda, or Mac environment types. If not specified, CodeBuild selects a default.
+    """
     image_pull_credentials_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Type of credentials AWS CodeBuild uses to pull images in your build. Valid
@@ -1012,6 +1021,7 @@ class ProjectEnvironmentArgs:
                  docker_server: pulumi.Input[Optional['ProjectEnvironmentDockerServerArgs']] = None,
                  environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]] = None,
                  fleet: pulumi.Input[Optional['ProjectEnvironmentFleetArgs']] = None,
+                 host_kernel: pulumi.Input[Optional[_builtins.str]] = None,
                  image_pull_credentials_type: pulumi.Input[Optional[_builtins.str]] = None,
                  privileged_mode: pulumi.Input[Optional[_builtins.bool]] = None,
                  registry_credential: pulumi.Input[Optional['ProjectEnvironmentRegistryCredentialArgs']] = None):
@@ -1033,6 +1043,12 @@ class ProjectEnvironmentArgs:
         :param pulumi.Input['ProjectEnvironmentDockerServerArgs'] docker_server: Configuration block. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]] environment_variables: Configuration block. Detailed below.
         :param pulumi.Input['ProjectEnvironmentFleetArgs'] fleet: Configuration block. Detailed below.
+        :param pulumi.Input[_builtins.str] host_kernel: Host operating system kernel used for on-demand builds in the build project. This setting
+               controls the kernel of the underlying build host. It does not change the build environment operating system, which is
+               determined by the image you specify. Valid values: `LINUX_KERNEL_4` (runs on an Amazon Linux 2 host, kernel 4.x),
+               `LINUX_KERNEL_6` (runs on an Amazon Linux 2023 host, kernel 6.x), `LINUX_KERNEL_LATEST` (runs on the latest supported
+               host kernel). Applies to the `LINUX_CONTAINER`, `ARM_CONTAINER`, `LINUX_EC2`, and `ARM_EC2` environment types; not
+               applicable to Windows, Lambda, or Mac environment types. If not specified, CodeBuild selects a default.
         :param pulumi.Input[_builtins.str] image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid
                values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE
                credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
@@ -1051,6 +1067,8 @@ class ProjectEnvironmentArgs:
             pulumi.set(__self__, "environment_variables", environment_variables)
         if fleet is not None:
             pulumi.set(__self__, "fleet", fleet)
+        if host_kernel is not None:
+            pulumi.set(__self__, "host_kernel", host_kernel)
         if image_pull_credentials_type is not None:
             pulumi.set(__self__, "image_pull_credentials_type", image_pull_credentials_type)
         if privileged_mode is not None:
@@ -1151,6 +1169,23 @@ class ProjectEnvironmentArgs:
     @fleet.setter
     def fleet(self, value: pulumi.Input[Optional['ProjectEnvironmentFleetArgs']]):
         pulumi.set(self, "fleet", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostKernel")
+    def host_kernel(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Host operating system kernel used for on-demand builds in the build project. This setting
+        controls the kernel of the underlying build host. It does not change the build environment operating system, which is
+        determined by the image you specify. Valid values: `LINUX_KERNEL_4` (runs on an Amazon Linux 2 host, kernel 4.x),
+        `LINUX_KERNEL_6` (runs on an Amazon Linux 2023 host, kernel 6.x), `LINUX_KERNEL_LATEST` (runs on the latest supported
+        host kernel). Applies to the `LINUX_CONTAINER`, `ARM_CONTAINER`, `LINUX_EC2`, and `ARM_EC2` environment types; not
+        applicable to Windows, Lambda, or Mac environment types. If not specified, CodeBuild selects a default.
+        """
+        return pulumi.get(self, "host_kernel")
+
+    @host_kernel.setter
+    def host_kernel(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "host_kernel", value)
 
     @_builtins.property
     @pulumi.getter(name="imagePullCredentialsType")

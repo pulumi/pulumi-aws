@@ -285,6 +285,21 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+     * 
+     */
+    @Import(name="resourceShareArns")
+    private @Nullable Output<List<String>> resourceShareArns;
+
+    /**
+     * @return Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+     * 
+     */
+    public Optional<Output<List<String>>> resourceShareArns() {
+        return Optional.ofNullable(this.resourceShareArns);
+    }
+
+    /**
      * List of security group IDs assigned to the broker.
      * 
      */
@@ -379,6 +394,7 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
         this.maintenanceWindowStartTime = $.maintenanceWindowStartTime;
         this.publiclyAccessible = $.publiclyAccessible;
         this.region = $.region;
+        this.resourceShareArns = $.resourceShareArns;
         this.securityGroups = $.securityGroups;
         this.storageType = $.storageType;
         this.subnetIds = $.subnetIds;
@@ -763,6 +779,37 @@ public final class BrokerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param resourceShareArns Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceShareArns(@Nullable Output<List<String>> resourceShareArns) {
+            $.resourceShareArns = resourceShareArns;
+            return this;
+        }
+
+        /**
+         * @param resourceShareArns Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceShareArns(List<String> resourceShareArns) {
+            return resourceShareArns(Output.of(resourceShareArns));
+        }
+
+        /**
+         * @param resourceShareArns Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `engineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `applyImmediately` to `true` for changes to take effect without waiting for the next maintenance window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceShareArns(String... resourceShareArns) {
+            return resourceShareArns(List.of(resourceShareArns));
         }
 
         /**

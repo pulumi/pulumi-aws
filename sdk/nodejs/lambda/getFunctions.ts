@@ -31,9 +31,9 @@ import * as utilities from "../utilities";
  * // Create CloudWatch alarms for all functions
  * const lambdaErrors: aws.cloudwatch.MetricAlarm[] = [];
  * all.then(all => all.functionNames).length.apply(rangeBody => {
- *     for (const range = {value: 0}; range.value < rangeBody; range.value++) {
- *         lambdaErrors.push(new aws.cloudwatch.MetricAlarm(`lambda_errors-${range.value}`, {
- *             name: all.then(all => `${all.functionNames[range.value]}-errors`),
+ *     for (let range = 0; range < rangeBody; range++) {
+ *         lambdaErrors.push(new aws.cloudwatch.MetricAlarm(`lambda_errors-${range}`, {
+ *             name: all.then(all => `${all.functionNames[range]}-errors`),
  *             comparisonOperator: "GreaterThanThreshold",
  *             evaluationPeriods: 2,
  *             metricName: "Errors",
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *             threshold: 5,
  *             alarmDescription: "This metric monitors lambda errors",
  *             dimensions: {
- *                 FunctionName: all.then(all => all.functionNames[range.value]),
+ *                 FunctionName: all.then(all => all.functionNames[range]),
  *             },
  *             tags: {
  *                 Environment: "monitoring",
@@ -143,9 +143,9 @@ export interface GetFunctionsResult {
  * // Create CloudWatch alarms for all functions
  * const lambdaErrors: aws.cloudwatch.MetricAlarm[] = [];
  * all.then(all => all.functionNames).length.apply(rangeBody => {
- *     for (const range = {value: 0}; range.value < rangeBody; range.value++) {
- *         lambdaErrors.push(new aws.cloudwatch.MetricAlarm(`lambda_errors-${range.value}`, {
- *             name: all.then(all => `${all.functionNames[range.value]}-errors`),
+ *     for (let range = 0; range < rangeBody; range++) {
+ *         lambdaErrors.push(new aws.cloudwatch.MetricAlarm(`lambda_errors-${range}`, {
+ *             name: all.then(all => `${all.functionNames[range]}-errors`),
  *             comparisonOperator: "GreaterThanThreshold",
  *             evaluationPeriods: 2,
  *             metricName: "Errors",
@@ -155,7 +155,7 @@ export interface GetFunctionsResult {
  *             threshold: 5,
  *             alarmDescription: "This metric monitors lambda errors",
  *             dimensions: {
- *                 FunctionName: all.then(all => all.functionNames[range.value]),
+ *                 FunctionName: all.then(all => all.functionNames[range]),
  *             },
  *             tags: {
  *                 Environment: "monitoring",

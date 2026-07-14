@@ -38,6 +38,16 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `ServicePrincipal` (String) Service principal name of the AWS service for which you want to enable integration.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// 
     /// Using `pulumi import`, import trusted access using the `ServicePrincipal`. For example:
     /// 
     /// ```sh

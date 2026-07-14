@@ -49,7 +49,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
+// - `resourceArn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
 //
 // Using `pulumi import`, import DynamoDB Resource Policy using the `resourceArn`. For example:
 //

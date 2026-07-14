@@ -217,7 +217,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
+        - `resource_arn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
 
         Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
 
@@ -263,7 +263,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
+        - `resource_arn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
 
         Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
 

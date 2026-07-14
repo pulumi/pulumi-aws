@@ -250,6 +250,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * - `resourceShareArn` (String) Amazon Resource Name (ARN) of the RAM resource share.
+ * 
  * Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resourceShareArn`. For example:
  * 
  * ```sh

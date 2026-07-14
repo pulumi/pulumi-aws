@@ -85,10 +85,21 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) Name of the global endpoint.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Global Endpoints using `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint
+ * $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint example example-endpoint
  * ```
  * 
  */

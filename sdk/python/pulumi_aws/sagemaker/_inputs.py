@@ -309,6 +309,8 @@ __all__ = [
     'EndpointConfigurationDataCaptureConfigCaptureOptionArgsDict',
     'EndpointConfigurationProductionVariantArgs',
     'EndpointConfigurationProductionVariantArgsDict',
+    'EndpointConfigurationProductionVariantCapacityReservationConfigArgs',
+    'EndpointConfigurationProductionVariantCapacityReservationConfigArgsDict',
     'EndpointConfigurationProductionVariantCoreDumpConfigArgs',
     'EndpointConfigurationProductionVariantCoreDumpConfigArgsDict',
     'EndpointConfigurationProductionVariantManagedInstanceScalingArgs',
@@ -319,6 +321,8 @@ __all__ = [
     'EndpointConfigurationProductionVariantServerlessConfigArgsDict',
     'EndpointConfigurationShadowProductionVariantArgs',
     'EndpointConfigurationShadowProductionVariantArgsDict',
+    'EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgs',
+    'EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgsDict',
     'EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs',
     'EndpointConfigurationShadowProductionVariantCoreDumpConfigArgsDict',
     'EndpointConfigurationShadowProductionVariantManagedInstanceScalingArgs',
@@ -11173,6 +11177,10 @@ class EndpointConfigurationProductionVariantArgsDict(TypedDict):
     """
     Size of the Elastic Inference (EI) instance to use for the production variant.
     """
+    capacity_reservation_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationProductionVariantCapacityReservationConfigArgsDict']]]
+    """
+    Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See capacity_reservation_config below.
+    """
     container_startup_health_check_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
@@ -11234,6 +11242,7 @@ class EndpointConfigurationProductionVariantArgsDict(TypedDict):
 class EndpointConfigurationProductionVariantArgs:
     def __init__(__self__, *,
                  accelerator_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_reservation_config: pulumi.Input[Optional['EndpointConfigurationProductionVariantCapacityReservationConfigArgs']] = None,
                  container_startup_health_check_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  core_dump_config: pulumi.Input[Optional['EndpointConfigurationProductionVariantCoreDumpConfigArgs']] = None,
                  enable_ssm_access: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -11250,6 +11259,7 @@ class EndpointConfigurationProductionVariantArgs:
                  volume_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] accelerator_type: Size of the Elastic Inference (EI) instance to use for the production variant.
+        :param pulumi.Input['EndpointConfigurationProductionVariantCapacityReservationConfigArgs'] capacity_reservation_config: Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See capacity_reservation_config below.
         :param pulumi.Input[_builtins.int] container_startup_health_check_timeout_in_seconds: Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         :param pulumi.Input['EndpointConfigurationProductionVariantCoreDumpConfigArgs'] core_dump_config: Core dump configuration from the model container when the process crashes. Fields are documented below.
         :param pulumi.Input[_builtins.bool] enable_ssm_access: Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `model_name` is not set (Inference Components endpoint).
@@ -11267,6 +11277,8 @@ class EndpointConfigurationProductionVariantArgs:
         """
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
+        if capacity_reservation_config is not None:
+            pulumi.set(__self__, "capacity_reservation_config", capacity_reservation_config)
         if container_startup_health_check_timeout_in_seconds is not None:
             pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
         if core_dump_config is not None:
@@ -11307,6 +11319,18 @@ class EndpointConfigurationProductionVariantArgs:
     @accelerator_type.setter
     def accelerator_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accelerator_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationConfig")
+    def capacity_reservation_config(self) -> pulumi.Input[Optional['EndpointConfigurationProductionVariantCapacityReservationConfigArgs']]:
+        """
+        Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See capacity_reservation_config below.
+        """
+        return pulumi.get(self, "capacity_reservation_config")
+
+    @capacity_reservation_config.setter
+    def capacity_reservation_config(self, value: pulumi.Input[Optional['EndpointConfigurationProductionVariantCapacityReservationConfigArgs']]):
+        pulumi.set(self, "capacity_reservation_config", value)
 
     @_builtins.property
     @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
@@ -11475,6 +11499,55 @@ class EndpointConfigurationProductionVariantArgs:
     @volume_size_in_gb.setter
     def volume_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_size_in_gb", value)
+
+
+class EndpointConfigurationProductionVariantCapacityReservationConfigArgsDict(TypedDict):
+    capacity_reservation_preference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Capacity reservation preference. Valid value is `capacity-reservations-only`. When set to `capacity-reservations-only`, SageMaker AI launches instances only into an ML capacity reservation; if no capacity is available, the instances fail to launch.
+    """
+    ml_reservation_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+    """
+
+@pulumi.input_type
+class EndpointConfigurationProductionVariantCapacityReservationConfigArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 ml_reservation_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] capacity_reservation_preference: Capacity reservation preference. Valid value is `capacity-reservations-only`. When set to `capacity-reservations-only`, SageMaker AI launches instances only into an ML capacity reservation; if no capacity is available, the instances fail to launch.
+        :param pulumi.Input[_builtins.str] ml_reservation_arn: The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+        """
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if ml_reservation_arn is not None:
+            pulumi.set(__self__, "ml_reservation_arn", ml_reservation_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Capacity reservation preference. Valid value is `capacity-reservations-only`. When set to `capacity-reservations-only`, SageMaker AI launches instances only into an ML capacity reservation; if no capacity is available, the instances fail to launch.
+        """
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @capacity_reservation_preference.setter
+    def capacity_reservation_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "capacity_reservation_preference", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mlReservationArn")
+    def ml_reservation_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+        """
+        return pulumi.get(self, "ml_reservation_arn")
+
+    @ml_reservation_arn.setter
+    def ml_reservation_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ml_reservation_arn", value)
 
 
 class EndpointConfigurationProductionVariantCoreDumpConfigArgsDict(TypedDict):
@@ -11694,6 +11767,10 @@ class EndpointConfigurationShadowProductionVariantArgsDict(TypedDict):
     """
     Size of the Elastic Inference (EI) instance to use for the production variant.
     """
+    capacity_reservation_config: NotRequired[pulumi.Input[Optional['EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgsDict']]]
+    """
+    Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See capacity_reservation_config below.
+    """
     container_startup_health_check_timeout_in_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
@@ -11755,6 +11832,7 @@ class EndpointConfigurationShadowProductionVariantArgsDict(TypedDict):
 class EndpointConfigurationShadowProductionVariantArgs:
     def __init__(__self__, *,
                  accelerator_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 capacity_reservation_config: pulumi.Input[Optional['EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgs']] = None,
                  container_startup_health_check_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  core_dump_config: pulumi.Input[Optional['EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs']] = None,
                  enable_ssm_access: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -11771,6 +11849,7 @@ class EndpointConfigurationShadowProductionVariantArgs:
                  volume_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] accelerator_type: Size of the Elastic Inference (EI) instance to use for the production variant.
+        :param pulumi.Input['EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgs'] capacity_reservation_config: Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See capacity_reservation_config below.
         :param pulumi.Input[_builtins.int] container_startup_health_check_timeout_in_seconds: Timeout value, in seconds, for your inference container to pass health check by SageMaker AI Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
         :param pulumi.Input['EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs'] core_dump_config: Core dump configuration from the model container when the process crashes. Fields are documented below.
         :param pulumi.Input[_builtins.bool] enable_ssm_access: Whether to turn on native AWS SSM access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind endpoints. Ignored if `model_name` is not set (Inference Components endpoint).
@@ -11788,6 +11867,8 @@ class EndpointConfigurationShadowProductionVariantArgs:
         """
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
+        if capacity_reservation_config is not None:
+            pulumi.set(__self__, "capacity_reservation_config", capacity_reservation_config)
         if container_startup_health_check_timeout_in_seconds is not None:
             pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
         if core_dump_config is not None:
@@ -11828,6 +11909,18 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @accelerator_type.setter
     def accelerator_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accelerator_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationConfig")
+    def capacity_reservation_config(self) -> pulumi.Input[Optional['EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgs']]:
+        """
+        Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint. See capacity_reservation_config below.
+        """
+        return pulumi.get(self, "capacity_reservation_config")
+
+    @capacity_reservation_config.setter
+    def capacity_reservation_config(self, value: pulumi.Input[Optional['EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgs']]):
+        pulumi.set(self, "capacity_reservation_config", value)
 
     @_builtins.property
     @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
@@ -11996,6 +12089,55 @@ class EndpointConfigurationShadowProductionVariantArgs:
     @volume_size_in_gb.setter
     def volume_size_in_gb(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "volume_size_in_gb", value)
+
+
+class EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgsDict(TypedDict):
+    capacity_reservation_preference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Capacity reservation preference. Valid value is `capacity-reservations-only`. When set to `capacity-reservations-only`, SageMaker AI launches instances only into an ML capacity reservation; if no capacity is available, the instances fail to launch.
+    """
+    ml_reservation_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+    """
+
+@pulumi.input_type
+class EndpointConfigurationShadowProductionVariantCapacityReservationConfigArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_preference: pulumi.Input[Optional[_builtins.str]] = None,
+                 ml_reservation_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] capacity_reservation_preference: Capacity reservation preference. Valid value is `capacity-reservations-only`. When set to `capacity-reservations-only`, SageMaker AI launches instances only into an ML capacity reservation; if no capacity is available, the instances fail to launch.
+        :param pulumi.Input[_builtins.str] ml_reservation_arn: The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+        """
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if ml_reservation_arn is not None:
+            pulumi.set(__self__, "ml_reservation_arn", ml_reservation_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Capacity reservation preference. Valid value is `capacity-reservations-only`. When set to `capacity-reservations-only`, SageMaker AI launches instances only into an ML capacity reservation; if no capacity is available, the instances fail to launch.
+        """
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @capacity_reservation_preference.setter
+    def capacity_reservation_preference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "capacity_reservation_preference", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mlReservationArn")
+    def ml_reservation_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+        """
+        return pulumi.get(self, "ml_reservation_arn")
+
+    @ml_reservation_arn.setter
+    def ml_reservation_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ml_reservation_arn", value)
 
 
 class EndpointConfigurationShadowProductionVariantCoreDumpConfigArgsDict(TypedDict):

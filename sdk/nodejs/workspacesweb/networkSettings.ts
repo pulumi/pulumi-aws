@@ -18,22 +18,22 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
  * const exampleSubnet: aws.ec2.Subnet[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range.value}`, {
+ * for (let range = 0; range < 2; range++) {
+ *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range}`, {
  *         vpcId: example.id,
  *         cidrBlock: std.cidrsubnetOutput({
  *             input: example.cidrBlock,
  *             newbits: 8,
- *             netnum: range.value,
+ *             netnum: range,
  *         }).apply(invoke => invoke.result),
- *         availabilityZone: available.names[range.value],
+ *         availabilityZone: available.names[range],
  *     }));
  * }
  * const example1: aws.ec2.SecurityGroup[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     example1.push(new aws.ec2.SecurityGroup(`example1-${range.value}`, {
+ * for (let range = 0; range < 2; range++) {
+ *     example1.push(new aws.ec2.SecurityGroup(`example1-${range}`, {
  *         vpcId: example.id,
- *         name: `example-sg-${range.value}$`,
+ *         name: `example-sg-${range}$`,
  *     }));
  * }
  * const exampleNetworkSettings = new aws.workspacesweb.NetworkSettings("example", {

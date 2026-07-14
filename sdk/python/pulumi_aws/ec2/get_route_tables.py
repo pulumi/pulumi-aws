@@ -123,11 +123,11 @@ def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs'
             "name": "tag:kubernetes.io/kops/role",
             "values": ["private*"],
         }])
-    r: list[Any] = []
+    r: list[aws.ec2.Route] = []
     def create_r(range_body):
-        for range in [{"value": i} for i in range(0, range_body)]:
-            r.append(aws.ec2.Route(f"r-{range['value']}",
-                route_table_id=rts.ids[range["value"]],
+        for r_range in [{"value": i} for i in range(0, range_body)]:
+            r.append(aws.ec2.Route(f"r-{r_range['value']}",
+                route_table_id=rts.ids[r_range["value"]],
                 destination_cidr_block="10.0.0.0/22",
                 vpc_peering_connection_id="pcx-0e9a7a9ecd137dc54"))
 
@@ -180,11 +180,11 @@ def get_route_tables_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
             "name": "tag:kubernetes.io/kops/role",
             "values": ["private*"],
         }])
-    r: list[Any] = []
+    r: list[aws.ec2.Route] = []
     def create_r(range_body):
-        for range in [{"value": i} for i in range(0, range_body)]:
-            r.append(aws.ec2.Route(f"r-{range['value']}",
-                route_table_id=rts.ids[range["value"]],
+        for r_range in [{"value": i} for i in range(0, range_body)]:
+            r.append(aws.ec2.Route(f"r-{r_range['value']}",
+                route_table_id=rts.ids[r_range["value"]],
                 destination_cidr_block="10.0.0.0/22",
                 vpc_peering_connection_id="pcx-0e9a7a9ecd137dc54"))
 

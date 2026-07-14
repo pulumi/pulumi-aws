@@ -93,8 +93,8 @@ export class Accelerator extends pulumi.CustomResource {
     declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * -  The Global Accelerator Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     *    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+     *    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      */
     declare public /*out*/ readonly hostedZoneId: pulumi.Output<string>;
     /**
@@ -193,8 +193,8 @@ export interface AcceleratorState {
     enabled?: pulumi.Input<boolean | undefined>;
     /**
      * -  The Global Accelerator Route 53 zone ID that can be used to
-     * route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
-     * is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
+     *    route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
+     *    is simply an alias for the zone ID `Z2BJ6XQ5FK7U4H`.
      */
     hostedZoneId?: pulumi.Input<string | undefined>;
     /**

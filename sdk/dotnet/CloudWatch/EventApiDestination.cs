@@ -39,10 +39,21 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EventBridge API Destinations using the `Name`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the API destination.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import API Destinations using `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+    /// $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination example example-destination
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventApiDestination:EventApiDestination")]

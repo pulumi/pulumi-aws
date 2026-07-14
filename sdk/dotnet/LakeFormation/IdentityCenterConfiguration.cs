@@ -38,6 +38,17 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `CatalogId` (String) Account ID of the Lake Formation catalog.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Lake Formation Identity Center Configuration using the `CatalogId`. For example:
     /// 
     /// ```sh

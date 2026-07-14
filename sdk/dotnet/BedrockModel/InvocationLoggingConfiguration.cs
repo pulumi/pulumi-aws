@@ -98,6 +98,13 @@ namespace Pulumi.Aws.BedrockModel
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Bedrock custom model using the `Id` set to the AWS Region. For example:
     /// 
     /// ```sh

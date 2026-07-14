@@ -193,7 +193,7 @@ class Policy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
+        - `resource_arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
 
         Using `pulumi import`, import `acmpca.Policy` using the `resource_arn` value. For example:
 
@@ -269,7 +269,7 @@ class Policy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
+        - `resource_arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
 
         Using `pulumi import`, import `acmpca.Policy` using the `resource_arn` value. For example:
 

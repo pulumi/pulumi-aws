@@ -49,6 +49,13 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import Audit Manager Account Registration resources using the `Id`. For example:
     /// 
     /// ```sh

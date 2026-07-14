@@ -340,6 +340,7 @@ class Topic(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Managed Streaming for Kafka Topic using the `cluster_arn` and `name`. For example:
 
@@ -402,6 +403,7 @@ class Topic(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Managed Streaming for Kafka Topic using the `cluster_arn` and `name`. For example:
 

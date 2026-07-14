@@ -350,10 +350,21 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EventBridge EventBridge connection using the `Name`. For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) Name of the connection.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Connections using `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+    /// $ pulumi import aws:cloudwatch/eventConnection:EventConnection example example-connection
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventConnection:EventConnection")]

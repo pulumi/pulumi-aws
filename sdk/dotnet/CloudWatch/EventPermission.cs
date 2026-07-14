@@ -64,10 +64,21 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EventBridge permissions using the `event_bus_name/statement_id` (if you omit `EventBusName`, the `Default` event bus will be used). For example:
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `StatementId` (String) Statement ID of the EventBridge permission.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Permissions `EventBusName` and `StatementId` separated by a forward slash (`/`) (if you omit `EventBusName`, the `Default` event bus will be used). For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:cloudwatch/eventPermission:EventPermission DevAccountAccess example-event-bus/DevAccountAccess
+    /// $ pulumi import aws:cloudwatch/eventPermission:EventPermission example example-event-bus/DevAccountAccess
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventPermission:EventPermission")]

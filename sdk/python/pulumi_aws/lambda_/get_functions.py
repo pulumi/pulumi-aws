@@ -110,11 +110,11 @@ def get_functions(region: Optional[_builtins.str] = None,
     # Get all Lambda functions
     all = aws.lambda_.get_functions()
     # Create CloudWatch alarms for all functions
-    lambda_errors: list[Any] = []
+    lambda_errors: list[aws.cloudwatch.MetricAlarm] = []
     def create_lambda_errors(range_body):
-        for range in [{"value": i} for i in range(0, range_body)]:
-            lambda_errors.append(aws.cloudwatch.MetricAlarm(f"lambda_errors-{range['value']}",
-                name=f"{all.function_names[range['value']]}-errors",
+        for lambda_errors_range in [{"value": i} for i in range(0, range_body)]:
+            lambda_errors.append(aws.cloudwatch.MetricAlarm(f"lambda_errors-{lambda_errors_range['value']}",
+                name=f"{all.function_names[lambda_errors_range['value']]}-errors",
                 comparison_operator="GreaterThanThreshold",
                 evaluation_periods=2,
                 metric_name="Errors",
@@ -124,7 +124,7 @@ def get_functions(region: Optional[_builtins.str] = None,
                 threshold=float(5),
                 alarm_description="This metric monitors lambda errors",
                 dimensions={
-                    "FunctionName": all.function_names[range["value"]],
+                    "FunctionName": all.function_names[lambda_errors_range["value"]],
                 },
                 tags={
                     "Environment": "monitoring",
@@ -195,11 +195,11 @@ def get_functions_output(region: pulumi.Input[Optional[Optional[_builtins.str]]]
     # Get all Lambda functions
     all = aws.lambda_.get_functions()
     # Create CloudWatch alarms for all functions
-    lambda_errors: list[Any] = []
+    lambda_errors: list[aws.cloudwatch.MetricAlarm] = []
     def create_lambda_errors(range_body):
-        for range in [{"value": i} for i in range(0, range_body)]:
-            lambda_errors.append(aws.cloudwatch.MetricAlarm(f"lambda_errors-{range['value']}",
-                name=f"{all.function_names[range['value']]}-errors",
+        for lambda_errors_range in [{"value": i} for i in range(0, range_body)]:
+            lambda_errors.append(aws.cloudwatch.MetricAlarm(f"lambda_errors-{lambda_errors_range['value']}",
+                name=f"{all.function_names[lambda_errors_range['value']]}-errors",
                 comparison_operator="GreaterThanThreshold",
                 evaluation_periods=2,
                 metric_name="Errors",
@@ -209,7 +209,7 @@ def get_functions_output(region: pulumi.Input[Optional[Optional[_builtins.str]]]
                 threshold=float(5),
                 alarm_description="This metric monitors lambda errors",
                 dimensions={
-                    "FunctionName": all.function_names[range["value"]],
+                    "FunctionName": all.function_names[lambda_errors_range["value"]],
                 },
                 tags={
                     "Environment": "monitoring",

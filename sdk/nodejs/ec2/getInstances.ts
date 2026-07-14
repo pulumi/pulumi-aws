@@ -37,8 +37,8 @@ import * as utilities from "../utilities";
  * });
  * const testEip: aws.ec2.Eip[] = [];
  * test.then(test => test.ids).length.apply(rangeBody => {
- *     for (const range = {value: 0}; range.value < rangeBody; range.value++) {
- *         testEip.push(new aws.ec2.Eip(`test-${range.value}`, {instance: test.then(test => test.ids[range.value])}));
+ *     for (let range = 0; range < rangeBody; range++) {
+ *         testEip.push(new aws.ec2.Eip(`test-${range}`, {instance: test.then(test => test.ids[range])}));
  *     }
  * });
  * ```
@@ -139,8 +139,8 @@ export interface GetInstancesResult {
  * });
  * const testEip: aws.ec2.Eip[] = [];
  * test.then(test => test.ids).length.apply(rangeBody => {
- *     for (const range = {value: 0}; range.value < rangeBody; range.value++) {
- *         testEip.push(new aws.ec2.Eip(`test-${range.value}`, {instance: test.then(test => test.ids[range.value])}));
+ *     for (let range = 0; range < rangeBody; range++) {
+ *         testEip.push(new aws.ec2.Eip(`test-${range}`, {instance: test.then(test => test.ids[range])}));
  *     }
  * });
  * ```

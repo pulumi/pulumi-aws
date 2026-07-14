@@ -66,7 +66,7 @@ class IntegrationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_parameters: Map of request query string parameters and headers that should be passed to the backend responder.
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_templates: Map of the integration's request templates.
-        :param pulumi.Input[_builtins.str] response_transfer_mode: Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        :param pulumi.Input[_builtins.str] response_transfer_mode: Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\\
                Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         :param pulumi.Input[_builtins.int] timeout_milliseconds: Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `response_transfer_mode` is `BUFFERED`, and 900,000 when `response_transfer_mode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
         :param pulumi.Input['IntegrationTlsConfigArgs'] tls_config: TLS configuration. See below.
@@ -313,7 +313,7 @@ class IntegrationArgs:
     @pulumi.getter(name="responseTransferMode")
     def response_transfer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\\
         Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         """
         return pulumi.get(self, "response_transfer_mode")
@@ -407,7 +407,7 @@ class _IntegrationState:
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_templates: Map of the integration's request templates.
         :param pulumi.Input[_builtins.str] resource_id: API resource ID.
-        :param pulumi.Input[_builtins.str] response_transfer_mode: Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        :param pulumi.Input[_builtins.str] response_transfer_mode: Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\\
                Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API.
         :param pulumi.Input[_builtins.int] timeout_milliseconds: Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `response_transfer_mode` is `BUFFERED`, and 900,000 when `response_transfer_mode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
@@ -636,7 +636,7 @@ class _IntegrationState:
     @pulumi.getter(name="responseTransferMode")
     def response_transfer_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\\
         Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         """
         return pulumi.get(self, "response_transfer_mode")
@@ -1002,7 +1002,7 @@ class Integration(pulumi.CustomResource):
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_templates: Map of the integration's request templates.
         :param pulumi.Input[_builtins.str] resource_id: API resource ID.
-        :param pulumi.Input[_builtins.str] response_transfer_mode: Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        :param pulumi.Input[_builtins.str] response_transfer_mode: Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\\
                Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API.
         :param pulumi.Input[_builtins.int] timeout_milliseconds: Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `response_transfer_mode` is `BUFFERED`, and 900,000 when `response_transfer_mode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
@@ -1392,7 +1392,7 @@ class Integration(pulumi.CustomResource):
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] request_templates: Map of the integration's request templates.
         :param pulumi.Input[_builtins.str] resource_id: API resource ID.
-        :param pulumi.Input[_builtins.str] response_transfer_mode: Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        :param pulumi.Input[_builtins.str] response_transfer_mode: Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\\
                Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API.
         :param pulumi.Input[_builtins.int] timeout_milliseconds: Custom timeout in milliseconds. The minimum value is 50. The maximum value is 300,000 when `response_transfer_mode` is `BUFFERED`, and 900,000 when `response_transfer_mode` is `STREAM`. The default value is 29,000 milliseconds. You need to raise a [Service Quota Ticket](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html) to increase time beyond 29,000 milliseconds for `BUFFERED` mode.
@@ -1550,7 +1550,7 @@ class Integration(pulumi.CustomResource):
     @pulumi.getter(name="responseTransferMode")
     def response_transfer_mode(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.  
+        Specifies the response transfer mode of the integration. Valid values are `BUFFERED` and `STREAM`. Default to `BUFFERED`.\\
         Once set, setting the value to `BUFFERED` requires explicitly specifying `BUFFERED`, rather than removing this argument.
         """
         return pulumi.get(self, "response_transfer_mode")

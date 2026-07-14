@@ -36,6 +36,21 @@ public final class WorkspaceConfigurationArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+     * 
+     */
+    @Import(name="outOfOrderTimeWindowInSeconds")
+    private @Nullable Output<Integer> outOfOrderTimeWindowInSeconds;
+
+    /**
+     * @return Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+     * 
+     */
+    public Optional<Output<Integer>> outOfOrderTimeWindowInSeconds() {
+        return Optional.ofNullable(this.outOfOrderTimeWindowInSeconds);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -63,6 +78,21 @@ public final class WorkspaceConfigurationArgs extends com.pulumi.resources.Resou
      */
     public Optional<Output<Integer>> retentionPeriodInDays() {
         return Optional.ofNullable(this.retentionPeriodInDays);
+    }
+
+    /**
+     * Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+     * 
+     */
+    @Import(name="ruleQueryOffsetInSeconds")
+    private @Nullable Output<Integer> ruleQueryOffsetInSeconds;
+
+    /**
+     * @return Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+     * 
+     */
+    public Optional<Output<Integer>> ruleQueryOffsetInSeconds() {
+        return Optional.ofNullable(this.ruleQueryOffsetInSeconds);
     }
 
     @Import(name="timeouts")
@@ -95,8 +125,10 @@ public final class WorkspaceConfigurationArgs extends com.pulumi.resources.Resou
 
     private WorkspaceConfigurationArgs(WorkspaceConfigurationArgs $) {
         this.limitsPerLabelSets = $.limitsPerLabelSets;
+        this.outOfOrderTimeWindowInSeconds = $.outOfOrderTimeWindowInSeconds;
         this.region = $.region;
         this.retentionPeriodInDays = $.retentionPeriodInDays;
+        this.ruleQueryOffsetInSeconds = $.ruleQueryOffsetInSeconds;
         this.timeouts = $.timeouts;
         this.workspaceId = $.workspaceId;
     }
@@ -151,6 +183,27 @@ public final class WorkspaceConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
+         * @param outOfOrderTimeWindowInSeconds Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outOfOrderTimeWindowInSeconds(@Nullable Output<Integer> outOfOrderTimeWindowInSeconds) {
+            $.outOfOrderTimeWindowInSeconds = outOfOrderTimeWindowInSeconds;
+            return this;
+        }
+
+        /**
+         * @param outOfOrderTimeWindowInSeconds Time window in seconds for accepting out-of-order samples. Must be between 0 and 600 seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outOfOrderTimeWindowInSeconds(Integer outOfOrderTimeWindowInSeconds) {
+            return outOfOrderTimeWindowInSeconds(Output.of(outOfOrderTimeWindowInSeconds));
+        }
+
+        /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
@@ -190,6 +243,27 @@ public final class WorkspaceConfigurationArgs extends com.pulumi.resources.Resou
          */
         public Builder retentionPeriodInDays(Integer retentionPeriodInDays) {
             return retentionPeriodInDays(Output.of(retentionPeriodInDays));
+        }
+
+        /**
+         * @param ruleQueryOffsetInSeconds Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleQueryOffsetInSeconds(@Nullable Output<Integer> ruleQueryOffsetInSeconds) {
+            $.ruleQueryOffsetInSeconds = ruleQueryOffsetInSeconds;
+            return this;
+        }
+
+        /**
+         * @param ruleQueryOffsetInSeconds Query offset in seconds for rule evaluation. Must be between 0 and 86400 seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ruleQueryOffsetInSeconds(Integer ruleQueryOffsetInSeconds) {
+            return ruleQueryOffsetInSeconds(Output.of(ruleQueryOffsetInSeconds));
         }
 
         public Builder timeouts(@Nullable Output<WorkspaceConfigurationTimeoutsArgs> timeouts) {

@@ -625,6 +625,21 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+     * 
+     */
+    @Import(name="useResourceTimeoutForPropagation")
+    private @Nullable Output<Boolean> useResourceTimeoutForPropagation;
+
+    /**
+     * @return Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+     * 
+     */
+    public Optional<Output<Boolean>> useResourceTimeoutForPropagation() {
+        return Optional.ofNullable(this.useResourceTimeoutForPropagation);
+    }
+
+    /**
      * Configuration block for VPC. See below.
      * 
      */
@@ -681,6 +696,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         this.tenancyConfig = $.tenancyConfig;
         this.timeout = $.timeout;
         this.tracingConfig = $.tracingConfig;
+        this.useResourceTimeoutForPropagation = $.useResourceTimeoutForPropagation;
         this.vpcConfig = $.vpcConfig;
     }
 
@@ -1573,6 +1589,27 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tracingConfig(FunctionTracingConfigArgs tracingConfig) {
             return tracingConfig(Output.of(tracingConfig));
+        }
+
+        /**
+         * @param useResourceTimeoutForPropagation Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useResourceTimeoutForPropagation(@Nullable Output<Boolean> useResourceTimeoutForPropagation) {
+            $.useResourceTimeoutForPropagation = useResourceTimeoutForPropagation;
+            return this;
+        }
+
+        /**
+         * @param useResourceTimeoutForPropagation Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `true`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useResourceTimeoutForPropagation(Boolean useResourceTimeoutForPropagation) {
+            return useResourceTimeoutForPropagation(Output.of(useResourceTimeoutForPropagation));
         }
 
         /**

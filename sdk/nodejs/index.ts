@@ -5,6 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
+export const arnBuild: typeof import("./arnBuild").arnBuild = null as any;
+export const arnBuildOutput: typeof import("./arnBuild").arnBuildOutput = null as any;
+utilities.lazyLoad(exports, ["arnBuild","arnBuildOutput"], () => require("./arnBuild"));
+
+export { ArnParseResult } from "./arnParse";
+export const arnParse: typeof import("./arnParse").arnParse = null as any;
+export const arnParseOutput: typeof import("./arnParse").arnParseOutput = null as any;
+utilities.lazyLoad(exports, ["arnParse","arnParseOutput"], () => require("./arnParse"));
+
 export { GetArnArgs, GetArnResult, GetArnOutputArgs } from "./getArn";
 export const getArn: typeof import("./getArn").getArn = null as any;
 export const getArnOutput: typeof import("./getArn").getArnOutput = null as any;
@@ -69,6 +78,14 @@ export * from "./provider";
 import { Provider } from "./provider";
 
 export * from "./tags";
+export const trimIamRolePath: typeof import("./trimIamRolePath").trimIamRolePath = null as any;
+export const trimIamRolePathOutput: typeof import("./trimIamRolePath").trimIamRolePathOutput = null as any;
+utilities.lazyLoad(exports, ["trimIamRolePath","trimIamRolePathOutput"], () => require("./trimIamRolePath"));
+
+export const userAgent: typeof import("./userAgent").userAgent = null as any;
+export const userAgentOutput: typeof import("./userAgent").userAgentOutput = null as any;
+utilities.lazyLoad(exports, ["userAgent","userAgentOutput"], () => require("./userAgent"));
+
 export * from "./utils";
 
 // Export enums:

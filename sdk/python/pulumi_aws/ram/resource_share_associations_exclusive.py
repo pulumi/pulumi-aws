@@ -272,13 +272,13 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
 
         example = aws.ram.ResourceShare("example", name="example")
         example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+        example_subnet: list[aws.ec2.Subnet] = []
+        for example_subnet_range in [{"value": i} for i in range(0, 2)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{example_subnet_range['value']}",
                 vpc_id=example_vpc.id,
                 cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
                     newbits=8,
-                    netnum=range["value"]).apply(lambda invoke: invoke.result)))
+                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result)))
         example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
             resource_share_arn=example.arn,
             principals=[example_aws_organizations_organization["arn"]],
@@ -331,6 +331,12 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        - `resource_share_arn` (String) Amazon Resource Name (ARN) of the RAM resource share.
 
         Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resource_share_arn`. For example:
 
@@ -402,13 +408,13 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
 
         example = aws.ram.ResourceShare("example", name="example")
         example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+        example_subnet: list[aws.ec2.Subnet] = []
+        for example_subnet_range in [{"value": i} for i in range(0, 2)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{example_subnet_range['value']}",
                 vpc_id=example_vpc.id,
                 cidr_block=std.cidrsubnet_output(input=example_vpc.cidr_block,
                     newbits=8,
-                    netnum=range["value"]).apply(lambda invoke: invoke.result)))
+                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result)))
         example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
             resource_share_arn=example.arn,
             principals=[example_aws_organizations_organization["arn"]],
@@ -461,6 +467,12 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        - `resource_share_arn` (String) Amazon Resource Name (ARN) of the RAM resource share.
 
         Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resource_share_arn`. For example:
 

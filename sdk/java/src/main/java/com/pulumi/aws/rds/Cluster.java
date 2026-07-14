@@ -486,6 +486,20 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
+     * Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+     * 
+     */
+    @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> autoMinorVersionUpgrade;
+
+    /**
+     * @return Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+     * 
+     */
+    public Output<Boolean> autoMinorVersionUpgrade() {
+        return this.autoMinorVersionUpgrade;
+    }
+    /**
      * List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
      * RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
      * We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignoreChanges` argument if necessary.

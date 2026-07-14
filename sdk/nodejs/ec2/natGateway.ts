@@ -95,8 +95,8 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
  * const exampleInternetGateway = new aws.ec2.InternetGateway("example", {vpcId: example.id});
  * const exampleEip: aws.ec2.Eip[] = [];
- * for (const range = {value: 0}; range.value < 3; range.value++) {
- *     exampleEip.push(new aws.ec2.Eip(`example-${range.value}`, {domain: "vpc"}));
+ * for (let range = 0; range < 3; range++) {
+ *     exampleEip.push(new aws.ec2.Eip(`example-${range}`, {domain: "vpc"}));
  * }
  * const exampleNatGateway = new aws.ec2.NatGateway("example", {
  *     vpcId: example.id,

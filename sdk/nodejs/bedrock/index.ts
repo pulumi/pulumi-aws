@@ -70,6 +70,11 @@ export type AgentcoreBrowser = import("./agentcoreBrowser").AgentcoreBrowser;
 export const AgentcoreBrowser: typeof import("./agentcoreBrowser").AgentcoreBrowser = null as any;
 utilities.lazyLoad(exports, ["AgentcoreBrowser"], () => require("./agentcoreBrowser"));
 
+export { AgentcoreBrowserProfileArgs, AgentcoreBrowserProfileState } from "./agentcoreBrowserProfile";
+export type AgentcoreBrowserProfile = import("./agentcoreBrowserProfile").AgentcoreBrowserProfile;
+export const AgentcoreBrowserProfile: typeof import("./agentcoreBrowserProfile").AgentcoreBrowserProfile = null as any;
+utilities.lazyLoad(exports, ["AgentcoreBrowserProfile"], () => require("./agentcoreBrowserProfile"));
+
 export { AgentcoreCodeInterpreterArgs, AgentcoreCodeInterpreterState } from "./agentcoreCodeInterpreter";
 export type AgentcoreCodeInterpreter = import("./agentcoreCodeInterpreter").AgentcoreCodeInterpreter;
 export const AgentcoreCodeInterpreter: typeof import("./agentcoreCodeInterpreter").AgentcoreCodeInterpreter = null as any;
@@ -236,6 +241,8 @@ const _module = {
                 return new AgentcoreApiKeyCredentialProvider(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreBrowser:AgentcoreBrowser":
                 return new AgentcoreBrowser(name, <any>undefined, { urn })
+            case "aws:bedrock/agentcoreBrowserProfile:AgentcoreBrowserProfile":
+                return new AgentcoreBrowserProfile(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter":
                 return new AgentcoreCodeInterpreter(name, <any>undefined, { urn })
             case "aws:bedrock/agentcoreEvaluator:AgentcoreEvaluator":
@@ -296,6 +303,7 @@ pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreAgentRuntime", _m
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreAgentRuntimeEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreApiKeyCredentialProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreBrowser", _module)
+pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreBrowserProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreCodeInterpreter", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreEvaluator", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrock/agentcoreGateway", _module)

@@ -73,6 +73,12 @@ class OutboundWebIdentityFederation(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+
         Using `pulumi import`, import IAM Outbound Web Identity Federation resources using the AWS account ID. For example:
 
         ```sh
@@ -104,6 +110,12 @@ class OutboundWebIdentityFederation(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
 
         Using `pulumi import`, import IAM Outbound Web Identity Federation resources using the AWS account ID. For example:
 

@@ -306,10 +306,22 @@ namespace Pulumi.Aws.Mq
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
+        /// Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `EngineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `ApplyImmediately` to `True` for changes to take effect without waiting for the next maintenance window.
+        /// </summary>
+        [Output("resourceShareArns")]
+        public Output<ImmutableArray<string>> ResourceShareArns { get; private set; } = null!;
+
+        /// <summary>
         /// List of security group IDs assigned to the broker.
         /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// List of resources shared with the broker via `ResourceShareArns`. Only populated for `EngineType` of `RabbitMQ`.
+        /// </summary>
+        [Output("sharedResources")]
+        public Output<ImmutableArray<Outputs.BrokerSharedResource>> SharedResources { get; private set; } = null!;
 
         /// <summary>
         /// Storage type of the broker. For `EngineType` `ActiveMQ`, valid values are `Efs` and `Ebs` (AWS-default is `Efs`). For `EngineType` `RabbitMQ`, only `Ebs` is supported. When using `Ebs`, only the `mq.m5` broker instance type family is supported.
@@ -490,6 +502,18 @@ namespace Pulumi.Aws.Mq
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        [Input("resourceShareArns")]
+        private InputList<string>? _resourceShareArns;
+
+        /// <summary>
+        /// Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `EngineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `ApplyImmediately` to `True` for changes to take effect without waiting for the next maintenance window.
+        /// </summary>
+        public InputList<string> ResourceShareArns
+        {
+            get => _resourceShareArns ?? (_resourceShareArns = new InputList<string>());
+            set => _resourceShareArns = value;
+        }
 
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
@@ -681,6 +705,18 @@ namespace Pulumi.Aws.Mq
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        [Input("resourceShareArns")]
+        private InputList<string>? _resourceShareArns;
+
+        /// <summary>
+        /// Set of [AWS RAM](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) resource share ARNs that grant the broker access to shared resources for [private networking](https://aws.amazon.com/blogs/big-data/introducing-private-networking-for-amazon-mq-for-rabbitmq/). Applies to `EngineType` of `RabbitMQ` only. Because Amazon MQ applies resource shares during a reboot, set `ApplyImmediately` to `True` for changes to take effect without waiting for the next maintenance window.
+        /// </summary>
+        public InputList<string> ResourceShareArns
+        {
+            get => _resourceShareArns ?? (_resourceShareArns = new InputList<string>());
+            set => _resourceShareArns = value;
+        }
+
         [Input("securityGroups")]
         private InputList<string>? _securityGroups;
 
@@ -691,6 +727,18 @@ namespace Pulumi.Aws.Mq
         {
             get => _securityGroups ?? (_securityGroups = new InputList<string>());
             set => _securityGroups = value;
+        }
+
+        [Input("sharedResources")]
+        private InputList<Inputs.BrokerSharedResourceGetArgs>? _sharedResources;
+
+        /// <summary>
+        /// List of resources shared with the broker via `ResourceShareArns`. Only populated for `EngineType` of `RabbitMQ`.
+        /// </summary>
+        public InputList<Inputs.BrokerSharedResourceGetArgs> SharedResources
+        {
+            get => _sharedResources ?? (_sharedResources = new InputList<Inputs.BrokerSharedResourceGetArgs>());
+            set => _sharedResources = value;
         }
 
         /// <summary>

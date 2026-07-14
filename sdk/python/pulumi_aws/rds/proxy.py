@@ -603,13 +603,13 @@ class Proxy(pulumi.CustomResource):
                 "values": ["opt-in-not-required"],
             }])
         example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, 5)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+        example_subnet: list[aws.ec2.Subnet] = []
+        for example_subnet_range in [{"value": i} for i in range(0, 5)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{example_subnet_range['value']}",
                 cidr_block=std.cidrsubnet_output(input=example.cidr_block,
                     newbits=8,
-                    netnum=range["value"]).apply(lambda invoke: invoke.result),
-                availability_zone=available.names[range["value"]],
+                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result),
+                availability_zone=available.names[example_subnet_range["value"]],
                 vpc_id=example.id))
         example_proxy = aws.rds.Proxy("example",
             name="example",
@@ -712,13 +712,13 @@ class Proxy(pulumi.CustomResource):
                 "values": ["opt-in-not-required"],
             }])
         example = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, 5)]:
-            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+        example_subnet: list[aws.ec2.Subnet] = []
+        for example_subnet_range in [{"value": i} for i in range(0, 5)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{example_subnet_range['value']}",
                 cidr_block=std.cidrsubnet_output(input=example.cidr_block,
                     newbits=8,
-                    netnum=range["value"]).apply(lambda invoke: invoke.result),
-                availability_zone=available.names[range["value"]],
+                    netnum=example_subnet_range["value"]).apply(lambda invoke: invoke.result),
+                availability_zone=available.names[example_subnet_range["value"]],
                 vpc_id=example.id))
         example_proxy = aws.rds.Proxy("example",
             name="example",

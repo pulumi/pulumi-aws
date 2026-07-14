@@ -57,6 +57,12 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// - `logGroupArn` (String) Amazon Resource Name (ARN) of the CloudWatch Logs log group.
+//
 // Using `pulumi import`, import CloudWatch Logs Transformer using the `logGroupArn`. For example:
 //
 // ```sh

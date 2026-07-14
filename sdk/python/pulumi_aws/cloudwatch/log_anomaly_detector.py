@@ -368,9 +368,9 @@ class LogAnomalyDetector(pulumi.CustomResource):
         from typing import Any
         import pulumi_aws as aws
 
-        test: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            test.append(aws.cloudwatch.LogGroup(f"test-{range['value']}", name=f"testing-{range['value']}"))
+        test: list[aws.cloudwatch.LogGroup] = []
+        for test_range in [{"value": i} for i in range(0, 2)]:
+            test.append(aws.cloudwatch.LogGroup(f"test-{test_range['value']}", name=f"testing-{test_range['value']}"))
         test_log_anomaly_detector = aws.cloudwatch.LogAnomalyDetector("test",
             detector_name="testing",
             log_group_arn_lists=[test[0].arn],
@@ -424,9 +424,9 @@ class LogAnomalyDetector(pulumi.CustomResource):
         from typing import Any
         import pulumi_aws as aws
 
-        test: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            test.append(aws.cloudwatch.LogGroup(f"test-{range['value']}", name=f"testing-{range['value']}"))
+        test: list[aws.cloudwatch.LogGroup] = []
+        for test_range in [{"value": i} for i in range(0, 2)]:
+            test.append(aws.cloudwatch.LogGroup(f"test-{test_range['value']}", name=f"testing-{test_range['value']}"))
         test_log_anomaly_detector = aws.cloudwatch.LogAnomalyDetector("test",
             detector_name="testing",
             log_group_arn_lists=[test[0].arn],

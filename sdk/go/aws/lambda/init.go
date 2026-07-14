@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FunctionEventInvokeConfig{}
 	case "aws:lambda/functionRecursionConfig:FunctionRecursionConfig":
 		r = &FunctionRecursionConfig{}
+	case "aws:lambda/functionScalingConfig:FunctionScalingConfig":
+		r = &FunctionScalingConfig{}
 	case "aws:lambda/functionUrl:FunctionUrl":
 		r = &FunctionUrl{}
 	case "aws:lambda/invocation:Invocation":
@@ -95,6 +97,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lambda/functionRecursionConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lambda/functionScalingConfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

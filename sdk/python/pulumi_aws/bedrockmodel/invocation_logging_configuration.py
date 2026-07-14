@@ -168,6 +168,13 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
 
         ```sh
@@ -245,6 +252,13 @@ class InvocationLoggingConfiguration(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
 

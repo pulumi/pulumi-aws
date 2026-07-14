@@ -77,6 +77,7 @@ import javax.annotation.Nullable;
  * #### Optional
  * 
  * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import Managed Streaming for Kafka Topic using the `clusterArn` and `name`. For example:
  * 

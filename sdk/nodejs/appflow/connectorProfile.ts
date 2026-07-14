@@ -147,7 +147,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      */
     declare public readonly region: pulumi.Output<string>;
 
@@ -234,7 +234,7 @@ export interface ConnectorProfileState {
     name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      */
     region?: pulumi.Input<string | undefined>;
 }
@@ -266,7 +266,7 @@ export interface ConnectorProfileArgs {
     name?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-     * * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+     * * ` name  ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
      */
     region?: pulumi.Input<string | undefined>;
 }

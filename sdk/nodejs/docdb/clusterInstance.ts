@@ -26,9 +26,9 @@ import * as utilities from "../utilities";
  *     masterPassword: "barbut8chars",
  * });
  * const clusterInstances: aws.docdb.ClusterInstance[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     clusterInstances.push(new aws.docdb.ClusterInstance(`cluster_instances-${range.value}`, {
- *         identifier: `docdb-cluster-demo-${range.value}`,
+ * for (let range = 0; range < 2; range++) {
+ *     clusterInstances.push(new aws.docdb.ClusterInstance(`cluster_instances-${range}`, {
+ *         identifier: `docdb-cluster-demo-${range}`,
  *         clusterIdentifier: _default.id,
  *         instanceClass: "db.r5.large",
  *     }));

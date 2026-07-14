@@ -566,6 +566,12 @@ namespace Pulumi.Aws.Lambda
         public Output<int?> TumblingWindowInSeconds { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `True`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+        /// </summary>
+        [Output("useResourceTimeoutForPropagation")]
+        public Output<bool?> UseResourceTimeoutForPropagation { get; private set; } = null!;
+
+        /// <summary>
         /// UUID of the created event source mapping.
         /// </summary>
         [Output("uuid")]
@@ -810,6 +816,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("tumblingWindowInSeconds")]
         public Input<int>? TumblingWindowInSeconds { get; set; }
+
+        /// <summary>
+        /// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `True`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+        /// </summary>
+        [Input("useResourceTimeoutForPropagation")]
+        public Input<bool>? UseResourceTimeoutForPropagation { get; set; }
 
         public EventSourceMappingArgs()
         {
@@ -1060,6 +1072,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("tumblingWindowInSeconds")]
         public Input<int>? TumblingWindowInSeconds { get; set; }
+
+        /// <summary>
+        /// Whether to apply resource level timeout values while retrying eventually consistent API operations. By default the provider uses a 5 minute timeout to allow for propagation in the Lambda service. When set to `True`, this default value is replaced with the configurable resource timeouts. Increased timeout values may be useful in highly active accounts, or regions where propagation delays are inconsistent.
+        /// </summary>
+        [Input("useResourceTimeoutForPropagation")]
+        public Input<bool>? UseResourceTimeoutForPropagation { get; set; }
 
         /// <summary>
         /// UUID of the created event source mapping.

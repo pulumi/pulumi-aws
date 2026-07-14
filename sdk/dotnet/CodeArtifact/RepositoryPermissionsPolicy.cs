@@ -85,7 +85,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
+    /// - `ResourceArn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
     /// 
     /// Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
     /// 

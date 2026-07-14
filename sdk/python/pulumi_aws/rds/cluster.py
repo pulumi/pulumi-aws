@@ -26,6 +26,7 @@ class ClusterArgs:
                  allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
                  allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backtrack_window: pulumi.Input[Optional[_builtins.int]] = None,
                  backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
@@ -94,6 +95,7 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
                RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
                We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
@@ -176,6 +178,8 @@ class ClusterArgs:
             pulumi.set(__self__, "allow_major_version_upgrade", allow_major_version_upgrade)
         if apply_immediately is not None:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
+        if auto_minor_version_upgrade is not None:
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if backtrack_window is not None:
@@ -346,6 +350,18 @@ class ClusterArgs:
     @apply_immediately.setter
     def apply_immediately(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_immediately", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoMinorVersionUpgrade")
+    def auto_minor_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @auto_minor_version_upgrade.setter
+    def auto_minor_version_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "auto_minor_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
@@ -1098,6 +1114,7 @@ class _ClusterState:
                  allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
                  arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backtrack_window: pulumi.Input[Optional[_builtins.int]] = None,
                  backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1176,6 +1193,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
                RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
                We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
@@ -1270,6 +1288,8 @@ class _ClusterState:
             pulumi.set(__self__, "apply_immediately", apply_immediately)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if auto_minor_version_upgrade is not None:
+            pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if backtrack_window is not None:
@@ -1460,6 +1480,18 @@ class _ClusterState:
     @arn.setter
     def arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoMinorVersionUpgrade")
+    def auto_minor_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @auto_minor_version_upgrade.setter
+    def auto_minor_version_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "auto_minor_version_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
@@ -2335,6 +2367,7 @@ class Cluster(pulumi.CustomResource):
                  allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
                  allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backtrack_window: pulumi.Input[Optional[_builtins.int]] = None,
                  backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
@@ -2608,6 +2641,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] allocated_storage: The amount of storage in gibibytes (GiB) to allocate to each DB instance in the Multi-AZ DB cluster.
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
+        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
                RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
                We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
@@ -2913,6 +2947,7 @@ class Cluster(pulumi.CustomResource):
                  allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
                  allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
+                 auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backtrack_window: pulumi.Input[Optional[_builtins.int]] = None,
                  backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
@@ -2987,6 +3022,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["allocated_storage"] = allocated_storage
             __props__.__dict__["allow_major_version_upgrade"] = allow_major_version_upgrade
             __props__.__dict__["apply_immediately"] = apply_immediately
+            __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["backtrack_window"] = backtrack_window
             __props__.__dict__["backup_retention_period"] = backup_retention_period
@@ -3077,6 +3113,7 @@ class Cluster(pulumi.CustomResource):
             allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
             apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
             arn: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
             availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             backtrack_window: pulumi.Input[Optional[_builtins.int]] = None,
             backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
@@ -3159,6 +3196,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] allow_major_version_upgrade: Enable to allow major engine version upgrades when changing engine versions. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon RDS Documentation for more information.](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html)
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones for the DB cluster storage where DB cluster instances can be created.
                RDS automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
                We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
@@ -3253,6 +3291,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["allow_major_version_upgrade"] = allow_major_version_upgrade
         __props__.__dict__["apply_immediately"] = apply_immediately
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
         __props__.__dict__["availability_zones"] = availability_zones
         __props__.__dict__["backtrack_window"] = backtrack_window
         __props__.__dict__["backup_retention_period"] = backup_retention_period
@@ -3357,6 +3396,14 @@ class Cluster(pulumi.CustomResource):
         Amazon Resource Name (ARN) of cluster
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="autoMinorVersionUpgrade")
+    def auto_minor_version_upgrade(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether to apply minor engine upgrades automatically to the DB cluster during the maintenance window. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_minor_version_upgrade")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")

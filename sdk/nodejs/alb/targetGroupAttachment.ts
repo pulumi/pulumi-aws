@@ -85,6 +85,7 @@ import * as utilities from "../utilities";
  *
  * * `port` - (Number) Port on which targets receive traffic.
  * * `availabilityZone` - (String) Availability zone where the target is registered.
+ * * `quicServerId` - (String) QUIC server ID for the target.
  * * `accountId` - (String) AWS Account where this resource is managed.
  * * `region` - (String) Region where this resource is managed.
  *

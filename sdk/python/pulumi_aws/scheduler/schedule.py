@@ -580,6 +580,18 @@ class Schedule(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `group_name` - (String) Name of the schedule group.
+        * `name` - (String) Name of the schedule.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 
         ```sh
@@ -665,6 +677,18 @@ class Schedule(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `group_name` - (String) Name of the schedule group.
+        * `name` - (String) Name of the schedule.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 

@@ -48,6 +48,12 @@ namespace Pulumi.Aws.Invoicing
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the invoice unit.
+    /// 
     /// Using `pulumi import`, import Invoice Units using the ARN. For example:
     /// 
     /// ```sh

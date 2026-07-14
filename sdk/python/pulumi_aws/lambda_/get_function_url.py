@@ -220,7 +220,7 @@ def get_function_url(function_name: Optional[_builtins.str] = None,
 
     example = aws.lambda_.get_function_url(function_name="api_function")
     cors_config = len(example.cors).apply(lambda length: example.cors[0] if length > 0 else None)
-    allowed_origins = cors_config["allowOrigins"] if cors_config != None else []
+    allowed_origins = cors_config["allowOrigins"] if cors_config is not None else []
     pulumi.export("corsAllowedOrigins", allowed_origins)
     ```
 
@@ -298,7 +298,7 @@ def get_function_url_output(function_name: pulumi.Input[Optional[_builtins.str]]
 
     example = aws.lambda_.get_function_url(function_name="api_function")
     cors_config = len(example.cors).apply(lambda length: example.cors[0] if length > 0 else None)
-    allowed_origins = cors_config["allowOrigins"] if cors_config != None else []
+    allowed_origins = cors_config["allowOrigins"] if cors_config is not None else []
     pulumi.export("corsAllowedOrigins", allowed_origins)
     ```
 

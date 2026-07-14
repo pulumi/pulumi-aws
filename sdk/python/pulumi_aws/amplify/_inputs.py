@@ -558,7 +558,7 @@ class DomainAssociationSubDomainArgsDict(TypedDict):
     """
     dns_record: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
+    DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME <target> `).
     """
     verified: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -575,7 +575,7 @@ class DomainAssociationSubDomainArgs:
         """
         :param pulumi.Input[_builtins.str] branch_name: Branch name setting for the subdomain.
         :param pulumi.Input[_builtins.str] prefix: Prefix setting for the subdomain.
-        :param pulumi.Input[_builtins.str] dns_record: DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
+        :param pulumi.Input[_builtins.str] dns_record: DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME <target> `).
         :param pulumi.Input[_builtins.bool] verified: Verified status of the subdomain.
         """
         pulumi.set(__self__, "branch_name", branch_name)
@@ -613,7 +613,7 @@ class DomainAssociationSubDomainArgs:
     @pulumi.getter(name="dnsRecord")
     def dns_record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
+        DNS record for the subdomain in a space-prefixed and space-delimited format (`  CNAME <target> `).
         """
         return pulumi.get(self, "dns_record")
 

@@ -720,6 +720,11 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_bedrockagentcore_browser_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_bedrockagentcore_code_interpreter": {
     "hasInputName": true,
     "hasUsableRegion": true,
@@ -931,7 +936,8 @@
     "hasInputName": true
   },
   "aws_cloudfront_key_value_store": {
-    "hasInputName": true
+    "hasInputName": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_cloudfront_multitenant_distribution": {
     "hasTagsAndTagsAll": true
@@ -3230,6 +3236,9 @@
   "aws_lambda_function_recursion_config": {
     "hasUsableRegion": true
   },
+  "aws_lambda_function_scaling_config": {
+    "hasUsableRegion": true
+  },
   "aws_lambda_function_url": {
     "hasUsableRegion": true
   },
@@ -5493,6 +5502,9 @@
   "aws_ssoadmin_permissions_boundary_attachment": {
     "hasUsableRegion": true
   },
+  "aws_ssoadmin_region": {
+    "hasUsableRegion": true
+  },
   "aws_ssoadmin_trusted_token_issuer": {
     "hasInputName": true,
     "hasUsableRegion": true,
@@ -6072,6 +6084,10 @@
   },
   "aws_workspaces_ip_group": {
     "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_workspaces_pool": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },

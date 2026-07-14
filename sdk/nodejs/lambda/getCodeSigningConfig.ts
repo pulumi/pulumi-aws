@@ -74,8 +74,8 @@ import * as utilities from "../utilities";
  *     })).result;
  *     // Conditional resource creation based on signing profile validation
  *     const conditional: aws.lambda.Function[] = [];
- *     for (const range = {value: 0}; range.value < (profileAllowed ? 1 : 0); range.value++) {
- *         conditional.push(new aws.lambda.Function(`conditional-${range.value}`, {
+ *     for (let range = 0; range < (profileAllowed ? 1 : 0); range++) {
+ *         conditional.push(new aws.lambda.Function(`conditional-${range}`, {
  *             code: new pulumi.asset.FileArchive("function.zip"),
  *             name: "conditional-function",
  *             role: lambdaRole.arn,
@@ -240,8 +240,8 @@ export interface GetCodeSigningConfigResult {
  *     })).result;
  *     // Conditional resource creation based on signing profile validation
  *     const conditional: aws.lambda.Function[] = [];
- *     for (const range = {value: 0}; range.value < (profileAllowed ? 1 : 0); range.value++) {
- *         conditional.push(new aws.lambda.Function(`conditional-${range.value}`, {
+ *     for (let range = 0; range < (profileAllowed ? 1 : 0); range++) {
+ *         conditional.push(new aws.lambda.Function(`conditional-${range}`, {
  *             code: new pulumi.asset.FileArchive("function.zip"),
  *             name: "conditional-function",
  *             role: lambdaRole.arn,

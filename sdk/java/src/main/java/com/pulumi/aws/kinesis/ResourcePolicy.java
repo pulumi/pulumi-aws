@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
+ * - `resourceArn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
  * 
  * Using `pulumi import`, import Kinesis resource policies using the `resourceArn`. For example:
  * 

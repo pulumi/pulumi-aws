@@ -150,7 +150,9 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
+ * - `accountId` (String) AWS Account where this resource is managed.
  * - `provisionedClusterIdentifier` (String) Identifier of the provisioned cluster. Required when `namespaceType` is `provisioned`.
+ * - `region` (String) Region where this resource is managed.
  * - `serverlessNamespaceIdentifier` (String) Identifier of the serverless namespace. Required when `namespaceType` is `serverless`.
  * - `serverlessWorkgroupIdentifier` (String) Identifier of the serverless workgroup. Required when `namespaceType` is `serverless`.
  * 

@@ -112,9 +112,17 @@ export interface GetBrokerResult {
     readonly publiclyAccessible: boolean;
     readonly region: string;
     /**
+     * Set of AWS RAM resource share ARNs that grant the broker access to shared resources for private networking. Only populated for `engineType` of `RabbitMQ`.
+     */
+    readonly resourceShareArns: string[];
+    /**
      * List of security group IDs assigned to the broker.
      */
     readonly securityGroups: string[];
+    /**
+     * List of resources shared with the broker. See Shared Resources below. Only populated for `engineType` of `RabbitMQ`.
+     */
+    readonly sharedResources: outputs.mq.GetBrokerSharedResource[];
     /**
      * Storage type of the broker.
      */
