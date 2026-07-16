@@ -1,0 +1,7 @@
+# Queries that should activate the upstream-patches skill
+queries:
+  - "Rebase this Pulumi provider's upstream Terraform patches onto the new upstream release"
+  - "Find which patch owns this upstream file change and amend that patch commit"
+  - "Remove one hunk from an existing patches/*.patch file using scripts/upstream.sh"
+  - "upgrade-provider left upstream on pulumi/patch-checkout during a conflict; help me preserve and check in the patch work"
+  - "Create a new upstream patch for this bridged Pulumi provider"

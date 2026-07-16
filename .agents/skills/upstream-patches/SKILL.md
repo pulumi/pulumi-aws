@@ -17,7 +17,7 @@ description: Create, amend, remove, and rebase patches for Terraform provider su
 | Command | Description |
 |---------|-------------|
 | `./scripts/upstream.sh init` | Initialize upstream and apply patches to working directory |
-| `./scripts/upstream.sh init -f` | Force re-initialize, discarding any changes |
+| `./scripts/upstream.sh init -f` | Destructively discard checkout/rebase state and re-initialize upstream |
 | `./scripts/upstream.sh checkout` | Create branch with patches as commits for editing |
 | `./scripts/upstream.sh rebase -i` | Interactively edit patch commits |
 | `./scripts/upstream.sh rebase -o <commit>` | Rebase patches onto a new upstream commit |
@@ -54,7 +54,7 @@ git log --oneline pulumi/patch-checkout -- path/to/file
 cd ..
 ```
 
-Set `target_sha` to the owning commit and edit that commit, not `HEAD`.
+If `rg` is unavailable, use `grep -En` for the patch search. Set `target_sha` to the owning commit and edit that commit, not `HEAD`.
 
 ## Amend Existing Patch (Preferred, Non-Interactive)
 
@@ -165,4 +165,8 @@ After `check_in`:
 - Verify target patch number/purpose is still present when expected.
 - Verify no unexpected new `00NN-*.patch` was introduced.
 
-If checkout mode is stuck, use `./scripts/upstream.sh init -f` to reset.
+## Interrupted Checkout or Rebase
+
+Preserve work by default. Inspect `git -C upstream status`, complete the active `git am`/rebase, verify that every patch was applied, and run `./scripts/upstream.sh check_in` before rerunning automation. An interrupted checkout invokes `git am` separately for each patch, so later patch files may not have been reached.
+
+Use `./scripts/upstream.sh init -f` only when intentionally discarding all interrupted work. It can remove conflict resolution, patch commits, operation metadata, and untracked files; it is not routine recovery for a stuck checkout.
