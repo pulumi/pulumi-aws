@@ -1,7 +1,38 @@
 # Upgrade Provider Errors
 
 Use this file when the `upgrade-provider` tool fails and you need concrete fixes.
-For patch edits/removals/rebases, follow the `upstream-patches` skill workflow.
+For patch edits/removals/rebases, follow the `upstream-patches` skill workflow. Preserve `--no-submit` on every `upgrade-provider` retry.
+
+## Patched upstream has interrupted or unexpected Git state
+
+The tool deliberately leaves active Git operations, `pulumi/patch-checkout`, and unexpected branches unchanged because it cannot prove that an interrupted checkout applied the complete patch stack.
+
+Preserve work by default:
+
+1. Inspect `git -C upstream status` and identify whether `git am`, rebase, merge, cherry-pick, or another operation is active.
+2. Use skill `upstream-patches` for conflict resolution or patch edits.
+3. Complete or safely abort the active operation. If checkout was interrupted during `git am`, verify that every `patches/*.patch` was applied; later patch files may not have been reached.
+4. Ensure the patch stack was rebased onto the requested target. If needed, run the target rebase from the provider root and resolve it fully:
+
+```bash
+./scripts/upstream.sh rebase -o refs/tags/v<TARGET>
+```
+
+5. Once every patch is applied and the target rebase is complete, write patches back and exit checkout mode:
+
+```bash
+./scripts/upstream.sh check_in
+```
+
+6. Confirm `upstream` is no longer on `pulumi/patch-checkout`, then rerun `upgrade-provider` with `--no-submit`.
+
+Only when intentionally discarding all interrupted patch work may you run:
+
+```bash
+./scripts/upstream.sh init -f
+```
+
+This deletes active operation state and patch-checkout work and can clean untracked files. Treat it as destructive discard, not normal recovery.
 
 ## Patch conflicts during rebase
 
@@ -20,19 +51,44 @@ Fix from the `upstream` directory, following `upstream-patches` defaults (edit t
 3. Search for conflict markers and remove all of them before continuing.
 4. `git add` the resolved files.
 5. `git rebase --continue`.
+6. Repeat until the rebase is complete, then return to the provider root and exit checkout mode:
 
-If `git rebase --continue` opens an editor in automation contexts, run with `GIT_EDITOR=true`.
+```bash
+./scripts/upstream.sh check_in
+```
+
+7. Confirm `upstream` is detached rather than on `pulumi/patch-checkout`, then rerun `upgrade-provider` with `--no-submit`.
+
+If `git rebase --continue` opens an editor in automation contexts, run `GIT_EDITOR=true git rebase --continue`.
 
 Avoid:
 
+- Rerunning the tool before `check_in`; safe patched-provider preflight will reject leftover checkout state.
 - Hand-editing `patches/*.patch` unless intentionally doing raw patch surgery.
 - Direct edits under `upstream/` outside `checkout/check_in` workflow.
-
-After the rebase completes, rerun `upgrade-provider` from the repo root.
 
 ### Patch intent guidance
 
 - Docs-related patches usually replace or remove Terraform references. Preserve those changes when resolving conflicts.
+
+## Upstream migrated from SDKv2 to Plugin Framework
+
+Treat an upstream Terraform Plugin SDKv2-to-Plugin-Framework migration as a known migration path, not by itself as an architectural blocker. Common signals include:
+
+- Compiler errors such as `undefined: <package>.Provider` or code that still expects `*schema.Provider`.
+- Upstream `go.mod` dropping or making `terraform-plugin-sdk/v2` indirect while adding `terraform-plugin-framework`.
+- Upstream release notes or commits that announce a Plugin Framework migration or SDKv2 removal.
+
+Read the current bridge guide before editing provider entry points or imports:
+
+- Complete migration: [Upgrade a bridged provider from SDKv2 to Plugin Framework](https://github.com/pulumi/pulumi-terraform-bridge/blob/main/docs/guides/upgrade-sdk-to-pf.md).
+- Provider retaining both SDKv2 and Plugin Framework resources: [Upgrade an SDKv2 provider using mux](https://github.com/pulumi/pulumi-terraform-bridge/blob/main/docs/guides/upgrade-sdk-to-mux.md) ([rendered documentation](https://pulumi-developer-docs.readthedocs.io/projects/pulumi-terraform-bridge/en/latest/docs/guides/upgrade-sdk-to-mux.html)).
+
+Do not rely on remembered import paths or API signatures. The guides describe the current bridge release; verify the packages and APIs against the `pulumi-terraform-bridge` version selected by `provider/go.mod` before applying the migration.
+
+First look for a public upstream package that constructs the Plugin Framework provider. If upstream exposes the constructor only from an unimportable `internal/` package, use skill `upstream-patches` to add the smallest non-internal shim that returns the upstream provider. This is a legitimate new-patch case; keep the patch limited to exposing the constructor and document when it can be removed.
+
+After applying the appropriate guide and any required patch, run focused provider builds or tests, then rerun `upgrade-provider` with `--no-submit`.
 
 ## Upstream provider relies on ignored replace directives
 
@@ -54,7 +110,7 @@ Fix in the Pulumi provider repo:
 5. Rerun `upgrade-provider` from the repo root with the target version explicit. Preserve the original major/non-major intent:
 
 ```bash
-upgrade-provider pulumi/<provider> --repo-path . --target-version <version>
+upgrade-provider pulumi/<provider> --repo-path . --no-submit --target-version <version>
 ```
 
 Add `--major` only when the target upstream version crosses the current upstream major version. Passing `--major` for a same-major target makes `upgrade-provider` fail and can trigger unwanted major-version rewrite behavior.
@@ -62,7 +118,7 @@ Add `--major` only when the target upstream version crosses the current upstream
 If repo tools are managed by `mise`, run under the repo environment so Go and converter plugins match CI:
 
 ```bash
-eval "$(mise env)" && upgrade-provider pulumi/<provider> --repo-path . --target-version <version>
+eval "$(mise env)" && upgrade-provider pulumi/<provider> --repo-path . --no-submit --target-version <version>
 ```
 
 Example: `pulumi-rancher2` upgrading to upstream `terraform-provider-rancher2` `v14.1.0` needed main-module replacements like:
@@ -188,7 +244,7 @@ DataSources: map[string]*tfbridge.DataSourceInfo{
 }
 ```
 
-After updating, rerun `upgrade-provider`.
+After updating, rerun `upgrade-provider` with `--no-submit`.
 
 ## .NET duplicate file from nested Get suffix collision
 
@@ -214,7 +270,7 @@ git show "origin/${default_branch}:${schema_path}" | rg "<NestedTypeName>"
 rg "<NestedTypeName>" "$schema_path"
 ```
 
-Replace `<NestedTypeName>` with the colliding nested type prefix from the duplicate filename.
+Replace `<NestedTypeName>` with the colliding nested type prefix from the duplicate filename. If `rg` is unavailable, use `grep -n` for these literal searches.
 
 Fix by applying a normal bridge `Name` override in `provider/resources.go` to rename the smallest nested field that causes the collision. Do not use `CSharpName`; it only changes C# property labels and does not change generated nested type filenames. Avoid schema post-processors unless there is no ordinary bridge mapping available.
 
@@ -241,7 +297,7 @@ Example:
 },
 ```
 
-After updating the bridge mapping, rerun `upgrade-provider` from the repo root so schema and SDKs regenerate consistently.
+After updating the bridge mapping, rerun `upgrade-provider --no-submit` from the repo root so schema and SDKs regenerate consistently.
 
 ## ID attribute wrong type (tfgen unresolved ID mapping)
 
