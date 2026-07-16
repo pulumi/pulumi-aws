@@ -3,12 +3,16 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration;
 import com.pulumi.aws.bedrock.outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim;
+import com.pulumi.aws.bedrock.outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint;
+import com.pulumi.aws.bedrock.outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -16,8 +20,11 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
     private @Nullable List<String> allowedAudiences;
     private @Nullable List<String> allowedClients;
     private @Nullable List<String> allowedScopes;
+    private @Nullable AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration allowedWorkloadConfiguration;
     private @Nullable List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims;
     private String discoveryUrl;
+    private @Nullable AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint privateEndpoint;
+    private @Nullable List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides;
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer() {}
     public List<String> allowedAudiences() {
@@ -29,11 +36,20 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
     public List<String> allowedScopes() {
         return this.allowedScopes == null ? List.of() : this.allowedScopes;
     }
+    public Optional<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration> allowedWorkloadConfiguration() {
+        return Optional.ofNullable(this.allowedWorkloadConfiguration);
+    }
     public List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims() {
         return this.customClaims == null ? List.of() : this.customClaims;
     }
     public String discoveryUrl() {
         return this.discoveryUrl;
+    }
+    public Optional<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint> privateEndpoint() {
+        return Optional.ofNullable(this.privateEndpoint);
+    }
+    public List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides() {
+        return this.privateEndpointOverrides == null ? List.of() : this.privateEndpointOverrides;
     }
 
     public static Builder builder() {
@@ -48,16 +64,22 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
         private @Nullable List<String> allowedAudiences;
         private @Nullable List<String> allowedClients;
         private @Nullable List<String> allowedScopes;
+        private @Nullable AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration allowedWorkloadConfiguration;
         private @Nullable List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims;
         private String discoveryUrl;
+        private @Nullable AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint privateEndpoint;
+        private @Nullable List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides;
         public Builder() {}
         public Builder(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedAudiences = defaults.allowedAudiences;
     	      this.allowedClients = defaults.allowedClients;
     	      this.allowedScopes = defaults.allowedScopes;
+    	      this.allowedWorkloadConfiguration = defaults.allowedWorkloadConfiguration;
     	      this.customClaims = defaults.customClaims;
     	      this.discoveryUrl = defaults.discoveryUrl;
+    	      this.privateEndpoint = defaults.privateEndpoint;
+    	      this.privateEndpointOverrides = defaults.privateEndpointOverrides;
         }
 
         @CustomType.Setter
@@ -88,6 +110,12 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
             return allowedScopes(List.of(allowedScopes));
         }
         @CustomType.Setter
+        public Builder allowedWorkloadConfiguration(@Nullable AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration allowedWorkloadConfiguration) {
+
+            this.allowedWorkloadConfiguration = allowedWorkloadConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder customClaims(@Nullable List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims) {
 
             this.customClaims = customClaims;
@@ -104,13 +132,31 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
             this.discoveryUrl = discoveryUrl;
             return this;
         }
+        @CustomType.Setter
+        public Builder privateEndpoint(@Nullable AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint privateEndpoint) {
+
+            this.privateEndpoint = privateEndpoint;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder privateEndpointOverrides(@Nullable List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides) {
+
+            this.privateEndpointOverrides = privateEndpointOverrides;
+            return this;
+        }
+        public Builder privateEndpointOverrides(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride... privateEndpointOverrides) {
+            return privateEndpointOverrides(List.of(privateEndpointOverrides));
+        }
         public AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer build() {
             final var _resultValue = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer();
             _resultValue.allowedAudiences = allowedAudiences;
             _resultValue.allowedClients = allowedClients;
             _resultValue.allowedScopes = allowedScopes;
+            _resultValue.allowedWorkloadConfiguration = allowedWorkloadConfiguration;
             _resultValue.customClaims = customClaims;
             _resultValue.discoveryUrl = discoveryUrl;
+            _resultValue.privateEndpoint = privateEndpoint;
+            _resultValue.privateEndpointOverrides = privateEndpointOverrides;
             return _resultValue;
         }
     }

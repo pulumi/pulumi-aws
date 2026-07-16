@@ -40,6 +40,7 @@ __all__ = [
     'GetServerlessCacheCacheUsageLimitsEcpuPerSecondResult',
     'GetServerlessCacheEndpointResult',
     'GetServerlessCacheReaderEndpointResult',
+    'GetServiceUpdatesServiceUpdateResult',
     'GetUserAuthenticationModeResult',
 ]
 
@@ -1172,6 +1173,145 @@ class GetServerlessCacheReaderEndpointResult(dict):
         The port number that the cache engine is listening on. Set as integer.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetServiceUpdatesServiceUpdateResult(dict):
+    def __init__(__self__, *,
+                 auto_update_after_recommended_apply_by_date: _builtins.bool,
+                 description: _builtins.str,
+                 end_date: _builtins.str,
+                 engine: _builtins.str,
+                 engine_version: _builtins.str,
+                 estimated_update_time: _builtins.str,
+                 name: _builtins.str,
+                 recommended_apply_by_date: _builtins.str,
+                 release_date: _builtins.str,
+                 severity: _builtins.str,
+                 status: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.bool auto_update_after_recommended_apply_by_date: Whether the update will be applied after `recommended_apply_by_date`.
+        :param _builtins.str description: Description of the update.
+        :param _builtins.str end_date: Date the update will no longer be available.
+        :param _builtins.str engine: Engine this update applies to.
+        :param _builtins.str engine_version: Engine version this update applies to.
+        :param _builtins.str estimated_update_time: Estimated duration of update.
+        :param _builtins.str name: Name of the update.
+        :param _builtins.str recommended_apply_by_date: Date the update should be applied by.
+        :param _builtins.str release_date: Date the update was released.
+        :param _builtins.str severity: Severity of the update. One of `critical`, `important`, `medium`, or `low`.
+        :param _builtins.str status: Set of one or more Service Update statuses. Elements must be one of `available`, `cancelled`, or `expired`.
+        :param _builtins.str type: Type of the update.
+        """
+        pulumi.set(__self__, "auto_update_after_recommended_apply_by_date", auto_update_after_recommended_apply_by_date)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "end_date", end_date)
+        pulumi.set(__self__, "engine", engine)
+        pulumi.set(__self__, "engine_version", engine_version)
+        pulumi.set(__self__, "estimated_update_time", estimated_update_time)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "recommended_apply_by_date", recommended_apply_by_date)
+        pulumi.set(__self__, "release_date", release_date)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="autoUpdateAfterRecommendedApplyByDate")
+    def auto_update_after_recommended_apply_by_date(self) -> _builtins.bool:
+        """
+        Whether the update will be applied after `recommended_apply_by_date`.
+        """
+        return pulumi.get(self, "auto_update_after_recommended_apply_by_date")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        """
+        Description of the update.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="endDate")
+    def end_date(self) -> _builtins.str:
+        """
+        Date the update will no longer be available.
+        """
+        return pulumi.get(self, "end_date")
+
+    @_builtins.property
+    @pulumi.getter
+    def engine(self) -> _builtins.str:
+        """
+        Engine this update applies to.
+        """
+        return pulumi.get(self, "engine")
+
+    @_builtins.property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> _builtins.str:
+        """
+        Engine version this update applies to.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @_builtins.property
+    @pulumi.getter(name="estimatedUpdateTime")
+    def estimated_update_time(self) -> _builtins.str:
+        """
+        Estimated duration of update.
+        """
+        return pulumi.get(self, "estimated_update_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the update.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="recommendedApplyByDate")
+    def recommended_apply_by_date(self) -> _builtins.str:
+        """
+        Date the update should be applied by.
+        """
+        return pulumi.get(self, "recommended_apply_by_date")
+
+    @_builtins.property
+    @pulumi.getter(name="releaseDate")
+    def release_date(self) -> _builtins.str:
+        """
+        Date the update was released.
+        """
+        return pulumi.get(self, "release_date")
+
+    @_builtins.property
+    @pulumi.getter
+    def severity(self) -> _builtins.str:
+        """
+        Severity of the update. One of `critical`, `important`, `medium`, or `low`.
+        """
+        return pulumi.get(self, "severity")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Set of one or more Service Update statuses. Elements must be one of `available`, `cancelled`, or `expired`.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Type of the update.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

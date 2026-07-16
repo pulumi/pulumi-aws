@@ -94,14 +94,14 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+     * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
      * 
      */
     @Import(name="fqdn")
     private @Nullable Output<String> fqdn;
 
     /**
-     * @return [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+     * @return [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
      * 
      */
     public Optional<Output<String>> fqdn() {
@@ -440,7 +440,7 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fqdn [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+         * @param fqdn [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
          * 
          * @return builder
          * 
@@ -451,7 +451,7 @@ public final class RecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fqdn [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+         * @param fqdn [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
          * 
          * @return builder
          * 

@@ -931,6 +931,17 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the network interface.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import Network Interfaces using the `id`. For example:
 
         ```sh
@@ -1008,6 +1019,17 @@ class NetworkInterface(pulumi.CustomResource):
         This process can also be used to remove IP addresses in addition to the option of manually removing them. Adding IP addresses in a manually is more difficult because it requires knowledge of which addresses are available.
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the network interface.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Network Interfaces using the `id`. For example:
 

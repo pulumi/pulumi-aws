@@ -266,6 +266,7 @@ class _GuardrailState:
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['GuardrailTimeoutsArgs']] = None,
                  topic_policy_config: pulumi.Input[Optional['GuardrailTopicPolicyConfigArgs']] = None,
+                 updated_at: pulumi.Input[Optional[_builtins.str]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  word_policy_config: pulumi.Input[Optional['GuardrailWordPolicyConfigArgs']] = None):
         """
@@ -288,6 +289,7 @@ class _GuardrailState:
         :param pulumi.Input[_builtins.str] status: Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['GuardrailTopicPolicyConfigArgs'] topic_policy_config: Topic policy config for a guardrail. See Topic Policy Config for more information.
+        :param pulumi.Input[_builtins.str] updated_at: Date and time that the Guardrail list was last updated.
         :param pulumi.Input[_builtins.str] version: Version of the Guardrail.
         :param pulumi.Input['GuardrailWordPolicyConfigArgs'] word_policy_config: Word policy config for a guardrail. See Word Policy Config for more information.
         """
@@ -327,6 +329,8 @@ class _GuardrailState:
             pulumi.set(__self__, "timeouts", timeouts)
         if topic_policy_config is not None:
             pulumi.set(__self__, "topic_policy_config", topic_policy_config)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
         if version is not None:
             pulumi.set(__self__, "version", version)
         if word_policy_config is not None:
@@ -540,6 +544,18 @@ class _GuardrailState:
     @topic_policy_config.setter
     def topic_policy_config(self, value: pulumi.Input[Optional['GuardrailTopicPolicyConfigArgs']]):
         pulumi.set(self, "topic_policy_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Date and time that the Guardrail list was last updated.
+        """
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "updated_at", value)
 
     @_builtins.property
     @pulumi.getter
@@ -823,6 +839,7 @@ class Guardrail(pulumi.CustomResource):
             __props__.__dict__["guardrail_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["updated_at"] = None
             __props__.__dict__["version"] = None
         super(Guardrail, __self__).__init__(
             'aws:bedrock/guardrail:Guardrail',
@@ -852,6 +869,7 @@ class Guardrail(pulumi.CustomResource):
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timeouts: pulumi.Input[Optional[Union['GuardrailTimeoutsArgs', 'GuardrailTimeoutsArgsDict']]] = None,
             topic_policy_config: pulumi.Input[Optional[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict']]] = None,
+            updated_at: pulumi.Input[Optional[_builtins.str]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None,
             word_policy_config: pulumi.Input[Optional[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict']]] = None) -> 'Guardrail':
         """
@@ -878,6 +896,7 @@ class Guardrail(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] status: Status of the Bedrock Guardrail. One of `READY`, `FAILED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['GuardrailTopicPolicyConfigArgs', 'GuardrailTopicPolicyConfigArgsDict']] topic_policy_config: Topic policy config for a guardrail. See Topic Policy Config for more information.
+        :param pulumi.Input[_builtins.str] updated_at: Date and time that the Guardrail list was last updated.
         :param pulumi.Input[_builtins.str] version: Version of the Guardrail.
         :param pulumi.Input[Union['GuardrailWordPolicyConfigArgs', 'GuardrailWordPolicyConfigArgsDict']] word_policy_config: Word policy config for a guardrail. See Word Policy Config for more information.
         """
@@ -903,6 +922,7 @@ class Guardrail(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
         __props__.__dict__["topic_policy_config"] = topic_policy_config
+        __props__.__dict__["updated_at"] = updated_at
         __props__.__dict__["version"] = version
         __props__.__dict__["word_policy_config"] = word_policy_config
         return Guardrail(resource_name, opts=opts, __props__=__props__)
@@ -1043,6 +1063,14 @@ class Guardrail(pulumi.CustomResource):
         Topic policy config for a guardrail. See Topic Policy Config for more information.
         """
         return pulumi.get(self, "topic_policy_config")
+
+    @_builtins.property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> pulumi.Output[_builtins.str]:
+        """
+        Date and time that the Guardrail list was last updated.
+        """
+        return pulumi.get(self, "updated_at")
 
     @_builtins.property
     @pulumi.getter

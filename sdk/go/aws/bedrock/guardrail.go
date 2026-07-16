@@ -157,6 +157,8 @@ type Guardrail struct {
 	Timeouts GuardrailTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Topic policy config for a guardrail. See Topic Policy Config for more information.
 	TopicPolicyConfig GuardrailTopicPolicyConfigPtrOutput `pulumi:"topicPolicyConfig"`
+	// Date and time that the Guardrail list was last updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 	// Version of the Guardrail.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// Word policy config for a guardrail. See Word Policy Config for more information.
@@ -234,6 +236,8 @@ type guardrailState struct {
 	Timeouts *GuardrailTimeouts `pulumi:"timeouts"`
 	// Topic policy config for a guardrail. See Topic Policy Config for more information.
 	TopicPolicyConfig *GuardrailTopicPolicyConfig `pulumi:"topicPolicyConfig"`
+	// Date and time that the Guardrail list was last updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 	// Version of the Guardrail.
 	Version *string `pulumi:"version"`
 	// Word policy config for a guardrail. See Word Policy Config for more information.
@@ -276,6 +280,8 @@ type GuardrailState struct {
 	Timeouts GuardrailTimeoutsPtrInput
 	// Topic policy config for a guardrail. See Topic Policy Config for more information.
 	TopicPolicyConfig GuardrailTopicPolicyConfigPtrInput
+	// Date and time that the Guardrail list was last updated.
+	UpdatedAt pulumi.StringPtrInput
 	// Version of the Guardrail.
 	Version pulumi.StringPtrInput
 	// Word policy config for a guardrail. See Word Policy Config for more information.
@@ -527,6 +533,11 @@ func (o GuardrailOutput) Timeouts() GuardrailTimeoutsPtrOutput {
 // Topic policy config for a guardrail. See Topic Policy Config for more information.
 func (o GuardrailOutput) TopicPolicyConfig() GuardrailTopicPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *Guardrail) GuardrailTopicPolicyConfigPtrOutput { return v.TopicPolicyConfig }).(GuardrailTopicPolicyConfigPtrOutput)
+}
+
+// Date and time that the Guardrail list was last updated.
+func (o GuardrailOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Guardrail) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
 // Version of the Guardrail.

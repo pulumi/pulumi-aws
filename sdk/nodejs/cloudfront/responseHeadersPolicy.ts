@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * The example below creates a CloudFront response headers policy.
+ * ### CORS Config Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * The example below creates a CloudFront response headers policy with a custom headers config.
+ * ### Custom Headers Config Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -64,6 +64,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ *
+ * ### Mixed Config Usage
  *
  * The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
  *
@@ -94,7 +96,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For example:
+ * Using `pulumi import`, import CloudFront response header policies using the `id`. For example:
  *
  * ```sh
  * $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
@@ -137,7 +139,7 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
     /**
-     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
      */
     declare public readonly corsConfig: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyCorsConfig | undefined>;
     /**
@@ -217,7 +219,7 @@ export interface ResponseHeadersPolicyState {
      */
     comment?: pulumi.Input<string | undefined>;
     /**
-     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
      */
     corsConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfig | undefined>;
     /**
@@ -255,7 +257,7 @@ export interface ResponseHeadersPolicyArgs {
      */
     comment?: pulumi.Input<string | undefined>;
     /**
-     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
      */
     corsConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfig | undefined>;
     /**

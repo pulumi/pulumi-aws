@@ -1072,6 +1072,10 @@ class ProviderEndpointArgsDict(TypedDict):
     """
     Use this to override the default service endpoint URL
     """
+    lambdamicrovms: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use this to override the default service endpoint URL
+    """
     launchwizard: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Use this to override the default service endpoint URL
@@ -1815,6 +1819,7 @@ class ProviderEndpointArgs:
                  kms: pulumi.Input[Optional[_builtins.str]] = None,
                  lakeformation: pulumi.Input[Optional[_builtins.str]] = None,
                  lambda_: pulumi.Input[Optional[_builtins.str]] = None,
+                 lambdamicrovms: pulumi.Input[Optional[_builtins.str]] = None,
                  launchwizard: pulumi.Input[Optional[_builtins.str]] = None,
                  lex: pulumi.Input[Optional[_builtins.str]] = None,
                  lexmodelbuilding: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2129,6 +2134,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] kms: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] lakeformation: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] lambda_: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] lambdamicrovms: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] launchwizard: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] lex: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] lexmodelbuilding: Use this to override the default service endpoint URL
@@ -2614,6 +2620,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "lakeformation", lakeformation)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if lambdamicrovms is not None:
+            pulumi.set(__self__, "lambdamicrovms", lambdamicrovms)
         if launchwizard is not None:
             pulumi.set(__self__, "launchwizard", launchwizard)
         if lex is not None:
@@ -4950,6 +4958,18 @@ class ProviderEndpointArgs:
     @lambda_.setter
     def lambda_(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lambda_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def lambdamicrovms(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "lambdamicrovms")
+
+    @lambdamicrovms.setter
+    def lambdamicrovms(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "lambdamicrovms", value)
 
     @_builtins.property
     @pulumi.getter

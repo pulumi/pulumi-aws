@@ -2842,6 +2842,202 @@ func (o GetServerlessCacheReaderEndpointOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetServerlessCacheReaderEndpoint) int { return v.Port }).(pulumi.IntOutput)
 }
 
+type GetServiceUpdatesServiceUpdate struct {
+	// Whether the update will be applied after `recommendedApplyByDate`.
+	AutoUpdateAfterRecommendedApplyByDate bool `pulumi:"autoUpdateAfterRecommendedApplyByDate"`
+	// Description of the update.
+	Description string `pulumi:"description"`
+	// Date the update will no longer be available.
+	EndDate string `pulumi:"endDate"`
+	// Engine this update applies to.
+	Engine string `pulumi:"engine"`
+	// Engine version this update applies to.
+	EngineVersion string `pulumi:"engineVersion"`
+	// Estimated duration of update.
+	EstimatedUpdateTime string `pulumi:"estimatedUpdateTime"`
+	// Name of the update.
+	Name string `pulumi:"name"`
+	// Date the update should be applied by.
+	RecommendedApplyByDate string `pulumi:"recommendedApplyByDate"`
+	// Date the update was released.
+	ReleaseDate string `pulumi:"releaseDate"`
+	// Severity of the update. One of `critical`, `important`, `medium`, or `low`.
+	Severity string `pulumi:"severity"`
+	// Set of one or more Service Update statuses. Elements must be one of `available`, `cancelled`, or `expired`.
+	Status string `pulumi:"status"`
+	// Type of the update.
+	Type string `pulumi:"type"`
+}
+
+// GetServiceUpdatesServiceUpdateInput is an input type that accepts GetServiceUpdatesServiceUpdateArgs and GetServiceUpdatesServiceUpdateOutput values.
+// You can construct a concrete instance of `GetServiceUpdatesServiceUpdateInput` via:
+//
+//	GetServiceUpdatesServiceUpdateArgs{...}
+type GetServiceUpdatesServiceUpdateInput interface {
+	pulumi.Input
+
+	ToGetServiceUpdatesServiceUpdateOutput() GetServiceUpdatesServiceUpdateOutput
+	ToGetServiceUpdatesServiceUpdateOutputWithContext(context.Context) GetServiceUpdatesServiceUpdateOutput
+}
+
+type GetServiceUpdatesServiceUpdateArgs struct {
+	// Whether the update will be applied after `recommendedApplyByDate`.
+	AutoUpdateAfterRecommendedApplyByDate pulumi.BoolInput `pulumi:"autoUpdateAfterRecommendedApplyByDate"`
+	// Description of the update.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Date the update will no longer be available.
+	EndDate pulumi.StringInput `pulumi:"endDate"`
+	// Engine this update applies to.
+	Engine pulumi.StringInput `pulumi:"engine"`
+	// Engine version this update applies to.
+	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
+	// Estimated duration of update.
+	EstimatedUpdateTime pulumi.StringInput `pulumi:"estimatedUpdateTime"`
+	// Name of the update.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Date the update should be applied by.
+	RecommendedApplyByDate pulumi.StringInput `pulumi:"recommendedApplyByDate"`
+	// Date the update was released.
+	ReleaseDate pulumi.StringInput `pulumi:"releaseDate"`
+	// Severity of the update. One of `critical`, `important`, `medium`, or `low`.
+	Severity pulumi.StringInput `pulumi:"severity"`
+	// Set of one or more Service Update statuses. Elements must be one of `available`, `cancelled`, or `expired`.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Type of the update.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetServiceUpdatesServiceUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceUpdatesServiceUpdate)(nil)).Elem()
+}
+
+func (i GetServiceUpdatesServiceUpdateArgs) ToGetServiceUpdatesServiceUpdateOutput() GetServiceUpdatesServiceUpdateOutput {
+	return i.ToGetServiceUpdatesServiceUpdateOutputWithContext(context.Background())
+}
+
+func (i GetServiceUpdatesServiceUpdateArgs) ToGetServiceUpdatesServiceUpdateOutputWithContext(ctx context.Context) GetServiceUpdatesServiceUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceUpdatesServiceUpdateOutput)
+}
+
+// GetServiceUpdatesServiceUpdateArrayInput is an input type that accepts GetServiceUpdatesServiceUpdateArray and GetServiceUpdatesServiceUpdateArrayOutput values.
+// You can construct a concrete instance of `GetServiceUpdatesServiceUpdateArrayInput` via:
+//
+//	GetServiceUpdatesServiceUpdateArray{ GetServiceUpdatesServiceUpdateArgs{...} }
+type GetServiceUpdatesServiceUpdateArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceUpdatesServiceUpdateArrayOutput() GetServiceUpdatesServiceUpdateArrayOutput
+	ToGetServiceUpdatesServiceUpdateArrayOutputWithContext(context.Context) GetServiceUpdatesServiceUpdateArrayOutput
+}
+
+type GetServiceUpdatesServiceUpdateArray []GetServiceUpdatesServiceUpdateInput
+
+func (GetServiceUpdatesServiceUpdateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceUpdatesServiceUpdate)(nil)).Elem()
+}
+
+func (i GetServiceUpdatesServiceUpdateArray) ToGetServiceUpdatesServiceUpdateArrayOutput() GetServiceUpdatesServiceUpdateArrayOutput {
+	return i.ToGetServiceUpdatesServiceUpdateArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceUpdatesServiceUpdateArray) ToGetServiceUpdatesServiceUpdateArrayOutputWithContext(ctx context.Context) GetServiceUpdatesServiceUpdateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceUpdatesServiceUpdateArrayOutput)
+}
+
+type GetServiceUpdatesServiceUpdateOutput struct{ *pulumi.OutputState }
+
+func (GetServiceUpdatesServiceUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceUpdatesServiceUpdate)(nil)).Elem()
+}
+
+func (o GetServiceUpdatesServiceUpdateOutput) ToGetServiceUpdatesServiceUpdateOutput() GetServiceUpdatesServiceUpdateOutput {
+	return o
+}
+
+func (o GetServiceUpdatesServiceUpdateOutput) ToGetServiceUpdatesServiceUpdateOutputWithContext(ctx context.Context) GetServiceUpdatesServiceUpdateOutput {
+	return o
+}
+
+// Whether the update will be applied after `recommendedApplyByDate`.
+func (o GetServiceUpdatesServiceUpdateOutput) AutoUpdateAfterRecommendedApplyByDate() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceUpdatesServiceUpdate) bool { return v.AutoUpdateAfterRecommendedApplyByDate }).(pulumi.BoolOutput)
+}
+
+// Description of the update.
+func (o GetServiceUpdatesServiceUpdateOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdatesServiceUpdate) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// Date the update will no longer be available.
+func (o GetServiceUpdatesServiceUpdateOutput) EndDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdatesServiceUpdate) string { return v.EndDate }).(pulumi.StringOutput)
+}
+
+// Engine this update applies to.
+func (o GetServiceUpdatesServiceUpdateOutput) Engine() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdatesServiceUpdate) string { return v.Engine }).(pulumi.StringOutput)
+}
+
+// Engine version this update applies to.
+func (o GetServiceUpdatesServiceUpdateOutput) EngineVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdatesServiceUpdate) string { return v.EngineVersion }).(pulumi.StringOutput)
+}
+
+// Estimated duration of update.
+func (o GetServiceUpdatesServiceUpdateOutput) EstimatedUpdateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdatesServiceUpdate) string { return v.EstimatedUpdateTime }).(pulumi.StringOutput)
+}
+
+// Name of the update.
+func (o GetServiceUpdatesServiceUpdateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdatesServiceUpdate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Date the update should be applied by.
+func (o GetServiceUpdatesServiceUpdateOutput) RecommendedApplyByDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdatesServiceUpdate) string { return v.RecommendedApplyByDate }).(pulumi.StringOutput)
+}
+
+// Date the update was released.
+func (o GetServiceUpdatesServiceUpdateOutput) ReleaseDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdatesServiceUpdate) string { return v.ReleaseDate }).(pulumi.StringOutput)
+}
+
+// Severity of the update. One of `critical`, `important`, `medium`, or `low`.
+func (o GetServiceUpdatesServiceUpdateOutput) Severity() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdatesServiceUpdate) string { return v.Severity }).(pulumi.StringOutput)
+}
+
+// Set of one or more Service Update statuses. Elements must be one of `available`, `cancelled`, or `expired`.
+func (o GetServiceUpdatesServiceUpdateOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdatesServiceUpdate) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Type of the update.
+func (o GetServiceUpdatesServiceUpdateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceUpdatesServiceUpdate) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetServiceUpdatesServiceUpdateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceUpdatesServiceUpdateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceUpdatesServiceUpdate)(nil)).Elem()
+}
+
+func (o GetServiceUpdatesServiceUpdateArrayOutput) ToGetServiceUpdatesServiceUpdateArrayOutput() GetServiceUpdatesServiceUpdateArrayOutput {
+	return o
+}
+
+func (o GetServiceUpdatesServiceUpdateArrayOutput) ToGetServiceUpdatesServiceUpdateArrayOutputWithContext(ctx context.Context) GetServiceUpdatesServiceUpdateArrayOutput {
+	return o
+}
+
+func (o GetServiceUpdatesServiceUpdateArrayOutput) Index(i pulumi.IntInput) GetServiceUpdatesServiceUpdateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceUpdatesServiceUpdate {
+		return vs[0].([]GetServiceUpdatesServiceUpdate)[vs[1].(int)]
+	}).(GetServiceUpdatesServiceUpdateOutput)
+}
+
 type GetUserAuthenticationMode struct {
 	PasswordCount *int    `pulumi:"passwordCount"`
 	Type          *string `pulumi:"type"`
@@ -2986,6 +3182,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCacheCacheUsageLimitsEcpuPerSecondInput)(nil)).Elem(), GetServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCacheEndpointInput)(nil)).Elem(), GetServerlessCacheEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessCacheReaderEndpointInput)(nil)).Elem(), GetServerlessCacheReaderEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceUpdatesServiceUpdateInput)(nil)).Elem(), GetServiceUpdatesServiceUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceUpdatesServiceUpdateArrayInput)(nil)).Elem(), GetServiceUpdatesServiceUpdateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAuthenticationModeInput)(nil)).Elem(), GetUserAuthenticationModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUserAuthenticationModeArrayInput)(nil)).Elem(), GetUserAuthenticationModeArray{})
 	pulumi.RegisterOutputType(ClusterCacheNodeOutput{})
@@ -3031,6 +3229,8 @@ func init() {
 	pulumi.RegisterOutputType(GetServerlessCacheCacheUsageLimitsEcpuPerSecondOutput{})
 	pulumi.RegisterOutputType(GetServerlessCacheEndpointOutput{})
 	pulumi.RegisterOutputType(GetServerlessCacheReaderEndpointOutput{})
+	pulumi.RegisterOutputType(GetServiceUpdatesServiceUpdateOutput{})
+	pulumi.RegisterOutputType(GetServiceUpdatesServiceUpdateArrayOutput{})
 	pulumi.RegisterOutputType(GetUserAuthenticationModeOutput{})
 	pulumi.RegisterOutputType(GetUserAuthenticationModeArrayOutput{})
 }

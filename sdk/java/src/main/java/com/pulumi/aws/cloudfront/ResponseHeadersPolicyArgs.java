@@ -36,14 +36,14 @@ public final class ResponseHeadersPolicyArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
      * 
      */
     @Import(name="corsConfig")
     private @Nullable Output<ResponseHeadersPolicyCorsConfigArgs> corsConfig;
 
     /**
-     * @return A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+     * @return A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
      * 
      */
     public Optional<Output<ResponseHeadersPolicyCorsConfigArgs>> corsConfig() {
@@ -177,7 +177,7 @@ public final class ResponseHeadersPolicyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param corsConfig A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+         * @param corsConfig A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
          * 
          * @return builder
          * 
@@ -188,7 +188,7 @@ public final class ResponseHeadersPolicyArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param corsConfig A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+         * @param corsConfig A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
          * 
          * @return builder
          * 

@@ -12,6 +12,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+        /// </summary>
+        [Input("requireServiceS3Endpoint")]
+        public Input<bool>? RequireServiceS3Endpoint { get; set; }
+
         [Input("securityGroups", required: true)]
         private InputList<string>? _securityGroups;
 

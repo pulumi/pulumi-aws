@@ -16,8 +16,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         public readonly ImmutableArray<string> AllowedAudiences;
         public readonly ImmutableArray<string> AllowedClients;
         public readonly ImmutableArray<string> AllowedScopes;
+        public readonly Outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration? AllowedWorkloadConfiguration;
         public readonly ImmutableArray<Outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> CustomClaims;
         public readonly string DiscoveryUrl;
+        public readonly Outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint? PrivateEndpoint;
+        public readonly ImmutableArray<Outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> PrivateEndpointOverrides;
 
         [OutputConstructor]
         private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer(
@@ -27,15 +30,24 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             ImmutableArray<string> allowedScopes,
 
+            Outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration? allowedWorkloadConfiguration,
+
             ImmutableArray<Outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims,
 
-            string discoveryUrl)
+            string discoveryUrl,
+
+            Outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint? privateEndpoint,
+
+            ImmutableArray<Outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides)
         {
             AllowedAudiences = allowedAudiences;
             AllowedClients = allowedClients;
             AllowedScopes = allowedScopes;
+            AllowedWorkloadConfiguration = allowedWorkloadConfiguration;
             CustomClaims = customClaims;
             DiscoveryUrl = discoveryUrl;
+            PrivateEndpoint = privateEndpoint;
+            PrivateEndpointOverrides = privateEndpointOverrides;
         }
     }
 }

@@ -3,7 +3,10 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -64,6 +67,21 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
     }
 
     /**
+     * Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+     * 
+     */
+    @Import(name="allowedWorkloadConfiguration")
+    private @Nullable Output<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs> allowedWorkloadConfiguration;
+
+    /**
+     * @return Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+     * 
+     */
+    public Optional<Output<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs>> allowedWorkloadConfiguration() {
+        return Optional.ofNullable(this.allowedWorkloadConfiguration);
+    }
+
+    /**
      * Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
      * 
      */
@@ -93,14 +111,47 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
         return this.discoveryUrl;
     }
 
+    /**
+     * Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+     * 
+     */
+    @Import(name="privateEndpoint")
+    private @Nullable Output<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs> privateEndpoint;
+
+    /**
+     * @return Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+     * 
+     */
+    public Optional<Output<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs>> privateEndpoint() {
+        return Optional.ofNullable(this.privateEndpoint);
+    }
+
+    /**
+     * Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+     * 
+     */
+    @Import(name="privateEndpointOverrides")
+    private @Nullable Output<List<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>> privateEndpointOverrides;
+
+    /**
+     * @return Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+     * 
+     */
+    public Optional<Output<List<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>>> privateEndpointOverrides() {
+        return Optional.ofNullable(this.privateEndpointOverrides);
+    }
+
     private AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs() {}
 
     private AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs $) {
         this.allowedAudiences = $.allowedAudiences;
         this.allowedClients = $.allowedClients;
         this.allowedScopes = $.allowedScopes;
+        this.allowedWorkloadConfiguration = $.allowedWorkloadConfiguration;
         this.customClaims = $.customClaims;
         this.discoveryUrl = $.discoveryUrl;
+        this.privateEndpoint = $.privateEndpoint;
+        this.privateEndpointOverrides = $.privateEndpointOverrides;
     }
 
     public static Builder builder() {
@@ -215,6 +266,27 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
         }
 
         /**
+         * @param allowedWorkloadConfiguration Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedWorkloadConfiguration(@Nullable Output<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs> allowedWorkloadConfiguration) {
+            $.allowedWorkloadConfiguration = allowedWorkloadConfiguration;
+            return this;
+        }
+
+        /**
+         * @param allowedWorkloadConfiguration Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedWorkloadConfiguration(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs allowedWorkloadConfiguration) {
+            return allowedWorkloadConfiguration(Output.of(allowedWorkloadConfiguration));
+        }
+
+        /**
          * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
          * 
          * @return builder
@@ -264,6 +336,58 @@ public final class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthoriz
          */
         public Builder discoveryUrl(String discoveryUrl) {
             return discoveryUrl(Output.of(discoveryUrl));
+        }
+
+        /**
+         * @param privateEndpoint Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpoint(@Nullable Output<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs> privateEndpoint) {
+            $.privateEndpoint = privateEndpoint;
+            return this;
+        }
+
+        /**
+         * @param privateEndpoint Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpoint(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs privateEndpoint) {
+            return privateEndpoint(Output.of(privateEndpoint));
+        }
+
+        /**
+         * @param privateEndpointOverrides Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointOverrides(@Nullable Output<List<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>> privateEndpointOverrides) {
+            $.privateEndpointOverrides = privateEndpointOverrides;
+            return this;
+        }
+
+        /**
+         * @param privateEndpointOverrides Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointOverrides(List<AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs> privateEndpointOverrides) {
+            return privateEndpointOverrides(Output.of(privateEndpointOverrides));
+        }
+
+        /**
+         * @param privateEndpointOverrides Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointOverrides(AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs... privateEndpointOverrides) {
+            return privateEndpointOverrides(List.of(privateEndpointOverrides));
         }
 
         public AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs build() {

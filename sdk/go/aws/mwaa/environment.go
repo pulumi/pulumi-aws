@@ -254,7 +254,7 @@ type Environment struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
 	WebserverAccessMode pulumi.StringOutput `pulumi:"webserverAccessMode"`
 	// The webserver URL of the MWAA Environment
 	WebserverUrl pulumi.StringOutput `pulumi:"webserverUrl"`
@@ -377,7 +377,7 @@ type environmentState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
 	WebserverAccessMode *string `pulumi:"webserverAccessMode"`
 	// The webserver URL of the MWAA Environment
 	WebserverUrl *string `pulumi:"webserverUrl"`
@@ -452,7 +452,7 @@ type EnvironmentState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
 	WebserverAccessMode pulumi.StringPtrInput
 	// The webserver URL of the MWAA Environment
 	WebserverUrl pulumi.StringPtrInput
@@ -517,7 +517,7 @@ type environmentArgs struct {
 	StartupScriptS3Path *string `pulumi:"startupScriptS3Path"`
 	// A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
 	WebserverAccessMode *string `pulumi:"webserverAccessMode"`
 	// Specifies the start date for the weekly maintenance window.
 	WeeklyMaintenanceWindowStart *string `pulumi:"weeklyMaintenanceWindowStart"`
@@ -575,7 +575,7 @@ type EnvironmentArgs struct {
 	StartupScriptS3Path pulumi.StringPtrInput
 	// A map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+	// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
 	WebserverAccessMode pulumi.StringPtrInput
 	// Specifies the start date for the weekly maintenance window.
 	WeeklyMaintenanceWindowStart pulumi.StringPtrInput
@@ -825,7 +825,7 @@ func (o EnvironmentOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
 func (o EnvironmentOutput) WebserverAccessMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.WebserverAccessMode }).(pulumi.StringOutput)
 }

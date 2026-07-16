@@ -669,14 +669,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+     * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
      * 
      */
     @Export(name="webserverAccessMode", refs={String.class}, tree="[0]")
     private Output<String> webserverAccessMode;
 
     /**
-     * @return Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+     * @return Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
      * 
      */
     public Output<String> webserverAccessMode() {

@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig
     {
         /// <summary>
+        /// Whether to require an S3 endpoint for the service in the VPC.
+        /// </summary>
+        public readonly bool RequireServiceS3Endpoint;
+        /// <summary>
         /// Security groups for the VPC.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroups;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
         [OutputConstructor]
         private AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfig(
+            bool requireServiceS3Endpoint,
+
             ImmutableArray<string> securityGroups,
 
             ImmutableArray<string> subnets)
         {
+            RequireServiceS3Endpoint = requireServiceS3Endpoint;
             SecurityGroups = securityGroups;
             Subnets = subnets;
         }

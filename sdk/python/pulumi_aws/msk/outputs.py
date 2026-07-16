@@ -1561,6 +1561,8 @@ class ReplicatorReplicationInfoListConsumerGroupReplication(dict):
         suggest = None
         if key == "consumerGroupsToReplicates":
             suggest = "consumer_groups_to_replicates"
+        elif key == "consumerGroupOffsetSyncMode":
+            suggest = "consumer_group_offset_sync_mode"
         elif key == "consumerGroupsToExcludes":
             suggest = "consumer_groups_to_excludes"
         elif key == "detectAndCopyNewConsumerGroups":
@@ -1581,16 +1583,20 @@ class ReplicatorReplicationInfoListConsumerGroupReplication(dict):
 
     def __init__(__self__, *,
                  consumer_groups_to_replicates: Sequence[_builtins.str],
+                 consumer_group_offset_sync_mode: Optional[_builtins.str] = None,
                  consumer_groups_to_excludes: Optional[Sequence[_builtins.str]] = None,
                  detect_and_copy_new_consumer_groups: Optional[_builtins.bool] = None,
                  synchronise_consumer_group_offsets: Optional[_builtins.bool] = None):
         """
         :param Sequence[_builtins.str] consumer_groups_to_replicates: List of regular expression patterns indicating the consumer groups to copy.
+        :param _builtins.str consumer_group_offset_sync_mode: Consumer group offset synchronization mode. Valid values are `LEGACY` and `ENHANCED`. With `LEGACY`, offsets are synchronized when producers write to the source cluster. With `ENHANCED`, consumer offsets are synchronized regardless of producer location. `ENHANCED` requires a corresponding replicator that replicates data from the target cluster to the source cluster and requires `topic_name_configuration.type` to be set to `IDENTICAL`. Defaults to `LEGACY`. Changing this value will force a new resource.
         :param Sequence[_builtins.str] consumer_groups_to_excludes: List of regular expression patterns indicating the consumer groups that should not be replicated.
         :param _builtins.bool detect_and_copy_new_consumer_groups: Whether to periodically check for new consumer groups.
         :param _builtins.bool synchronise_consumer_group_offsets: Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
         """
         pulumi.set(__self__, "consumer_groups_to_replicates", consumer_groups_to_replicates)
+        if consumer_group_offset_sync_mode is not None:
+            pulumi.set(__self__, "consumer_group_offset_sync_mode", consumer_group_offset_sync_mode)
         if consumer_groups_to_excludes is not None:
             pulumi.set(__self__, "consumer_groups_to_excludes", consumer_groups_to_excludes)
         if detect_and_copy_new_consumer_groups is not None:
@@ -1605,6 +1611,14 @@ class ReplicatorReplicationInfoListConsumerGroupReplication(dict):
         List of regular expression patterns indicating the consumer groups to copy.
         """
         return pulumi.get(self, "consumer_groups_to_replicates")
+
+    @_builtins.property
+    @pulumi.getter(name="consumerGroupOffsetSyncMode")
+    def consumer_group_offset_sync_mode(self) -> Optional[_builtins.str]:
+        """
+        Consumer group offset synchronization mode. Valid values are `LEGACY` and `ENHANCED`. With `LEGACY`, offsets are synchronized when producers write to the source cluster. With `ENHANCED`, consumer offsets are synchronized regardless of producer location. `ENHANCED` requires a corresponding replicator that replicates data from the target cluster to the source cluster and requires `topic_name_configuration.type` to be set to `IDENTICAL`. Defaults to `LEGACY`. Changing this value will force a new resource.
+        """
+        return pulumi.get(self, "consumer_group_offset_sync_mode")
 
     @_builtins.property
     @pulumi.getter(name="consumerGroupsToExcludes")

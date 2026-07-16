@@ -906,6 +906,8 @@ type ProviderEndpoint struct {
 	// Use this to override the default service endpoint URL
 	Lambda *string `pulumi:"lambda"`
 	// Use this to override the default service endpoint URL
+	Lambdamicrovms *string `pulumi:"lambdamicrovms"`
+	// Use this to override the default service endpoint URL
 	Launchwizard *string `pulumi:"launchwizard"`
 	// Use this to override the default service endpoint URL
 	Lex *string `pulumi:"lex"`
@@ -1545,6 +1547,8 @@ type ProviderEndpointArgs struct {
 	Lakeformation pulumi.StringPtrInput `pulumi:"lakeformation"`
 	// Use this to override the default service endpoint URL
 	Lambda pulumi.StringPtrInput `pulumi:"lambda"`
+	// Use this to override the default service endpoint URL
+	Lambdamicrovms pulumi.StringPtrInput `pulumi:"lambdamicrovms"`
 	// Use this to override the default service endpoint URL
 	Launchwizard pulumi.StringPtrInput `pulumi:"launchwizard"`
 	// Use this to override the default service endpoint URL
@@ -2735,6 +2739,11 @@ func (o ProviderEndpointOutput) Lakeformation() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o ProviderEndpointOutput) Lambda() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Lambda }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o ProviderEndpointOutput) Lambdamicrovms() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Lambdamicrovms }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

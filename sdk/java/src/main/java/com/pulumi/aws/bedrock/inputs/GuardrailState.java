@@ -274,6 +274,21 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Date and time that the Guardrail list was last updated.
+     * 
+     */
+    @Import(name="updatedAt")
+    private @Nullable Output<String> updatedAt;
+
+    /**
+     * @return Date and time that the Guardrail list was last updated.
+     * 
+     */
+    public Optional<Output<String>> updatedAt() {
+        return Optional.ofNullable(this.updatedAt);
+    }
+
+    /**
      * Version of the Guardrail.
      * 
      */
@@ -324,6 +339,7 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
         this.tagsAll = $.tagsAll;
         this.timeouts = $.timeouts;
         this.topicPolicyConfig = $.topicPolicyConfig;
+        this.updatedAt = $.updatedAt;
         this.version = $.version;
         this.wordPolicyConfig = $.wordPolicyConfig;
     }
@@ -690,6 +706,27 @@ public final class GuardrailState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder topicPolicyConfig(GuardrailTopicPolicyConfigArgs topicPolicyConfig) {
             return topicPolicyConfig(Output.of(topicPolicyConfig));
+        }
+
+        /**
+         * @param updatedAt Date and time that the Guardrail list was last updated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder updatedAt(@Nullable Output<String> updatedAt) {
+            $.updatedAt = updatedAt;
+            return this;
+        }
+
+        /**
+         * @param updatedAt Date and time that the Guardrail list was last updated.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder updatedAt(String updatedAt) {
+            return updatedAt(Output.of(updatedAt));
         }
 
         /**

@@ -368,7 +368,7 @@ namespace Pulumi.Aws.Mwaa
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+        /// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
         /// </summary>
         [Output("webserverAccessMode")]
         public Output<string> WebserverAccessMode { get; private set; } = null!;
@@ -608,7 +608,7 @@ namespace Pulumi.Aws.Mwaa
         }
 
         /// <summary>
-        /// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+        /// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
         /// </summary>
         [Input("webserverAccessMode")]
         public Input<string>? WebserverAccessMode { get; set; }
@@ -845,7 +845,7 @@ namespace Pulumi.Aws.Mwaa
         }
 
         /// <summary>
-        /// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+        /// Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
         /// </summary>
         [Input("webserverAccessMode")]
         public Input<string>? WebserverAccessMode { get; set; }

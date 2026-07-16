@@ -1083,6 +1083,7 @@
         "elasticache/getReplicationGroup.ts",
         "elasticache/getReservedCacheNodeOffering.ts",
         "elasticache/getServerlessCache.ts",
+        "elasticache/getServiceUpdates.ts",
         "elasticache/getSubnetGroup.ts",
         "elasticache/getUser.ts",
         "elasticache/globalReplicationGroup.ts",
