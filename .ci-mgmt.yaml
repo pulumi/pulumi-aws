@@ -35,3 +35,4 @@ releaseVerification:
 autoMergeProviderUpgrades: false
 runner:
     prerequisites: pulumi-ubuntu-8core
+    upgradeProvider: pulumi-ubuntu-8core
