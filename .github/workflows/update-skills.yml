@@ -8,8 +8,8 @@ on:
     - cron: "0 9 * * 1"
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
+  id-token: write # For ESC secrets.
 
 jobs:
   update-skills:
@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
 
       - name: Check for skills lockfile
         id: skills-lock
@@ -30,12 +32,26 @@ jobs:
 
       - name: Update skills
         if: steps.skills-lock.outputs.exists == 'true'
-        run: npx --yes skills@latest update -y
+        run: npx --yes skills@1.5.16 update -y
+
+      - env:
+          ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+          ESC_ACTION_EXPORT_ENVIRONMENT_VARIABLES: "false"
+          ESC_ACTION_OIDC_AUTH: "true"
+          ESC_ACTION_OIDC_ORGANIZATION: pulumi
+          ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+        id: esc-secrets
+        name: Fetch secrets from ESC
+        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
 
       - name: Create pull request
         if: steps.skills-lock.outputs.exists == 'true'
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
+          add-paths: |
+            .agents/skills
+            .claude/skills
+            skills-lock.json
           author: Pulumi Bot <bot@pulumi.com>
           branch: update-skills
           commit-message: "[internal] Update repository skills"
@@ -43,9 +59,10 @@ jobs:
           delete-branch: true
           labels: "impact/no-changelog-required"
           title: "Update repository skills"
+          token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
           body: |
             This PR updates repository skills by running:
 
             ```sh
-            npx --yes skills@latest update -y
+            npx --yes skills@1.5.16 update -y
             ```
