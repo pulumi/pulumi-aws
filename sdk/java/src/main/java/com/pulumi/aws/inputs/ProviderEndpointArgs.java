@@ -2584,6 +2584,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="lambdamicrovms")
+    private @Nullable Output<String> lambdamicrovms;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> lambdamicrovms() {
+        return Optional.ofNullable(this.lambdamicrovms);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="launchwizard")
     private @Nullable Output<String> launchwizard;
 
@@ -4884,6 +4899,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.kms = $.kms;
         this.lakeformation = $.lakeformation;
         this.lambda = $.lambda;
+        this.lambdamicrovms = $.lambdamicrovms;
         this.launchwizard = $.launchwizard;
         this.lex = $.lex;
         this.lexmodelbuilding = $.lexmodelbuilding;
@@ -8635,6 +8651,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder lambda(String lambda) {
             return lambda(Output.of(lambda));
+        }
+
+        /**
+         * @param lambdamicrovms Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdamicrovms(@Nullable Output<String> lambdamicrovms) {
+            $.lambdamicrovms = lambdamicrovms;
+            return this;
+        }
+
+        /**
+         * @param lambdamicrovms Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdamicrovms(String lambdamicrovms) {
+            return lambdamicrovms(Output.of(lambdamicrovms));
         }
 
         /**

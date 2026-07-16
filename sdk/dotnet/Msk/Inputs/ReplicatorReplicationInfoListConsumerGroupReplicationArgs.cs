@@ -12,6 +12,12 @@ namespace Pulumi.Aws.Msk.Inputs
 
     public sealed class ReplicatorReplicationInfoListConsumerGroupReplicationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Consumer group offset synchronization mode. Valid values are `LEGACY` and `ENHANCED`. With `LEGACY`, offsets are synchronized when producers write to the source cluster. With `ENHANCED`, consumer offsets are synchronized regardless of producer location. `ENHANCED` requires a corresponding replicator that replicates data from the target cluster to the source cluster and requires `topic_name_configuration.type` to be set to `IDENTICAL`. Defaults to `LEGACY`. Changing this value will force a new resource.
+        /// </summary>
+        [Input("consumerGroupOffsetSyncMode")]
+        public Input<string>? ConsumerGroupOffsetSyncMode { get; set; }
+
         [Input("consumerGroupsToExcludes")]
         private InputList<string>? _consumerGroupsToExcludes;
 

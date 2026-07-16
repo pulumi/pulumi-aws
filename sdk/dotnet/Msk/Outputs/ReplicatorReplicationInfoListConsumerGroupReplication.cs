@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ReplicatorReplicationInfoListConsumerGroupReplication
     {
         /// <summary>
+        /// Consumer group offset synchronization mode. Valid values are `LEGACY` and `ENHANCED`. With `LEGACY`, offsets are synchronized when producers write to the source cluster. With `ENHANCED`, consumer offsets are synchronized regardless of producer location. `ENHANCED` requires a corresponding replicator that replicates data from the target cluster to the source cluster and requires `topic_name_configuration.type` to be set to `IDENTICAL`. Defaults to `LEGACY`. Changing this value will force a new resource.
+        /// </summary>
+        public readonly string? ConsumerGroupOffsetSyncMode;
+        /// <summary>
         /// List of regular expression patterns indicating the consumer groups that should not be replicated.
         /// </summary>
         public readonly ImmutableArray<string> ConsumerGroupsToExcludes;
@@ -32,6 +36,8 @@ namespace Pulumi.Aws.Msk.Outputs
 
         [OutputConstructor]
         private ReplicatorReplicationInfoListConsumerGroupReplication(
+            string? consumerGroupOffsetSyncMode,
+
             ImmutableArray<string> consumerGroupsToExcludes,
 
             ImmutableArray<string> consumerGroupsToReplicates,
@@ -40,6 +46,7 @@ namespace Pulumi.Aws.Msk.Outputs
 
             bool? synchroniseConsumerGroupOffsets)
         {
+            ConsumerGroupOffsetSyncMode = consumerGroupOffsetSyncMode;
             ConsumerGroupsToExcludes = consumerGroupsToExcludes;
             ConsumerGroupsToReplicates = consumerGroupsToReplicates;
             DetectAndCopyNewConsumerGroups = detectAndCopyNewConsumerGroups;

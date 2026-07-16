@@ -290,6 +290,17 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `ClusterIdentifier` (String) Cluster identifier of the RDS Cluster.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
     /// Using `pulumi import`, import RDS Clusters using the `ClusterIdentifier`. For example:
     /// 
     /// ```sh

@@ -26,6 +26,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedScopes;
         /// <summary>
+        /// Configuration restricting which workloads may use this authorizer. See `AllowedWorkloadConfiguration` below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration? AllowedWorkloadConfiguration;
+        /// <summary>
         /// Repeatable block to define a custom claim validation name, value, and operation. See `CustomClaim` below.
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> CustomClaims;
@@ -33,6 +37,14 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
         /// </summary>
         public readonly string DiscoveryUrl;
+        /// <summary>
+        /// Private endpoint used to reach the authorization server. See `PrivateEndpoint` below.
+        /// </summary>
+        public readonly Outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint? PrivateEndpoint;
+        /// <summary>
+        /// Overrides for the private endpoints used to reach the authorization server. See `PrivateEndpointOverrides` below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> PrivateEndpointOverrides;
 
         [OutputConstructor]
         private AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer(
@@ -42,15 +54,24 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             ImmutableArray<string> allowedScopes,
 
+            Outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration? allowedWorkloadConfiguration,
+
             ImmutableArray<Outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim> customClaims,
 
-            string discoveryUrl)
+            string discoveryUrl,
+
+            Outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint? privateEndpoint,
+
+            ImmutableArray<Outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride> privateEndpointOverrides)
         {
             AllowedAudiences = allowedAudiences;
             AllowedClients = allowedClients;
             AllowedScopes = allowedScopes;
+            AllowedWorkloadConfiguration = allowedWorkloadConfiguration;
             CustomClaims = customClaims;
             DiscoveryUrl = discoveryUrl;
+            PrivateEndpoint = privateEndpoint;
+            PrivateEndpointOverrides = privateEndpointOverrides;
         }
     }
 }

@@ -368,6 +368,20 @@ public class Guardrail extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.topicPolicyConfig);
     }
     /**
+     * Date and time that the Guardrail list was last updated.
+     * 
+     */
+    @Export(name="updatedAt", refs={String.class}, tree="[0]")
+    private Output<String> updatedAt;
+
+    /**
+     * @return Date and time that the Guardrail list was last updated.
+     * 
+     */
+    public Output<String> updatedAt() {
+        return this.updatedAt;
+    }
+    /**
      * Version of the Guardrail.
      * 
      */

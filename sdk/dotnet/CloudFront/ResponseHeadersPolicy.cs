@@ -17,7 +17,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Example Usage
     /// 
-    /// The example below creates a CloudFront response headers policy.
+    /// ### CORS Config Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.CloudFront
     /// });
     /// ```
     /// 
-    /// The example below creates a CloudFront response headers policy with a custom headers config.
+    /// ### Custom Headers Config Usage
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -97,6 +97,8 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// 
+    /// ### Mixed Config Usage
     /// 
     /// The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
     /// 
@@ -145,7 +147,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cloudfront Response Headers Policies using the `Id`. For example:
+    /// Using `pulumi import`, import CloudFront response header policies using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
@@ -167,7 +169,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+        /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
         /// </summary>
         [Output("corsConfig")]
         public Output<Outputs.ResponseHeadersPolicyCorsConfig?> CorsConfig { get; private set; } = null!;
@@ -261,7 +263,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+        /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
         /// </summary>
         [Input("corsConfig")]
         public Input<Inputs.ResponseHeadersPolicyCorsConfigArgs>? CorsConfig { get; set; }
@@ -317,7 +319,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+        /// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
         /// </summary>
         [Input("corsConfig")]
         public Input<Inputs.ResponseHeadersPolicyCorsConfigGetArgs>? CorsConfig { get; set; }

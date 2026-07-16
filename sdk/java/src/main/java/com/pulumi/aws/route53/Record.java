@@ -427,14 +427,14 @@ public class Record extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.failoverRoutingPolicies);
     }
     /**
-     * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+     * [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
      * 
      */
     @Export(name="fqdn", refs={String.class}, tree="[0]")
     private Output<String> fqdn;
 
     /**
-     * @return [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+     * @return [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
      * 
      */
     public Output<String> fqdn() {

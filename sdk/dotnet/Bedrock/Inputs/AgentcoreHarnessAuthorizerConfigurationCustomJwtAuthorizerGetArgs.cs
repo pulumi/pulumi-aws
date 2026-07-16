@@ -48,6 +48,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _allowedScopes = value;
         }
 
+        /// <summary>
+        /// Configuration restricting which workloads may use this authorizer. See `AllowedWorkloadConfiguration` below.
+        /// </summary>
+        [Input("allowedWorkloadConfiguration")]
+        public Input<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationGetArgs>? AllowedWorkloadConfiguration { get; set; }
+
         [Input("customClaims")]
         private InputList<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimGetArgs>? _customClaims;
 
@@ -65,6 +71,24 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// </summary>
         [Input("discoveryUrl", required: true)]
         public Input<string> DiscoveryUrl { get; set; } = null!;
+
+        /// <summary>
+        /// Private endpoint used to reach the authorization server. See `PrivateEndpoint` below.
+        /// </summary>
+        [Input("privateEndpoint")]
+        public Input<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointGetArgs>? PrivateEndpoint { get; set; }
+
+        [Input("privateEndpointOverrides")]
+        private InputList<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideGetArgs>? _privateEndpointOverrides;
+
+        /// <summary>
+        /// Overrides for the private endpoints used to reach the authorization server. See `PrivateEndpointOverrides` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideGetArgs> PrivateEndpointOverrides
+        {
+            get => _privateEndpointOverrides ?? (_privateEndpointOverrides = new InputList<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideGetArgs>());
+            set => _privateEndpointOverrides = value;
+        }
 
         public AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerGetArgs()
         {

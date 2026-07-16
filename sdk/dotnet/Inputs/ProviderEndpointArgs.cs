@@ -1041,6 +1041,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("lambdamicrovms")]
+        public Input<string>? Lambdamicrovms { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("launchwizard")]
         public Input<string>? Launchwizard { get; set; }
 

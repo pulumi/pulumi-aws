@@ -2629,6 +2629,17 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster_identifier` (String) Cluster identifier of the RDS Cluster.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
 
         ```sh
@@ -2921,6 +2932,17 @@ class Cluster(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `cluster_identifier` (String) Cluster identifier of the RDS Cluster.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
 

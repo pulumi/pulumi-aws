@@ -12,6 +12,8 @@ import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingArgs;
 import com.pulumi.aws.elasticache.inputs.GetReservedCacheNodeOfferingPlainArgs;
 import com.pulumi.aws.elasticache.inputs.GetServerlessCacheArgs;
 import com.pulumi.aws.elasticache.inputs.GetServerlessCachePlainArgs;
+import com.pulumi.aws.elasticache.inputs.GetServiceUpdatesArgs;
+import com.pulumi.aws.elasticache.inputs.GetServiceUpdatesPlainArgs;
 import com.pulumi.aws.elasticache.inputs.GetSubnetGroupArgs;
 import com.pulumi.aws.elasticache.inputs.GetSubnetGroupPlainArgs;
 import com.pulumi.aws.elasticache.inputs.GetUserArgs;
@@ -20,6 +22,7 @@ import com.pulumi.aws.elasticache.outputs.GetClusterResult;
 import com.pulumi.aws.elasticache.outputs.GetReplicationGroupResult;
 import com.pulumi.aws.elasticache.outputs.GetReservedCacheNodeOfferingResult;
 import com.pulumi.aws.elasticache.outputs.GetServerlessCacheResult;
+import com.pulumi.aws.elasticache.outputs.GetServiceUpdatesResult;
 import com.pulumi.aws.elasticache.outputs.GetSubnetGroupResult;
 import com.pulumi.aws.elasticache.outputs.GetUserResult;
 import com.pulumi.core.Output;
@@ -844,6 +847,300 @@ public final class ElasticacheFunctions {
      */
     public static CompletableFuture<GetServerlessCacheResult> getServerlessCachePlain(GetServerlessCachePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:elasticache/getServerlessCache:getServerlessCache", TypeShape.of(GetServerlessCacheResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about AWS ElastiCache Service Updates.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdates(GetServiceUpdatesArgs.builder()
+     *             .statuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceUpdatesResult> getServiceUpdates() {
+        return getServiceUpdates(GetServiceUpdatesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about AWS ElastiCache Service Updates.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdates(GetServiceUpdatesArgs.builder()
+     *             .statuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceUpdatesResult> getServiceUpdatesPlain() {
+        return getServiceUpdatesPlain(GetServiceUpdatesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about AWS ElastiCache Service Updates.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdates(GetServiceUpdatesArgs.builder()
+     *             .statuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceUpdatesResult> getServiceUpdates(GetServiceUpdatesArgs args) {
+        return getServiceUpdates(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about AWS ElastiCache Service Updates.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdates(GetServiceUpdatesArgs.builder()
+     *             .statuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceUpdatesResult> getServiceUpdatesPlain(GetServiceUpdatesPlainArgs args) {
+        return getServiceUpdatesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about AWS ElastiCache Service Updates.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdates(GetServiceUpdatesArgs.builder()
+     *             .statuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceUpdatesResult> getServiceUpdates(GetServiceUpdatesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:elasticache/getServiceUpdates:getServiceUpdates", TypeShape.of(GetServiceUpdatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about AWS ElastiCache Service Updates.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdates(GetServiceUpdatesArgs.builder()
+     *             .statuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetServiceUpdatesResult> getServiceUpdates(GetServiceUpdatesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:elasticache/getServiceUpdates:getServiceUpdates", TypeShape.of(GetServiceUpdatesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about AWS ElastiCache Service Updates.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticache.ElasticacheFunctions;
+     * import com.pulumi.aws.elasticache.inputs.GetServiceUpdatesArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ElasticacheFunctions.getServiceUpdates(GetServiceUpdatesArgs.builder()
+     *             .statuses("available")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetServiceUpdatesResult> getServiceUpdatesPlain(GetServiceUpdatesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:elasticache/getServiceUpdates:getServiceUpdates", TypeShape.of(GetServiceUpdatesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Provides information about a ElastiCache Subnet Group.

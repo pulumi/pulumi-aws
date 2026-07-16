@@ -317,7 +317,7 @@ class _RecordState:
                Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         :param pulumi.Input['RecordCidrRoutingPolicyArgs'] cidr_routing_policy: A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input['RecordFailoverRoutingPolicyArgs']]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[_builtins.str] fqdn: [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+        :param pulumi.Input[_builtins.str] fqdn: [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
         :param pulumi.Input[Sequence[pulumi.Input['RecordGeolocationRoutingPolicyArgs']]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input['RecordGeoproximityRoutingPolicyArgs'] geoproximity_routing_policy: A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[_builtins.str] health_check_id: The health check the record should be associated with.
@@ -421,7 +421,7 @@ class _RecordState:
     @pulumi.getter
     def fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+        [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
         """
         return pulumi.get(self, "fqdn")
 
@@ -1089,7 +1089,7 @@ class Record(pulumi.CustomResource):
                Exactly one of `records` or `alias` must be specified: this determines whether it's an alias record.
         :param pulumi.Input[Union['RecordCidrRoutingPolicyArgs', 'RecordCidrRoutingPolicyArgsDict']] cidr_routing_policy: A block indicating a routing policy based on the IP network ranges of requestors. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordFailoverRoutingPolicyArgs', 'RecordFailoverRoutingPolicyArgsDict']]]] failover_routing_policies: A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
-        :param pulumi.Input[_builtins.str] fqdn: [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+        :param pulumi.Input[_builtins.str] fqdn: [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RecordGeolocationRoutingPolicyArgs', 'RecordGeolocationRoutingPolicyArgsDict']]]] geolocation_routing_policies: A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[Union['RecordGeoproximityRoutingPolicyArgs', 'RecordGeoproximityRoutingPolicyArgsDict']] geoproximity_routing_policy: A block indicating a routing policy based on the geoproximity of the requestor. Conflicts with any other routing policy. Documented below.
         :param pulumi.Input[_builtins.str] health_check_id: The health check the record should be associated with.
@@ -1165,7 +1165,7 @@ class Record(pulumi.CustomResource):
     @pulumi.getter
     def fqdn(self) -> pulumi.Output[_builtins.str]:
         """
-        [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+        [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
         """
         return pulumi.get(self, "fqdn")
 

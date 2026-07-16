@@ -30,6 +30,11 @@ export const getServerlessCache: typeof import("./getServerlessCache").getServer
 export const getServerlessCacheOutput: typeof import("./getServerlessCache").getServerlessCacheOutput = null as any;
 utilities.lazyLoad(exports, ["getServerlessCache","getServerlessCacheOutput"], () => require("./getServerlessCache"));
 
+export { GetServiceUpdatesArgs, GetServiceUpdatesResult, GetServiceUpdatesOutputArgs } from "./getServiceUpdates";
+export const getServiceUpdates: typeof import("./getServiceUpdates").getServiceUpdates = null as any;
+export const getServiceUpdatesOutput: typeof import("./getServiceUpdates").getServiceUpdatesOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceUpdates","getServiceUpdatesOutput"], () => require("./getServiceUpdates"));
+
 export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
 export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
 export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;

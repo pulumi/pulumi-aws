@@ -19,6 +19,21 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplicationArgs ext
     public static final ReplicatorReplicationInfoListConsumerGroupReplicationArgs Empty = new ReplicatorReplicationInfoListConsumerGroupReplicationArgs();
 
     /**
+     * Consumer group offset synchronization mode. Valid values are `LEGACY` and `ENHANCED`. With `LEGACY`, offsets are synchronized when producers write to the source cluster. With `ENHANCED`, consumer offsets are synchronized regardless of producer location. `ENHANCED` requires a corresponding replicator that replicates data from the target cluster to the source cluster and requires `topic_name_configuration.type` to be set to `IDENTICAL`. Defaults to `LEGACY`. Changing this value will force a new resource.
+     * 
+     */
+    @Import(name="consumerGroupOffsetSyncMode")
+    private @Nullable Output<String> consumerGroupOffsetSyncMode;
+
+    /**
+     * @return Consumer group offset synchronization mode. Valid values are `LEGACY` and `ENHANCED`. With `LEGACY`, offsets are synchronized when producers write to the source cluster. With `ENHANCED`, consumer offsets are synchronized regardless of producer location. `ENHANCED` requires a corresponding replicator that replicates data from the target cluster to the source cluster and requires `topic_name_configuration.type` to be set to `IDENTICAL`. Defaults to `LEGACY`. Changing this value will force a new resource.
+     * 
+     */
+    public Optional<Output<String>> consumerGroupOffsetSyncMode() {
+        return Optional.ofNullable(this.consumerGroupOffsetSyncMode);
+    }
+
+    /**
      * List of regular expression patterns indicating the consumer groups that should not be replicated.
      * 
      */
@@ -81,6 +96,7 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplicationArgs ext
     private ReplicatorReplicationInfoListConsumerGroupReplicationArgs() {}
 
     private ReplicatorReplicationInfoListConsumerGroupReplicationArgs(ReplicatorReplicationInfoListConsumerGroupReplicationArgs $) {
+        this.consumerGroupOffsetSyncMode = $.consumerGroupOffsetSyncMode;
         this.consumerGroupsToExcludes = $.consumerGroupsToExcludes;
         this.consumerGroupsToReplicates = $.consumerGroupsToReplicates;
         this.detectAndCopyNewConsumerGroups = $.detectAndCopyNewConsumerGroups;
@@ -103,6 +119,27 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplicationArgs ext
 
         public Builder(ReplicatorReplicationInfoListConsumerGroupReplicationArgs defaults) {
             $ = new ReplicatorReplicationInfoListConsumerGroupReplicationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param consumerGroupOffsetSyncMode Consumer group offset synchronization mode. Valid values are `LEGACY` and `ENHANCED`. With `LEGACY`, offsets are synchronized when producers write to the source cluster. With `ENHANCED`, consumer offsets are synchronized regardless of producer location. `ENHANCED` requires a corresponding replicator that replicates data from the target cluster to the source cluster and requires `topic_name_configuration.type` to be set to `IDENTICAL`. Defaults to `LEGACY`. Changing this value will force a new resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder consumerGroupOffsetSyncMode(@Nullable Output<String> consumerGroupOffsetSyncMode) {
+            $.consumerGroupOffsetSyncMode = consumerGroupOffsetSyncMode;
+            return this;
+        }
+
+        /**
+         * @param consumerGroupOffsetSyncMode Consumer group offset synchronization mode. Valid values are `LEGACY` and `ENHANCED`. With `LEGACY`, offsets are synchronized when producers write to the source cluster. With `ENHANCED`, consumer offsets are synchronized regardless of producer location. `ENHANCED` requires a corresponding replicator that replicates data from the target cluster to the source cluster and requires `topic_name_configuration.type` to be set to `IDENTICAL`. Defaults to `LEGACY`. Changing this value will force a new resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder consumerGroupOffsetSyncMode(String consumerGroupOffsetSyncMode) {
+            return consumerGroupOffsetSyncMode(Output.of(consumerGroupOffsetSyncMode));
         }
 
         /**

@@ -6,6 +6,7 @@ package com.pulumi.aws.bedrock.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -14,6 +15,21 @@ import java.util.Objects;
 public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs Empty = new AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs();
+
+    /**
+     * Whether to require an S3 endpoint for the service in the VPC.
+     * 
+     */
+    @Import(name="requireServiceS3Endpoint", required=true)
+    private Output<Boolean> requireServiceS3Endpoint;
+
+    /**
+     * @return Whether to require an S3 endpoint for the service in the VPC.
+     * 
+     */
+    public Output<Boolean> requireServiceS3Endpoint() {
+        return this.requireServiceS3Endpoint;
+    }
 
     /**
      * Security groups for the VPC.
@@ -48,6 +64,7 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
     private AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs() {}
 
     private AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs(AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs $) {
+        this.requireServiceS3Endpoint = $.requireServiceS3Endpoint;
         this.securityGroups = $.securityGroups;
         this.subnets = $.subnets;
     }
@@ -68,6 +85,27 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
 
         public Builder(AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs defaults) {
             $ = new AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param requireServiceS3Endpoint Whether to require an S3 endpoint for the service in the VPC.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireServiceS3Endpoint(Output<Boolean> requireServiceS3Endpoint) {
+            $.requireServiceS3Endpoint = requireServiceS3Endpoint;
+            return this;
+        }
+
+        /**
+         * @param requireServiceS3Endpoint Whether to require an S3 endpoint for the service in the VPC.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireServiceS3Endpoint(Boolean requireServiceS3Endpoint) {
+            return requireServiceS3Endpoint(Output.of(requireServiceS3Endpoint));
         }
 
         /**
@@ -133,6 +171,9 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetwork
         }
 
         public AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs build() {
+            if ($.requireServiceS3Endpoint == null) {
+                throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs", "requireServiceS3Endpoint");
+            }
             if ($.securityGroups == null) {
                 throw new MissingRequiredPropertyException("AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationNetworkModeConfigArgs", "securityGroups");
             }

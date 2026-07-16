@@ -321,7 +321,7 @@ namespace Pulumi.Aws.Route53
         public Output<ImmutableArray<Outputs.RecordFailoverRoutingPolicy>> FailoverRoutingPolicies { get; private set; } = null!;
 
         /// <summary>
-        /// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `Name`.
+        /// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `Name`. Does not include trailing `.`.
         /// </summary>
         [Output("fqdn")]
         public Output<string> Fqdn { get; private set; } = null!;
@@ -627,7 +627,7 @@ namespace Pulumi.Aws.Route53
         }
 
         /// <summary>
-        /// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `Name`.
+        /// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `Name`. Does not include trailing `.`.
         /// </summary>
         [Input("fqdn")]
         public Input<string>? Fqdn { get; set; }

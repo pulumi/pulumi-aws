@@ -48,6 +48,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _allowedScopes = value;
         }
 
+        /// <summary>
+        /// Configuration restricting which workloads may use this authorizer. See `AllowedWorkloadConfiguration` below.
+        /// </summary>
+        [Input("allowedWorkloadConfiguration")]
+        public Input<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs>? AllowedWorkloadConfiguration { get; set; }
+
         [Input("customClaims")]
         private InputList<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>? _customClaims;
 
@@ -65,6 +71,24 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// </summary>
         [Input("discoveryUrl", required: true)]
         public Input<string> DiscoveryUrl { get; set; } = null!;
+
+        /// <summary>
+        /// Private endpoint used to reach the authorization server. See `PrivateEndpoint` below.
+        /// </summary>
+        [Input("privateEndpoint")]
+        public Input<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        [Input("privateEndpointOverrides")]
+        private InputList<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>? _privateEndpointOverrides;
+
+        /// <summary>
+        /// Overrides for the private endpoints used to reach the authorization server. See `PrivateEndpointOverrides` below.
+        /// </summary>
+        public InputList<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs> PrivateEndpointOverrides
+        {
+            get => _privateEndpointOverrides ?? (_privateEndpointOverrides = new InputList<Inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>());
+            set => _privateEndpointOverrides = value;
+        }
 
         public AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs()
         {

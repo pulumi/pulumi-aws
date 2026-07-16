@@ -5,12 +5,20 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig {
+    /**
+     * @return Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+     * 
+     */
+    private @Nullable Boolean requireServiceS3Endpoint;
     /**
      * @return Security groups associated with the VPC configuration.
      * 
@@ -23,6 +31,13 @@ public final class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig {
     private List<String> subnets;
 
     private AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig() {}
+    /**
+     * @return Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+     * 
+     */
+    public Optional<Boolean> requireServiceS3Endpoint() {
+        return Optional.ofNullable(this.requireServiceS3Endpoint);
+    }
     /**
      * @return Security groups associated with the VPC configuration.
      * 
@@ -47,15 +62,23 @@ public final class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean requireServiceS3Endpoint;
         private List<String> securityGroups;
         private List<String> subnets;
         public Builder() {}
         public Builder(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.requireServiceS3Endpoint = defaults.requireServiceS3Endpoint;
     	      this.securityGroups = defaults.securityGroups;
     	      this.subnets = defaults.subnets;
         }
 
+        @CustomType.Setter
+        public Builder requireServiceS3Endpoint(@Nullable Boolean requireServiceS3Endpoint) {
+
+            this.requireServiceS3Endpoint = requireServiceS3Endpoint;
+            return this;
+        }
         @CustomType.Setter
         public Builder securityGroups(List<String> securityGroups) {
             if (securityGroups == null) {
@@ -80,6 +103,7 @@ public final class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig {
         }
         public AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig build() {
             final var _resultValue = new AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig();
+            _resultValue.requireServiceS3Endpoint = requireServiceS3Endpoint;
             _resultValue.securityGroups = securityGroups;
             _resultValue.subnets = subnets;
             return _resultValue;

@@ -6,14 +6,32 @@ package com.pulumi.aws.bedrock.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs Empty = new AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs();
+
+    /**
+     * Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+     * 
+     */
+    @Import(name="requireServiceS3Endpoint")
+    private @Nullable Output<Boolean> requireServiceS3Endpoint;
+
+    /**
+     * @return Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+     * 
+     */
+    public Optional<Output<Boolean>> requireServiceS3Endpoint() {
+        return Optional.ofNullable(this.requireServiceS3Endpoint);
+    }
 
     /**
      * Security groups associated with the VPC configuration.
@@ -48,6 +66,7 @@ public final class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArg
     private AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs() {}
 
     private AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs $) {
+        this.requireServiceS3Endpoint = $.requireServiceS3Endpoint;
         this.securityGroups = $.securityGroups;
         this.subnets = $.subnets;
     }
@@ -68,6 +87,27 @@ public final class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArg
 
         public Builder(AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs defaults) {
             $ = new AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param requireServiceS3Endpoint Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireServiceS3Endpoint(@Nullable Output<Boolean> requireServiceS3Endpoint) {
+            $.requireServiceS3Endpoint = requireServiceS3Endpoint;
+            return this;
+        }
+
+        /**
+         * @param requireServiceS3Endpoint Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder requireServiceS3Endpoint(Boolean requireServiceS3Endpoint) {
+            return requireServiceS3Endpoint(Output.of(requireServiceS3Endpoint));
         }
 
         /**

@@ -15,6 +15,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatorReplicationInfoListConsumerGroupReplication {
     /**
+     * @return Consumer group offset synchronization mode. Valid values are `LEGACY` and `ENHANCED`. With `LEGACY`, offsets are synchronized when producers write to the source cluster. With `ENHANCED`, consumer offsets are synchronized regardless of producer location. `ENHANCED` requires a corresponding replicator that replicates data from the target cluster to the source cluster and requires `topic_name_configuration.type` to be set to `IDENTICAL`. Defaults to `LEGACY`. Changing this value will force a new resource.
+     * 
+     */
+    private @Nullable String consumerGroupOffsetSyncMode;
+    /**
      * @return List of regular expression patterns indicating the consumer groups that should not be replicated.
      * 
      */
@@ -36,6 +41,13 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplication {
     private @Nullable Boolean synchroniseConsumerGroupOffsets;
 
     private ReplicatorReplicationInfoListConsumerGroupReplication() {}
+    /**
+     * @return Consumer group offset synchronization mode. Valid values are `LEGACY` and `ENHANCED`. With `LEGACY`, offsets are synchronized when producers write to the source cluster. With `ENHANCED`, consumer offsets are synchronized regardless of producer location. `ENHANCED` requires a corresponding replicator that replicates data from the target cluster to the source cluster and requires `topic_name_configuration.type` to be set to `IDENTICAL`. Defaults to `LEGACY`. Changing this value will force a new resource.
+     * 
+     */
+    public Optional<String> consumerGroupOffsetSyncMode() {
+        return Optional.ofNullable(this.consumerGroupOffsetSyncMode);
+    }
     /**
      * @return List of regular expression patterns indicating the consumer groups that should not be replicated.
      * 
@@ -74,6 +86,7 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplication {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String consumerGroupOffsetSyncMode;
         private @Nullable List<String> consumerGroupsToExcludes;
         private List<String> consumerGroupsToReplicates;
         private @Nullable Boolean detectAndCopyNewConsumerGroups;
@@ -81,12 +94,19 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplication {
         public Builder() {}
         public Builder(ReplicatorReplicationInfoListConsumerGroupReplication defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.consumerGroupOffsetSyncMode = defaults.consumerGroupOffsetSyncMode;
     	      this.consumerGroupsToExcludes = defaults.consumerGroupsToExcludes;
     	      this.consumerGroupsToReplicates = defaults.consumerGroupsToReplicates;
     	      this.detectAndCopyNewConsumerGroups = defaults.detectAndCopyNewConsumerGroups;
     	      this.synchroniseConsumerGroupOffsets = defaults.synchroniseConsumerGroupOffsets;
         }
 
+        @CustomType.Setter
+        public Builder consumerGroupOffsetSyncMode(@Nullable String consumerGroupOffsetSyncMode) {
+
+            this.consumerGroupOffsetSyncMode = consumerGroupOffsetSyncMode;
+            return this;
+        }
         @CustomType.Setter
         public Builder consumerGroupsToExcludes(@Nullable List<String> consumerGroupsToExcludes) {
 
@@ -121,6 +141,7 @@ public final class ReplicatorReplicationInfoListConsumerGroupReplication {
         }
         public ReplicatorReplicationInfoListConsumerGroupReplication build() {
             final var _resultValue = new ReplicatorReplicationInfoListConsumerGroupReplication();
+            _resultValue.consumerGroupOffsetSyncMode = consumerGroupOffsetSyncMode;
             _resultValue.consumerGroupsToExcludes = consumerGroupsToExcludes;
             _resultValue.consumerGroupsToReplicates = consumerGroupsToReplicates;
             _resultValue.detectAndCopyNewConsumerGroups = detectAndCopyNewConsumerGroups;

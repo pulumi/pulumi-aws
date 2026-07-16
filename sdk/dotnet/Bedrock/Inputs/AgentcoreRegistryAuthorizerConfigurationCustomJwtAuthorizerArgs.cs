@@ -36,6 +36,9 @@ namespace Pulumi.Aws.Bedrock.Inputs
             set => _allowedScopes = value;
         }
 
+        [Input("allowedWorkloadConfiguration")]
+        public Input<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs>? AllowedWorkloadConfiguration { get; set; }
+
         [Input("customClaims")]
         private InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>? _customClaims;
         public InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs> CustomClaims
@@ -46,6 +49,17 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("discoveryUrl", required: true)]
         public Input<string> DiscoveryUrl { get; set; } = null!;
+
+        [Input("privateEndpoint")]
+        public Input<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        [Input("privateEndpointOverrides")]
+        private InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>? _privateEndpointOverrides;
+        public InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs> PrivateEndpointOverrides
+        {
+            get => _privateEndpointOverrides ?? (_privateEndpointOverrides = new InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>());
+            set => _privateEndpointOverrides = value;
+        }
 
         public AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs()
         {

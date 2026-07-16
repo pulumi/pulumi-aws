@@ -381,14 +381,14 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+     * Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
      * 
      */
     @Import(name="webserverAccessMode")
     private @Nullable Output<String> webserverAccessMode;
 
     /**
-     * @return Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+     * @return Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
      * 
      */
     public Optional<Output<String>> webserverAccessMode() {
@@ -980,7 +980,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webserverAccessMode Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+         * @param webserverAccessMode Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
          * 
          * @return builder
          * 
@@ -991,7 +991,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param webserverAccessMode Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
+         * @param webserverAccessMode Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default), `PUBLIC_ONLY` and `PUBLIC_AND_PRIVATE`.
          * 
          * @return builder
          * 

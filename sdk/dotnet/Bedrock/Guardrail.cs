@@ -236,6 +236,12 @@ namespace Pulumi.Aws.Bedrock
         public Output<Outputs.GuardrailTopicPolicyConfig?> TopicPolicyConfig { get; private set; } = null!;
 
         /// <summary>
+        /// Date and time that the Guardrail list was last updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
+
+        /// <summary>
         /// Version of the Guardrail.
         /// </summary>
         [Output("version")]
@@ -498,6 +504,12 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Input("topicPolicyConfig")]
         public Input<Inputs.GuardrailTopicPolicyConfigGetArgs>? TopicPolicyConfig { get; set; }
+
+        /// <summary>
+        /// Date and time that the Guardrail list was last updated.
+        /// </summary>
+        [Input("updatedAt")]
+        public Input<string>? UpdatedAt { get; set; }
 
         /// <summary>
         /// Version of the Guardrail.

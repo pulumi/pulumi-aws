@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * The example below creates a CloudFront response headers policy.
+ * ### CORS Config Usage
  * 
  * <pre>
  * {@code
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * The example below creates a CloudFront response headers policy with a custom headers config.
+ * ### Custom Headers Config Usage
  * 
  * <pre>
  * {@code
@@ -125,6 +125,8 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
+ * 
+ * ### Mixed Config Usage
  * 
  * The example below creates a CloudFront response headers policy with a custom headers config, remove headers config and server timing headers config.
  * 
@@ -182,7 +184,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For example:
+ * Using `pulumi import`, import CloudFront response header policies using the `id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9
@@ -220,14 +222,14 @@ public class ResponseHeadersPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+     * A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
      * 
      */
     @Export(name="corsConfig", refs={ResponseHeadersPolicyCorsConfig.class}, tree="[0]")
     private Output</* @Nullable */ ResponseHeadersPolicyCorsConfig> corsConfig;
 
     /**
-     * @return A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
+     * @return A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See CORS Config for more information.
      * 
      */
     public Output<Optional<ResponseHeadersPolicyCorsConfig>> corsConfig() {

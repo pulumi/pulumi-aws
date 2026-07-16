@@ -348,7 +348,7 @@ type Record struct {
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrOutput `pulumi:"cidrRoutingPolicy"`
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies RecordFailoverRoutingPolicyArrayOutput `pulumi:"failoverRoutingPolicies"`
-	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
 	GeolocationRoutingPolicies RecordGeolocationRoutingPolicyArrayOutput `pulumi:"geolocationRoutingPolicies"`
@@ -426,7 +426,7 @@ type recordState struct {
 	CidrRoutingPolicy *RecordCidrRoutingPolicy `pulumi:"cidrRoutingPolicy"`
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies []RecordFailoverRoutingPolicy `pulumi:"failoverRoutingPolicies"`
-	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
 	Fqdn *string `pulumi:"fqdn"`
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
 	GeolocationRoutingPolicies []RecordGeolocationRoutingPolicy `pulumi:"geolocationRoutingPolicies"`
@@ -466,7 +466,7 @@ type RecordState struct {
 	CidrRoutingPolicy RecordCidrRoutingPolicyPtrInput
 	// A block indicating the routing behavior when associated health check fails. Conflicts with any other routing policy. Documented below.
 	FailoverRoutingPolicies RecordFailoverRoutingPolicyArrayInput
-	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+	// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
 	Fqdn pulumi.StringPtrInput
 	// A block indicating a routing policy based on the geolocation of the requestor. Conflicts with any other routing policy. Documented below.
 	GeolocationRoutingPolicies RecordGeolocationRoutingPolicyArrayInput
@@ -685,7 +685,7 @@ func (o RecordOutput) FailoverRoutingPolicies() RecordFailoverRoutingPolicyArray
 	return o.ApplyT(func(v *Record) RecordFailoverRoutingPolicyArrayOutput { return v.FailoverRoutingPolicies }).(RecordFailoverRoutingPolicyArrayOutput)
 }
 
-// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`.
+// [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) built using the zone domain and `name`. Does not include trailing `.`.
 func (o RecordOutput) Fqdn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Record) pulumi.StringOutput { return v.Fqdn }).(pulumi.StringOutput)
 }

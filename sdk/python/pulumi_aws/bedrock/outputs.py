@@ -210,9 +210,18 @@ __all__ = [
     'AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfiguration',
     'AgentcoreAgentRuntimeAuthorizerConfiguration',
     'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment',
     'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim',
     'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue',
     'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource',
+    'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource',
     'AgentcoreAgentRuntimeEndpointTimeouts',
     'AgentcoreAgentRuntimeFilesystemConfiguration',
     'AgentcoreAgentRuntimeFilesystemConfigurationEfsAccessPoint',
@@ -258,9 +267,18 @@ __all__ = [
     'AgentcoreEvaluatorTimeouts',
     'AgentcoreGatewayAuthorizerConfiguration',
     'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment',
     'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim',
     'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue',
     'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource',
+    'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource',
     'AgentcoreGatewayInterceptorConfiguration',
     'AgentcoreGatewayInterceptorConfigurationInputConfiguration',
     'AgentcoreGatewayInterceptorConfigurationInterceptor',
@@ -322,9 +340,18 @@ __all__ = [
     'AgentcoreGatewayWorkloadIdentityDetail',
     'AgentcoreHarnessAuthorizerConfiguration',
     'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer',
+    'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration',
+    'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment',
     'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim',
     'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue',
     'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue',
+    'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint',
+    'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource',
+    'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride',
+    'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint',
+    'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource',
+    'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource',
+    'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource',
     'AgentcoreHarnessEnvironment',
     'AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironment',
     'AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration',
@@ -407,9 +434,18 @@ __all__ = [
     'AgentcoreRegistryApprovalConfiguration',
     'AgentcoreRegistryAuthorizerConfiguration',
     'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment',
     'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim',
     'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue',
     'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource',
+    'AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource',
     'AgentcoreRegistryTimeouts',
     'AgentcoreTokenVaultCmkKmsConfiguration',
     'CustomModelOutputDataConfig',
@@ -9227,8 +9263,14 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer(dict):
             suggest = "allowed_clients"
         elif key == "allowedScopes":
             suggest = "allowed_scopes"
+        elif key == "allowedWorkloadConfiguration":
+            suggest = "allowed_workload_configuration"
         elif key == "customClaims":
             suggest = "custom_claims"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateEndpointOverrides":
+            suggest = "private_endpoint_overrides"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer. Access the value via the '{suggest}' property getter instead.")
@@ -9246,13 +9288,19 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer(dict):
                  allowed_audiences: Optional[Sequence[_builtins.str]] = None,
                  allowed_clients: Optional[Sequence[_builtins.str]] = None,
                  allowed_scopes: Optional[Sequence[_builtins.str]] = None,
-                 custom_claims: Optional[Sequence['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']] = None):
+                 allowed_workload_configuration: Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration'] = None,
+                 custom_claims: Optional[Sequence['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']] = None,
+                 private_endpoint: Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint'] = None,
+                 private_endpoint_overrides: Optional[Sequence['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride']] = None):
         """
         :param _builtins.str discovery_url: URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
         :param Sequence[_builtins.str] allowed_audiences: Set of allowed audience values for JWT token validation.
         :param Sequence[_builtins.str] allowed_clients: Set of allowed client IDs for JWT token validation.
         :param Sequence[_builtins.str] allowed_scopes: Set of scopes that are allowed to access the token.
+        :param 'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs' allowed_workload_configuration: Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
         :param Sequence['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs'] custom_claims: Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+        :param 'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs' private_endpoint: Private endpoint used to reach the authorization server. See `private_endpoint` below.
+        :param Sequence['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs'] private_endpoint_overrides: Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
         """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
@@ -9261,8 +9309,14 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer(dict):
             pulumi.set(__self__, "allowed_clients", allowed_clients)
         if allowed_scopes is not None:
             pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if allowed_workload_configuration is not None:
+            pulumi.set(__self__, "allowed_workload_configuration", allowed_workload_configuration)
         if custom_claims is not None:
             pulumi.set(__self__, "custom_claims", custom_claims)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_overrides is not None:
+            pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -9297,12 +9351,104 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizer(dict):
         return pulumi.get(self, "allowed_scopes")
 
     @_builtins.property
+    @pulumi.getter(name="allowedWorkloadConfiguration")
+    def allowed_workload_configuration(self) -> Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration']:
+        """
+        Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
+        """
+        return pulumi.get(self, "allowed_workload_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="customClaims")
     def custom_claims(self) -> Optional[Sequence['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']]:
         """
         Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
         """
         return pulumi.get(self, "custom_claims")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint']:
+        """
+        Private endpoint used to reach the authorization server. See `private_endpoint` below.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointOverrides")
+    def private_endpoint_overrides(self) -> Optional[Sequence['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride']]:
+        """
+        Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
+        """
+        return pulumi.get(self, "private_endpoint_overrides")
+
+
+@pulumi.output_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostingEnvironments":
+            suggest = "hosting_environments"
+        elif key == "workloadIdentities":
+            suggest = "workload_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hosting_environments: Optional[Sequence['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment']] = None,
+                 workload_identities: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs'] hosting_environments: Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+        :param Sequence[_builtins.str] workload_identities: List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+        """
+        if hosting_environments is not None:
+            pulumi.set(__self__, "hosting_environments", hosting_environments)
+        if workload_identities is not None:
+            pulumi.set(__self__, "workload_identities", workload_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="hostingEnvironments")
+    def hosting_environments(self) -> Optional[Sequence['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment']]:
+        """
+        Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+        """
+        return pulumi.get(self, "hosting_environments")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentities")
+    def workload_identities(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+        """
+        return pulumi.get(self, "workload_identities")
+
+
+@pulumi.output_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str):
+        """
+        :param _builtins.str arn: ARN of the hosting environment.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN of the hosting environment.
+        """
+        return pulumi.get(self, "arn")
 
 
 @pulumi.output_type
@@ -9462,6 +9608,424 @@ class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerCustomClaim
         List of strings to check for a match. Must be specified when `claim_match_operator` is `CONTAINS_ANY`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
         """
         return pulumi.get(self, "match_value_string_lists")
+
+
+@pulumi.output_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource'] = None):
+        """
+        :param 'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` below.
+        :param 'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource']:
+        """
+        Managed VPC resource configuration. See `managed_vpc_resource` below.
+        """
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource']:
+        """
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str endpoint_ip_address_type: IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets for the endpoint.
+        :param _builtins.str vpc_identifier: Identifier of the VPC for the endpoint.
+        :param _builtins.str routing_domain: Routing domain for the endpoint.
+        :param Sequence[_builtins.str] security_group_ids: IDs of the security groups for the endpoint.
+        :param Mapping[str, _builtins.str] tags: Tags to assign to the managed VPC resource.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the subnets for the endpoint.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC for the endpoint.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        """
+        Routing domain for the endpoint.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        IDs of the security groups for the endpoint.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tags to assign to the managed VPC resource.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: _builtins.str,
+                 private_endpoint: 'outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint'):
+        """
+        :param _builtins.str domain: Domain the override applies to.
+        :param 'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs' private_endpoint: Private endpoint configuration. See `private_endpoint` below.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        Domain the override applies to.
+        """
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint':
+        """
+        Private endpoint configuration. See `private_endpoint` below.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource'] = None):
+        """
+        :param 'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` below.
+        :param 'AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource']:
+        """
+        Managed VPC resource configuration. See `managed_vpc_resource` below.
+        """
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource']:
+        """
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str endpoint_ip_address_type: IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets for the endpoint.
+        :param _builtins.str vpc_identifier: Identifier of the VPC for the endpoint.
+        :param _builtins.str routing_domain: Routing domain for the endpoint.
+        :param Sequence[_builtins.str] security_group_ids: IDs of the security groups for the endpoint.
+        :param Mapping[str, _builtins.str] tags: Tags to assign to the managed VPC resource.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the subnets for the endpoint.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC for the endpoint.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        """
+        Routing domain for the endpoint.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        IDs of the security groups for the endpoint.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tags to assign to the managed VPC resource.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        """
+        :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
+        """
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC Lattice resource configuration.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
+
+
+@pulumi.output_type
+class AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        """
+        :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
+        """
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC Lattice resource configuration.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
 
 
 @pulumi.output_type
@@ -9806,6 +10370,8 @@ class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig(dict):
         suggest = None
         if key == "securityGroups":
             suggest = "security_groups"
+        elif key == "requireServiceS3Endpoint":
+            suggest = "require_service_s3_endpoint"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig. Access the value via the '{suggest}' property getter instead.")
@@ -9820,13 +10386,17 @@ class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig(dict):
 
     def __init__(__self__, *,
                  security_groups: Sequence[_builtins.str],
-                 subnets: Sequence[_builtins.str]):
+                 subnets: Sequence[_builtins.str],
+                 require_service_s3_endpoint: Optional[_builtins.bool] = None):
         """
         :param Sequence[_builtins.str] security_groups: Security groups associated with the VPC configuration.
         :param Sequence[_builtins.str] subnets: Subnets associated with the VPC configuration.
+        :param _builtins.bool require_service_s3_endpoint: Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
         """
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
+        if require_service_s3_endpoint is not None:
+            pulumi.set(__self__, "require_service_s3_endpoint", require_service_s3_endpoint)
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
@@ -9843,6 +10413,14 @@ class AgentcoreAgentRuntimeNetworkConfigurationNetworkModeConfig(dict):
         Subnets associated with the VPC configuration.
         """
         return pulumi.get(self, "subnets")
+
+    @_builtins.property
+    @pulumi.getter(name="requireServiceS3Endpoint")
+    def require_service_s3_endpoint(self) -> Optional[_builtins.bool]:
+        """
+        Whether a service-managed Amazon S3 gateway endpoint is provisioned in the VPC for the agent runtime. This value is managed by the service and cannot be set: it is rejected on both create and update. Agent runtimes created on or after the May 5, 2026 rollout do not include a service-managed Amazon S3 gateway.
+        """
+        return pulumi.get(self, "require_service_s3_endpoint")
 
 
 @pulumi.output_type
@@ -11254,8 +11832,14 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer(dict):
             suggest = "allowed_clients"
         elif key == "allowedScopes":
             suggest = "allowed_scopes"
+        elif key == "allowedWorkloadConfiguration":
+            suggest = "allowed_workload_configuration"
         elif key == "customClaims":
             suggest = "custom_claims"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateEndpointOverrides":
+            suggest = "private_endpoint_overrides"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer. Access the value via the '{suggest}' property getter instead.")
@@ -11273,13 +11857,19 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer(dict):
                  allowed_audiences: Optional[Sequence[_builtins.str]] = None,
                  allowed_clients: Optional[Sequence[_builtins.str]] = None,
                  allowed_scopes: Optional[Sequence[_builtins.str]] = None,
-                 custom_claims: Optional[Sequence['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']] = None):
+                 allowed_workload_configuration: Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration'] = None,
+                 custom_claims: Optional[Sequence['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']] = None,
+                 private_endpoint: Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint'] = None,
+                 private_endpoint_overrides: Optional[Sequence['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride']] = None):
         """
         :param _builtins.str discovery_url: URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
         :param Sequence[_builtins.str] allowed_audiences: Set of allowed audience values for JWT token validation.
         :param Sequence[_builtins.str] allowed_clients: Set of allowed client IDs for JWT token validation.
         :param Sequence[_builtins.str] allowed_scopes: Set of scopes that are allowed to access the token.
+        :param 'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs' allowed_workload_configuration: Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
         :param Sequence['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs'] custom_claims: Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+        :param 'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs' private_endpoint: Private endpoint used to reach the authorization server. See `private_endpoint` below.
+        :param Sequence['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs'] private_endpoint_overrides: Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
         """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
@@ -11288,8 +11878,14 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer(dict):
             pulumi.set(__self__, "allowed_clients", allowed_clients)
         if allowed_scopes is not None:
             pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if allowed_workload_configuration is not None:
+            pulumi.set(__self__, "allowed_workload_configuration", allowed_workload_configuration)
         if custom_claims is not None:
             pulumi.set(__self__, "custom_claims", custom_claims)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_overrides is not None:
+            pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -11324,12 +11920,104 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizer(dict):
         return pulumi.get(self, "allowed_scopes")
 
     @_builtins.property
+    @pulumi.getter(name="allowedWorkloadConfiguration")
+    def allowed_workload_configuration(self) -> Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration']:
+        """
+        Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
+        """
+        return pulumi.get(self, "allowed_workload_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="customClaims")
     def custom_claims(self) -> Optional[Sequence['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']]:
         """
         Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
         """
         return pulumi.get(self, "custom_claims")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint']:
+        """
+        Private endpoint used to reach the authorization server. See `private_endpoint` below.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointOverrides")
+    def private_endpoint_overrides(self) -> Optional[Sequence['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride']]:
+        """
+        Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
+        """
+        return pulumi.get(self, "private_endpoint_overrides")
+
+
+@pulumi.output_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostingEnvironments":
+            suggest = "hosting_environments"
+        elif key == "workloadIdentities":
+            suggest = "workload_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hosting_environments: Optional[Sequence['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment']] = None,
+                 workload_identities: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs'] hosting_environments: Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+        :param Sequence[_builtins.str] workload_identities: List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+        """
+        if hosting_environments is not None:
+            pulumi.set(__self__, "hosting_environments", hosting_environments)
+        if workload_identities is not None:
+            pulumi.set(__self__, "workload_identities", workload_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="hostingEnvironments")
+    def hosting_environments(self) -> Optional[Sequence['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment']]:
+        """
+        Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+        """
+        return pulumi.get(self, "hosting_environments")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentities")
+    def workload_identities(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+        """
+        return pulumi.get(self, "workload_identities")
+
+
+@pulumi.output_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str):
+        """
+        :param _builtins.str arn: ARN of the hosting environment.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN of the hosting environment.
+        """
+        return pulumi.get(self, "arn")
 
 
 @pulumi.output_type
@@ -11489,6 +12177,424 @@ class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAutho
         List of strings to check for a match. Must be specified when `claim_match_operator` is `CONTAINS_ANY`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
         """
         return pulumi.get(self, "match_value_string_lists")
+
+
+@pulumi.output_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource'] = None):
+        """
+        :param 'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` below.
+        :param 'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource']:
+        """
+        Managed VPC resource configuration. See `managed_vpc_resource` below.
+        """
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource']:
+        """
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str endpoint_ip_address_type: IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets for the endpoint.
+        :param _builtins.str vpc_identifier: Identifier of the VPC for the endpoint.
+        :param _builtins.str routing_domain: Routing domain for the endpoint.
+        :param Sequence[_builtins.str] security_group_ids: IDs of the security groups for the endpoint.
+        :param Mapping[str, _builtins.str] tags: Tags to assign to the managed VPC resource.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the subnets for the endpoint.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC for the endpoint.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        """
+        Routing domain for the endpoint.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        IDs of the security groups for the endpoint.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tags to assign to the managed VPC resource.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: _builtins.str,
+                 private_endpoint: 'outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint'):
+        """
+        :param _builtins.str domain: Domain the override applies to.
+        :param 'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs' private_endpoint: Private endpoint configuration. See `private_endpoint` below.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        Domain the override applies to.
+        """
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint':
+        """
+        Private endpoint configuration. See `private_endpoint` below.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource'] = None):
+        """
+        :param 'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` below.
+        :param 'AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource']:
+        """
+        Managed VPC resource configuration. See `managed_vpc_resource` below.
+        """
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource']:
+        """
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str endpoint_ip_address_type: IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets for the endpoint.
+        :param _builtins.str vpc_identifier: Identifier of the VPC for the endpoint.
+        :param _builtins.str routing_domain: Routing domain for the endpoint.
+        :param Sequence[_builtins.str] security_group_ids: IDs of the security groups for the endpoint.
+        :param Mapping[str, _builtins.str] tags: Tags to assign to the managed VPC resource.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the subnets for the endpoint.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC for the endpoint.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        """
+        Routing domain for the endpoint.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        IDs of the security groups for the endpoint.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tags to assign to the managed VPC resource.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        """
+        :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
+        """
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC Lattice resource configuration.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
+
+
+@pulumi.output_type
+class AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        """
+        :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
+        """
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC Lattice resource configuration.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
 
 
 @pulumi.output_type
@@ -14790,8 +15896,14 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer(dict):
             suggest = "allowed_clients"
         elif key == "allowedScopes":
             suggest = "allowed_scopes"
+        elif key == "allowedWorkloadConfiguration":
+            suggest = "allowed_workload_configuration"
         elif key == "customClaims":
             suggest = "custom_claims"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateEndpointOverrides":
+            suggest = "private_endpoint_overrides"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer. Access the value via the '{suggest}' property getter instead.")
@@ -14809,13 +15921,19 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer(dict):
                  allowed_audiences: Optional[Sequence[_builtins.str]] = None,
                  allowed_clients: Optional[Sequence[_builtins.str]] = None,
                  allowed_scopes: Optional[Sequence[_builtins.str]] = None,
-                 custom_claims: Optional[Sequence['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']] = None):
+                 allowed_workload_configuration: Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration'] = None,
+                 custom_claims: Optional[Sequence['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']] = None,
+                 private_endpoint: Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint'] = None,
+                 private_endpoint_overrides: Optional[Sequence['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride']] = None):
         """
         :param _builtins.str discovery_url: URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
         :param Sequence[_builtins.str] allowed_audiences: Set of allowed audience values for JWT token validation.
         :param Sequence[_builtins.str] allowed_clients: Set of allowed client IDs for JWT token validation.
         :param Sequence[_builtins.str] allowed_scopes: Set of scopes that are allowed to access the token.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs' allowed_workload_configuration: Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
         :param Sequence['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs'] custom_claims: Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs' private_endpoint: Private endpoint used to reach the authorization server. See `private_endpoint` below.
+        :param Sequence['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs'] private_endpoint_overrides: Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
         """
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
@@ -14824,8 +15942,14 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer(dict):
             pulumi.set(__self__, "allowed_clients", allowed_clients)
         if allowed_scopes is not None:
             pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if allowed_workload_configuration is not None:
+            pulumi.set(__self__, "allowed_workload_configuration", allowed_workload_configuration)
         if custom_claims is not None:
             pulumi.set(__self__, "custom_claims", custom_claims)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_overrides is not None:
+            pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -14860,12 +15984,104 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizer(dict):
         return pulumi.get(self, "allowed_scopes")
 
     @_builtins.property
+    @pulumi.getter(name="allowedWorkloadConfiguration")
+    def allowed_workload_configuration(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration']:
+        """
+        Configuration restricting which workloads may use this authorizer. See `allowed_workload_configuration` below.
+        """
+        return pulumi.get(self, "allowed_workload_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="customClaims")
     def custom_claims(self) -> Optional[Sequence['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']]:
         """
         Repeatable block to define a custom claim validation name, value, and operation. See `custom_claim` below.
         """
         return pulumi.get(self, "custom_claims")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint']:
+        """
+        Private endpoint used to reach the authorization server. See `private_endpoint` below.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointOverrides")
+    def private_endpoint_overrides(self) -> Optional[Sequence['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride']]:
+        """
+        Overrides for the private endpoints used to reach the authorization server. See `private_endpoint_overrides` below.
+        """
+        return pulumi.get(self, "private_endpoint_overrides")
+
+
+@pulumi.output_type
+class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostingEnvironments":
+            suggest = "hosting_environments"
+        elif key == "workloadIdentities":
+            suggest = "workload_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hosting_environments: Optional[Sequence['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment']] = None,
+                 workload_identities: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence['AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs'] hosting_environments: Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+        :param Sequence[_builtins.str] workload_identities: List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+        """
+        if hosting_environments is not None:
+            pulumi.set(__self__, "hosting_environments", hosting_environments)
+        if workload_identities is not None:
+            pulumi.set(__self__, "workload_identities", workload_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="hostingEnvironments")
+    def hosting_environments(self) -> Optional[Sequence['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment']]:
+        """
+        Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hosting_environment` below.
+        """
+        return pulumi.get(self, "hosting_environments")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentities")
+    def workload_identities(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+        """
+        return pulumi.get(self, "workload_identities")
+
+
+@pulumi.output_type
+class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str):
+        """
+        :param _builtins.str arn: ARN of the hosting environment.
+        """
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        """
+        ARN of the hosting environment.
+        """
+        return pulumi.get(self, "arn")
 
 
 @pulumi.output_type
@@ -15025,6 +16241,424 @@ class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAutho
         List of strings to check for a match. Must be specified when `claim_match_operator` is `CONTAINS_ANY`. Exactly one of `match_value_string` or `match_value_string_list` must be specified.
         """
         return pulumi.get(self, "match_value_string_lists")
+
+
+@pulumi.output_type
+class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource'] = None):
+        """
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource']:
+        """
+        Managed VPC resource configuration. See `managed_vpc_resource` below.
+        """
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource']:
+        """
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str endpoint_ip_address_type: IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets for the endpoint.
+        :param _builtins.str vpc_identifier: Identifier of the VPC for the endpoint.
+        :param _builtins.str routing_domain: Routing domain for the endpoint.
+        :param Sequence[_builtins.str] security_group_ids: IDs of the security groups for the endpoint.
+        :param Mapping[str, _builtins.str] tags: Tags to assign to the managed VPC resource.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the subnets for the endpoint.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC for the endpoint.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        """
+        Routing domain for the endpoint.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        IDs of the security groups for the endpoint.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tags to assign to the managed VPC resource.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: _builtins.str,
+                 private_endpoint: 'outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint'):
+        """
+        :param _builtins.str domain: Domain the override applies to.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs' private_endpoint: Private endpoint configuration. See `private_endpoint` below.
+        """
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        """
+        Domain the override applies to.
+        """
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint':
+        """
+        Private endpoint configuration. See `private_endpoint` below.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource'] = None):
+        """
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs' managed_vpc_resource: Managed VPC resource configuration. See `managed_vpc_resource` below.
+        :param 'AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs' self_managed_lattice_resource: Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource']:
+        """
+        Managed VPC resource configuration. See `managed_vpc_resource` below.
+        """
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource']:
+        """
+        Self-managed VPC Lattice resource configuration. See `self_managed_lattice_resource` below.
+        """
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        :param _builtins.str endpoint_ip_address_type: IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        :param Sequence[_builtins.str] subnet_ids: IDs of the subnets for the endpoint.
+        :param _builtins.str vpc_identifier: Identifier of the VPC for the endpoint.
+        :param _builtins.str routing_domain: Routing domain for the endpoint.
+        :param Sequence[_builtins.str] security_group_ids: IDs of the security groups for the endpoint.
+        :param Mapping[str, _builtins.str] tags: Tags to assign to the managed VPC resource.
+        """
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        """
+        IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        """
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the subnets for the endpoint.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC for the endpoint.
+        """
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        """
+        Routing domain for the endpoint.
+        """
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        IDs of the security groups for the endpoint.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Tags to assign to the managed VPC resource.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        """
+        :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
+        """
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC Lattice resource configuration.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
+
+
+@pulumi.output_type
+class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        """
+        :param _builtins.str resource_configuration_identifier: Identifier of the VPC Lattice resource configuration.
+        """
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        """
+        Identifier of the VPC Lattice resource configuration.
+        """
+        return pulumi.get(self, "resource_configuration_identifier")
 
 
 @pulumi.output_type
@@ -15443,7 +17077,9 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "securityGroups":
+        if key == "requireServiceS3Endpoint":
+            suggest = "require_service_s3_endpoint"
+        elif key == "securityGroups":
             suggest = "security_groups"
 
         if suggest:
@@ -15458,14 +17094,25 @@ class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 require_service_s3_endpoint: _builtins.bool,
                  security_groups: Sequence[_builtins.str],
                  subnets: Sequence[_builtins.str]):
         """
+        :param _builtins.bool require_service_s3_endpoint: Whether to require an S3 endpoint for the service in the VPC.
         :param Sequence[_builtins.str] security_groups: Security groups for the VPC.
         :param Sequence[_builtins.str] subnets: Subnets for the VPC.
         """
+        pulumi.set(__self__, "require_service_s3_endpoint", require_service_s3_endpoint)
         pulumi.set(__self__, "security_groups", security_groups)
         pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="requireServiceS3Endpoint")
+    def require_service_s3_endpoint(self) -> _builtins.bool:
+        """
+        Whether to require an S3 endpoint for the service in the VPC.
+        """
+        return pulumi.get(self, "require_service_s3_endpoint")
 
     @_builtins.property
     @pulumi.getter(name="securityGroups")
@@ -19272,8 +20919,14 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer(dict):
             suggest = "allowed_clients"
         elif key == "allowedScopes":
             suggest = "allowed_scopes"
+        elif key == "allowedWorkloadConfiguration":
+            suggest = "allowed_workload_configuration"
         elif key == "customClaims":
             suggest = "custom_claims"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateEndpointOverrides":
+            suggest = "private_endpoint_overrides"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer. Access the value via the '{suggest}' property getter instead.")
@@ -19291,7 +20944,10 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer(dict):
                  allowed_audiences: Optional[Sequence[_builtins.str]] = None,
                  allowed_clients: Optional[Sequence[_builtins.str]] = None,
                  allowed_scopes: Optional[Sequence[_builtins.str]] = None,
-                 custom_claims: Optional[Sequence['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']] = None):
+                 allowed_workload_configuration: Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration'] = None,
+                 custom_claims: Optional[Sequence['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']] = None,
+                 private_endpoint: Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint'] = None,
+                 private_endpoint_overrides: Optional[Sequence['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride']] = None):
         pulumi.set(__self__, "discovery_url", discovery_url)
         if allowed_audiences is not None:
             pulumi.set(__self__, "allowed_audiences", allowed_audiences)
@@ -19299,8 +20955,14 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer(dict):
             pulumi.set(__self__, "allowed_clients", allowed_clients)
         if allowed_scopes is not None:
             pulumi.set(__self__, "allowed_scopes", allowed_scopes)
+        if allowed_workload_configuration is not None:
+            pulumi.set(__self__, "allowed_workload_configuration", allowed_workload_configuration)
         if custom_claims is not None:
             pulumi.set(__self__, "custom_claims", custom_claims)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_overrides is not None:
+            pulumi.set(__self__, "private_endpoint_overrides", private_endpoint_overrides)
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
@@ -19323,9 +20985,76 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer(dict):
         return pulumi.get(self, "allowed_scopes")
 
     @_builtins.property
+    @pulumi.getter(name="allowedWorkloadConfiguration")
+    def allowed_workload_configuration(self) -> Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration']:
+        return pulumi.get(self, "allowed_workload_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="customClaims")
     def custom_claims(self) -> Optional[Sequence['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim']]:
         return pulumi.get(self, "custom_claims")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint']:
+        return pulumi.get(self, "private_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointOverrides")
+    def private_endpoint_overrides(self) -> Optional[Sequence['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride']]:
+        return pulumi.get(self, "private_endpoint_overrides")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostingEnvironments":
+            suggest = "hosting_environments"
+        elif key == "workloadIdentities":
+            suggest = "workload_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hosting_environments: Optional[Sequence['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment']] = None,
+                 workload_identities: Optional[Sequence[_builtins.str]] = None):
+        if hosting_environments is not None:
+            pulumi.set(__self__, "hosting_environments", hosting_environments)
+        if workload_identities is not None:
+            pulumi.set(__self__, "workload_identities", workload_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="hostingEnvironments")
+    def hosting_environments(self) -> Optional[Sequence['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment']]:
+        return pulumi.get(self, "hosting_environments")
+
+    @_builtins.property
+    @pulumi.getter(name="workloadIdentities")
+    def workload_identities(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "workload_identities")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment(dict):
+    def __init__(__self__, *,
+                 arn: _builtins.str):
+        pulumi.set(__self__, "arn", arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def arn(self) -> _builtins.str:
+        return pulumi.get(self, "arn")
 
 
 @pulumi.output_type
@@ -19451,6 +21180,330 @@ class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuth
     @pulumi.getter(name="matchValueStringLists")
     def match_value_string_lists(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "match_value_string_lists")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource'] = None):
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource']:
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource']:
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain: _builtins.str,
+                 private_endpoint: 'outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint'):
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+
+    @_builtins.property
+    @pulumi.getter
+    def domain(self) -> _builtins.str:
+        return pulumi.get(self, "domain")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint':
+        return pulumi.get(self, "private_endpoint")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedVpcResource":
+            suggest = "managed_vpc_resource"
+        elif key == "selfManagedLatticeResource":
+            suggest = "self_managed_lattice_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_vpc_resource: Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource'] = None,
+                 self_managed_lattice_resource: Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource'] = None):
+        if managed_vpc_resource is not None:
+            pulumi.set(__self__, "managed_vpc_resource", managed_vpc_resource)
+        if self_managed_lattice_resource is not None:
+            pulumi.set(__self__, "self_managed_lattice_resource", self_managed_lattice_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="managedVpcResource")
+    def managed_vpc_resource(self) -> Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource']:
+        return pulumi.get(self, "managed_vpc_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="selfManagedLatticeResource")
+    def self_managed_lattice_resource(self) -> Optional['outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource']:
+        return pulumi.get(self, "self_managed_lattice_resource")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointIpAddressType":
+            suggest = "endpoint_ip_address_type"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcIdentifier":
+            suggest = "vpc_identifier"
+        elif key == "routingDomain":
+            suggest = "routing_domain"
+        elif key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_ip_address_type: _builtins.str,
+                 subnet_ids: Sequence[_builtins.str],
+                 vpc_identifier: _builtins.str,
+                 routing_domain: Optional[_builtins.str] = None,
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
+        pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_identifier", vpc_identifier)
+        if routing_domain is not None:
+            pulumi.set(__self__, "routing_domain", routing_domain)
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointIpAddressType")
+    def endpoint_ip_address_type(self) -> _builtins.str:
+        return pulumi.get(self, "endpoint_ip_address_type")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "subnet_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcIdentifier")
+    def vpc_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "vpc_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="routingDomain")
+    def routing_domain(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "routing_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "resource_configuration_identifier")
+
+
+@pulumi.output_type
+class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceConfigurationIdentifier":
+            suggest = "resource_configuration_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_configuration_identifier: _builtins.str):
+        pulumi.set(__self__, "resource_configuration_identifier", resource_configuration_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceConfigurationIdentifier")
+    def resource_configuration_identifier(self) -> _builtins.str:
+        return pulumi.get(self, "resource_configuration_identifier")
 
 
 @pulumi.output_type

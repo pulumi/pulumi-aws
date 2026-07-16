@@ -420,6 +420,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `clusterIdentifier` (String) Cluster identifier of the RDS Cluster.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import RDS Clusters using the `clusterIdentifier`. For example:
  * 
  * ```sh

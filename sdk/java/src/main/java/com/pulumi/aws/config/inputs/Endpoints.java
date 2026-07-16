@@ -870,6 +870,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String lambdamicrovms;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String launchwizard;
     /**
      * @return Use this to override the default service endpoint URL
@@ -2779,6 +2784,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> lambdamicrovms() {
+        return Optional.ofNullable(this.lambdamicrovms);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> launchwizard() {
         return Optional.ofNullable(this.launchwizard);
     }
@@ -3950,6 +3962,7 @@ public final class Endpoints {
         private @Nullable String kms;
         private @Nullable String lakeformation;
         private @Nullable String lambda;
+        private @Nullable String lambdamicrovms;
         private @Nullable String launchwizard;
         private @Nullable String lex;
         private @Nullable String lexmodelbuilding;
@@ -4266,6 +4279,7 @@ public final class Endpoints {
     	      this.kms = defaults.kms;
     	      this.lakeformation = defaults.lakeformation;
     	      this.lambda = defaults.lambda;
+    	      this.lambdamicrovms = defaults.lambdamicrovms;
     	      this.launchwizard = defaults.launchwizard;
     	      this.lex = defaults.lex;
     	      this.lexmodelbuilding = defaults.lexmodelbuilding;
@@ -5437,6 +5451,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder lambdamicrovms(@Nullable String lambdamicrovms) {
+
+            this.lambdamicrovms = lambdamicrovms;
+            return this;
+        }
+        @CustomType.Setter
         public Builder launchwizard(@Nullable String launchwizard) {
 
             this.launchwizard = launchwizard;
@@ -6461,6 +6481,7 @@ public final class Endpoints {
             _resultValue.kms = kms;
             _resultValue.lakeformation = lakeformation;
             _resultValue.lambda = lambda;
+            _resultValue.lambdamicrovms = lambdamicrovms;
             _resultValue.launchwizard = launchwizard;
             _resultValue.lex = lex;
             _resultValue.lexmodelbuilding = lexmodelbuilding;

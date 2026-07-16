@@ -177,6 +177,10 @@ export class Guardrail extends pulumi.CustomResource {
      */
     declare public readonly topicPolicyConfig: pulumi.Output<outputs.bedrock.GuardrailTopicPolicyConfig | undefined>;
     /**
+     * Date and time that the Guardrail list was last updated.
+     */
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    /**
      * Version of the Guardrail.
      */
     declare public /*out*/ readonly version: pulumi.Output<string>;
@@ -216,6 +220,7 @@ export class Guardrail extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timeouts"] = state?.timeouts;
             resourceInputs["topicPolicyConfig"] = state?.topicPolicyConfig;
+            resourceInputs["updatedAt"] = state?.updatedAt;
             resourceInputs["version"] = state?.version;
             resourceInputs["wordPolicyConfig"] = state?.wordPolicyConfig;
         } else {
@@ -245,6 +250,7 @@ export class Guardrail extends pulumi.CustomResource {
             resourceInputs["guardrailId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -321,6 +327,10 @@ export interface GuardrailState {
      * Topic policy config for a guardrail. See Topic Policy Config for more information.
      */
     topicPolicyConfig?: pulumi.Input<inputs.bedrock.GuardrailTopicPolicyConfig | undefined>;
+    /**
+     * Date and time that the Guardrail list was last updated.
+     */
+    updatedAt?: pulumi.Input<string | undefined>;
     /**
      * Version of the Guardrail.
      */

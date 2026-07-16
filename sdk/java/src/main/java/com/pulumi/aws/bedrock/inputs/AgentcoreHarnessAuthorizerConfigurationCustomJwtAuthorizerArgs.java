@@ -3,7 +3,10 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -64,6 +67,21 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
     }
 
     /**
+     * Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+     * 
+     */
+    @Import(name="allowedWorkloadConfiguration")
+    private @Nullable Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs> allowedWorkloadConfiguration;
+
+    /**
+     * @return Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+     * 
+     */
+    public Optional<Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs>> allowedWorkloadConfiguration() {
+        return Optional.ofNullable(this.allowedWorkloadConfiguration);
+    }
+
+    /**
      * Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
      * 
      */
@@ -93,14 +111,47 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
         return this.discoveryUrl;
     }
 
+    /**
+     * Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+     * 
+     */
+    @Import(name="privateEndpoint")
+    private @Nullable Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs> privateEndpoint;
+
+    /**
+     * @return Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+     * 
+     */
+    public Optional<Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs>> privateEndpoint() {
+        return Optional.ofNullable(this.privateEndpoint);
+    }
+
+    /**
+     * Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+     * 
+     */
+    @Import(name="privateEndpointOverrides")
+    private @Nullable Output<List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>> privateEndpointOverrides;
+
+    /**
+     * @return Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+     * 
+     */
+    public Optional<Output<List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>>> privateEndpointOverrides() {
+        return Optional.ofNullable(this.privateEndpointOverrides);
+    }
+
     private AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs() {}
 
     private AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs(AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs $) {
         this.allowedAudiences = $.allowedAudiences;
         this.allowedClients = $.allowedClients;
         this.allowedScopes = $.allowedScopes;
+        this.allowedWorkloadConfiguration = $.allowedWorkloadConfiguration;
         this.customClaims = $.customClaims;
         this.discoveryUrl = $.discoveryUrl;
+        this.privateEndpoint = $.privateEndpoint;
+        this.privateEndpointOverrides = $.privateEndpointOverrides;
     }
 
     public static Builder builder() {
@@ -215,6 +266,27 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
         }
 
         /**
+         * @param allowedWorkloadConfiguration Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedWorkloadConfiguration(@Nullable Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs> allowedWorkloadConfiguration) {
+            $.allowedWorkloadConfiguration = allowedWorkloadConfiguration;
+            return this;
+        }
+
+        /**
+         * @param allowedWorkloadConfiguration Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedWorkloadConfiguration(AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs allowedWorkloadConfiguration) {
+            return allowedWorkloadConfiguration(Output.of(allowedWorkloadConfiguration));
+        }
+
+        /**
          * @param customClaims Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
          * 
          * @return builder
@@ -264,6 +336,58 @@ public final class AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArg
          */
         public Builder discoveryUrl(String discoveryUrl) {
             return discoveryUrl(Output.of(discoveryUrl));
+        }
+
+        /**
+         * @param privateEndpoint Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpoint(@Nullable Output<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs> privateEndpoint) {
+            $.privateEndpoint = privateEndpoint;
+            return this;
+        }
+
+        /**
+         * @param privateEndpoint Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpoint(AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs privateEndpoint) {
+            return privateEndpoint(Output.of(privateEndpoint));
+        }
+
+        /**
+         * @param privateEndpointOverrides Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointOverrides(@Nullable Output<List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>> privateEndpointOverrides) {
+            $.privateEndpointOverrides = privateEndpointOverrides;
+            return this;
+        }
+
+        /**
+         * @param privateEndpointOverrides Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointOverrides(List<AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs> privateEndpointOverrides) {
+            return privateEndpointOverrides(Output.of(privateEndpointOverrides));
+        }
+
+        /**
+         * @param privateEndpointOverrides Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateEndpointOverrides(AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs... privateEndpointOverrides) {
+            return privateEndpointOverrides(List.of(privateEndpointOverrides));
         }
 
         public AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerArgs build() {
