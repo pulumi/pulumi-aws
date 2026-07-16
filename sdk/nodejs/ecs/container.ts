@@ -50,12 +50,14 @@ export interface ContainerDefinition {
     readonlyRootFilesystem?: pulumi.Input<boolean>;
     repositoryCredentials?: RepositoryCredentials;
     resourceRequirements?: ResourceRequirements[];
+    restartPolicy?: ContainerRestartPolicy;
     secrets?: Secret[];
     startTimeout?: pulumi.Input<number>;
     stopTimeout?: pulumi.Input<number>;
     systemControls?: SystemControl[];
     ulimits?: Ulimit[];
     user?: pulumi.Input<string>;
+    versionConsistency?: VersionConsistency;
     volumesFrom?: VolumeFrom[];
     workingDirectory?: pulumi.Input<string>;
 }
@@ -245,6 +247,37 @@ export interface ResourceRequirements {
 }
 
 /**
+ * The restart policy for the container. When you enable a restart policy for a container, Amazon
+ * ECS can restart the container if it exits, without needing to replace the task. For more
+ * information, see [Restart individual containers in Amazon ECS tasks with container restart
+ * policies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-restart-policy.html)
+ * in the Amazon Elastic Container Service Developer Guide.
+ *
+ * See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerRestartPolicy.html.
+ */
+export interface ContainerRestartPolicy {
+    /**
+     * Specifies whether a restart policy is enabled for the container.
+     */
+    enabled: pulumi.Input<boolean>;
+
+    /**
+     * A list of exit codes that Amazon ECS will ignore and not attempt a restart on. You can
+     * specify a maximum of 50 container exit codes. By default, Amazon ECS does not ignore any
+     * exit codes.
+     */
+    ignoredExitCodes?: pulumi.Input<number[]>;
+
+    /**
+     * A period of time (in seconds) that the container must run for before a restart can be
+     * attempted. A container can be restarted only once every restartAttemptPeriod seconds. You
+     * can set a minimum restartAttemptPeriod of 60 seconds and a maximum restartAttemptPeriod of
+     * 1800 seconds. By default, a container must run for 300 seconds before it can be restarted.
+     */
+    restartAttemptPeriod?: pulumi.Input<number>;
+}
+
+/**
  * An object representing the secret to expose to your container. Secrets can be exposed to a
  * container in the following ways:
  *
@@ -308,4 +341,7 @@ export interface SystemControl {
      */
     value?: pulumi.Input<string>;
 }
+
+// See https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDefinition.html
+export type VersionConsistency = "enabled" | "disabled";
 
