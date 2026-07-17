@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
@@ -21,13 +21,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * 
      */
     @Import(name="statements")
-    private @Nullable Output<List<WebAclRuleStatementArgs>> statements;
+    private @Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>> statements;
 
     /**
      * @return List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
      * 
      */
-    public Optional<Output<List<WebAclRuleStatementArgs>>> statements() {
+    public Optional<Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>>> statements() {
         return Optional.ofNullable(this.statements);
     }
 
@@ -61,7 +61,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
          * @return builder
          * 
          */
-        public Builder statements(@Nullable Output<List<WebAclRuleStatementArgs>> statements) {
+        public Builder statements(@Nullable Output<List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>> statements) {
             $.statements = statements;
             return this;
         }
@@ -72,7 +72,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
          * @return builder
          * 
          */
-        public Builder statements(List<WebAclRuleStatementArgs> statements) {
+        public Builder statements(List<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs> statements) {
             return statements(Output.of(statements));
         }
 
@@ -82,7 +82,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
          * @return builder
          * 
          */
-        public Builder statements(WebAclRuleStatementArgs... statements) {
+        public Builder statements(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs... statements) {
             return statements(List.of(statements));
         }
 

@@ -13,14 +13,14 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("statements")]
-        private InputList<Inputs.WebAclRuleStatementGetArgs>? _statements;
+        private InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGetArgs>? _statements;
 
         /// <summary>
         /// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
         /// </summary>
-        public InputList<Inputs.WebAclRuleStatementGetArgs> Statements
+        public InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGetArgs> Statements
         {
-            get => _statements ?? (_statements = new InputList<Inputs.WebAclRuleStatementGetArgs>());
+            get => _statements ?? (_statements = new InputList<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGetArgs>());
             set => _statements = value;
         }
 

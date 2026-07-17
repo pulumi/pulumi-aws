@@ -65,8 +65,17 @@ func replaceWafV2TypesWithRecursive(pulumiPackageSpec *schema.PackageSpec) {
 			refType := strings.Split(oldRef, ":")[2]
 			elidedRefs = append(elidedRefs, refType)
 
-			// Build a reference to the root RuleStatement type and replace the property.
-			ref := fmt.Sprintf("#/types/aws:wafv2/%s:%[1]s", rule)
+			// Build a reference to the nearest recursive statement type. Scope-down
+			// logical statements recurse within their restricted statement set rather
+			// than exposing root-only managed, rate-based, or rule-group statements.
+			recursiveType := rule
+			const scopeDownStatement = "ScopeDownStatement"
+			if rule == "WebAclRuleStatement" {
+				if index := strings.Index(typeName, scopeDownStatement); index >= 0 {
+					recursiveType = typeName[:index+len(scopeDownStatement)]
+				}
+			}
+			ref := fmt.Sprintf("#/types/aws:wafv2/%s:%[1]s", recursiveType)
 			if propertyName == "statements" {
 				ts.Properties[propertyName] = schema.PropertySpec{
 					Description: property.Description,

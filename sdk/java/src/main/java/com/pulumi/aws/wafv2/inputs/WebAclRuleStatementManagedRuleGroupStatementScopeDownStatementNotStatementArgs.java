@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -20,13 +20,13 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * 
      */
     @Import(name="statement")
-    private @Nullable Output<WebAclRuleStatementArgs> statement;
+    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs> statement;
 
     /**
      * @return Single statement to negate. Exactly one statement must be specified.
      * 
      */
-    public Optional<Output<WebAclRuleStatementArgs>> statement() {
+    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs>> statement() {
         return Optional.ofNullable(this.statement);
     }
 
@@ -60,7 +60,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
          * @return builder
          * 
          */
-        public Builder statement(@Nullable Output<WebAclRuleStatementArgs> statement) {
+        public Builder statement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs> statement) {
             $.statement = statement;
             return this;
         }
@@ -71,7 +71,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
          * @return builder
          * 
          */
-        public Builder statement(WebAclRuleStatementArgs statement) {
+        public Builder statement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs statement) {
             return statement(Output.of(statement));
         }
 

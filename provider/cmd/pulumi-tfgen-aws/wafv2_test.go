@@ -32,6 +32,7 @@ func TestReplaceWafV2TypesWithRecursive(t *testing.T) {
 				ObjectTypeSpec: schema.ObjectTypeSpec{
 					Properties: map[string]schema.PropertySpec{
 						"statements": {
+							Description: "Statements to combine.",
 							TypeSpec: schema.TypeSpec{
 								Type: "array",
 								Items: &schema.TypeSpec{
@@ -161,9 +162,10 @@ func TestReplaceWafV2TypesWithRecursive(t *testing.T) {
 	// Array and scalar references are re-written to their root statements.
 	andStatement := spec.Types["aws:wafv2/RuleGroupRuleStatementAndStatement:RuleGroupRuleStatementAndStatement"]
 	assert.Equal(t, "#/types/aws:wafv2/RuleGroupRuleStatement:RuleGroupRuleStatement", andStatement.Properties["statements"].Items.Ref)
+	assert.Equal(t, "Statements to combine.", andStatement.Properties["statements"].Description)
 
 	scopeDownNotStatement := spec.Types["aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement:WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement"]
-	assert.Equal(t, "#/types/aws:wafv2/WebAclRuleStatement:WebAclRuleStatement", scopeDownNotStatement.Properties["statement"].Ref)
+	assert.Equal(t, "#/types/aws:wafv2/WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement:WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement", scopeDownNotStatement.Properties["statement"].Ref)
 	assert.Equal(t, "Scope-down statement to negate.", scopeDownNotStatement.Properties["statement"].Description)
 
 	notStatement := spec.Types["aws:wafv2/WebAclRuleStatementNotStatement:WebAclRuleStatementNotStatement"]

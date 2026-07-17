@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,14 +15,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      * @return Single statement to negate. Exactly one statement must be specified.
      * 
      */
-    private @Nullable WebAclRuleStatement statement;
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement statement;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement() {}
     /**
      * @return Single statement to negate. Exactly one statement must be specified.
      * 
      */
-    public Optional<WebAclRuleStatement> statement() {
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> statement() {
         return Optional.ofNullable(this.statement);
     }
 
@@ -35,7 +35,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable WebAclRuleStatement statement;
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement statement;
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,7 +43,7 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         @CustomType.Setter
-        public Builder statement(@Nullable WebAclRuleStatement statement) {
+        public Builder statement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement statement) {
 
             this.statement = statement;
             return this;

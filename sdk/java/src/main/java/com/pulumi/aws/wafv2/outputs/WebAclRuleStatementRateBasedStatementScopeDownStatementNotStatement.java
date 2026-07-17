@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatement;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,14 +15,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
      * @return Single statement to negate. Exactly one statement must be specified.
      * 
      */
-    private @Nullable WebAclRuleStatement statement;
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement statement;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement() {}
     /**
      * @return Single statement to negate. Exactly one statement must be specified.
      * 
      */
-    public Optional<WebAclRuleStatement> statement() {
+    public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatement> statement() {
         return Optional.ofNullable(this.statement);
     }
 
@@ -35,7 +35,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable WebAclRuleStatement statement;
+        private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement statement;
         public Builder() {}
         public Builder(WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,7 +43,7 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementNotSta
         }
 
         @CustomType.Setter
-        public Builder statement(@Nullable WebAclRuleStatement statement) {
+        public Builder statement(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatement statement) {
 
             this.statement = statement;
             return this;

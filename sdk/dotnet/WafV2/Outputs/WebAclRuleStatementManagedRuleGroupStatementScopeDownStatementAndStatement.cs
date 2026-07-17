@@ -16,10 +16,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// <summary>
         /// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
         /// </summary>
-        public readonly ImmutableArray<Outputs.WebAclRuleStatement> Statements;
+        public readonly ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> Statements;
 
         [OutputConstructor]
-        private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement(ImmutableArray<Outputs.WebAclRuleStatement> statements)
+        private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement(ImmutableArray<Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement> statements)
         {
             Statements = statements;
         }
