@@ -3,11 +3,14 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement;
@@ -20,6 +23,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement {
+    /**
+     * @return Logical AND statement that combines multiple statements. See And Statement above.
+     * 
+     */
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement andStatement;
     /**
      * @return Match requests based on Autonomous System Number (ASN). See ASN Match Statement above.
      * 
@@ -46,6 +54,16 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement labelMatchStatement;
     /**
+     * @return Logical NOT statement that negates a single statement. See Not Statement above.
+     * 
+     */
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement notStatement;
+    /**
+     * @return Logical OR statement that combines multiple statements. See Or Statement above.
+     * 
+     */
+    private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement orStatement;
+    /**
      * @return Match requests using regex patterns. See Regex Match Statement above.
      * 
      */
@@ -68,10 +86,19 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     /**
      * @return Match requests that appear to contain cross-site scripting attacks.
      * 
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+     * 
      */
     private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement xssMatchStatement;
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement() {}
+    /**
+     * @return Logical AND statement that combines multiple statements. See And Statement above.
+     * 
+     */
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement> andStatement() {
+        return Optional.ofNullable(this.andStatement);
+    }
     /**
      * @return Match requests based on Autonomous System Number (ASN). See ASN Match Statement above.
      * 
@@ -108,6 +135,20 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         return Optional.ofNullable(this.labelMatchStatement);
     }
     /**
+     * @return Logical NOT statement that negates a single statement. See Not Statement above.
+     * 
+     */
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement> notStatement() {
+        return Optional.ofNullable(this.notStatement);
+    }
+    /**
+     * @return Logical OR statement that combines multiple statements. See Or Statement above.
+     * 
+     */
+    public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement> orStatement() {
+        return Optional.ofNullable(this.orStatement);
+    }
+    /**
      * @return Match requests using regex patterns. See Regex Match Statement above.
      * 
      */
@@ -138,6 +179,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     /**
      * @return Match requests that appear to contain cross-site scripting attacks.
      * 
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+     * 
      */
     public Optional<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement> xssMatchStatement() {
         return Optional.ofNullable(this.xssMatchStatement);
@@ -152,11 +195,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement andStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement asnMatchStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement byteMatchStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement geoMatchStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement ipSetReferenceStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement labelMatchStatement;
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement notStatement;
+        private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement orStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement regexMatchStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
         private @Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement sizeConstraintStatement;
@@ -165,11 +211,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         public Builder() {}
         public Builder(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.andStatement = defaults.andStatement;
     	      this.asnMatchStatement = defaults.asnMatchStatement;
     	      this.byteMatchStatement = defaults.byteMatchStatement;
     	      this.geoMatchStatement = defaults.geoMatchStatement;
     	      this.ipSetReferenceStatement = defaults.ipSetReferenceStatement;
     	      this.labelMatchStatement = defaults.labelMatchStatement;
+    	      this.notStatement = defaults.notStatement;
+    	      this.orStatement = defaults.orStatement;
     	      this.regexMatchStatement = defaults.regexMatchStatement;
     	      this.regexPatternSetReferenceStatement = defaults.regexPatternSetReferenceStatement;
     	      this.sizeConstraintStatement = defaults.sizeConstraintStatement;
@@ -177,6 +226,12 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     	      this.xssMatchStatement = defaults.xssMatchStatement;
         }
 
+        @CustomType.Setter
+        public Builder andStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement andStatement) {
+
+            this.andStatement = andStatement;
+            return this;
+        }
         @CustomType.Setter
         public Builder asnMatchStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement asnMatchStatement) {
 
@@ -205,6 +260,18 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         public Builder labelMatchStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement labelMatchStatement) {
 
             this.labelMatchStatement = labelMatchStatement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder notStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement notStatement) {
+
+            this.notStatement = notStatement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder orStatement(@Nullable WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement orStatement) {
+
+            this.orStatement = orStatement;
             return this;
         }
         @CustomType.Setter
@@ -239,11 +306,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
         public WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement build() {
             final var _resultValue = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement();
+            _resultValue.andStatement = andStatement;
             _resultValue.asnMatchStatement = asnMatchStatement;
             _resultValue.byteMatchStatement = byteMatchStatement;
             _resultValue.geoMatchStatement = geoMatchStatement;
             _resultValue.ipSetReferenceStatement = ipSetReferenceStatement;
             _resultValue.labelMatchStatement = labelMatchStatement;
+            _resultValue.notStatement = notStatement;
+            _resultValue.orStatement = orStatement;
             _resultValue.regexMatchStatement = regexMatchStatement;
             _resultValue.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             _resultValue.sizeConstraintStatement = sizeConstraintStatement;

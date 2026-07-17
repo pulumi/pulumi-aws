@@ -13,6 +13,12 @@ namespace Pulumi.Aws.WafV2.Inputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatementGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Logical AND statement that combines multiple statements. See And Statement above.
+        /// </summary>
+        [Input("andStatement")]
+        public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementGetArgs>? AndStatement { get; set; }
+
+        /// <summary>
         /// Match requests based on Autonomous System Number (ASN). See ASN Match Statement above.
         /// </summary>
         [Input("asnMatchStatement")]
@@ -43,6 +49,18 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementGetArgs>? LabelMatchStatement { get; set; }
 
         /// <summary>
+        /// Logical NOT statement that negates a single statement. See Not Statement above.
+        /// </summary>
+        [Input("notStatement")]
+        public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementGetArgs>? NotStatement { get; set; }
+
+        /// <summary>
+        /// Logical OR statement that combines multiple statements. See Or Statement above.
+        /// </summary>
+        [Input("orStatement")]
+        public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementGetArgs>? OrStatement { get; set; }
+
+        /// <summary>
         /// Match requests using regex patterns. See Regex Match Statement above.
         /// </summary>
         [Input("regexMatchStatement")]
@@ -68,6 +86,8 @@ namespace Pulumi.Aws.WafV2.Inputs
 
         /// <summary>
         /// Match requests that appear to contain cross-site scripting attacks.
+        /// 
+        /// &gt; **NOTE:** Logical statements (`AndStatement`, `NotStatement`, `OrStatement`) within a scope down statement wrap the leaf statement types listed above.
         /// </summary>
         [Input("xssMatchStatement")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementGetArgs>? XssMatchStatement { get; set; }

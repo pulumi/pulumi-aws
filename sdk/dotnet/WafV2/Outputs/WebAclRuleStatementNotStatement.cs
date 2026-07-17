@@ -16,10 +16,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// <summary>
         /// Single statement to negate. Exactly one statement must be specified.
         /// </summary>
-        public readonly Outputs.WebAclRuleStatementNotStatementStatement? Statement;
+        public readonly Outputs.WebAclRuleStatement? Statement;
 
         [OutputConstructor]
-        private WebAclRuleStatementNotStatement(Outputs.WebAclRuleStatementNotStatementStatement? statement)
+        private WebAclRuleStatementNotStatement(Outputs.WebAclRuleStatement? statement)
         {
             Statement = statement;
         }

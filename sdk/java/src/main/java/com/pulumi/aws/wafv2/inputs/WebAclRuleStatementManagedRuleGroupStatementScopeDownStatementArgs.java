@@ -3,11 +3,14 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgs;
@@ -23,6 +26,21 @@ import javax.annotation.Nullable;
 public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs Empty = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs();
+
+    /**
+     * Logical AND statement that combines multiple statements. See And Statement above.
+     * 
+     */
+    @Import(name="andStatement")
+    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs> andStatement;
+
+    /**
+     * @return Logical AND statement that combines multiple statements. See And Statement above.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs>> andStatement() {
+        return Optional.ofNullable(this.andStatement);
+    }
 
     /**
      * Match requests based on Autonomous System Number (ASN). See ASN Match Statement above.
@@ -100,6 +118,36 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     }
 
     /**
+     * Logical NOT statement that negates a single statement. See Not Statement above.
+     * 
+     */
+    @Import(name="notStatement")
+    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs> notStatement;
+
+    /**
+     * @return Logical NOT statement that negates a single statement. See Not Statement above.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs>> notStatement() {
+        return Optional.ofNullable(this.notStatement);
+    }
+
+    /**
+     * Logical OR statement that combines multiple statements. See Or Statement above.
+     * 
+     */
+    @Import(name="orStatement")
+    private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs> orStatement;
+
+    /**
+     * @return Logical OR statement that combines multiple statements. See Or Statement above.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs>> orStatement() {
+        return Optional.ofNullable(this.orStatement);
+    }
+
+    /**
      * Match requests using regex patterns. See Regex Match Statement above.
      * 
      */
@@ -162,12 +210,16 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     /**
      * Match requests that appear to contain cross-site scripting attacks.
      * 
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+     * 
      */
     @Import(name="xssMatchStatement")
     private @Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs> xssMatchStatement;
 
     /**
      * @return Match requests that appear to contain cross-site scripting attacks.
+     * 
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
      * 
      */
     public Optional<Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs>> xssMatchStatement() {
@@ -177,11 +229,14 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs() {}
 
     private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs $) {
+        this.andStatement = $.andStatement;
         this.asnMatchStatement = $.asnMatchStatement;
         this.byteMatchStatement = $.byteMatchStatement;
         this.geoMatchStatement = $.geoMatchStatement;
         this.ipSetReferenceStatement = $.ipSetReferenceStatement;
         this.labelMatchStatement = $.labelMatchStatement;
+        this.notStatement = $.notStatement;
+        this.orStatement = $.orStatement;
         this.regexMatchStatement = $.regexMatchStatement;
         this.regexPatternSetReferenceStatement = $.regexPatternSetReferenceStatement;
         this.sizeConstraintStatement = $.sizeConstraintStatement;
@@ -205,6 +260,27 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
         public Builder(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs defaults) {
             $ = new WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param andStatement Logical AND statement that combines multiple statements. See And Statement above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder andStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs> andStatement) {
+            $.andStatement = andStatement;
+            return this;
+        }
+
+        /**
+         * @param andStatement Logical AND statement that combines multiple statements. See And Statement above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder andStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs andStatement) {
+            return andStatement(Output.of(andStatement));
         }
 
         /**
@@ -313,6 +389,48 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         }
 
         /**
+         * @param notStatement Logical NOT statement that negates a single statement. See Not Statement above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs> notStatement) {
+            $.notStatement = notStatement;
+            return this;
+        }
+
+        /**
+         * @param notStatement Logical NOT statement that negates a single statement. See Not Statement above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs notStatement) {
+            return notStatement(Output.of(notStatement));
+        }
+
+        /**
+         * @param orStatement Logical OR statement that combines multiple statements. See Or Statement above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orStatement(@Nullable Output<WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs> orStatement) {
+            $.orStatement = orStatement;
+            return this;
+        }
+
+        /**
+         * @param orStatement Logical OR statement that combines multiple statements. See Or Statement above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orStatement(WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs orStatement) {
+            return orStatement(Output.of(orStatement));
+        }
+
+        /**
          * @param regexMatchStatement Match requests using regex patterns. See Regex Match Statement above.
          * 
          * @return builder
@@ -399,6 +517,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
         /**
          * @param xssMatchStatement Match requests that appear to contain cross-site scripting attacks.
          * 
+         * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+         * 
          * @return builder
          * 
          */
@@ -409,6 +529,8 @@ public final class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatemen
 
         /**
          * @param xssMatchStatement Match requests that appear to contain cross-site scripting attacks.
+         * 
+         * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
          * 
          * @return builder
          * 

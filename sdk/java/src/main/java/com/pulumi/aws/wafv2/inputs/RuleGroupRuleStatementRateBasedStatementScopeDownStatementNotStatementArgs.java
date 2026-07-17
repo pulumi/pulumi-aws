@@ -16,14 +16,14 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNot
     public static final RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs Empty = new RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs();
 
     /**
-     * The statements to combine.
+     * The statement to negate. You can use any statement that can be nested. See Statement above for details.
      * 
      */
     @Import(name="statements", required=true)
     private Output<List<RuleGroupRuleStatementArgs>> statements;
 
     /**
-     * @return The statements to combine.
+     * @return The statement to negate. You can use any statement that can be nested. See Statement above for details.
      * 
      */
     public Output<List<RuleGroupRuleStatementArgs>> statements() {
@@ -55,7 +55,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNot
         }
 
         /**
-         * @param statements The statements to combine.
+         * @param statements The statement to negate. You can use any statement that can be nested. See Statement above for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNot
         }
 
         /**
-         * @param statements The statements to combine.
+         * @param statements The statement to negate. You can use any statement that can be nested. See Statement above for details.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNot
         }
 
         /**
-         * @param statements The statements to combine.
+         * @param statements The statement to negate. You can use any statement that can be nested. See Statement above for details.
          * 
          * @return builder
          * 

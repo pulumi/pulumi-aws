@@ -29,41 +29,61 @@ func replaceWafV2TypesWithRecursive(pulumiPackageSpec *schema.PackageSpec) {
 		if !strings.Contains(tok, ":wafv2/") {
 			continue
 		}
+		typeName := strings.Split(tok, ":")[2]
 		// The recursive structures look like these currently:
 		// RuleStatement has a few properties like
 		// AndStatement, OrStatement, NotStatement, all of separate types.
-		// Each of those types has a property `statements` that point
-		// to the next layer of statement types, but should actually point
-		// to the top one recursively.
-		// So, we find all the `statements` properties (continue if not found).
+		// AND and OR types have a `statements` array that points to the next
+		// layer of statement types. Plugin Framework NOT types instead have
+		// a scalar `statement` property. Both should point to the top-level
+		// statement type recursively.
 		var oldRef string
-		if prop, has := ts.Properties["statements"]; has {
-			contract.Assertf(prop.Items != nil, "statements property must be an array")
-			oldRef = prop.Items.Ref
+		propertyName := ""
+		property, hasStatements := ts.Properties["statements"]
+		if hasStatements {
+			contract.Assertf(property.Items != nil, "statements property must be an array")
+			oldRef = property.Items.Ref
+			propertyName = "statements"
+		} else if statementProperty, has := ts.Properties["statement"]; has {
+			contract.Assertf(statementProperty.Ref != "", "statement property must reference a type")
+			property = statementProperty
+			oldRef = statementProperty.Ref
+			propertyName = "statement"
 		} else {
 			continue
 		}
-		// Add the currently referenced type to the list to be elided.
-		// Example of a reference:
-		// #/types/aws:wafv2/RuleGroupRuleStatement:RuleGroupRuleStatement
-		refType := strings.Split(oldRef, ":")[2]
-		elidedRefs = append(elidedRefs, refType)
-		// Get the current type name.
-		typeName := strings.Split(tok, ":")[2]
 		for _, rule := range rootStatementTypes {
-			if !strings.HasPrefix(typeName, rule) {
+			// Parent types also have a scalar `statement` property that references the
+			// root. Only descendants participate in the recursive replacement.
+			if !strings.HasPrefix(typeName, rule) || typeName == rule {
 				continue
 			}
+
+			// Add the currently referenced type to the list to be elided.
+			// Example of a reference:
+			// #/types/aws:wafv2/RuleGroupRuleStatement:RuleGroupRuleStatement
+			refType := strings.Split(oldRef, ":")[2]
+			elidedRefs = append(elidedRefs, refType)
+
 			// Build a reference to the root RuleStatement type and replace the property.
 			ref := fmt.Sprintf("#/types/aws:wafv2/%s:%[1]s", rule)
-			ts.Properties["statements"] = schema.PropertySpec{
-				Description: "The statements to combine.",
-				TypeSpec: schema.TypeSpec{
-					Type: "array",
-					Items: &schema.TypeSpec{
+			if propertyName == "statements" {
+				ts.Properties[propertyName] = schema.PropertySpec{
+					Description: property.Description,
+					TypeSpec: schema.TypeSpec{
+						Type: "array",
+						Items: &schema.TypeSpec{
+							Ref: ref,
+						},
+					},
+				}
+			} else {
+				ts.Properties[propertyName] = schema.PropertySpec{
+					Description: property.Description,
+					TypeSpec: schema.TypeSpec{
 						Ref: ref,
 					},
-				},
+				}
 			}
 		}
 	}

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.WebAclRuleStatementArgs>? _statements;
 
         /// <summary>
-        /// The statements to combine.
+        /// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
         /// </summary>
         public InputList<Inputs.WebAclRuleStatementArgs> Statements
         {

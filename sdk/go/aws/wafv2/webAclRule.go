@@ -554,8 +554,8 @@ import (
 //				},
 //				Statement: &wafv2.WebAclRuleStatementArgs{
 //					NotStatement: &wafv2.WebAclRuleStatementNotStatementArgs{
-//						Statement: &wafv2.WebAclRuleStatementNotStatementStatementArgs{
-//							GeoMatchStatement: &wafv2.WebAclRuleStatementNotStatementStatementGeoMatchStatementArgs{
+//						Statement: &wafv2.WebAclRuleStatementArgs{
+//							GeoMatchStatement: &wafv2.WebAclRuleStatementGeoMatchStatementArgs{
 //								CountryCodes: pulumi.StringArray{
 //									pulumi.String("US"),
 //									pulumi.String("CA"),

@@ -3,11 +3,14 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs;
@@ -23,6 +26,21 @@ import javax.annotation.Nullable;
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WebAclRuleStatementRateBasedStatementScopeDownStatementArgs Empty = new WebAclRuleStatementRateBasedStatementScopeDownStatementArgs();
+
+    /**
+     * Logical AND statement that combines multiple statements. See And Statement above.
+     * 
+     */
+    @Import(name="andStatement")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs> andStatement;
+
+    /**
+     * @return Logical AND statement that combines multiple statements. See And Statement above.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs>> andStatement() {
+        return Optional.ofNullable(this.andStatement);
+    }
 
     /**
      * Match requests based on Autonomous System Number (ASN). See ASN Match Statement above.
@@ -100,6 +118,36 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     }
 
     /**
+     * Logical NOT statement that negates a single statement. See Not Statement above.
+     * 
+     */
+    @Import(name="notStatement")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs> notStatement;
+
+    /**
+     * @return Logical NOT statement that negates a single statement. See Not Statement above.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs>> notStatement() {
+        return Optional.ofNullable(this.notStatement);
+    }
+
+    /**
+     * Logical OR statement that combines multiple statements. See Or Statement above.
+     * 
+     */
+    @Import(name="orStatement")
+    private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs> orStatement;
+
+    /**
+     * @return Logical OR statement that combines multiple statements. See Or Statement above.
+     * 
+     */
+    public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs>> orStatement() {
+        return Optional.ofNullable(this.orStatement);
+    }
+
+    /**
      * Match requests using regex patterns. See Regex Match Statement above.
      * 
      */
@@ -162,12 +210,16 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     /**
      * Match requests that appear to contain cross-site scripting attacks.
      * 
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+     * 
      */
     @Import(name="xssMatchStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs> xssMatchStatement;
 
     /**
      * @return Match requests that appear to contain cross-site scripting attacks.
+     * 
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs>> xssMatchStatement() {
@@ -177,11 +229,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
     private WebAclRuleStatementRateBasedStatementScopeDownStatementArgs() {}
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatementArgs(WebAclRuleStatementRateBasedStatementScopeDownStatementArgs $) {
+        this.andStatement = $.andStatement;
         this.asnMatchStatement = $.asnMatchStatement;
         this.byteMatchStatement = $.byteMatchStatement;
         this.geoMatchStatement = $.geoMatchStatement;
         this.ipSetReferenceStatement = $.ipSetReferenceStatement;
         this.labelMatchStatement = $.labelMatchStatement;
+        this.notStatement = $.notStatement;
+        this.orStatement = $.orStatement;
         this.regexMatchStatement = $.regexMatchStatement;
         this.regexPatternSetReferenceStatement = $.regexPatternSetReferenceStatement;
         this.sizeConstraintStatement = $.sizeConstraintStatement;
@@ -205,6 +260,27 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
 
         public Builder(WebAclRuleStatementRateBasedStatementScopeDownStatementArgs defaults) {
             $ = new WebAclRuleStatementRateBasedStatementScopeDownStatementArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param andStatement Logical AND statement that combines multiple statements. See And Statement above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder andStatement(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs> andStatement) {
+            $.andStatement = andStatement;
+            return this;
+        }
+
+        /**
+         * @param andStatement Logical AND statement that combines multiple statements. See And Statement above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder andStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs andStatement) {
+            return andStatement(Output.of(andStatement));
         }
 
         /**
@@ -313,6 +389,48 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         }
 
         /**
+         * @param notStatement Logical NOT statement that negates a single statement. See Not Statement above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notStatement(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs> notStatement) {
+            $.notStatement = notStatement;
+            return this;
+        }
+
+        /**
+         * @param notStatement Logical NOT statement that negates a single statement. See Not Statement above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs notStatement) {
+            return notStatement(Output.of(notStatement));
+        }
+
+        /**
+         * @param orStatement Logical OR statement that combines multiple statements. See Or Statement above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orStatement(@Nullable Output<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs> orStatement) {
+            $.orStatement = orStatement;
+            return this;
+        }
+
+        /**
+         * @param orStatement Logical OR statement that combines multiple statements. See Or Statement above.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder orStatement(WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs orStatement) {
+            return orStatement(Output.of(orStatement));
+        }
+
+        /**
          * @param regexMatchStatement Match requests using regex patterns. See Regex Match Statement above.
          * 
          * @return builder
@@ -399,6 +517,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
         /**
          * @param xssMatchStatement Match requests that appear to contain cross-site scripting attacks.
          * 
+         * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+         * 
          * @return builder
          * 
          */
@@ -409,6 +529,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatementArgs e
 
         /**
          * @param xssMatchStatement Match requests that appear to contain cross-site scripting attacks.
+         * 
+         * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
          * 
          * @return builder
          * 

@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.inputs;
 
-import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementNotStatementStatementArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -20,13 +20,13 @@ public final class WebAclRuleStatementNotStatementArgs extends com.pulumi.resour
      * 
      */
     @Import(name="statement")
-    private @Nullable Output<WebAclRuleStatementNotStatementStatementArgs> statement;
+    private @Nullable Output<WebAclRuleStatementArgs> statement;
 
     /**
      * @return Single statement to negate. Exactly one statement must be specified.
      * 
      */
-    public Optional<Output<WebAclRuleStatementNotStatementStatementArgs>> statement() {
+    public Optional<Output<WebAclRuleStatementArgs>> statement() {
         return Optional.ofNullable(this.statement);
     }
 
@@ -60,7 +60,7 @@ public final class WebAclRuleStatementNotStatementArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder statement(@Nullable Output<WebAclRuleStatementNotStatementStatementArgs> statement) {
+        public Builder statement(@Nullable Output<WebAclRuleStatementArgs> statement) {
             $.statement = statement;
             return this;
         }
@@ -71,7 +71,7 @@ public final class WebAclRuleStatementNotStatementArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder statement(WebAclRuleStatementNotStatementStatementArgs statement) {
+        public Builder statement(WebAclRuleStatementArgs statement) {
             return statement(Output.of(statement));
         }
 

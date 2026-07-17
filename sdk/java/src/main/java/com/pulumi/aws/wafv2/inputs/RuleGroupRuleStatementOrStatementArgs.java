@@ -16,14 +16,14 @@ public final class RuleGroupRuleStatementOrStatementArgs extends com.pulumi.reso
     public static final RuleGroupRuleStatementOrStatementArgs Empty = new RuleGroupRuleStatementOrStatementArgs();
 
     /**
-     * The statements to combine.
+     * The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
      * 
      */
     @Import(name="statements", required=true)
     private Output<List<RuleGroupRuleStatementArgs>> statements;
 
     /**
-     * @return The statements to combine.
+     * @return The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
      * 
      */
     public Output<List<RuleGroupRuleStatementArgs>> statements() {
@@ -55,7 +55,7 @@ public final class RuleGroupRuleStatementOrStatementArgs extends com.pulumi.reso
         }
 
         /**
-         * @param statements The statements to combine.
+         * @param statements The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class RuleGroupRuleStatementOrStatementArgs extends com.pulumi.reso
         }
 
         /**
-         * @param statements The statements to combine.
+         * @param statements The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
          * 
          * @return builder
          * 
@@ -76,7 +76,7 @@ public final class RuleGroupRuleStatementOrStatementArgs extends com.pulumi.reso
         }
 
         /**
-         * @param statements The statements to combine.
+         * @param statements The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
          * 
          * @return builder
          * 
