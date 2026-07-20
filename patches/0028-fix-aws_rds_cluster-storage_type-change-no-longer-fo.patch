@@ -1,0 +1,166 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Piers Karsenbarg <piers@pulumi.com>
+Date: Mon, 20 Jul 2026 09:33:08 +0100
+Subject: [PATCH] fix: aws_rds_cluster storage_type change no longer forces
+ replacement
+
+Changing storage_type on a non-Aurora multi-AZ RDS cluster (e.g. postgres
+or mysql) was incorrectly triggering a forced resource replacement. The
+AWS ModifyDBCluster API supports in-place storage_type changes for these
+clusters, and the update handler already sent StorageType in the modify
+call. The customdiff.ForceNewIf guard was incorrect. Removes the guard
+and adds an acceptance test to verify in-place update from io2 to gp3
+without recreation.
+
+Upstream: https://github.com/hashicorp/terraform-provider-aws/pull/48545
+
+diff --git a/.changelog/48545.txt b/.changelog/48545.txt
+new file mode 100644
+index 00000000000..48d992326af
+--- /dev/null
++++ b/.changelog/48545.txt
+@@ -0,0 +1,3 @@
++```release-note:bug
++resource/aws_rds_cluster: Fix `storage_type` changes incorrectly forcing resource replacement for non-Aurora clusters
++```
+diff --git a/internal/service/rds/cluster.go b/internal/service/rds/cluster.go
+index 1fcac4a325e..44aabfd644f 100644
+--- a/internal/service/rds/cluster.go
++++ b/internal/service/rds/cluster.go
+@@ -20,7 +20,6 @@ import (
+ 	"github.com/hashicorp/aws-sdk-go-base/v2/tfawserr"
+ 	"github.com/hashicorp/go-cty/cty"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+-	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/customdiff"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+ 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/validation"
+ 	"github.com/hashicorp/terraform-provider-aws/internal/conns"
+@@ -708,27 +707,19 @@ func resourceCluster() *schema.Resource {
+ 			}
+ 		},
+ 
+-		CustomizeDiff: customdiff.Sequence(
+-			customdiff.ForceNewIf(names.AttrStorageType, func(_ context.Context, d *schema.ResourceDiff, meta any) bool {
+-				// Aurora supports mutation of the storage_type parameter, other engines do not
+-				return !strings.HasPrefix(d.Get(names.AttrEngine).(string), "aurora")
+-			}),
+-			func(_ context.Context, diff *schema.ResourceDiff, _ any) error {
+-				if diff.Id() == "" {
+-					return nil
+-				}
+-				// The control plane will always return an empty string if a cluster is created with a storage_type of aurora
+-				old, new := diff.GetChange(names.AttrStorageType)
+-
+-				if new.(string) == "aurora" && old.(string) == "" {
+-					if err := diff.SetNew(names.AttrStorageType, ""); err != nil {
+-						return err
+-					}
+-					return nil
+-				}
++		CustomizeDiff: func(_ context.Context, diff *schema.ResourceDiff, _ any) error {
++			if diff.Id() == "" {
+ 				return nil
+-			},
+-		),
++			}
++			// The control plane will always return an empty string if a cluster is created with a storage_type of aurora
++			old, new := diff.GetChange(names.AttrStorageType)
++			if new.(string) == "aurora" && old.(string) == "" {
++				if err := diff.SetNew(names.AttrStorageType, ""); err != nil {
++					return err
++				}
++			}
++			return nil
++		},
+ 	}
+ }
+ 
+diff --git a/internal/service/rds/cluster_test.go b/internal/service/rds/cluster_test.go
+index bce4b647589..d2421a9f104 100644
+--- a/internal/service/rds/cluster_test.go
++++ b/internal/service/rds/cluster_test.go
+@@ -864,6 +864,41 @@ func TestAccRDSCluster_storageTypeAuroraIopt1UpdateAurora(t *testing.T) {
+ 	})
+ }
+ 
++func TestAccRDSCluster_storageTypeUpdateNonAurora(t *testing.T) {
++	if testing.Short() {
++		t.Skip("skipping long-running test in short mode")
++	}
++
++	ctx := acctest.Context(t)
++	var dbCluster1, dbCluster2 types.DBCluster
++	rName := acctest.RandomWithPrefix(t, acctest.ResourcePrefix)
++	resourceName := "aws_rds_cluster.test"
++
++	acctest.ParallelTest(ctx, t, resource.TestCase{
++		PreCheck:                 func() { acctest.PreCheck(ctx, t) },
++		ErrorCheck:               acctest.ErrorCheck(t, names.RDSServiceID),
++		ProtoV5ProviderFactories: acctest.ProtoV5ProviderFactories,
++		CheckDestroy:             testAccCheckClusterDestroy(ctx, t),
++		Steps: []resource.TestStep{
++			{
++				Config: testAccClusterConfig_storageTypeNonAurora(rName, "io2"),
++				Check: resource.ComposeTestCheckFunc(
++					testAccCheckClusterExists(ctx, t, resourceName, &dbCluster1),
++					resource.TestCheckResourceAttr(resourceName, names.AttrStorageType, "io2"),
++				),
++			},
++			{
++				Config: testAccClusterConfig_storageTypeNonAurora(rName, "gp3"),
++				Check: resource.ComposeTestCheckFunc(
++					testAccCheckClusterExists(ctx, t, resourceName, &dbCluster2),
++					testAccCheckClusterNotRecreated(&dbCluster1, &dbCluster2),
++					resource.TestCheckResourceAttr(resourceName, names.AttrStorageType, "gp3"),
++				),
++			},
++		},
++	})
++}
++
+ func TestAccRDSCluster_iops(t *testing.T) {
+ 	if testing.Short() {
+ 		t.Skip("skipping long-running test in short mode")
+@@ -4653,6 +4688,42 @@ resource "aws_rds_cluster" "test" {
+ `, tfrds.ClusterEngineMySQL, mainInstanceClasses, rName, sType))
+ }
+ 
++func testAccClusterConfig_storageTypeNonAurora(rName, sType string) string {
++	var iopsConfig string
++	if sType != "gp3" {
++		iopsConfig = `  iops = 1000`
++	}
++
++	return acctest.ConfigCompose(
++		testAccClusterConfig_clusterSubnetGroup(rName),
++		fmt.Sprintf(`
++data "aws_rds_orderable_db_instance" "test" {
++  engine                     = %[1]q
++  engine_latest_version      = true
++  preferred_instance_classes = [%[2]s]
++  storage_type               = "io2"
++  supports_iops              = true
++  supports_clusters          = true
++}
++`, tfrds.ClusterEnginePostgres, mainInstanceClasses),
++		fmt.Sprintf(`
++resource "aws_rds_cluster" "test" {
++  apply_immediately         = true
++  cluster_identifier        = %[1]q
++  db_cluster_instance_class = data.aws_rds_orderable_db_instance.test.instance_class
++  db_subnet_group_name      = aws_db_subnet_group.test.name
++  engine                    = data.aws_rds_orderable_db_instance.test.engine
++  engine_version            = data.aws_rds_orderable_db_instance.test.engine_version
++  storage_type              = %[2]q
++  allocated_storage         = 100
++  master_password           = "mustbeeightcharaters"
++  master_username           = "test"
++  skip_final_snapshot       = true
++%[3]s
++}
++`, rName, sType, iopsConfig))
++}
++
+ func testAccClusterConfig_storageChange(rName string, sType string) string {
+ 	return acctest.ConfigCompose(
+ 		acctest.ConfigRandomPassword(),
