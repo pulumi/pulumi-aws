@@ -147,16 +147,28 @@ jobs:
           echo "$EOF";
         } >> "$GITHUB_ENV"
     - if: inputs.acceptance_fanout == false && inputs.is_pr && inputs.is_automated == false && github.actor != 'dependabot[bot]'
-      name: Comment on PR with Details of Schema Check
-      uses: thollander/actions-comment-pull-request@24bffb9b452ba05a4f3f77933840a6a841d1b32b # v3.0.1
+      name: Find schema check comment
+      id: find-schema-check-comment
+      uses: peter-evans/find-comment@b30e6a3c0ed37e7c023ccd3f1db5c6c0b0c23aad # v4.0.0
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        comment-tag: schemaCheck
-        message: >+
+        token: ${{ secrets.GITHUB_TOKEN }}
+        issue-number: ${{ github.event.pull_request.number }}
+        body-includes: '"schemaCheck" -->'
+    - if: inputs.acceptance_fanout == false && inputs.is_pr && inputs.is_automated == false && github.actor != 'dependabot[bot]'
+      name: Comment on PR with Details of Schema Check
+      uses: peter-evans/create-or-update-comment@e8674b075228eee787fea43ef493e45ece1004c9 # v5.0.0
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        issue-number: ${{ github.event.pull_request.number }}
+        comment-id: ${{ steps.find-schema-check-comment.outputs.comment-id }}
+        edit-mode: replace
+        body: >+
           ${{ env.SCHEMA_CHANGES }}
 
 
           Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
+
+          <!-- "schemaCheck" -->
 
     - name: Upload artifacts
       uses: ./.github/actions/upload-prerequisites
