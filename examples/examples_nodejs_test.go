@@ -691,6 +691,30 @@ func TestRegress5219(t *testing.T) {
 	assert.Truef(t, t2.Sub(t1) < 10*time.Minute, "Expected pulumi up to fail within 10 minutes")
 }
 
+// Regress aws_route update failing with "route target attribute not
+// specified" when only customTimeouts changes, see pulumi/pulumi-aws#6549
+func TestRegress6549(t *testing.T) {
+	skipIfShort(t)
+	t.Parallel()
+	dir := filepath.Join("test-programs", "regress-6549")
+	cwd, err := os.Getwd()
+	require.NoError(t, err)
+	options := []opttest.Option{
+		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws"),
+	}
+	test := pulumitest.NewPulumiTest(t, dir, options...)
+	test.Up(t)
+
+	test.UpdateSource(t, filepath.Join(dir, "step1"))
+	res := test.Up(t, optup.Diff())
+
+	assert.Equal(t, map[string]int{
+		"update": 1,
+		"same":   3, // vpc, internet gateway, route table
+	}, *res.Summary.ResourceChanges)
+}
+
 type expectFailure struct {
 	*testing.T
 	failed bool
