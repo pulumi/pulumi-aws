@@ -56,7 +56,7 @@ jobs:
           - service: sqs
             tests: TestAccSQSQueue
           - service: ec2
-            tests: TestAccEC2KeyPair_publicKey
+            tests: 'TestAccEC2KeyPair_publicKey|TestAccVPCRoute_timeoutsOnlyChange'
           - service: docdb
             tests: TestAccDocDBCluster_basic
           - service: redshiftserverless
