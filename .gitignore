@@ -54,5 +54,10 @@ go.work.sum
 # Ignore local mise config
 mise.local.toml
 
+# APM-managed agent dependencies
+apm_modules/
+.agents/skills/*
+.claude/skills/*
+
 # Don't ignore schema.go if it's part of the Go SDK
 !sdk/go/**/schema.go
