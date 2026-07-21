@@ -10,51 +10,6 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
 
-// The logical model this test exercises:
-//
-// A WAFv2 Rule matches traffic through a single top-level Statement. A
-// Statement is either a *leaf* (e.g. ByteMatchStatement, SqliMatchStatement,
-// ManagedRuleGroupStatement, RateBasedStatement) or a *logical* statement that
-// combines other statements:
-//
-//   - AndStatement / OrStatement combine an array of child statements  ->  `statements`
-//   - NotStatement negates a single child statement                    ->  `statement`
-//
-// So a rule expresses a boolean tree, for example:
-//
-//   AND( ByteMatch(...), NOT( GeoMatch(...) ), OR( SizeConstraint(...), Sqli(...) ) )
-//
-// This nesting is unbounded, but Terraform cannot represent recursive schema
-// types, so upstream brute-forces a finite ladder of distinct types, one per
-// depth level:
-//
-//   RuleStatement
-//     -> RuleStatementAndStatement
-//          -> RuleStatementAndStatementStatement
-//               -> RuleStatementAndStatementStatementAndStatement
-//                    -> ... (a few levels deep, then it stops)
-//
-// replaceWafV2TypesWithRecursive collapses that ladder back into genuine
-// recursion: every descendant's `statement`/`statements` reference is rewritten
-// to point at the nearest recursive root, and the now-unreachable intermediate
-// ladder types are deleted. The two roots are RuleGroupRuleStatement and
-// WebAclRuleStatement.
-//
-// Scope-down statements are the exception. A ManagedRuleGroupStatement or
-// RateBasedStatement carries an optional `scopeDownStatement`, but AWS only
-// allows that subtree to contain leaf/logical statements -- it may NOT nest
-// another managed-rule-group, rate-based, or rule-group-reference statement.
-// So the recursion inside a scope-down block must loop back to the
-// `...ScopeDownStatement` node (its own restricted root), not to the unrestricted
-// WebAclRuleStatement root. Rewriting it to the full root would let the generated
-// SDKs accept e.g. a ManagedRuleGroupStatement inside a scope-down AndStatement,
-// which the provider schema cannot decode and which AWS rejects at deploy time.
-//
-// The fixture below builds a minimal slice of that type graph -- both roots, a
-// couple of ladder levels to be elided, a parent type that references a root via
-// a scalar `statement`, the Plugin Framework NOT shape, and a managed-rule-group
-// scope-down subtree -- and asserts the projection rewrites and elides exactly
-// the right types.
 func TestReplaceWafV2TypesWithRecursive(t *testing.T) {
 	t.Parallel()
 
