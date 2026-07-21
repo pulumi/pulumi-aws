@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement {
     /**
-     * @return The statements to combine.
+     * @return The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
      * 
      */
     private List<RuleGroupRuleStatement> statements;
 
     private RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement() {}
     /**
-     * @return The statements to combine.
+     * @return The statements to combine with `OR` logic. You can use any statements that can be nested. See Statement above for details.
      * 
      */
     public List<RuleGroupRuleStatement> statements() {

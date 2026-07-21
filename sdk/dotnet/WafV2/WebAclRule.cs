@@ -542,9 +542,9 @@ namespace Pulumi.Aws.WafV2
     ///         {
     ///             NotStatement = new Aws.WafV2.Inputs.WebAclRuleStatementNotStatementArgs
     ///             {
-    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementNotStatementStatementArgs
+    ///                 Statement = new Aws.WafV2.Inputs.WebAclRuleStatementArgs
     ///                 {
-    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.WebAclRuleStatementNotStatementStatementGeoMatchStatementArgs
+    ///                     GeoMatchStatement = new Aws.WafV2.Inputs.WebAclRuleStatementGeoMatchStatementArgs
     ///                     {
     ///                         CountryCodes = new[]
     ///                         {

@@ -3,11 +3,14 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement;
 import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement;
@@ -20,6 +23,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
+    /**
+     * @return Logical AND statement that combines multiple statements. See And Statement above.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement andStatement;
     /**
      * @return Match requests based on Autonomous System Number (ASN). See ASN Match Statement above.
      * 
@@ -46,6 +54,16 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement labelMatchStatement;
     /**
+     * @return Logical NOT statement that negates a single statement. See Not Statement above.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement notStatement;
+    /**
+     * @return Logical OR statement that combines multiple statements. See Or Statement above.
+     * 
+     */
+    private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement orStatement;
+    /**
      * @return Match requests using regex patterns. See Regex Match Statement above.
      * 
      */
@@ -68,10 +86,19 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
     /**
      * @return Match requests that appear to contain cross-site scripting attacks.
      * 
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+     * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement xssMatchStatement;
 
     private WebAclRuleStatementRateBasedStatementScopeDownStatement() {}
+    /**
+     * @return Logical AND statement that combines multiple statements. See And Statement above.
+     * 
+     */
+    public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement> andStatement() {
+        return Optional.ofNullable(this.andStatement);
+    }
     /**
      * @return Match requests based on Autonomous System Number (ASN). See ASN Match Statement above.
      * 
@@ -108,6 +135,20 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
         return Optional.ofNullable(this.labelMatchStatement);
     }
     /**
+     * @return Logical NOT statement that negates a single statement. See Not Statement above.
+     * 
+     */
+    public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement> notStatement() {
+        return Optional.ofNullable(this.notStatement);
+    }
+    /**
+     * @return Logical OR statement that combines multiple statements. See Or Statement above.
+     * 
+     */
+    public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement> orStatement() {
+        return Optional.ofNullable(this.orStatement);
+    }
+    /**
      * @return Match requests using regex patterns. See Regex Match Statement above.
      * 
      */
@@ -138,6 +179,8 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
     /**
      * @return Match requests that appear to contain cross-site scripting attacks.
      * 
+     * &gt; **NOTE:** Logical statements (`andStatement`, `notStatement`, `orStatement`) within a scope down statement wrap the leaf statement types listed above.
+     * 
      */
     public Optional<WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement> xssMatchStatement() {
         return Optional.ofNullable(this.xssMatchStatement);
@@ -152,11 +195,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement andStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement asnMatchStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement byteMatchStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement geoMatchStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement ipSetReferenceStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement labelMatchStatement;
+        private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement notStatement;
+        private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement orStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement regexMatchStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement regexPatternSetReferenceStatement;
         private @Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement sizeConstraintStatement;
@@ -165,11 +211,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
         public Builder() {}
         public Builder(WebAclRuleStatementRateBasedStatementScopeDownStatement defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.andStatement = defaults.andStatement;
     	      this.asnMatchStatement = defaults.asnMatchStatement;
     	      this.byteMatchStatement = defaults.byteMatchStatement;
     	      this.geoMatchStatement = defaults.geoMatchStatement;
     	      this.ipSetReferenceStatement = defaults.ipSetReferenceStatement;
     	      this.labelMatchStatement = defaults.labelMatchStatement;
+    	      this.notStatement = defaults.notStatement;
+    	      this.orStatement = defaults.orStatement;
     	      this.regexMatchStatement = defaults.regexMatchStatement;
     	      this.regexPatternSetReferenceStatement = defaults.regexPatternSetReferenceStatement;
     	      this.sizeConstraintStatement = defaults.sizeConstraintStatement;
@@ -177,6 +226,12 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
     	      this.xssMatchStatement = defaults.xssMatchStatement;
         }
 
+        @CustomType.Setter
+        public Builder andStatement(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement andStatement) {
+
+            this.andStatement = andStatement;
+            return this;
+        }
         @CustomType.Setter
         public Builder asnMatchStatement(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement asnMatchStatement) {
 
@@ -205,6 +260,18 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
         public Builder labelMatchStatement(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement labelMatchStatement) {
 
             this.labelMatchStatement = labelMatchStatement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder notStatement(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement notStatement) {
+
+            this.notStatement = notStatement;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder orStatement(@Nullable WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement orStatement) {
+
+            this.orStatement = orStatement;
             return this;
         }
         @CustomType.Setter
@@ -239,11 +306,14 @@ public final class WebAclRuleStatementRateBasedStatementScopeDownStatement {
         }
         public WebAclRuleStatementRateBasedStatementScopeDownStatement build() {
             final var _resultValue = new WebAclRuleStatementRateBasedStatementScopeDownStatement();
+            _resultValue.andStatement = andStatement;
             _resultValue.asnMatchStatement = asnMatchStatement;
             _resultValue.byteMatchStatement = byteMatchStatement;
             _resultValue.geoMatchStatement = geoMatchStatement;
             _resultValue.ipSetReferenceStatement = ipSetReferenceStatement;
             _resultValue.labelMatchStatement = labelMatchStatement;
+            _resultValue.notStatement = notStatement;
+            _resultValue.orStatement = orStatement;
             _resultValue.regexMatchStatement = regexMatchStatement;
             _resultValue.regexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             _resultValue.sizeConstraintStatement = sizeConstraintStatement;

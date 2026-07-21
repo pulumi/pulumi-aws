@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WebAclRuleStatementAndStatement {
     /**
-     * @return The statements to combine.
+     * @return List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
      * 
      */
     private @Nullable List<WebAclRuleStatement> statements;
 
     private WebAclRuleStatementAndStatement() {}
     /**
-     * @return The statements to combine.
+     * @return List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
      * 
      */
     public List<WebAclRuleStatement> statements() {

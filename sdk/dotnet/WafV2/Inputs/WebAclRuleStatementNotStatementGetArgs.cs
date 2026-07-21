@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         /// Single statement to negate. Exactly one statement must be specified.
         /// </summary>
         [Input("statement")]
-        public Input<Inputs.WebAclRuleStatementNotStatementStatementGetArgs>? Statement { get; set; }
+        public Input<Inputs.WebAclRuleStatementGetArgs>? Statement { get; set; }
 
         public WebAclRuleStatementNotStatementGetArgs()
         {

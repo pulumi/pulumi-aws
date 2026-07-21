@@ -14,6 +14,10 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementRateBasedStatementScopeDownStatement
     {
         /// <summary>
+        /// Logical AND statement that combines multiple statements. See And Statement above.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement? AndStatement;
+        /// <summary>
         /// Match requests based on Autonomous System Number (ASN). See ASN Match Statement above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement? AsnMatchStatement;
@@ -34,6 +38,14 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement? LabelMatchStatement;
         /// <summary>
+        /// Logical NOT statement that negates a single statement. See Not Statement above.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement? NotStatement;
+        /// <summary>
+        /// Logical OR statement that combines multiple statements. See Or Statement above.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement? OrStatement;
+        /// <summary>
         /// Match requests using regex patterns. See Regex Match Statement above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement? RegexMatchStatement;
@@ -51,11 +63,15 @@ namespace Pulumi.Aws.WafV2.Outputs
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement? SqliMatchStatement;
         /// <summary>
         /// Match requests that appear to contain cross-site scripting attacks.
+        /// 
+        /// &gt; **NOTE:** Logical statements (`AndStatement`, `NotStatement`, `OrStatement`) within a scope down statement wrap the leaf statement types listed above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement? XssMatchStatement;
 
         [OutputConstructor]
         private WebAclRuleStatementRateBasedStatementScopeDownStatement(
+            Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement? andStatement,
+
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementAsnMatchStatement? asnMatchStatement,
 
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement? byteMatchStatement,
@@ -65,6 +81,10 @@ namespace Pulumi.Aws.WafV2.Outputs
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement? ipSetReferenceStatement,
 
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement? labelMatchStatement,
+
+            Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement? notStatement,
+
+            Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement? orStatement,
 
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement? regexMatchStatement,
 
@@ -76,11 +96,14 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement? xssMatchStatement)
         {
+            AndStatement = andStatement;
             AsnMatchStatement = asnMatchStatement;
             ByteMatchStatement = byteMatchStatement;
             GeoMatchStatement = geoMatchStatement;
             IpSetReferenceStatement = ipSetReferenceStatement;
             LabelMatchStatement = labelMatchStatement;
+            NotStatement = notStatement;
+            OrStatement = orStatement;
             RegexMatchStatement = regexMatchStatement;
             RegexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             SizeConstraintStatement = sizeConstraintStatement;

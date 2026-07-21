@@ -16,7 +16,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         private InputList<Inputs.RuleGroupRuleStatementArgs>? _statements;
 
         /// <summary>
-        /// The statements to combine.
+        /// The statement to negate. You can use any statement that can be nested. See Statement above for details.
         /// </summary>
         public InputList<Inputs.RuleGroupRuleStatementArgs> Statements
         {

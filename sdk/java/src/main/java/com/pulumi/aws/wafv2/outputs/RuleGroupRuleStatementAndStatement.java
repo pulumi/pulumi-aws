@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleStatementAndStatement {
     /**
-     * @return The statements to combine.
+     * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
      * 
      */
     private List<RuleGroupRuleStatement> statements;
 
     private RuleGroupRuleStatementAndStatement() {}
     /**
-     * @return The statements to combine.
+     * @return The statements to combine with `AND` logic. You can use any statements that can be nested. See Statement above for details.
      * 
      */
     public List<RuleGroupRuleStatement> statements() {

@@ -17,14 +17,14 @@ public final class WebAclRuleStatementOrStatementArgs extends com.pulumi.resourc
     public static final WebAclRuleStatementOrStatementArgs Empty = new WebAclRuleStatementOrStatementArgs();
 
     /**
-     * The statements to combine.
+     * List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
      * 
      */
     @Import(name="statements")
     private @Nullable Output<List<WebAclRuleStatementArgs>> statements;
 
     /**
-     * @return The statements to combine.
+     * @return List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
      * 
      */
     public Optional<Output<List<WebAclRuleStatementArgs>>> statements() {
@@ -56,7 +56,7 @@ public final class WebAclRuleStatementOrStatementArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param statements The statements to combine.
+         * @param statements List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
          * 
          * @return builder
          * 
@@ -67,7 +67,7 @@ public final class WebAclRuleStatementOrStatementArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param statements The statements to combine.
+         * @param statements List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
          * 
          * @return builder
          * 
@@ -77,7 +77,7 @@ public final class WebAclRuleStatementOrStatementArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param statements The statements to combine.
+         * @param statements List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
          * 
          * @return builder
          * 

@@ -14,6 +14,10 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement
     {
         /// <summary>
+        /// Logical AND statement that combines multiple statements. See And Statement above.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement? AndStatement;
+        /// <summary>
         /// Match requests based on Autonomous System Number (ASN). See ASN Match Statement above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement? AsnMatchStatement;
@@ -34,6 +38,14 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement? LabelMatchStatement;
         /// <summary>
+        /// Logical NOT statement that negates a single statement. See Not Statement above.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement? NotStatement;
+        /// <summary>
+        /// Logical OR statement that combines multiple statements. See Or Statement above.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement? OrStatement;
+        /// <summary>
         /// Match requests using regex patterns. See Regex Match Statement above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement? RegexMatchStatement;
@@ -51,11 +63,15 @@ namespace Pulumi.Aws.WafV2.Outputs
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement? SqliMatchStatement;
         /// <summary>
         /// Match requests that appear to contain cross-site scripting attacks.
+        /// 
+        /// &gt; **NOTE:** Logical statements (`AndStatement`, `NotStatement`, `OrStatement`) within a scope down statement wrap the leaf statement types listed above.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement? XssMatchStatement;
 
         [OutputConstructor]
         private WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement? andStatement,
+
             Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAsnMatchStatement? asnMatchStatement,
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement? byteMatchStatement,
@@ -65,6 +81,10 @@ namespace Pulumi.Aws.WafV2.Outputs
             Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement? ipSetReferenceStatement,
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement? labelMatchStatement,
+
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement? notStatement,
+
+            Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement? orStatement,
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement? regexMatchStatement,
 
@@ -76,11 +96,14 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement? xssMatchStatement)
         {
+            AndStatement = andStatement;
             AsnMatchStatement = asnMatchStatement;
             ByteMatchStatement = byteMatchStatement;
             GeoMatchStatement = geoMatchStatement;
             IpSetReferenceStatement = ipSetReferenceStatement;
             LabelMatchStatement = labelMatchStatement;
+            NotStatement = notStatement;
+            OrStatement = orStatement;
             RegexMatchStatement = regexMatchStatement;
             RegexPatternSetReferenceStatement = regexPatternSetReferenceStatement;
             SizeConstraintStatement = sizeConstraintStatement;

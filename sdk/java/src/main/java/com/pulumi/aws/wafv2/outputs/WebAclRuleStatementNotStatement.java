@@ -3,7 +3,7 @@
 
 package com.pulumi.aws.wafv2.outputs;
 
-import com.pulumi.aws.wafv2.outputs.WebAclRuleStatementNotStatementStatement;
+import com.pulumi.aws.wafv2.outputs.WebAclRuleStatement;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,14 +15,14 @@ public final class WebAclRuleStatementNotStatement {
      * @return Single statement to negate. Exactly one statement must be specified.
      * 
      */
-    private @Nullable WebAclRuleStatementNotStatementStatement statement;
+    private @Nullable WebAclRuleStatement statement;
 
     private WebAclRuleStatementNotStatement() {}
     /**
      * @return Single statement to negate. Exactly one statement must be specified.
      * 
      */
-    public Optional<WebAclRuleStatementNotStatementStatement> statement() {
+    public Optional<WebAclRuleStatement> statement() {
         return Optional.ofNullable(this.statement);
     }
 
@@ -35,7 +35,7 @@ public final class WebAclRuleStatementNotStatement {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable WebAclRuleStatementNotStatementStatement statement;
+        private @Nullable WebAclRuleStatement statement;
         public Builder() {}
         public Builder(WebAclRuleStatementNotStatement defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,7 +43,7 @@ public final class WebAclRuleStatementNotStatement {
         }
 
         @CustomType.Setter
-        public Builder statement(@Nullable WebAclRuleStatementNotStatementStatement statement) {
+        public Builder statement(@Nullable WebAclRuleStatement statement) {
 
             this.statement = statement;
             return this;

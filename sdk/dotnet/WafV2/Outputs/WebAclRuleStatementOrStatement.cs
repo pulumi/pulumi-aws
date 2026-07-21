@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclRuleStatementOrStatement
     {
         /// <summary>
-        /// The statements to combine.
+        /// List of statements to combine. At least one statement is required. Each nested statement supports the same statement types listed above.
         /// </summary>
         public readonly ImmutableArray<Outputs.WebAclRuleStatement> Statements;
 
