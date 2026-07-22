@@ -696,6 +696,7 @@ func TestRegress5219(t *testing.T) {
 func TestRegress6549(t *testing.T) {
 	opts := nodeProviderUpgradeOpts()
 	opts.skipDefaultPreviewTest = true
+	opts.setEnvRegion = false
 	dir := filepath.Join("test-programs", "regress-6549")
 	test, _ := testProviderUpgrade(t, dir, opts,
 		optproviderupgrade.NewSourcePath(filepath.Join(dir, "step1")))
