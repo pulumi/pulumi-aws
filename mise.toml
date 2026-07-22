@@ -1,4 +1,11 @@
+[settings]
+experimental = true
+
+[hooks]
+postinstall = "mise deps install agent-skills"
+
 [tools]
+"pipx:apm-cli" = "0.26.0"
 golangci-lint = "2.7.0"
 "vfox-pulumi:pulumi/pulumi-archive" = "0.3.6"
 "vfox-pulumi:pulumi/pulumi-tls" = "5.2.3"
@@ -9,3 +16,12 @@ golangci-lint = "2.7.0"
 "vfox-pulumi:pulumi/pulumi-random" = "4.18.5"
 "vfox-pulumi:pulumi/pulumi-std" = "2.2.0"
 "vfox-pulumi:pulumi/pulumi-converter-terraform" = "1.2.4"
+
+[deps.agent-skills]
+sources = ["apm.yml", "apm.lock.yaml"]
+outputs = [
+  "apm_modules/",
+  ".agents/skills/",
+  ".claude/skills/",
+]
+run = "apm install --frozen"
