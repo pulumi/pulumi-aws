@@ -203,12 +203,13 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-        {
-          echo "SCHEMA_CHANGES<<$EOF";
-          schema-tools compare -r github://api.github.com/pulumi -p aws -o "${{ github.event.pull_request.base.ref }}" -n --local-path=provider/cmd/pulumi-resource-aws/schema.json;
-          echo "$EOF";
-        } >> "$GITHUB_ENV"
+        schema-tools compare -r github://api.github.com/pulumi -p aws -o "${{ github.event.pull_request.base.ref }}" -n --local-path=provider/cmd/pulumi-resource-aws/schema.json > "$RUNNER_TEMP/schema-check-report.md"
+        cat >> "$RUNNER_TEMP/schema-check-report.md" <<'EOF'
+
+        Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
+
+        <!-- "schemaCheck" -->
+        EOF
     - if: github.event_name == 'pull_request' && github.actor != 'dependabot[bot]'
       name: Find schema check comment
       id: find-schema-check-comment
@@ -225,13 +226,7 @@ jobs:
         issue-number: ${{ github.event.pull_request.number }}
         comment-id: ${{ steps.find-schema-check-comment.outputs.comment-id }}
         edit-mode: replace
-        body: >+
-          ${{ env.SCHEMA_CHANGES }}
-
-
-          Maintainer note: consult the [runbook](https://github.com/pulumi/platform-providers-team/blob/main/playbooks/tf-provider-updating.md) for dealing with any breaking changes.
-
-          <!-- "schemaCheck" -->
+        body-path: ${{ runner.temp }}/schema-check-report.md
 
   build_sdk:
     if: github.event_name == 'repository_dispatch' ||
