@@ -11,7 +11,7 @@ const route = new aws.ec2.Route("test", {
     customTimeouts: {
         create: "5m",
         delete: "5m",
-    },
+    }
 });
 
 export const routeId = route.id;

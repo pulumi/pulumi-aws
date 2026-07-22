@@ -694,19 +694,12 @@ func TestRegress5219(t *testing.T) {
 // Regress aws_route update failing with "route target attribute not
 // specified" when only customTimeouts changes, see pulumi/pulumi-aws#6549
 func TestRegress6549(t *testing.T) {
-	skipIfShort(t)
-	t.Parallel()
+	opts := nodeProviderUpgradeOpts()
+	opts.skipDefaultPreviewTest = true
 	dir := filepath.Join("test-programs", "regress-6549")
-	cwd, err := os.Getwd()
-	require.NoError(t, err)
-	options := []opttest.Option{
-		opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
-		opttest.YarnLink("@pulumi/aws"),
-	}
-	test := pulumitest.NewPulumiTest(t, dir, options...)
-	test.Up(t)
+	test, _ := testProviderUpgrade(t, dir, opts,
+		optproviderupgrade.NewSourcePath(filepath.Join(dir, "step1")))
 
-	test.UpdateSource(t, filepath.Join(dir, "step1"))
 	res := test.Up(t, optup.Diff())
 
 	assert.Equal(t, map[string]int{
