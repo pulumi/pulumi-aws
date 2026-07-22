@@ -26,6 +26,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/assertup"
 	"github.com/pulumi/providertest/pulumitest/optnewstack"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
@@ -689,6 +690,26 @@ func TestRegress5219(t *testing.T) {
 	t2 := time.Now()
 	assert.Truef(t, ef.failed, "Expected pulumi up to fail")
 	assert.Truef(t, t2.Sub(t1) < 10*time.Minute, "Expected pulumi up to fail within 10 minutes")
+}
+
+// Regress aws_route update failing with "route target attribute not
+// specified" when only customTimeouts changes, see pulumi/pulumi-aws#6549
+func TestRegress6549(t *testing.T) {
+	opts := nodeProviderUpgradeOpts()
+	opts.skipDefaultPreviewTest = true
+	opts.setEnvRegion = false
+	dir := filepath.Join("test-programs", "regress-6549")
+	test, _ := testProviderUpgrade(t, dir, opts,
+		optproviderupgrade.NewSourcePath(filepath.Join(dir, "step1")))
+
+	res := test.Up(t, optup.Diff())
+
+	// The v6->v7 provider upgrade itself introduces incidental diffs on
+	// unrelated resources (e.g. new computed attributes), so assert only on
+	// what this regression test cares about: the update succeeds and the
+	// Route is not replaced.
+	assertup.HasNoReplacements(t, res)
+	assert.NotZero(t, (*res.Summary.ResourceChanges)["update"])
 }
 
 type expectFailure struct {
