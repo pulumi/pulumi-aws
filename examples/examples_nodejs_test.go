@@ -26,6 +26,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/pulumi/providertest/optproviderupgrade"
 	"github.com/pulumi/providertest/pulumitest"
+	"github.com/pulumi/providertest/pulumitest/assertup"
 	"github.com/pulumi/providertest/pulumitest/optnewstack"
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
@@ -703,10 +704,12 @@ func TestRegress6549(t *testing.T) {
 
 	res := test.Up(t, optup.Diff())
 
-	assert.Equal(t, map[string]int{
-		"update": 1,
-		"same":   3, // vpc, internet gateway, route table
-	}, *res.Summary.ResourceChanges)
+	// The v6->v7 provider upgrade itself introduces incidental diffs on
+	// unrelated resources (e.g. new computed attributes), so assert only on
+	// what this regression test cares about: the update succeeds and the
+	// Route is not replaced.
+	assertup.HasNoReplacements(t, res)
+	assert.NotZero(t, (*res.Summary.ResourceChanges)["update"])
 }
 
 type expectFailure struct {
