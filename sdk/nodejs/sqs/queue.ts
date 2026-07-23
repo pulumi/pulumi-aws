@@ -64,19 +64,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const exampleQueueDeadletter = new aws.sqs.Queue("example_queue_deadletter", {name: "pulumi-example-deadletter-queue"});
  * const queue = new aws.sqs.Queue("queue", {
  *     name: "pulumi-example-queue",
- *     redrivePolicy: JSON.stringify({
- *         deadLetterTargetArn: queueDeadletter.arn,
+ *     redrivePolicy: pulumi.jsonStringify({
+ *         deadLetterTargetArn: exampleQueueDeadletter.arn,
  *         maxReceiveCount: 4,
  *     }),
  * });
- * const exampleQueueDeadletter = new aws.sqs.Queue("example_queue_deadletter", {name: "pulumi-example-deadletter-queue"});
  * const exampleQueueRedriveAllowPolicy = new aws.sqs.RedriveAllowPolicy("example_queue_redrive_allow_policy", {
  *     queueUrl: exampleQueueDeadletter.id,
- *     redriveAllowPolicy: JSON.stringify({
+ *     redriveAllowPolicy: pulumi.jsonStringify({
  *         redrivePermission: "byQueue",
- *         sourceQueueArns: [exampleQueue.arn],
+ *         sourceQueueArns: [queue.arn],
  *     }),
  * });
  * ```

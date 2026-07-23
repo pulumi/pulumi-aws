@@ -2562,7 +2562,11 @@
   "sqs_queue.html.markdown": [
     {
       "old": "    sourceQueueArns   = [aws_sqs_queue.terraform_queue.arn]",
-      "new": "    sourceQueueArns   = [aws_sqs_queue.example_queue.arn]"
+      "new": "    sourceQueueArns   = [aws_sqs_queue.queue.arn]"
+    },
+    {
+      "old": "  name = \"pulumi-example-queue\"\n\n  redrive_policy = jsonencode({\n    deadLetterTargetArn = aws_sqs_queue.queue_deadletter.arn",
+      "new": "  name = \"pulumi-example-queue\"\n\n  redrive_policy = jsonencode({\n    deadLetterTargetArn = aws_sqs_queue.example_queue_deadletter.arn"
     },
     {
       "old": "* `sqs_managed_sse_enabled` - (Optional) Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html). Terraform will only perform drift detection of its value when present in a configuration.",
